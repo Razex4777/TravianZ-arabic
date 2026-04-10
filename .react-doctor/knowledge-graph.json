@@ -1,0 +1,3806 @@
+{
+  "version": "1.0.0",
+  "project": {
+    "name": "TravianZ-master",
+    "languages": [
+      "javascript",
+      "markdown",
+      "css",
+      "yaml",
+      "html",
+      "sql"
+    ],
+    "frameworks": [],
+    "description": "TravianZ-master — javascript, markdown, css, yaml, html, sql project with 65 files",
+    "analyzedAt": "2026-04-10T13:01:00.966Z",
+    "gitCommitHash": "unknown"
+  },
+  "nodes": [
+    {
+      "id": "file:AC_OETags.js",
+      "type": "file",
+      "name": "AC_OETags.js",
+      "filePath": "AC_OETags.js",
+      "summary": "AC_OETags.js — javascript source file",
+      "tags": [
+        "javascript",
+        "js"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "fn:AC_OETags.js#ControlVersion",
+      "type": "function",
+      "name": "ControlVersion",
+      "filePath": "AC_OETags.js",
+      "lineRange": [
+        8,
+        78
+      ],
+      "summary": "ControlVersion()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "fn:AC_OETags.js#GetSwfVer",
+      "type": "function",
+      "name": "GetSwfVer",
+      "filePath": "AC_OETags.js",
+      "lineRange": [
+        81,
+        123
+      ],
+      "summary": "GetSwfVer(id)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "fn:AC_OETags.js#writeFlashTags",
+      "type": "function",
+      "name": "writeFlashTags",
+      "filePath": "AC_OETags.js",
+      "lineRange": [
+        126,
+        141
+      ],
+      "summary": "writeFlashTags(id)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:Admin/ajax.js",
+      "type": "file",
+      "name": "ajax.js",
+      "filePath": "Admin/ajax.js",
+      "summary": "ajax.js — javascript source file",
+      "tags": [
+        "javascript",
+        "js"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "fn:Admin/ajax.js#macheRequest",
+      "type": "function",
+      "name": "macheRequest",
+      "filePath": "Admin/ajax.js",
+      "lineRange": [
+        3,
+        43
+      ],
+      "summary": "macheRequest(url, id)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "fn:Admin/ajax.js#alertInhalt2",
+      "type": "function",
+      "name": "alertInhalt2",
+      "filePath": "Admin/ajax.js",
+      "lineRange": [
+        45,
+        63
+      ],
+      "summary": "alertInhalt2(id)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:Admin/jquery.cookie.js",
+      "type": "file",
+      "name": "jquery.cookie.js",
+      "filePath": "Admin/jquery.cookie.js",
+      "summary": "jquery.cookie.js — javascript source file",
+      "tags": [
+        "javascript",
+        "js"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:CHANGELOG.md",
+      "type": "file",
+      "name": "CHANGELOG.md",
+      "filePath": "CHANGELOG.md",
+      "summary": "CHANGELOG.md — markdown source file",
+      "tags": [
+        "markdown",
+        "md"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:client_project_detail and conversations.txt",
+      "type": "file",
+      "name": "client_project_detail and conversations.txt",
+      "filePath": "client_project_detail and conversations.txt",
+      "summary": "client_project_detail and conversations.txt — unknown source file",
+      "tags": [
+        "unknown",
+        "txt"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:CODE_OF_CONDUCT.md",
+      "type": "file",
+      "name": "CODE_OF_CONDUCT.md",
+      "filePath": "CODE_OF_CONDUCT.md",
+      "summary": "CODE_OF_CONDUCT.md — markdown source file",
+      "tags": [
+        "markdown",
+        "md"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:CONTRIBUTING.md",
+      "type": "file",
+      "name": "CONTRIBUTING.md",
+      "filePath": "CONTRIBUTING.md",
+      "summary": "CONTRIBUTING.md — markdown source file",
+      "tags": [
+        "markdown",
+        "md"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:css/admin_map_tile.css",
+      "type": "file",
+      "name": "admin_map_tile.css",
+      "filePath": "css/admin_map_tile.css",
+      "summary": "admin_map_tile.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:docker-compose.yml",
+      "type": "file",
+      "name": "docker-compose.yml",
+      "filePath": "docker-compose.yml",
+      "summary": "docker-compose.yml — yaml source file",
+      "tags": [
+        "yaml",
+        "yml"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:Dockerfile",
+      "type": "file",
+      "name": "Dockerfile",
+      "filePath": "Dockerfile",
+      "summary": "Dockerfile — unknown source file",
+      "tags": [
+        "unknown"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:DOCKER_README.md",
+      "type": "file",
+      "name": "DOCKER_README.md",
+      "filePath": "DOCKER_README.md",
+      "summary": "DOCKER_README.md — markdown source file",
+      "tags": [
+        "markdown",
+        "md"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:docs/changelog.md",
+      "type": "file",
+      "name": "changelog.md",
+      "filePath": "docs/changelog.md",
+      "summary": "changelog.md — markdown source file",
+      "tags": [
+        "markdown",
+        "md"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:docs/plans/phase-1.md",
+      "type": "file",
+      "name": "phase-1.md",
+      "filePath": "docs/plans/phase-1.md",
+      "summary": "phase-1.md — markdown source file",
+      "tags": [
+        "markdown",
+        "md"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:docs/plans/phase-2.md",
+      "type": "file",
+      "name": "phase-2.md",
+      "filePath": "docs/plans/phase-2.md",
+      "summary": "phase-2.md — markdown source file",
+      "tags": [
+        "markdown",
+        "md"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:docs/plans/phase-3.md",
+      "type": "file",
+      "name": "phase-3.md",
+      "filePath": "docs/plans/phase-3.md",
+      "summary": "phase-3.md — markdown source file",
+      "tags": [
+        "markdown",
+        "md"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:docs/project_structure.md",
+      "type": "file",
+      "name": "project_structure.md",
+      "filePath": "docs/project_structure.md",
+      "summary": "project_structure.md — markdown source file",
+      "tags": [
+        "markdown",
+        "md"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:flaggen.js",
+      "type": "file",
+      "name": "flaggen.js",
+      "filePath": "flaggen.js",
+      "summary": "flaggen.js — javascript source file",
+      "tags": [
+        "javascript",
+        "js"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:flaggen.js#show_flags",
+      "type": "function",
+      "name": "show_flags",
+      "filePath": "flaggen.js",
+      "lineRange": [
+        1,
+        3
+      ],
+      "summary": "show_flags()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:GameEngine/Admin/ajax.js",
+      "type": "file",
+      "name": "ajax.js",
+      "filePath": "GameEngine/Admin/ajax.js",
+      "summary": "ajax.js — javascript source file",
+      "tags": [
+        "javascript",
+        "js"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "fn:GameEngine/Admin/ajax.js#macheRequest",
+      "type": "function",
+      "name": "macheRequest",
+      "filePath": "GameEngine/Admin/ajax.js",
+      "lineRange": [
+        3,
+        47
+      ],
+      "summary": "macheRequest(url, id)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "fn:GameEngine/Admin/ajax.js#alertInhalt2",
+      "type": "function",
+      "name": "alertInhalt2",
+      "filePath": "GameEngine/Admin/ajax.js",
+      "lineRange": [
+        49,
+        70
+      ],
+      "summary": "alertInhalt2(id)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:gpack/travian/flaggs.css",
+      "type": "file",
+      "name": "flaggs.css",
+      "filePath": "gpack/travian/flaggs.css",
+      "summary": "flaggs.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:gpack/travian/main.css",
+      "type": "file",
+      "name": "main.css",
+      "filePath": "gpack/travian/main.css",
+      "summary": "main.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:gpack/travian/main_en.css",
+      "type": "file",
+      "name": "main_en.css",
+      "filePath": "gpack/travian/main_en.css",
+      "summary": "main_en.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/en/b/zurueck.html",
+      "type": "file",
+      "name": "zurueck.html",
+      "filePath": "gpack/travian_default/lang/en/b/zurueck.html",
+      "summary": "zurueck.html — html source file",
+      "tags": [
+        "html",
+        "html"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/en/compact.css",
+      "type": "file",
+      "name": "compact.css",
+      "filePath": "gpack/travian_default/lang/en/compact.css",
+      "summary": "compact.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/en/gp_check.css",
+      "type": "file",
+      "name": "gp_check.css",
+      "filePath": "gpack/travian_default/lang/en/gp_check.css",
+      "summary": "gp_check.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/en/lang.css",
+      "type": "file",
+      "name": "lang.css",
+      "filePath": "gpack/travian_default/lang/en/lang.css",
+      "summary": "lang.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:gpack/travian_default/modules/new_colors.css",
+      "type": "file",
+      "name": "new_colors.css",
+      "filePath": "gpack/travian_default/modules/new_colors.css",
+      "summary": "new_colors.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:gpack/travian_default/modules/new_images.css",
+      "type": "file",
+      "name": "new_images.css",
+      "filePath": "gpack/travian_default/modules/new_images.css",
+      "summary": "new_images.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:gpack/travian_default/modules/new_layout_ltr.css",
+      "type": "file",
+      "name": "new_layout_ltr.css",
+      "filePath": "gpack/travian_default/modules/new_layout_ltr.css",
+      "summary": "new_layout_ltr.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:gpack/travian_default/travian.css",
+      "type": "file",
+      "name": "travian.css",
+      "filePath": "gpack/travian_default/travian.css",
+      "summary": "travian.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:gpack/travian_t4/lang/en/b/zurueck.html",
+      "type": "file",
+      "name": "zurueck.html",
+      "filePath": "gpack/travian_t4/lang/en/b/zurueck.html",
+      "summary": "zurueck.html — html source file",
+      "tags": [
+        "html",
+        "html"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:gpack/travian_t4/lang/en/compact.css",
+      "type": "file",
+      "name": "compact.css",
+      "filePath": "gpack/travian_t4/lang/en/compact.css",
+      "summary": "compact.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:gpack/travian_t4/lang/en/gp_check.css",
+      "type": "file",
+      "name": "gp_check.css",
+      "filePath": "gpack/travian_t4/lang/en/gp_check.css",
+      "summary": "gp_check.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:gpack/travian_t4/lang/en/lang.css",
+      "type": "file",
+      "name": "lang.css",
+      "filePath": "gpack/travian_t4/lang/en/lang.css",
+      "summary": "lang.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:gpack/travian_t4/modules/new_colors.css",
+      "type": "file",
+      "name": "new_colors.css",
+      "filePath": "gpack/travian_t4/modules/new_colors.css",
+      "summary": "new_colors.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:gpack/travian_t4/modules/new_images.css",
+      "type": "file",
+      "name": "new_images.css",
+      "filePath": "gpack/travian_t4/modules/new_images.css",
+      "summary": "new_images.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:gpack/travian_t4/modules/new_layout_ltr.css",
+      "type": "file",
+      "name": "new_layout_ltr.css",
+      "filePath": "gpack/travian_t4/modules/new_layout_ltr.css",
+      "summary": "new_layout_ltr.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:gpack/travian_t4/travian.css",
+      "type": "file",
+      "name": "travian.css",
+      "filePath": "gpack/travian_t4/travian.css",
+      "summary": "travian.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:img/admin/acp.css",
+      "type": "file",
+      "name": "acp.css",
+      "filePath": "img/admin/acp.css",
+      "summary": "acp.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:img/admin/admin.css",
+      "type": "file",
+      "name": "admin.css",
+      "filePath": "img/admin/admin.css",
+      "summary": "admin.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:img/admin/b/zurueck.html",
+      "type": "file",
+      "name": "zurueck.html",
+      "filePath": "img/admin/b/zurueck.html",
+      "summary": "zurueck.html — html source file",
+      "tags": [
+        "html",
+        "html"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:img/admin/map.css",
+      "type": "file",
+      "name": "map.css",
+      "filePath": "img/admin/map.css",
+      "summary": "map.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:img/img.css",
+      "type": "file",
+      "name": "img.css",
+      "filePath": "img/img.css",
+      "summary": "img.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:img/portal_ltr.css",
+      "type": "file",
+      "name": "portal_ltr.css",
+      "filePath": "img/portal_ltr.css",
+      "summary": "portal_ltr.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:img/travian_basics.css",
+      "type": "file",
+      "name": "travian_basics.css",
+      "filePath": "img/travian_basics.css",
+      "summary": "travian_basics.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:img/tutorial/flaggs.css",
+      "type": "file",
+      "name": "flaggs.css",
+      "filePath": "img/tutorial/flaggs.css",
+      "summary": "flaggs.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:img/tutorial/main.css",
+      "type": "file",
+      "name": "main.css",
+      "filePath": "img/tutorial/main.css",
+      "summary": "main.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:ISSUE_TEMPLATE.md",
+      "type": "file",
+      "name": "ISSUE_TEMPLATE.md",
+      "filePath": "ISSUE_TEMPLATE.md",
+      "summary": "ISSUE_TEMPLATE.md — markdown source file",
+      "tags": [
+        "markdown",
+        "md"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:mt-core.js",
+      "type": "file",
+      "name": "mt-core.js",
+      "filePath": "mt-core.js",
+      "summary": "mt-core.js — javascript source file",
+      "tags": [
+        "javascript",
+        "js"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "fn:mt-core.js#c",
+      "type": "function",
+      "name": "c",
+      "filePath": "mt-core.js",
+      "lineRange": [
+        131,
+        131
+      ],
+      "summary": "c(l)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:mt-full.js",
+      "type": "file",
+      "name": "mt-full.js",
+      "filePath": "mt-full.js",
+      "summary": "mt-full.js — javascript source file",
+      "tags": [
+        "javascript",
+        "js"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "fn:mt-full.js#c",
+      "type": "function",
+      "name": "c",
+      "filePath": "mt-full.js",
+      "lineRange": [
+        131,
+        131
+      ],
+      "summary": "c(l)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:mt-more.js",
+      "type": "file",
+      "name": "mt-more.js",
+      "filePath": "mt-more.js",
+      "summary": "mt-more.js — javascript source file",
+      "tags": [
+        "javascript",
+        "js"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:new.js",
+      "type": "file",
+      "name": "new.js",
+      "filePath": "new.js",
+      "summary": "new.js — javascript source file",
+      "tags": [
+        "javascript",
+        "js"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "fn:new.js#getAttackSymbolState",
+      "type": "function",
+      "name": "getAttackSymbolState",
+      "filePath": "new.js",
+      "lineRange": [
+        639,
+        713
+      ],
+      "summary": "getAttackSymbolState(id)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "fn:new.js#drawAttackSymbol",
+      "type": "function",
+      "name": "drawAttackSymbol",
+      "filePath": "new.js",
+      "lineRange": [
+        717,
+        775
+      ],
+      "summary": "drawAttackSymbol(id)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "fn:new.js#markAttackSymbol",
+      "type": "function",
+      "name": "markAttackSymbol",
+      "filePath": "new.js",
+      "lineRange": [
+        779,
+        865
+      ],
+      "summary": "markAttackSymbol(id)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:new2.js",
+      "type": "file",
+      "name": "new2.js",
+      "filePath": "new2.js",
+      "summary": "new2.js — javascript source file",
+      "tags": [
+        "javascript",
+        "js"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "fn:new2.js#handleMove",
+      "type": "function",
+      "name": "handleMove",
+      "filePath": "new2.js",
+      "lineRange": [
+        1,
+        32
+      ],
+      "summary": "handleMove(element, dx, leftXLimit, rightXLimit)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "fn:new2.js#Popup",
+      "type": "function",
+      "name": "Popup",
+      "filePath": "new2.js",
+      "lineRange": [
+        183,
+        201
+      ],
+      "summary": "Popup(i, j, game_url)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "fn:new2.js#t_minus",
+      "type": "function",
+      "name": "t_minus",
+      "filePath": "new2.js",
+      "lineRange": [
+        203,
+        228
+      ],
+      "summary": "t_minus()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "fn:new2.js#t_format1",
+      "type": "function",
+      "name": "t_format1",
+      "filePath": "new2.js",
+      "lineRange": [
+        230,
+        236
+      ],
+      "summary": "t_format1(myElement)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:new2.js#t_format2",
+      "type": "function",
+      "name": "t_format2",
+      "filePath": "new2.js",
+      "lineRange": [
+        238,
+        263
+      ],
+      "summary": "t_format2(s)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "fn:new2.js#showLayer",
+      "type": "function",
+      "name": "showLayer",
+      "filePath": "new2.js",
+      "lineRange": [
+        267,
+        272
+      ],
+      "summary": "showLayer(layer)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:new2.js#closeLayers",
+      "type": "function",
+      "name": "closeLayers",
+      "filePath": "new2.js",
+      "lineRange": [
+        274,
+        277
+      ],
+      "summary": "closeLayers()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:notification/crypt.js",
+      "type": "file",
+      "name": "crypt.js",
+      "filePath": "notification/crypt.js",
+      "summary": "crypt.js — javascript source file",
+      "tags": [
+        "javascript",
+        "js"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "fn:notification/crypt.js#c",
+      "type": "function",
+      "name": "c",
+      "filePath": "notification/crypt.js",
+      "lineRange": [
+        22,
+        22
+      ],
+      "summary": "c(m)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:notification/gpack/notification_v1_zzjhons/img/round/boxes/mc.html",
+      "type": "file",
+      "name": "mc.html",
+      "filePath": "notification/gpack/notification_v1_zzjhons/img/round/boxes/mc.html",
+      "summary": "mc.html — html source file",
+      "tags": [
+        "html",
+        "html"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:notification/gpack/notification_v1_zzjhons/lang/en/compact.css",
+      "type": "file",
+      "name": "compact.css",
+      "filePath": "notification/gpack/notification_v1_zzjhons/lang/en/compact.css",
+      "summary": "compact.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:notification/gpack/notification_v1_zzjhons/lang/en/lang.css",
+      "type": "file",
+      "name": "lang.css",
+      "filePath": "notification/gpack/notification_v1_zzjhons/lang/en/lang.css",
+      "summary": "lang.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:README.md",
+      "type": "file",
+      "name": "README.md",
+      "filePath": "README.md",
+      "summary": "README.md — markdown source file",
+      "tags": [
+        "markdown",
+        "md"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:sql_updates.txt",
+      "type": "file",
+      "name": "sql_updates.txt",
+      "filePath": "sql_updates.txt",
+      "summary": "sql_updates.txt — unknown source file",
+      "tags": [
+        "unknown",
+        "txt"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:Templates/Ranking/_notes/dwsync.xml",
+      "type": "file",
+      "name": "dwsync.xml",
+      "filePath": "Templates/Ranking/_notes/dwsync.xml",
+      "summary": "dwsync.xml — unknown source file",
+      "tags": [
+        "unknown",
+        "xml"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:todo.txt",
+      "type": "file",
+      "name": "todo.txt",
+      "filePath": "todo.txt",
+      "summary": "todo.txt — unknown source file",
+      "tags": [
+        "unknown",
+        "txt"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:uncrypt.js",
+      "type": "file",
+      "name": "uncrypt.js",
+      "filePath": "uncrypt.js",
+      "summary": "uncrypt.js — javascript source file",
+      "tags": [
+        "javascript",
+        "js"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "fn:uncrypt.js#Class",
+      "type": "function",
+      "name": "Class",
+      "filePath": "uncrypt.js",
+      "lineRange": [
+        768,
+        789
+      ],
+      "summary": "Class(b)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "fn:uncrypt.js#Native",
+      "type": "function",
+      "name": "Native",
+      "filePath": "uncrypt.js",
+      "lineRange": [
+        6,
+        68
+      ],
+      "summary": "Native(l)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:unx.js",
+      "type": "file",
+      "name": "unx.js",
+      "filePath": "unx.js",
+      "summary": "unx.js — javascript source file",
+      "tags": [
+        "javascript",
+        "js"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "fn:unx.js#automation",
+      "type": "function",
+      "name": "automation",
+      "filePath": "unx.js",
+      "lineRange": [
+        7,
+        14
+      ],
+      "summary": "automation(callback)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#gb",
+      "type": "function",
+      "name": "gb",
+      "filePath": "unx.js",
+      "lineRange": [
+        15,
+        15
+      ],
+      "summary": "gb()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#ib",
+      "type": "function",
+      "name": "ib",
+      "filePath": "unx.js",
+      "lineRange": [
+        16,
+        16
+      ],
+      "summary": "ib()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#hb",
+      "type": "function",
+      "name": "hb",
+      "filePath": "unx.js",
+      "lineRange": [
+        17,
+        20
+      ],
+      "summary": "hb(jb)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#nb",
+      "type": "function",
+      "name": "nb",
+      "filePath": "unx.js",
+      "lineRange": [
+        25,
+        25
+      ],
+      "summary": "nb()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#db",
+      "type": "function",
+      "name": "db",
+      "filePath": "unx.js",
+      "lineRange": [
+        26,
+        26
+      ],
+      "summary": "db()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#ob",
+      "type": "function",
+      "name": "ob",
+      "filePath": "unx.js",
+      "lineRange": [
+        27,
+        27
+      ],
+      "summary": "ob(pb)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#rb",
+      "type": "function",
+      "name": "rb",
+      "filePath": "unx.js",
+      "lineRange": [
+        28,
+        49
+      ],
+      "summary": "rb(s, sb)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "fn:unx.js#fi2",
+      "type": "function",
+      "name": "fi2",
+      "filePath": "unx.js",
+      "lineRange": [
+        50,
+        63
+      ],
+      "summary": "fi2(qact, qact2, qact3)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#qst_next2",
+      "type": "function",
+      "name": "qst_next2",
+      "filePath": "unx.js",
+      "lineRange": [
+        65,
+        78
+      ],
+      "summary": "qst_next2(jf, act, act2, act3)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#initCounter",
+      "type": "function",
+      "name": "initCounter",
+      "filePath": "unx.js",
+      "lineRange": [
+        79,
+        85
+      ],
+      "summary": "initCounter()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#executeCounter",
+      "type": "function",
+      "name": "executeCounter",
+      "filePath": "unx.js",
+      "lineRange": [
+        86,
+        139
+      ],
+      "summary": "executeCounter()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "fn:unx.js#mb",
+      "type": "function",
+      "name": "mb",
+      "filePath": "unx.js",
+      "lineRange": [
+        143,
+        148
+      ],
+      "summary": "mb(zb)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#executeTimer",
+      "type": "function",
+      "name": "executeTimer",
+      "filePath": "unx.js",
+      "lineRange": [
+        149,
+        153
+      ],
+      "summary": "executeTimer(zb)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#upd_res",
+      "type": "function",
+      "name": "upd_res",
+      "filePath": "unx.js",
+      "lineRange": [
+        155,
+        159
+      ],
+      "summary": "upd_res(gc, kc)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#jc",
+      "type": "function",
+      "name": "jc",
+      "filePath": "unx.js",
+      "lineRange": [
+        160,
+        163
+      ],
+      "summary": "jc(mc, nc, oc, pc)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#rc",
+      "type": "function",
+      "name": "rc",
+      "filePath": "unx.js",
+      "lineRange": [
+        164,
+        165
+      ],
+      "summary": "rc(n, d)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#btm0",
+      "type": "function",
+      "name": "btm0",
+      "filePath": "unx.js",
+      "lineRange": [
+        166,
+        166
+      ],
+      "summary": "btm0()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#btm1",
+      "type": "function",
+      "name": "btm1",
+      "filePath": "unx.js",
+      "lineRange": [
+        167,
+        168
+      ],
+      "summary": "btm1()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#Popup",
+      "type": "function",
+      "name": "Popup",
+      "filePath": "unx.js",
+      "lineRange": [
+        170,
+        184
+      ],
+      "summary": "Popup(i, j, sc)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#PopupMap",
+      "type": "function",
+      "name": "PopupMap",
+      "filePath": "unx.js",
+      "lineRange": [
+        185,
+        202
+      ],
+      "summary": "PopupMap(i)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "fn:unx.js#uc",
+      "type": "function",
+      "name": "uc",
+      "filePath": "unx.js",
+      "lineRange": [
+        204,
+        208
+      ],
+      "summary": "uc()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#uc2",
+      "type": "function",
+      "name": "uc2",
+      "filePath": "unx.js",
+      "lineRange": [
+        209,
+        219
+      ],
+      "summary": "uc2()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#vc",
+      "type": "function",
+      "name": "vc",
+      "filePath": "unx.js",
+      "lineRange": [
+        221,
+        232
+      ],
+      "summary": "vc()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#Close",
+      "type": "function",
+      "name": "Close",
+      "filePath": "unx.js",
+      "lineRange": [
+        243,
+        245
+      ],
+      "summary": "Close()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#Allmsg",
+      "type": "function",
+      "name": "Allmsg",
+      "filePath": "unx.js",
+      "lineRange": [
+        246,
+        247
+      ],
+      "summary": "Allmsg()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#xy",
+      "type": "function",
+      "name": "xy",
+      "filePath": "unx.js",
+      "lineRange": [
+        248,
+        248
+      ],
+      "summary": "xy()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#my_village",
+      "type": "function",
+      "name": "my_village",
+      "filePath": "unx.js",
+      "lineRange": [
+        249,
+        252
+      ],
+      "summary": "my_village()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#fd",
+      "type": "function",
+      "name": "fd",
+      "filePath": "unx.js",
+      "lineRange": [
+        257,
+        297
+      ],
+      "summary": "fd(url, gd, hd, id)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "fn:unx.js#md",
+      "type": "function",
+      "name": "md",
+      "filePath": "unx.js",
+      "lineRange": [
+        298,
+        300
+      ],
+      "summary": "md(nd)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#map_init",
+      "type": "function",
+      "name": "map_init",
+      "filePath": "unx.js",
+      "lineRange": [
+        324,
+        377
+      ],
+      "summary": "map_init()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "fn:unx.js#se",
+      "type": "function",
+      "name": "se",
+      "filePath": "unx.js",
+      "lineRange": [
+        379,
+        379
+      ],
+      "summary": "se()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#ef",
+      "type": "function",
+      "name": "ef",
+      "filePath": "unx.js",
+      "lineRange": [
+        389,
+        390
+      ],
+      "summary": "ef(ff, gf)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#hf",
+      "type": "function",
+      "name": "hf",
+      "filePath": "unx.js",
+      "lineRange": [
+        391,
+        391
+      ],
+      "summary": "hf(jf)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#kf",
+      "type": "function",
+      "name": "kf",
+      "filePath": "unx.js",
+      "lineRange": [
+        392,
+        392
+      ],
+      "summary": "kf(jf)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#lf",
+      "type": "function",
+      "name": "lf",
+      "filePath": "unx.js",
+      "lineRange": [
+        393,
+        397
+      ],
+      "summary": "lf(x, y)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#ve",
+      "type": "function",
+      "name": "ve",
+      "filePath": "unx.js",
+      "lineRange": [
+        398,
+        402
+      ],
+      "summary": "ve()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#we",
+      "type": "function",
+      "name": "we",
+      "filePath": "unx.js",
+      "lineRange": [
+        403,
+        411
+      ],
+      "summary": "we()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#je",
+      "type": "function",
+      "name": "je",
+      "filePath": "unx.js",
+      "lineRange": [
+        416,
+        422
+      ],
+      "summary": "je()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#sf",
+      "type": "function",
+      "name": "sf",
+      "filePath": "unx.js",
+      "lineRange": [
+        423,
+        424
+      ],
+      "summary": "sf(z)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#vf",
+      "type": "function",
+      "name": "vf",
+      "filePath": "unx.js",
+      "lineRange": [
+        425,
+        463
+      ],
+      "summary": "vf(qf, rf, wf)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "fn:unx.js#zf",
+      "type": "function",
+      "name": "zf",
+      "filePath": "unx.js",
+      "lineRange": [
+        465,
+        475
+      ],
+      "summary": "zf($f)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#_f",
+      "type": "function",
+      "name": "_f",
+      "filePath": "unx.js",
+      "lineRange": [
+        477,
+        485
+      ],
+      "summary": "_f($f)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#ag",
+      "type": "function",
+      "name": "ag",
+      "filePath": "unx.js",
+      "lineRange": [
+        488,
+        508
+      ],
+      "summary": "ag(qf, rf)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "fn:unx.js#bg",
+      "type": "function",
+      "name": "bg",
+      "filePath": "unx.js",
+      "lineRange": [
+        509,
+        509
+      ],
+      "summary": "bg(cg)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#map_scroll",
+      "type": "function",
+      "name": "map_scroll",
+      "filePath": "unx.js",
+      "lineRange": [
+        511,
+        590
+      ],
+      "summary": "map_scroll(qf, rf, dg)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "fn:unx.js#rg",
+      "type": "function",
+      "name": "rg",
+      "filePath": "unx.js",
+      "lineRange": [
+        592,
+        592
+      ],
+      "summary": "rg(qf, rf)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#gg",
+      "type": "function",
+      "name": "gg",
+      "filePath": "unx.js",
+      "lineRange": [
+        593,
+        595
+      ],
+      "summary": "gg()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#sg",
+      "type": "function",
+      "name": "sg",
+      "filePath": "unx.js",
+      "lineRange": [
+        596,
+        597
+      ],
+      "summary": "sg()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#lg",
+      "type": "function",
+      "name": "lg",
+      "filePath": "unx.js",
+      "lineRange": [
+        598,
+        598
+      ],
+      "summary": "lg()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#mg",
+      "type": "function",
+      "name": "mg",
+      "filePath": "unx.js",
+      "lineRange": [
+        599,
+        602
+      ],
+      "summary": "mg(qf, rf, dg)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#pg",
+      "type": "function",
+      "name": "pg",
+      "filePath": "unx.js",
+      "lineRange": [
+        603,
+        603
+      ],
+      "summary": "pg(og)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#xg",
+      "type": "function",
+      "name": "xg",
+      "filePath": "unx.js",
+      "lineRange": [
+        604,
+        606
+      ],
+      "summary": "xg(ng)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#zg",
+      "type": "function",
+      "name": "zg",
+      "filePath": "unx.js",
+      "lineRange": [
+        607,
+        607
+      ],
+      "summary": "zg($g, _g)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#yg",
+      "type": "function",
+      "name": "yg",
+      "filePath": "unx.js",
+      "lineRange": [
+        608,
+        608
+      ],
+      "summary": "yg(ah, bh, _e)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#pf",
+      "type": "function",
+      "name": "pf",
+      "filePath": "unx.js",
+      "lineRange": [
+        609,
+        613
+      ],
+      "summary": "pf(area, of)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#te",
+      "type": "function",
+      "name": "te",
+      "filePath": "unx.js",
+      "lineRange": [
+        614,
+        617
+      ],
+      "summary": "te(_e, area)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#df",
+      "type": "function",
+      "name": "df",
+      "filePath": "unx.js",
+      "lineRange": [
+        618,
+        619
+      ],
+      "summary": "df(dh)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#oe",
+      "type": "function",
+      "name": "oe",
+      "filePath": "unx.js",
+      "lineRange": [
+        621,
+        628
+      ],
+      "summary": "oe()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#ne",
+      "type": "function",
+      "name": "ne",
+      "filePath": "unx.js",
+      "lineRange": [
+        630,
+        639
+      ],
+      "summary": "ne(e)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#qe",
+      "type": "function",
+      "name": "qe",
+      "filePath": "unx.js",
+      "lineRange": [
+        640,
+        640
+      ],
+      "summary": "qe()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#fh",
+      "type": "function",
+      "name": "fh",
+      "filePath": "unx.js",
+      "lineRange": [
+        641,
+        645
+      ],
+      "summary": "fh(area)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#gh",
+      "type": "function",
+      "name": "gh",
+      "filePath": "unx.js",
+      "lineRange": [
+        646,
+        653
+      ],
+      "summary": "gh(area)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#re",
+      "type": "function",
+      "name": "re",
+      "filePath": "unx.js",
+      "lineRange": [
+        654,
+        656
+      ],
+      "summary": "re()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#wg",
+      "type": "function",
+      "name": "wg",
+      "filePath": "unx.js",
+      "lineRange": [
+        657,
+        659
+      ],
+      "summary": "wg(ng, qf)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#kh",
+      "type": "function",
+      "name": "kh",
+      "filePath": "unx.js",
+      "lineRange": [
+        660,
+        664
+      ],
+      "summary": "kh(x, y, tf, uf)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#nh",
+      "type": "function",
+      "name": "nh",
+      "filePath": "unx.js",
+      "lineRange": [
+        665,
+        666
+      ],
+      "summary": "nh(x, y, tf, uf)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#mh",
+      "type": "function",
+      "name": "mh",
+      "filePath": "unx.js",
+      "lineRange": [
+        667,
+        667
+      ],
+      "summary": "mh(of, lh)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#vg",
+      "type": "function",
+      "name": "vg",
+      "filePath": "unx.js",
+      "lineRange": [
+        668,
+        671
+      ],
+      "summary": "vg(qf)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#eh",
+      "type": "function",
+      "name": "eh",
+      "filePath": "unx.js",
+      "lineRange": [
+        672,
+        677
+      ],
+      "summary": "eh(qd)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#le",
+      "type": "function",
+      "name": "le",
+      "filePath": "unx.js",
+      "lineRange": [
+        679,
+        691
+      ],
+      "summary": "le(e)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#m_r",
+      "type": "function",
+      "name": "m_r",
+      "filePath": "unx.js",
+      "lineRange": [
+        692,
+        697
+      ],
+      "summary": "m_r(qf, qh)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#qg",
+      "type": "function",
+      "name": "qg",
+      "filePath": "unx.js",
+      "lineRange": [
+        698,
+        703
+      ],
+      "summary": "qg(rh)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#me",
+      "type": "function",
+      "name": "me",
+      "filePath": "unx.js",
+      "lineRange": [
+        705,
+        724
+      ],
+      "summary": "me(e)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "fn:unx.js#ph",
+      "type": "function",
+      "name": "ph",
+      "filePath": "unx.js",
+      "lineRange": [
+        725,
+        727
+      ],
+      "summary": "ph()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#ie",
+      "type": "function",
+      "name": "ie",
+      "filePath": "unx.js",
+      "lineRange": [
+        731,
+        734
+      ],
+      "summary": "ie(zh)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#hh",
+      "type": "function",
+      "name": "hh",
+      "filePath": "unx.js",
+      "lineRange": [
+        735,
+        736
+      ],
+      "summary": "hh()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#fi",
+      "type": "function",
+      "name": "fi",
+      "filePath": "unx.js",
+      "lineRange": [
+        743,
+        752
+      ],
+      "summary": "fi(qact, qact2)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#qst_next",
+      "type": "function",
+      "name": "qst_next",
+      "filePath": "unx.js",
+      "lineRange": [
+        754,
+        767
+      ],
+      "summary": "qst_next(jf, act, act2)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#hi",
+      "type": "function",
+      "name": "hi",
+      "filePath": "unx.js",
+      "lineRange": [
+        771,
+        780
+      ],
+      "summary": "hi()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#ki",
+      "type": "function",
+      "name": "ki",
+      "filePath": "unx.js",
+      "lineRange": [
+        781,
+        782
+      ],
+      "summary": "ki(step)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#li",
+      "type": "function",
+      "name": "li",
+      "filePath": "unx.js",
+      "lineRange": [
+        783,
+        785
+      ],
+      "summary": "li(step)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#ii",
+      "type": "function",
+      "name": "ii",
+      "filePath": "unx.js",
+      "lineRange": [
+        786,
+        789
+      ],
+      "summary": "ii(mi)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#qi",
+      "type": "function",
+      "name": "qi",
+      "filePath": "unx.js",
+      "lineRange": [
+        790,
+        792
+      ],
+      "summary": "qi(vis)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#anm_step",
+      "type": "function",
+      "name": "anm_step",
+      "filePath": "unx.js",
+      "lineRange": [
+        793,
+        798
+      ],
+      "summary": "anm_step()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#ti",
+      "type": "function",
+      "name": "ti",
+      "filePath": "unx.js",
+      "lineRange": [
+        799,
+        804
+      ],
+      "summary": "ti()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#qst_fhandle",
+      "type": "function",
+      "name": "qst_fhandle",
+      "filePath": "unx.js",
+      "lineRange": [
+        805,
+        808
+      ],
+      "summary": "qst_fhandle()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#qst_handle",
+      "type": "function",
+      "name": "qst_handle",
+      "filePath": "unx.js",
+      "lineRange": [
+        809,
+        824
+      ],
+      "summary": "qst_handle()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#qst_wfm",
+      "type": "function",
+      "name": "qst_wfm",
+      "filePath": "unx.js",
+      "lineRange": [
+        825,
+        870
+      ],
+      "summary": "qst_wfm()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "fn:unx.js#qst_weiter",
+      "type": "function",
+      "name": "qst_weiter",
+      "filePath": "unx.js",
+      "lineRange": [
+        872,
+        882
+      ],
+      "summary": "qst_weiter()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#pi",
+      "type": "function",
+      "name": "pi",
+      "filePath": "unx.js",
+      "lineRange": [
+        883,
+        883
+      ],
+      "summary": "pi()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#qst_enter",
+      "type": "function",
+      "name": "qst_enter",
+      "filePath": "unx.js",
+      "lineRange": [
+        884,
+        892
+      ],
+      "summary": "qst_enter(jf)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#qst_enter_coords",
+      "type": "function",
+      "name": "qst_enter_coords",
+      "filePath": "unx.js",
+      "lineRange": [
+        893,
+        893
+      ],
+      "summary": "qst_enter_coords()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#wi",
+      "type": "function",
+      "name": "wi",
+      "filePath": "unx.js",
+      "lineRange": [
+        894,
+        898
+      ],
+      "summary": "wi(_i)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#he",
+      "type": "function",
+      "name": "he",
+      "filePath": "unx.js",
+      "lineRange": [
+        899,
+        899
+      ],
+      "summary": "he(bj)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#vil_levels_toggle",
+      "type": "function",
+      "name": "vil_levels_toggle",
+      "filePath": "unx.js",
+      "lineRange": [
+        900,
+        902
+      ],
+      "summary": "vil_levels_toggle()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#gmwd",
+      "type": "function",
+      "name": "gmwd",
+      "filePath": "unx.js",
+      "lineRange": [
+        903,
+        905
+      ],
+      "summary": "gmwd()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#gmc",
+      "type": "function",
+      "name": "gmc",
+      "filePath": "unx.js",
+      "lineRange": [
+        906,
+        906
+      ],
+      "summary": "gmc()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#documentWidth",
+      "type": "function",
+      "name": "documentWidth",
+      "filePath": "unx.js",
+      "lineRange": [
+        907,
+        915
+      ],
+      "summary": "documentWidth()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "fn:unx.js#documentHeight",
+      "type": "function",
+      "name": "documentHeight",
+      "filePath": "unx.js",
+      "lineRange": [
+        917,
+        925
+      ],
+      "summary": "documentHeight()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:var/db/datagen-oasis-troops-regen.sql",
+      "type": "file",
+      "name": "datagen-oasis-troops-regen.sql",
+      "filePath": "var/db/datagen-oasis-troops-regen.sql",
+      "summary": "datagen-oasis-troops-regen.sql — sql source file",
+      "tags": [
+        "sql",
+        "sql"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:var/db/datagen-world-data.sql",
+      "type": "file",
+      "name": "datagen-world-data.sql",
+      "filePath": "var/db/datagen-world-data.sql",
+      "summary": "datagen-world-data.sql — sql source file",
+      "tags": [
+        "sql",
+        "sql"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:var/db/struct.sql",
+      "type": "file",
+      "name": "struct.sql",
+      "filePath": "var/db/struct.sql",
+      "summary": "struct.sql — sql source file",
+      "tags": [
+        "sql",
+        "sql"
+      ],
+      "complexity": "complex"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:AC_OETags.js",
+      "target": "fn:AC_OETags.js#ControlVersion",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:AC_OETags.js",
+      "target": "fn:AC_OETags.js#GetSwfVer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:AC_OETags.js",
+      "target": "fn:AC_OETags.js#writeFlashTags",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:Admin/ajax.js",
+      "target": "fn:Admin/ajax.js#macheRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:Admin/ajax.js",
+      "target": "fn:Admin/ajax.js#alertInhalt2",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:flaggen.js",
+      "target": "fn:flaggen.js#show_flags",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:GameEngine/Admin/ajax.js",
+      "target": "fn:GameEngine/Admin/ajax.js#macheRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:GameEngine/Admin/ajax.js",
+      "target": "fn:GameEngine/Admin/ajax.js#alertInhalt2",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:mt-core.js",
+      "target": "fn:mt-core.js#c",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:mt-full.js",
+      "target": "fn:mt-full.js#c",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:new.js",
+      "target": "fn:new.js#getAttackSymbolState",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:new.js",
+      "target": "fn:new.js#drawAttackSymbol",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:new.js",
+      "target": "fn:new.js#markAttackSymbol",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:new2.js",
+      "target": "fn:new2.js#handleMove",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:new2.js",
+      "target": "fn:new2.js#Popup",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:new2.js",
+      "target": "fn:new2.js#t_minus",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:new2.js",
+      "target": "fn:new2.js#t_format1",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:new2.js",
+      "target": "fn:new2.js#t_format2",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:new2.js",
+      "target": "fn:new2.js#showLayer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:new2.js",
+      "target": "fn:new2.js#closeLayers",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:notification/crypt.js",
+      "target": "fn:notification/crypt.js#c",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:uncrypt.js",
+      "target": "fn:uncrypt.js#Class",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:uncrypt.js",
+      "target": "fn:uncrypt.js#Native",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#automation",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#gb",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#ib",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#hb",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#nb",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#db",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#ob",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#rb",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#fi2",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#qst_next2",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#initCounter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#executeCounter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#mb",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#executeTimer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#upd_res",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#jc",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#rc",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#btm0",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#btm1",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#Popup",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#PopupMap",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#uc",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#uc2",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#vc",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#Close",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#Allmsg",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#xy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#my_village",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#fd",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#md",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#map_init",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#se",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#ef",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#hf",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#kf",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#lf",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#ve",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#we",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#je",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#sf",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#vf",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#zf",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#_f",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#ag",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#bg",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#map_scroll",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#rg",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#gg",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#sg",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#lg",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#mg",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#pg",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#xg",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#zg",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#yg",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#pf",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#te",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#df",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#oe",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#ne",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#qe",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#fh",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#gh",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#re",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#wg",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#kh",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#nh",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#mh",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#vg",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#eh",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#le",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#m_r",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#qg",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#me",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#ph",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#ie",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#hh",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#fi",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#qst_next",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#hi",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#ki",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#li",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#ii",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#qi",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#anm_step",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#ti",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#qst_fhandle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#qst_handle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#qst_wfm",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#qst_weiter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#pi",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#qst_enter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#qst_enter_coords",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#wi",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#he",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#vil_levels_toggle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#gmwd",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#gmc",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#documentWidth",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#documentHeight",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    }
+  ],
+  "layers": [
+    {
+      "id": "layer:data",
+      "name": "Data",
+      "description": "Database models, schemas, repositories, and ORM",
+      "nodeIds": [
+        "file:var/db/datagen-oasis-troops-regen.sql",
+        "file:var/db/datagen-world-data.sql",
+        "file:var/db/struct.sql"
+      ]
+    },
+    {
+      "id": "layer:styles",
+      "name": "Styles",
+      "description": "CSS, SCSS, styling files, and design tokens",
+      "nodeIds": [
+        "file:css/admin_map_tile.css",
+        "file:gpack/travian/flaggs.css",
+        "file:gpack/travian/main.css",
+        "file:gpack/travian/main_en.css",
+        "file:gpack/travian_default/lang/en/compact.css",
+        "file:gpack/travian_default/lang/en/gp_check.css",
+        "file:gpack/travian_default/lang/en/lang.css",
+        "file:gpack/travian_default/modules/new_colors.css",
+        "file:gpack/travian_default/modules/new_images.css",
+        "file:gpack/travian_default/modules/new_layout_ltr.css",
+        "file:gpack/travian_default/travian.css",
+        "file:gpack/travian_t4/lang/en/compact.css",
+        "file:gpack/travian_t4/lang/en/gp_check.css",
+        "file:gpack/travian_t4/lang/en/lang.css",
+        "file:gpack/travian_t4/modules/new_colors.css",
+        "file:gpack/travian_t4/modules/new_images.css",
+        "file:gpack/travian_t4/modules/new_layout_ltr.css",
+        "file:gpack/travian_t4/travian.css",
+        "file:img/admin/acp.css",
+        "file:img/admin/admin.css",
+        "file:img/admin/map.css",
+        "file:img/img.css",
+        "file:img/portal_ltr.css",
+        "file:img/travian_basics.css",
+        "file:img/tutorial/flaggs.css",
+        "file:img/tutorial/main.css",
+        "file:notification/gpack/notification_v1_zzjhons/lang/en/compact.css",
+        "file:notification/gpack/notification_v1_zzjhons/lang/en/lang.css"
+      ]
+    },
+    {
+      "id": "layer:core",
+      "name": "Core",
+      "description": "Core layer",
+      "nodeIds": [
+        "file:AC_OETags.js",
+        "file:Admin/ajax.js",
+        "file:Admin/jquery.cookie.js",
+        "file:CHANGELOG.md",
+        "file:client_project_detail and conversations.txt",
+        "file:CODE_OF_CONDUCT.md",
+        "file:CONTRIBUTING.md",
+        "file:docker-compose.yml",
+        "file:Dockerfile",
+        "file:DOCKER_README.md",
+        "file:docs/changelog.md",
+        "file:docs/plans/phase-1.md",
+        "file:docs/plans/phase-2.md",
+        "file:docs/plans/phase-3.md",
+        "file:docs/project_structure.md",
+        "file:flaggen.js",
+        "file:GameEngine/Admin/ajax.js",
+        "file:gpack/travian_default/lang/en/b/zurueck.html",
+        "file:gpack/travian_t4/lang/en/b/zurueck.html",
+        "file:img/admin/b/zurueck.html",
+        "file:ISSUE_TEMPLATE.md",
+        "file:mt-core.js",
+        "file:mt-full.js",
+        "file:mt-more.js",
+        "file:new.js",
+        "file:new2.js",
+        "file:notification/crypt.js",
+        "file:notification/gpack/notification_v1_zzjhons/img/round/boxes/mc.html",
+        "file:README.md",
+        "file:sql_updates.txt",
+        "file:Templates/Ranking/_notes/dwsync.xml",
+        "file:todo.txt",
+        "file:uncrypt.js",
+        "file:unx.js"
+      ]
+    }
+  ],
+  "tour": [
+    {
+      "order": 1,
+      "title": "Data Layer",
+      "description": "Explore the data layer: datagen-oasis-troops-regen.sql, datagen-world-data.sql, struct.sql",
+      "nodeIds": [
+        "file:var/db/datagen-oasis-troops-regen.sql",
+        "file:var/db/datagen-world-data.sql",
+        "file:var/db/struct.sql"
+      ]
+    },
+    {
+      "order": 2,
+      "title": "Styles Layer",
+      "description": "Explore the styles layer: admin_map_tile.css, flaggs.css, main.css, main_en.css, compact.css (+23 more)",
+      "nodeIds": [
+        "file:css/admin_map_tile.css",
+        "file:gpack/travian/flaggs.css",
+        "file:gpack/travian/main.css",
+        "file:gpack/travian/main_en.css",
+        "file:gpack/travian_default/lang/en/compact.css",
+        "file:gpack/travian_default/lang/en/gp_check.css",
+        "file:gpack/travian_default/lang/en/lang.css",
+        "file:gpack/travian_default/modules/new_colors.css",
+        "file:gpack/travian_default/modules/new_images.css",
+        "file:gpack/travian_default/modules/new_layout_ltr.css",
+        "file:gpack/travian_default/travian.css",
+        "file:gpack/travian_t4/lang/en/compact.css",
+        "file:gpack/travian_t4/lang/en/gp_check.css",
+        "file:gpack/travian_t4/lang/en/lang.css",
+        "file:gpack/travian_t4/modules/new_colors.css",
+        "file:gpack/travian_t4/modules/new_images.css",
+        "file:gpack/travian_t4/modules/new_layout_ltr.css",
+        "file:gpack/travian_t4/travian.css",
+        "file:img/admin/acp.css",
+        "file:img/admin/admin.css",
+        "file:img/admin/map.css",
+        "file:img/img.css",
+        "file:img/portal_ltr.css",
+        "file:img/travian_basics.css",
+        "file:img/tutorial/flaggs.css",
+        "file:img/tutorial/main.css",
+        "file:notification/gpack/notification_v1_zzjhons/lang/en/compact.css",
+        "file:notification/gpack/notification_v1_zzjhons/lang/en/lang.css"
+      ]
+    },
+    {
+      "order": 3,
+      "title": "Core Layer",
+      "description": "Explore the core layer: AC_OETags.js, ajax.js, jquery.cookie.js, CHANGELOG.md, client_project_detail and conversations.txt (+29 more)",
+      "nodeIds": [
+        "file:AC_OETags.js",
+        "file:Admin/ajax.js",
+        "file:Admin/jquery.cookie.js",
+        "file:CHANGELOG.md",
+        "file:client_project_detail and conversations.txt",
+        "file:CODE_OF_CONDUCT.md",
+        "file:CONTRIBUTING.md",
+        "file:docker-compose.yml",
+        "file:Dockerfile",
+        "file:DOCKER_README.md",
+        "file:docs/changelog.md",
+        "file:docs/plans/phase-1.md",
+        "file:docs/plans/phase-2.md",
+        "file:docs/plans/phase-3.md",
+        "file:docs/project_structure.md",
+        "file:flaggen.js",
+        "file:GameEngine/Admin/ajax.js",
+        "file:gpack/travian_default/lang/en/b/zurueck.html",
+        "file:gpack/travian_t4/lang/en/b/zurueck.html",
+        "file:img/admin/b/zurueck.html",
+        "file:ISSUE_TEMPLATE.md",
+        "file:mt-core.js",
+        "file:mt-full.js",
+        "file:mt-more.js",
+        "file:new.js",
+        "file:new2.js",
+        "file:notification/crypt.js",
+        "file:notification/gpack/notification_v1_zzjhons/img/round/boxes/mc.html",
+        "file:README.md",
+        "file:sql_updates.txt",
+        "file:Templates/Ranking/_notes/dwsync.xml",
+        "file:todo.txt",
+        "file:uncrypt.js",
+        "file:unx.js"
+      ]
+    }
+  ]
+}
