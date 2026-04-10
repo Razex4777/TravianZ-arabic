@@ -12,7 +12,7 @@
 	<table cellpadding="1" cellspacing="1">
 	<thead>
 		<tr>
-			<th>Top 10 players<div id="submenu"><a title="Top 10" href="statistiken.php?id=7"><img class="active btn_top10" src="img/x.gif" alt="Top 10"></a><a title="defender" href="statistiken.php?id=32"><img class="btn_def" src="img/x.gif" alt="defender"></a><a title="attacker" href="statistiken.php?id=31"><img class="btn_off" src="img/x.gif" alt="attacker"></a></div><div id="submenu2"><a title="Romans" href="statistiken.php?id=11"><img class="btn_v1" src="img/x.gif" alt="attacker"></a><a title="Teutons" href="statistiken.php?id=12"><img class="btn_v2" src="img/x.gif" alt="attacker"></a><a title="Gauls" href="statistiken.php?id=13"><img class="btn_v3" src="img/x.gif" alt="attacker"></a></div></th>
+			<th><?php echo (defined('LANG') && LANG === 'ar') ? 'أفضل 10 لاعبين' : 'Top 10 players'; ?><div id="submenu"><a title="<?php echo (defined('LANG') && LANG === 'ar') ? 'العشرة الأوائل' : 'Top 10'; ?>" href="statistiken.php?id=7"><img class="active btn_top10" src="img/x.gif" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'العشرة الأوائل' : 'Top 10'; ?>"></a><a title="<?php echo (defined('LANG') && LANG === 'ar') ? 'مدافع' : 'defender'; ?>" href="statistiken.php?id=32"><img class="btn_def" src="img/x.gif" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'مدافع' : 'defender'; ?>"></a><a title="<?php echo (defined('LANG') && LANG === 'ar') ? 'مهاجم' : 'attacker'; ?>" href="statistiken.php?id=31"><img class="btn_off" src="img/x.gif" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'مهاجم' : 'attacker'; ?>"></a></div><div id="submenu2"><a title="<?php echo (defined('LANG') && LANG === 'ar') ? 'الرومان' : 'Romans'; ?>" href="statistiken.php?id=11"><img class="btn_v1" src="img/x.gif" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'الرومان' : 'Romans'; ?>"></a><a title="<?php echo (defined('LANG') && LANG === 'ar') ? 'التيوتون' : 'Teutons'; ?>" href="statistiken.php?id=12"><img class="btn_v2" src="img/x.gif" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'التيوتون' : 'Teutons'; ?>"></a><a title="<?php echo (defined('LANG') && LANG === 'ar') ? 'الغال' : 'Gauls'; ?>" href="statistiken.php?id=13"><img class="btn_v3" src="img/x.gif" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'الغال' : 'Gauls'; ?>"></a></div></th>
 		</tr>
 	</thead>
 </table>
@@ -21,12 +21,12 @@
 		<tr>
 			<th onclick="return Popup(3,5)"><img src="img/x.gif" class="help" alt="Instructions" title="Instructions">
 			</th>
-			<th colspan="2">Attackers of the week</th>
+			<th colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'مهاجمو اليوم' : 'Attackers of the week'; ?></th>
 		</tr>
 		<tr>
-			<td>No.</td>
-			<td>Player</td>
-			<td>Points</td>
+			<td><?php echo (defined('LANG') && LANG === 'ar') ? 'رقم' : 'No.'; ?></td>
+			<td><?php echo (defined('LANG') && LANG === 'ar') ? 'اللاعب' : 'Player'; ?></td>
+			<td><?php echo (defined('LANG') && LANG === 'ar') ? 'النقاط' : 'Points'; ?></td>
 		</tr>
 	</thead>
 	<tbody>
@@ -75,12 +75,12 @@
 		<tr>
 			<th onclick="return Popup(3,5)"><img src="img/x.gif" class="help" alt="Instructions" title="Instructions">
 			</th>
-			<th colspan="2">Defenders of the week</th>
+			<th colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'مدافعو اليوم' : 'Defenders of the week'; ?></th>
 		</tr>
 		<tr>
-			<td>No.</td>
-			<td>Player</td>
-			<td>Points</td>
+			<td><?php echo (defined('LANG') && LANG === 'ar') ? 'رقم' : 'No.'; ?></td>
+			<td><?php echo (defined('LANG') && LANG === 'ar') ? 'اللاعب' : 'Player'; ?></td>
+			<td><?php echo (defined('LANG') && LANG === 'ar') ? 'النقاط' : 'Points'; ?></td>
 		</tr>
 	</thead>
 	<tbody>
@@ -130,12 +130,12 @@
 		<tr>
 			<th onclick="return Popup(3,5)"><img src="img/x.gif" class="help" alt="Instructions" title="Instructions">
 			</th>
-			<th colspan="2">Climbers of the week</th>
+			<th colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'متسلقو اليوم' : 'Climbers of the week'; ?></th>
 		</tr>
 		<tr>
-			<td>No.</td>
-			<td>Player</td>
-			<td>Ranks</td>
+			<td><?php echo (defined('LANG') && LANG === 'ar') ? 'رقم' : 'No.'; ?></td>
+			<td><?php echo (defined('LANG') && LANG === 'ar') ? 'اللاعب' : 'Player'; ?></td>
+			<td><?php echo (defined('LANG') && LANG === 'ar') ? 'المراتب' : 'Ranks'; ?></td>
 		</tr>
 	</thead>
 	<tbody>
@@ -181,12 +181,12 @@
 		<tr>
 			<th onclick="return Popup(3,5)"><img src="img/x.gif" class="help" alt="Instructions" title="Instructions">
 			</th>
-			<th colspan="2">Robbers of the week</th>
+			<th colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'لصوص اليوم' : 'Robbers of the week'; ?></th>
 		</tr>
 		<tr>
-			<td>No.</td>
-			<td>Player</td>
-			<td>Resources</td>
+			<td><?php echo (defined('LANG') && LANG === 'ar') ? 'رقم' : 'No.'; ?></td>
+			<td><?php echo (defined('LANG') && LANG === 'ar') ? 'اللاعب' : 'Player'; ?></td>
+			<td><?php echo (defined('LANG') && LANG === 'ar') ? 'الموارد' : 'Resources'; ?></td>
 		</tr>
 	</thead>
 	<tbody>

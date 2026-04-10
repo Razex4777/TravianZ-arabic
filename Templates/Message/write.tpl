@@ -45,7 +45,10 @@ $user = $database->getUserArray($session->uid, 1);
 	<form method="post" action="nachrichten.php" accept-charset="UTF-8" name="msg">
 	<input type="hidden" name="c" value="3e9" />
 	<input type="hidden" name="p" value="" />
-		<img src="img/x.gif" id="label" class="send" alt="" />
+		<div id="label" class="send" style="float:right;margin-right:12px;width:77px;text-align:right;font-size:11px;line-height:17px;color:#000;font-weight:bold;">
+		<div style="height:17px;"><?php echo (defined('LANG') && LANG === 'ar' ? 'المستلم:' : 'Recipient:'); ?></div>
+		<div style="height:17px;"><?php echo (defined('LANG') && LANG === 'ar' ? 'الموضوع:' : 'Topic:'); ?></div>
+	</div>
 	<div id="heading">
 		<input class="text" type="text" name="an" id="receiver" value="<?php if(isset($id)) { echo $database->getUserField($id,'username',0); } ?>" maxlength="20" onkeyup="copyElement('receiver')" tabindex=1; /><br />
 <input class="text" type="text" name="be" id="subject" value="<?php if(isset($message->reply['topic'])) 
@@ -86,7 +89,7 @@ echo "re1:".strip_tags($message->reply['topic']); }} ?>" maxlength="35" onkeyup=
 				<div class="line bbLine"></div>
 	
 				<textarea id="message" name="message" onkeyup="copyElement('body')" tabindex="3" class="textarea write message"><?php if(isset($message->reply['message'])) { echo " \n\n_________________________
-Reply: ".$database->getUserField($id,'username',0)."
+".(defined('LANG') && LANG === 'ar' ? 'رد:' : 'Reply:')." ".$database->getUserField($id,'username',0)."
 \n".stripslashes($message->reply['message']); } ?></textarea>
 				<div id="message_preview" name="message_preview" class="message"></div>
 			</div>
@@ -100,11 +103,11 @@ Reply: ".$database->getUserField($id,'username',0)."
 		<?php
 			if ($session->access == ADMIN && ADMIN_RECEIVE_SUPPORT_MESSAGES && !empty($_GET['mid'])) {
 		?><br />
-		<input type="checkbox" name="as_support"<?php echo ((!empty($_GET['tid']) && $_GET['tid'] == 1) ? ' checked="checked"' : ''); ?> /> Send as Support
+		<input type="checkbox" name="as_support"<?php echo ((!empty($_GET['tid']) && $_GET['tid'] == 1) ? ' checked="checked"' : ''); ?> /> <?php echo (defined('LANG') && LANG === 'ar' ? 'إرسال كدعم' : 'Send as Support'); ?>
 		<?php
 			} else if ($session->access == MULTIHUNTER) {
                 ?><br />
-                <input type="checkbox" name="as_multihunter"<?php echo ((!empty($_GET['tid']) && $_GET['tid'] == 5) ? ' checked="checked"' : ''); ?> /> Send as Multihunter
+                <input type="checkbox" name="as_multihunter"<?php echo ((!empty($_GET['tid']) && $_GET['tid'] == 5) ? ' checked="checked"' : ''); ?> /> <?php echo (defined('LANG') && LANG === 'ar' ? 'إرسال كمراقب' : 'Send as Multihunter'); ?>
                 <?php
             }
 		?>
@@ -171,7 +174,7 @@ if(!is_int($i/2)){ echo "</tr>"; }else{ echo "<td></td>";}
   <p class="btn">
   <input type="image" value="" name="s1" id="btn_save" class="dynamic_img" src="img/x.gif" alt="save" />  
   </p>
-  </form><a href="#" onclick="closeFriendsList(); return false;"><img src="img/x.gif" id="close" alt="close adressbook" title="close adressbook"/></a></div></div>
+  </form><a href="#" onclick="closeFriendsList(); return false;"><img src="img/x.gif" id="close" alt="<?php echo (defined('LANG') && LANG === 'ar' ? 'إغلاق دفتر العناوين' : 'close adressbook'); ?>" title="<?php echo (defined('LANG') && LANG === 'ar' ? 'إغلاق دفتر العناوين' : 'close adressbook'); ?>"/></a></div></div>
 <div id="write_foot" class="msg_foot">
 </div>
 <br />

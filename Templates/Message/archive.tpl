@@ -1,19 +1,19 @@
 <div id="content"  class="messages">
-<h1>Messages</h1>
+<h1><?php echo (defined('LANG') && LANG === 'ar' ? 'الرسائل' : 'Messages'); ?></h1>
 <?php
 include("menu.tpl");
 ?>
 <form method="post" action="nachrichten.php" name="msg" ><input type="hidden" name="ft" value="m5" /><table cellpadding="1" cellspacing="1" id="overview">
 <thead>
 <tr>
-<th colspan="2">Subject</th>
-<th>Sender</th>
-<th class="sent"><a href="nachrichten.php?s=0&amp;t=3&amp;o=1">Sent</a></th>
+<th colspan="2"><?php echo (defined('LANG') && LANG === 'ar' ? 'الموضوع' : 'Subject'); ?></th>
+<th><?php echo (defined('LANG') && LANG === 'ar' ? 'المرسل' : 'Sender'); ?></th>
+<th class="sent"><a href="nachrichten.php?s=0&amp;t=3&amp;o=1"><?php echo (defined('LANG') && LANG === 'ar' ? 'تاريخ الإرسال' : 'Sent'); ?></a></th>
 </tr></thead><tfoot><tr><th>
 		<input class="check" type="checkbox" id="s10" name="s10" onclick="Allmsg(this.form);" />
 	</th>
 	<th colspan="2" class="buttons">
-		<button name="delmsg" value="delete" id="btn_delete" class="trav_buttons">Delete</button> <button name="start" value="Back" id="btn_back" class="trav_buttons">Back</button></th>
+		<button name="delmsg" value="delete" id="btn_delete" class="trav_buttons"><?php echo (defined('LANG') && LANG === 'ar' ? 'حذف' : 'Delete'); ?></button> <button name="start" value="Back" id="btn_back" class="trav_buttons"><?php echo (defined('LANG') && LANG === 'ar' ? 'رجوع' : 'Back'); ?></button></th>
         <th class="navi"><?php
     if(!isset($_GET['s']) && count($message->archived1) < 10) {
         echo "&laquo;&raquo;";
@@ -52,7 +52,7 @@ include("menu.tpl");
     echo "<td class=\"sel\"><input class=\"check\" type=\"checkbox\" name=\"n".$name."\" value=\"".$message->archived[$i-1]['id']."\" /></td>
 		<td class=\"top\"><a href=\"nachrichten.php?id=".$message->archived[$i-1]['id']."\">".$message->archived[$i-1]['topic']."</a> ";
     if($message->archived[$i-1]['viewed'] == 0) {
-    echo "(new)";
+    echo "(".(defined('LANG') && LANG === 'ar' ? 'جديد' : 'new').")";
     }
     $date = $generator->procMtime($message->archived[$i-1]['time']);
     echo "</td><td class=\"send\"><a href=\"spieler.php?uid=".$message->archived[$i-1]['owner']."\"><u>".$database->getUserField($message->archived[$i-1]['owner'],'username',0)."</u></a></td>
@@ -61,7 +61,7 @@ include("menu.tpl");
         $name++;
     }
     if(count($message->archived1) == 0) {
-    echo "<td colspan=\"4\" class=\"none\">There are no messages available in the archive.</td></tr>";
+    echo "<td colspan=\"4\" class=\"none\">".(defined('LANG') && LANG === 'ar' ? 'لا توجد رسائل متاحة في الأرشيف.' : 'There are no messages available in the archive.')."</td></tr>";
     }
     ?>
     </tbody></table>

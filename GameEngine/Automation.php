@@ -4111,7 +4111,7 @@ class Automation {
             $stime = strtotime(START_DATE) - strtotime(date('d.m.Y')) + strtotime(START_TIME);
             if($row['lastgavemedal'] == 0 && $stime < time()){
                 $setDays = round(MEDALINTERVAL / 86400);
-                $newtime = $setDays < 7 ? strtotime(($setDays + 1).'day midnight') : strtotime('next monday');
+                $newtime = $setDays < 7 ? strtotime(($setDays + 1).'day midnight') : strtotime('tomorrow midnight');
                 $q = "UPDATE ".TB_PREFIX."config SET lastgavemedal = ".(int) $newtime;
                 $database->query($q);
             }elseif($row['lastgavemedal'] != 0){
@@ -4527,6 +4527,92 @@ class Automation {
                     $resul=mysqli_query($database->dblink,$quer);
                 }
             }
+
+            // ============================================================
+            // HALL OF FAME: Record #1 winners before resetting stats
+            // ============================================================
+            $hofTime = time();
+
+            // Top Attacker of the period
+            $hofResult = mysqli_query($database->dblink, "SELECT u.id, u.username, u.ap, u.alliance FROM ".TB_PREFIX."users u WHERE u.id > 5 AND u.access < 8 AND u.ap > 0 ORDER BY u.ap DESC LIMIT 1");
+            if ($hofResult && mysqli_num_rows($hofResult) > 0) {
+                $hofRow = mysqli_fetch_assoc($hofResult);
+                $alliName = '';
+                $alliId = 0;
+                if ($hofRow['alliance'] > 0) {
+                    $alliResult = mysqli_query($database->dblink, "SELECT tag FROM ".TB_PREFIX."alidata WHERE id=".(int)$hofRow['alliance']);
+                    if ($alliResult && mysqli_num_rows($alliResult) > 0) {
+                        $alliData = mysqli_fetch_assoc($alliResult);
+                        $alliName = $alliData['tag'];
+                        $alliId = (int)$hofRow['alliance'];
+                    }
+                }
+                $hofQuery = "INSERT INTO ".TB_PREFIX."hall_of_fame (period, category, player_name, player_id, alliance_name, alliance_id, points, timestamp) VALUES (".(int)$week.", 'top_attacker', '".mysqli_real_escape_string($database->dblink, $hofRow['username'])."', ".(int)$hofRow['id'].", '".mysqli_real_escape_string($database->dblink, $alliName)."', ".$alliId.", ".(int)$hofRow['ap'].", ".$hofTime.")";
+                mysqli_query($database->dblink, $hofQuery);
+            }
+
+            // Top Defender of the period
+            $hofResult = mysqli_query($database->dblink, "SELECT u.id, u.username, u.dp, u.alliance FROM ".TB_PREFIX."users u WHERE u.id > 5 AND u.access < 8 AND u.dp > 0 ORDER BY u.dp DESC LIMIT 1");
+            if ($hofResult && mysqli_num_rows($hofResult) > 0) {
+                $hofRow = mysqli_fetch_assoc($hofResult);
+                $alliName = '';
+                $alliId = 0;
+                if ($hofRow['alliance'] > 0) {
+                    $alliResult = mysqli_query($database->dblink, "SELECT tag FROM ".TB_PREFIX."alidata WHERE id=".(int)$hofRow['alliance']);
+                    if ($alliResult && mysqli_num_rows($alliResult) > 0) {
+                        $alliData = mysqli_fetch_assoc($alliResult);
+                        $alliName = $alliData['tag'];
+                        $alliId = (int)$hofRow['alliance'];
+                    }
+                }
+                $hofQuery = "INSERT INTO ".TB_PREFIX."hall_of_fame (period, category, player_name, player_id, alliance_name, alliance_id, points, timestamp) VALUES (".(int)$week.", 'top_defender', '".mysqli_real_escape_string($database->dblink, $hofRow['username'])."', ".(int)$hofRow['id'].", '".mysqli_real_escape_string($database->dblink, $alliName)."', ".$alliId.", ".(int)$hofRow['dp'].", ".$hofTime.")";
+                mysqli_query($database->dblink, $hofQuery);
+            }
+
+            // Top Climber of the period (Pop Climbers)
+            $hofResult = mysqli_query($database->dblink, "SELECT u.id, u.username, u.Rc, u.alliance FROM ".TB_PREFIX."users u WHERE u.id > 5 AND u.access < 8 AND u.Rc > 0 ORDER BY u.Rc DESC LIMIT 1");
+            if ($hofResult && mysqli_num_rows($hofResult) > 0) {
+                $hofRow = mysqli_fetch_assoc($hofResult);
+                $alliName = '';
+                $alliId = 0;
+                if ($hofRow['alliance'] > 0) {
+                    $alliResult = mysqli_query($database->dblink, "SELECT tag FROM ".TB_PREFIX."alidata WHERE id=".(int)$hofRow['alliance']);
+                    if ($alliResult && mysqli_num_rows($alliResult) > 0) {
+                        $alliData = mysqli_fetch_assoc($alliResult);
+                        $alliName = $alliData['tag'];
+                        $alliId = (int)$hofRow['alliance'];
+                    }
+                }
+                $hofQuery = "INSERT INTO ".TB_PREFIX."hall_of_fame (period, category, player_name, player_id, alliance_name, alliance_id, points, timestamp) VALUES (".(int)$week.", 'top_climber', '".mysqli_real_escape_string($database->dblink, $hofRow['username'])."', ".(int)$hofRow['id'].", '".mysqli_real_escape_string($database->dblink, $alliName)."', ".$alliId.", ".(int)$hofRow['Rc'].", ".$hofTime.")";
+                mysqli_query($database->dblink, $hofQuery);
+            }
+
+            // Top Robber of the period
+            $hofResult = mysqli_query($database->dblink, "SELECT u.id, u.username, u.RR, u.alliance FROM ".TB_PREFIX."users u WHERE u.id > 5 AND u.access < 8 AND u.RR > 0 ORDER BY u.RR DESC LIMIT 1");
+            if ($hofResult && mysqli_num_rows($hofResult) > 0) {
+                $hofRow = mysqli_fetch_assoc($hofResult);
+                $alliName = '';
+                $alliId = 0;
+                if ($hofRow['alliance'] > 0) {
+                    $alliResult = mysqli_query($database->dblink, "SELECT tag FROM ".TB_PREFIX."alidata WHERE id=".(int)$hofRow['alliance']);
+                    if ($alliResult && mysqli_num_rows($alliResult) > 0) {
+                        $alliData = mysqli_fetch_assoc($alliResult);
+                        $alliName = $alliData['tag'];
+                        $alliId = (int)$hofRow['alliance'];
+                    }
+                }
+                $hofQuery = "INSERT INTO ".TB_PREFIX."hall_of_fame (period, category, player_name, player_id, alliance_name, alliance_id, points, timestamp) VALUES (".(int)$week.", 'top_robber', '".mysqli_real_escape_string($database->dblink, $hofRow['username'])."', ".(int)$hofRow['id'].", '".mysqli_real_escape_string($database->dblink, $alliName)."', ".$alliId.", ".(int)$hofRow['RR'].", ".$hofTime.")";
+                mysqli_query($database->dblink, $hofQuery);
+            }
+
+            // Top Alliance of the period (by attack points)
+            $hofResult = mysqli_query($database->dblink, "SELECT id, tag, ap FROM ".TB_PREFIX."alidata WHERE ap > 0 ORDER BY ap DESC LIMIT 1");
+            if ($hofResult && mysqli_num_rows($hofResult) > 0) {
+                $hofRow = mysqli_fetch_assoc($hofResult);
+                $hofQuery = "INSERT INTO ".TB_PREFIX."hall_of_fame (period, category, player_name, player_id, alliance_name, alliance_id, points, timestamp) VALUES (".(int)$week.", 'top_alliance', '', 0, '".mysqli_real_escape_string($database->dblink, $hofRow['tag'])."', ".(int)$hofRow['id'].", ".(int)$hofRow['ap'].", ".$hofTime.")";
+                mysqli_query($database->dblink, $hofQuery);
+            }
+            // ============================================================
 
             //Put all true dens to 0
             $query="SELECT id FROM ".TB_PREFIX."users WHERE id > 5 AND access < 8 ORDER BY id+0 DESC";

@@ -11,16 +11,16 @@
 
 ?>
 <div id="content"  class="messages">
-    <h1>Messages</h1>
+    <h1><?php echo (defined('LANG') && LANG === 'ar' ? 'الرسائل' : 'Messages'); ?></h1>
         <?php include("menu.tpl"); ?>
     <form method="post" action="nachrichten.php" name="msg">
     <input type="hidden" name="ft" value="m4" />
     <table cellpadding="1" cellspacing="1" id="overview">
         <thead><tr>
             <th></th>
-            <th>Subject</th>
-            <th>Recipient</th>
-            <th class="sent"><a href="nachrichten.php?t=2&s=0&amp;t=2&amp;o=1">Sent</a></th>
+            <th><?php echo (defined('LANG') && LANG === 'ar' ? 'الموضوع' : 'Subject'); ?></th>
+            <th><?php echo (defined('LANG') && LANG === 'ar' ? 'المستلم' : 'Recipient'); ?></th>
+            <th class="sent"><a href="nachrichten.php?t=2&s=0&amp;t=2&amp;o=1"><?php echo (defined('LANG') && LANG === 'ar' ? 'تاريخ الإرسال' : 'Sent'); ?></a></th>
             </tr></thead><tfoot><tr><th><?php
 		$MyGold = mysqli_query($database->dblink,"SELECT plus FROM ".TB_PREFIX."users WHERE `id`='".(int) $session->uid."'") or die(mysqli_error($database->dblink));
 		$golds = mysqli_fetch_array($MyGold);
@@ -29,7 +29,7 @@
 		<?php } else { ?>
 		<input class="check" type="checkbox" id="s10" name="s10" onclick="Allmsg(this.form);" />
 		<?php } ?></th>
-	<th colspan="2" class="buttons"><button value="delete" name="delmsg" id="btn_delete" class="trav_buttons">Delete</button></th><th class="navi"><?php
+	<th colspan="2" class="buttons"><button value="delete" name="delmsg" id="btn_delete" class="trav_buttons"><?php echo (defined('LANG') && LANG === 'ar' ? 'حذف' : 'Delete'); ?></button></th><th class="navi"><?php
      if(!isset($_GET['s']) && count($message->sent1) < 10) {
     echo "&laquo;&raquo;";
     }
@@ -74,15 +74,15 @@
     if (!$support_messages || ($support_messages && $message->inbox1[$i-1]['target'] != 1) || ($multihunter_messages && $message->inbox1[$i-1]['target'] != 5)) {
         $sent_as_text = "<input class=\"check\" type=\"checkbox\" name=\"n".$name."\" value=\"".$message->sent1[$i-1]['id']."\" />";
     } else if ($support_messages) {
-        $sent_as_text = '<u><b title="Sent as Support"><i>S</i></b></u>';
+        $sent_as_text = '<u><b title="'.(defined('LANG') && LANG === 'ar' ? 'أُرسلت كدعم' : 'Sent as Support').'"><i>S</i></b></u>';
     } else if ($multihunter_messages) {
-        $sent_as_text = '<u><b title="Sent as Multihunter"><i>M</i></b></u>';
+        $sent_as_text = '<u><b title="'.(defined('LANG') && LANG === 'ar' ? 'أُرسلت كمراقب' : 'Sent as Multihunter').'"><i>M</i></b></u>';
     }
 
     echo "<td class=\"sel\">".$sent_as_text."</td>
 		<td class=\"top\"><a href=\"nachrichten.php?t=2a&amp;id=".$message->sent1[$i-1]['id']."\">".$message->sent1[$i-1]['topic']."</a> ";
     if($message->sent1[$i-1]['viewed'] == 0) {
-    echo "(unread)";
+    echo "(".(defined('LANG') && LANG === 'ar' ? 'غير مقروءة' : 'unread').")";
     }
     $date = $generator->procMtime($message->sent1[$i-1]['time']);
     echo "</td><td class=\"send\"><a href=\"spieler.php?uid=".$message->sent1[$i-1]['target']."\">".$database->getUserField($message->sent1[$i-1]['target'],'username',0)."</a></td>
@@ -91,7 +91,7 @@
         $name++;
     }
     if(count($message->sent1) == 0) {
-    echo "<td colspan=\"4\" class=\"none\">There are no sent messages available.</td></tr>";
+    echo "<td colspan=\"4\" class=\"none\">".(defined('LANG') && LANG === 'ar' ? 'لا توجد رسائل مرسلة.' : 'There are no sent messages available.')."</td></tr>";
     }
     ?>
 </tbody></table>

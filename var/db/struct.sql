@@ -1089,6 +1089,28 @@ CREATE TABLE IF NOT EXISTS `%PREFIX%medal` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `%prefix%hall_of_fame`
+--
+
+CREATE TABLE IF NOT EXISTS `%PREFIX%hall_of_fame` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `period` int(11) NOT NULL DEFAULT '0',
+  `category` varchar(50) NOT NULL DEFAULT '',
+  `player_name` varchar(255) NOT NULL DEFAULT '',
+  `player_id` int(11) NOT NULL DEFAULT '0',
+  `alliance_name` varchar(255) NOT NULL DEFAULT '',
+  `alliance_id` int(11) NOT NULL DEFAULT '0',
+  `points` int(11) NOT NULL DEFAULT '0',
+  `timestamp` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `idx_period` (`period`),
+  KEY `idx_category` (`category`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `%prefix%movement`
 --
 

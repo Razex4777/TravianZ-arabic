@@ -20,12 +20,12 @@
 <table cellpadding="1" cellspacing="1" id="world_player" class="world">
         <thead>
             <tr>
-                <th colspan="2">World Stats</th>
+                <th colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'إحصائيات العالم' : 'World Stats'; ?></th>
             </tr>
             <tr>
-                <td>Total Villages</td>
+                <td><?php echo (defined('LANG') && LANG === 'ar') ? 'إجمالي القرى' : 'Total Villages'; ?></td>
                 
-                <td>Total Population</td>
+                <td><?php echo (defined('LANG') && LANG === 'ar') ? 'إجمالي السكان' : 'Total Population'; ?></td>
             </tr>
         </thead>
         <tbody>
@@ -51,20 +51,20 @@ echo $getpop['sumofpop'];
     <table cellpadding="1" cellspacing="1" id="world_player" class="world">
         <thead>
             <tr>
-                <th colspan="2">Players</th>
+                <th colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'اللاعبون' : 'Players'; ?></th>
             </tr>
         </thead>
  
         <tbody>
             <tr>
-                <th>Registered players</th>
+                <th><?php echo (defined('LANG') && LANG === 'ar') ? 'اللاعبون المسجلون' : 'Registered players'; ?></th>
  
                 <td><?php
                    echo $users; ?></td>
             </tr>
  
             <tr>
-                <th>Active players</th>
+                <th><?php echo (defined('LANG') && LANG === 'ar') ? 'اللاعبون النشطون' : 'Active players'; ?></th>
  
                 <td><?php
                    $active = mysqli_num_rows(mysqli_query($database->dblink,"SELECT * FROM ".TB_PREFIX."users WHERE timestamp > ".(time() - (3600*24))." AND tribe!=0 AND tribe!=4 AND tribe!=5"));
@@ -72,7 +72,7 @@ echo $getpop['sumofpop'];
             </tr>
  
             <tr>
-                <th>Players online</th>
+                <th><?php echo (defined('LANG') && LANG === 'ar') ? 'اللاعبون المتصلون' : 'Players online'; ?></th>
  
                 <td><?php
                     $online = mysqli_query($database->dblink,"SELECT Count(*) as Total FROM ".TB_PREFIX."users WHERE timestamp > ".(time() - (60*10))." AND tribe!=0 AND tribe!=4 AND tribe!=5");
@@ -90,33 +90,33 @@ echo $getpop['sumofpop'];
     <table cellpadding="1" cellspacing="1" id="world_tribes" class="world">
         <thead>
             <tr>
-                <th colspan="3">Tribes</th>
+                <th colspan="3"><?php echo (defined('LANG') && LANG === 'ar') ? 'القبائل' : 'Tribes'; ?></th>
             </tr>
  
             <tr>
-                <td>Tribe</td>
+                <td><?php echo (defined('LANG') && LANG === 'ar') ? 'القبيلة' : 'Tribe'; ?></td>
  
-                <td>Registered</td>
+                <td><?php echo (defined('LANG') && LANG === 'ar') ? 'المسجلون' : 'Registered'; ?></td>
  
-                <td>Percent</td>
+                <td><?php echo (defined('LANG') && LANG === 'ar') ? 'النسبة' : 'Percent'; ?></td>
             </tr>
         </thead>
  
         <tbody>
             <tr>
-                <td>Romans</td>
+                <td><?php echo (defined('LANG') && LANG === 'ar') ? 'الرومان' : 'Romans'; ?></td>
  
                 <td><?php echo $tribes[0]; ?></td>
                 <td><?php echo ($users > 0) ? ($percents[0] = round(100 * ($tribes[0] / $users), 2))."%" : '---'; ?></td>
             </tr>
             <tr>
-                <td>Teutons</td>
+                <td><?php echo (defined('LANG') && LANG === 'ar') ? 'التيوتون' : 'Teutons'; ?></td>
  
                 <td><?php echo $tribes[1]; ?></td>
                 <td><?php echo ($users > 0) ? ($percents[1] = round(100 * ($tribes[1] / $users), 2))."%" : "---"; ?></td>
             </tr>
             <tr>
-                <td>Gauls</td>
+                <td><?php echo (defined('LANG') && LANG === 'ar') ? 'الغال' : 'Gauls'; ?></td>
                 <td><?php echo $tribes[2]; ?></td>
                 <td><?php echo ($users > 0) ? (100-$percents[0]-$percents[1])."%" : '---'; ?></td>
             </tr>
@@ -125,17 +125,17 @@ echo $getpop['sumofpop'];
     <table cellpadding="1" cellspacing="1" id="world_tribes" class="world"> 
         <thead> 
             <tr> 
-                <th colspan="3">Total <?php echo SERVER_NAME ?> <img src="./<?php echo GP_LOCATE; ?>img/a/gold.gif" alt="Gold" title="Gold"> Gold</th> 
+                <th colspan="3"><?php echo (defined('LANG') && LANG === 'ar') ? 'إجمالي الذهب' : 'Total'; ?> <?php echo SERVER_NAME ?> <img src="./<?php echo GP_LOCATE; ?>img/a/gold.gif" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'ذهب' : 'Gold'; ?>" title="<?php echo (defined('LANG') && LANG === 'ar') ? 'ذهب' : 'Gold'; ?>"> <?php echo (defined('LANG') && LANG === 'ar') ? '' : 'Gold'; ?></th> 
             </tr> 
             <tr> 
                 <td></td> 
-                <td>Total</td> 
+                <td><?php echo (defined('LANG') && LANG === 'ar') ? 'الإجمالي' : 'Total'; ?></td> 
                 
             </tr> 
         </thead> 
         <tbody>
             <tr>
-                <td><img src="./<?php echo GP_LOCATE; ?>img/a/gold.gif" alt="Gold" title="Gold"> Gold</td>
+                <td><img src="./<?php echo GP_LOCATE; ?>img/a/gold.gif" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'ذهب' : 'Gold'; ?>" title="<?php echo (defined('LANG') && LANG === 'ar') ? 'ذهب' : 'Gold'; ?>"> <?php echo (defined('LANG') && LANG === 'ar') ? 'ذهب' : 'Gold'; ?></td>
                 <td><?php $gold = mysqli_query($GLOBALS["link"], "SELECT SUM(gold) AS sumofgold FROM ".TB_PREFIX."users"); $getgold=mysqli_fetch_assoc($gold); echo $getgold['sumofgold']; ?></td>
                 
             </tr>
@@ -144,15 +144,15 @@ echo $getpop['sumofpop'];
         <table cellpadding="1" cellspacing="1" id="world_player" class="world">
         <thead>
             <tr>
-                <th colspan="6">Troops</th>
+                <th colspan="6"><?php echo (defined('LANG') && LANG === 'ar') ? 'القوات' : 'Troops'; ?></th>
             </tr>
             <tr>
                 <td><img src='img/romenai.png'></td>
-                <td>Total</td>
+                <td><?php echo (defined('LANG') && LANG === 'ar') ? 'الإجمالي' : 'Total'; ?></td>
                 <td><img src='img/germanai.png'></td>
-                <td>Total</td>
+                <td><?php echo (defined('LANG') && LANG === 'ar') ? 'الإجمالي' : 'Total'; ?></td>
                 <td><img src='img/galai.png'></td>
-                <td>Total</td>
+                <td><?php echo (defined('LANG') && LANG === 'ar') ? 'الإجمالي' : 'Total'; ?></td>
             </tr>
         </thead>
         <tbody>
@@ -405,15 +405,15 @@ echo $getpop['sumofpop'];
     <table cellpadding="1" cellspacing="1" id="world_tribes" class="world">
         <thead>
             <tr>
-                <th colspan="3">Miscellaneous</th>
+                <th colspan="3"><?php echo (defined('LANG') && LANG === 'ar') ? 'متنوعات' : 'Miscellaneous'; ?></th>
             </tr>
  
             <tr>
-                <td>Attacks</td>
+                <td><?php echo (defined('LANG') && LANG === 'ar') ? 'الهجمات' : 'Attacks'; ?></td>
  
-                <td>Casualties</td>
+                <td><?php echo (defined('LANG') && LANG === 'ar') ? 'الخسائر' : 'Casualties'; ?></td>
  
-                <td>Date</td>
+                <td><?php echo (defined('LANG') && LANG === 'ar') ? 'التاريخ' : 'Date'; ?></td>
             </tr>
         </thead>
  

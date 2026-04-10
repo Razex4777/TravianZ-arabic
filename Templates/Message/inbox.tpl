@@ -1,14 +1,14 @@
 <div id="content"  class="messages">
-    <h1>Messages</h1>
+    <h1><?php echo (defined('LANG') && LANG === 'ar' ? 'الرسائل' : 'Messages'); ?></h1>
     <?php
     include("menu.tpl");
     ?>
     <form method="post" action="nachrichten.php" name="msg" ><table cellpadding="1" cellspacing="1" id="overview">
 	<thead>
 	    <tr>
-		<th colspan="2">Subject</th>
-		<th>Sender</th>
-		<th class="sent"><a href="nachrichten.php?o=1">Sent</a></th>
+		<th colspan="2"><?php echo (defined('LANG') && LANG === 'ar' ? 'الموضوع' : 'Subject'); ?></th>
+		<th><?php echo (defined('LANG') && LANG === 'ar' ? 'المرسل' : 'Sender'); ?></th>
+		<th class="sent"><a href="nachrichten.php?o=1"><?php echo (defined('LANG') && LANG === 'ar' ? 'تاريخ الإرسال' : 'Sent'); ?></a></th>
 	    </tr></thead><tfoot><tr><th>
 		<?php
 		$MyGold = mysqli_query($database->dblink,"SELECT plus FROM ".TB_PREFIX."users WHERE `id`='".(int) $session->uid."'") or die(mysqli_error($database->dblink));
@@ -20,8 +20,8 @@
 		<?php } ?>
 	    </th>
 	    <th colspan="2" class="buttons">
-		<button name="delmsg" value="delete" id="btn_delete" class="trav_buttons"> Delete </button>
-		<?php if($session->plus) { echo "<button name=\"archive\" value=\"Archive\" id=\"btn_archiv\" class=\"trav_buttons\" alt=\"Archive\" /> Archive </button>"; } ?>
+		<button name="delmsg" value="delete" id="btn_delete" class="trav_buttons"> <?php echo (defined('LANG') && LANG === 'ar' ? 'حذف' : 'Delete'); ?> </button>
+		<?php if($session->plus) { echo "<button name=\"archive\" value=\"Archive\" id=\"btn_archiv\" class=\"trav_buttons\" alt=\"Archive\" /> ".(defined('LANG') && LANG === 'ar' ? 'أرشفة' : 'Archive')." </button>"; } ?>
 		<input name="ft" value="m3" type="hidden" />
 	    </th><th class="navi"><?php
 		if(!isset($_GET['s']) && count($message->inbox1) < 10) {
@@ -74,15 +74,15 @@
             if (!$support_messages || ($support_messages && $message->inbox1[$i-1]['target'] != 1) || ($multihunter_messages && $message->inbox1[$i-1]['target'] != 5)) {
                 $message_for_text = "<input class=\"check\" type=\"checkbox\" name=\"n".$name."\" value=\"".$message->inbox1[$i-1]['id']."\" />";
             } else if ($support_messages) {
-                $message_for_text = '<u><b title="Message for Support"><i>S</i></b></u>';
+                $message_for_text = '<u><b title="'.(defined('LANG') && LANG === 'ar' ? 'رسالة للدعم' : 'Message for Support').'"><i>S</i></b></u>';
             } else if ($multihunter_messages) {
-                $message_for_text = '<u><b title="Message for Multihunter"><i>M</i></b></u>';
+                $message_for_text = '<u><b title="'.(defined('LANG') && LANG === 'ar' ? 'رسالة للمراقب' : 'Message for Multihunter').'"><i>M</i></b></u>';
             }
 
 		    echo "<td class=\"sel\">".$message_for_text."</td>
 		    <td class=\"top\"><a href=\"nachrichten.php?id=".$message->inbox1[$i-1]['id']."\">".$message->inbox1[$i-1]['topic']."</a> ";
 			if($message->inbox1[$i-1]['viewed'] == 0) {
-			echo "(new)";
+			echo "(".(defined('LANG') && LANG === 'ar' ? 'جديد' : 'new').")";
 			}
 			$date = $generator->procMtime($message->inbox1[$i-1]['time']);
 			if($message->inbox1[$i-1]['owner'] <= 1) {
@@ -100,7 +100,7 @@
 		    $name++;
 		    }
 		    if(count($message->inbox1) == 0) {
-		    echo "<td colspan=\"4\" class=\"none\">There are no messages available.</td></tr>";
+		    echo "<td colspan=\"4\" class=\"none\">".(defined('LANG') && LANG === 'ar' ? 'لا توجد رسائل متاحة.' : 'There are no messages available.')."</td></tr>";
 		    }
 		    ?>
 		</tbody></table>

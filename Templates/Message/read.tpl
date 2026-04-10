@@ -7,7 +7,7 @@ $report = $message->reading['report'];
 include("GameEngine/BBCode.php");
 ?>
 <div id="content"  class="messages">
-<h1>Messages</h1>
+<h1><?php echo (defined('LANG') && LANG === 'ar' ? 'الرسائل' : 'Messages'); ?></h1>
 <?php 
 include("menu.tpl");
 ?>
@@ -20,7 +20,7 @@ include("menu.tpl");
 		<div><?php
 			$linkSender = ($message->reading['owner'] != 2 && $message->reading['owner'] != 4);
 			if ($linkSender) {
-				echo '<a href="'.rtrim(SERVER, '/')."/spieler.php?uid=".$message->reading['owner']."\">";
+				echo '<a href="'.rtrim(SERVER, '/')."/spieler.php?uid=".$message->reading['owner']."\">"; 
 			}
 			
 			echo $database->getUserField($message->reading['owner'],"username",0);
@@ -43,7 +43,7 @@ include("menu.tpl");
     <input type="hidden" name="ft" value="m1" />
 	<input type="hidden" name="t" value="1" />
 	<p class="btn">
-		<button value="" name="s1" id="btn_reply" class="trav_buttons">Answer</button>
+		<button value="" name="s1" id="btn_reply" class="trav_buttons"><?php echo (defined('LANG') && LANG === 'ar' ? 'رد' : 'Answer'); ?></button>
 	</p>
 </div>
 <div id="read_foot" class="msg_foot"></div>

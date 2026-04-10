@@ -12,10 +12,10 @@
 
 <div id="header">
     <div id="mtop">
-        <a href="<?php echo ($_SESSION['id_user'] != 1 ? 'dorf1.php' : '#'); ?>" id="n1" accesskey="1"><img src="img/x.gif" title="Village overview" alt="Village overview" /></a>
-        <a href="<?php echo ($_SESSION['id_user'] != 1 ? 'dorf2.php' : '#'); ?>" id="n2" accesskey="2"><img src="img/x.gif" title="Village centre" alt="Village centre" /></a>
-        <a href="karte.php" id="n3" accesskey="3"><img src="img/x.gif" title="Map" alt="Map" /></a>
-        <a href="statistiken.php" id="n4" accesskey="4"><img src="img/x.gif" title="Statistics" alt="Statistics" /></a>
+        <a href="<?php echo ($_SESSION['id_user'] != 1 ? 'dorf1.php' : '#'); ?>" id="n1" accesskey="1"><img src="img/x.gif" title="<?php echo (defined('LANG') && LANG === 'ar' ? 'نظرة عامة على القرية' : 'Village overview'); ?>" alt="<?php echo (defined('LANG') && LANG === 'ar' ? 'نظرة عامة على القرية' : 'Village overview'); ?>" /></a>
+        <a href="<?php echo ($_SESSION['id_user'] != 1 ? 'dorf2.php' : '#'); ?>" id="n2" accesskey="2"><img src="img/x.gif" title="<?php echo (defined('LANG') && LANG === 'ar' ? 'مركز القرية' : 'Village centre'); ?>" alt="<?php echo (defined('LANG') && LANG === 'ar' ? 'مركز القرية' : 'Village centre'); ?>" /></a>
+        <a href="karte.php" id="n3" accesskey="3"><img src="img/x.gif" title="<?php echo (defined('LANG') && LANG === 'ar' ? 'الخريطة' : 'Map'); ?>" alt="<?php echo (defined('LANG') && LANG === 'ar' ? 'الخريطة' : 'Map'); ?>" /></a>
+        <a href="statistiken.php" id="n4" accesskey="4"><img src="img/x.gif" title="<?php echo (defined('LANG') && LANG === 'ar' ? 'الإحصائيات' : 'Statistics'); ?>" alt="<?php echo (defined('LANG') && LANG === 'ar' ? 'الإحصائيات' : 'Statistics'); ?>" /></a>
         <?php
         if($message->unread && !$message->nunread) {
         $class = "i2";
@@ -31,8 +31,8 @@
         }
         ?>
           <div id="n5" class="<?php echo $class ?>">
-            <a href="<?php echo ($_SESSION['id_user'] != 1 ? 'berichte.php' : '#'); ?>" accesskey="5"><img src="img/x.gif" class="l" title="Reports" alt="Reports"/></a>
-            <a href="nachrichten.php" accesskey="6"><img src="img/x.gif" class="r" title="Messages" alt="Messages" /></a>
+            <a href="<?php echo ($_SESSION['id_user'] != 1 ? 'berichte.php' : '#'); ?>" accesskey="5"><img src="img/x.gif" class="l" title="<?php echo (defined('LANG') && LANG === 'ar' ? 'التقارير' : 'Reports'); ?>" alt="<?php echo (defined('LANG') && LANG === 'ar' ? 'التقارير' : 'Reports'); ?>"/></a>
+            <a href="nachrichten.php" accesskey="6"><img src="img/x.gif" class="r" title="<?php echo (defined('LANG') && LANG === 'ar' ? 'الرسائل' : 'Messages'); ?>" alt="<?php echo (defined('LANG') && LANG === 'ar' ? 'الرسائل' : 'Messages'); ?>" /></a>
         </div>
 
 		<?php

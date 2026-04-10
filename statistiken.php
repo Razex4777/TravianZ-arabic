@@ -56,6 +56,10 @@ if(isset($_GET['newdid'])) {
 	        case '99':
 	            echo 'WW';
 	            break;
+
+	        case '100':
+	            echo 'Hall of Fame';
+	            break;
 	    }
 	} else {
 	    echo 'Players';
@@ -105,16 +109,17 @@ if(isset($_GET['newdid'])) {
 <div id="mid">
 <?php include("Templates/menu.tpl"); ?>
 		<div id="content"  class="statistics">
-<h1>Statistics</h1>
+<h1><?php echo (defined('LANG') && LANG === 'ar') ? 'الإحصائيات' : 'Statistics'; ?></h1>
 <div id="textmenu">
-   <a href="statistiken.php" <?php if(!isset($_GET['id']) || (isset($_GET['id']) && ($_GET['id'] == 1 || $_GET['id'] == 31 || $_GET['id'] == 32 || $_GET['id'] == 7))) { echo "class=\"selected \""; } ?>>Player</a>
- | <a href="statistiken.php?id=4" <?php if(isset($_GET['id']) && ($_GET['id'] == 4 || $_GET['id'] == 41 || $_GET['id'] == 42 || $_GET['id'] == 43)) { echo "class=\"selected \""; } ?>>Alliances</a>
- | <a href="statistiken.php?id=2" <?php if(isset($_GET['id']) && $_GET['id'] == 2) { echo "class=\"selected \""; } ?>>Villages</a>
- | <a href="statistiken.php?id=8" <?php if(isset($_GET['id']) && $_GET['id'] == 8) { echo "class=\"selected \""; } ?>>Heroes</a>
- | <a href="statistiken.php?id=0" <?php if(isset($_GET['id']) && $_GET['id'] == 0) { echo "class=\"selected \""; } ?>>General</a>
+   <a href="statistiken.php" <?php if(!isset($_GET['id']) || (isset($_GET['id']) && ($_GET['id'] == 1 || $_GET['id'] == 31 || $_GET['id'] == 32 || $_GET['id'] == 7))) { echo "class=\"selected \""; } ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'اللاعبون' : 'Player'; ?></a>
+ | <a href="statistiken.php?id=4" <?php if(isset($_GET['id']) && ($_GET['id'] == 4 || $_GET['id'] == 41 || $_GET['id'] == 42 || $_GET['id'] == 43)) { echo "class=\"selected \""; } ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'التحالفات' : 'Alliances'; ?></a>
+ | <a href="statistiken.php?id=2" <?php if(isset($_GET['id']) && $_GET['id'] == 2) { echo "class=\"selected \""; } ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'القرى' : 'Villages'; ?></a>
+ | <a href="statistiken.php?id=8" <?php if(isset($_GET['id']) && $_GET['id'] == 8) { echo "class=\"selected \""; } ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'الأبطال' : 'Heroes'; ?></a>
+ | <a href="statistiken.php?id=0" <?php if(isset($_GET['id']) && $_GET['id'] == 0) { echo "class=\"selected \""; } ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'عام' : 'General'; ?></a>
  <?php if(WW == true) { echo
  '|'; } else { echo ''; } ?> <a href="statistiken.php?id=99" <?php if(isset($_GET['id']) && $_GET['id'] == 99) { echo "class=\"selected \""; } ?>><?php if(WW == true) { echo
  'WW'; } else { echo ''; }?></a>
+ | <a href="statistiken.php?id=100" <?php if(isset($_GET['id']) && $_GET['id'] == 100) { echo "class=\"selected \""; } ?>><?php echo defined('HALL_OF_FAME') ? HALL_OF_FAME : 'Hall of Fame'; ?></a>
 </div>
 <?php
 if(isset($_GET['id'])) {
@@ -163,6 +168,9 @@ if(isset($_GET['id'])) {
 			break;
 		case 99:
 			include("Templates/Ranking/ww.tpl");
+			break;
+		case 100:
+			include("Templates/Ranking/hall_of_fame.tpl");
 			break;
 	}
 }
