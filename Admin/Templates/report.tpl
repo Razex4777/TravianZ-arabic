@@ -30,8 +30,8 @@ if(!empty($rep1))
 {
 	?>
 	<link href="../<?php echo GP_LOCATE; ?>lang/en/lang.css?f4b7d" rel="stylesheet" type="text/css">
-	<link href="../<?php echo GP_LOCATE; ?>lang/en/compact.css?f4b7i" rel="stylesheet" type="text/css">
-	<link href="../<?php echo GP_LOCATE; ?>travian.css?e21d2" rel="stylesheet" type="text/css">
+	<link href="../<?php echo GP_LOCATE; ?>lang/en/compact.css?v2" rel="stylesheet" type="text/css">
+	<link href="../<?php echo GP_LOCATE; ?>travian.css?v2" rel="stylesheet" type="text/css">
 	<h1>Players Report</h1>
 	<div id="content" class="reports" style="padding: 0;">
 	<?php
@@ -44,8 +44,8 @@ elseif(!empty($rep))
 { 
 ?>
 	<link href="../<?php echo GP_LOCATE; ?>lang/en/lang.css?f4b7d" rel="stylesheet" type="text/css">
-	<link href="../<?php echo GP_LOCATE; ?>lang/en/compact.css?f4b7i" rel="stylesheet" type="text/css">
-	<link href="../<?php echo GP_LOCATE; ?>travian.css?e21d2" rel="stylesheet" type="text/css">
+	<link href="../<?php echo GP_LOCATE; ?>lang/en/compact.css?v2" rel="stylesheet" type="text/css">
+	<link href="../<?php echo GP_LOCATE; ?>travian.css?v2" rel="stylesheet" type="text/css">
 	<br />
 	<span class="b" style="padding: 0 4px 0;">Report of</span>: <?php echo $database->getUserField($rep['uid'], 'username', 0); ?><br />	
 	<div style="padding: 43px 4px 0;" id="content" class="reports">

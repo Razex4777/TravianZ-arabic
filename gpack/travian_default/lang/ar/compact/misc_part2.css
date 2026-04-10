@@ -1,0 +1,538 @@
+img.r1 {
+    background-position: 0 0;
+}
+
+img.r2 {
+    background-position: -21px 0;
+}
+
+img.r3 {
+    background-position: -42px 0;
+}
+
+img.r4 {
+    background-position: -63px 0;
+}
+
+img.r5 {
+    background-position: -84px 0;
+}
+
+img.r100,
+img.r200,
+img.r300,
+img.r400,
+img.r500,
+img.r600,
+img.r700,
+img.r800,
+img.r900,
+img.r1000,
+img.r1100 {
+  height: 21px;
+  width: 25px;
+  background-image: url(../../../img/a/resNew2.png);
+}
+
+img.r100 {
+  background-position: 0px 0px;
+}
+
+img.r200 {
+  background-position: 0px -21px;
+}
+
+img.r300 {
+  background-position: 0px -42px;
+}
+
+img.r400 {
+  background-position: 0px -63px;
+}
+
+img.r500 {
+  background-position: 0px -84px;
+}
+
+img.r600 {
+  background-position: 0px -105px;
+}
+
+img.r700 {
+  background-position: 0px -126px;
+}
+
+img.r800 {
+  background-position: 0px -147px;
+}
+
+img.r900 {
+  background-position: 0px -168px;
+}
+
+img.r1000 {
+  background-position: 0px -189px;
+}
+
+img.r1100 {
+  background-position: 0px -210px;
+}
+
+img.attack_symbol_grey, img.attack_symbol_green, img.attack_symbol_yellow, img.attack_symbol_red {
+    background-image: url("../../../img/a/mark_attack.gif");
+    height: 12px;
+    width: 12px;
+}
+
+img.attack_symbol_green {
+    background-position: 0 0;
+}
+
+img.attack_symbol_yellow {
+    background-position: -15px 0;
+}
+
+img.attack_symbol_red {
+    background-position: -30px 0;
+}
+
+img.attack_symbol_grey {
+    background-position: -45px 0;
+}
+
+img.unit {
+    height: 16px;
+    width: 16px;
+}
+
+img.unit_card_detail {
+    background: none no-repeat scroll 0 0 transparent;
+    margin-left: 5px;
+}
+
+img.u1, img.u2, img.u3, img.u4, img.u5, img.u6, img.u7, img.u8, img.u9, img.u10 {
+    background-image: url("../../../img/u/v1_romans2.gif");
+}
+
+img.u11, img.u12, img.u13, img.u14, img.u15, img.u16, img.u17, img.u18, img.u19, img.u20 {
+    background-image: url("../../../img/u/v2_teutons2.gif");
+}
+
+img.u21, img.u22, img.u23, img.u24, img.u25, img.u26, img.u27, img.u28, img.u29, img.u30 {
+    background-image: url("../../../img/u/v3_gauls2.gif");
+}
+
+img.u31, img.u32, img.u33, img.u34, img.u35, img.u36, img.u37, img.u38, img.u39, img.u40 {
+    background-image: url("../../../img/u/v4_nature2.gif");
+}
+
+img.u41, img.u42, img.u43, img.u44, img.u45, img.u46, img.u47, img.u48, img.u49, img.u50 {
+    background-image: url("../../../img/u/v5_natars2.gif");
+}
+
+img.u51, img.u52, img.u53, img.u54, img.u55, img.u56, img.u57, img.u58, img.u59, img.u60 {
+    background-image: url("../../../img/u/v6_monsters2.gif");
+}
+
+img.uhab, img.ucata, img.ustock, img.uwall, img.ubarr, img.upal, img.ugeb, img.uhero, img.uunits, img.app {
+    background-image: url("../../../img/u/specials.gif");
+}
+
+img.u1, img.u11, img.u21, img.u31, img.u41, img.u51, img.uhab {
+    background-position: 0 0;
+}
+
+img.u2, img.u12, img.u22, img.u32, img.u42, img.u52, img.ucata {
+    background-position: -19px 0;
+}
+
+img.u3, img.u13, img.u23, img.u33, img.u43, img.u53, img.ustock {
+    background-position: -38px 0;
+}
+
+img.u4, img.u14, img.u24, img.u34, img.u44, img.u54, img.uwall {
+    background-position: -57px 0;
+}
+
+img.u5, img.u15, img.u25, img.u35, img.u45, img.u55, img.ubarr {
+    background-position: -76px 0;
+}
+
+img.u6, img.u16, img.u26, img.u36, img.u46, img.u56, img.upal {
+    background-position: -95px 0;
+}
+
+img.u7, img.u17, img.u27, img.u37, img.u47, img.u57, img.ugeb {
+    background-position: -114px 0;
+}
+
+img.u8, img.u18, img.u28, img.u38, img.u48, img.u58, img.uhero {
+    background-position: -133px 0;
+}
+
+img.u9, img.u19, img.u29, img.u39, img.u49, img.u59, img.uunits {
+    background-position: -152px 0;
+}
+
+img.app {
+    background-position: -170px 0;
+}
+
+img.u10, img.u20, img.u30, img.u40, img.u50, img.u60 {
+    background-position: -171px 0;
+}
+
+img.u98 {
+    background-image: url("../../../img/u/98.gif");
+}
+
+img.u99 {
+    background-image: url("../../../img/u/99.gif");
+}
+
+img.att_all {
+    background-image: url("../../../img/a/att_all.gif");
+    height: 16px;
+    width: 16px;
+}
+
+img.att1 {
+    background-image: url("../../../img/a/att1.gif");
+    height: 16px;
+    width: 16px;
+}
+
+img.att2 {
+    background-image: url("../../../img/a/att2.gif");
+    height: 16px;
+    width: 16px;
+}
+
+img.att3 {
+    background-image: url("../../../img/a/att3.gif");
+    height: 16px;
+    width: 16px;
+}
+
+img.def1 {
+    background-image: url("../../../img/a/def1.gif");
+    height: 16px;
+    width: 16px;
+}
+
+img.def2 {
+    background-image: url("../../../img/a/def2.gif");
+    height: 16px;
+    width: 16px;
+}
+
+img.def3 {
+    background-image: url("../../../img/a/def3.gif");
+    height: 16px;
+    width: 16px;
+}
+
+img.def_c {
+    background-image: url("../../../img/a/def_c.gif");
+    height: 16px;
+    width: 16px;
+}
+
+img.def_i {
+    background-image: url("../../../img/a/def_i.gif");
+    height: 16px;
+    width: 16px;
+}
+
+img.gebIcon{width:16px;height:16px;background-image:url(../../../img/g/icon/gebIcon.gif);}
+
+img.g1Icon{background-image:url(../../../img/g/icon/g1Icon.gif);}
+
+img.g2Icon{background-image:url(../../../img/g/icon/g2Icon.gif);}
+
+img.g3Icon{background-image:url(../../../img/g/icon/g3Icon.gif);}
+
+img.g4Icon{background-image:url(../../../img/g/icon/g4Icon.gif);}
+
+img.g5Icon{background-image:url(../../../img/g/icon/g5Icon.gif);}
+
+img.g6Icon{background-image:url(../../../img/g/icon/g6Icon.gif);}
+
+img.g7Icon{background-image:url(../../../img/g/icon/g7Icon.gif);}
+
+img.g8Icon{background-image:url(../../../img/g/icon/g8Icon.gif);}
+
+img.g9Icon{background-image:url(../../../img/g/icon/g9Icon.gif);}
+
+img.g10Icon{background-image:url(../../../img/g/icon/g10Icon.gif);}
+
+img.g11Icon{background-image:url(../../../img/g/icon/g11Icon.gif);}
+
+img.g13Icon{background-image:url(../../../img/g/icon/g13Icon.gif);}
+
+img.g14Icon{background-image:url(../../../img/g/icon/g14Icon.gif);}
+
+img.g15Icon{background-image:url(../../../img/g/icon/g15Icon.gif);}
+
+img.g16Icon{background-image:url(../../../img/g/icon/g16Icon.gif);}
+
+img.g17Icon{background-image:url(../../../img/g/icon/g17Icon.gif);}
+
+img.g18Icon{background-image:url(../../../img/g/icon/g18Icon.gif);}
+
+img.g19Icon{background-image:url(../../../img/g/icon/g19Icon.gif);}
+
+img.g20Icon{background-image:url(../../../img/g/icon/g20Icon.gif);}
+
+img.g21Icon{background-image:url(../../../img/g/icon/g21Icon.gif);}
+
+img.g22Icon{background-image:url(../../../img/g/icon/g22Icon.gif);}
+
+img.g23Icon{background-image:url(../../../img/g/icon/g23Icon.gif);}
+
+img.g24Icon{background-image:url(../../../img/g/icon/g24Icon.gif);}
+
+img.g25Icon{background-image:url(../../../img/g/icon/g25Icon.gif);}
+
+img.g26Icon{background-image:url(../../../img/g/icon/g26Icon.gif);}
+
+img.g27Icon{background-image:url(../../../img/g/icon/g27Icon.gif);}
+
+img.g28Icon{background-image:url(../../../img/g/icon/g28Icon.gif);}
+
+img.g29Icon{background-image:url(../../../img/g/icon/g29Icon.gif);}
+
+img.g30Icon{background-image:url(../../../img/g/icon/g30Icon.gif);}
+
+img.g31Icon{background-image:url(../../../img/g/icon/g31Icon.gif);}
+
+img.g32Icon{background-image:url(../../../img/g/icon/g32Icon.gif);}
+
+img.g33Icon{background-image:url(../../../img/g/icon/g33Icon.gif);}
+
+img.g34Icon{background-image:url(../../../img/g/icon/g34Icon.gif);}
+
+img.g36Icon{background-image:url(../../../img/g/icon/g36Icon.gif);}
+
+img.g37Icon{background-image:url(../../../img/g/icon/g37Icon.gif);}
+
+img.g38Icon{background-image:url(../../../img/g/icon/g38Icon.gif);}
+
+img.g39Icon{background-image:url(../../../img/g/icon/g39Icon.gif);}
+
+img.g40Icon{background-image:url(../../../img/g/icon/g40Icon.gif);}
+
+img.g41Icon{background-image:url(../../../img/g/icon/g41Icon.gif);}
+
+img.big.white.g1{background-image:url(../../../img/g/big/white/g1-rtl.png);}
+
+img.carry {
+    background: url("../../../img/a/car.gif") no-repeat scroll 0 0 transparent;
+    height: 12px;
+    width: 18px;
+}
+
+img.iReport {
+    background-image: url("../../../img/a/report_icons.gif");
+    height: 17px;
+    width: 19px;
+}
+
+img.iReport0 {
+    background-position: 0 -3px;
+}
+
+img.iReport1 {
+    background-position: 0 -53px;
+}
+
+img.iReport2 {
+    background-position: 0 -103px;
+}
+
+img.iReport3 {
+    background-position: 0 -153px;
+}
+
+img.iReport4 {
+    background-position: 0 -203px;
+}
+
+img.iReport5 {
+    background-position: 0 -253px;
+}
+
+img.iReport6 {
+    background-position: 0 -303px;
+}
+
+img.iReport7 {
+    background-position: 0 -353px;
+}
+
+img.iReport8 {
+    background-position: 0 -403px;
+}
+
+img.iReport9 {
+    background-position: 0 -453px;
+}
+
+img.iReport10 {
+    background-position: 0 -503px;
+}
+
+img.iReport11 {
+    background-position: 0 -553px;
+}
+
+img.iReport12 {
+    background-position: 0 -603px;
+}
+
+img.iReport13 {
+    background-position: 0 -653px;
+}
+
+img.iReport14 {
+    background-position: 0 -703px;
+}
+
+img.iReport15 {
+    background-position: 0 -753px;
+}
+
+img.iReport16 {
+    background-position: 0 -803px;
+}
+
+img.iReport17 {
+    background-position: 0 -853px;
+}
+
+img.iReport18 {
+    background-position: 0 -903px;
+}
+
+img.iReport19 {
+    background-position: 0 -953px;
+}
+
+img.online1, img.online2, img.online3, img.online4, img.online5 {
+    background-image: url("../../../img/a/online.gif");
+    height: 12px;
+    width: 12px;
+}
+
+img.online1 {
+    background-position: 0 0;
+}
+
+img.online2 {
+    background-position: -15px 0;
+}
+
+img.online3 {
+    background-position: -30px 0;
+}
+
+img.online4 {
+    background-position: -45px 0;
+}
+
+img.online5 {
+    background-position: -60px 0;
+}
+
+img.WWVillagesAnnouncement {
+    background-image: url("../../../img/artefact/WWVillagesAnnouncement.gif");
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    width: 196px;
+    height: 324px;
+}
+
+img.ArtefactsAnnouncement {
+    background-image: url("../../../img/artefact/ArtifactsAnnouncement.gif");
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    width: 378px;
+    height: 157px;
+}
+
+img.WWBuildingPlansAnnouncement{
+	background-image: url("../../../img/artefact/type-1.gif");
+	display: block;
+    margin-right: auto;
+    margin-left: auto;
+    width: 551px;
+    height: 168px;
+}
+
+h1 img.point {
+    background-image: url("../../../img/u/point.gif");
+    height: 16px;
+    width: 16px;
+}
+
+img.cropfinder_icon {
+    background-image: url("../../../img/misc/cropfinder.gif");
+    height: 20px;
+    width: 20px;
+}
+
+img.plus {
+    background-image: url("../../../img/a/plus.gif");
+    height: 13px;
+    width: 13px;
+}
+
+img.minus {
+    background-image: url("../../../img/a/minus.gif");
+    height: 13px;
+    width: 13px;
+}
+
+div.popup3 {
+    background-image: url("../../../img/a/anl.gif");
+}
+
+div.popup3 img.xlo {
+    background-image: url("../../../img/misc/xlo.gif");
+    height: 32px;
+    width: 32px;
+}
+
+body.v35 a#n1 img {
+    background-image: url("../../../img/l/n1.gif");
+}
+
+body.v35 a#n2 img {
+    background-image: url("../../../img/l/n2.gif");
+}
+
+body.v35 a#n3 img {
+    background-image: url("../../../img/l/n3.gif");
+}
+
+body.v35 a#n4 img {
+    background-image: url("../../../img/l/n4.gif");
+}
+
+body.v3 a#n1 img {
+    background-image: url("../../../img/l/n1_30.gif");
+}
+
+body.v3 a#n2 img {
+    background-image: url("../../../img/l/n2_30.gif");
+}
+
+body.v3 a#n3 img {
+    background-image: url("../../../img/l/n3_30.gif");
+}
+
+body.v3 a#n4 img {
+    background-image: url("../../../img/l/n4_30.gif");
+}

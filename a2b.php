@@ -71,8 +71,9 @@ $process = $units->procUnits($_POST);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html>
+<html<?php echo (defined('LANG') && LANG === 'ar') ? ' dir="rtl"' : ''; ?>>
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title><?php
 
 echo SERVER_NAME.' - Send Troops'?>
@@ -90,30 +91,34 @@ echo SERVER_NAME.' - Send Troops'?>
 
 echo GP_LOCATE;
 
-?>lang/en/lang.css?f4b7d"
+?>lang/<?php echo LANG; ?>/lang.css?f4b7d"
 	rel="stylesheet" type="text/css" />
 <link href="<?php
 
 echo GP_LOCATE;
 
-?>lang/en/compact.css?f4b7i"
+?>lang/<?php echo LANG; ?>/compact.css?v2"
 	rel="stylesheet" type="text/css" />
 	<?php
 	
 	if($session->gpack == null || GP_ENABLE == false){
 		echo "
-	<link href='".GP_LOCATE."travian.css?e21d2' rel='stylesheet' type='text/css' />
-	<link href='".GP_LOCATE."lang/en/lang.css?e21d2' rel='stylesheet' type='text/css' />";
+	<link href='".GP_LOCATE."travian.css?v2' rel='stylesheet' type='text/css' />
+	<link href='".GP_LOCATE."lang/".LANG."/lang.css?v2' rel='stylesheet' type='text/css' />";
 	}else{
 		echo "
-	<link href='".$session->gpack."travian.css?e21d2' rel='stylesheet' type='text/css' />
-	<link href='".$session->gpack."lang/en/lang.css?e21d2' rel='stylesheet' type='text/css' />";
+	<link href='".$session->gpack."travian.css?v2' rel='stylesheet' type='text/css' />
+	<link href='".$session->gpack."lang/".LANG."/lang.css?v2' rel='stylesheet' type='text/css' />";
 	}
 	
 	?>
 	<script type="text/javascript">
 		window.addEvent('domready', start);
 	</script>
+
+	<?php if(defined('LANG') && LANG === 'ar'): ?>
+	
+	<?php endif; ?>
 </head>
 
 

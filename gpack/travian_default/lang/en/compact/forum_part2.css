@@ -1,0 +1,107 @@
+div.forum img.hmpf, div.forum table#posts td.pcontent div.text img.hmpf, div.messages img.hmpf {
+    background-position: -286px 0;
+}
+
+div.forum img.hrhr, div.forum table#posts td.pcontent div.text img.hrhr, div.messages img.hrhr {
+    background-position: -308px 0;
+}
+
+div.forum img.huh, div.forum table#posts td.pcontent div.text img.huh, div.messages img.huh {
+    background-position: -330px 0;
+}
+
+div.forum img.lazy, div.forum table#posts td.pcontent div.text img.lazy, div.messages img.lazy {
+    background-position: -352px 0;
+}
+
+div.forum img.love, div.forum table#posts td.pcontent div.text img.love, div.messages img.love {
+    background-position: -374px 0;
+}
+
+div.forum img.nocomment, div.forum table#posts td.pcontent div.text img.nocomment, div.messages img.nocomment {
+    background-position: -396px 0;
+}
+
+div.forum img.noemotion, div.forum table#posts td.pcontent div.text img.noemotion, div.messages img.noemotion {
+    background-position: -418px 0;
+}
+
+div.forum img.notamused, div.forum table#posts td.pcontent div.text img.notamused, div.messages img.notamused {
+    background-position: -440px 0;
+}
+
+div.forum img.pout, div.forum table#posts td.pcontent div.text img.pout, div.messages img.pout {
+    background-position: -462px 0;
+}
+
+div.forum img.redface, div.forum table#posts td.pcontent div.text img.redface, div.messages img.redface {
+    background-position: -484px 0;
+}
+
+div.forum img.rolleyes, div.forum table#posts td.pcontent div.text img.rolleyes, div.messages img.rolleyes {
+    background-position: -506px 0;
+}
+
+div.forum img.sad, div.forum table#posts td.pcontent div.text img.sad, div.messages img.sad {
+    background-position: -528px 0;
+}
+
+div.forum img.shy, div.forum table#posts td.pcontent div.text img.shy, div.messages img.shy {
+    background-position: -550px 0;
+}
+
+div.forum img.smile, div.forum table#posts td.pcontent div.text img.smile, div.messages img.smile {
+    background-position: -572px 0;
+}
+
+div.forum img.tongue, div.forum table#posts td.pcontent div.text img.tongue, div.messages img.tongue {
+    background-position: -594px 0;
+}
+
+div.forum img.veryangry, div.forum table#posts td.pcontent div.text img.veryangry, div.messages img.veryangry {
+    background-position: -616px 0;
+}
+
+div.forum img.veryhappy, div.forum table#posts td.pcontent div.text img.veryhappy, div.messages img.veryhappy {
+    background-position: -638px 0;
+}
+
+div.forum img.wink, div.forum table#posts td.pcontent div.text img.wink {
+    background-position: -660px 0;
+}
+
+div.forum img.switch_admin {
+    background-image: url("../../../img/f/switch_admin.gif");
+    height: 20px;
+    width: 47px;
+}
+
+div.forum textarea#text, div.forum div#text_preview {
+    margin-top: 10px;
+    padding: 5px;
+    width: 400px;
+}
+
+div.forum table#poll thead th {
+    background-image: url("../../../img/f/c4.gif");
+    background-repeat: repeat;
+}
+
+div.forum table#poll td.stat img {
+    height: 12px;
+}
+
+div.forum table#poll td.stat img.stats-start {
+    background-image: url("../../../img/f/stats_left.gif");
+    width: 5px;
+}
+
+div.forum table#poll td.stat img.stats-middle {
+    background-image: url("../../../img/f/stats_middle.gif");
+    background-repeat: repeat-x;
+}
+
+div.forum table#poll td.stat img.stats-end {
+    background-image: url("../../../img/f/stats_right.gif");
+    width: 5px;
+}

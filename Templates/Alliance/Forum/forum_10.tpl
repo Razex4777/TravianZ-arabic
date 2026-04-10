@@ -31,12 +31,12 @@ foreach($posts as $pos){
 	<table cellpadding="1" cellspacing="1" id="edit_post">
 		<thead>
 			<tr>
-				<th colspan="2">Edit answer</th>
+				<th colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'تعديل الإجابة' : 'Edit answer'; ?></th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
-				<th>Thread</th>
+				<th><?php echo (defined('LANG') && LANG === 'ar') ? 'الموضوع' : 'Thread'; ?></th>
 				<td><?php echo $title; ?></td>
 
 			</tr>
@@ -48,47 +48,47 @@ foreach($posts as $pos){
 					<div bbArea="text" id="text_container" name="text_container">
 						<div id="text_toolbar" name="text_toolbar">
 							<a href="javascript:void(0);" bbType="d" bbTag="b">
-								<div title="bold" alt="bold" class="bbButton bbBold"></div>
+								<div title="<?php echo (defined('LANG') && LANG === 'ar') ? 'عريض' : 'bold'; ?>" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'عريض' : 'bold'; ?>" class="bbButton bbBold"></div>
 							</a> <a href="javascript:void(0);" bbType="d" bbTag="i">
-								<div title="italic" alt="italic" class="bbButton bbItalic"></div>
+								<div title="<?php echo (defined('LANG') && LANG === 'ar') ? 'مائل' : 'italic'; ?>" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'مائل' : 'italic'; ?>" class="bbButton bbItalic"></div>
 							</a> <a href="javascript:void(0);" bbType="d" bbTag="u">
-								<div title="underlined" alt="underlined"
+								<div title="<?php echo (defined('LANG') && LANG === 'ar') ? 'تحته خط' : 'underlined'; ?>" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'تحته خط' : 'underlined'; ?>"
 									class="bbButton bbUnderscore"></div>
 							</a> <a href="javascript:void(0);" bbType="d" bbTag="alliance">
-								<div title="Alliance" alt="Alliance" class="bbButton bbAlliance"></div>
+								<div title="<?php echo (defined('LANG') && LANG === 'ar') ? 'تحالف' : 'Alliance'; ?>" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'تحالف' : 'Alliance'; ?>" class="bbButton bbAlliance"></div>
 							</a> <a href="javascript:void(0);" bbType="d" bbTag="player">
-								<div title="Player" alt="Player" class="bbButton bbPlayer"></div>
+								<div title="<?php echo (defined('LANG') && LANG === 'ar') ? 'لاعب' : 'Player'; ?>" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'لاعب' : 'Player'; ?>" class="bbButton bbPlayer"></div>
 							</a> <a href="javascript:void(0);" bbType="d" bbTag="coor">
-								<div title="Coordinates" alt="Coordinates"
+								<div title="<?php echo (defined('LANG') && LANG === 'ar') ? 'إحداثيات' : 'Coordinates'; ?>" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'إحداثيات' : 'Coordinates'; ?>"
 									class="bbButton bbCoordinate"></div>
 							</a> <a href="javascript:void(0);" bbType="d" bbTag="report">
-								<div title="Report" alt="Report" class="bbButton bbReport"></div>
+								<div title="<?php echo (defined('LANG') && LANG === 'ar') ? 'تقرير' : 'Report'; ?>" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'تقرير' : 'Report'; ?>" class="bbButton bbReport"></div>
 							</a> <a href="javascript:void(0);" bbWin="resources"
 								id="text_resourceButton">
-								<div title="Resources" alt="Resources"
+								<div title="<?php echo (defined('LANG') && LANG === 'ar') ? 'الموارد' : 'Resources'; ?>" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'الموارد' : 'Resources'; ?>"
 									class="bbButton bbResource"></div>
 							</a> <a href="javascript:void(0);" bbWin="smilies"
 								id="text_smilieButton">
-								<div title="Smilies" alt="Smilies" class="bbButton bbSmilie"></div>
+								<div title="<?php echo (defined('LANG') && LANG === 'ar') ? 'وجوه' : 'Smilies'; ?>" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'وجوه' : 'Smilies'; ?>" class="bbButton bbSmilie"></div>
 							</a> <a href="javascript:void(0);" bbWin="troops"
 								id="text_troopButton">
-								<div title="Troops" alt="Troops" class="bbButton bbTroop"></div>
+								<div title="<?php echo (defined('LANG') && LANG === 'ar') ? 'القوات' : 'Troops'; ?>" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'القوات' : 'Troops'; ?>" class="bbButton bbTroop"></div>
 							</a> <a href="javascript:void(0);" id="text_previewButton"
 								bbArea="text">
-								<div title="Preview" alt="Preview" class="bbButton bbPreview"></div>
+								<div title="<?php echo (defined('LANG') && LANG === 'ar') ? 'معاينة' : 'Preview'; ?>" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'معاينة' : 'Preview'; ?>" class="bbButton bbPreview"></div>
 							</a>
 
 							<div class="clear"></div>
 							<div id="text_toolbarWindows">
 								<div id="text_resources" name="text_resources">
 									<a href="javascript:void(0);" bbType="o" bbTag="lumber"><img
-										src="img/x.gif" class="r1" title="Wood" alt="Wood" /></a> <a
+										src="img/x.gif" class="r1" title="<?php echo (defined('LANG') && LANG === 'ar') ? 'خشب' : 'Wood'; ?>" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'خشب' : 'Wood'; ?>" /></a> <a
 										href="javascript:void(0);" bbType="o" bbTag="clay"><img
-										src="img/x.gif" class="r2" title="Clay" alt="Clay" /></a> <a
+										src="img/x.gif" class="r2" title="<?php echo (defined('LANG') && LANG === 'ar') ? 'طين' : 'Clay'; ?>" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'طين' : 'Clay'; ?>" /></a> <a
 										href="javascript:void(0);" bbType="o" bbTag="iron"><img
-										src="img/x.gif" class="r3" title="Iron" alt="Iron" /></a> <a
+										src="img/x.gif" class="r3" title="<?php echo (defined('LANG') && LANG === 'ar') ? 'حديد' : 'Iron'; ?>" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'حديد' : 'Iron'; ?>" /></a> <a
 										href="javascript:void(0);" bbType="o" bbTag="crop"><img
-										src="img/x.gif" class="r4" title="Crop" alt="Crop" /></a>
+										src="img/x.gif" class="r4" title="<?php echo (defined('LANG') && LANG === 'ar') ? 'قمح' : 'Crop'; ?>" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'قمح' : 'Crop'; ?>" /></a>
 								</div>
 								<div id="text_smilies" name="text_smilies">
 									<a href="javascript:void(0);" bbType="s" bbTag="*aha*"><img
@@ -305,6 +305,4 @@ foreach($posts as $pos){
 
 </form>
 </p>
-<span style="color: #DD0000"><b>Warning:</b> you can't use the values <b>[message]</b>
-	or <b>[/message]</b> in your post because it can cause problem with
-	bbcode system.</span>
+<span style="color: #DD0000"><b><?php echo (defined('LANG') && LANG === 'ar') ? 'تحذير:' : 'Warning:'; ?></b> <?php echo (defined('LANG') && LANG === 'ar') ? 'لا يمكنك استخدام القيم' : "you can't use the values"; ?> <b>[message]</b> <?php echo (defined('LANG') && LANG === 'ar') ? 'أو' : 'or'; ?> <b>[/message]</b> <?php echo (defined('LANG') && LANG === 'ar') ? 'في مشاركتك لأنها قد تسبب مشاكل في نظام الأكواد.' : 'in your post because it can cause problem with bbcode system.'; ?></span>

@@ -1,0 +1,194 @@
+div.a2b {
+    padding: 43px 25px 0;
+    width: 502px;
+}
+
+div.a2b p.btn {
+    text-align: left;
+}
+
+div.a2b .slots {
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+div.a2b table#troops {
+    margin-top: 5px;
+}
+
+div.a2b table#coords {
+    margin: 25px 0 10px 5px;
+}
+
+div.a2b table.troop_details {
+    margin: 15px 0;
+}
+
+div.a2b table th, div.a2b table td {
+    padding: 2px 7px;
+}
+
+div.a2b table#troops {
+    background-color: #FFFFFF;
+    border: 1px dashed #C0C0C0;
+}
+
+div.a2b table#troops td.column-first {
+    padding-left: 8px;
+}
+
+div.a2b table#troops td.column-last {
+    padding-right: 8px;
+}
+
+div.a2b table#troops td.line-first {
+    padding-top: 8px;
+}
+
+div.a2b table#troops td.line-last {
+    padding-bottom: 8px;
+}
+
+div.a2b table#troops td.large {
+    width: 26%;
+}
+
+div.a2b table#troops td.regular {
+    width: 25%;
+}
+
+div.a2b table#troops td.small {
+    width: 23%;
+}
+
+div.a2b table#troops img {
+    bottom: 3px;
+    margin-right: 2px;
+    position: relative;
+    vertical-align: bottom;
+}
+
+div.a2b table#troops input.text {
+    width: 30px;
+}
+
+div.a2b table#troops input.disabled {
+    background-color: #EEEEEE;
+    border-color: #AAAAAA;
+}
+
+div.a2b table#coords {
+    background-color: #FFFFFF;
+    line-height: 18px;
+}
+
+div.a2b table#coords td {
+    padding: 0;
+    vertical-align: top;
+}
+
+div.a2b table#coords td.sel {
+    white-space: nowrap;
+    width: 35%;
+}
+
+div.a2b table#coords td.sel input.radio {
+    position: relative;
+    top: 1px;
+}
+
+div.a2b table#coords td.vil *, div.a2b table#coords td.target * {
+    float: left;
+    margin-right: 10px;
+}
+
+div.a2b table#coords td.vil input.text {
+    width: 100px;
+}
+
+div.a2b table#coords td.target input.text {
+    width: 40px;
+}
+
+div.a2b table#short_info {
+    background-color: #FFFFFF;
+}
+
+div.a2b table#short_info th {
+    padding-left: 0;
+    width: 15%;
+}
+
+div.a2b table.troop_details tbody th {
+    width: 20%;
+}
+
+div.a2b table.troop_details tbody.units td {
+    padding: 2px;
+    text-align: center;
+    width: 7.2%;
+}
+
+div.a2b table.troop_details tbody.units input.text {
+    width: 73%;
+}
+
+div.a2b table.troop_details tbody.options input.radio {
+    margin-right: 2px;
+    position: relative;
+    top: 2px;
+}
+
+div.a2b table.troop_details tbody.cata select.dropdown {
+    margin: 1px 0;
+}
+
+div.a2b table.troop_details tbody.infos th, div.a2b table.troop_details tbody.infos td {
+    background-color: #F5F5F5;
+}
+
+div.a2b table.troop_details tbody.infos div {
+    text-align: center;
+    width: 49%;
+}
+
+div.a2b table.troop_details tbody.infos div.in {
+    float: left;
+}
+
+div.a2b table.troop_details tbody.infos div.at {
+    float: right;
+}
+
+div.a2b p.error {
+    font-weight: bold;
+}
+
+div.a2b span.info {
+    font-size: 11px;
+}
+
+div.a2b table#troops td {
+    font-size: 11px;
+}
+
+div.a2b table#troops span.none {
+    font-weight: bold;
+}
+
+div.a2b table#coords td.or {
+    font-style: italic;
+}
+
+div.a2b table#coords td.vil, div.a2b table#coords td.target {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+div.a2b table.troop_details thead td {
+    font-weight: bold;
+}
+
+div.a2b table.troop_details thead td a {
+    color: black;
+}

@@ -1,0 +1,511 @@
+div.forum {
+    padding: 43px 25px 0;
+    width: 502px;
+}
+
+div.forum a.mad {
+    right: -15px;
+    margin-right: 50%;
+    position: relative;
+    top: 50px;
+}
+
+div.forum img.switch_admin {
+    margin-right: 5px;
+}
+
+div.forum h4 {
+    margin: 0 0 15px 5px;
+}
+
+div.forum table#public, div.forum table#confederation, div.forum table#alliance, div.forum table#closed {
+    margin-top: 10px;
+}
+
+div.forum table#conf_list, div.forum table#ally_list, div.forum table#user_list, div.forum table#non_conf_list, div.forum table#open_user {
+    margin-top: 15px;
+}
+
+div.forum table {
+    width: 502px;
+}
+
+div.forum table td, div.forum table th {
+    padding: 2px 7px;
+}
+
+div.forum table td.ico {
+    padding: 5px;
+    text-align: center;
+    white-space: nowrap;
+    width: 32px;
+}
+
+div.forum table td.ico a img {
+    margin: 2px;
+}
+
+div.forum table td.tit {
+    padding: 5px;
+}
+
+div.forum table td.cou {
+    text-align: center;
+    width: 62px;
+}
+
+div.forum table td.last {
+    padding: 2px 5px 2px 2px;
+    text-align: left;
+    white-space: nowrap;
+    width: 120px;
+}
+
+div.forum table td.none {
+    text-align: center;
+}
+
+div.forum table td.navi_top, div.forum table td.navi_btm {
+    float: left;
+    margin-left: 20px;
+    text-align: left;
+}
+
+div.forum table td.navi_btm {
+    margin-top: 15px;
+}
+
+div.forum h4 {
+    margin: 0 0 15px 5px;
+}
+
+div.forum table#public, div.forum table#confederation, div.forum table#alliance, div.forum table#closed {
+    margin-top: 10px;
+}
+
+div.forum table#posts td.poll {
+    background-color: #FFFFFF;
+    padding: 5px 2px;
+}
+
+div.forum table#posts td.pinfo {
+    vertical-align: top;
+    width: 21%;
+}
+
+div.forum table#posts td.pcontent {
+    padding: 0;
+    vertical-align: top;
+}
+
+div.forum table#posts td.pcontent div {
+    vertical-align: top;
+}
+
+div.forum table#posts td.pcontent div.posted {
+    float: right;
+    padding: 2px 10px 0;
+}
+
+div.forum table#posts td.pcontent div.admin {
+    float: left;
+    padding: 2px 10px 0;
+}
+
+div.forum table#posts td.pcontent div.admin img {
+    margin-right: 3px;
+}
+
+div.forum table#posts td.pcontent div.dotted {
+    border-bottom: 1px dotted #C0C0C0;
+    height: 1px;
+    padding: 0;
+    width: 100%;
+}
+
+div.forum table#posts td.pcontent div.text {
+    min-height: 70px;
+    overflow-x: auto;
+    padding: 4px 10px 30px;
+    width: 376px;
+}
+
+div.forum table#posts td.pcontent div.edited {
+    border-top: 1px dotted #C0C0C0;
+    padding: 0 10px 2px;
+}
+
+div.forum table#new_forum tbody th, div.forum table#edit_forum tbody th {
+    width: 30%;
+}
+
+div.forum table#new_forum input.text, div.forum table#new_forum input.text {
+    width: 97%;
+}
+
+div.forum table#conf_list td.ally, div.forum table#user_list td.ally, div.forum table#non_conf_list td.ally {
+    width: 70%;
+}
+
+div.forum table#conf_list td.sel, div.forum table#non_conf_list td.sel, div.forum table#open_user td.sel {
+    text-align: center;
+    width: 5%;
+}
+
+div.forum table#conf_list td.tag, div.forum table#non_conf_list td.tag {
+    text-align: center;
+    width: 25%;
+}
+
+div.forum table#ally_list input.text, div.forum table#user_list input.text {
+    width: 95%;
+}
+
+div.forum table#ally_list tag.tag, div.forum table#ally_list tag.ally, div.forum table#user_list tag.id, div.forum table#user_list tag.pla {
+    width: 40%;
+}
+
+div.forum table#ally_list td.ad, div.forum table#user_list td.ad {
+    text-align: center;
+    width: 20%;
+}
+
+div.forum table#ally_list img.add, div.forum table#user_list img.add {
+    cursor: pointer;
+}
+
+div.forum table#new_topic tbody th, div.forum table#new_post tbody th, div.forum table#edit_post tbody th {
+    width: 87px;
+}
+
+div.forum table#edit_topic tbody th {
+    width: 30%;
+}
+
+div.forum table#new_topic td.input_icons, div.forum table#new_post td.input_icons, div.forum table#edit_post td.input_icons {
+    padding: 10px 3px 0;
+    text-align: center;
+    vertical-align: top;
+    width: 87px;
+}
+
+div.forum table#new_topic td.input_icons img, div.forum table#new_post td.input_icons img, div.forum table#edit_post td.input_icons img {
+    cursor: pointer;
+}
+
+div.forum table#new_topic td.input_icons img.smiley, div.forum table#new_post td.input_icons img.smiley, div.forum table#edit_post td.input_icons img.smiley {
+    margin: 3px 1px;
+}
+
+div.forum table#new_topic textarea, div.forum table#new_post textarea, div.forum table#edit_post textarea {
+    height: 250px;
+    overflow: auto;
+    width: 381px;
+}
+
+div.forum table#new_topic td.sel {
+    text-align: center;
+}
+
+div.forum table#new_topic table#options td {
+    padding-bottom: 0;
+}
+
+div.forum table#new_topic table#options input.text {
+    margin-bottom: 2px;
+}
+
+div.forum table#new_topic select.dropdown {
+    margin-left: 1px;
+}
+
+div.forum table#edit_topic select.dropdown {
+    width: 100%;
+}
+
+div.forum table#poll {
+    background-color: #FFFFFF;
+    width: 496px;
+}
+
+div.forum table#poll thead th {
+    padding: 4px;
+    text-align: center;
+}
+
+div.forum table#poll td {
+    text-align: center;
+}
+
+div.forum table#poll td.sel {
+    text-align: left;
+    white-space: nowrap;
+    width: 30%;
+}
+
+div.forum table#poll td.stat {
+    text-align: right;
+    width: 280px;
+}
+
+div.forum table#poll td.stat img {
+    float: right;
+}
+
+div.forum table#poll td.count {
+    text-align: center;
+}
+
+div.forum p.error {
+    font-weight: bold;
+}
+
+div.forum h4 {
+    font-size: 11px;
+    font-weight: normal;
+}
+
+div.forum table td.tit {
+    font-size: 11px;
+}
+
+div.forum table td.cou {
+    font-size: 10px;
+}
+
+div.forum table td.last {
+    font-size: 10px;
+}
+
+div.forum table td.navi_top, div.forum table td.navi_btm {
+    font-size: 11px;
+}
+
+div.forum table#posts td.pinfo {
+    font-size: 10px;
+}
+
+div.forum table#posts td.pinfo .name {
+    font-size: 11px;
+    font-weight: bold;
+}
+
+div.forum table#posts td.pinfo span.name {
+    color: #888888;
+}
+
+div.forum table#posts td.pcontent div.posted {
+    color: #888888;
+    font-size: 10px;
+}
+
+div.forum table#posts td.pcontent div.text {
+    font-size: 11px;
+}
+
+div.forum table#posts td.pcontent div.edited {
+    color: #888888;
+    font-size: 10px;
+}
+
+div.forum table#new_topic tbody th, div.forum table#new_post tbody th, div.forum table#edit_post tbody th {
+    font-size: 11px;
+    font-weight: bold;
+}
+
+div.forum table#edit_topic tbody th {
+    font-size: 11px;
+    font-weight: bold;
+    width: 30%;
+}
+
+div.forum table#poll thead th {
+    font-size: 12px;
+    font-weight: normal;
+}
+
+div.forum table#poll td {
+    font-size: 11px;
+}
+
+div.forum img.add {
+    background-image: url("../../../img/f/plus.gif");
+    height: 16px;
+    width: 16px;
+}
+
+div.forum a.mad img {
+    background-image: url("../../../img/f/mad.gif");
+    height: 29px;
+    width: 31px;
+}
+
+div.forum table td.ico img {
+    height: 25px;
+    width: 26px;
+}
+
+div.forum table td.ico a img, div.forum table td.pcontent div.admin a img {
+    height: 12px;
+    width: 12px;
+}
+
+div.forum table td.ico a.edit img, div.forum table td.pcontent div.admin a.edit img {
+    background-image: url("../../../img/f/edit.gif");
+}
+
+div.forum table td.ico a.fdel img, div.forum table td.pcontent div.admin a.fdel img {
+    background-image: url("../../../img/f/del.gif");
+}
+
+div.forum table td.ico a.down_arr img {
+    background-image: url("../../../img/f/down_arr.gif");
+}
+
+div.forum table td.ico a.up_arr img {
+    background-image: url("../../../img/f/up_arr.gif");
+}
+
+div.forum table td.ico a.unlock img {
+    background-image: url("../../../img/f/unlock.gif");
+}
+
+div.forum table td.ico a.lock img {
+    background-image: url("../../../img/f/lock.gif");
+}
+
+div.forum table td.ico a.pin img {
+    background-image: url("../../../img/f/pin.gif");
+}
+
+div.forum table td.ico a.unpin img {
+    background-image: url("../../../img/f/unpin.gif");
+}
+
+div.forum table td.ico img.folder {
+    background-image: url("../../../img/f/folder.gif");
+}
+
+div.forum table td.ico img.folder_lock {
+    background-image: url("../../../img/f/folder_lock.gif");
+}
+
+div.forum table td.ico img.folder_new {
+    background-image: url("../../../img/f/folder_new.gif");
+}
+
+div.forum table td.ico img.folder_new_lock {
+    background-image: url("../../../img/f/folder_new_lock.gif");
+}
+
+div.forum table td.ico img.folder_sticky {
+    background-image: url("../../../img/f/folder_sticky.gif");
+}
+
+div.forum table td.ico img.folder_sticky_lock {
+    background-image: url("../../../img/f/folder_sticky_lock.gif");
+}
+
+div.forum table td.ico img.folder_new_sticky {
+    background-image: url("../../../img/f/folder_new_sticky.gif");
+}
+
+div.forum table td.ico img.folder_new_sticky_lock {
+    background-image: url("../../../img/f/folder_new_sticky_lock.gif");
+}
+
+div.forum table td.ico img.v_folder {
+    background-image: url("../../../img/f/v_folder.gif");
+}
+
+div.forum table td.ico img.v_folder_lock {
+    background-image: url("../../../img/f/v_folder_lock.gif");
+}
+
+div.forum table td.ico img.v_folder_new {
+    background-image: url("../../../img/f/v_folder_new.gif");
+}
+
+div.forum table td.ico img.v_folder_new_lock {
+    background-image: url("../../../img/f/v_folder_new_lock.gif");
+}
+
+div.forum table td.ico img.v_folder_sticky {
+    background-image: url("../../../img/f/v_folder_sticky.gif");
+}
+
+div.forum table td.ico img.v_folder_sticky_lock {
+    background-image: url("../../../img/f/v_folder_sticky_lock.gif");
+}
+
+div.forum table td.ico img.v_folder_new_sticky {
+    background-image: url("../../../img/f/v_folder_new_sticky.gif");
+}
+
+div.forum table td.ico img.v_folder_new_sticky_lock {
+    background-image: url("../../../img/f/v_folder_new_sticky_lock.gif");
+}
+
+div.forum table#topics td.last img.latest_reply {
+    background-image: url("../../../img/f/icon_latest_reply.gif");
+    height: 9px;
+    width: 18px;
+}
+
+div.forum table img.smiley, div.forum table#posts td.pcontent div.text img.smiley, div.messages img.smiley {
+    background-image: url("../../../img/f/smileys.gif");
+    height: 16px;
+    width: 19px;
+}
+
+div.forum table img.aha, div.forum table#posts td.pcontent div.text img.aha, div.messages img.aha {
+    background-position: 0 0;
+}
+
+div.forum img.angry, div.forum table#posts td.pcontent div.text img.angry, div.messages img.angry {
+    background-position: -22px 0;
+}
+
+div.forum img.cool, div.forum table#posts td.pcontent div.text img.cool, div.messages img.cool {
+    background-position: -44px 0;
+}
+
+div.forum img.cry, div.forum table#posts td.pcontent div.text img.cry, div.messages img.cry {
+    background-position: -66px 0;
+}
+
+div.forum img.cute, div.forum table#posts td.pcontent div.text img.cute, div.messages img.cute {
+    background-position: -88px 0;
+}
+
+div.forum img.depressed, div.forum table#posts td.pcontent div.text img.depressed, div.messages img.depressed {
+    background-position: -110px 0;
+}
+
+div.forum img.eek, div.forum table#posts td.pcontent div.text img.eek, div.messages img.eek {
+    background-position: -132px 0;
+}
+
+div.forum img.ehem, div.forum table#posts td.pcontent div.text img.ehem, div.messages img.ehem {
+    background-position: -154px 0;
+}
+
+div.forum img.emotional, div.forum table#posts td.pcontent div.text img.emotional, div.messages img.emotional {
+    background-position: -176px 0;
+}
+
+div.forum img.grin, div.forum table#posts td.pcontent div.text img.grin, div.messages img.grin {
+    background-position: -198px 0;
+}
+
+div.forum img.happy, div.forum table#posts td.pcontent div.text img.happy, div.messages img.happy {
+    background-position: -220px 0;
+}
+
+div.forum img.hit, div.forum table#posts td.pcontent div.text img.hit, div.messages img.hit {
+    background-position: -242px 0;
+}
+
+div.forum img.hmm, div.forum table#posts td.pcontent div.text img.hmm, div.messages img.hmm {
+    background-position: -264px 0;
+}

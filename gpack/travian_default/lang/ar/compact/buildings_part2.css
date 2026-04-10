@@ -1,0 +1,517 @@
+div#build.gid17 table.send_res {
+    background-color: #FFFFFF;
+    line-height: 24px;
+    width: 40%;
+}
+
+div#build.gid17 table.send_res td {
+    padding-left: 4px;
+    vertical-align: top;
+}
+
+div#build.gid17 table.send_res td.ico {
+    width: 5%;
+}
+
+div#build.gid17 table.send_res td.ico img {
+    position: relative;
+    top: 4px;
+}
+
+div#build.gid17 table.send_res td.nam {
+    width: 16%;
+}
+
+div#build.gid17 table.send_res td.val {
+    width: 12%;
+}
+
+div#build.gid17 table.send_res td.val input.text {
+    width: 39px;
+}
+
+div#build.gid17 table.send_res td.max {
+    width: 20%;
+}
+
+div#build.gid17 table.res_target {
+    background-color: #FFFFFF;
+    line-height: 21px;
+    width: 40%;
+}
+
+div#build.gid17 table.res_target th, div#build.gid17 table.res_target td {
+    vertical-align: top;
+}
+
+div#build.gid17 table.res_target th {
+    width: 30%;
+}
+
+div#build.gid17 table#target_select td.mer {
+    padding-bottom: 9px;
+}
+
+div#build.gid17 table#target_select td.vil *, div#build.gid17 table#target_select td.coo * {
+    float: right;
+}
+
+div#build.gid17 table#target_select td.vil input.text {
+    margin-right: 10px;
+    width: 100px;
+}
+
+div#build.gid17 table#target_select td.coo input.text {
+    margin: 0 10px;
+    width: 40px;
+}
+
+div#build.gid17 table#target_validate td.vil {
+    padding-bottom: 11px;
+}
+
+div#build.gid17 table.traders th, div#build.gid17 table.traders td {
+    padding: 2px 7px;
+}
+
+div#build.gid17 table.traders tr.res th, div#build.gid17 table.traders tr.res td {
+    background-color: #F5F5F5;
+}
+
+div#build.gid17 table.traders th {
+    width: 20%;
+}
+
+div#build.gid17 table.traders div.in {
+    float: right;
+    text-align: center;
+    width: 45%;
+}
+
+div#build.gid17 table.traders div.at {
+    float: left;
+    text-align: center;
+    width: 45%;
+}
+
+div#build.gid17 table.traders div.repeat {
+    float: left;
+    text-align: left;
+    width: 20px;
+}
+
+div#build.gid17 table.buy_select td {
+    height: 21px;
+    text-align: center;
+}
+
+div#build.gid17 table.buy_select td.hl {
+    background-color: #FFE4B5;
+}
+
+div#build.gid17 table#search_select {
+    width: 120px;
+}
+
+div#build.gid17 table#ratio_select {
+    width: 30px;
+}
+
+div#build.gid17 table#bid_select {
+    width: 120px;
+}
+
+div#build.gid17 table#range th, div#build.gid17 table#range td {
+    padding: 2px;
+    text-align: center;
+}
+
+div#build.gid17 table#range tfoot td {
+    padding-left: 7px;
+    text-align: left;
+}
+
+div#build.gid17 table#range td.val {
+    text-align: right;
+    white-space: nowrap;
+    width: 16%;
+}
+
+div#build.gid17 table#range td.dur {
+    white-space: nowrap;
+    width: 13%;
+}
+
+div#build.gid17 table#range td.act {
+    width: 35%;
+}
+
+div#build.gid17 table#summary th, div#build.gid17 table#summary td {
+    padding: 2px 7px;
+}
+
+div#build.gid17 table#summary td.desc {
+    background-color: #F3F3F3;
+    text-align: center;
+}
+
+div#build.gid17 table#summary td.ico {
+    padding-left: 2px;
+    width: 5%;
+}
+
+div#build.gid17 table#summary td.val {
+    padding-right: 2px;
+    white-space: nowrap;
+    width: 16%;
+}
+
+div#build.gid17 table#sell {
+    background-color: #FFFFFF;
+}
+
+div#build.gid17 table#sell th, div#build.gid17 table#sell td {
+    padding: 2px;
+}
+
+div#build.gid17 table#sell th {
+    width: 10%;
+}
+
+div#build.gid17 table#sell input.check {
+    position: relative;
+    top: 1px;
+}
+
+div#build.gid17 table#sell select.dropdown {
+    padding: 1px;
+}
+
+div#build.gid17 table#sell td.val {
+    width: 13%;
+}
+
+div#build.gid17 table#sell td.val input.text {
+    width: 50px;
+}
+
+div#build.gid17 table#sell td.res {
+    width: 20%;
+}
+
+div#build.gid17 table#sell td.res input.text {
+    width: 75px;
+}
+
+div#build.gid17 table#sell td.tra input.text {
+    width: 20px;
+}
+
+div#build.gid17 table#sell_overview th, div#build.gid17 table#sell_overview td {
+    padding: 2px 7px;
+    text-align: center;
+}
+
+div#build.gid17 table#sell_overview td.abo {
+    width: 5%;
+}
+
+div#build.gid17 table#sell_overview td.val {
+    text-align: right;
+    width: 22%;
+}
+
+div#build.gid17 table#npc th, div#build.gid17 table#npc td {
+    padding: 2px 7px;
+    text-align: center;
+}
+
+div#build.gid17 table#npc td.all {
+    width: 18%;
+}
+
+div#build.gid17 table#npc td.sum {
+    text-align: right;
+}
+
+div#build.gid17 table#trading_routes th {
+    padding: 4px 7px;
+}
+
+div#build.gid17 table#trading_routes tfoot th {
+    font-weight: normal;
+    text-align: right;
+}
+
+div#build.gid17 table#trading_routes td {
+    padding: 2px 7px;
+    text-align: center;
+}
+
+div#build.gid17 table#trading_routes td.desc {
+    text-align: right;
+}
+
+div#build.gid17 table#trading_routes td.sel {
+    padding: 5px;
+    vertical-align: top;
+    width: 5%;
+}
+
+div#build.gid17 table#trading_routes td.start {
+    white-space: nowrap;
+    width: 12%;
+}
+
+div#build.gid17 table#trading_routes td.trad {
+    width: 15%;
+}
+
+div#build.gid17 table#trading_routes td.dur {
+    width: 20%;
+}
+
+div#build.gid17 table#trading_edit th, div#build.gid17 table#trading_edit td {
+    padding: 2px 7px;
+}
+
+div#build.gid17 table#trading_edit tbody th, div#build.gid17 table#trading_edit tbody td {
+    line-height: 20px;
+}
+
+div#build.gid17 table#trading_edit tbody th {
+    width: 25%;
+}
+
+div#build.gid17 table#trading_edit select option {
+    padding-left: 10px;
+}
+
+div#build.gid17 table#trading_edit td.res {
+    white-space: nowrap;
+}
+
+div#build.gid17 table#trading_edit td.res input {
+    margin-left: 5px;
+}
+
+div#build.gid17 table#trading_edit td.res img {
+    margin-left: 3px;
+}
+
+div#build.gid18 table {
+    width: 60%;
+}
+
+div#build.gid18 table th, div#build.gid18 table td {
+    padding: 2px 7px;
+}
+
+div#build.gid18 table th {
+    width: 30%;
+}
+
+div#build.gid18 table#join th, div#build.gid18 #join td {
+    text-align: center;
+}
+
+div#build.gid18 table#join td.abo {
+    width: 5%;
+}
+
+div#build.gid18 table#join td.nam {
+    width: 30%;
+}
+
+div#build.gid18 table#found td.tag input.text {
+    width: 80px;
+}
+
+div#build.gid18 table#found td.nam input.text {
+    width: 160px;
+}
+
+div.build.gid22 table#researchFuture td.desc {
+    vertical-align: top;
+    white-space: nowrap;
+    width: 40%;
+}
+
+div.build.gid22 table#researchFuture td.cond {
+    line-height: 19px;
+}
+
+div#build.gid24 table.build_details td.desc div.details {
+    padding-right: 0;
+}
+
+div#build.gid26 table#main {
+    margin-top: 15px;
+}
+
+div#build.gid26 table#main th, div#build.gid26 #main td {
+    padding: 2px 7px;
+}
+
+div#build.gid26 table#main tbody th {
+    width: 50%;
+}
+
+div#build.gid26 table#main td.desc {
+    text-align: center;
+}
+
+div#build.gid26 table#main input.text {
+    width: 94%;
+}
+
+div#build.gid27 table#near {
+    margin-top: 20px;
+}
+
+div#build.gid27 table th, div#build.gid27 table td {
+    padding: 2px 7px;
+    text-align: center;
+}
+
+div#build.gid27 table td.nam {
+    text-align: right;
+}
+
+div#build.gid27 table div.man {
+    float: left;
+    width: 15px;
+}
+
+div#build.gid27 table td.pla {
+    width: 20%;
+}
+
+div#build.gid27 table#own td.vil {
+    width: 20%;
+}
+
+div#build.gid27 table#own td.cap {
+    width: 25%;
+}
+
+div#build.gid27 table#near td.dist {
+    width: 20%;
+}
+
+div#build.gid27 table#show_artefacts td.al {
+    width: 20%;
+}
+
+div#build.gid27 table#art_details tbody th {
+    width: 35%;
+}
+
+div#build.gid27 table.art_details {
+    margin-top: 25px;
+}
+
+div#build.gid35 table.build_details td.desc div.details {
+    padding-right: 0;
+}
+
+div#build.gid37 table th, div#build.gid37 table td {
+    padding: 2px 7px;
+}
+
+div#build.gid37 table td.nam {
+    text-align: right;
+    width: 30%;
+}
+
+div#build.gid37 table#rename {
+    width: 60%;
+}
+
+div#build.gid37 table#rename tbody th {
+    width: 40%;
+}
+
+div#build.gid37 table#rename input.text {
+    width: 94%;
+}
+
+div#build.gid37 table#distribution tbody th {
+    width: 26%;
+}
+
+div#build.gid37 table#distribution td.xp {
+    width: 205px;
+}
+
+div#build.gid37 table#distribution td.up {
+    text-align: center;
+    width: 7%;
+}
+
+div#build.gid37 table#distribution td.po {
+    text-align: center;
+    width: 7%;
+}
+
+div#build.gid37 table#distribution td.rem {
+    text-align: center;
+}
+
+div#build.gid37 table#oases td {
+    text-align: center;
+}
+
+div#build.gid37 table#oases thead td {
+    padding: 2px;
+}
+
+div#build.gid37 table#oases td.nam img {
+    position: relative;
+    top: 1px;
+}
+
+div#build.gid37 table#oases td.zp {
+    width: 14%;
+}
+
+div#build.gid37 table#leave thead td {
+    padding: 2px;
+}
+
+div#build.gid37 table#leave tbody td {
+    text-align: center;
+}
+
+div#build.gid40 table#rename {
+    width: 50%;
+}
+
+div#build.gid40 table#rename th, div#build.gid40 table#rename td {
+    padding: 2px 7px;
+}
+
+div#build.gid40 table#rename td {
+    text-align: center;
+}
+
+div#build.gid40 table#rename tbody th {
+    width: 25%;
+}
+
+div#build.gid40 table#rename input.text {
+    width: 94%;
+}
+
+div#build table.build_details td.desc span.info {
+    font-size: 11px;
+}
+
+div#build table.build_details td.max {
+    font-size: 10px;
+}
+
+div#build table.under_progress td.desc span.info {
+    color: #C0C0C0;
+    font-size: 11px;
+}

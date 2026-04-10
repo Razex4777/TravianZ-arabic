@@ -1,0 +1,8 @@
+div#side_navi img.wm_logo {
+    background: url("../../../img/wm/wm99.gif") no-repeat scroll 0 0 transparent;
+    height: 33px;
+    left: 103px;
+    position: absolute;
+    top: -21px;
+    width: 33px;
+}

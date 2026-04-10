@@ -1,0 +1,104 @@
+div.error_site img.e404 {
+    background-image: url("../../../img/misc/404.gif");
+    height: 155px;
+    width: 190px;
+}
+
+div.error_site img.e500 {
+    background-image: url("../../../img/misc/500.gif");
+    height: 207px;
+    width: 254px;
+}
+
+div.peace {
+    font-size: 18pt;
+    left: 110px;
+    position: absolute;
+    top: -5px;
+    z-index: 999;
+}
+
+div.peace.active {
+    color: #FF8000;
+}
+
+div.peace.comming {
+    color: #C0C0C0;
+}
+
+img.day {
+    background-image: url("../../../img/l/day.gif");
+    height: 18px;
+    left: 104px;
+    position: absolute;
+    top: -5px;
+    width: 18px;
+}
+
+img.night {
+    background-image: url("../../../img/l/night.gif");
+    height: 18px;
+    left: 104px;
+    position: absolute;
+    top: -5px;
+    width: 18px;
+}
+
+img.facebook100 {
+    background-image: url("../../../img/misc/facebook100.jpg");
+    height: 102px;
+    width: 102px;
+}
+
+img.facebook75 {
+    background-image: url("../../../img/misc/fb_friends_75.gif");
+    float: left;
+    height: 75px;
+    padding-left: 10px;
+    width: 75px;
+}
+
+img.g35 {
+    background-image: url("../../../img/g/g35.gif");
+}
+
+img.g35b {
+    background-image: url("../../../img/g/g35b.gif");
+}
+
+div.wmError {
+    color: #FF8000;
+    margin-top: 15px;
+}
+
+div.wmMsg {
+    color: #71D000;
+    margin-top: 15px;
+}
+
+div.wmInfo {
+    float: left;
+    width: 80%;
+}
+
+img.wmInfo {
+    display: inline;
+    float: right;
+    width: 100px;
+}
+
+div#wmContent input.disabled {
+    background-position: center center;
+    cursor: default;
+    height: 20px;
+}
+
+#Frame {
+	top: 0;
+    z-index: 1000;
+}
+
+.reports table {
+    width: auto;
+    min-width: 500px;
+}

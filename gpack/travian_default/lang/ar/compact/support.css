@@ -1,0 +1,16 @@
+div.support {
+    padding: 15px 25px 0;
+    width: 502px;
+}
+
+div.support table {
+    line-height: 16px;
+}
+
+div.support table th, div.support table td {
+    padding: 2px 3px;
+}
+
+div.support table td {
+    padding-right: 7px;
+}

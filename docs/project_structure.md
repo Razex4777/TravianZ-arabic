@@ -148,11 +148,17 @@ TravianZ-master/
 │   │
 │   ├── 📁 Lang/                      # Translation/localization files (define-based constants)
 │   │   ├── 📄 en.php                 # English language file (116KB, ~3000+ constants)
+│   │   ├── 📄 ar.php                 # Main Arabic inclusion file
+│   │   ├── 📁 ar/                    # Split Arabic language files
+│   │   │   ├── 📄 part1.php          # Arabic constants part 1
+│   │   │   ├── 📄 part2.php          # Arabic constants part 2
+│   │   │   ├── 📄 part3.php          # Arabic constants part 3
+│   │   │   ├── 📄 part4.php          # Arabic constants part 4
+│   │   │   └── 📄 part5.php          # Arabic constants part 5
 │   │   ├── 📄 fr.php                 # French translation
 │   │   ├── 📄 it.php                 # Italian translation
 │   │   ├── 📄 zh_tw.php              # Traditional Chinese translation
 │   │   └── 📄 index.php              # Directory guard
-│   │   # NOTE: ar.php (Arabic) DOES NOT EXIST YET - must be created in Phase 1
 │   │
 │   ├── 📁 Prevention/                # Anti-cheat and rate-limiting mechanisms
 │   │   ├── 📄 empty.txt              # Placeholder
@@ -335,7 +341,13 @@ TravianZ-master/
 │   │   │   ├── 📄 new_colors.css     # Color scheme definitions
 │   │   │   └── 📄 index.php          # Directory guard
 │   │   ├── 📁 lang/                  # Language-specific theme overrides
-│   │   │   └── 📁 en/                # English language CSS
+│   │   │   ├── 📁 en/                # English language CSS
+│   │   │   │   ├── 📄 compact.css    # Import wrapper for modularized CSS components
+│   │   │   │   └── 📁 compact/       # Split CSS components categorized by feature (<=400 lines)
+│   │   │   └── 📁 ar/                # Arabic language CSS
+│   │   │       ├── 📄 compact.css    # RTL mirror of English compact wrapper
+│   │   │       ├── 📁 compact/       # Split CSS components ready for RTL styling
+│   │   │       └── 📄 flip_css.js    # Node script to batch-process CSS to RTL using rtlcss
 │   │   ├── 📁 images/                # Default theme images
 │   │   └── 📁 img/                   # Additional image assets
 │   │

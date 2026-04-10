@@ -17,8 +17,9 @@ include_once("GameEngine/Lang/".LANG.".php");
 AccessLogger::logRequest();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml"<?php echo (defined('LANG') && LANG === 'ar') ? ' dir="rtl"' : ''; ?>>
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title><?php echo SERVER_NAME; ?></title>
 	<link rel="stylesheet" type="text/css" href="img/tutorial/main.css"/>
 	<link rel="stylesheet" type="text/css" href="img/tutorial/flaggs.css"/>
@@ -29,6 +30,25 @@ AccessLogger::logRequest();
 	<style type="text/css" media="screen">
 
 	</style>
+
+	<?php if(defined('LANG') && LANG === 'ar'): ?>
+<style type="text/css">
+	/* Navigation — keep structure LTR (ribbon bg is left-anchored) */
+	#navigation { direction: ltr; }
+	#navigation table.menu { direction: rtl; width: auto; white-space: nowrap; }
+	#navigation .menu a, #navigation .menu a span { padding-left: 4px; padding-right: 4px; }
+
+	/* Content text & images */
+	body.contentPage #content p img[align="left"] { float: right; margin: 0 0 10px 15px; }
+	body.contentPage #content p img[align="right"] { float: left; margin: 0 15px 10px 0; }
+	
+	/* Adjust specific lists */
+	body.contentPage #content td li { text-align: right; }
+	body.contentPage ul { padding-right: 20px; padding-left: 0; }
+	body.contentPage table.culture_points { margin: 15px 110px; }
+	body.contentPage .rules { margin-left: 160px; margin-right: 120px; }
+</style>
+	<?php endif; ?>
 </head>
 <body class="webkit contentPage">
 <div class="wrapper">
@@ -47,19 +67,19 @@ AccessLogger::logRequest();
 
 	<tr>
 
-		<td><a href="tutorial.php"><span>Tutorial</span></a></td>
+		<td><a href="tutorial.php"><span><?php echo TUTORIAL; ?></span></a></td>
 
-		<td><a href="anleitung.php"><span>Manual</span></a></td>
+		<td><a href="anleitung.php"><span><?php echo $lang['index'][0][2]; ?></span></a></td>
 
-		<td><a href="http://forum.travian.com/" target="_blank"><span>Forum</span></a></td>
-
-
+		<td><a href="http://forum.travian.com/" target="_blank"><span><?php echo $lang['forum']; ?></span></a></td>
 
 
 
-		<td><a href="index.php?signup"><span>Register</span></a></td>
 
-		<td><a href="index.php?login"><span>Login</span></a></td>
+
+		<td><a href="index.php?signup"><span><?php echo $lang['register']; ?></span></a></td>
+
+		<td><a href="index.php?login"><span><?php echo LOGIN; ?></span></a></td>
 
 </tr>
 
@@ -195,7 +215,7 @@ If individual regulations of this set of rules should be ineffective, it does no
 
 <a href="index.php" class="closer"><img class="dynamic_img" alt="Close" src="img/un/x.gif" /></a>
 
-<h2>Anleitung</h2>
+<h2><?php echo $lang['index'][0][2]; ?></h2>
 
 
 

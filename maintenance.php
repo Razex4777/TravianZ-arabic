@@ -40,8 +40,9 @@ if(isset($_GET['newdid'])) {
 if($_SESSION['ok'] == 2){
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
+<html<?php echo (defined('LANG') && LANG === 'ar') ? ' dir="rtl"' : ''; ?>>
 	<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title><?php echo SERVER_NAME ?> - Game Over</title>
 		<link rel="shortcut icon" href="favicon.ico"/>
 		<meta http-equiv="cache-control" content="max-age=0" />
@@ -52,20 +53,20 @@ if($_SESSION['ok'] == 2){
 		<script src="mt-full.js?0faab" type="text/javascript"></script>
 		<script src="unx.js?f4b7h" type="text/javascript"></script>
 		<script src="new.js?0faab" type="text/javascript"></script>
-		<link href="<?php echo GP_LOCATE; ?>lang/en/lang.css?f4b7d" rel="stylesheet" type="text/css" />
-		<link href="<?php echo GP_LOCATE; ?>lang/en/compact.css?f4b7i" rel="stylesheet" type="text/css" />
+		<link href="<?php echo GP_LOCATE; ?>lang/<?php echo LANG; ?>/lang.css?f4b7d" rel="stylesheet" type="text/css" />
+		<link href="<?php echo GP_LOCATE; ?>lang/<?php echo LANG; ?>/compact.css?v2" rel="stylesheet" type="text/css" />
 		<?php
 		if($session->gpack == null || GP_ENABLE == false)
 		{
 			echo "
-			<link href='".GP_LOCATE."travian.css?e21d2' rel='stylesheet' type='text/css' />
-			<link href='".GP_LOCATE."lang/en/lang.css?e21d2' rel='stylesheet' type='text/css' />";
+			<link href='".GP_LOCATE."travian.css?v2' rel='stylesheet' type='text/css' />
+			<link href='".GP_LOCATE."lang/".LANG."/lang.css?v2' rel='stylesheet' type='text/css' />";
 		}
 		else
 		{
 			echo "
-			<link href='".$session->gpack."travian.css?e21d2' rel='stylesheet' type='text/css' />
-			<link href='".$session->gpack."lang/en/lang.css?e21d2' rel='stylesheet' type='text/css' />";
+			<link href='".$session->gpack."travian.css?v2' rel='stylesheet' type='text/css' />
+			<link href='".$session->gpack."lang/".LANG."/lang.css?v2' rel='stylesheet' type='text/css' />";
 		}
 		?>
 		<script type="text/javascript">window.addEvent('domready', start);</script>
@@ -77,7 +78,11 @@ if($_SESSION['ok'] == 2){
 		 border-width: 0px;
 		}
 		</style>
-	</head>
+	
+	<?php if(defined('LANG') && LANG === 'ar'): ?>
+	
+	<?php endif; ?>
+</head>
 	<body class="v35 ie ie8">
 		<div class="wrapper">
 			<img style="filter: chroma();" src="img/x.gif" id="msfilter" alt="" />

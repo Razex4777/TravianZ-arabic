@@ -30,12 +30,11 @@ if (!$autoloader_found) {
 }
 
 // this is needed for installation, since the lang file would not be included yet
-// Dynamically load the configured language file, fallback to English
-$langFile = $autoprefix."GameEngine/Lang/" . (defined('LANG') ? LANG : 'en') . ".php";
-if (!file_exists($langFile)) {
-    $langFile = $autoprefix."GameEngine/Lang/en.php";
+if (defined('LANG')) {
+    include_once($autoprefix."GameEngine/Lang/".LANG.".php");
+} else {
+    include_once($autoprefix."GameEngine/Lang/en.php");
 }
-include_once($langFile);
 
 class Technology {
 

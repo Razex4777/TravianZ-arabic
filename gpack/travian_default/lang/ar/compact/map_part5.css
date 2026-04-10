@@ -1,0 +1,524 @@
+div.map table#raidFavs td.aligned_coords {
+    padding: 2px 0;
+    width: 94px;
+}
+
+div.map table#raidFavs td.aligned_coords div.cox, div.map table#raidFavs td.aligned_coords div.coy {
+    width: 42px;
+}
+
+div.map table#raidFavs td.rep {
+    text-align: right;
+    white-space: nowrap;
+    width: 20%;
+}
+
+div.map table#raidFavs td.rep img {
+    float: right;
+    margin-left: 3px;
+}
+
+div.map table#raidFavs td.goods {
+    width: 10%;
+}
+
+div.map table#raidFavs td.lost {
+    width: 10%;
+}
+
+div.map table#raidDetails {
+    width: 502px;
+}
+
+div.map table#raidDetails th, div.map table#raidDetails td {
+    padding: 2px 7px;
+    text-align: center;
+}
+
+div.map table#raidDetails td.day {
+    height: 100px;
+    width: 25px;
+}
+
+div.map table#raidDetails td.day div.booty, div.map table#raidDetails td.day div.lost {
+    height: 100px;
+    position: relative;
+    width: 12px;
+}
+
+div.map table#raidDetails td.day div.booty {
+    background-color: #CAFFC9;
+    float: right;
+}
+
+div.map table#raidDetails td.day div.booty div.value {
+    background-color: #00BC00;
+}
+
+div.map table#raidDetails td.day div.lost {
+    background-color: #FFD0B1;
+    float: left;
+}
+
+div.map table#raidDetails td.day div.lost div.value {
+    background-color: #FF6F0F;
+}
+
+div.map table#raidDetails td.day div.value {
+    bottom: 0;
+    font-size: 0;
+    height: 0;
+    right: 0;
+    line-height: 0;
+    position: absolute;
+    width: 100%;
+}
+
+div.map table#raidDetails td.balance {
+    text-align: right;
+}
+
+div.map table#raidDetails td.balance hr {
+    border-color: #C0C0C0;
+}
+
+div.map table#raidDetails td.day div.value.height100 {
+    height: 100px;
+}
+
+div.map table#raidDetails td.day div.value.height95 {
+    height: 95px;
+}
+
+div.map table#raidDetails td.day div.value.height90 {
+    height: 90px;
+}
+
+div.map table#raidDetails td.day div.value.height85 {
+    height: 85px;
+}
+
+div.map table#raidDetails td.day div.value.height80 {
+    height: 80px;
+}
+
+div.map table#raidDetails td.day div.value.height75 {
+    height: 75px;
+}
+
+div.map table#raidDetails td.day div.value.height70 {
+    height: 70px;
+}
+
+div.map table#raidDetails td.day div.value.height65 {
+    height: 65px;
+}
+
+div.map table#raidDetails td.day div.value.height60 {
+    height: 60px;
+}
+
+div.map table#raidDetails td.day div.value.height55 {
+    height: 55px;
+}
+
+div.map table#raidDetails td.day div.value.height50 {
+    height: 50px;
+}
+
+div.map table#raidDetails td.day div.value.height45 {
+    height: 45px;
+}
+
+div.map table#raidDetails td.day div.value.height40 {
+    height: 40px;
+}
+
+div.map table#raidDetails td.day div.value.height35 {
+    height: 35px;
+}
+
+div.map table#raidDetails td.day div.value.height30 {
+    height: 30px;
+}
+
+div.map table#raidDetails td.day div.value.height25 {
+    height: 25px;
+}
+
+div.map table#raidDetails td.day div.value.height20 {
+    height: 20px;
+}
+
+div.map table#raidDetails td.day div.value.height15 {
+    height: 15px;
+}
+
+div.map table#raidDetails td.day div.value.height10 {
+    height: 10px;
+}
+
+div.map table#raidDetails td.day div.value.height5 {
+    height: 5px;
+}
+
+div.map table#raidDetails td.day div.value.height0 {
+    height: 1px;
+}
+
+div#map div#map_rulers div {
+    font-size: 10px;
+}
+
+div#map div#map_coords {
+    font-weight: bold;
+}
+
+div#map table#map_infobox th, div#map table#map_infobox td {
+    font-size: 11px;
+}
+
+div#map table.empty thead th, div#map table.oasis_empty thead th, div#map table.oasis thead th {
+    font-style: italic;
+    font-weight: normal;
+}
+
+div#map table.default th, div#map table.default td, div#map table.empty th, div#map table.empty td, div#map table.oasis_empty th, div#map table.oasis_empty td {
+    color: #C0C0C0;
+}
+
+div.map table#raidFavs td.none a {
+    color: #C0C0C0;
+    font-weight: normal;
+}
+
+div.map table#raidDetails td.balance div.booty {
+    color: #00BC00;
+}
+
+div.map div#dmain {
+    color: #C0C0C0;
+}
+
+div.map table#raidDetails td.balance div.booty {
+    color: #00BC00;
+}
+
+div.map table#raidDetails td.balance div.lost {
+    color: #FF6F0F;
+}
+
+div.map table#raidDetails td.balance div.sum {
+    font-weight: bold;
+}
+
+div.map table#raidFavs thead a {
+    color: black;
+    font-weight: normal;
+}
+
+div#map div#map_content div span {
+    height: 16px;
+    width: 18px;
+}
+
+div#map div#map_content div span.m3 {
+    background-image: url("../../../img/m/matt.gif");
+}
+
+div#map div#map_content div span.m4 {
+    background-image: url("../../../img/m/matt.gif");
+}
+
+div#map div#map_content div span.m5 {
+    background-image: url("../../../img/m/msup.gif");
+}
+
+div#map div#map_content div span.m6 {
+    background-image: url("../../../img/m/mspy.gif");
+}
+
+div#map div#map_content div span.m9 {
+    background-image: url("../../../img/m/mret.gif");
+}
+
+div#map a#map_makelarge img {
+    background-image: url("../../../img/m/max.gif");
+
+    height: 25px;
+    width: 33px;
+}
+
+div.map div#map div#map_content {
+    background-image: url("../../../img/m/map.jpg");
+    background-position: 2px 0;
+}
+
+div#mbig div#map {
+    background-image: url("../../../img/m/mapl.gif");
+}
+
+div.map img#detailed_map {
+    height: 264px;
+    width: 300px;
+}
+
+div.map img.w1 {
+    background-image: url("../../../img/m/w1.jpg");
+}
+
+div.map img.w2 {
+    background-image: url("../../../img/m/w2.jpg");
+}
+
+div.map img.w3 {
+    background-image: url("../../../img/m/w3.jpg");
+}
+
+div.map img.w4 {
+    background-image: url("../../../img/m/w4.jpg");
+}
+
+div.map img.w5 {
+    background-image: url("../../../img/m/w5.jpg");
+}
+
+div.map img.w6 {
+    background-image: url("../../../img/m/w6.jpg");
+}
+
+div.map img.w7 {
+    background-image: url("../../../img/m/w7.jpg");
+}
+
+div.map img.w8 {
+    background-image: url("../../../img/m/w8.jpg");
+}
+
+div.map img.w9 {
+    background-image: url("../../../img/m/w9.jpg");
+}
+
+div.map img.w10 {
+    background-image: url("../../../img/m/w10.jpg");
+}
+
+div.map img.w11 {
+    background-image: url("../../../img/m/w11.jpg");
+}
+
+div.map img.w12 {
+    background-image: url("../../../img/m/w12.jpg");
+}
+
+div#map div#map_content div.b00 {
+    background-image: url("../../../img/m/d00.gif");
+}
+
+div#map div#map_content div.b01 {
+    background-image: url("../../../img/m/d01.gif");
+}
+
+div#map div#map_content div.b02 {
+    background-image: url("../../../img/m/d02.gif");
+}
+
+div#map div#map_content div.b03 {
+    background-image: url("../../../img/m/d03.gif");
+}
+
+div#map div#map_content div.b04 {
+    background-image: url("../../../img/m/d04.gif");
+}
+
+div#map div#map_content div.b05 {
+    background-image: url("../../../img/m/d05.gif");
+}
+
+div#map div#map_content div.b06 {
+    background-image: url("../../../img/m/d06.gif");
+}
+
+div#map div#map_content div.b07 {
+    background-image: url("../../../img/m/d07.gif");
+}
+
+div#map div#map_content div.b08 {
+    background-image: url("../../../img/m/d08.gif");
+}
+
+div#map div#map_content div.b09 {
+    background-image: url("../../../img/m/d09.gif");
+}
+
+div#map div#map_content div.b10 {
+    background-image: url("../../../img/m/d10.gif");
+}
+
+div#map div#map_content div.b11 {
+    background-image: url("../../../img/m/d11.gif");
+}
+
+div#map div#map_content div.b12 {
+    background-image: url("../../../img/m/d12.gif");
+}
+
+div#map div#map_content div.b13 {
+    background-image: url("../../../img/m/d13.gif");
+}
+
+div#map div#map_content div.b14 {
+    background-image: url("../../../img/m/d14.gif");
+}
+
+div#map div#map_content div.b15 {
+    background-image: url("../../../img/m/d15.gif");
+}
+
+div#map div#map_content div.b16 {
+    background-image: url("../../../img/m/d16.gif");
+}
+
+div#map div#map_content div.b17 {
+    background-image: url("../../../img/m/d17.gif");
+}
+
+div#map div#map_content div.b18 {
+    background-image: url("../../../img/m/d18.gif");
+}
+
+div#map div#map_content div.b19 {
+    background-image: url("../../../img/m/d19.gif");
+}
+
+div#map div#map_content div.b20 {
+    background-image: url("../../../img/m/d20.gif");
+}
+
+div#map div#map_content div.b21 {
+    background-image: url("../../../img/m/d21.gif");
+}
+
+div#map div#map_content div.b22 {
+    background-image: url("../../../img/m/d22.gif");
+}
+
+div#map div#map_content div.b23 {
+    background-image: url("../../../img/m/d23.gif");
+}
+
+div#map div#map_content div.b24 {
+    background-image: url("../../../img/m/d24.gif");
+}
+
+div#map div#map_content div.b25 {
+    background-image: url("../../../img/m/d25.gif");
+}
+
+div#map div#map_content div.b26 {
+    background-image: url("../../../img/m/d26.gif");
+}
+
+div#map div#map_content div.b27 {
+    background-image: url("../../../img/m/d27.gif");
+}
+
+div#map div#map_content div.b28 {
+    background-image: url("../../../img/m/d28.gif");
+}
+
+div#map div#map_content div.b29 {
+    background-image: url("../../../img/m/d29.gif");
+}
+
+div#map div#map_content div.b30 {
+    background-image: url("../../../img/m/d30.gif");
+}
+
+div#map div#map_content div.b31 {
+    background-image: url("../../../img/m/d31.gif");
+}
+
+div#map div#map_content div.b32 {
+    background-image: url("../../../img/m/d32.gif");
+}
+
+div#map div#map_content div.b33 {
+    background-image: url("../../../img/m/d33.gif");
+}
+
+div#map div#map_content div.b34 {
+    background-image: url("../../../img/m/d34.gif");
+}
+
+div#map div#map_content div.b35 {
+    background-image: url("../../../img/m/d35.gif");
+}
+
+div#map div#map_content div.o0 {
+    background-image: url("../../../img/m/o0.gif");
+}
+
+div#map div#map_content div.o1 {
+    background-image: url("../../../img/m/o1.gif");
+}
+
+div#map div#map_content div.o2 {
+    background-image: url("../../../img/m/o2.gif");
+}
+
+div#map div#map_content div.o3 {
+    background-image: url("../../../img/m/o3.gif");
+}
+
+div#map div#map_content div.o4 {
+    background-image: url("../../../img/m/o4.gif");
+}
+
+div#map div#map_content div.o5 {
+    background-image: url("../../../img/m/o5.gif");
+}
+
+div#map div#map_content div.o6 {
+    background-image: url("../../../img/m/o6.gif");
+}
+
+div#map div#map_content div.o7 {
+    background-image: url("../../../img/m/o7.gif");
+}
+
+div#map div#map_content div.o8 {
+    background-image: url("../../../img/m/o8.gif");
+}
+
+div#map div#map_content div.o9 {
+    background-image: url("../../../img/m/o9.gif");
+}
+
+div#map div#map_content div.o10 {
+    background-image: url("../../../img/m/o10.gif");
+}
+
+div#map div#map_content div.o11 {
+    background-image: url("../../../img/m/o11.gif");
+}
+
+div#map div#map_content div.o12 {
+    background-image: url("../../../img/m/o12.gif");
+}
+
+div#map div#map_content div.o99 {
+    background-image: url("../../../img/m/o99.gif");
+}
+
+div#map div#map_content div.t0 {
+    background-image: url("../../../img/m/t0.gif");
+}
+
+div#map div#map_content div.t1 {
+    background-image: url("../../../img/m/t1.gif");
+}
+
+div#map div#map_content div.t2 {
+    background-image: url("../../../img/m/t2.gif");
+}

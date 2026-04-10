@@ -1,0 +1,487 @@
+#msfilter {
+    height: 1px;
+    position: absolute;
+    width: 1px;
+    z-index: 99;
+}
+
+.hide {
+    display: none;
+}
+
+div.universal {
+    padding: 0 25px;
+    width: 502px;
+}
+
+div.banned_cn {
+    padding: 0 25px;
+    width: 502px;
+}
+
+div.error_site {
+    padding: 0;
+    width: 552px;
+}
+
+div.clear {
+    clear: both;
+    height: 0;
+    width: 0;
+}
+
+div.popup3 {
+    border: 0 solid #000000;
+    display: inline;
+    height: 456px;
+    right: 180px;
+    padding-bottom: 0;
+    padding-right: 20px;
+    padding-top: 31px;
+    position: absolute;
+    top: 99px;
+    width: 430px;
+    z-index: 80;
+}
+
+div.popup3 div#drag {
+    background-color: #F3F3F3;
+    cursor: move;
+    height: 20px;
+    right: 11px;
+    position: absolute;
+    top: 11px;
+    width: 408px;
+    z-index: 2;
+}
+
+img.popup4 {
+    border: 0 solid #000000;
+    height: 30px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 30px;
+    z-index: 81;
+}
+
+body.mod1 iframe#ad_iframe {
+    height: 60px;
+    right: 168px;
+    position: absolute;
+    width: 468px;
+    z-index: 10;
+}
+
+body.mod1 div#ltime {
+    top: 83px;
+}
+
+body.mod1 div#res {
+    top: 137px;
+}
+
+body.mod2 iframe#ad_iframe {
+    height: 90px;
+    right: 82px;
+    position: absolute;
+    top: 0;
+    width: 728px;
+    z-index: 10;
+}
+
+body.mod2 div#ltime {
+    top: 113px;
+}
+
+body.mod2 div#res {
+    top: 167px;
+}
+
+body.mod3 iframe#ad_iframe {
+    height: 600px;
+    right: 696px;
+    position: absolute;
+    top: 10px;
+    width: 120px;
+    z-index: 10;
+}
+
+body.mod3 div#plus_div {
+    margin-right: 237px;
+}
+
+body.mod3 div#content {
+    min-height: 469px;
+}
+
+body.manual img.troops {
+    position: absolute;
+    left: 10px;
+    top: 80px;
+}
+
+body.manual img.buildings {
+    position: absolute;
+    left: 10px;
+    top: 170px;
+}
+
+body.manual img.navi {
+    right: 145px;
+    position: absolute;
+    top: 420px;
+    z-index: 82;
+}
+
+body.manual table#troop_info {
+    margin: 6px 0 30px 2px;
+}
+
+body.manual div#t_desc {
+    margin-top: 30px;
+    max-height: 145px;
+    overflow-x: auto;
+}
+
+body.manual img#big_unit {
+    right: 260px;
+    position: absolute;
+    top: 95px;
+}
+
+body.manual div#prereqs {
+    margin-top: 15px;
+}
+
+body.manual img.building {
+    float: left;
+    margin: -40px 25px 10px 10px;
+}
+
+body.manual img.g16 {
+    margin: 0 25px 10px 10px;
+}
+
+body.manual img.g40 {
+    margin: -20px 15px 10px 10px;
+}
+
+body.manual p.medals {
+    text-align: center;
+}
+
+body.manual ul.goldclub {
+    margin-top: 0;
+    padding-right: 25px;
+}
+
+div.banned_cn table {
+    line-height: 16px;
+    margin-bottom: 15px;
+}
+
+div.banned_cn table th, div.banned_cn table td {
+    padding: 2px 3px;
+}
+
+div.banned_cn table td {
+    text-align: center;
+}
+
+div.banned_cn table .ra {
+    padding-left: 7px;
+    text-align: left;
+    white-space: nowrap;
+    width: 5%;
+}
+
+div.banned_cn table .pla {
+    padding-right: 7px;
+    text-align: right;
+}
+
+div.banned_cn table .rea, div.banned_cn table .dur, div.banned_cn table .al {
+    width: 25%;
+}
+
+div.banned_cn .no_info {
+    color: #C0C0C0;
+}
+
+#medal_mouseover {
+    background-color: #F5F5F5;
+    border: 1px solid #BBBBBB;
+    padding: 2px 5px;
+    position: absolute;
+    width: 250px;
+    z-index: 999;
+}
+
+#medal_mouseover table {
+    background: none repeat scroll 0 0 transparent;
+}
+
+#medal_mouseover table th, #medal_mouseover table td {
+    background: none repeat scroll 0 0 transparent;
+}
+
+#medal_mouseover table th {
+    padding-left: 10px;
+    width: 50px;
+}
+
+.left {
+    text-align: right;
+}
+
+.right {
+    text-align: left;
+}
+
+.middle {
+    vertical-align: middle;
+}
+
+.nbr {
+    white-space: nowrap;
+}
+
+.b {
+    font-weight: bold;
+}
+
+.t {
+    font-weight: normal;
+}
+
+.e {
+    color: #FF8000;
+}
+
+.dashed {
+    border: 1px dashed #C0C0C0;
+    border-collapse: separate;
+}
+
+#lmid3 .nb {
+    background-color: #FFFFFF;
+    right: 580px;
+    position: absolute;
+    top: 63px;
+    width: 200px;
+    z-index: 5;
+}
+
+#igm {
+    border: 0 none;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+}
+
+.old_p1 {
+    border-color: #C0C0C0;
+    border-style: dashed;
+    border-width: 1px;
+    padding: 6px;
+}
+
+.p2 {
+    border-color: #C0C0C0;
+    border-style: dashed;
+    border-width: 1px;
+    padding: 3px;
+}
+
+.tbg {
+    background-color: #C0C0C0;
+    text-align: center;
+    width: 100%;
+}
+
+.rbg {
+    background-color: #FFFFFF;
+    background-image: url("../../../img/a/c2.gif");
+    font-weight: bold;
+}
+
+.dflags1 {
+    color: #FFFFFF;
+    float: left;
+    font-size: 6pt;
+    padding-right: 1px;
+    padding-left: 1px;
+    padding-top: 1px;
+    position: relative;
+    text-align: center;
+}
+
+.dflags2 {
+    padding-top: 1px;
+}
+
+.ddb {
+    float: right;
+}
+
+.desc1div {
+    width: 236px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.desc2div {
+    width: 235px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+div.activation_time {
+    padding-right: 5px;
+    padding-top: 5px;
+    text-align: center;
+}
+
+div.fb_quest_info {
+    clear: both;
+    display: block;
+    font-size: 12px;
+    height: 90px;
+    padding-bottom: 10px;
+}
+
+div.fb_quest_info a {
+    color: black;
+    font-weight: normal;
+}
+
+div.fb_quest_info strong {
+    display: block;
+    padding-bottom: 8px;
+    padding-top: 3px;
+}
+
+.webkit div.messages table#friendlist td {
+    height: 16px;
+}
+
+body.manual table td, body.manual table th {
+    padding: 2px;
+}
+
+body.manual table#troop_info {
+    width: 406px;
+}
+
+body.manual table#troop_info td {
+    text-align: center;
+    width: 14.2%;
+}
+
+body.manual table#troop_details {
+    background-color: #FFFFFF;
+    width: 60%;
+}
+
+body.manual table#examples {
+    margin-right: 2px;
+    width: 406px;
+}
+
+body.manual table#examples tbody th {
+    width: 40%;
+}
+
+* html div.a2b table#coords td.sel input.radio {
+    top: -2px;
+}
+
+* + html div.a2b table#coords td.sel input.radio {
+    top: -2px;
+}
+
+div#textmenu a.selected {
+    border-bottom: 1px dashed Silver;
+}
+
+.none {
+    color: #C0C0C0;
+}
+
+.error {
+    color: #FF8000;
+}
+
+body.manual h1 span.tribe {
+    color: #C0C0C0;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+body.manual li span.info {
+    color: #C0C0C0;
+    font-size: 11px;
+}
+
+div.activation_time {
+    color: #FF8000;
+    font-size: 20px;
+}
+
+img.help {
+    background-image: url("../../../img/a/help.gif");
+    height: 12px;
+    width: 15px;
+}
+
+img.del {
+    background-image: url("../../../img/a/del.gif");
+    height: 12px;
+    width: 12px;
+}
+
+img.clock {
+    background-image: url("../../../img/a/clock.gif");
+    height: 12px;
+    width: 18px;
+}
+
+img.clock.inactive {
+    background-image: url("../../../img/a/clock-inactive.gif");
+}
+
+img.npc {
+    background-image: url("../../../img/a/npc.gif");
+    background-position: center top;
+    height: 12px;
+    width: 18px;
+}
+
+img.npc_inactive {
+    background-image: url("../../../img/a/npc.gif");
+    background-position: center bottom;
+    height: 12px;
+    width: 18px;
+}
+
+img.gold {
+    background-image: url("../../../img/a/gold.gif");
+    height: 12px;
+    width: 12px;
+}
+
+img.gold_g {
+    background-image: url("../../../img/a/gold_g.gif");
+    height: 12px;
+    width: 12px;
+}
+
+img.vip {
+    height: 1px;
+    width: 1px;
+}
+
+img.r1, img.r2, img.r3, img.r4, img.r5 {
+    background-image: url("../../../img/a/res2.gif");
+    height: 12px;
+    width: 18px;
+}

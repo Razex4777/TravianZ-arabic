@@ -20,9 +20,10 @@ AccessLogger::logRequest();
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
+<html<?php echo (defined('LANG') && LANG === 'ar') ? ' dir="rtl"' : ''; ?>>
 	<head>
-		<title><?php echo SERVER_NAME; ?> - Logged Out</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title><?php echo SERVER_NAME; ?> - <?php echo (defined('LANG') && LANG === 'ar') ? 'تم تسجيل الخروج' : 'Logged Out'; ?></title>
 		<meta name="content-language" content="en" />
 		<meta http-equiv="cache-control" content="max-age=0" />
 		<meta http-equiv="imagetoolbar" content="no" />
@@ -32,23 +33,27 @@ AccessLogger::logRequest();
 		<script src="mt-more.js?2389c" type="text/javascript"></script>
 		<script src="unx.js?f4b7h" type="text/javascript"></script>
 		<script src="new.js?2389c" type="text/javascript"></script>
-	<link href="<?php echo GP_LOCATE; ?>lang/en/lang.css?f4b7d" rel="stylesheet" type="text/css" />
-	<link href="<?php echo GP_LOCATE; ?>lang/en/compact.css?f4b7i" rel="stylesheet" type="text/css" />
+	<link href="<?php echo GP_LOCATE; ?>lang/<?php echo LANG; ?>/lang.css?f4b7d" rel="stylesheet" type="text/css" />
+	<link href="<?php echo GP_LOCATE; ?>lang/<?php echo LANG; ?>/compact.css?v2" rel="stylesheet" type="text/css" />
 	<?php
 	if($session->gpack == null || GP_ENABLE == false) {
 	echo "
-	<link href='".GP_LOCATE."travian.css?e21d2' rel='stylesheet' type='text/css' />
-	<link href='".GP_LOCATE."lang/en/lang.css?e21d2' rel='stylesheet' type='text/css' />";
+	<link href='".GP_LOCATE."travian.css?v2' rel='stylesheet' type='text/css' />
+	<link href='".GP_LOCATE."lang/".LANG."/lang.css?v2' rel='stylesheet' type='text/css' />";
 	} else {
 	echo "
-	<link href='".$session->gpack."travian.css?e21d2' rel='stylesheet' type='text/css' />
-	<link href='".$session->gpack."lang/en/lang.css?e21d2' rel='stylesheet' type='text/css' />";
+	<link href='".$session->gpack."travian.css?v2' rel='stylesheet' type='text/css' />
+	<link href='".$session->gpack."lang/".LANG."/lang.css?v2' rel='stylesheet' type='text/css' />";
 	}
 	?>
 	<script type="text/javascript">
 
 		window.addEvent('domready', start);
 	</script>
+
+	<?php if(defined('LANG') && LANG === 'ar'): ?>
+	
+	<?php endif; ?>
 </head>
 
 
@@ -62,9 +67,9 @@ AccessLogger::logRequest();
 <div id="mid">
 <?php include("Templates/menu.tpl"); ?>
 		<div id="content"  class="logout">
-<h1>Logout successful.</h1><img class="roman" src="img/x.gif" alt="" /><p>Thank you for your visit.</p>
+<h1><?php echo (defined('LANG') && LANG === 'ar') ? 'تم تسجيل الخروج بنجاح.' : 'Logout successful.'; ?></h1><img class="roman" src="img/x.gif" alt="" /><p><?php echo (defined('LANG') && LANG === 'ar') ? 'شكراً لزيارتك.' : 'Thank you for your visit.'; ?></p>
 
-		<p>If other people use this computer too, you should delete your cookies for your own safety:<br /><a href="login.php?del_cookie">&raquo; delete cookies</a></p>
+		<p><?php echo (defined('LANG') && LANG === 'ar') ? 'إذا كان هناك أشخاص آخرون يستخدمون هذا الكمبيوتر أيضاً، يجب عليك حذف ملفات تعريف الارتباط (الكوكيز) لسلامتك:<br /><a href="login.php?del_cookie">&raquo; حذف ملفات تعريف الارتباط</a>' : 'If other people use this computer too, you should delete your cookies for your own safety:<br /><a href="login.php?del_cookie">&raquo; delete cookies</a>'; ?></p>
 </div>
 
 <br /><br /><br /><br /><div id="side_info">

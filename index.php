@@ -53,8 +53,9 @@ include_once "GameEngine/Lang/".LANG.".php";
 AccessLogger::logRequest();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml"<?php echo (defined('LANG') && LANG === 'ar') ? ' dir="rtl"' : ''; ?>>
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title><?php echo SERVER_NAME; ?></title>
 	<link rel="shortcut icon" href="favicon.ico" />
 	<link rel="stylesheet" type="text/css" href="gpack/travian/main.css" />
@@ -71,6 +72,10 @@ AccessLogger::logRequest();
 		div.c2 {left:237px;}
 		ul.c1 {position:absolute; left:0px; width: 686px;}
 	</style>
+
+	<?php if(defined('LANG') && LANG === 'ar'): ?>
+	
+	<?php endif; ?>
 </head>
 
 <body class="presto indexPage">

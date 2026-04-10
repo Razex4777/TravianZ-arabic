@@ -41,10 +41,16 @@
 		?>
         <a href="plus.php" id="plus">
         <span class="plus_text">
+            <?php if(defined('LANG') && LANG === 'ar'): ?>
+            <span class="plus_g">ب</span>
+            <span class="plus_o">ل</span>
+            <span class="plus_g">س</span>
+            <?php else: ?>
             <span class="plus_g">P</span>
             <span class="plus_o">l</span>
             <span class="plus_g">u</span>
             <span class="plus_o">s</span>
+            <?php endif; ?>
        </span><img src="img/x.gif" id="btn_plus" class="<?php echo ($session->plus == 1 && strtotime("NOW") <= $session->userinfo['plus'])? 'active' : 'inactive';?>" title="Plus menu" alt="Plus menu" /></a>
        <?php
        		}

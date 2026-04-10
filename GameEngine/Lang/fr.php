@@ -27,6 +27,7 @@ define("HOME","Accueil");
 define("INSTRUCT","Instructions");
 define("ADMIN_PANEL","Panneau d'administration");
 define("MASS_MESSAGE","Message de masse");
+define("BUILD_CROPPER","Créer le cropper");
 define("LOGOUT","Déconnexion");
 define("PROFILE","Profil");
 define("SUPPORT","Support");
@@ -35,6 +36,8 @@ define("SYSTEM_MESSAGE","Messages système");
 define("TRAVIAN_PLUS","Travian <b><span class=\"plus_g\">P</span><span class=\"plus_o\">l</span><span class=\"plus_g\">u</span><span class=\"plus_o\">s</span></span></span></b>");
 define("CONTACT","Contactez-nous !");
 define("GAME_RULES","Règles du jeu");
+define("NONE","Aucun");
+define("HERO","Héros");
 
 //MENU
 define("REG","Inscription");

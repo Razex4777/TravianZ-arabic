@@ -28,7 +28,7 @@ if(isset($_GET['del'])){
     mysqli_query($database->dblink, "UPDATE ".TB_PREFIX."users SET ok = 0");
 }
 
-if (@$_POST['submit'] == "Send")
+if (@$_POST['submit'] == "Send" || @$_POST['submit'] == "إرسال")
 {
 	unset ($_SESSION['m_message']);
 	$_SESSION['m_message'] = $_POST['message'];
@@ -37,8 +37,8 @@ if (@$_POST['submit'] == "Send")
 
 if (@isset($_POST['confirm']))
 {
-	if ($_POST['confirm'] == 'No' ) $Interupt = true;
-	if ($_POST['confirm'] == 'Yes'){
+	if ($_POST['confirm'] == 'No' || $_POST['confirm'] == 'لا') $Interupt = true;
+	if ($_POST['confirm'] == 'Yes' || $_POST['confirm'] == 'نعم'){
 
 		if(file_exists("Templates/text.tpl")) {
 
@@ -59,9 +59,10 @@ if (@isset($_POST['confirm']))
 
 ?>
 	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
+<html<?php echo (defined('LANG') && LANG === 'ar') ? ' dir="rtl"' : ''; ?>>
 <head>
-	<title><?php echo SERVER_NAME ?> - System Message</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title><?php echo SERVER_NAME ?> - <?php echo (defined('LANG') && LANG === 'ar') ? 'رسالة النظام' : 'System Message'; ?></title>
 	<link rel="shortcut icon" href="favicon.ico"/>
 	<meta http-equiv="cache-control" content="max-age=0" />
 	<meta http-equiv="pragma" content="no-cache" />
@@ -72,17 +73,17 @@ if (@isset($_POST['confirm']))
 	<script src="mt-full.js?0ac37" type="text/javascript"></script>
 	<script src="unx.js?f4b7h" type="text/javascript"></script>
 	<script src="new.js?0ac37" type="text/javascript"></script>
-	<link href="<?php echo GP_LOCATE; ?>lang/en/lang.css?f4b7d" rel="stylesheet" type="text/css" />
-	<link href="<?php echo GP_LOCATE; ?>lang/en/compact.css?f4b7i" rel="stylesheet" type="text/css" />
+	<link href="<?php echo GP_LOCATE; ?>lang/<?php echo LANG; ?>/lang.css?f4b7d" rel="stylesheet" type="text/css" />
+	<link href="<?php echo GP_LOCATE; ?>lang/<?php echo LANG; ?>/compact.css?v2" rel="stylesheet" type="text/css" />
 	<?php
 	if($session->gpack == null || GP_ENABLE == false) {
 	echo "
-	<link href='".GP_LOCATE."travian.css?e21d2' rel='stylesheet' type='text/css' />
-	<link href='".GP_LOCATE."lang/en/lang.css?e21d2' rel='stylesheet' type='text/css' />";
+	<link href='".GP_LOCATE."travian.css?v2' rel='stylesheet' type='text/css' />
+	<link href='".GP_LOCATE."lang/".LANG."/lang.css?v2' rel='stylesheet' type='text/css' />";
 	} else {
 	echo "
-	<link href='".$session->gpack."travian.css?e21d2' rel='stylesheet' type='text/css' />
-	<link href='".$session->gpack."lang/en/lang.css?e21d2' rel='stylesheet' type='text/css' />";
+	<link href='".$session->gpack."travian.css?v2' rel='stylesheet' type='text/css' />
+	<link href='".$session->gpack."lang/".LANG."/lang.css?v2' rel='stylesheet' type='text/css' />";
 	}
 	?>
 	<script type="text/javascript">
@@ -92,17 +93,21 @@ if (@isset($_POST['confirm']))
 		   <?php
 	if($session->gpack == null || GP_ENABLE == false) {
 	echo "
-	<link href='".GP_LOCATE."travian.css?e21d2' rel='stylesheet' type='text/css' />
-	<link href='".GP_LOCATE."lang/en/lang.css?e21d2' rel='stylesheet' type='text/css' />";
+	<link href='".GP_LOCATE."travian.css?v2' rel='stylesheet' type='text/css' />
+	<link href='".GP_LOCATE."lang/".LANG."/lang.css?v2' rel='stylesheet' type='text/css' />";
 	} else {
 	echo "
-	<link href='".$session->gpack."travian.css?e21d2' rel='stylesheet' type='text/css' />
-	<link href='".$session->gpack."lang/en/lang.css?e21d2' rel='stylesheet' type='text/css' />";
+	<link href='".$session->gpack."travian.css?v2' rel='stylesheet' type='text/css' />
+	<link href='".$session->gpack."lang/".LANG."/lang.css?v2' rel='stylesheet' type='text/css' />";
 	}
 	?>
 	<script type="text/javascript">
 	window.addEvent('domready', start);
 	</script>
+
+	<?php if(defined('LANG') && LANG === 'ar'): ?>
+	
+	<?php endif; ?>
 </head>
 
 
@@ -121,40 +126,40 @@ if (@isset($_POST['confirm']))
 			<table cellspacing="1" cellpadding="1" class="tbg" style="background-color:#C0C0C0; border: 0px solid #C0C0C0; font-size: 10pt;">
 			  <tbody>
 				<tr>
-				  <td class="rbg" style="font-size: 10pt; text-align:center;">System Message</td>
+				  <td class="rbg" style="font-size: 10pt; text-align:center;"><?php echo (defined('LANG') && LANG === 'ar') ? 'رسالة النظام' : 'System Message'; ?></td>
 				</tr>
 				<tr>
-				  <td style="font-size: 10pt; text-align:center;">Text BBCode:<br /><b>[b] txt [/b]</b> - <i>[i] txt [/i]</i> - <u>[u] txt [/u]</u> <br />
+				  <td style="font-size: 10pt; text-align:center;"><?php echo (defined('LANG') && LANG === 'ar') ? 'نص BBCode:' : 'Text BBCode:'; ?><br /><b>[b] txt [/b]</b> - <i>[i] txt [/i]</i> - <u>[u] txt [/u]</u> <br />
 			<textarea class="fm" name="message" cols="60" rows="23"></textarea></td>
 				</tr>
 				<tr>
-				  <td style="text-align:center;">All fields required</td>
+				  <td style="text-align:center;"><?php echo (defined('LANG') && LANG === 'ar') ? 'جميع الحقول مطلوبة' : 'All fields required'; ?></td>
 				</tr>
 				<tr>
 				  <td style="text-align:center;">
-					<input type="submit" value="Send" name="submit" />    </td>
+					<input type="submit" value="<?php echo (defined('LANG') && LANG === 'ar') ? 'إرسال' : 'Send'; ?>" name="submit" />    </td>
 				</tr>
 			  </tbody>
 			</table>
 			</form>
-<a href="sysmsg.php?del">Delete old System Message</a>
+<a href="sysmsg.php?del"><?php echo (defined('LANG') && LANG === 'ar') ? 'حذف رسالة النظام القديمة' : 'Delete old System Message'; ?></a>
 <?php }elseif (@$NextStep){?>
 <form method="post" action="sysmsg.php">
 			<table cellspacing="1" cellpadding="2" class="tbg">
 			  <tbody>
 				<tr>
-				  <td class="rbg" colspan="2">Confirmation</td>
+				  <td class="rbg" colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'تأكيد' : 'Confirmation'; ?></td>
 				</tr>
 				<tr>
-				  <td style="text-align: left; width: 200px;">Do you really want to send System Message?</td>
+				  <td style="text-align: left; width: 200px;"><?php echo (defined('LANG') && LANG === 'ar') ? 'هل تريد حقاً إرسال رسالة النظام؟' : 'Do you really want to send System Message?'; ?></td>
 				  <td style="text-align: left;">
-					<input type="submit" style="width: 240px;" class="fm" name="confirm" value="Yes" />
-					<input type="submit" style="width: 240px;" class="fm" name="confirm" value="No" /></td>
+					<input type="submit" style="width: 240px;" class="fm" name="confirm" value="<?php echo (defined('LANG') && LANG === 'ar') ? 'نعم' : 'Yes'; ?>" />
+					<input type="submit" style="width: 240px;" class="fm" name="confirm" value="<?php echo (defined('LANG') && LANG === 'ar') ? 'لا' : 'No'; ?>" /></td>
 				</tr>
 			  </tbody>
 			</table>
 </form>
-Example: (BBCode or quotation marks (" ") doesn't work over here!)
+<?php echo (defined('LANG') && LANG === 'ar') ? 'مثال: (رموز BBCode أو علامات الاقتباس (" ") لا تعمل هنا!)' : 'Example: (BBCode or quotation marks (" ") doesn\'t work over here!)'; ?>
 <?php
 $txt=$_SESSION['m_message'];
 $txt = preg_replace("/\[b\]/is",'<b>', $txt);
@@ -169,7 +174,7 @@ echo ($txt);
 <b><?php echo MASS_ABORT; ?></b>
 
 <?php }elseif (@$done){?>
-System Message was sent
+<?php echo (defined('LANG') && LANG === 'ar') ? 'تم إرسال رسالة النظام' : 'System Message was sent'; ?>
 <?php }else{die("Something is wrong");}?>
 </div>
 <div id="side_info" class="outgame">

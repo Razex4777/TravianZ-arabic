@@ -144,9 +144,10 @@ if ($wrefs) {
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
+<html<?php echo (defined('LANG') && LANG === 'ar') ? ' dir="rtl"' : ''; ?>>
 <head>
-<title><?php echo SERVER_NAME ?> - Crop Finder</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title><?php echo SERVER_NAME ?> - <?php echo (defined('LANG') && LANG === 'ar') ? 'باحث القمحيات' : 'Crop Finder'; ?></title>
 <link rel="shortcut icon" href="favicon.ico"/>
 <meta http-equiv="cache-control" content="max-age=0" />
 <meta http-equiv="pragma" content="no-cache" />
@@ -156,16 +157,20 @@ if ($wrefs) {
 <script src="mt-full.js?0faab" type="text/javascript"></script>
 <script src="unx.js?f4b7h" type="text/javascript"></script>
 <script src="new.js?0faab" type="text/javascript"></script>
-<link href="<?php echo GP_LOCATE; ?>lang/en/lang.css?f4b7d" rel="stylesheet" type="text/css" />
-<link href="<?php echo GP_LOCATE; ?>lang/en/compact.css?f4b7i" rel="stylesheet" type="text/css" />
+<link href="<?php echo GP_LOCATE; ?>lang/<?php echo LANG; ?>/lang.css?f4b7d" rel="stylesheet" type="text/css" />
+<link href="<?php echo GP_LOCATE; ?>lang/<?php echo LANG; ?>/compact.css?v2" rel="stylesheet" type="text/css" />
 <?php if($session->gpack == null || GP_ENABLE == false) {
-    echo " <link href='".GP_LOCATE."travian.css?e21d2' rel='stylesheet' type='text/css' />";
-    echo " <link href='".GP_LOCATE."lang/en/lang.css?e21d2' rel='stylesheet' type='text/css' />";
+    echo " <link href='".GP_LOCATE."travian.css?v2' rel='stylesheet' type='text/css' />";
+    echo " <link href='".GP_LOCATE."lang/".LANG."/lang.css?v2' rel='stylesheet' type='text/css' />";
 } else {
-    echo " <link href='".$session->gpack."travian.css?e21d2' rel='stylesheet' type='text/css' />";
-    echo " <link href='".$session->gpack."lang/en/lang.css?e21d2' rel='stylesheet' type='text/css' />";
+    echo " <link href='".$session->gpack."travian.css?v2' rel='stylesheet' type='text/css' />";
+    echo " <link href='".$session->gpack."lang/".LANG."/lang.css?v2' rel='stylesheet' type='text/css' />";
 } ?>
 <script type="text/javascript">window.addEvent('domready', start);</script>
+
+	<?php if(defined('LANG') && LANG === 'ar'): ?>
+	
+	<?php endif; ?>
 </head>
 <body class="v35 ie ie8">
 <div class="wrapper">
@@ -176,7 +181,7 @@ if ($wrefs) {
 <?php include ("Templates/menu.tpl"); ?>
 
 <div id="content" class="player">
-<h1>Crop Finder</h1>
+<h1><?php echo (defined('LANG') && LANG === 'ar') ? 'باحث القمحيات' : 'Crop Finder'; ?></h1>
 <div style="text-align: center">
     <img width="200" src="gpack/travian_default/img/g/f6.jpg" />
     <img width="200" src="gpack/travian_default/img/g/f1.jpg" />
@@ -185,18 +190,18 @@ if ($wrefs) {
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>?s" method="post">
 <table>
 <tr>
-  <td width="120">Cropper Type:</td>
+  <td width="120"><?php echo (defined('LANG') && LANG === 'ar') ? 'نوع القمحية:' : 'Cropper Type:'; ?></td>
   <td width="400">
-    <input type="radio" class="radio" name="type" value="15" <?php if ($selType === 1) echo 'checked="checked"'; ?> /> 15 crop
-    <input type="radio" class="radio" name="type" value="9"  <?php if ($selType === 2) echo 'checked="checked"'; ?> /> 9 crop
-    <input type="radio" class="radio" name="type" value="both" <?php if ($selType === 3 || $selType === 0) echo 'checked="checked"'; ?> /> both<br />
+    <input type="radio" class="radio" name="type" value="15" <?php if ($selType === 1) echo 'checked="checked"'; ?> /> <?php echo (defined('LANG') && LANG === 'ar') ? '15 قمح' : '15 crop'; ?>
+    <input type="radio" class="radio" name="type" value="9"  <?php if ($selType === 2) echo 'checked="checked"'; ?> /> <?php echo (defined('LANG') && LANG === 'ar') ? '9 قمح' : '9 crop'; ?>
+    <input type="radio" class="radio" name="type" value="both" <?php if ($selType === 3 || $selType === 0) echo 'checked="checked"'; ?> /> <?php echo (defined('LANG') && LANG === 'ar') ? 'كلاهما' : 'both'; ?><br />
   </td>
 </tr>
 <tr>
-  <td>Oasis Crop Bonus (min):</td>
+  <td><?php echo (defined('LANG') && LANG === 'ar') ? 'مكافأة قمح الواحة (الحد الأدنى):' : 'Oasis Crop Bonus (min):'; ?></td>
   <td>
     <select class="dropdown" name="bonus_getreide">
-      <option value="all"  <?php if($selBonus==='all')  echo 'selected="selected"'; ?>>either</option>
+      <option value="all"  <?php if($selBonus==='all')  echo 'selected="selected"'; ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'الكل' : 'either'; ?></option>
       <option value="25"   <?php if($selBonus==='25')   echo 'selected="selected"'; ?>>+25%</option>
       <option value="50"   <?php if($selBonus==='50')   echo 'selected="selected"'; ?>>+50%</option>
       <option value="75"   <?php if($selBonus==='75')   echo 'selected="selected"'; ?>>+75%</option>
@@ -207,12 +212,12 @@ if ($wrefs) {
   </td>
 </tr>
 <tr>
-  <td>Start position:</td>
+  <td><?php echo (defined('LANG') && LANG === 'ar') ? 'موقع البداية:' : 'Start position:'; ?></td>
   <td>x: <input type="text" name="x" value="<?php print $startX; ?>" size="4" />
       y: <input type="text" name="y" value="<?php print $startY; ?>" size="4" /></td>
 </tr>
 <tr>
-  <td colspan="2"><button type="submit" class="trav_buttons" value="Search">Search</button></td>
+  <td colspan="2"><button type="submit" class="trav_buttons" value="Search"><?php echo (defined('LANG') && LANG === 'ar') ? 'بحث' : 'Search'; ?></button></td>
 </tr>
 </table>
 </form>
@@ -228,23 +233,49 @@ if (!empty($_GET['debug'])) {
 <?php if ($searchTriggered) { ?>
 <table id="member">
 <thead>
-<tr><th colspan='6'>Crop Finder - <?php if($selType === 1) echo '15c'; elseif($selType === 2) echo '9c'; else echo '9c and 15c'; if($selBonus==='all') echo ' and any bonus'; elseif($selBonus==='25') echo ' and atleast 25% bonus';
-elseif($selBonus==='50') echo ' and atleast 50% bonus'; elseif($selBonus==='75') echo ' and atleast 75% bonus'; elseif($selBonus==='100') echo ' and atleast 100% bonus'; elseif($selBonus==='125') echo ' and atleast 125% bonus'; else echo ' and atleast 150% bonus';
- ?></th></tr>
+<?php
+$isAr = defined('LANG') && LANG === 'ar';
+if ($isAr) {
+    $cfLabel = 'باحث القمحيات - ';
+    if($selType === 1) $cfLabel .= '15c';
+    elseif($selType === 2) $cfLabel .= '9c';
+    else $cfLabel .= '9c و 15c';
+    if($selBonus==='all') $cfLabel .= ' وأي مكافأة';
+    elseif($selBonus==='25') $cfLabel .= ' وعلى الأقل 25% مكافأة';
+    elseif($selBonus==='50') $cfLabel .= ' وعلى الأقل 50% مكافأة';
+    elseif($selBonus==='75') $cfLabel .= ' وعلى الأقل 75% مكافأة';
+    elseif($selBonus==='100') $cfLabel .= ' وعلى الأقل 100% مكافأة';
+    elseif($selBonus==='125') $cfLabel .= ' وعلى الأقل 125% مكافأة';
+    else $cfLabel .= ' وعلى الأقل 150% مكافأة';
+} else {
+    $cfLabel = 'Crop Finder - ';
+    if($selType === 1) $cfLabel .= '15c';
+    elseif($selType === 2) $cfLabel .= '9c';
+    else $cfLabel .= '9c and 15c';
+    if($selBonus==='all') $cfLabel .= ' and any bonus';
+    elseif($selBonus==='25') $cfLabel .= ' and atleast 25% bonus';
+    elseif($selBonus==='50') $cfLabel .= ' and atleast 50% bonus';
+    elseif($selBonus==='75') $cfLabel .= ' and atleast 75% bonus';
+    elseif($selBonus==='100') $cfLabel .= ' and atleast 100% bonus';
+    elseif($selBonus==='125') $cfLabel .= ' and atleast 125% bonus';
+    else $cfLabel .= ' and atleast 150% bonus';
+}
+?>
+<tr><th colspan='6'><?php echo $cfLabel; ?></th></tr>
 <tr>
-  <td>Type</td>
-  <td>Coordinates</td>
-  <td>Owner</td>
-  <td>Occupied</td>
-  <td>Distance</td>
-  <td>Oasis</td>
+  <td><?php echo $isAr ? 'النوع' : 'Type'; ?></td>
+  <td><?php echo $isAr ? 'الإحداثيات' : 'Coordinates'; ?></td>
+  <td><?php echo $isAr ? 'المالك' : 'Owner'; ?></td>
+  <td><?php echo $isAr ? 'مشغولة' : 'Occupied'; ?></td>
+  <td><?php echo $isAr ? 'المسافة' : 'Distance'; ?></td>
+  <td><?php echo $isAr ? 'الواحة' : 'Oasis'; ?></td>
 </tr>
 </thead>
 <tbody>
 <?php
 if (empty($out)) {
     echo "<tr><td colspan='6' style='text-align:center; padding:10px;'>
-            <em style=\"color:#999;\">No crops fields found for the selected filters.</em>
+            <em style=\"color:#999;\">".(defined('LANG') && LANG === 'ar' ? 'لا توجد حقول قمحية للفلاتر المحددة.' : 'No crops fields found for the selected filters.')."</em>
           </td></tr>";
 } else {
     foreach ($out as $row) {

@@ -1,0 +1,515 @@
+div.build {
+    width: 552px;
+}
+
+div#build {
+    padding: 43px 25px 0;
+    width: 502px;
+}
+
+div#build p.switch {
+    text-align: right;
+}
+
+div#build h2 {
+    margin: 15px 0 10px;
+}
+
+div#build a.build_logo img {
+    margin-left: 5px;
+    position: absolute;
+    right: 13px;
+    top: 35px;
+}
+
+div#build p.build_desc {
+    padding-right: 70px;
+}
+
+div#build table.under_progress {
+    margin-top: 15px;
+}
+
+div#build.gid0 h1 {
+    margin-bottom: 25px;
+}
+
+div#build.gid0 h2 {
+    margin-bottom: 15px;
+}
+
+div#build.gid0 table.new_building {
+    margin-bottom: 25px;
+}
+
+div#build.gid15 h2 {
+    margin-top: 25px;
+}
+
+div#build.gid15 select.dropdown {
+    width: 200px;
+}
+
+div#build.gid15 input#btn_demolish {
+    margin-left: 15px;
+    position: relative;
+    top: 5px;
+}
+
+div#build a.build_logo img.g16 {
+    top: 45px;
+}
+
+div#build.gid16 div#textmenu {
+    position: relative;
+    white-space: nowrap;
+}
+
+div#build.gid16 div#textmenu a {
+    background-color: #FFFFFF;
+}
+
+div#build.gid16 h4 {
+    margin-top: 20px;
+}
+
+div#build.gid16 table.troop_details {
+    margin-bottom: 15px;
+}
+
+div#build.gid16 table#raidList {
+    margin-bottom: 10px;
+}
+
+div#build.gid17 table.send_res {
+    float: left;
+}
+
+div#build.gid17 table.res_target {
+    float: left;
+    margin-left: 20px;
+}
+
+div#build.gid17 table.buy_select {
+    float: left;
+}
+
+div#build.gid17 table#ratio_select {
+    margin-left: 20px;
+}
+
+div#build.gid17 table#bid_select {
+    margin-left: 20px;
+}
+
+div#build.gid17 table#range {
+    margin-top: 20px;
+}
+
+div#build.gid17 p#submitText {
+    display: block;
+    margin-top: 5px;
+}
+
+div#build.gid17 p#submitButton {
+    display: none;
+    margin-top: 5px;
+}
+
+div#build.gid17 table.traders {
+    margin-bottom: 15px;
+}
+
+div#build.gid17 p.info {
+    margin-top: 5px;
+}
+
+div#build.gid17 p.info img {
+    margin-right: 2px;
+}
+
+div#build.gid26 table#main {
+    margin-top: 15px;
+}
+
+div#build.gid27 table#near {
+    margin-top: 20px;
+}
+
+div#build.gid40 p.build_desc {
+    padding-right: 200px;
+}
+
+div#build.gid40 p.nam {
+    text-align: center;
+}
+
+div#build table#build_value {
+    background-color: #FFFFFF;
+    line-height: 19px;
+    width: auto;
+}
+
+div#build table#build_value th, div#build table#build_value td {
+    white-space: nowrap;
+}
+
+div#build table#build_value th {
+    padding-right: 35px;
+}
+
+div#build table#build_value td {
+    text-align: right;
+}
+
+div#build table.build_details td {
+    padding: 2px 7px;
+}
+
+div#build table.build_details td.desc {
+    line-height: 19px;
+}
+
+div#build table.build_details td.desc div.tit img {
+    margin: 0 5px;
+    position: relative;
+    top: 3px;
+}
+
+div#build table.build_details td.desc div.details {
+    padding-left: 30px;
+}
+
+div#build table.build_details td.desc div.details span {
+    white-space: nowrap;
+}
+
+div#build table.build_details td.desc div.details span.none {
+    white-space: normal;
+}
+
+div#build table.build_details td.act {
+    text-align: center;
+    width: 29%;
+}
+
+div#build table.build_details td.val {
+    text-align: center;
+    width: 12%;
+}
+
+div#build table.build_details td.val input.text {
+    width: 30px;
+}
+
+div#build table.build_details td.max {
+    text-align: center;
+    width: 12%;
+}
+
+div#build table.under_progress {
+    margin-top: 15px;
+}
+
+div#build table.under_progress td {
+    padding: 2px 7px;
+    text-align: center;
+}
+
+div#build table.under_progress td.desc {
+    text-align: left;
+}
+
+div#build table.under_progress td.desc img {
+    margin: 0 5px;
+    position: relative;
+    top: 3px;
+}
+
+div#build table.under_progress div.val {
+    float: left;
+    padding-left: 5px;
+    text-align: right;
+}
+
+div#build table.under_progress td.dur {
+    width: 20%;
+}
+
+div#build table.under_progress td.fin {
+    width: 20%;
+}
+
+div#build table.under_progress tr.next td {
+    background-color: #F5F5F5;
+}
+
+div#build p#contract {
+    line-height: 19px;
+}
+
+div#build table#expansion td, div#build #expansion th {
+    padding: 2px 7px;
+}
+
+div#build table#expansion thead td {
+    padding: 2px;
+}
+
+div#build table#expansion td {
+    text-align: center;
+}
+
+div#build table#expansion td.ra {
+    text-align: right;
+    white-space: nowrap;
+    width: 2%;
+}
+
+div#build table#expansion td.vil {
+    text-align: left;
+}
+
+div#build table#expansion td.ha {
+    width: 16%;
+}
+
+div#build table#expansion td.dat {
+    white-space: nowrap;
+    width: 14%;
+}
+
+div#build.gid0 h1 {
+    margin-bottom: 25px;
+}
+
+div#build.gid0 h2 {
+    margin-bottom: 15px;
+}
+
+div#build.gid0 div.hide {
+    display: none;
+}
+
+div#build.gid0 table.new_building {
+    background-color: #FFFFFF;
+    margin-bottom: 25px;
+}
+
+div#build.gid0 table.new_building td.desc {
+    padding-bottom: 15px;
+}
+
+div#build.gid0 table.new_building td.bimg {
+    padding-left: 15px;
+    padding-right: 5px;
+    vertical-align: top;
+}
+
+div#build.gid0 table.new_building td.res {
+    padding-bottom: 3px;
+}
+
+div#build.gid0 table.new_building td.requ {
+    padding-bottom: 3px;
+}
+
+div#build.gid15 table#demolish {
+    background-color: #FFFFFF;
+}
+
+div#build.gid16 table.troop_details th, div#build.gid16 table.troop_details td {
+    padding: 2px 7px;
+}
+
+div#build.gid16 table.troop_details th {
+    width: 20%;
+}
+
+div#build.gid16 table.troop_details tbody.units td {
+    padding: 2px;
+    text-align: center;
+    width: 7.2%;
+}
+
+div#build.gid16 table.troop_details tbody.infos th, div#build.gid16 table.troop_details tbody.infos td {
+    background-color: #F3F3F3;
+}
+
+div#build.gid16 table.troop_details tbody.goods td {
+    padding: 2px;
+    width: 7.2%;
+}
+
+div#build.gid16 table.troop_details tbody.goods div.res {
+    text-align: left;
+    white-space: nowrap;
+}
+
+div#build.gid16 table.troop_details tbody.goods div.carry {
+    text-align: right;
+}
+
+div#build.gid16 table.troop_details div {
+    float: left;
+    text-align: center;
+    width: 50%;
+}
+
+div#build.gid16 table.troop_details div.small {
+    width: 45%;
+}
+
+div#build.gid16 table.troop_details div.abort {
+    float: right;
+    text-align: right;
+    width: 5%;
+}
+
+div#build.gid16 table.troop_details div.abort img {
+    margin-top: 3px;
+}
+
+div#build.gid16 table.troop_details div.sup {
+    text-align: left;
+}
+
+div#build.gid16 table.troop_details div.sback {
+    text-align: right;
+}
+
+div#build.gid16 table.troop_details div.free {
+    text-align: right;
+}
+
+div#build.gid16 table.troop_details div.gback {
+    text-align: right;
+}
+
+div#build.gid16 table.troop_details div.diss {
+    text-align: right;
+}
+
+div#build.gid16 table.troop_details a.attack_marker {
+    float: right;
+    position: relative;
+    right: -1px;
+    top: 2px;
+}
+
+div#build.gid16 table#raidList thead td {
+    white-space: nowrap;
+}
+
+div#build.gid16 table#raidList th, div#build.gid16 table#raidList td {
+    padding: 2px 7px;
+    text-align: center;
+}
+
+div#build.gid16 table#raidList td.check {
+    padding: 2px;
+    width: 1%;
+}
+
+div#build.gid16 table#raidList td.check img {
+    float: left;
+}
+
+div#build.gid16 table#raidList td.vil {
+    text-align: left;
+}
+
+div#build.gid16 table#raidList td.vil img {
+    float: right;
+}
+
+div#build.gid16 table#raidList td.raids {
+    width: 10%;
+}
+
+div#build.gid16 table#raidList td.goods {
+    width: 10%;
+}
+
+div#build.gid16 table#raidList td.lost {
+    width: 10%;
+}
+
+div#build.gid16 table#raidList td.rep {
+    text-align: left;
+    white-space: nowrap;
+    width: 20%;
+}
+
+div#build.gid16 table#raidList td.rep img {
+    float: left;
+    margin-right: 3px;
+}
+
+div#build.gid16 table#raidTroops {
+    background-color: #FFFFFF;
+    border: 1px dashed #C0C0C0;
+}
+
+div#build.gid16 table#raidTroops td.column-first {
+    padding-left: 8px;
+}
+
+div#build.gid16 table#raidTroops td.column-last {
+    padding-right: 8px;
+}
+
+div#build.gid16 table#raidTroops td.line-first {
+    padding-top: 8px;
+}
+
+div#build.gid16 table#raidTroops td.line-last {
+    padding-bottom: 8px;
+}
+
+div#build.gid16 table#raidTroops td {
+    padding: 1px;
+    width: 25%;
+}
+
+div#build.gid16 table#raidTroops img {
+    bottom: 3px;
+    margin-right: 2px;
+    position: relative;
+    vertical-align: bottom;
+}
+
+div#build.gid16 table#raidTroops input.text {
+    width: 60px;
+}
+
+div#build.gid16 table#raidTroops input.disabled {
+    background-color: #EEEEEE;
+    border-color: #AAAAAA;
+}
+
+div#build.gid16 table#troopEscape thead td {
+    white-space: nowrap;
+}
+
+div#build.gid16 table#troopEscape th, div#build.gid16 table#troopEscape td {
+    padding: 2px 7px;
+    text-align: center;
+}
+
+div#build.gid16 table#troopEscape td.sel {
+    padding: 2px;
+    width: 5%;
+}
+
+div#build.gid16 table#troopEscape td.vil {
+    text-align: left;
+}
+
+div#build.gid16 table#troopEscape td.own {
+    width: 25%;
+}
+
+div#build.gid16 table#troopEscape td.rein {
+    width: 25%;
+}

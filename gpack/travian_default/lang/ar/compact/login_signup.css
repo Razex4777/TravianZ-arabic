@@ -1,0 +1,293 @@
+div.login {
+    padding: 0 25px;
+    width: 502px;
+}
+
+div.logout {
+    padding: 0 25px;
+    width: 502px;
+}
+
+div.signup {
+    padding: 0 25px;
+    width: 502px;
+}
+
+div.activate {
+    padding: 0 25px;
+    width: 502px;
+}
+
+div.login h1 {
+    text-align: center;
+}
+
+div.login p {
+    line-height: 17px;
+}
+
+div.login p.error_box {
+    border: 1px dashed #C0C0C0;
+    padding: 6px;
+}
+
+div.logout img.roman {
+    float: left;
+}
+
+div.signup h1 {
+    text-align: center;
+}
+
+div.signup p {
+    line-height: 17px;
+}
+
+div.signup p.info {
+    text-align: center;
+}
+
+div.signup img.roman {
+    float: left;
+}
+
+div.signup table#sign_input {
+    margin-bottom: 15px;
+}
+
+div.signup div#activation {
+    float: right;
+    margin-top: 15px;
+    width: 40%;
+}
+
+div.signup div#not_yet {
+    text-align: center;
+}
+
+div.signup div#no_mail {
+    float: left;
+    margin-top: 15px;
+    width: 60%;
+}
+
+div.signup .timer, div.signup .timer #timer1 {
+    text-align: center;
+}
+
+div.activate h1 {
+    text-align: center;
+}
+
+div.activate h6 {
+    margin: 0;
+}
+
+div.activate p {
+    line-height: 17px;
+}
+
+div.activate p.info {
+    text-align: center;
+}
+
+div.activate ul {
+    margin: 14px 0 20px;
+    padding-right: 20px;
+}
+
+div.login table {
+    background-color: #FFFFFF;
+    border: 1px dashed #C0C0C0;
+}
+
+div.login table tr.top th, div.login table tr.top td {
+    padding-bottom: 2px;
+    padding-top: 9px;
+}
+
+div.login table tr.btm th, div.login table tr.btm td {
+    padding-bottom: 9px;
+    padding-top: 2px;
+}
+
+div.login table th {
+    padding-right: 20px;
+    width: 38%;
+}
+
+div.login table td {
+    width: 62%;
+}
+
+div.login table td input.text {
+    width: 113px;
+}
+
+div.signup table {
+    background-color: #FFFFFF;
+    border: 1px dashed #C0C0C0;
+}
+
+div.signup table tr.top th, div.signup table tr.top td {
+    padding-bottom: 2px;
+    padding-top: 9px;
+}
+
+div.signup table tr.btm th, div.signup table tr.btm td {
+    padding-bottom: 9px;
+    padding-top: 2px;
+}
+
+div.signup table th, div.signup table td {
+    padding-bottom: 2px;
+    padding-top: 2px;
+}
+
+div.signup input.text {
+    width: 113px;
+}
+
+div.signup input.radio {
+    float: right;
+    margin-right: 5px;
+    position: relative;
+    top: 2px;
+}
+
+div.signup input.check {
+    float: right;
+    margin-left: 5px;
+    position: relative;
+    top: 2px;
+}
+
+div.signup table#sign_input th {
+    padding-right: 20px;
+    width: 38%;
+}
+
+div.signup table#sign_input td {
+    width: 62%;
+}
+
+div.signup table#sign_select {
+    line-height: 19px;
+}
+
+div.signup table#sign_select th, .signup #sign_select td {
+    padding-right: 10px;
+}
+
+div.signup table#sign_select td.nat {
+    width: 35%;
+}
+
+div.signup table#sign_select td.pos1 {
+    width: 20%;
+}
+
+div.signup table#sign_select td.pos2 {
+    width: 45%;
+}
+
+div.activate table {
+    background-color: #FFFFFF;
+    border: 1px dashed #C0C0C0;
+}
+
+div.activate table tr.top th, div.activate table tr.top td {
+    padding-bottom: 2px;
+    padding-top: 9px;
+}
+
+div.activate table tr.btm th, div.activate table tr.btm td {
+    padding-bottom: 9px;
+    padding-top: 2px;
+}
+
+div.activate table th {
+    padding-right: 20px;
+    width: 38%;
+}
+
+div.activate table td {
+    width: 62%;
+}
+
+div.login p {
+    font-size: 12px;
+}
+
+div.login table th, div.login table td {
+    font-size: 11px;
+}
+
+div.signup table th, .signup table td {
+    font-size: 11px;
+}
+
+div.signup p {
+    font-size: 12px;
+}
+
+div.signup p.info {
+    color: #FF8000;
+}
+
+div.signup p.error2 {
+    color: #FF8000;
+}
+
+div.signup p#timer1 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+div.signup span.error {
+    font-size: 9px;
+}
+
+div.signup span.unavailable {
+    font-size: 24px;
+}
+
+div.signup .important {
+    color: #FF8000;
+    font-weight: bold;
+}
+
+div.activate h6 {
+    color: #FF8000;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+div.activate table th, div.activate table td {
+    font-size: 11px;
+}
+
+div.activate td.name {
+    color: #FF8000;
+    font-weight: bold;
+}
+
+div.activate p {
+    font-size: 12px;
+}
+
+div.activate p.info {
+    color: #C0C0C0;
+    font-size: 24px;
+}
+
+div.activate p.info2 {
+    color: #FF8000;
+    font-weight: bold;
+}
+
+div.logout img.roman, div.signup img.roman {
+    background-image: url("../../../img/un/h/roemer.jpg");
+    height: 156px;
+    width: 129px;
+}

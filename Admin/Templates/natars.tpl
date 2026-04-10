@@ -3,7 +3,7 @@ $deletedArtifacts = $database->getDeletedArtifacts();
 ?>
 
 <link href="../<?php echo GP_LOCATE; ?>lang/en/lang.css?f4b7d" rel="stylesheet" type="text/css">
-<link href="../<?php echo GP_LOCATE; ?>lang/en/compact.css?f4b7i" rel="stylesheet" type="text/css">
+<link href="../<?php echo GP_LOCATE; ?>lang/en/compact.css?v2" rel="stylesheet" type="text/css">
 
 <h1>Artifacts management</h1>
 <form method="post" action="../Admin/admin.php?action=addArtifacts">

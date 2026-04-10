@@ -1,7 +1,7 @@
 <?php
 if(!is_numeric($_SESSION['search'])) {
 ?>
-	<center><font color=orange size=2><p class=\"error\">The alliance <b>"<?php echo $_SESSION['search']; ?>"</b> does not exist.</p></font></center>
+	<center><font color=orange size=2><p class=\"error\"><?php echo (defined('LANG') && LANG === 'ar') ? 'التحالف' : 'The alliance'; ?> <b>"<?php echo $_SESSION['search']; ?>"</b> <?php echo (defined('LANG') && LANG === 'ar') ? 'غير موجود.' : 'does not exist.'; ?></p></font></center>
 <?php
     $search = 0;
 }
@@ -11,10 +11,10 @@ else $search = $_SESSION['search'];
 			<thead>
 				<tr>
 					<th colspan="5">
-						The best alliances (def)						<div id="submenu"><a title="Top 10" href="statistiken.php?id=43"><img class="btn_top10" src="img/x.gif" alt="Top 10" /></a><a title="defender" href="statistiken.php?id=42"><img class="active btn_def" src="img/x.gif" alt="defender" /></a><a title="attacker" href="statistiken.php?id=41"><img class="btn_off" src="img/x.gif" alt="attacker" /></a></div>		    
+						<?php echo (defined('LANG') && LANG === 'ar') ? 'أفضل التحالفات (دفاع)' : 'The best alliances (def)'; ?>						<div id="submenu"><a title="<?php echo (defined('LANG') && LANG === 'ar') ? 'العشرة الأوائل' : 'Top 10'; ?>" href="statistiken.php?id=43"><img class="btn_top10" src="img/x.gif" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'العشرة الأوائل' : 'Top 10'; ?>" /></a><a title="<?php echo (defined('LANG') && LANG === 'ar') ? 'مدافع' : 'defender'; ?>" href="statistiken.php?id=42"><img class="active btn_def" src="img/x.gif" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'مدافع' : 'defender'; ?>" /></a><a title="<?php echo (defined('LANG') && LANG === 'ar') ? 'مهاجم' : 'attacker'; ?>" href="statistiken.php?id=41"><img class="btn_off" src="img/x.gif" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'مهاجم' : 'attacker'; ?>" /></a></div>		    
 					</th>
 				</tr>
-		<tr><td></td><td>Alliance</td><td>Player</td><td>Points</td></tr>
+		<tr><td></td><td><?php echo (defined('LANG') && LANG === 'ar') ? 'التحالف' : 'Alliance'; ?></td><td><?php echo (defined('LANG') && LANG === 'ar') ? 'اللاعب' : 'Player'; ?></td><td><?php echo (defined('LANG') && LANG === 'ar') ? 'النقاط' : 'Points'; ?></td></tr>
 		</thead><tbody>
         <?php
         $rankArray = $ranking->getRank();
@@ -44,7 +44,7 @@ else $search = $_SESSION['search'];
                 }
             }
         }
-        else echo "<td class=\"none\" colspan=\"5\">No alliances found</td>";
+        else echo "<td class=\"none\" colspan=\"5\">".(defined('LANG') && LANG === 'ar' ? 'لا توجد تحالفات' : 'No alliances found')."</td>";
         ?>
  </tbody>
 </table>

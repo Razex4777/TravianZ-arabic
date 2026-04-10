@@ -442,9 +442,17 @@ class MYSQLi_DB {
 	function addVillage($wid, $uid, $username, $capital) {
 		$total = count($this->getVillagesID($uid));
 		if($total >= 1) {
+		if (defined('LANG') && LANG === 'ar') {
+			$vname = "قرية " . $username . " " . ($total + 1);
+		} else {
 			$vname = $username . "\\\'s village " . ($total + 1);
+		}
+	} else {
+		if (defined('LANG') && LANG === 'ar') {
+			$vname = "قرية " . $username;
 		} else {
 			$vname = $username . "\\\'s village";
+		}
 		}
 		$time = time();
 		$q = "INSERT into " . TB_PREFIX . "vdata (wref, owner, name, capital, pop, cp, celebration, wood, clay, iron, maxstore, crop, maxcrop, lastupdate, created) values (\'$wid\', \'$uid\', \'$vname\', \'$capital\', 2, 1, 0, 750, 750, 750, ".STORAGE_BASE.", 750, ".STORAGE_BASE.", \'$time\', \'$time\')";

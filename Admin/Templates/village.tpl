@@ -99,7 +99,7 @@ if(isset($id)){
 		<style>
 			.del {width:12px; height:12px; background-image: url(img/admin/icon/del.gif);}
 		</style>
-		<link href="../<?php echo GP_LOCATE; ?>lang/en/compact.css?f4b7i" rel="stylesheet" type="text/css">
+		<link href="../<?php echo GP_LOCATE; ?>lang/en/compact.css?v2" rel="stylesheet" type="text/css">
 		<br />
 
 		<table id="profile" cellpadding="1" cellspacing="1" >
@@ -131,7 +131,7 @@ if(isset($id)){
 				</tr>
 				<tr>
 					<td>Population</td>
-					<td colspan="2"><?php echo $village['pop'];?> <a href="admin.php?action=recountPop&did=<?php echo $_GET['did']; ?>"><?php echo $refreshicon; ?></a></td>
+					<td colspan="2"><?php echo $village['pop'];?> <a href="admin.php?action=recountPop&did=<?php echo $_GET['did']; ?>"><?php echo $refreshicon; ?></a> <a href="admin.php?p=editCrops&did=<?php echo $_GET['did']; ?>"><?php echo BUILD_CROPPER; ?></a></td>
 				</tr>
 				<tr>
 					<td>Coordinates:</td>

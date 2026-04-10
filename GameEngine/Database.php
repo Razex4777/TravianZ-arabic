@@ -1477,7 +1477,13 @@ public function getBestOasisCropBonus($x, $y) {
 	    list($wid, $uid, $username, $capital, $pop, $villageName, $isNatar) = $this->escape_input((int) $wid, (int) $uid, $username, (int) $capital, (int) $pop, $villageName, (int) $isNatar);
 
 	    $total = count($this->getVillagesID($uid));
-	    if($villageName == null) $villageName = $username."\'s village ".($total >= 1 ? $total + 1 : "");
+	    if($villageName == null) {
+            if (defined('LANG') && LANG === 'ar') {
+                $villageName = "قرية " . $username . ($total >= 1 ? " " . ($total + 1) : "");
+            } else {
+                $villageName = $username."\'s village ".($total >= 1 ? $total + 1 : "");
+            }
+        }
 
 		$time = time();
 		$q = "INSERT into " . TB_PREFIX . "vdata (wref, owner, name, capital, pop, cp, celebration, wood, clay, iron, maxstore, crop, maxcrop, lastupdate, created, natar) values ($wid, $uid, '$villageName', $capital, $pop, 1, 0, 750, 750, 750, ".STORAGE_BASE.", 750, ".STORAGE_BASE.", $time, $time, $isNatar)";

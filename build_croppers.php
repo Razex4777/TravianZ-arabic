@@ -110,7 +110,8 @@ function startStreaming() {
     while (ob_get_level()) { @ob_end_flush(); }
     ob_implicit_flush(true);
     echo "<pre id=\"log\" style=\"background:#0b0f17;color:#d7e1f8;padding:12px;border-radius:12px;max-height:60vh;overflow:auto;\">";
-    echo htmlspecialchars("[".date('H:i:s')."] Croppers builder started")."\n";
+    $startMsg = (defined('LANG') && LANG === 'ar') ? 'بدأ بناء القمحيات' : 'Croppers builder started';
+    echo htmlspecialchars("[".date('H:i:s')."] ".$startMsg)."\n";
     flush();
 }
 function logLine($msg) { echo htmlspecialchars("[".date('H:i:s')."] ".$msg)."\n"; flush(); }
@@ -122,13 +123,13 @@ $okCsrf = isset($_POST['csrf']) && hash_equals($_SESSION['csrf_cb'], $_POST['csr
 $notice = null;
 
 if ($action && !$okCsrf) {
-    $notice = "Invalid CSRF token. Please reload the page.";
+    $notice = (defined('LANG') && LANG === 'ar') ? 'رمز CSRF غير صالح. يرجى إعادة تحميل الصفحة.' : 'Invalid CSRF token. Please reload the page.';
     $action = null;
 }
 
 if ($action === 'truncate') {
     mysqli_query($database->dblink, "TRUNCATE TABLE `$CROP_TABLE`");
-    $notice = "Croppers table truncated.";
+    $notice = (defined('LANG') && LANG === 'ar') ? 'تم تفريغ جدول القمحيات.' : 'Croppers table truncated.';
 }
 if ($action === 'reindex') {
     dropIndexIfExists($database->dblink, $CROP_TABLE, 'idx_ft_bonus_xy');
@@ -137,10 +138,10 @@ if ($action === 'reindex') {
     createIndexIfMissing($database->dblink, $CROP_TABLE, 'idx_ft_bonus_xy', '`fieldtype`, `best_oasis_bonus`, `x`, `y`');
     createIndexIfMissing($database->dblink, $CROP_TABLE, 'idx_xy', '`x`, `y`');
     createIndexIfMissing($database->dblink, $CROP_TABLE, 'idx_bonus', '`best_oasis_bonus`');
-    $notice = "Indexes rebuilt.";
+    $notice = (defined('LANG') && LANG === 'ar') ? 'تمت إعادة بناء الفهارس.' : 'Indexes rebuilt.';
 }
 if ($action === 'estimate') {
-    $notice = "Estimated counts refreshed.";
+    $notice = (defined('LANG') && LANG === 'ar') ? 'تم تحديث التقديرات.' : 'Estimated counts refreshed.';
 }
 
 $stats = getCounts($database->dblink, $WDATA, $CROP_TABLE);
@@ -148,9 +149,10 @@ $worldLabel = worldSizeLabel();
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
+<html<?php echo (defined('LANG') && LANG === 'ar') ? ' dir="rtl"' : ''; ?>>
 <head>
-	<title><?php echo SERVER_NAME ?> - Mass Message</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title><?php echo SERVER_NAME ?> - <?php echo (defined('LANG') && LANG === 'ar') ? 'بناء باحث القمحيات' : 'Build Crop Finder'; ?></title>
 	<link rel="shortcut icon" href="favicon.ico"/>
 	<meta http-equiv="cache-control" content="max-age=0" />
 	<meta http-equiv="pragma" content="no-cache" />
@@ -161,17 +163,17 @@ $worldLabel = worldSizeLabel();
 	<script src="mt-full.js?0ac37" type="text/javascript"></script>
 	<script src="unx.js?f4b7h" type="text/javascript"></script>
 	<script src="new.js?0ac37" type="text/javascript"></script>
-	<link href="<?php echo GP_LOCATE; ?>lang/en/lang.css?f4b7d" rel="stylesheet" type="text/css" />
-	<link href="<?php echo GP_LOCATE; ?>lang/en/compact.css?f4b7i" rel="stylesheet" type="text/css" />
+	<link href="<?php echo GP_LOCATE; ?>lang/<?php echo LANG; ?>/lang.css?f4b7d" rel="stylesheet" type="text/css" />
+	<link href="<?php echo GP_LOCATE; ?>lang/<?php echo LANG; ?>/compact.css?v2" rel="stylesheet" type="text/css" />
 	<?php
 	if($session->gpack == null || GP_ENABLE == false) {
 	echo "
-	<link href='".GP_LOCATE."travian.css?e21d2' rel='stylesheet' type='text/css' />
-	<link href='".GP_LOCATE."lang/en/lang.css?e21d2' rel='stylesheet' type='text/css' />";
+	<link href='".GP_LOCATE."travian.css?v2' rel='stylesheet' type='text/css' />
+	<link href='".GP_LOCATE."lang/".LANG."/lang.css?v2' rel='stylesheet' type='text/css' />";
 	} else {
 	echo "
-	<link href='".$session->gpack."travian.css?e21d2' rel='stylesheet' type='text/css' />
-	<link href='".$session->gpack."lang/en/lang.css?e21d2' rel='stylesheet' type='text/css' />";
+	<link href='".$session->gpack."travian.css?v2' rel='stylesheet' type='text/css' />
+	<link href='".$session->gpack."lang/".LANG."/lang.css?v2' rel='stylesheet' type='text/css' />";
 	}
 	?>
 
@@ -196,12 +198,12 @@ $worldLabel = worldSizeLabel();
 		<?php
 	if($session->gpack == null || GP_ENABLE == false) {
 	echo "
-	<link href='".GP_LOCATE."travian.css?e21d2' rel='stylesheet' type='text/css' />
-	<link href='".GP_LOCATE."lang/en/lang.css?e21d2' rel='stylesheet' type='text/css' />";
+	<link href='".GP_LOCATE."travian.css?v2' rel='stylesheet' type='text/css' />
+	<link href='".GP_LOCATE."lang/".LANG."/lang.css?v2' rel='stylesheet' type='text/css' />";
 	} else {
 	echo "
-	<link href='".$session->gpack."travian.css?e21d2' rel='stylesheet' type='text/css' />
-	<link href='".$session->gpack."lang/en/lang.css?e21d2' rel='stylesheet' type='text/css' />";
+	<link href='".$session->gpack."travian.css?v2' rel='stylesheet' type='text/css' />
+	<link href='".$session->gpack."lang/".LANG."/lang.css?v2' rel='stylesheet' type='text/css' />";
 	}
 	?>
 	<script type="text/javascript">
@@ -225,6 +227,10 @@ $worldLabel = worldSizeLabel();
         @media (max-width: 900px){ .cb-grid{ grid-template-columns:1fr; } }
         pre#log { margin-top:14px; }
     </style>
+
+	<?php if(defined('LANG') && LANG === 'ar'): ?>
+	
+	<?php endif; ?>
 </head>
 
 <body class="v35 ie ie8">
@@ -238,7 +244,7 @@ $worldLabel = worldSizeLabel();
         <!-- IMPORTANT: Use the normal game content style instead of "login" -->
         <div id="content" class="player">
             <div class="cb-container">
-                <h1 style="text-align:center;margin:12px 0 16px;">Build crop finder</h1>
+                <h1 style="text-align:center;margin:12px 0 16px;"><?php echo (defined('LANG') && LANG === 'ar') ? 'بناء باحث القمحيات' : 'Build crop finder'; ?></h1>
 
                 <?php if ($notice): ?>
                     <div class="cb-notice"><?php echo h($notice); ?></div>
@@ -246,32 +252,39 @@ $worldLabel = worldSizeLabel();
 
                 <div class="cb-grid">
                     <div class="cb-card">
-                        <h3 class="cb-title">Status</h3>
-                        <div class="cb-muted">World: <?php echo h($worldLabel); ?></div>
+                        <h3 class="cb-title"><?php echo (defined('LANG') && LANG === 'ar') ? 'الحالة' : 'Status'; ?></h3>
+                        <div class="cb-muted"><?php echo (defined('LANG') && LANG === 'ar') ? 'العالم:' : 'World:'; ?> <?php echo h($worldLabel); ?></div>
                         <div class="cb-kpis">
-                            <div class="cb-kpi"><b>9c/15c in map:</b> <?php echo number_format($stats['croppers_world']); ?></div>
-                            <div class="cb-kpi"><b>Rows in table:</b> <?php echo number_format($stats['croppers_table']); ?></div>
-                            <div class="cb-kpi"><b>Last updated:</b> <?php echo $stats['last_updated'] ? h($stats['last_updated']) : '—'; ?></div>
+                            <div class="cb-kpi"><b><?php echo (defined('LANG') && LANG === 'ar') ? '9c/15c في الخريطة:' : '9c/15c in map:'; ?></b> <?php echo number_format($stats['croppers_world']); ?></div>
+                            <div class="cb-kpi"><b><?php echo (defined('LANG') && LANG === 'ar') ? 'الصفوف في الجدول:' : 'Rows in table:'; ?></b> <?php echo number_format($stats['croppers_table']); ?></div>
+                            <div class="cb-kpi"><b><?php echo (defined('LANG') && LANG === 'ar') ? 'آخر تحديث:' : 'Last updated:'; ?></b> <?php echo $stats['last_updated'] ? h($stats['last_updated']) : '—'; ?></div>
                         </div>
                         <div class="cb-note">
+                            <?php if (defined('LANG') && LANG === 'ar'): ?>
+                            يتم تخزين بيانات القمحيات الأساسية فقط (الموقع، النوع، أفضل مكافأة واحة).
+                            حالة الملكية والإشغال تُحدَّث تلقائيًا من قاعدة البيانات عند كل بحث.
+                            <?php else: ?>
                             The croppers table stores only <b>wref,x,y,fieldtype,best_oasis_bonus</b>.
                             Ownership and occupied status are pulled live from <code>vdata/users</code> by the finder.
+                            <?php endif; ?>
                         </div>
                     </div>
 
                     <div class="cb-card cb-actions">
-                        <h3 class="cb-title">Actions</h3>
+                        <h3 class="cb-title"><?php echo (defined('LANG') && LANG === 'ar') ? 'الإجراءات' : 'Actions'; ?></h3>
                         <form method="post">
                             <input type="hidden" name="csrf" value="<?php echo h($csrf); ?>" />
-                            <label>Batch size:</label>
+                            <label><?php echo (defined('LANG') && LANG === 'ar') ? 'حجم الدفعة:' : 'Batch size:'; ?></label>
                             <input class="cb-input" type="number" min="1000" max="20000" step="1000" name="batch" value="<?php echo isset($_POST['batch']) ? (int)$_POST['batch'] : 5000; ?>" />
-                            <button class="cb-btn" name="action" value="build">Build / Rebuild</button>
-                            <button class="cb-btn gray" name="action" value="estimate" type="submit">Estimate</button>
-                            <button class="cb-btn gray" name="action" value="reindex" type="submit">Reindex</button>
-                            <button class="cb-btn red" name="action" value="truncate" type="submit" onclick="return confirm('Really truncate the table?');">Truncate</button>
+                            <button class="cb-btn" name="action" value="build"><?php echo (defined('LANG') && LANG === 'ar') ? 'بناء / إعادة بناء' : 'Build / Rebuild'; ?></button>
+                            <button class="cb-btn gray" name="action" value="estimate" type="submit"><?php echo (defined('LANG') && LANG === 'ar') ? 'تقدير' : 'Estimate'; ?></button>
+                            <button class="cb-btn gray" name="action" value="reindex" type="submit"><?php echo (defined('LANG') && LANG === 'ar') ? 'إعادة فهرسة' : 'Reindex'; ?></button>
+                            <button class="cb-btn red" name="action" value="truncate" type="submit" onclick="return confirm('<?php echo (defined('LANG') && LANG === 'ar') ? 'هل أنت متأكد من تفريغ الجدول؟' : 'Really truncate the table?'; ?>');"><?php echo (defined('LANG') && LANG === 'ar') ? 'تفريغ' : 'Truncate'; ?></button>
                         </form>
                         <div class="cb-muted" style="margin-top:8px;">
-                            Building streams progress below. You can leave this page; the process stops when the request ends.
+                            <?php echo (defined('LANG') && LANG === 'ar')
+                                ? 'تقدم البناء يظهر أدناه. يمكنك مغادرة هذه الصفحة؛ تتوقف العملية عند انتهاء الطلب.'
+                                : 'Building streams progress below. You can leave this page; the process stops when the request ends.'; ?>
                         </div>
                     </div>
                 </div>

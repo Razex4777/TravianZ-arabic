@@ -1,0 +1,515 @@
+div.alliance {
+    padding: 43px 25px 0;
+    width: 502px;
+}
+
+div.alliance table#member {
+    margin-top: 25px;
+}
+
+div.alliance table#rights {
+    margin-top: 10px;
+}
+
+div.alliance table#medals {
+    margin-top: 25px;
+}
+
+div.alliance table#own {
+    margin-top: 25px;
+}
+
+div.alliance table#chat_input {
+    background-color: white;
+}
+
+div.alliance div#rooms img.del {
+    position: relative;
+    top: 3px;
+}
+
+div.alliance span.roomselector {
+    background-color: #FFFFFF;
+    border: 1px solid #C0C0C0;
+    float: left;
+    height: 17px;
+    padding: 3px;
+    width: 140px;
+}
+
+div.alliance span.roomselectorActive {
+    background-color: #F0FFF0;
+    border: 1px solid #71D000;
+    float: left;
+    height: 17px;
+    padding: 3px;
+    width: 140px;
+}
+
+div.alliance div.chatHeader {
+    background-color: #FFFFFF;
+    border: 1px solid #C0C0C0;
+    height: 16px;
+    padding: 2px;
+    text-align: center;
+    width: 496px;
+}
+
+div.alliance table.dipl, div.alliance div#box {
+    float: left;
+}
+
+div.alliance table.infos {
+    float: right;
+}
+
+div.alliance table#own {
+    margin-top: 25px;
+}
+
+div.alliance table#foreign {
+    margin-top: 10px;
+}
+
+div.alliance table#existing {
+    margin-top: 10px;
+}
+
+div.alliance table#tip {
+    margin-top: 25px;
+}
+
+div.alliance div#submenu {
+    position: absolute;
+    right: 29px;
+    top: 104px;
+}
+
+div.alliance div#submenu img {
+    float: right;
+    margin-left: 5px;
+}
+
+div.alliance table td, div.alliance table th {
+    padding: 2px 7px;
+}
+
+div.alliance tbody th {
+    text-align: left;
+}
+
+div.alliance td {
+    text-align: center;
+}
+
+div.alliance .none {
+    text-align: center;
+}
+
+div.alliance td.abo {
+    width: 5%;
+}
+
+div.alliance table#profile thead td {
+    width: 50%;
+}
+
+div.alliance table#profile td.details {
+    border-bottom: medium none;
+    height: 156px;
+    padding: 0;
+    vertical-align: top;
+    width: 50%;
+}
+
+div.alliance table#profile td.details table {
+    background-color: #FFFFFF;
+    border-collapse: collapse;
+    margin-top: 0;
+}
+
+div.alliance table#profile td.details table th {
+    border-bottom: 1px solid #C0C0C0;
+    border-right: 1px solid #C0C0C0;
+    width: 50%;
+}
+
+div.alliance table#profile td.details table td {
+    border-bottom: 1px solid #C0C0C0;
+    text-align: left;
+}
+
+div.alliance table#profile td.desc1 {
+    padding: 0 7px;
+    vertical-align: middle;
+    width: 50%;
+}
+
+div.alliance table#profile td.details table td.desc2 {
+    border-bottom: 0 solid transparent;
+    height: 100%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+div.alliance table#member td.ra {
+    text-align: right;
+    white-space: nowrap;
+    width: 5%;
+}
+
+div.alliance table#member td.pla {
+    text-align: left;
+}
+
+div.alliance table#member td.hab {
+    width: 25%;
+}
+
+div.alliance table#member td.vil {
+    width: 20%;
+}
+
+div.alliance table#member td.on {
+    width: 5%;
+}
+
+div.alliance table#offs td.sub {
+    text-align: left;
+}
+
+div.alliance table#offs td.sub img {
+    float: left;
+}
+
+div.alliance table#offs td.sub div {
+    padding-left: 24px;
+}
+
+div.alliance table#offs td.al {
+    white-space: nowrap;
+    width: 20%;
+}
+
+div.alliance table#offs td.dat {
+    white-space: nowrap;
+    width: 23%;
+}
+
+div.alliance table#events td.event {
+    text-align: left;
+}
+
+div.alliance table#events td.dat {
+    white-space: nowrap;
+    width: 25%;
+}
+
+div.alliance table.small_option {
+    width: 50%;
+}
+
+div.alliance table.small_option input.text {
+    width: 94%;
+}
+
+div.alliance table.small_option tbody th {
+    width: 30%;
+}
+
+div.alliance td.sel {
+    width: 15%;
+}
+
+div.alliance table#options td.val {
+    text-align: left;
+}
+
+div.alliance table#name td {
+    text-align: left;
+}
+
+div.alliance table#name input.tag {
+    width: 50%;
+}
+
+div.alliance table#edit thead td {
+    width: 50%;
+}
+
+div.alliance table#edit tbody th {
+    width: 30%;
+}
+
+div.alliance table#edit tbody td {
+    line-height: 19px;
+    text-align: left;
+}
+
+div.alliance table#edit input.text {
+    width: 94%;
+}
+
+div.alliance table#edit td.desc1, div.alliance table#edit td.desc2 {
+    padding: 0;
+}
+
+div.alliance table#edit td.desc1 textarea, div.alliance table#edit td.desc2 textarea {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 0;
+    text-align: center;
+}
+
+div.alliance table#edit td.desc1 textarea {
+    height: 264px;
+    width: 249px;
+}
+
+div.alliance table#edit td.desc2 textarea {
+    height: 140px;
+    width: 248px;
+}
+
+div.alliance table#medals td.typ {
+    text-align: left;
+}
+
+div.alliance table#medals td.ra {
+    white-space: nowrap;
+    width: 15%;
+}
+
+div.alliance table#medals td.we {
+    width: 15%;
+}
+
+div.alliance table#medals td.bb {
+    width: 20%;
+}
+
+div.alliance table#invitations td {
+    text-align: left;
+}
+
+div.alliance table#invitations td.abo {
+    text-align: center;
+}
+
+div.alliance table.dipl, div.alliance div#box {
+    width: 60%;
+}
+
+div.alliance table.dipl td {
+    text-align: left;
+}
+
+div.alliance table.infos {
+    width: 37%;
+}
+
+div.alliance table.infos td {
+    padding: 2px;
+}
+
+div.alliance table td.none {
+    text-align: center;
+}
+
+div.alliance table td.acc {
+    text-align: center;
+    width: 25%;
+}
+
+div.alliance table#diplomacy input.text {
+    width: 94%;
+}
+
+div.alliance table#diplomacy input.radio {
+    margin: 3px;
+}
+
+div.alliance table#own td.wait {
+    width: 25%;
+}
+
+div.alliance .error2, div.alliance .error3 {
+    color: #FF8000;
+}
+
+div.alliance .error {
+    font-weight: bold;
+}
+
+div.alliance .error2 {
+    font-size: 9px;
+}
+
+div.alliance table#edit td.desc1 textarea, div.alliance table#edit td.desc2 textarea {
+    font-size: 13px;
+}
+
+div.alliance table#hint td, div.alliance table#tip td {
+    font-size: 12px;
+}
+
+div.alliance table#own td.wait {
+    color: #C0C0C0;
+}
+
+div.alliance div.chatHeader {
+    font-weight: bold;
+}
+
+div.alliance span.chatTime {
+    font-size: 10px;
+    font-weight: normal;
+}
+
+div.alliance img.a1_1, body.manual img.a1_1 {
+    background-image: url("../../../img/t/a1_1.jpg");
+}
+
+div.alliance img.a1_2, body.manual img.a1_2 {
+    background-image: url("../../../img/t/a1_2.jpg");
+}
+
+div.alliance img.a1_3, body.manual img.a1_3 {
+    background-image: url("../../../img/t/a1_3.jpg");
+}
+
+div.alliance img.a1_4, body.manual img.a1_4 {
+    background-image: url("../../../img/t/a1_4.jpg");
+}
+
+div.alliance img.a1_5 {
+    background-image: url("../../../img/t/a1_5.jpg");
+}
+
+div.alliance img.a1_6 {
+    background-image: url("../../../img/t/a1_6.jpg");
+}
+
+div.alliance img.a1_7 {
+    background-image: url("../../../img/t/a1_7.jpg");
+}
+
+div.alliance img.a1_8 {
+    background-image: url("../../../img/t/a1_8.jpg");
+}
+
+div.alliance img.a1_9 {
+    background-image: url("../../../img/t/a1_9.jpg");
+}
+
+div.alliance img.a1_10 {
+    background-image: url("../../../img/t/a1_10.jpg");
+}
+
+div.alliance img.a2_1 {
+    background-image: url("../../../img/t/a2_1.jpg");
+}
+
+div.alliance img.a2_2 {
+    background-image: url("../../../img/t/a2_2.jpg");
+}
+
+div.alliance img.a2_3 {
+    background-image: url("../../../img/t/a2_3.jpg");
+}
+
+div.alliance img.a2_4 {
+    background-image: url("../../../img/t/a2_4.jpg");
+}
+
+div.alliance img.a2_5 {
+    background-image: url("../../../img/t/a2_5.jpg");
+}
+
+div.alliance img.a2_6 {
+    background-image: url("../../../img/t/a2_6.jpg");
+}
+
+div.alliance img.a2_7 {
+    background-image: url("../../../img/t/a2_7.jpg");
+}
+
+div.alliance img.a2_8 {
+    background-image: url("../../../img/t/a2_8.jpg");
+}
+
+div.alliance img.a2_9 {
+    background-image: url("../../../img/t/a2_9.jpg");
+}
+
+div.alliance img.a2_10 {
+    background-image: url("../../../img/t/a2_10.jpg");
+}
+
+div.alliance img.a3_1 {
+    background-image: url("../../../img/t/a3_1.jpg");
+}
+
+div.alliance img.a3_2 {
+    background-image: url("../../../img/t/a3_2.jpg");
+}
+
+div.alliance img.a3_3 {
+    background-image: url("../../../img/t/a3_3.jpg");
+}
+
+div.alliance img.a3_4 {
+    background-image: url("../../../img/t/a3_4.jpg");
+}
+
+div.alliance img.a3_5 {
+    background-image: url("../../../img/t/a3_5.jpg");
+}
+
+div.alliance img.a3_6 {
+    background-image: url("../../../img/t/a3_6.jpg");
+}
+
+div.alliance img.a3_7 {
+    background-image: url("../../../img/t/a3_7.jpg");
+}
+
+div.alliance img.a3_8 {
+    background-image: url("../../../img/t/a3_8.jpg");
+}
+
+div.alliance img.a3_9 {
+    background-image: url("../../../img/t/a3_9.jpg");
+}
+
+div.alliance img.a3_10 {
+    background-image: url("../../../img/t/a3_10.jpg");
+}
+
+div.alliance img.a4_1 {
+    background-image: url("../../../img/t/a4_1.jpg");
+}
+
+div.alliance img.a4_2 {
+    background-image: url("../../../img/t/a4_2.jpg");
+}
+
+div.alliance img.a4_3 {
+    background-image: url("../../../img/t/a4_3.jpg");
+}
+
+div.alliance img.a4_4 {
+    background-image: url("../../../img/t/a4_4.jpg");
+}
+
+div.alliance img.a4_5 {
+    background-image: url("../../../img/t/a4_5.jpg");
+}
+
+div.alliance img.a4_6 {
+    background-image: url("../../../img/t/a4_6.jpg");
+}
+
+div.alliance img.a4_7 {
+    background-image: url("../../../img/t/a4_7.jpg");
+}

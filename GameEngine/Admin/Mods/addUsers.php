@@ -134,7 +134,11 @@ if ($mode === 'many_accounts') {
         $database->updateUserField($uid,"act","",1);
 
         // One capital village (legacy)
-        $villageName = $userName . "'s village";
+        if (defined('LANG') && LANG === 'ar') {
+            $villageName = "قرية " . $userName;
+        } else {
+            $villageName = $userName . "'s village";
+        }
         $wid = $createVillage($uid, $villageName, $tribe, true);
 
         $addUnitsWrefs[]  = $wid;

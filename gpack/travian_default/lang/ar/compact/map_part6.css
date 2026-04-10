@@ -1,0 +1,33 @@
+div#map div#map_content div.t3 {
+    background-image: url("../../../img/m/t3.gif");
+}
+
+div#map div#map_content div.t4 {
+    background-image: url("../../../img/m/t4.gif");
+}
+
+div#map div#map_content div.t5 {
+    background-image: url("../../../img/m/t5.gif");
+}
+
+div#map div#map_content div.t6 {
+    background-image: url("../../../img/m/t6.gif");
+}
+
+div#map div#map_content div.t7 {
+    background-image: url("../../../img/m/t7.gif");
+}
+
+div#map div#map_content div.t8 {
+    background-image: url("../../../img/m/t8.gif");
+}
+
+div#map div#map_content div.t9 {
+    background-image: url("../../../img/m/t9.gif");
+}
+
+div#map img#map_navibox {
+    background-image: url("../../../img/m/dir.gif");
+    height: 60px;
+    width: 100px;
+}

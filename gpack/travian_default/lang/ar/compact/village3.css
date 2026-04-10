@@ -1,0 +1,169 @@
+div.village3 {
+    padding: 43px 25px 0;
+    width: 502px;
+}
+
+div.village3 table.vil_troops {
+    margin-bottom: 10px;
+}
+
+div.village3 table th, div.village3 table td {
+    padding: 2px 4px;
+}
+
+div.village3 table tbody td {
+    text-align: center;
+    white-space: nowrap;
+}
+
+div.village3 table tbody td.vil {
+    text-align: right;
+    white-space: normal;
+}
+
+div.village3 table#overview td {
+    white-space: normal;
+}
+
+div.village3 table#overview td.att {
+    width: 15%;
+}
+
+div.village3 table#overview td.bui {
+    width: 10%;
+}
+
+div.village3 table#overview td.tro {
+    width: 15%;
+}
+
+div.village3 table#overview td.tra {
+    white-space: nowrap;
+    width: 15%;
+}
+
+div.village3 table#ressources tbody td {
+    text-align: left;
+}
+
+div.village3 table#ressources td.vil {
+    text-align: right;
+}
+
+div.village3 table#ressources td.lum {
+    width: 15%;
+}
+
+div.village3 table#ressources td.clay {
+    width: 15%;
+}
+
+div.village3 table#ressources td.iron {
+    width: 15%;
+}
+
+div.village3 table#ressources td.crop {
+    width: 15%;
+}
+
+div.village3 table#ressources td.tra {
+    width: 10%;
+}
+
+div.village3 table#warehouse th, div.village3 table#warehouse td {
+    padding: 2px;
+}
+
+div.village3 table#warehouse td.vil {
+    padding-right: 4px;
+}
+
+div.village3 table#warehouse td.lum {
+    width: 10%;
+}
+
+div.village3 table#warehouse td.clay {
+    width: 10%;
+}
+
+div.village3 table#warehouse td.iron {
+    width: 10%;
+}
+
+div.village3 table#warehouse td.max123 {
+    width: 15%;
+}
+
+div.village3 table#warehouse td.crop {
+    width: 10%;
+}
+
+div.village3 table#warehouse td.max4 {
+    width: 15%;
+}
+
+div.village3 table#culture_points td.cps {
+    width: 15%;
+}
+
+div.village3 table#culture_points td.cel {
+    width: 20%;
+}
+
+div.village3 table#culture_points td.tro {
+    white-space: normal;
+    width: 20%;
+}
+
+div.village3 table#culture_points td.slo {
+    width: 10%;
+}
+
+div.village3 table.vil_troops th {
+    padding: 2px 7px;
+}
+
+div.village3 table.vil_troops tbody th {
+    width: 22%;
+}
+
+div.village3 table.vil_troops tbody td {
+    padding: 2px;
+}
+
+div.village3 table.vil_troops tbody.upkeep td {
+    padding-right: 7px;
+    text-align: right;
+}
+
+div.village3 table tbody th {
+    font-weight: bold;
+}
+
+div.village3 table#ressources td.tra a {
+    color: black;
+    font-weight: normal;
+}
+
+div.village3 table#warehouse .crit {
+    color: red;
+}
+
+div.village3 table#culture_points span.dot {
+    color: #C0C0C0;
+    font-weight: bold;
+}
+
+div.village3 table#troops tr.small th, div.village3 div.village3 table#troops tr.small td {
+    font-size: 11px;
+}
+
+div.village3 table.vil_troops tbody th {
+    font-weight: normal;
+}
+
+div.village3 table#overview td.bui img.bau {
+    background-image: url("../../../img/a/bau.gif");
+    height: 16px;
+    width: 10px;
+}

@@ -1,0 +1,218 @@
+div#qstd input.text {
+    margin-right: 8px;
+    width: 28px;
+}
+
+div.quest div#qstd {
+    position: relative;
+    width: 415px;
+    z-index: 10;
+}
+
+div.quest div#qstd span#qst_accpt a.qle, div.quest div#qstd span#qst_accept a.qri {
+    display: block;
+}
+
+div.quest div#qstd span#qst_accpt a.qle {
+    float: left;
+    text-align: left;
+}
+
+div.quest div#qstd span#qst_accpt a.qri {
+    float: right;
+    text-align: right;
+}
+
+div.quest div#qstd span.qcoords input {
+    width: 60px;
+}
+
+div.quest div.rew p.ta_aw {
+    margin: 0 0 5px;
+}
+
+div.quest div#qstd input.qb1 {
+    float: left;
+    margin: 0 12px;
+}
+
+div.quest div#qstd input.qb2 {
+    float: right;
+    margin: 0 12px;
+}
+
+div.quest div#qstd table.altquest th, div.quest div#qstd table.altquest td {
+    padding: 2px;
+}
+
+div.quest div#qstd table.altquest td {
+    text-align: center;
+}
+
+div.quest div#qstd table.altquest td.ra {
+    width: 5%;
+}
+
+div.quest div#qstd table.altquest td.desc {
+    text-align: left;
+}
+
+div.quest div#qstd span.qcoords {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+div.quest div#qstd span.qcoords input {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+div.quest div.rew p.ta_aw {
+    font-weight: bold;
+}
+
+div.quest div#qstd span.org {
+    font-style: normal;
+}
+
+div.quest div#qstbg {
+    background-color: white;
+    background-position: center bottom;
+    height: 398px;
+    left: 11px;
+    position: absolute;
+    top: 75px;
+    width: 428px;
+    z-index: 1;
+}
+
+div.quest div.allres {
+    background-image: url("../../../img/q/allres.jpg");
+    height: 160px;
+}
+
+div.quest div.army {
+    background-image: url("../../../img/q/army.jpg");
+    height: 169px;
+}
+
+div.quest div.barracks {
+    background-image: url("../../../img/q/barracks.jpg");
+    height: 180px;
+}
+
+div.quest div.clay_iron {
+    background-image: url("../../../img/q/clay_iron.jpg");
+    height: 199px;
+}
+
+div.quest div.cost {
+    background-image: url("../../../img/q/cost.jpg");
+    height: 242px;
+}
+
+div.quest div.farm {
+    background-image: url("../../../img/q/farm.jpg");
+    height: 181px;
+}
+
+div.quest div.granary_rally {
+    background-image: url("../../../img/q/granary_rally.jpg");
+    height: 163px;
+}
+
+div.quest div.hide {
+    background-image: url("../../../img/q/hide.jpg");
+    display: block;
+    height: 179px;
+}
+
+div.quest div.intro {
+    background-image: url("../../../img/q/intro.jpg");
+    height: 165px;
+}
+
+div.quest div.main {
+    background-image: url("../../../img/q/main.jpg");
+    height: 234px;
+}
+
+div.quest div.market {
+    background-image: url("../../../img/q/market.jpg");
+    height: 165px;
+}
+
+div.quest div.medal {
+    background-image: url("../../../img/q/medal.jpg");
+    height: 214px;
+}
+
+div.quest div.msg {
+    background-image: url("../../../img/q/msg.jpg");
+    height: 167px;
+}
+
+div.quest div.neighbour {
+    background-image: url("../../../img/q/neighbour.jpg");
+    height: 160px;
+}
+
+div.quest div.new_village {
+    background-image: url("../../../img/q/new_village.jpg");
+    height: 208px;
+}
+
+div.quest div.rank {
+    background-image: url("../../../img/q/rank.jpg");
+    height: 238px;
+}
+
+div.quest div.units {
+    background-image: url("../../../img/q/units.jpg");
+    height: 166px;
+}
+
+div.quest div.village_name {
+    background-image: url("../../../img/q/village_name.jpg");
+    height: 160px;
+}
+
+div.quest div.warehouse {
+    background-image: url("../../../img/q/warehouse.jpg");
+    height: 179px;
+}
+
+div.quest div.wood {
+    background-image: url("../../../img/q/wood.jpg");
+    height: 237px;
+}
+
+div.quest div.report {
+    background-image: url("../../../img/q/report.jpg");
+    height: 179px;
+}
+
+div.quest div.gold {
+    background-image: url("../../../img/q/gold.jpg");
+    height: 234px;
+}
+
+div.quest div.granary {
+    background-image: url("../../../img/q/granary.jpg");
+    height: 179px;
+}
+
+div.quest div.embassy{
+    background-image: url("../../../img/q/embassy.jpg");
+    height: 234px;
+}
+
+div.quest div.ally {
+    background-image: url("../../../img/q/alliance.jpg");
+    height: 179px;
+}
+
+div.quest div.rally {
+    background-image: url("../../../img/q/rally.jpg");
+    height: 242px;
+}

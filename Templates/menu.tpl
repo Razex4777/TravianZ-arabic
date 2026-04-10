@@ -38,13 +38,13 @@ div.c1 {text-align: center}
         <a id="logo" href="<?php echo HOMEPAGE; ?>" name="logo"><img src="img/x.gif" <?php if($session->plus) { echo "class=\"logo_plus\""; } ?> alt="Travian"></a>
 
 
-        <p><a href="<?php echo HOMEPAGE; ?>"><?php echo HOME; ?></a> <a href="#" onclick="return Popup(0,0,1);"><?php echo $lang['index'][0][2]; ?></a> <a href="spieler.php?uid=<?php echo $session->uid; ?>"><?php echo PROFILE; ?></a> <?php if($session->access == MULTIHUNTER) {
+        <p><a href="<?php echo HOMEPAGE; ?>"><?php echo HOME; ?></a> <a href="#" onclick="return Popup(0,0,1);"><?php echo INSTRUCT; ?></a> <a href="spieler.php?uid=<?php echo $session->uid; ?>"><?php echo PROFILE; ?></a> <?php if($session->access == MULTIHUNTER) {
 
-                    echo "<a href=\"Admin/admin.php\"><font color=\"Blue\">Multihunter Panel</font></a>";
+                    echo "<a href=\"Admin/admin.php\"><font color=\"Blue\">".MH_PANEL."</font></a>";
                     } ?> <?php if($session->access == ADMIN) {
                     echo "<a href=\"Admin/admin.php\"><font color=\"Red\">".ADMIN_PANEL."</font></a>";
                     echo "<a href=\"massmessage.php\">".MASS_MESSAGE."</a>";
-					echo '<a href="build_croppers.php">Build Cropper</a>';
+					echo '<a href="build_croppers.php">'.BUILD_CROPPER.'</a>';
                     echo "<a href=\"sysmsg.php\">".SYSTEM_MESSAGE."</a>";
                     } ?> <a href="logout.php"><?php echo LOGOUT;?></a></p>
         <p>
@@ -55,7 +55,7 @@ div.c1 {text-align: center}
         	// no PLUS needed for Support
         	    if ($_SESSION['id_user'] != 1) {
             ?>
-			<a href="plus.php?id=3"><!--<?php echo SERVER_NAME; ?>-->TravianZ <b><span class="plus_g">P</span><span class="plus_o">l</span><span class="plus_g">u</span><span class="plus_o">s</span></b></a>
+			<a href="plus.php?id=3"><?php echo TRAVIAN_PLUS; ?></a>
             <?php
         	    }
             	// no support for support :-D

@@ -13,7 +13,7 @@ echo !$basearray['occupied']? ABANDVALLEY : $basearray['name']; echo " (".$basea
 echo !$oasis['conqured']? UNOCCUOASIS : OCCUOASIS; echo " (".$basearray['x']."|".$basearray['y'].")";
 $otext = !$oasis['conqured']? UNOCCUOASIS : OCCUOASIS;
 } ?></h1>
-<?php if($basearray['occupied'] && $basearray['capital']) { echo "<div id=\"dmain\">(capital)</div>"; }
+<?php if($basearray['occupied'] && $basearray['capital']) { echo "<div id=\"dmain\">" . (defined('LANG') && LANG === 'ar' ? '(العاصمة)' : '(capital)') . "</div>"; }
 if($uinfo && $uinfo['owner'] == 3 && $uinfo['name'] == PLANVILLAGE){
 ?>
 <img src="img/x.gif" id="detailed_map" class="f99" alt="<?php echo PLANVILLAGE;?>" />
@@ -481,7 +481,7 @@ if($type >= 18 && $type <= 21){
 		</tr>
 		<tr>
 			<td>
-				<a href="<?php echo $oasislink; ?>">&raquo; Combat Simulator</a>
+				<a href="<?php echo $oasislink; ?>">&raquo; <?php echo (defined('LANG') && LANG === 'ar' ? 'محاكي المعارك' : 'Combat Simulator'); ?></a>
 			</td>
 <?php
 		}
@@ -505,7 +505,7 @@ if($type >= 18 && $type <= 21){
 			if($data2['access'] == 0 || ($data2['access']== MULTIHUNTER && $data2['id'] == 5) || (!ADMIN_ALLOW_INCOMING_RAIDS && $data2['access'] == 9)) {
 			echo "&raquo; ".SENDTROOP." (".BAN.")";
 		  } else if($data2['vac_mode']=='1') {
-			echo "&raquo; Send troops. (Vacation mode on)";
+			echo "&raquo; " . (defined('LANG') && LANG === 'ar' ? 'إرسال قوات. (وضع الإجازة مفعل)' : 'Send troops. (Vacation mode on)');
           } else if($data2['protect'] < time()) {
             echo $village->resarray['f39'] > 0 ? "<a href=\"a2b.php?s=2&z=".$_GET['d']."\">&raquo; ".SENDTROOP : "&raquo; ".SENDTROOP." (".BUILDRALLY.")"; 
           } else {
@@ -520,7 +520,7 @@ if($type >= 18 && $type <= 21){
 			if($data2['access']== 0 || ($data2['access'] == MULTIHUNTER && $data2['id'] == 5) || (!ADMIN_ALLOW_INCOMING_RAIDS && $data2['access'] == 9)) {
 			echo "&raquo; ".SENDMERC." (".BAN.")";
 			} else if($data2['vac_mode']=='1') {
-			echo "&raquo; Send merchant(s). (Vacation mode on)";
+			echo "&raquo; " . (defined('LANG') && LANG === 'ar' ? 'إرسال تجار. (وضع الإجازة مفعل)' : 'Send merchant(s). (Vacation mode on)');
           } else {
             echo $building->getTypeLevel(17)? "<a href=\"build.php?z=".$_GET['d']."&id=" . $building->getTypeField(17) . "\">&raquo; ".SENDMERC : "&raquo; ".SENDMERC ."(".BUILDMARKET.")"; 
           }

@@ -37,7 +37,7 @@ include ("GameEngine/BBCode.php");
 $bbcode_topic = stripslashes(nl2br($bbcoded));
 ?>
 <h4>
-	<a href="allianz.php?s=2">Alliance</a> -> <a
+	<a href="allianz.php?s=2"><?php echo (defined('LANG') && LANG === 'ar') ? 'التحالف' : 'Alliance'; ?></a> -> <a
 		href="allianz.php?s=2&fid=<?php echo $arr['cat']; ?>"><?php echo $CatName; ?></a>
 </h4>
 <table cellpadding="1" cellspacing="1" id="posts">
@@ -47,8 +47,8 @@ $bbcode_topic = stripslashes(nl2br($bbcoded));
 
 		</tr>
 		<tr>
-			<td>Author</td>
-			<td>Message</td>
+			<td><?php echo (defined('LANG') && LANG === 'ar') ? 'الكاتب' : 'Author'; ?></td>
+			<td><?php echo (defined('LANG') && LANG === 'ar') ? 'الرسالة' : 'Message'; ?></td>
 		</tr>
 	</thead>
 	<tbody>
@@ -56,18 +56,18 @@ $bbcode_topic = stripslashes(nl2br($bbcoded));
 			<td class="pinfo"><a class="name"
 				href="spieler.php?uid=<?php echo $arr['owner']; ?>"><?php echo $owner['username']; ?></a><br />
 			<a href="allianz.php?aid=<?php echo $allianceinfo['id']; ?>"><?php echo $allianceinfo['tag']; ?></a><br />
-		Posts: <?php echo $countAu; ?><br /> <br />
-		Pop: <?php echo $totalpop; ?><br />
-		Villages: <?php echo count($varray);?><br />
+		<?php echo (defined('LANG') && LANG === 'ar') ? 'المشاركات:' : 'Posts:'; ?> <?php echo $countAu; ?><br /> <br />
+		<?php echo (defined('LANG') && LANG === 'ar') ? 'السكان:' : 'Pop:'; ?> <?php echo $totalpop; ?><br />
+		<?php echo (defined('LANG') && LANG === 'ar') ? 'القرى:' : 'Villages:'; ?> <?php echo count($varray);?><br />
 		<?php echo $trip; ?>
 		</td>
-			<td class="pcontent"><div class="posted">created: <?php echo $date; ?></div>
+			<td class="pcontent"><div class="posted"><?php echo (defined('LANG') && LANG === 'ar') ? 'أُنشئ:' : 'created:'; ?> <?php echo $date; ?></div>
 <?php
 $checkArray = ['aid' => $aid, 'alliance' => $arr['alliance'], 'forum_perm' => $opt['opt5'],
 		'owner' => $arr['owner'], 'admin' => $_GET['admin'], 'forum_owner' => $forumData['owner']];
 
 if(Alliance::canAct($checkArray)){
-	echo '<div class="admin"><a class="edit" href="allianz.php?s=2&idt='.$arr['id'].'&admin=editans"><img src="img/x.gif" title="edit" alt="edit" /></a><a class="fdel" href="?s=2&fid='.$arr['cat'].'&idt='.$arr['id'].'&admin=deltopic" onClick="return confirm(\'confirm delete?\');"><img src="img/x.gif" title="delete" alt="delete" /></a></div><br />';
+	echo '<div class="admin"><a class="edit" href="allianz.php?s=2&idt='.$arr['id'].'&admin=editans"><img src="img/x.gif" title="'.(defined('LANG') && LANG === 'ar' ? 'تعديل' : 'edit').'" alt="'.(defined('LANG') && LANG === 'ar' ? 'تعديل' : 'edit').'" /></a><a class="fdel" href="?s=2&fid='.$arr['cat'].'&idt='.$arr['id'].'&admin=deltopic" onClick="return confirm(\''.(defined('LANG') && LANG === 'ar' ? 'تأكيد الحذف؟' : 'confirm delete?').'\');"><img src="img/x.gif" title="'.(defined('LANG') && LANG === 'ar' ? 'حذف' : 'delete').'" alt="'.(defined('LANG') && LANG === 'ar' ? 'حذف' : 'delete').'" /></a></div><br />';
 }
 ?>
 		<div class="clear dotted"></div>
@@ -80,7 +80,7 @@ if($database->checkSurvey($arr['id'])){
 		if(!$database->checkVote($arr['id'], $session->uid) && ($survey['ends'] > time() || $survey['ends'] == 0)){
 			?>
 	<tr>
-			<td colspan="2"><div style="text-align: center">Survey: <?php echo $survey['title']; ?></div>
+			<td colspan="2"><div style="text-align: center"><?php echo (defined('LANG') && LANG === 'ar') ? 'استطلاع:' : 'Survey:'; ?> <?php echo $survey['title']; ?></div>
 				<div class="clear dotted"></div>
 				<form method="post" name="post"
 					action="allianz.php?s=2&tid=<?php echo $_GET['tid']; ?>">
@@ -118,7 +118,7 @@ if($database->checkSurvey($arr['id'])){
 	<?php }else{ ?>
 	<tr>
 			<td class="pcontent" colspan="2">
-				<div style="text-align: center">Survey: <?php echo $survey['title']; ?></div>
+				<div style="text-align: center"><?php echo (defined('LANG') && LANG === 'ar') ? 'استطلاع:' : 'Survey:'; ?> <?php echo $survey['title']; ?></div>
 				<div class="clear dotted"></div>
 				<div class="text">
 		<?php
@@ -160,15 +160,15 @@ foreach($posts as $po){
 	$bbcode_post = stripslashes(nl2br($bbcoded));
 	
 	echo '<tr><td class="pinfo"><a class="name" href="spieler.php?uid='.$po['owner'].'">'.$owner['username'].'</a><br /><a href="allianz.php?aid='.$allianceinfo['id'].'">'.$allianceinfo['tag'].'</a><br />
-		Posts: '.$countAu.'<br />
+		'.(defined('LANG') && LANG === 'ar' ? 'المشاركات:' : 'Posts:').' '.$countAu.'<br />
 		<br />
-		Pop: '.$totalpop.'<br />
-		Villages: '.count($varray).'<br />
+		'.(defined('LANG') && LANG === 'ar' ? 'السكان:' : 'Pop:').' '.$totalpop.'<br />
+		'.(defined('LANG') && LANG === 'ar' ? 'القرى:' : 'Villages:').' '.count($varray).'<br />
 		'.$trip.'
 		</td>
-		<td class="pcontent"><div class="posted">created: '.$date.'</div>';
+		<td class="pcontent"><div class="posted">'.(defined('LANG') && LANG === 'ar' ? 'أُنشئ:' : 'created:').' '.$date.'</div>';
 	if(Alliance::canAct($checkArray)){
-		echo '<div class="admin"><a class="edit" href="allianz.php?s=2&fid='.$topic['cat'].'&tid='.$_GET['tid'].'&pod='.$po['id'].'&admin=editpost"><img src="img/x.gif" title="edit" alt="edit" /></a><a class="fdel" href="?s=2&pod='.$po['id'].'&tid='.$_GET['tid'].'&fid2='.$topic['cat'].'&admin=delpost" onClick="return confirm(\'confirm delete?\');"><img src="img/x.gif" title="delete" alt="delete" /></a></div><br />';
+		echo '<div class="admin"><a class="edit" href="allianz.php?s=2&fid='.$topic['cat'].'&tid='.$_GET['tid'].'&pod='.$po['id'].'&admin=editpost"><img src="img/x.gif" title="'.(defined('LANG') && LANG === 'ar' ? 'تعديل' : 'edit').'" alt="'.(defined('LANG') && LANG === 'ar' ? 'تعديل' : 'edit').'" /></a><a class="fdel" href="?s=2&pod='.$po['id'].'&tid='.$_GET['tid'].'&fid2='.$topic['cat'].'&admin=delpost" onClick="return confirm(\''.(defined('LANG') && LANG === 'ar' ? 'تأكيد الحذف؟' : 'confirm delete?').'\');"><img src="img/x.gif" title="'.(defined('LANG') && LANG === 'ar' ? 'حذف' : 'delete').'" alt="'.(defined('LANG') && LANG === 'ar' ? 'حذف' : 'delete').'" /></a></div><br />';
 	}
 	echo '<div class="clear dotted"></div><div class="text">'.$bbcode_post.'</div></td>
 	</tr>';
@@ -179,8 +179,8 @@ foreach($posts as $po){
 <div style="margin-top: 15px;">
 <?php
 if(!$arr['close'] && ($forumData['forum_area'] != 3 || ($forumData['forum_area'] == 3 && $opt['opt5'] == 1))){
-	echo '<a href="allianz.php?s=2&tid='.$arr['id'].'&ac=newpost"><img id="fbtn_reply" class="dynamic_img"src="img/x.gif" alt="Replies" /></a>';
-	echo '<a href="allianz.php?s=2&tid='.$arr['id'].((isset($_GET['admin']) && !empty($_GET['admin']) && $_GET['admin'] == "switch_admin") ? "" : "&admin=switch_admin").'" title="Toggle Admin mode"><img class="switch_admin dynamic_img" src="img/x.gif" alt="Toggle Admin mode" /></a>';
+	echo '<a href="allianz.php?s=2&tid='.$arr['id'].'&ac=newpost"><img id="fbtn_reply" class="dynamic_img"src="img/x.gif" alt="'.(defined('LANG') && LANG === 'ar' ? 'الردود' : 'Replies').'" /></a>';
+	echo '<a href="allianz.php?s=2&tid='.$arr['id'].((isset($_GET['admin']) && !empty($_GET['admin']) && $_GET['admin'] == "switch_admin") ? "" : "&admin=switch_admin").'" title="'.(defined('LANG') && LANG === 'ar' ? 'تبديل وضع المسؤول' : 'Toggle Admin mode').'"><img class="switch_admin dynamic_img" src="img/x.gif" alt="'.(defined('LANG') && LANG === 'ar' ? 'تبديل وضع المسؤول' : 'Toggle Admin mode').'" /></a>';
 }
 ?>
 </div>

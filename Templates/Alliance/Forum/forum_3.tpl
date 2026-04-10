@@ -21,16 +21,16 @@ $canBeMoved = $forumData['forum_area'] == 1 && $session->access == 9;
 	<input type="hidden" name="edittopic" value="1">
 	<table cellpadding="1" cellspacing="1" id="edit_topic"><thead>
 		<tr>
-	        <td colspan="2">Edit topic</td>
+	        <td colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'تعديل الموضوع' : 'Edit topic'; ?></td>
 		</tr>
 		</thead><tbody>
 		<tr>
-			<th>Thread</th>
+			<th><?php echo (defined('LANG') && LANG === 'ar') ? 'الموضوع' : 'Thread'; ?></th>
 			<td><input class="text" type="Text" name="thema" value="<?php echo $title; ?>" maxlength="35"></td>
 		</tr>
 		<?php if($canBeMoved){?>
 		<tr>
-			<td>Move topic</td>
+			<td><?php echo (defined('LANG') && LANG === 'ar') ? 'نقل الموضوع' : 'Move topic'; ?></td>
 			<td><select class="dropdown" name="fid">
 <?php
 	$show_cat = $database->ForumCat($forumData['alliance']);

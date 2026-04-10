@@ -10,7 +10,7 @@
         	echo "class=\"selected\"";
         }
 
-?>>Tariffs</a>
+?>><?php echo (defined('LANG') && LANG === 'ar') ? 'التعرفة' : 'Tariffs'; ?></a>
 
  | <a href="plus.php?id=2" <?php
 
@@ -21,7 +21,7 @@
         	echo "class=\"selected\"";
         }
 
-?>>Advantages</a>
+?>><?php echo (defined('LANG') && LANG === 'ar') ? 'المميزات' : 'Advantages'; ?></a>
 
  | <a href="plus.php?id=3" <?php
 
@@ -32,7 +32,7 @@
         	echo "class=\"selected\"";
         }
 
-?>>Gold</a>
+?>><?php echo (defined('LANG') && LANG === 'ar') ? 'الذهب' : 'Gold'; ?></a>
 
  | <a href="plus.php?id=4" <?php
 
@@ -40,7 +40,7 @@
         	echo "class=\"selected\"";
         }
 
-?>>FAQ</a>
+?>><?php echo (defined('LANG') && LANG === 'ar') ? 'الأسئلة الشائعة' : 'FAQ'; ?></a>
 
  | <a href="plus.php?id=5" <?php
 
@@ -51,12 +51,12 @@
         	echo "class=\"selected\"";
         }
 
-?>>Earn gold</a>
+?>><?php echo (defined('LANG') && LANG === 'ar') ? 'اكسب الذهب' : 'Earn gold'; ?></a>
 | <a href="a2b2.php" <?php
 
         if(@(basename($_SERVER['REQUEST_URI']) === 'a2b2.php')) {
             echo "class=\"selected\"";
         }
-?>>Account Statement</a>
+?>><?php echo (defined('LANG') && LANG === 'ar') ? 'كشف الحساب' : 'Account Statement'; ?></a>
 
 </div>

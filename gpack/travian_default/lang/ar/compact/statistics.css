@@ -1,0 +1,325 @@
+div.statistics {
+    padding: 43px 25px 0;
+    width: 502px;
+}
+
+div.statistics table {
+    margin-top: 5px;
+}
+
+div.statistics div#submenu {
+    position: absolute;
+    left: 29px;
+    top: 107px;
+}
+
+div.statistics div#submenu img {
+    float: left;
+    margin-right: 5px;
+}
+
+div.statistics div#submenu2 {
+    right: 29px;
+    position: absolute;
+    top: 107px;
+}
+
+div.statistics div#submenu2 img {
+    float: right;
+    margin-left: 5px;
+}
+
+div.statistics table.top10 {
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+div.statistics div.graph {
+    height: 220px;
+    padding-right: 60px;
+    padding-top: 20px;
+    width: 430px;
+}
+
+div.statistics div.legende {
+    background-color: #EBEBEB;
+    border: 1px solid black;
+    float: right;
+    line-height: 17px;
+    padding: 3px 5px;
+}
+
+div.statistics div.legende div.box {
+    border: 1px solid black;
+    float: right;
+    font-size: 0;
+    height: 9px;
+    margin: 4px 4px 0;
+    width: 9px;
+}
+
+div.statistics table td, div.statistics table th {
+    padding: 2px 7px;
+    text-align: center;
+}
+
+div.statistics td.ra {
+    text-align: left;
+    white-space: nowrap;
+    width: 5%;
+}
+
+div.statistics td.pop {
+    width: 20%;
+}
+
+div.statistics td.al {
+    text-align: right;
+}
+
+div.statistics td.vil {
+    width: 10%;
+}
+
+div.statistics td.po {
+    width: 20%;
+}
+
+div.statistics td.pla {
+    width: 18%;
+}
+
+div.statistics td.av {
+    width: 18%;
+}
+
+div.statistics td.po {
+    width: 20%;
+}
+
+div.statistics table#player td.pla {
+    text-align: right;
+    width: auto;
+}
+
+div.statistics table#player td.al {
+    text-align: center;
+}
+
+div.statistics table#player_off td.pla {
+    text-align: right;
+    width: auto;
+}
+
+div.statistics table#player_def td.pla {
+    text-align: right;
+    width: auto;
+}
+
+div.statistics table#alliance td.al {
+    width: auto;
+}
+
+div.statistics table#alliance_off td.al {
+    width: auto;
+}
+
+div.statistics table#alliance_def td.al {
+    width: auto;
+}
+
+div.statistics table.top10 {
+    width: 246px;
+}
+
+div.statistics table.top10 td {
+    padding: 2px;
+}
+
+div.statistics table.top10 td.pla {
+    text-align: right;
+    width: auto;
+}
+
+div.statistics table.top10 td.val {
+    width: 10%;
+}
+
+div.statistics table.top10 tr.none td {
+    background-color: #EFEFEF;
+}
+
+div.statistics table.top10 tr.own.hl td.ra {
+    text-align: center;
+    white-space: nowrap;
+}
+
+div.statistics table#top10_offs, div.statistics table#top10_climbers {
+    float: right;
+}
+
+div.statistics table#top10_defs, div.statistics table#top10_raiders {
+    float: left;
+}
+
+div.statistics table#villages td.vil {
+    text-align: right;
+    width: auto;
+}
+
+div.statistics table#villages td.pla {
+    text-align: right;
+    width: 25%;
+}
+
+div.statistics table#villages td.hab {
+    width: 15%;
+}
+
+div.statistics table#villages td.aligned_coords {
+    padding: 2px 0;
+}
+
+div.statistics table#heroes td.hero {
+    text-align: right;
+}
+
+div.statistics table#heroes td.hero img {
+    margin: -2px;
+    position: relative;
+    top: 1px;
+}
+
+div.statistics table#heroes td.pla {
+    text-align: right;
+    width: 30%;
+}
+
+div.statistics table#heroes td.lev {
+    width: 10%;
+}
+
+div.statistics table#heroes td.xp {
+    width: 15%;
+}
+
+div.statistics table#world_tribes, div.statistics table#world_misc {
+    margin-top: 15px;
+}
+
+div.statistics table#world_player th {
+    width: 60%;
+}
+
+div.statistics table#world_tribes td, div.statistics table#world_misc td {
+    width: 33%;
+}
+
+div.statistics table#wonder td.nam {
+    width: 35%;
+}
+
+div.statistics table#wonder td.al {
+    width: 15%;
+}
+
+div.statistics table#wonder td.lev {
+    width: 10%;
+}
+
+div.statistics table#wonder td.at {
+    width: 2%;
+}
+
+div.statistics table#search_navi {
+    margin-top: 15px;
+}
+
+div.statistics table#search_navi div {
+    vertical-align: top;
+}
+
+div.statistics table#search_navi div.search {
+    float: right;
+    text-align: right;
+}
+
+div.statistics table#search_navi div.search span {
+    white-space: nowrap;
+}
+
+div.statistics table#search_navi div.search input {
+    margin-bottom: 2px;
+    margin-top: 2px;
+    vertical-align: middle;
+}
+
+div.statistics table#search_navi div.search input.ra {
+    margin-right: 4px;
+    width: 32px;
+}
+
+div.statistics table#search_navi div.search input.name {
+    margin-right: 4px;
+    width: 50px;
+}
+
+div.statistics table#search_navi div.search span.or {
+    margin: auto 8px;
+}
+
+div.statistics table#search_navi div.navi {
+    float: left;
+    line-height: 22px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+div.statistics p.error {
+    font-size: 9px;
+}
+
+div.statistics h4 {
+    color: #FF8000;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+div.statistics table#wonder td.at {
+    color: #C0C0C0;
+}
+
+div.statistics table#search_navi div.search span.or {
+    font-style: italic;
+}
+
+div.statistics table#search_navi div.navi {
+    color: #C0C0C0;
+    font-weight: bold;
+}
+
+div.statistics div#submenu img.btn_top10 {
+    background-image: url("../../../img/s/top10.gif");
+}
+
+div.statistics div#submenu2 img {
+    background-position: 0 top;
+    height: 30px;
+    width: 30px;
+}
+
+div.statistics div#submenu2 img.active {
+    background-position: 0 bottom;
+}
+
+div.statistics div#submenu2 img.btn_v1 {
+    background-image: url("../../../img/s/v1.gif");
+}
+
+div.statistics div#submenu2 img.btn_v2 {
+    background-image: url("../../../img/s/v2.gif");
+}
+
+div.statistics div#submenu2 img.btn_v3 {
+    background-image: url("../../../img/s/v3.gif");
+}

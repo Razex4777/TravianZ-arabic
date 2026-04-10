@@ -28,6 +28,7 @@ define('INSTRUCT', '说明');
 define('ADMIN_PANEL', '管理员面板');
 define('MH_PANEL', 'Multihunter Panel');
 define('MASS_MESSAGE', '群发消息');
+define('BUILD_CROPPER', '创建麦田或绿洲');
 define('LOGOUT', '登出');
 define('PROFILE', '档案');
 define('SUPPORT', '支持');
@@ -36,6 +37,8 @@ define('SYSTEM_MESSAGE', '系统信息');
 define('TRAVIAN_PLUS', 'Travian <b><span class="plus_g">P</span><span class="plus_o">l</span><span class="plus_g">u</span><span class="plus_o">s</span></span></span></b>');
 define('CONTACT', '联系我们');
 define('GAME_RULES', '游戏规则');
+define('NONE', '无');
+define('HERO', '英雄');
 
 //MENU
 define('REG', '注册');

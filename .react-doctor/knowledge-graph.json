@@ -8,12 +8,13 @@
       "css",
       "yaml",
       "html",
+      "python",
       "sql"
     ],
     "frameworks": [],
-    "description": "TravianZ-master — javascript, markdown, css, yaml, html, sql project with 65 files",
-    "analyzedAt": "2026-04-10T13:01:00.966Z",
-    "gitCommitHash": "unknown"
+    "description": "TravianZ-master — javascript, markdown, css, yaml, html, python, sql project with 146 files",
+    "analyzedAt": "2026-04-10T17:14:43.603Z",
+    "gitCommitHash": "b18b720a3d44ab4091e97db46ba4c71d60121ab7"
   },
   "nodes": [
     {
@@ -285,7 +286,7 @@
         "markdown",
         "md"
       ],
-      "complexity": "simple"
+      "complexity": "complex"
     },
     {
       "id": "file:flaggen.js",
@@ -396,6 +397,526 @@
       "complexity": "moderate"
     },
     {
+      "id": "file:gpack/travian_default/lang/ar/b/zurueck.html",
+      "type": "file",
+      "name": "zurueck.html",
+      "filePath": "gpack/travian_default/lang/ar/b/zurueck.html",
+      "summary": "zurueck.html — html source file",
+      "tags": [
+        "html",
+        "html"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/ar/compact/a2b.css",
+      "type": "file",
+      "name": "a2b.css",
+      "filePath": "gpack/travian_default/lang/ar/compact/a2b.css",
+      "summary": "a2b.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/ar/compact/alliance_part1.css",
+      "type": "file",
+      "name": "alliance_part1.css",
+      "filePath": "gpack/travian_default/lang/ar/compact/alliance_part1.css",
+      "summary": "alliance_part1.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/ar/compact/alliance_part2.css",
+      "type": "file",
+      "name": "alliance_part2.css",
+      "filePath": "gpack/travian_default/lang/ar/compact/alliance_part2.css",
+      "summary": "alliance_part2.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/ar/compact/buildings_part1.css",
+      "type": "file",
+      "name": "buildings_part1.css",
+      "filePath": "gpack/travian_default/lang/ar/compact/buildings_part1.css",
+      "summary": "buildings_part1.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/ar/compact/buildings_part2.css",
+      "type": "file",
+      "name": "buildings_part2.css",
+      "filePath": "gpack/travian_default/lang/ar/compact/buildings_part2.css",
+      "summary": "buildings_part2.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/ar/compact/buildings_part3.css",
+      "type": "file",
+      "name": "buildings_part3.css",
+      "filePath": "gpack/travian_default/lang/ar/compact/buildings_part3.css",
+      "summary": "buildings_part3.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/ar/compact/cropfinder.css",
+      "type": "file",
+      "name": "cropfinder.css",
+      "filePath": "gpack/travian_default/lang/ar/compact/cropfinder.css",
+      "summary": "cropfinder.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/ar/compact/forum_part1.css",
+      "type": "file",
+      "name": "forum_part1.css",
+      "filePath": "gpack/travian_default/lang/ar/compact/forum_part1.css",
+      "summary": "forum_part1.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/ar/compact/forum_part2.css",
+      "type": "file",
+      "name": "forum_part2.css",
+      "filePath": "gpack/travian_default/lang/ar/compact/forum_part2.css",
+      "summary": "forum_part2.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/ar/compact/global.css",
+      "type": "file",
+      "name": "global.css",
+      "filePath": "gpack/travian_default/lang/ar/compact/global.css",
+      "summary": "global.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/ar/compact/layout_part1.css",
+      "type": "file",
+      "name": "layout_part1.css",
+      "filePath": "gpack/travian_default/lang/ar/compact/layout_part1.css",
+      "summary": "layout_part1.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/ar/compact/layout_part2.css",
+      "type": "file",
+      "name": "layout_part2.css",
+      "filePath": "gpack/travian_default/lang/ar/compact/layout_part2.css",
+      "summary": "layout_part2.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/ar/compact/login_signup.css",
+      "type": "file",
+      "name": "login_signup.css",
+      "filePath": "gpack/travian_default/lang/ar/compact/login_signup.css",
+      "summary": "login_signup.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/ar/compact/map_part1.css",
+      "type": "file",
+      "name": "map_part1.css",
+      "filePath": "gpack/travian_default/lang/ar/compact/map_part1.css",
+      "summary": "map_part1.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/ar/compact/map_part2.css",
+      "type": "file",
+      "name": "map_part2.css",
+      "filePath": "gpack/travian_default/lang/ar/compact/map_part2.css",
+      "summary": "map_part2.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/ar/compact/map_part3.css",
+      "type": "file",
+      "name": "map_part3.css",
+      "filePath": "gpack/travian_default/lang/ar/compact/map_part3.css",
+      "summary": "map_part3.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/ar/compact/map_part4.css",
+      "type": "file",
+      "name": "map_part4.css",
+      "filePath": "gpack/travian_default/lang/ar/compact/map_part4.css",
+      "summary": "map_part4.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/ar/compact/map_part5.css",
+      "type": "file",
+      "name": "map_part5.css",
+      "filePath": "gpack/travian_default/lang/ar/compact/map_part5.css",
+      "summary": "map_part5.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/ar/compact/map_part6.css",
+      "type": "file",
+      "name": "map_part6.css",
+      "filePath": "gpack/travian_default/lang/ar/compact/map_part6.css",
+      "summary": "map_part6.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/ar/compact/misc_part1.css",
+      "type": "file",
+      "name": "misc_part1.css",
+      "filePath": "gpack/travian_default/lang/ar/compact/misc_part1.css",
+      "summary": "misc_part1.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/ar/compact/misc_part2.css",
+      "type": "file",
+      "name": "misc_part2.css",
+      "filePath": "gpack/travian_default/lang/ar/compact/misc_part2.css",
+      "summary": "misc_part2.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/ar/compact/misc_part3.css",
+      "type": "file",
+      "name": "misc_part3.css",
+      "filePath": "gpack/travian_default/lang/ar/compact/misc_part3.css",
+      "summary": "misc_part3.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/ar/compact/misc_part4.css",
+      "type": "file",
+      "name": "misc_part4.css",
+      "filePath": "gpack/travian_default/lang/ar/compact/misc_part4.css",
+      "summary": "misc_part4.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/ar/compact/player_part1.css",
+      "type": "file",
+      "name": "player_part1.css",
+      "filePath": "gpack/travian_default/lang/ar/compact/player_part1.css",
+      "summary": "player_part1.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/ar/compact/player_part2.css",
+      "type": "file",
+      "name": "player_part2.css",
+      "filePath": "gpack/travian_default/lang/ar/compact/player_part2.css",
+      "summary": "player_part2.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/ar/compact/plus.css",
+      "type": "file",
+      "name": "plus.css",
+      "filePath": "gpack/travian_default/lang/ar/compact/plus.css",
+      "summary": "plus.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/ar/compact/quest.css",
+      "type": "file",
+      "name": "quest.css",
+      "filePath": "gpack/travian_default/lang/ar/compact/quest.css",
+      "summary": "quest.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/ar/compact/reports_messages_part1.css",
+      "type": "file",
+      "name": "reports_messages_part1.css",
+      "filePath": "gpack/travian_default/lang/ar/compact/reports_messages_part1.css",
+      "summary": "reports_messages_part1.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/ar/compact/reports_messages_part2.css",
+      "type": "file",
+      "name": "reports_messages_part2.css",
+      "filePath": "gpack/travian_default/lang/ar/compact/reports_messages_part2.css",
+      "summary": "reports_messages_part2.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/ar/compact/statistics.css",
+      "type": "file",
+      "name": "statistics.css",
+      "filePath": "gpack/travian_default/lang/ar/compact/statistics.css",
+      "summary": "statistics.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/ar/compact/support.css",
+      "type": "file",
+      "name": "support.css",
+      "filePath": "gpack/travian_default/lang/ar/compact/support.css",
+      "summary": "support.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/ar/compact/ui.css",
+      "type": "file",
+      "name": "ui.css",
+      "filePath": "gpack/travian_default/lang/ar/compact/ui.css",
+      "summary": "ui.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/ar/compact/village1.css",
+      "type": "file",
+      "name": "village1.css",
+      "filePath": "gpack/travian_default/lang/ar/compact/village1.css",
+      "summary": "village1.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/ar/compact/village2.css",
+      "type": "file",
+      "name": "village2.css",
+      "filePath": "gpack/travian_default/lang/ar/compact/village2.css",
+      "summary": "village2.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/ar/compact/village3.css",
+      "type": "file",
+      "name": "village3.css",
+      "filePath": "gpack/travian_default/lang/ar/compact/village3.css",
+      "summary": "village3.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/ar/compact/warsim.css",
+      "type": "file",
+      "name": "warsim.css",
+      "filePath": "gpack/travian_default/lang/ar/compact/warsim.css",
+      "summary": "warsim.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/ar/compact.css",
+      "type": "file",
+      "name": "compact.css",
+      "filePath": "gpack/travian_default/lang/ar/compact.css",
+      "summary": "compact.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/ar/flip_css.js",
+      "type": "file",
+      "name": "flip_css.js",
+      "filePath": "gpack/travian_default/lang/ar/flip_css.js",
+      "summary": "flip_css.js — javascript source file",
+      "tags": [
+        "javascript",
+        "js"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "fn:gpack/travian_default/lang/ar/flip_css.js#flipCss",
+      "type": "function",
+      "name": "flipCss",
+      "filePath": "gpack/travian_default/lang/ar/flip_css.js",
+      "lineRange": [
+        27,
+        93
+      ],
+      "summary": "flipCss(css)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/ar/gp_check.css",
+      "type": "file",
+      "name": "gp_check.css",
+      "filePath": "gpack/travian_default/lang/ar/gp_check.css",
+      "summary": "gp_check.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/ar/lang.css",
+      "type": "file",
+      "name": "lang.css",
+      "filePath": "gpack/travian_default/lang/ar/lang.css",
+      "summary": "lang.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/ar/split_css.js",
+      "type": "file",
+      "name": "split_css.js",
+      "filePath": "gpack/travian_default/lang/ar/split_css.js",
+      "summary": "split_css.js — javascript source file",
+      "tags": [
+        "javascript",
+        "js"
+      ],
+      "complexity": "complex"
+    },
+    {
       "id": "file:gpack/travian_default/lang/en/b/zurueck.html",
       "type": "file",
       "name": "zurueck.html",
@@ -404,6 +925,438 @@
       "tags": [
         "html",
         "html"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/en/compact/a2b.css",
+      "type": "file",
+      "name": "a2b.css",
+      "filePath": "gpack/travian_default/lang/en/compact/a2b.css",
+      "summary": "a2b.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/en/compact/alliance_part1.css",
+      "type": "file",
+      "name": "alliance_part1.css",
+      "filePath": "gpack/travian_default/lang/en/compact/alliance_part1.css",
+      "summary": "alliance_part1.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/en/compact/alliance_part2.css",
+      "type": "file",
+      "name": "alliance_part2.css",
+      "filePath": "gpack/travian_default/lang/en/compact/alliance_part2.css",
+      "summary": "alliance_part2.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/en/compact/buildings_part1.css",
+      "type": "file",
+      "name": "buildings_part1.css",
+      "filePath": "gpack/travian_default/lang/en/compact/buildings_part1.css",
+      "summary": "buildings_part1.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/en/compact/buildings_part2.css",
+      "type": "file",
+      "name": "buildings_part2.css",
+      "filePath": "gpack/travian_default/lang/en/compact/buildings_part2.css",
+      "summary": "buildings_part2.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/en/compact/buildings_part3.css",
+      "type": "file",
+      "name": "buildings_part3.css",
+      "filePath": "gpack/travian_default/lang/en/compact/buildings_part3.css",
+      "summary": "buildings_part3.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/en/compact/cropfinder.css",
+      "type": "file",
+      "name": "cropfinder.css",
+      "filePath": "gpack/travian_default/lang/en/compact/cropfinder.css",
+      "summary": "cropfinder.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/en/compact/forum_part1.css",
+      "type": "file",
+      "name": "forum_part1.css",
+      "filePath": "gpack/travian_default/lang/en/compact/forum_part1.css",
+      "summary": "forum_part1.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/en/compact/forum_part2.css",
+      "type": "file",
+      "name": "forum_part2.css",
+      "filePath": "gpack/travian_default/lang/en/compact/forum_part2.css",
+      "summary": "forum_part2.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/en/compact/global.css",
+      "type": "file",
+      "name": "global.css",
+      "filePath": "gpack/travian_default/lang/en/compact/global.css",
+      "summary": "global.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/en/compact/layout_part1.css",
+      "type": "file",
+      "name": "layout_part1.css",
+      "filePath": "gpack/travian_default/lang/en/compact/layout_part1.css",
+      "summary": "layout_part1.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/en/compact/layout_part2.css",
+      "type": "file",
+      "name": "layout_part2.css",
+      "filePath": "gpack/travian_default/lang/en/compact/layout_part2.css",
+      "summary": "layout_part2.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/en/compact/login_signup.css",
+      "type": "file",
+      "name": "login_signup.css",
+      "filePath": "gpack/travian_default/lang/en/compact/login_signup.css",
+      "summary": "login_signup.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/en/compact/map_part1.css",
+      "type": "file",
+      "name": "map_part1.css",
+      "filePath": "gpack/travian_default/lang/en/compact/map_part1.css",
+      "summary": "map_part1.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/en/compact/map_part2.css",
+      "type": "file",
+      "name": "map_part2.css",
+      "filePath": "gpack/travian_default/lang/en/compact/map_part2.css",
+      "summary": "map_part2.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/en/compact/map_part3.css",
+      "type": "file",
+      "name": "map_part3.css",
+      "filePath": "gpack/travian_default/lang/en/compact/map_part3.css",
+      "summary": "map_part3.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/en/compact/map_part4.css",
+      "type": "file",
+      "name": "map_part4.css",
+      "filePath": "gpack/travian_default/lang/en/compact/map_part4.css",
+      "summary": "map_part4.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/en/compact/map_part5.css",
+      "type": "file",
+      "name": "map_part5.css",
+      "filePath": "gpack/travian_default/lang/en/compact/map_part5.css",
+      "summary": "map_part5.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/en/compact/map_part6.css",
+      "type": "file",
+      "name": "map_part6.css",
+      "filePath": "gpack/travian_default/lang/en/compact/map_part6.css",
+      "summary": "map_part6.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/en/compact/misc_part1.css",
+      "type": "file",
+      "name": "misc_part1.css",
+      "filePath": "gpack/travian_default/lang/en/compact/misc_part1.css",
+      "summary": "misc_part1.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/en/compact/misc_part2.css",
+      "type": "file",
+      "name": "misc_part2.css",
+      "filePath": "gpack/travian_default/lang/en/compact/misc_part2.css",
+      "summary": "misc_part2.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/en/compact/misc_part3.css",
+      "type": "file",
+      "name": "misc_part3.css",
+      "filePath": "gpack/travian_default/lang/en/compact/misc_part3.css",
+      "summary": "misc_part3.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/en/compact/misc_part4.css",
+      "type": "file",
+      "name": "misc_part4.css",
+      "filePath": "gpack/travian_default/lang/en/compact/misc_part4.css",
+      "summary": "misc_part4.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/en/compact/player_part1.css",
+      "type": "file",
+      "name": "player_part1.css",
+      "filePath": "gpack/travian_default/lang/en/compact/player_part1.css",
+      "summary": "player_part1.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/en/compact/player_part2.css",
+      "type": "file",
+      "name": "player_part2.css",
+      "filePath": "gpack/travian_default/lang/en/compact/player_part2.css",
+      "summary": "player_part2.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/en/compact/plus.css",
+      "type": "file",
+      "name": "plus.css",
+      "filePath": "gpack/travian_default/lang/en/compact/plus.css",
+      "summary": "plus.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/en/compact/quest.css",
+      "type": "file",
+      "name": "quest.css",
+      "filePath": "gpack/travian_default/lang/en/compact/quest.css",
+      "summary": "quest.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/en/compact/reports_messages_part1.css",
+      "type": "file",
+      "name": "reports_messages_part1.css",
+      "filePath": "gpack/travian_default/lang/en/compact/reports_messages_part1.css",
+      "summary": "reports_messages_part1.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/en/compact/reports_messages_part2.css",
+      "type": "file",
+      "name": "reports_messages_part2.css",
+      "filePath": "gpack/travian_default/lang/en/compact/reports_messages_part2.css",
+      "summary": "reports_messages_part2.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/en/compact/statistics.css",
+      "type": "file",
+      "name": "statistics.css",
+      "filePath": "gpack/travian_default/lang/en/compact/statistics.css",
+      "summary": "statistics.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/en/compact/support.css",
+      "type": "file",
+      "name": "support.css",
+      "filePath": "gpack/travian_default/lang/en/compact/support.css",
+      "summary": "support.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/en/compact/ui.css",
+      "type": "file",
+      "name": "ui.css",
+      "filePath": "gpack/travian_default/lang/en/compact/ui.css",
+      "summary": "ui.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/en/compact/village1.css",
+      "type": "file",
+      "name": "village1.css",
+      "filePath": "gpack/travian_default/lang/en/compact/village1.css",
+      "summary": "village1.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/en/compact/village2.css",
+      "type": "file",
+      "name": "village2.css",
+      "filePath": "gpack/travian_default/lang/en/compact/village2.css",
+      "summary": "village2.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/en/compact/village3.css",
+      "type": "file",
+      "name": "village3.css",
+      "filePath": "gpack/travian_default/lang/en/compact/village3.css",
+      "summary": "village3.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/en/compact/warsim.css",
+      "type": "file",
+      "name": "warsim.css",
+      "filePath": "gpack/travian_default/lang/en/compact/warsim.css",
+      "summary": "warsim.css — css source file",
+      "tags": [
+        "css",
+        "css"
       ],
       "complexity": "moderate"
     },
@@ -417,7 +1370,7 @@
         "css",
         "css"
       ],
-      "complexity": "complex"
+      "complexity": "simple"
     },
     {
       "id": "file:gpack/travian_default/lang/en/gp_check.css",
@@ -442,6 +1395,18 @@
         "css"
       ],
       "complexity": "moderate"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/en/split_css.js",
+      "type": "file",
+      "name": "split_css.js",
+      "filePath": "gpack/travian_default/lang/en/split_css.js",
+      "summary": "split_css.js — javascript source file",
+      "tags": [
+        "javascript",
+        "js"
+      ],
+      "complexity": "complex"
     },
     {
       "id": "file:gpack/travian_default/modules/new_colors.css",
@@ -1034,6 +1999,30 @@
         "md"
       ],
       "complexity": "moderate"
+    },
+    {
+      "id": "file:split_ar.js",
+      "type": "file",
+      "name": "split_ar.js",
+      "filePath": "split_ar.js",
+      "summary": "split_ar.js — javascript source file",
+      "tags": [
+        "javascript",
+        "js"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:split_ar.py",
+      "type": "file",
+      "name": "split_ar.py",
+      "filePath": "split_ar.py",
+      "summary": "split_ar.py — python source file",
+      "tags": [
+        "python",
+        "py"
+      ],
+      "complexity": "simple"
     },
     {
       "id": "file:sql_updates.txt",
@@ -2822,6 +3811,13 @@
       "weight": 0.9
     },
     {
+      "source": "file:gpack/travian_default/lang/ar/flip_css.js",
+      "target": "fn:gpack/travian_default/lang/ar/flip_css.js#flipCss",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
       "source": "file:mt-core.js",
       "target": "fn:mt-core.js#c",
       "type": "contains",
@@ -3647,6 +4643,81 @@
         "file:gpack/travian/flaggs.css",
         "file:gpack/travian/main.css",
         "file:gpack/travian/main_en.css",
+        "file:gpack/travian_default/lang/ar/compact/a2b.css",
+        "file:gpack/travian_default/lang/ar/compact/alliance_part1.css",
+        "file:gpack/travian_default/lang/ar/compact/alliance_part2.css",
+        "file:gpack/travian_default/lang/ar/compact/buildings_part1.css",
+        "file:gpack/travian_default/lang/ar/compact/buildings_part2.css",
+        "file:gpack/travian_default/lang/ar/compact/buildings_part3.css",
+        "file:gpack/travian_default/lang/ar/compact/cropfinder.css",
+        "file:gpack/travian_default/lang/ar/compact/forum_part1.css",
+        "file:gpack/travian_default/lang/ar/compact/forum_part2.css",
+        "file:gpack/travian_default/lang/ar/compact/global.css",
+        "file:gpack/travian_default/lang/ar/compact/layout_part1.css",
+        "file:gpack/travian_default/lang/ar/compact/layout_part2.css",
+        "file:gpack/travian_default/lang/ar/compact/login_signup.css",
+        "file:gpack/travian_default/lang/ar/compact/map_part1.css",
+        "file:gpack/travian_default/lang/ar/compact/map_part2.css",
+        "file:gpack/travian_default/lang/ar/compact/map_part3.css",
+        "file:gpack/travian_default/lang/ar/compact/map_part4.css",
+        "file:gpack/travian_default/lang/ar/compact/map_part5.css",
+        "file:gpack/travian_default/lang/ar/compact/map_part6.css",
+        "file:gpack/travian_default/lang/ar/compact/misc_part1.css",
+        "file:gpack/travian_default/lang/ar/compact/misc_part2.css",
+        "file:gpack/travian_default/lang/ar/compact/misc_part3.css",
+        "file:gpack/travian_default/lang/ar/compact/misc_part4.css",
+        "file:gpack/travian_default/lang/ar/compact/player_part1.css",
+        "file:gpack/travian_default/lang/ar/compact/player_part2.css",
+        "file:gpack/travian_default/lang/ar/compact/plus.css",
+        "file:gpack/travian_default/lang/ar/compact/quest.css",
+        "file:gpack/travian_default/lang/ar/compact/reports_messages_part1.css",
+        "file:gpack/travian_default/lang/ar/compact/reports_messages_part2.css",
+        "file:gpack/travian_default/lang/ar/compact/statistics.css",
+        "file:gpack/travian_default/lang/ar/compact/support.css",
+        "file:gpack/travian_default/lang/ar/compact/ui.css",
+        "file:gpack/travian_default/lang/ar/compact/village1.css",
+        "file:gpack/travian_default/lang/ar/compact/village2.css",
+        "file:gpack/travian_default/lang/ar/compact/village3.css",
+        "file:gpack/travian_default/lang/ar/compact/warsim.css",
+        "file:gpack/travian_default/lang/ar/compact.css",
+        "file:gpack/travian_default/lang/ar/gp_check.css",
+        "file:gpack/travian_default/lang/ar/lang.css",
+        "file:gpack/travian_default/lang/en/compact/a2b.css",
+        "file:gpack/travian_default/lang/en/compact/alliance_part1.css",
+        "file:gpack/travian_default/lang/en/compact/alliance_part2.css",
+        "file:gpack/travian_default/lang/en/compact/buildings_part1.css",
+        "file:gpack/travian_default/lang/en/compact/buildings_part2.css",
+        "file:gpack/travian_default/lang/en/compact/buildings_part3.css",
+        "file:gpack/travian_default/lang/en/compact/cropfinder.css",
+        "file:gpack/travian_default/lang/en/compact/forum_part1.css",
+        "file:gpack/travian_default/lang/en/compact/forum_part2.css",
+        "file:gpack/travian_default/lang/en/compact/global.css",
+        "file:gpack/travian_default/lang/en/compact/layout_part1.css",
+        "file:gpack/travian_default/lang/en/compact/layout_part2.css",
+        "file:gpack/travian_default/lang/en/compact/login_signup.css",
+        "file:gpack/travian_default/lang/en/compact/map_part1.css",
+        "file:gpack/travian_default/lang/en/compact/map_part2.css",
+        "file:gpack/travian_default/lang/en/compact/map_part3.css",
+        "file:gpack/travian_default/lang/en/compact/map_part4.css",
+        "file:gpack/travian_default/lang/en/compact/map_part5.css",
+        "file:gpack/travian_default/lang/en/compact/map_part6.css",
+        "file:gpack/travian_default/lang/en/compact/misc_part1.css",
+        "file:gpack/travian_default/lang/en/compact/misc_part2.css",
+        "file:gpack/travian_default/lang/en/compact/misc_part3.css",
+        "file:gpack/travian_default/lang/en/compact/misc_part4.css",
+        "file:gpack/travian_default/lang/en/compact/player_part1.css",
+        "file:gpack/travian_default/lang/en/compact/player_part2.css",
+        "file:gpack/travian_default/lang/en/compact/plus.css",
+        "file:gpack/travian_default/lang/en/compact/quest.css",
+        "file:gpack/travian_default/lang/en/compact/reports_messages_part1.css",
+        "file:gpack/travian_default/lang/en/compact/reports_messages_part2.css",
+        "file:gpack/travian_default/lang/en/compact/statistics.css",
+        "file:gpack/travian_default/lang/en/compact/support.css",
+        "file:gpack/travian_default/lang/en/compact/ui.css",
+        "file:gpack/travian_default/lang/en/compact/village1.css",
+        "file:gpack/travian_default/lang/en/compact/village2.css",
+        "file:gpack/travian_default/lang/en/compact/village3.css",
+        "file:gpack/travian_default/lang/en/compact/warsim.css",
         "file:gpack/travian_default/lang/en/compact.css",
         "file:gpack/travian_default/lang/en/gp_check.css",
         "file:gpack/travian_default/lang/en/lang.css",
@@ -3695,7 +4766,11 @@
         "file:docs/project_structure.md",
         "file:flaggen.js",
         "file:GameEngine/Admin/ajax.js",
+        "file:gpack/travian_default/lang/ar/b/zurueck.html",
+        "file:gpack/travian_default/lang/ar/flip_css.js",
+        "file:gpack/travian_default/lang/ar/split_css.js",
         "file:gpack/travian_default/lang/en/b/zurueck.html",
+        "file:gpack/travian_default/lang/en/split_css.js",
         "file:gpack/travian_t4/lang/en/b/zurueck.html",
         "file:img/admin/b/zurueck.html",
         "file:ISSUE_TEMPLATE.md",
@@ -3707,6 +4782,8 @@
         "file:notification/crypt.js",
         "file:notification/gpack/notification_v1_zzjhons/img/round/boxes/mc.html",
         "file:README.md",
+        "file:split_ar.js",
+        "file:split_ar.py",
         "file:sql_updates.txt",
         "file:Templates/Ranking/_notes/dwsync.xml",
         "file:todo.txt",
@@ -3729,12 +4806,87 @@
     {
       "order": 2,
       "title": "Styles Layer",
-      "description": "Explore the styles layer: admin_map_tile.css, flaggs.css, main.css, main_en.css, compact.css (+23 more)",
+      "description": "Explore the styles layer: admin_map_tile.css, flaggs.css, main.css, main_en.css, a2b.css (+98 more)",
       "nodeIds": [
         "file:css/admin_map_tile.css",
         "file:gpack/travian/flaggs.css",
         "file:gpack/travian/main.css",
         "file:gpack/travian/main_en.css",
+        "file:gpack/travian_default/lang/ar/compact/a2b.css",
+        "file:gpack/travian_default/lang/ar/compact/alliance_part1.css",
+        "file:gpack/travian_default/lang/ar/compact/alliance_part2.css",
+        "file:gpack/travian_default/lang/ar/compact/buildings_part1.css",
+        "file:gpack/travian_default/lang/ar/compact/buildings_part2.css",
+        "file:gpack/travian_default/lang/ar/compact/buildings_part3.css",
+        "file:gpack/travian_default/lang/ar/compact/cropfinder.css",
+        "file:gpack/travian_default/lang/ar/compact/forum_part1.css",
+        "file:gpack/travian_default/lang/ar/compact/forum_part2.css",
+        "file:gpack/travian_default/lang/ar/compact/global.css",
+        "file:gpack/travian_default/lang/ar/compact/layout_part1.css",
+        "file:gpack/travian_default/lang/ar/compact/layout_part2.css",
+        "file:gpack/travian_default/lang/ar/compact/login_signup.css",
+        "file:gpack/travian_default/lang/ar/compact/map_part1.css",
+        "file:gpack/travian_default/lang/ar/compact/map_part2.css",
+        "file:gpack/travian_default/lang/ar/compact/map_part3.css",
+        "file:gpack/travian_default/lang/ar/compact/map_part4.css",
+        "file:gpack/travian_default/lang/ar/compact/map_part5.css",
+        "file:gpack/travian_default/lang/ar/compact/map_part6.css",
+        "file:gpack/travian_default/lang/ar/compact/misc_part1.css",
+        "file:gpack/travian_default/lang/ar/compact/misc_part2.css",
+        "file:gpack/travian_default/lang/ar/compact/misc_part3.css",
+        "file:gpack/travian_default/lang/ar/compact/misc_part4.css",
+        "file:gpack/travian_default/lang/ar/compact/player_part1.css",
+        "file:gpack/travian_default/lang/ar/compact/player_part2.css",
+        "file:gpack/travian_default/lang/ar/compact/plus.css",
+        "file:gpack/travian_default/lang/ar/compact/quest.css",
+        "file:gpack/travian_default/lang/ar/compact/reports_messages_part1.css",
+        "file:gpack/travian_default/lang/ar/compact/reports_messages_part2.css",
+        "file:gpack/travian_default/lang/ar/compact/statistics.css",
+        "file:gpack/travian_default/lang/ar/compact/support.css",
+        "file:gpack/travian_default/lang/ar/compact/ui.css",
+        "file:gpack/travian_default/lang/ar/compact/village1.css",
+        "file:gpack/travian_default/lang/ar/compact/village2.css",
+        "file:gpack/travian_default/lang/ar/compact/village3.css",
+        "file:gpack/travian_default/lang/ar/compact/warsim.css",
+        "file:gpack/travian_default/lang/ar/compact.css",
+        "file:gpack/travian_default/lang/ar/gp_check.css",
+        "file:gpack/travian_default/lang/ar/lang.css",
+        "file:gpack/travian_default/lang/en/compact/a2b.css",
+        "file:gpack/travian_default/lang/en/compact/alliance_part1.css",
+        "file:gpack/travian_default/lang/en/compact/alliance_part2.css",
+        "file:gpack/travian_default/lang/en/compact/buildings_part1.css",
+        "file:gpack/travian_default/lang/en/compact/buildings_part2.css",
+        "file:gpack/travian_default/lang/en/compact/buildings_part3.css",
+        "file:gpack/travian_default/lang/en/compact/cropfinder.css",
+        "file:gpack/travian_default/lang/en/compact/forum_part1.css",
+        "file:gpack/travian_default/lang/en/compact/forum_part2.css",
+        "file:gpack/travian_default/lang/en/compact/global.css",
+        "file:gpack/travian_default/lang/en/compact/layout_part1.css",
+        "file:gpack/travian_default/lang/en/compact/layout_part2.css",
+        "file:gpack/travian_default/lang/en/compact/login_signup.css",
+        "file:gpack/travian_default/lang/en/compact/map_part1.css",
+        "file:gpack/travian_default/lang/en/compact/map_part2.css",
+        "file:gpack/travian_default/lang/en/compact/map_part3.css",
+        "file:gpack/travian_default/lang/en/compact/map_part4.css",
+        "file:gpack/travian_default/lang/en/compact/map_part5.css",
+        "file:gpack/travian_default/lang/en/compact/map_part6.css",
+        "file:gpack/travian_default/lang/en/compact/misc_part1.css",
+        "file:gpack/travian_default/lang/en/compact/misc_part2.css",
+        "file:gpack/travian_default/lang/en/compact/misc_part3.css",
+        "file:gpack/travian_default/lang/en/compact/misc_part4.css",
+        "file:gpack/travian_default/lang/en/compact/player_part1.css",
+        "file:gpack/travian_default/lang/en/compact/player_part2.css",
+        "file:gpack/travian_default/lang/en/compact/plus.css",
+        "file:gpack/travian_default/lang/en/compact/quest.css",
+        "file:gpack/travian_default/lang/en/compact/reports_messages_part1.css",
+        "file:gpack/travian_default/lang/en/compact/reports_messages_part2.css",
+        "file:gpack/travian_default/lang/en/compact/statistics.css",
+        "file:gpack/travian_default/lang/en/compact/support.css",
+        "file:gpack/travian_default/lang/en/compact/ui.css",
+        "file:gpack/travian_default/lang/en/compact/village1.css",
+        "file:gpack/travian_default/lang/en/compact/village2.css",
+        "file:gpack/travian_default/lang/en/compact/village3.css",
+        "file:gpack/travian_default/lang/en/compact/warsim.css",
         "file:gpack/travian_default/lang/en/compact.css",
         "file:gpack/travian_default/lang/en/gp_check.css",
         "file:gpack/travian_default/lang/en/lang.css",
@@ -3764,7 +4916,7 @@
     {
       "order": 3,
       "title": "Core Layer",
-      "description": "Explore the core layer: AC_OETags.js, ajax.js, jquery.cookie.js, CHANGELOG.md, client_project_detail and conversations.txt (+29 more)",
+      "description": "Explore the core layer: AC_OETags.js, ajax.js, jquery.cookie.js, CHANGELOG.md, client_project_detail and conversations.txt (+35 more)",
       "nodeIds": [
         "file:AC_OETags.js",
         "file:Admin/ajax.js",
@@ -3783,7 +4935,11 @@
         "file:docs/project_structure.md",
         "file:flaggen.js",
         "file:GameEngine/Admin/ajax.js",
+        "file:gpack/travian_default/lang/ar/b/zurueck.html",
+        "file:gpack/travian_default/lang/ar/flip_css.js",
+        "file:gpack/travian_default/lang/ar/split_css.js",
         "file:gpack/travian_default/lang/en/b/zurueck.html",
+        "file:gpack/travian_default/lang/en/split_css.js",
         "file:gpack/travian_t4/lang/en/b/zurueck.html",
         "file:img/admin/b/zurueck.html",
         "file:ISSUE_TEMPLATE.md",
@@ -3795,6 +4951,8 @@
         "file:notification/crypt.js",
         "file:notification/gpack/notification_v1_zzjhons/img/round/boxes/mc.html",
         "file:README.md",
+        "file:split_ar.js",
+        "file:split_ar.py",
         "file:sql_updates.txt",
         "file:Templates/Ranking/_notes/dwsync.xml",
         "file:todo.txt",

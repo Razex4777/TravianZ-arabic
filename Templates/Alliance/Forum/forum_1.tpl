@@ -114,35 +114,35 @@ function showCheckList() {
 
 	<table cellpadding="1" cellspacing="1" id="new_forum"><thead>
 	<tr>
-    	<th colspan="2">New forum</th>
+    	<th colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'منتدى جديد' : 'New forum'; ?></th>
 	</tr>
 	</thead><tbody>
 	<tr>
 
-		<th>Forum name</th>
+		<th><?php echo (defined('LANG') && LANG === 'ar') ? 'اسم المنتدى' : 'Forum name'; ?></th>
 		<td><input class="text" type="text" name="u1" value="" maxlength="20"></td>
 	</tr>
 
 	<tr>
-		<th>Description</th>
+		<th><?php echo (defined('LANG') && LANG === 'ar') ? 'الوصف' : 'Description'; ?></th>
 		<td><input class="text" type="text" name="u2" value="" maxlength="38"></td>
 	</tr>
 
 	<tr>
-		<th>Forum type</th>
-		<td><select class="dropdown" id="bid" name="bid" onchange="showCheckList();"><?php if($session->access == ADMIN){ ?><option value="1">Public Forum</option><?php }else{ ?><option value="2">Confederation Forum</option><option value="0" selected>Alliance Forum</option><option value="3">Closed Forum</option><?php } ?></select></td>
+		<th><?php echo (defined('LANG') && LANG === 'ar') ? 'نوع المنتدى' : 'Forum type'; ?></th>
+		<td><select class="dropdown" id="bid" name="bid" onchange="showCheckList();"><?php if($session->access == ADMIN){ ?><option value="1"><?php echo (defined('LANG') && LANG === 'ar') ? 'منتدى عام' : 'Public Forum'; ?></option><?php }else{ ?><option value="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'منتدى الاتحاد' : 'Confederation Forum'; ?></option><option value="0" selected><?php echo (defined('LANG') && LANG === 'ar') ? 'منتدى التحالف' : 'Alliance Forum'; ?></option><option value="3"><?php echo (defined('LANG') && LANG === 'ar') ? 'منتدى مغلق' : 'Closed Forum'; ?></option><?php } ?></select></td>
 	</tr>
 	</tbody></table>
 <?php if($session->access != ADMIN){ ?>
 <table cellpadding="1" cellspacing="1" id="ally_list"><thead>
 	<tr>
 
-        <th colspan="3">Open for more alliances</th>
+        <th colspan="3"><?php echo (defined('LANG') && LANG === 'ar') ? 'مفتوح لتحالفات أخرى' : 'Open for more alliances'; ?></th>
 	</tr>
 	<tr>
-		<td>Alliance ID</td>
-		<td>Tag:</td>
-		<td>Add</td>
+		<td><?php echo (defined('LANG') && LANG === 'ar') ? 'رقم التحالف' : 'Alliance ID'; ?></td>
+		<td><?php echo (defined('LANG') && LANG === 'ar') ? 'العلامة:' : 'Tag:'; ?></td>
+		<td><?php echo (defined('LANG') && LANG === 'ar') ? 'إضافة' : 'Add'; ?></td>
 	</tr>
 
 	</thead><tbody>
@@ -160,13 +160,13 @@ function showCheckList() {
 	</tr>
 </table><table cellpadding="1" cellspacing="1" id="user_list"><thead>
 	<tr>
-        <th colspan="3">Open forum for the following players</th>
+        <th colspan="3"><?php echo (defined('LANG') && LANG === 'ar') ? 'فتح المنتدى للاعبين التاليين' : 'Open forum for the following players'; ?></th>
 	</tr>
 	<tr>
-		<td>User ID</td>
+		<td><?php echo (defined('LANG') && LANG === 'ar') ? 'رقم اللاعب' : 'User ID'; ?></td>
 
-		<td>Name:</td>
-		<td>Add</td>
+		<td><?php echo (defined('LANG') && LANG === 'ar') ? 'الاسم:' : 'Name:'; ?></td>
+		<td><?php echo (defined('LANG') && LANG === 'ar') ? 'إضافة' : 'Add'; ?></td>
 	</tr>
 	</thead><tbody>
 	<tr>

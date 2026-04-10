@@ -1,0 +1,492 @@
+div#header {
+    height: 67px;
+    min-width: 980px;
+    width: 100%;
+}
+
+div#mid {
+    float: left;
+    margin-bottom: 15px;
+    min-width: 980px;
+    width: 100%;
+}
+
+div#content {
+    float: left;
+    min-height: 450px;
+    overflow: hidden;
+    position: relative;
+}
+
+div#content.reports, div#content.build {
+    overflow: auto;
+}
+
+div#dynamic_header {
+    background-color: #747273;
+    height: 28px;
+    min-width: 980px;
+    overflow: hidden;
+    width: 100%;
+}
+
+body.mod1 div#dynamic_header {
+    height: 70px;
+}
+
+body.mod1 div#dynamic_header div.dyn1 {
+    float: left;
+    height: 70px;
+    width: 780px;
+}
+
+body.mod1 div#dynamic_header div.dyn2 {
+    float: right;
+    height: 70px;
+    width: 151px;
+}
+
+body.mod2 div#dynamic_header {
+    height: 100px;
+}
+
+body.mod2 div#dynamic_header div.dyn1 {
+    height: 100px;
+    min-width: 900px;
+    width: 100%;
+}
+
+body.mod3 div#dynamic_header div.dyn1 {
+    height: 604px;
+    left: 692px;
+    position: absolute;
+    top: 6px;
+    width: 127px;
+    z-index: 5;
+}
+
+body.mod3 div#mtop {
+    width: 692px;
+}
+
+body.mod3 div#side_info {
+    margin-left: 132px;
+}
+
+div#mtop {
+    height: 67px;
+    left: 231px;
+    position: relative;
+    top: -7px;
+    width: 570px;
+}
+
+div#mtop a#n1, div#mtop a#n2, div#mtop a#n3, div#mtop a#n4, div#mtop div#n5 {
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+
+div#mtop div#n5 a {
+    float: left;
+}
+
+div#mtop a#plus {
+    float: left;
+    margin-left: 115px;
+    padding: 0;
+}
+
+div#mtop a#plus span {
+    display: none;
+}
+
+div#side_navi {
+    float: left;
+    position: relative;
+    width: 130px;
+}
+
+div#side_navi p {
+    line-height: 20px;
+    margin: 0 0 28px;
+}
+
+div#side_navi p a {
+    display: block;
+    padding-left: 12px;
+}
+
+div#side_navi p.deltimer {
+    margin-left: 5px;
+    width: 120px;
+}
+
+div#side_navi p.deltimer a {
+    padding: 0;
+    text-align: center;
+}
+
+div#side_navi table {
+    background-color: #FFFFFF;
+    width: auto;
+    padding-left: 12px;
+}
+
+div#side_navi table td {
+    line-height: 18px;
+    padding: 0;
+    text-align: left;
+    white-space: nowrap;
+}
+
+div#side_navi table thead td {
+    background-color: #FFFFFF;
+    height: 22px;
+}
+
+div#side_navi td.dot {
+    padding: 0 6px;
+    width: 10px;
+}
+
+div#side_navi td.link {
+    padding-right: 10px;
+}
+
+div#side_info {
+    float: left;
+    padding-left: 10px;
+    padding-top: 5px;
+    position: relative;
+}
+
+div#side_info h5 {
+    margin-left: 10px;
+}
+
+div#side_info h6 {
+    margin: 0;
+    padding: 0;
+}
+
+div#side_info div.news {
+    border: 1px dashed Silver;
+    margin-bottom: 25px;
+    margin-left: 10px;
+    padding: 6px;
+    width: 186px;
+}
+
+div#side_info div.news h5 {
+    margin-bottom: 10px;
+    margin-left: 0;
+    margin-top: 0;
+}
+
+div#side_info span.time {
+    display: block;
+    margin-bottom: 10px;
+}
+
+div#side_info div.news ul {
+    margin-left: 15px;
+    padding: 0;
+}
+
+div#side_info table#llist {
+    margin-top: 25px;
+}
+
+div#footer {
+    clear: both;
+    width: 100%;
+}
+
+div#footer div#mfoot {
+    padding-bottom: 30px;
+    padding-top: 15px;
+    text-align: center;
+    width: 812px;
+}
+
+div#footer div#mfoot div.copyright {
+    direction: ltr;
+}
+
+div#side_info div#anm {
+    border: 1px solid #555555;
+    position: absolute;
+    z-index: 1000;
+}
+
+div#side_info div#qge {
+    padding: 4px;
+}
+
+div#side_info div#qge img {
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+div#side_navi .facebookteaser p {
+    margin: 0;
+    padding: 0 10px;
+    width: 90px;
+}
+
+div#side_navi .facebookteaser p.teaser2 {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 6px 0 10px;
+}
+
+div#side_navi .facebookteaser p.teaser3 {
+    font-size: 9px;
+    line-height: normal;
+}
+
+div#side_navi .facebookteaser p.teaser1 {
+    bottom: 4px;
+    display: block;
+    font-size: 12px;
+    height: 28px;
+    left: 0;
+    line-height: 12px;
+    margin: 0;
+    padding: 9px 5px 0;
+    position: absolute;
+    right: 0;
+    width: 100px;
+}
+
+div#side_info table {
+    background-color: #FFFFFF;
+    width: auto;
+}
+
+div#side_info table td {
+    line-height: 18px;
+    padding: 0;
+    text-align: left;
+    white-space: nowrap;
+}
+
+div#side_info table thead td {
+    background-color: #FFFFFF;
+    height: 22px;
+}
+
+div#side_info td.dot {
+    padding: 0 6px;
+    width: 10px;
+}
+
+div#side_info td.link {
+    padding-right: 10px;
+}
+
+div#header {
+    font-size: 0;
+}
+
+div#mtop {
+    font-size: 0;
+}
+
+div#side_navi {
+    font-size: 13px;
+}
+
+div#side_navi p {
+    font-size: 12px;
+}
+
+div#side_navi p a {
+    color: #000000;
+    font-weight: normal;
+}
+
+div#side_navi p a:hover {
+    color: #00C000;
+}
+
+div#side_navi p.deltimer a {
+    font-weight: bold;
+}
+
+div#side_navi p.deltimer a span {
+    color: #FF8000;
+}
+
+div#side_navi table thead td a {
+    color: black;
+    font-weight: bold;
+}
+
+div#side_navi table tbody td {
+    font-size: 11px;
+}
+
+div#side_navi td.link {
+    font-size: 13px;
+}
+
+div#side_info h6 {
+    color: #FF8000;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+div#side_info table thead td a {
+    color: black;
+    font-weight: bold;
+}
+
+div#side_info table tbody td {
+    font-size: 11px;
+}
+
+div#side_info td.hl {
+    color: #FF8000;
+}
+
+div#side_info td.link {
+    font-size: 13px;
+}
+
+div#side_info span.time {
+    color: #999999;
+    font-size: 11px;
+    font-style: italic;
+}
+
+div#side_info div.news {
+    font-size: 12px;
+}
+
+div#side_info div.news h5 {
+    font-size: 13px;
+}
+
+div#footer div#mfoot {
+    color: #666666;
+    font-size: 11px;
+}
+
+div#footer div#mfoot a {
+    color: #666666;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+div#footer div#mfoot a:visited, div#footer div#mfoot a:active {
+    color: #666666;
+}
+
+div#footer div#mfoot a:hover {
+    color: #00C000;
+}
+
+div#side_info table#llist img.external, body.manual img.external {
+    background-image: url("../../../img/a/external.gif");
+    height: 10px;
+    width: 10px;
+}
+
+div#side_info table thead td img.tSwitch {
+    height: 13px;
+    width: 13px;
+}
+
+div#header {
+    background-image: url("../../../img/l/mw.gif");
+    background-position: 0 -28px;
+    background-repeat: repeat-x;
+}
+
+div#mid {
+    background-image: url("../../../img/a/rand.gif");
+    background-position: left 0;
+    background-repeat: repeat-y;
+}
+
+div#footer {
+    background-image: url("../../../img/a/btm.gif");
+    background-repeat: repeat-x;
+}
+
+div#side_navi p.deltimer a:hover {
+    background: none repeat scroll 0 0 transparent;
+    height: auto;
+    width: auto;
+}
+
+div#side_navi a:hover {
+    background-image: url("../../../img/a/n12.gif");
+    height: 20px;
+    width: 113px;
+}
+
+div#dynamic_header {
+    background-image: url("../../../img/l/dyn_bg1.jpg");
+    background-position: -80px -50px;
+}
+
+body.mod1 div#dynamic_header, body.mod2 div#dynamic_header {
+    background-image: none;
+}
+
+body.mod1 div#dynamic_header div.dyn1 {
+    background-image: url("../../../img/l/ad1.jpg");
+    background-position: -20px 0;
+}
+
+body.mod1 div#dynamic_header div.dyn2 {
+    background-image: url("../../../img/l/ad2.jpg");
+}
+
+body.mod2 div#dynamic_header div.dyn1 {
+    background-image: url("../../../img/l/bigsize_bg.jpg");
+    background-position: -100px 0;
+}
+
+body.mod3 div#dynamic_header div.dyn1 {
+    background-image: url("../../../img/l/skyscraper_bg.gif");
+}
+
+div#side_info div#qge img#qgei {
+    height: 174px;
+}
+
+div#side_info div#qge img.q_l1 {
+    background-image: url("../../../img/q/l1.jpg");
+    width: 125px;
+}
+
+div#side_info div#qge img.q_l1g {
+    background-image: url("../../../img/q/l1g.jpg");
+    width: 125px;
+}
+
+div#side_info div#qge img.q_l2 {
+    background-image: url("../../../img/q/l2.jpg");
+    width: 164px;
+}
+
+div#side_info div#qge img.q_l2g {
+    background-image: url("../../../img/q/l2g.jpg");
+    width: 164px;
+}
+
+div#side_info div#qge img.q_l3 {
+    background-image: url("../../../img/q/l3.jpg");
+    width: 146px;
+}
+
+div#side_info div#qge img.q_l3g {
+    background-image: url("../../../img/q/l3g.jpg");
+    width: 146px;
+}

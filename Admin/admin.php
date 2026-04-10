@@ -290,6 +290,16 @@ if (!empty($_GET['p'])) {
             }
             break;
 
+        case 'editCrops':
+            if (!empty($_GET['did'])) {
+                $village = $database->getVillage($_GET['did']);
+                $user = $database->getUserArray($village['owner'],1);
+                $subpage = 'Build Cropper ('.$village['name'].' &raquo; '.$user['username'].')';
+            } else {
+                $subpage = 'Build Cropper (no village)';
+            }
+            break;
+
         case 'editResources':
             if (!empty($_GET['did'])) {
                 $village = $database->getVillage($_GET['did']);

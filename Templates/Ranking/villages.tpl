@@ -1,7 +1,7 @@
 <?php
 if(!is_numeric($_SESSION['search'])) {
 ?>
-	<center><font color=orange size=2><p class=\"error\">The village <b>"<?php echo $_SESSION['search']; ?>"</b> does not exist.</p></font></center>
+	<center><font color=orange size=2><p class=\"error\"><?php echo (defined('LANG') && LANG === 'ar') ? 'القرية' : 'The village'; ?> <b>"<?php echo $_SESSION['search']; ?>"</b> <?php echo (defined('LANG') && LANG === 'ar') ? 'غير موجودة.' : 'does not exist.'; ?></p></font></center>
 <?php
     $search = 0;
 }
@@ -11,10 +11,10 @@ else $search = $_SESSION['search'];
 			<thead>
 				<tr>
 					<th colspan="5">
-						The largest villages								    
+						<?php echo (defined('LANG') && LANG === 'ar') ? 'أكبر القرى' : 'The largest villages'; ?>								    
 					</th>
 				</tr>
-		<tr><td></td><td>Village</td><td>Player</td><td>Inhabitants</td><td>Coordinates</td></tr>
+		<tr><td></td><td><?php echo (defined('LANG') && LANG === 'ar') ? 'القرية' : 'Village'; ?></td><td><?php echo (defined('LANG') && LANG === 'ar') ? 'اللاعب' : 'Player'; ?></td><td><?php echo (defined('LANG') && LANG === 'ar') ? 'السكان' : 'Inhabitants'; ?></td><td><?php echo (defined('LANG') && LANG === 'ar') ? 'الإحداثيات' : 'Coordinates'; ?></td></tr>
 		</thead><tbody>  
          <?php
          $rankArray = $ranking->getRank();
@@ -45,7 +45,7 @@ else $search = $_SESSION['search'];
                  }
              }
          }
-         else echo "<td class=\"none\" colspan=\"5\">No villages found</td>";
+         else echo "<td class=\"none\" colspan=\"5\">".(defined('LANG') && LANG === 'ar' ? 'لا توجد قرى' : 'No villages found')."</td>";
 		 ?>
  </tbody>
 </table>

@@ -1,5 +1,5 @@
 <div id="content"  class="messages">
-<h1>Messages</h1>
+<h1><?php echo (defined('LANG') && LANG === 'ar' ? 'الرسائل' : 'Messages'); ?></h1>
 <?php 
 include("menu.tpl");
 $user = $database->getUserArray($session->uid, 1);
@@ -57,7 +57,7 @@ $user = $database->getUserArray($session->uid, 1);
 }else{ 
 echo "re1:".strip_tags($message->reply['topic']); }} ?>" maxlength="35" onkeyup="copyElement('subject')" tabindex=2/>
 	</div>
-<a id="adbook" href="#" onclick="toggleFriendsList(); return false;"><img src="img/x.gif" alt="Addressbook" title="Addressbook" /></a>
+<a id="adbook" href="#" onclick="toggleFriendsList(); return false;"><img src="img/x.gif" alt="<?php echo (defined('LANG') && LANG === 'ar' ? 'دفتر العناوين' : 'Addressbook'); ?>" title="<?php echo (defined('LANG') && LANG === 'ar' ? 'دفتر العناوين' : 'Addressbook'); ?>" /></a>
 <div class="clear"></div>
 <div class="line"></div>
 
@@ -96,7 +96,7 @@ Reply: ".$database->getUserField($id,'username',0)."
 			</script>
 					<p class="btn">
 		<input type="hidden" name="ft" value="m2" />
-		<button name="delmsg" value="" id="btn_save" class="trav_buttons" onclick="this.disabled=true;this.form.submit();" tabindex="4">Send</button>
+		<button name="delmsg" value="" id="btn_save" class="trav_buttons" onclick="this.disabled=true;this.form.submit();" tabindex="4"><?php echo (defined('LANG') && LANG === 'ar' ? 'إرسال' : 'Send'); ?></button>
 		<?php
 			if ($session->access == ADMIN && ADMIN_RECEIVE_SUPPORT_MESSAGES && !empty($_GET['mid'])) {
 		?><br />
@@ -110,7 +110,7 @@ Reply: ".$database->getUserField($id,'username',0)."
 		?>
 	</p>
 	</form>
-	<div id="adressbook" class="hide"><h2>Addressbook</h2>
+	<div id="adressbook" class="hide"><h2><?php echo (defined('LANG') && LANG === 'ar' ? 'دفتر العناوين' : 'Addressbook'); ?></h2>
     <form method="post" action="nachrichten.php">
 	<input type="hidden" name="ft" value="m7" />
 	<input type="hidden" name="myid" value="<?php echo $session->uid; ?>" />
@@ -129,15 +129,15 @@ if(is_int($i/2)){ echo "<tr>"; } ?><td class="end"><a href="nachrichten.php?delf
 		<?php
 		$friend = $database->getUserArray($user['friend'.$i], 1);
 		if ((time()-600) < $friend['timestamp']){ // 0 Min - 10 Min
-            echo "    <td class=on><img class=online1 src=img/x.gif title='Now online' alt='Now online' /></td>";
+            echo "    <td class=on><img class=online1 src=img/x.gif title='".(defined('LANG') && LANG === 'ar' ? 'متصل الآن' : 'Now online')."' alt='".(defined('LANG') && LANG === 'ar' ? 'متصل الآن' : 'Now online')."' /></td>";
         }elseif ((time()-86400) < $friend['timestamp'] && (time()-600) > $friend['timestamp']){ // 10 Min - 1 Days
-            echo "    <td class=on><img class=online2 src=img/x.gif title='Offline' alt='Offline' /></td>";              
+            echo "    <td class=on><img class=online2 src=img/x.gif title='".(defined('LANG') && LANG === 'ar' ? 'غير متصل' : 'Offline')."' alt='".(defined('LANG') && LANG === 'ar' ? 'غير متصل' : 'Offline')."' /></td>";              
             }elseif ((time()-259200) < $friend['timestamp'] && (time()-86400) > $friend['timestamp']){ // 1-3 Days
-            echo "    <td class=on><img class=online3 src=img/x.gif title='Last 3 days' alt='Last 3 days' /></td>";    
+            echo "    <td class=on><img class=online3 src=img/x.gif title='".(defined('LANG') && LANG === 'ar' ? 'آخر 3 أيام' : 'Last 3 days')."' alt='".(defined('LANG') && LANG === 'ar' ? 'آخر 3 أيام' : 'Last 3 days')."' /></td>";    
         }elseif ((time()-604800) < $friend['timestamp'] && (time()-259200) > $friend['timestamp']){
-            echo "    <td class=on><img class=online4 src=img/x.gif title='Last 7 days' alt='Last 7 days' /></td>";    
+            echo "    <td class=on><img class=online4 src=img/x.gif title='".(defined('LANG') && LANG === 'ar' ? 'آخر 7 أيام' : 'Last 7 days')."' alt='".(defined('LANG') && LANG === 'ar' ? 'آخر 7 أيام' : 'Last 7 days')."' /></td>";    
         }else{
-             echo "    <td class=on><img class=online5 src=img/x.gif title=inactive alt=inactive /></td>";   
+             echo "    <td class=on><img class=online5 src=img/x.gif title='".(defined('LANG') && LANG === 'ar' ? 'غير نشط' : 'inactive')."' alt='".(defined('LANG') && LANG === 'ar' ? 'غير نشط' : 'inactive')."' /></td>";   
         }
 if(!is_int($i/2)){ echo "</tr>"; }else{ echo "<td></td>";}
   }else{
@@ -152,7 +152,7 @@ $friendwait = $friend['id'];
 if($wait == 0){
 if(is_int($i/2)){ echo "<tr>"; } ?><td class="end"><a href="nachrichten.php?delfriend=<?php echo $i; ?>"><img class="del" src="img/x.gif" alt="delete" title="delete"></td>
   <td class="pla">
-  <?php echo "<img src=\"../../".GP_LOCATE."img/a/clock-inactive.gif\" alt=\"wait for confirm\" title=\"wait for confirm\"><a href=\"nachrichten.php?t=1&id=".$user['friend'.$i]."\"> ".$database->getUserField($user['friend'.$i],"username",0)."</a>"; ?>
+  <?php echo "<img src=\"../../".GP_LOCATE."img/a/clock-inactive.gif\" alt=\"".(defined('LANG') && LANG === 'ar' ? 'في انتظار التأكيد' : 'wait for confirm')."\" title=\"".(defined('LANG') && LANG === 'ar' ? 'في انتظار التأكيد' : 'wait for confirm')."\"><a href=\"nachrichten.php?t=1&id=".$user['friend'.$i]."\"> ".$database->getUserField($user['friend'.$i],"username",0)."</a>"; ?>
   </td>
 		<?php
             echo "<td class=on></td>";
@@ -162,7 +162,7 @@ if(is_int($i/2)){ echo "<tr>"; } ?><td class="end"><a href="nachrichten.php?delf
   <td class="pla">
   <?php echo "<a href=\"nachrichten.php?t=1&id=".$friendwait."\">".$database->getUserField($friendwait,"username",0)."</a>"; ?>
   </td>		
-            <td class="on"><a href="nachrichten.php?confirm=<?php echo $i; ?>"><img src="../../<?php echo GP_LOCATE; ?>img/a/online6.gif" alt="confirm" title="confirm"></a></td>
+            <td class="on"><a href="nachrichten.php?confirm=<?php echo $i; ?>"><img src="../../<?php echo GP_LOCATE; ?>img/a/online6.gif" alt="<?php echo (defined('LANG') && LANG === 'ar' ? 'تأكيد' : 'confirm'); ?>" title="<?php echo (defined('LANG') && LANG === 'ar' ? 'تأكيد' : 'confirm'); ?>"></a></td>
 <?php
 if(!is_int($i/2)){ echo "</tr>"; }else{ echo "<td></td>";}
 }
@@ -175,5 +175,5 @@ if(!is_int($i/2)){ echo "</tr>"; }else{ echo "<td></td>";}
 <div id="write_foot" class="msg_foot">
 </div>
 <br />
-<span style="color: #DD0000"><b>Warning:</b> you can't use the values <b>[message]</b> or <b>[/message]</b> in your message because it can cause problem with bbcode system.</span>
+<span style="color: #DD0000"><?php echo (defined('LANG') && LANG === 'ar' ? '<b>تحذير:</b> لا يمكنك استخدام القيم <b>[message]</b> أو <b>[/message]</b> في رسالتك لتجنب حدوث مشاكل في النظام.' : '<b>Warning:</b> you can\'t use the values <b>[message]</b> or <b>[/message]</b> in your message because it can cause problem with bbcode system.'); ?></span>
 </div>

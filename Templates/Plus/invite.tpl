@@ -2,50 +2,47 @@
 include("Templates/Plus/pmenu.tpl");
 ?>
 
-    <h2>Invite friends and receive free Gold</h2>
+    <h2><?php echo (defined('LANG') && LANG === 'ar') ? 'ادعُ أصدقاءك واحصل على ذهب مجاني' : 'Invite friends and receive free Gold'; ?></h2>
 
-    <p>If you get new players to open an account and settle a second village with Travian you will receive gold. You can use this gold to purchase a plus account or plus advantages.
-    <br>
-    <br>
-    To bring in new players, you can invite them by e-mail or have them click on your REF link.</p>
+    <p><?php echo (defined('LANG') && LANG === 'ar') ? 'إذا جعلت لاعبين جدد يفتحون حسابًا ويبنون قرية ثانية في ترافين، ستحصل على ذهب. يمكنك استخدام هذا الذهب لشراء حساب بلس أو مزايا بلس.<br><br>لجلب لاعبين جدد، يمكنك دعوتهم عبر البريد الإلكتروني أو بجعلهم ينقرون على رابط الإحالة الخاص بك.' : 'If you get new players to open an account and settle a second village with Travian you will receive gold. You can use this gold to purchase a plus account or plus advantages.<br><br>To bring in new players, you can invite them by e-mail or have them click on your REF link.'; ?></p>
 
-    <h2>How is it done?</h2>
+    <h2><?php echo (defined('LANG') && LANG === 'ar') ? 'كيف يتم ذلك؟' : 'How is it done?'; ?></h2>
 
-    <h3>1) Invite your friends via Email</h3>
+    <h3><?php echo (defined('LANG') && LANG === 'ar') ? '1) ادعُ أصدقاءك عبر البريد الإلكتروني' : '1) Invite your friends via Email'; ?></h3>
 	<form action="plus.php" method="POST">
     <p><input class="mail" name="mail" value=""></p>
-	<p>Own text:</p>
+	<p><?php echo (defined('LANG') && LANG === 'ar') ? 'الرسالة:' : 'Own text:'; ?></p>
 	<p><textarea id="text" name="text" rows="3" cols="20" style="width:350px">
-hi, please use this link.
+<?php echo (defined('LANG') && LANG === 'ar') ? 'مرحباً، الرجاء استخدام هذا الرابط للتسجيل.' : 'hi, please use this link.'; ?>
 <?php echo HOMEPAGE.(substr(HOMEPAGE, -1)=="/" ? "":"/"); ?>anmelden.php?uid=ref_<?php echo $session->uid; ?>
 </textarea></p>
 	</form>
-    <h3>2) Copy your personal REF-Link and share it!</h3><span class="notice">Your personal REF Link:</span>
+    <h3><?php echo (defined('LANG') && LANG === 'ar') ? '2) انسخ رابط الإحالة الخاص بك وشاركه!' : '2) Copy your personal REF-Link and share it!'; ?></h3><span class="notice"><?php echo (defined('LANG') && LANG === 'ar') ? 'رابط الإحالة الخاص بك:' : 'Your personal REF Link:'; ?></span>
     <br>
     <span class="link"><?php echo HOMEPAGE.(substr(HOMEPAGE, -1)=="/" ? "":"/");?>anmelden.php?uid=ref_<?php echo $session->uid; ?></span>
 
-    <h3>Progress of your invited friends</h3>
+    <h3><?php echo (defined('LANG') && LANG === 'ar') ? 'تقدم أصدقائك المدعوين' : 'Progress of your invited friends'; ?></h3>
 
-    <p>As soon as a player you invited has found his <b>2</b>. village, you will be credited with <b>50</b> gold.</p>
+    <p><?php echo (defined('LANG') && LANG === 'ar') ? 'بمجرد أن يبني اللاعب الذي دعوته قريته <b>الثانية</b>، سيتم إضافة <b>50</b> ذهبة إلى حسابك.' : 'As soon as a player you invited has found his <b>2</b>. village, you will be credited with <b>50</b> gold.'; ?></p>
 
     <table id="brought_in" cellpadding="1" cellspacing="1">
         <thead>
             <tr>
-                <th colspan="6">Players brought in</th>
+                <th colspan="6"><?php echo (defined('LANG') && LANG === 'ar') ? 'اللاعبون المدعوون' : 'Players brought in'; ?></th>
             </tr>
 
             <tr>
                 <td></td>
 
-                <td>World</td>
+                <td><?php echo (defined('LANG') && LANG === 'ar') ? 'العالم' : 'World'; ?></td>
 
                 <td>UID</td>
 
-                <td>Member since</td>
+                <td><?php echo (defined('LANG') && LANG === 'ar') ? 'عضو منذ' : 'Member since'; ?></td>
 
-                <td>Inhabitants</td>
+                <td><?php echo (defined('LANG') && LANG === 'ar') ? 'السكان' : 'Inhabitants'; ?></td>
 
-                <td>Villages</td>
+                <td><?php echo (defined('LANG') && LANG === 'ar') ? 'القرى' : 'Villages'; ?></td>
             </tr>
         </thead>
 		<tbody>
@@ -72,7 +69,7 @@ hi, please use this link.
 		}}else{
 		?>
         <tr>
-            <td class="none" colspan="6">You have not brought in any new players yet.</td>
+            <td class="none" colspan="6"><?php echo (defined('LANG') && LANG === 'ar') ? 'لم تقم بدعوة أي لاعبين بعد.' : 'You have not brought in any new players yet.'; ?></td>
         </tr>
 		<?php } ?>
         </table>

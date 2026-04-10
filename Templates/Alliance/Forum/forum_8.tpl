@@ -101,17 +101,17 @@ if(!empty($forumData['display_to_users'])) $users = explode(',', $forumData['dis
 
 <table cellpadding="1" cellspacing="1" id="edit_forum"><thead>
 	<tr>
-    	<th colspan="2">edit forum</th>
+    	<th colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'تعديل المنتدى' : 'edit forum'; ?></th>
 	</tr>
 	</thead><tbody>
 	<tr>
-		<th>Forum name</th>
+		<th><?php echo (defined('LANG') && LANG === 'ar') ? 'اسم المنتدى' : 'Forum name'; ?></th>
 
 		<td><input class="text" type="text" name="u1" value="<?php echo $cat_name; ?>" maxlength="30"></td>
 	</tr>
 
 	<tr>
-		<th>Description</th>
+		<th><?php echo (defined('LANG') && LANG === 'ar') ? 'الوصف' : 'Description'; ?></th>
 		<td><input class="text" type="text" name="u2" value="<?php echo $cat_des; ?>" maxlength="38"></td>
 	</tr>
 </table>
@@ -119,12 +119,12 @@ if(!empty($forumData['display_to_users'])) $users = explode(',', $forumData['dis
 <table cellpadding="1" cellspacing="1" id="ally_list"><thead>
 	<tr>
 
-        <th colspan="3">Open for more alliances</th>
+        <th colspan="3"><?php echo (defined('LANG') && LANG === 'ar') ? 'مفتوح لتحالفات أخرى' : 'Open for more alliances'; ?></th>
 	</tr>
 	<tr>
-		<td>Alliance ID</td>
-		<td>Tag:</td>
-		<td>Add</td>
+		<td><?php echo (defined('LANG') && LANG === 'ar') ? 'رقم التحالف' : 'Alliance ID'; ?></td>
+		<td><?php echo (defined('LANG') && LANG === 'ar') ? 'العلامة:' : 'Tag:'; ?></td>
+		<td><?php echo (defined('LANG') && LANG === 'ar') ? 'إضافة' : 'Add'; ?></td>
 	</tr>
 
 	</thead><tbody>
@@ -152,12 +152,12 @@ if(!empty($forumData['display_to_users'])) $users = explode(',', $forumData['dis
 	</tr>
 </table><table cellpadding="1" cellspacing="1" id="user_list"><thead>
 	<tr>
-        <th colspan="3">Open forum for the following players</th>
+        <th colspan="3"><?php echo (defined('LANG') && LANG === 'ar') ? 'فتح المنتدى للاعبين التاليين' : 'Open forum for the following players'; ?></th>
 	</tr>
 	<tr>
-		<td>User ID</td>
-		<td>Name:</td>
-		<td>Add</td>
+		<td><?php echo (defined('LANG') && LANG === 'ar') ? 'رقم اللاعب' : 'User ID'; ?></td>
+		<td><?php echo (defined('LANG') && LANG === 'ar') ? 'الاسم:' : 'Name:'; ?></td>
+		<td><?php echo (defined('LANG') && LANG === 'ar') ? 'إضافة' : 'Add'; ?></td>
 	</tr>
 	</thead><tbody>
 	<?php for($i = 0; $i < count($users); $i++){?>

@@ -1,0 +1,119 @@
+div.warsim {
+    padding: 43px 25px 0;
+    width: 502px;
+}
+
+div.warsim table#select {
+    margin-top: 10px;
+}
+
+div.warsim table#attacker {
+    float: right;
+}
+
+div.warsim table#defender {
+    float: left;
+}
+
+div.warsim table.fill_in {
+    margin-bottom: 15px;
+}
+
+div.warsim table.results {
+    margin-top: 15px;
+}
+
+div.warsim table#select {
+    margin-top: 10px;
+}
+
+div.warsim table#select thead td {
+    padding: 2px 7px;
+}
+
+div.warsim table#select tbody td {
+    line-height: 20px;
+    padding: 5px 7px;
+    vertical-align: top;
+    width: 33%;
+}
+
+div.warsim table#select input.radio {
+    position: relative;
+    top: 1px;
+}
+
+div.warsim table.fill_in {
+    width: 49%;
+}
+
+div.warsim table.fill_in th {
+    padding: 2px;
+}
+
+div.warsim table.fill_in td {
+    padding: 1px;
+}
+
+div.warsim table.fill_in tbody th {
+    background-color: #F5F5F5;
+    text-align: center;
+}
+
+div.warsim table.fill_in td.details {
+    padding: 0;
+}
+
+div.warsim table.fill_in td.details table {
+    background-color: #FFFFFF;
+}
+
+div.warsim table.fill_in td.details table td.ico {
+    padding-right: 4px;
+    padding-left: 2px;
+    width: 16px;
+}
+
+div.warsim table.fill_in td.details table td.value {
+    width: 43px;
+}
+
+div.warsim table.fill_in td.details table td.value input.text {
+    width: 35px;
+}
+
+div.warsim table.fill_in td.details table td.research {
+    padding-left: 4px;
+    width: 23px;
+}
+
+div.warsim table.fill_in td.details table td.research input.text {
+    width: 15px;
+}
+
+div.warsim table.results th {
+    padding: 2px 7px;
+}
+
+div.warsim table.results td {
+    padding: 2px 1px;
+}
+
+div.warsim table.results tbody th {
+    width: 20%;
+}
+
+div.warsim table.results tbody td {
+    text-align: center;
+    width: 8%;
+}
+
+div.warsim table.attacker td.role {
+    color: #FF8000;
+    font-weight: bold;
+}
+
+div.warsim table.defender td.role {
+    color: #71D000;
+    font-weight: bold;
+}

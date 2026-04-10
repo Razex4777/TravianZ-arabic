@@ -1,0 +1,176 @@
+div#build.gid0 table.new_building td.requ {
+    font-weight: bold;
+}
+
+div#build.gid15 input.btn {
+    font-size: 11px;
+}
+
+div#build.gid16 h4 {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+div#build.gid16 p.info a {
+    color: black;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+div#build.gid16 table.troop_details thead a {
+    color: black;
+}
+
+div#build.gid16 table#raidList thead a {
+    color: black;
+    font-weight: normal;
+}
+
+div#build.gid16 table#raidList input.text{
+    width: 75px;
+}
+
+div#build.gid17 div.error, div#build.gid17 p.error {
+    font-weight: bold;
+}
+
+div#build.gid17 p.error2 {
+    color: #FF8000;
+}
+
+div#build.gid17 p.note {
+    color: #228B22;
+    font-weight: bold;
+}
+
+div#build.gid17 table.send_res td.max {
+    font-size: 11px;
+}
+
+div#build.gid17 table#send_validate td.max {
+    color: #C0C0C0;
+    font-weight: bold;
+}
+
+div#build.gid17 table#target_select td.vil, div#build.gid17 table#target_select td.coo {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+div#build.gid17 table#target_select td.or {
+    font-style: italic;
+}
+
+div#build.gid17 table#target_validate td.vil {
+    font-size: 18px;
+}
+
+div#build.gid17 table.traders thead td a {
+    color: black;
+}
+
+div#build.gid17 span.corr {
+    color: #FF4000;
+}
+
+div#build.gid17 p.info {
+    font-size: 11px;
+}
+
+div#build.gid18 table#found span.error {
+    font-size: 11px;
+}
+
+div#build.gid26 table#main td.desc {
+    font-size: 11px;
+}
+
+div#build.gid27 table span.bon {
+    font-size: 10px;
+}
+
+div#build.gid27 table div.info {
+    font-size: 11px;
+}
+
+div#build.gid27 table#own td.inactive, div#build.gid27 table#own td.inactive a {
+    color: #C0C0C0;
+}
+
+div#build.gid27 table#art_details td.desc {
+    font-size: 11px;
+}
+
+div#build.gid27 table#art_details td.desc span.detail {
+    font-style: italic;
+}
+
+div#build.gid37 table#distribution thead th a {
+    color: black;
+}
+
+div#build.gid37 table#distribution thead th span.info {
+    font-weight: normal;
+}
+
+div#build.gid37 table#distribution td.rem {
+    color: #228B22;
+    font-weight: bold;
+}
+
+div#build.gid40 p.info {
+    color: #C0C0C0;
+    font-size: 11px;
+}
+
+div#build.gid40 p.nam {
+    font-size: 27px;
+}
+
+div#build.gid27 div.artefact {
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    padding-bottom: 170px;
+}
+
+div#build.gid27 div.artefact.image-1 {
+    background-image: url("../../../img/artefact/type-1.gif");
+}
+
+div#build.gid27 div.artefact.image-2 {
+    background-image: url("../../../img/artefact/type-2.gif");
+}
+
+div#build.gid27 div.artefact.image-4 {
+    background-image: url("../../../img/artefact/type-4.gif");
+}
+
+div#build.gid27 div.artefact.image-5 {
+    background-image: url("../../../img/artefact/type-5.gif");
+}
+
+div#build.gid27 div.artefact.image-6 {
+    background-image: url("../../../img/artefact/type-6.gif");
+}
+
+div#build.gid27 div.artefact.image-8 {
+    background-image: url("../../../img/artefact/type-8.gif");
+}
+
+div#build.gid27 div.artefact.image-9 {
+    background-image: url("../../../img/artefact/type-9.gif");
+}
+
+div#build.gid27 div.artefact.image-10 {
+    background-image: url("../../../img/artefact/type-10.gif");
+}
+
+div#build.gid27 div.artefact.image-fool {
+    background-image: url("../../../img/artefact/type-fool.gif");
+}
+
+div#build.gid37 table#distribution td.xp img.bar {
+    background-image: url("../../../img/a/c3.gif");
+    background-repeat: repeat-x;
+    height: 10px;
+}

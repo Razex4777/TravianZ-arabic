@@ -1,0 +1,510 @@
+div.player {
+    padding: 43px 25px 0;
+    width: 502px;
+}
+
+div.player table {
+    margin-top: 25px;
+}
+
+div.player table#profile {
+    margin-top: 0;
+}
+
+div.player table#edit {
+    margin-top: 0;
+}
+
+div.player table#links {
+    margin-top: 0;
+}
+
+div.player table#change_pass {
+    margin-top: 0;
+}
+
+div.player table#gpack {
+    margin-top: 0;
+}
+
+div.player div#gpack_popup {
+    border: 0 solid #000000;
+    height: 290px;
+    padding: 30px;
+    position: absolute;
+    top: 80px;
+    width: 442px;
+    z-index: 80;
+}
+
+div.player div#gpack_popup img.logo {
+    float: left;
+    margin-right: 20px;
+}
+
+div.player div#gpack_popup ul {
+    margin-left: 0;
+    margin-top: 20px;
+    padding-left: 25px;
+}
+
+div.player div#gpack_popup div.btn {
+    bottom: 20px;
+    position: absolute;
+    text-align: center;
+    width: 442px;
+}
+
+div.player div#gpack_popup div#gpack_activate {
+    display: none;
+}
+
+div.player div#gpack_popup div#gpack_activate img#preview {
+    margin: 10px 0;
+}
+
+div.player p.ie_notice {
+    border: 1px dashed #C0C0C0;
+    padding: 6px;
+}
+
+div.player table td, div.player table th {
+    padding: 2px 7px;
+}
+
+div.player tbody th {
+    text-align: left;
+}
+
+div.player td {
+    text-align: center;
+}
+
+div.player .none {
+    text-align: center;
+}
+
+div.player table#profile thead td {
+    width: 50%;
+}
+
+div.player table#profile td.details {
+    border-bottom: medium none;
+    height: 156px;
+    padding: 0;
+    vertical-align: top;
+    width: 50%;
+}
+
+div.player table#profile td.details table {
+    background-color: #FFFFFF;
+    border-collapse: collapse;
+    margin-top: 0;
+}
+
+div.player table#profile td.details table th {
+    border-bottom: 1px solid #C0C0C0;
+    border-right: 1px solid #C0C0C0;
+    width: 50%;
+}
+
+div.player table#profile td.details table td {
+    border-bottom: 1px solid #C0C0C0;
+    text-align: left;
+}
+
+div.player table#profile td.desc1 {
+    padding: 0 7px;
+    vertical-align: middle;
+    width: 50%;
+}
+
+div.player table#profile td.details table td.desc2 {
+    border-bottom: 0 solid transparent;
+    height: 100%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+div.player table#villages td.nam {
+    text-align: left;
+}
+
+div.player table#villages td.hab {
+    width: 20%;
+}
+
+div.player table#edit thead td {
+    width: 50%;
+}
+
+div.player table#edit tbody th {
+    white-space: nowrap;
+    width: 20%;
+}
+
+div.player table#edit tbody td {
+    line-height: 19px;
+}
+
+div.player table#edit input.text {
+    width: 94%;
+}
+
+div.player table#edit td.birth input.day {
+    float: left;
+    width: 17px;
+}
+
+div.player table#edit td.birth select.dropdown {
+    float: left;
+    margin: auto 5px;
+    padding: 1px 2px;
+    width: 60px;
+}
+
+div.player table#edit td.birth input.year {
+    float: left;
+    width: 30px;
+}
+
+div.player table#edit td.gend {
+    text-align: left;
+}
+
+div.player table#edit td.gend input.radio {
+    margin-right: 2px;
+    position: relative;
+    top: 1px;
+}
+
+div.player table#edit td.desc1, div.player table#edit td.desc2 {
+    padding: 0;
+}
+
+div.player table#edit td.desc1 textarea, div.player table#edit td.desc2 textarea {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 0;
+    text-align: center;
+}
+
+div.player table#edit td.desc1 textarea {
+    height: 264px;
+    width: 249px;
+}
+
+div.player table#edit td.desc2 textarea {
+    height: 158px;
+    width: 248px;
+}
+
+div.player table#medals td.typ {
+    text-align: left;
+}
+
+div.player table#medals td.ra {
+    white-space: nowrap;
+    width: 15%;
+}
+
+div.player table#medals td.we {
+    width: 15%;
+}
+
+div.player table#medals td.bb {
+    width: 20%;
+}
+
+div.player table.set td.sel {
+    text-align: center;
+    width: 5%;
+}
+
+div.player table.set td {
+    text-align: left;
+}
+
+div.player table.set input.radio {
+    position: relative;
+    top: 1px;
+}
+
+div.player table#links td.nr input.text {
+    width: 25px;
+}
+
+div.player table#links td.nam input.text {
+    width: 150px;
+}
+
+div.player table#links td.link input.text {
+    width: 255px;
+}
+
+div.player table#time tbody th {
+    width: 25%;
+}
+
+div.player table#time select.dropdown {
+    width: 200px;
+}
+
+div.player table#adsettings tbody th {
+    width: 25%;
+}
+
+div.player table#adsettings span.note {
+    font-size: 10px;
+    margin-left: 10px;
+}
+
+div.player table.account tbody th {
+    width: 50%;
+}
+
+div.player table.account input.text {
+    width: 94%;
+}
+
+div.player table#change_pass td.note {
+    text-align: left;
+}
+
+div.player table.account table.sitter {
+    background-color: transparent;
+    margin: 0;
+}
+
+div.player table.account table.sitter td {
+    padding: 0;
+    vertical-align: top;
+}
+
+div.player table.account table.sitter td.flags {
+    text-align: left;
+}
+
+div.player table.account table.sitter td.name {
+    padding-bottom: 10px;
+}
+
+div.player table.account td.container {
+    padding: 0;
+    width: 50%;
+}
+
+div.player table.account input.text {
+    width: 50%;
+}
+
+div.player table.account span.count {
+    margin-left: 5px;
+}
+
+div.player table.account span.max {
+    margin-left: 5px;
+}
+
+div.player table#del_acc td.del_selection {
+    text-align: left;
+}
+
+div.player table#del_acc input.radio {
+    position: relative;
+    top: 1px;
+}
+
+div.player table#gpack td {
+    height: 24px;
+    text-align: left;
+}
+
+div.player table#gpack th.empty {
+    background-color: #F3F3F3;
+    height: 5px;
+}
+
+div.player table#gpack td.info {
+    text-align: center;
+}
+
+div.player table#gpack td input.radio {
+    margin-left: 2px;
+    margin-right: 2px;
+    position: relative;
+    top: 1px;
+}
+
+div.player table#gpack td input.text {
+    margin-left: 15px;
+    width: 220px;
+}
+
+div.player table#gpack td div.example {
+    margin-left: 22px;
+}
+
+div.player table#download thead td {
+    white-space: nowrap;
+}
+
+div.player table#download td.nam {
+    text-align: left;
+}
+
+div.player table#download td.size {
+    width: 22%;
+}
+
+div.player table#download td.act {
+    width: 22%;
+}
+
+div.player table#download td.down {
+    width: 22%;
+}
+
+div.player span.none2 {
+    color: #C0C0C0;
+    font-weight: bold;
+}
+
+div.player span.none3 {
+    color: #C0C0C0;
+}
+
+div.player div#textmenu a.none {
+    color: #C0C0C0;
+}
+
+div.player table#edit td.desc1 textarea, div.player table#edit td.desc2 textarea {
+    font-size: 13px;
+}
+
+div.player #advertisement span.note {
+    font-size: 10px;
+}
+
+div.player td.note {
+    font-size: 11px;
+}
+
+div.player table#change_pass td.note {
+    font-size: 10px;
+}
+
+div.player table#change_pass td.generate span {
+    color: #C0C0C0;
+    font-size: 9px;
+}
+
+div.player table#change_mail th.process {
+    color: red;
+}
+
+div.player table.account span.count {
+    color: #C0C0C0;
+    font-size: 10px;
+}
+
+div.player table.account span.max {
+    color: red;
+    font-size: 10px;
+}
+
+div.player table#del_acc td.note {
+    text-align: center;
+}
+
+div.player table#del_acc td.count {
+    font-weight: bold;
+}
+
+div.player table#del_acc td.count span {
+    color: #FF8000;
+}
+
+div.player table#gpack td span.alert {
+    color: #FF0000;
+    font-weight: bold;
+}
+
+div.player table#gpack td.info {
+    font-size: 11px;
+}
+
+div.player table#gpack td div.example {
+    font-size: 11px;
+}
+
+div.player table#gpack td div.example span.path {
+    color: #FF8000;
+}
+
+div.player div#gpack_popup span.error {
+    font-weight: bold;
+}
+
+div.player div#gpack_popup span.info {
+    color: #228B22;
+    font-weight: bold;
+}
+
+div.player div#gpack_popup span.path {
+    color: #FF8000;
+}
+
+div.player div#gpack_popup ul {
+    font-size: 11px;
+}
+
+div.player img.tn, div.player img.tnd {
+    height: 45px;
+    width: 65px;
+}
+
+div.player img.tn {
+    background-image: url("../../../img/t/tn.gif");
+}
+
+div.player img.tnd {
+    background-image: url("../../../img/t/tnd.gif");
+}
+
+div.player img.medal, div.alliance img.medal, body.manual img.medal {
+    height: 48px;
+    width: 35px;
+}
+
+div.player img.t1_1, body.manual img.t1_1 {
+    background-image: url("../../../img/t/t1_1.jpg");
+}
+
+div.player img.t1_2, body.manual img.t1_2 {
+    background-image: url("../../../img/t/t1_2.jpg");
+}
+
+div.player img.t1_3, body.manual img.t1_3 {
+    background-image: url("../../../img/t/t1_3.jpg");
+}
+
+div.player img.t1_4, body.manual img.t1_4 {
+    background-image: url("../../../img/t/t1_4.jpg");
+}
+
+div.player img.t1_5 {
+    background-image: url("../../../img/t/t1_5.jpg");
+}
+
+div.player img.t1_6 {
+    background-image: url("../../../img/t/t1_6.jpg");
+}
+
+div.player img.t1_7 {
+    background-image: url("../../../img/t/t1_7.jpg");
+}
+
+div.player img.t1_8 {
+    background-image: url("../../../img/t/t1_8.jpg");
+}

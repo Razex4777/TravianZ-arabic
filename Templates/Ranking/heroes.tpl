@@ -8,7 +8,7 @@
 \** --------------------------------------------------- **/
 		if(!is_numeric($_SESSION['search'])) {
 		?>
-			<center><font color=orange size=2><p class=\"error\">The hero <b>"<?php echo $_SESSION['search']; ?>"</b> does not exist.</p></font></center>
+			<center><font color=orange size=2><p class=\"error\"><?php echo (defined('LANG') && LANG === 'ar') ? 'البطل' : 'The hero'; ?> <b>"<?php echo $_SESSION['search']; ?>"</b> <?php echo (defined('LANG') && LANG === 'ar') ? 'غير موجود.' : 'does not exist.'; ?></p></font></center>
 		<?php
 			$search = 0;
 		} else {
@@ -21,9 +21,9 @@
 			<thead>
 				<tr>
 					<th colspan="5">
-						The most experienced heroes											</th>
+						<?php echo (defined('LANG') && LANG === 'ar') ? 'أكثر الأبطال خبرة' : 'The most experienced heroes'; ?>											</th>
 				</tr>
-		<tr><td></td><td>Hero</td><td>Player</td><td>Level</td><td>Experience</td></tr>
+		<tr><td></td><td><?php echo (defined('LANG') && LANG === 'ar') ? 'البطل' : 'Hero'; ?></td><td><?php echo (defined('LANG') && LANG === 'ar') ? 'اللاعب' : 'Player'; ?></td><td><?php echo (defined('LANG') && LANG === 'ar') ? 'المستوى' : 'Level'; ?></td><td><?php echo (defined('LANG') && LANG === 'ar') ? 'الخبرة' : 'Experience'; ?></td></tr>
 		</thead><tbody>
         <?php
         $rankArray = $ranking->getRank();
@@ -59,7 +59,7 @@
         		}
         	}
         }
-        else echo "<td class=\"none\" colspan=\"5\">No heros found</td>";
+        else echo "<td class=\"none\" colspan=\"5\">".(defined('LANG') && LANG === 'ar' ? 'لا يوجد أبطال' : 'No heros found')."</td>";
 
 ?>
  </tbody>

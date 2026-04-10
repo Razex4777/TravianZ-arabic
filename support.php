@@ -25,8 +25,9 @@ if(isset($_GET['newdid'])) {
 else $building->procBuild($_GET);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
+<html<?php echo (defined('LANG') && LANG === 'ar') ? ' dir="rtl"' : ''; ?>>
 	<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title><?php echo SERVER_NAME; ?> - Support Request</title>
 		<link rel="shortcut icon" href="favicon.ico"/>
 	<meta name="content-language" content="en" />
@@ -37,10 +38,10 @@ else $building->procBuild($_GET);
 	<script src="mt-more.js?0faab" type="text/javascript"></script>
 	<script src="unx.js?f4b7h" type="text/javascript"></script>
 	<script src="new.js?0faab" type="text/javascript"></script>
-	<link href="<?php echo GP_LOCATE; ?>lang/en/compact.css?f4b7i" rel="stylesheet" type="text/css" />
-	<link href="<?php echo GP_LOCATE; ?>lang/en/lang.css?f4b7d" rel="stylesheet" type="text/css" />
+	<link href="<?php echo GP_LOCATE; ?>lang/<?php echo LANG; ?>/compact.css?v2" rel="stylesheet" type="text/css" />
+	<link href="<?php echo GP_LOCATE; ?>lang/<?php echo LANG; ?>/lang.css?f4b7d" rel="stylesheet" type="text/css" />
 	<link href="<?php echo GP_LOCATE ?>travian.css?f4b7d" rel="stylesheet" type="text/css" />
-		<link href="<?php echo GP_LOCATE ?>lang/en/lang.css" rel="stylesheet" type="text/css" />
+		<link href="<?php echo GP_LOCATE ?>lang/<?php echo LANG; ?>/lang.css" rel="stylesheet" type="text/css" />
         <script type="text/javascript">
 function chkFormular () {
   if (document.Formular.Username.value == "") {
@@ -71,7 +72,11 @@ function chkFormular () {
  
 }
 </script>
-	   </head>
+	   
+	<?php if(defined('LANG') && LANG === 'ar'): ?>
+	
+	<?php endif; ?>
+</head>
 
 <body class="v35 ie ie8">
 <div class="wrapper">

@@ -1,0 +1,68 @@
+div.cropfinder {
+    padding: 43px 25px 0;
+    width: 502px;
+}
+
+div.cropfinder div.cropfinder_input {
+    margin: 15px 0;
+    padding: 5px;
+}
+
+div.cropfinder div.cropfinder_input div.row {
+    height: 19px;
+    line-height: 19px;
+    margin: 10px 0;
+    vertical-align: middle;
+}
+
+div.cropfinder div.cropfinder_input div.row span.cropfinder_head {
+    display: block;
+    float: left;
+    width: 250px;
+}
+
+div.cropfinder div.cropfinder_input div.row input.text {
+    margin: 0 5px;
+    width: 50px;
+}
+
+div.cropfinder div.cropfinder_input div.row input.radio {
+    margin-right: 1px;
+    position: relative;
+    top: 1px;
+}
+
+div.cropfinder div.cropfinder_input div.row input.check {
+    position: relative;
+    top: 2px;
+}
+
+div.cropfinder div.cropfinder_input p.btn {
+    margin-top: 20px;
+    text-align: left;
+}
+
+div.cropfinder table#croplist th, div.cropfinder table#croplist td {
+    padding: 2px 7px;
+}
+
+div.cropfinder table#croplist td.none {
+    text-align: center;
+}
+
+div.cropfinder table#croplist td.dist {
+    white-space: nowrap;
+    width: 12%;
+}
+
+div.cropfinder table#croplist td.typ {
+    width: 12%;
+}
+
+div.cropfinder table#croplist td.oase {
+    width: 18%;
+}
+
+div.cropfinder table#croplist td.footer {
+    text-align: right;
+}

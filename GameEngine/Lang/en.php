@@ -28,6 +28,7 @@ define('INSTRUCT', 'Instructions');
 define('ADMIN_PANEL', 'Admin Panel');
 define('MH_PANEL', 'Multihunter Panel');
 define('MASS_MESSAGE', 'Mass Message');
+define('BUILD_CROPPER', 'Build Cropper');
 define('LOGOUT', 'Logout');
 define('PROFILE', 'Profile');
 define('SUPPORT', 'Support');
@@ -36,6 +37,8 @@ define('SYSTEM_MESSAGE', 'System message');
 define('TRAVIAN_PLUS', 'Travian <b><span class="plus_g">P</span><span class="plus_o">l</span><span class="plus_g">u</span><span class="plus_o">s</span></span></span></b>');
 define('CONTACT', 'Contact us!');
 define('GAME_RULES', 'Game Rules');
+define('NONE', 'None');
+define('HERO', 'Hero');
 
 //MENU
 define('REG', 'Register');
@@ -1745,3 +1748,7 @@ $lang['screenshots']['title6'] = 'Statistics';
 $lang['screenshots']['desc6'] = 'View your ranking in statistics';
 $lang['screenshots']['title7'] = 'Weapons or dough';
 $lang['screenshots']['desc7'] = 'You can choose to play as military or economy';
+
+// Added for Anleitung submenu
+define('TRIBES', 'The Tribes');
+define('BUILDINGS', 'The Buildings');
