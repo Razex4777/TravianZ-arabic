@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-04-11 10:00
+- **Phase 2: Gold/Prize Logic (Weekly → Daily) — VERIFIED ✅**
+  - Confirmed `MEDALINTERVAL` already set to `(3600 * 24)` = 86400 seconds = 24 hours in `config.php`
+  - Created `test_daily_distribution.php` — compressed test script that forces the distribution cycle
+  - Test results: Distribution cycle triggers correctly, stats reset works, lastgavemedal timestamp updates properly
+  - 0 medals inserted = expected since server has no eligible players (all are system/admin accounts with access >= 8)
+  - Next daily cycle: 24 hours from last run
+  - The daily distribution pipeline is: Medals → Hall of Fame → Stats Reset → Alliance Medals → Alliance Stats Reset → Timestamp Update
+
+
 ## 2026-04-10 18:30
 - **CRITICAL FIX**: Replaced broken `rtlcss` bulk conversion with smart selective RTL flipping script (`fix_rtl.js`)
   - Root cause: `rtlcss` corrupted ALL sprite `background-position` values (e.g., `-17px 0` → `right -17px top 0`) and flipped the global `background-position: left top` default, breaking all icon sprites and layout images

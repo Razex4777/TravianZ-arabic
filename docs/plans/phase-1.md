@@ -1,17 +1,17 @@
 # Phase 1: Comprehensive RTL, Translation, & Mobile Setup
 
 ## 1. Complete RTL & CSS Flip
-- [ ] Locate main CSS files (`layout.css`, etc.)
-- [ ] Flip grid and layout direction (`float: left` -> `float: right`, margins, paddings, absolute positioning)
-- [ ] Fix the top header so resources (wood, clay, iron, crop, gold) display right-to-left
-- [ ] Flip directional background images (sprites) like arrows and menus where necessary
-- [ ] Ensure consistent typography for Arabic layout text
+- [x] Locate main CSS files (`layout.css`, etc.)
+- [x] Flip grid and layout direction (`float: left` -> `float: right`, margins, paddings, absolute positioning)
+- [x] Fix the top header so resources (wood, clay, iron, crop, gold) display right-to-left
+- [x] Flip directional background images (sprites) like arrows and menus where necessary
+- [x] Ensure consistent typography for Arabic layout text
 
 ## 2. Comprehensive Arabic Translation
-- [ ] Search `Templates/` for hardcoded English strings (e.g., building names, error messages)
-- [ ] Extract these strings and place them in the Arabic language file (`GameEngine/Lang/ar.php` or equivalent)
-- [ ] Substitute hardcoded text in templates with PHP translation constants (e.g. `<?php echo LANG_EXAMPLE; ?>`)
-- [ ] Verify contextual correctness of previously translated texts
+- [x] Search `Templates/` for hardcoded English strings (e.g., building names, error messages)
+- [x] Extract these strings and place them in the Arabic language file (`GameEngine/Lang/ar.php` or equivalent)
+- [x] Substitute hardcoded text in templates with PHP translation constants (e.g. `<?php echo LANG_EXAMPLE; ?>`)
+- [x] Verify contextual correctness of previously translated texts
 
 ## 3. Mobile Responsiveness Implementation
 - [ ] Inject `<meta name="viewport" content="width=device-width, initial-scale=1.0">` into `header.tpl`

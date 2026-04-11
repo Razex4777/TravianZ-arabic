@@ -41,10 +41,7 @@ AccessLogger::logRequest();
 	}
 	.wrapper #content { text-align: right; }
 
-	/* Navigation — keep structure LTR (ribbon bg is left-anchored) */
-	#navigation { direction: ltr; }
-	#navigation table.menu { direction: rtl; width: auto; white-space: nowrap; }
-	#navigation .menu a, #navigation .menu a span { padding-left: 4px; padding-right: 4px; }
+	/* Navigation overrides removed to fix the navigation layout in RTL */
 
 	/* Content text & images */
 	body.contentPage #content p img[align="left"] { float: right; margin: 0 0 10px 15px; }
@@ -61,9 +58,6 @@ AccessLogger::logRequest();
 	#tutorial_nav td.nav_prev { text-align: right; }
 	#tutorial_nav td.nav_next { text-align: left; }
 
-	/* Footer — keep structure LTR */
-	#footer { direction: ltr; }
-	#footer .copyright { direction: rtl; }
 
 	/* Tutorial specific */
 	body.contentPage #content td li { text-align: right; }

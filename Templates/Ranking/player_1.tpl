@@ -1,7 +1,7 @@
 <?php
 if(!is_numeric($_SESSION['search'])) {
 ?>
-	<center><font color=orange size=2><p class=\"error\"><?php echo (defined('LANG') && LANG === 'ar') ? 'اللاعب' : 'The user'; ?> <b>"<?php echo $_SESSION['search']; ?>"</b> <?php echo (defined('LANG') && LANG === 'ar') ? 'غير موجود.' : 'does not exist.'; ?></p></font></center>
+	<center><font color=orange size=2><p class=\"error\"><?php echo (defined('LANG') && LANG === 'ar') ? 'اللاعب' : 'The user'; ?> <b>"<?php echo htmlspecialchars($_SESSION['search'], ENT_QUOTES, 'UTF-8'); ?>"</b> <?php echo (defined('LANG') && LANG === 'ar') ? 'غير موجود.' : 'does not exist.'; ?></p></font></center>
 <?php
     $search = 0;
 }

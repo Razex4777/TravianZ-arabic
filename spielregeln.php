@@ -33,10 +33,7 @@ AccessLogger::logRequest();
 
 	<?php if(defined('LANG') && LANG === 'ar'): ?>
 <style type="text/css">
-	/* Navigation — keep structure LTR (ribbon bg is left-anchored) */
-	#navigation { direction: ltr; }
-	#navigation table.menu { direction: rtl; width: auto; white-space: nowrap; }
-	#navigation .menu a, #navigation .menu a span { padding-left: 4px; padding-right: 4px; }
+	/* Navigation overrides removed to fix the navigation layout in RTL */
 
 	/* Content text & images */
 	body.contentPage #content p img[align="left"] { float: right; margin: 0 0 10px 15px; }
