@@ -40,7 +40,8 @@ AccessLogger::logRequest();
 	}
 	.wrapper #content { text-align: right; }
 
-	/* Navigation overrides removed to fix the navigation layout in RTL */
+	/* Keep navigation menu in LTR order to match index.php layout */
+	#navigation table.menu { direction: ltr; }
 
 	/* Content text & images */
 	body.contentPage #content p img[align="left"] { float: right; margin: 0 0 10px 15px; }
