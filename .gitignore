@@ -42,3 +42,12 @@ var/log/access.log
 
 # Docker environment file with sensitive credentials
 .env
+
+# Client private conversation — DO NOT COMMIT
+client_project_detail and conversations.txt
+
+# Antigravity / react-doctor cache
+.react-doctor/
+
+# Ensure docs/ IS tracked
+!docs/
