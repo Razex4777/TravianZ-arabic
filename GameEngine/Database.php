@@ -438,6 +438,13 @@ class MYSQLi_DB implements IDbConnection {
         $port = (int) $this->port;
         if ($port <= 0) $port = 3306;
 
+        // On Linux, 'localhost' uses Unix socket which often fails if the
+        // socket path differs from PHP's compiled default. Force TCP/IP
+        // by converting to 127.0.0.1 automatically.
+        if (strtolower($host) === 'localhost' && PHP_OS_FAMILY !== 'Windows') {
+            $host = '127.0.0.1';
+        }
+
         // If host is in form host:port (common in env files), split it once.
         if (strpos($host, ':') !== false && substr_count($host, ':') === 1) {
             $hostPort = explode(':', $host, 2);
@@ -447,7 +454,7 @@ class MYSQLi_DB implements IDbConnection {
             }
         }
 
-        $attempts = 15;
+        $attempts = 3;
         $waitMicros = 1000000; // 1 second
 
         for ($i = 0; $i < $attempts; $i++) {
