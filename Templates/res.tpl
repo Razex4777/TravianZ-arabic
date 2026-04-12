@@ -39,29 +39,14 @@ if (!empty($village)) {
 							<?php } ?>
 							<td><img src="img/x.gif" class="r5" alt="<?php echo CROP_COM; ?>" title="<?php echo CROP_COM; ?>" /></td>
 			<td><?php echo ($village->pop+$technology->getUpkeep($village->unitall,0))."/".$totalproduction.""; ?></td>
-		</tr>
-	</table>
-	<table cellpadding="1" cellspacing="1">
-		<tr>
-
-				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-        <td></td>
-			<td><?php
+				<td><?php
 			if($session->gold <= 1){
             echo '<font color="#B3B3B3"><img src="'.GP_LOCATE.'img/a/gold_g.gif" alt="Remaining gold" title="You currently have: '.$session->gold.' gold"/> '.$session->gold.' <span><span>G</span><span>o</span><span>l</span><span>d</span></span></font>';
 			}
 			else if($session->gold >=2){
 			echo '<img src="'.GP_LOCATE.'img/a/gold.gif" alt="Remaining gold" title="You currently have: '.$session->gold.' gold"/> '.$session->gold.' <span><span>G</span><span>o</span><span>l</span><span>d</span></span>';
 			}
-			?>
-			</td>
-
-
-
-
+			?></td>
 		</tr>
 	</table>
     </div>
