@@ -44,7 +44,7 @@ $invited=(isset($_GET['uid'])) ? filter_var($_GET['uid'], FILTER_SANITIZE_NUMBER
 	<?php if(defined('LANG') && LANG === 'ar'): ?>
 	
 	<?php endif; ?>
-	<link rel="stylesheet" type="text/css" href="mobile.css" />
+	<link rel="stylesheet" type="text/css" href="mobile.css?v=4" />
 </head>
 
 <body class="v35 ie ie7" onload="initCounter()">

@@ -37,7 +37,7 @@ if($session->plus){
 	<?php if(defined('LANG') && LANG === 'ar'): ?>
 	
 	<?php endif; ?>
-	<link rel="stylesheet" type="text/css" href="mobile.css" />
+	<link rel="stylesheet" type="text/css" href="mobile.css?v=4" />
 </head>
 <body onload="start()"><?php
 	include("Templates/Map/mapviewlarge.tpl");?>
