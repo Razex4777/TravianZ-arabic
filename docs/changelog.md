@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-04-12 18:35
+- **★ CRITICAL FIX**: Desktop layout was completely broken by `mobile/_base.css`.
+  - Root cause: ALL resource bar overrides (green pill cards, `position: relative !important`, flexbox layout, hidden gold table) were in `_base.css` with **NO `@media` wrapper**, applying to ALL screen sizes including desktop.
+  - This destroyed the original desktop layout where `div#res` is `position: absolute; top: 175px; right: 0; width: 100%; min-width: 980px` (from `gpack/travian_default/modules/new_layout_rtl.css` line 87).
+  - Fix: Wrapped all resource bar and layout overrides inside `@media screen and (max-width: 980px)` so they ONLY apply on tablet/mobile. Desktop now uses the original gpack compact CSS untouched.
+  - The `#header_gold_display` styles remain global since that element is new (not in original gpack) — it appears inline near Plus on desktop and in the sidebar on mobile.
+  - Bumped `_base.css` cache version from v=2 to v=3 in `mobile.css`.
+
 ## 2026-04-12 17:35
 - **Feature / Request**: Redesigned the top resource bar and Plus label to match the aesthetic of travianksa.com.
   - Renamed the spaced out individual letters "ب ل س" into a solid unified word "بلاس" inside `Templates/header.tpl`.

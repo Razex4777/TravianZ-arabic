@@ -1,93 +1,32 @@
 /* ==========================================================================
    MOBILE RESPONSIVE — TravianZ  (Base / Global defaults)
    --------------------------------------------------------------------------
-   _base.css applies globally (no media query wrapper at top level).
-   Mobile-specific structural overrides live inside @media (max-width: 768px).
+   This file contains ONLY desktop-safe global rules (no green pill overrides).
+   
+   CRITICAL: Resource bar styling, gold display, and layout overrides are
+   wrapped in @media (max-width: 980px) so they NEVER affect desktop.
+   Desktop uses the original gpack CSS: position:absolute, top:175px, etc.
    ========================================================================== */
 
-/* Hide mobile hamburger icon on desktop */
+/* Hide mobile-only UI elements on all screen sizes (safe global rule) */
 #mobile_menu_icon {
   display: none;
 }
 
-/* ──────────────────────────────────────────────────────────────────────────
-   RESOURCE BAR — GREEN PILL VALUE CELLS (GLOBAL — desktop safe)
-   Only the value cells (#l1–#l4) get the green pill look.
-   The bar's position, width, and layout remain untouched on desktop.
-   لتغيير لون أرقام الموارد: عدّل اللوان في linear-gradient أدناه
-   ────────────────────────────────────────────────────────────────────────── */
-div#res table:first-child td#l1,
-div#res table:first-child td#l2,
-div#res table:first-child td#l3,
-div#res table:first-child td#l4 {
-  background: linear-gradient(135deg, #5eac00, #4a8c00) !important;
-  color: #fff !important;
-  font-weight: bold !important;
-  font-size: 11px !important;
-  padding: 3px 8px !important;
-  border-radius: 14px !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  white-space: nowrap !important;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
-  line-height: 1.2;
-}
 
-/* Gold second table hidden globally — gold is now shown in header near بلاس */
-div#res table:nth-child(2) {
-  display: none !important;
-}
+/* ==========================================================================
+   TABLET + MOBILE ONLY ( ≤ 980px )
+   --------------------------------------------------------------------------
+   Everything below ONLY applies when the viewport is ≤ 980px.
+   Desktop (> 980px) uses the original gpack compact CSS untouched.
+   ========================================================================== */
 
-/* ──────────────────────────────────────────────────────────────────────────
-   HEADER GOLD DISPLAY — Next to بلاس label (Global — all screen sizes)
-   عرض الذهب بجانب زر بلاس في الشريط العلوي - يعمل على الموبايل والديسكتوب
-   ────────────────────────────────────────────────────────────────────────── */
-#header_gold_display {
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 4px;
-  margin-right: 8px;
-  padding: 3px 10px;
-  background: linear-gradient(135deg, #d4a017, #b8860b);
-  border-radius: 14px;
-  font-size: 12px;
-  font-weight: bold;
-  color: #fff;
-  vertical-align: middle;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-}
+@media screen and (max-width: 980px) {
 
-#header_gold_display img {
-  width: 14px !important;
-  height: 14px !important;
-  max-width: none !important;
-  vertical-align: middle;
-}
+  /* ──────────────────────────────────────────────────────────────────────
+     RESOURCE BAR — Green card styling like travianksa.com
+     ────────────────────────────────────────────────────────────────────── */
 
-#header_gold_display .gold_amount {
-  color: #fff;
-  font-size: 12px;
-  font-weight: bold;
-}
-
-#header_gold_display .gold_amount.low {
-  color: #ffcccc;
-}
-
-/* ──────────────────────────────────────────────────────────────────────────
-   RESOURCE BAR — FULL GREEN BAR (MOBILE ≤ 768px ONLY)
-   On mobile the entire bar becomes a dark-green container with pill cards.
-   This does NOT affect desktop layout.
-   ────────────────────────────────────────────────────────────────────────── */
-@media (max-width: 768px) {
-
-  /* Show mobile hamburger icon only on mobile */
-  #mobile_menu_icon {
-    display: block;
-  }
-
-  /* Full bar override — becomes a solid green strip */
   div#res,
   body.mod1 div#res,
   body.mod2 div#res,
@@ -103,7 +42,7 @@ div#res table:nth-child(2) {
     -webkit-overflow-scrolling: touch;
     z-index: 2 !important;
     padding: 8px 6px !important;
-    background: #3e6614 !important;
+    background: #3e6614 !important;             /* Dark green base like travianksa */
     border-bottom: 2px solid #2d4b0e;
     box-sizing: border-box !important;
   }
@@ -117,7 +56,7 @@ div#res table:nth-child(2) {
     position: relative !important;
   }
 
-  /* First table: display as flexbox row of pills */
+  /* ── First table: Resource values in green pills ──────────────────── */
   div#res table:first-child {
     white-space: nowrap;
     margin: 0 auto;
@@ -138,7 +77,33 @@ div#res table:nth-child(2) {
     flex-wrap: nowrap;
   }
 
-  /* Resource icon cells — remove padding so icons sit next to values */
+  /* Each resource value cell → green pill card */
+  div#res table:first-child td#l4,
+  div#res table:first-child td#l3,
+  div#res table:first-child td#l2,
+  div#res table:first-child td#l1 {
+    background: linear-gradient(135deg, #5eac00, #4a8c00) !important;
+    color: #fff !important;
+    font-weight: bold !important;
+    font-size: 11px !important;
+    padding: 4px 8px !important;
+    border-radius: 16px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    white-space: nowrap !important;
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    line-height: 1.2;
+  }
+
+  /* Crop consumption cell (last column with r5 icon) */
+  div#res table:first-child td:last-child {
+    color: #ddd !important;
+    font-size: 10px !important;
+    padding: 2px 4px !important;
+  }
+
+  /* Resource icon cells — tighten spacing */
   div#res table:first-child td:has(img.r1),
   div#res table:first-child td:has(img.r2),
   div#res table:first-child td:has(img.r3),
@@ -148,7 +113,7 @@ div#res table:nth-child(2) {
     background-color: transparent !important;
   }
 
-  /* Keep resource sprite images unscaled */
+  /* Resource icons — keep sprites visible on green background */
   div#res table img.r1,
   div#res table img.r2,
   div#res table img.r3,
@@ -157,18 +122,58 @@ div#res table:nth-child(2) {
     max-width: none !important;
   }
 
-  /* Generic cells on green background */
+  /* All other non-ID cells */
   div#res table td {
     padding: 2px 3px !important;
     background-color: transparent !important;
     color: #eee !important;
   }
 
-  /* Crop consumption (last column) — dimmer */
-  div#res table:first-child td:last-child {
-    color: #ddd !important;
-    font-size: 10px !important;
-    padding: 2px 4px !important;
+  /* ── Second table: Gold display (hide on mobile — shown in header) ── */
+  div#res table:nth-child(2) {
+    display: none !important;
   }
 
-} /* end @media (max-width: 768px) */
+}
+
+
+/* ==========================================================================
+   HEADER GOLD DISPLAY — Next to بلاس
+   --------------------------------------------------------------------------
+   This is safe to apply globally since the #header_gold_display element
+   only exists in our modified header.tpl. On desktop it appears inline
+   next to the Plus button. On mobile it appears in the sidebar.
+   ========================================================================== */
+
+/* عرض الذهب بجانب زر بلاس في الشريط العلوي */
+#header_gold_display {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px;
+  margin-right: 8px;
+  padding: 3px 10px;
+  background: linear-gradient(135deg, #d4a017, #b8860b);
+  border-radius: 14px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+  vertical-align: middle;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+
+#header_gold_display img {
+  width: 14px !important;
+  height: 14px !important;
+  max-width: none !important;
+  vertical-align: middle;
+}
+
+#header_gold_display .gold_amount {
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+#header_gold_display .gold_amount.low {
+  color: #ffcccc;
+}
