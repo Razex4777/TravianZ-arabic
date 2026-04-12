@@ -103,6 +103,7 @@ $dbPrefix = $_SESSION['install_random_prefix'];
                     <option value="3,Antarctica/Casey" <?php if ($tz==3) echo "selected";?>>Antarctica</option>
                     <option value="4,Arctic/Longyearbyen" <?php if ($tz==4) echo "selected";?>>Arctic</option>
                     <option value="5,Asia/Kuala_Lumpur" <?php if ($tz==5) echo "selected";?>>Asia</option>
+                    <option value="14,Asia/Riyadh" <?php if ($tz==14) echo "selected";?>>Middle East (Riyadh)</option>
                     <option value="6,Atlantic/Azores" <?php if ($tz==6) echo "selected";?>>Atlantic</option>
                     <option value="7,Australia/Melbourne" <?php if ($tz==7) echo "selected";?>>Australia</option>
                     <option value="8,Europe/Bucharest" <?php if ($tz==8) echo "selected";?>>Europe (Bucharest)</option>
@@ -211,7 +212,8 @@ $dbPrefix = $_SESSION['install_random_prefix'];
             <td><span class="f9 c6">Language:</span></td>
             <td>
                 <select name="lang">
-                    <option value="en" selected="selected">English</option>
+                    <option value="ar" selected="selected">Arabic (العربية)</option>
+                    <option value="en">English</option>
                     <option value="es">Spanish</option>
                     <option value="rs">Serbian</option>
                     <option value="ru">Rusian</option>
