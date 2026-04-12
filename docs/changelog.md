@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-04-12 17:35
+- **Feature / Request**: Redesigned the top resource bar and Plus label to match the aesthetic of travianksa.com.
+  - Renamed the spaced out individual letters "ب ل س" into a solid unified word "بلاس" inside `Templates/header.tpl`.
+  - Created a new span `#header_gold_display` explicitly inside the header adjacent to "بلاس".
+  - Refactored `mobile/_base.css` and `mobile/_phone_ingame.css` so that the Resource Values are now wrapped globally on desktop AND mobile as premium green pill/cards (linear-gradient).
+  - Explicitly disabled the original separate Gold cell within the second table of the Resource Bar, rerouting the display exclusively to the newly styled header section on all breakpoints.
+
 ## 2026-04-12 11:38
 - **★ BUG FIX**: Fixed critical `@media` wrapper regression in `_phone_alliance.css` and `_phone_plus.css`.
   - Root cause: When these files were split from `_phone_ingame_pages.css`, the `@media screen and (max-width: 768px)` wrapper was **not** carried over. This caused all mobile-only rules to apply on desktop, breaking the Gold Shop and Alliance page layouts on wide screens.

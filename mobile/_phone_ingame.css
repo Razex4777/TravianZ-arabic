@@ -350,49 +350,9 @@
 
 
   /* ──────────────────────────────────────────────────────────────────────
-     3. RESOURCE BAR — Reordered via flex order to appear above village
+     3. RESOURCE BAR — (Removed here, moved to _base.css for global apply)
      ────────────────────────────────────────────────────────────────────── */
 
-  /* Desktop: absolute positioned, min-width:980px, top:175px */
-  div#res,
-  body.mod1 div#res,
-  body.mod2 div#res,
-  body.mod3 div#res {
-    position: relative !important;
-    right: auto !important;
-    left: auto !important;
-    top: auto !important;
-    width: 100% !important;
-    height: auto !important;                    /* desktop: 20px — kills overflow */
-    min-width: 0 !important;
-    overflow-x: auto !important;
-    -webkit-overflow-scrolling: touch;
-    z-index: 2 !important;
-    padding: 6px 8px !important;
-    background: #f0eeea !important;
-    border-bottom: 1px solid #d5d3cd;
-    box-sizing: border-box !important;
-  }
-
-  /* Desktop: 552px, centered with negative margin */
-  div#resWrap {
-    width: auto !important;
-    max-width: 100% !important;
-    right: auto !important;
-    left: auto !important;
-    margin: 0 auto !important;
-    position: relative !important;
-  }
-
-  div#res table {
-    white-space: nowrap;
-    margin: 0 auto;
-    font-size: 11px;
-  }
-
-  div#res table td {
-    padding: 2px 4px !important;
-  }
 
   /* Server time bar — desktop (new_layout_rtl.css): display:inline, height:0, width:0 */
   div#stime {

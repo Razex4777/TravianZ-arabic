@@ -5,3 +5,150 @@
 #mobile_menu_icon {
   display: none;
 }
+
+  /* ──────────────────────────────────────────────────────────────────────
+     RESOURCE BAR — Green card styling like travianksa.com (Global)
+     ────────────────────────────────────────────────────────────────────── */
+
+  /* Desktop: absolute positioned, min-width:980px, top:175px */
+  div#res,
+  body.mod1 div#res,
+  body.mod2 div#res,
+  body.mod3 div#res {
+    position: relative !important;
+    right: auto !important;
+    left: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    min-width: 0 !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    z-index: 2 !important;
+    padding: 8px 6px !important;
+    background: #3e6614 !important;             /* Dark green base like travianksa */
+    border-bottom: 2px solid #2d4b0e;
+    box-sizing: border-box !important;
+  }
+
+  /* Desktop: 552px, centered with negative margin */
+  div#resWrap {
+    width: auto !important;
+    max-width: 100% !important;
+    right: auto !important;
+    left: auto !important;
+    margin: 0 auto !important;
+    position: relative !important;
+  }
+
+  /* ── First table: Resource values in green pills ──────────────────── */
+  div#res table:first-child {
+    white-space: nowrap;
+    margin: 0 auto;
+    font-size: 12px;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 4px;
+    width: auto !important;
+    background-color: transparent !important;
+  }
+
+  div#res table:first-child tr,
+  div#res table:first-child tbody {
+    display: flex !important;
+    align-items: center !important;
+    gap: 3px;
+    flex-wrap: nowrap;
+  }
+
+  /* Each resource value cell → green pill card */
+  div#res table:first-child td#l4,
+  div#res table:first-child td#l3,
+  div#res table:first-child td#l2,
+  div#res table:first-child td#l1 {
+    background: linear-gradient(135deg, #5eac00, #4a8c00) !important;
+    color: #fff !important;
+    font-weight: bold !important;
+    font-size: 11px !important;
+    padding: 4px 8px !important;
+    border-radius: 16px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    white-space: nowrap !important;
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    line-height: 1.2;
+  }
+
+  /* Crop consumption cell (last column with r5 icon) */
+  div#res table:first-child td:last-child {
+    color: #ddd !important;
+    font-size: 10px !important;
+    padding: 2px 4px !important;
+  }
+
+  /* Resource icon cells — tighten spacing */
+  div#res table:first-child td:has(img.r1),
+  div#res table:first-child td:has(img.r2),
+  div#res table:first-child td:has(img.r3),
+  div#res table:first-child td:has(img.r4),
+  div#res table:first-child td:has(img.r5) {
+    padding: 0 1px !important;
+    background-color: transparent !important;
+  }
+
+  /* Resource icons — keep sprites visible on green background */
+  div#res table img.r1,
+  div#res table img.r2,
+  div#res table img.r3,
+  div#res table img.r4,
+  div#res table img.r5 {
+    max-width: none !important;
+  }
+
+  /* All other non-ID cells */
+  div#res table td {
+    padding: 2px 3px !important;
+    background-color: transparent !important;
+    color: #eee !important;
+  }
+
+  /* ── Second table: Gold display (keep but minimal) ─────────────────── */
+  div#res table:nth-child(2) {
+    display: none !important;    /* Hide — gold now shown in header near بلاس */
+  }
+
+  /* ── HEADER GOLD DISPLAY — Next to بلاس ──────────────────────────── */
+  /* عرض الذهب بجانب زر بلاس في الشريط العلوي */
+  #header_gold_display {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px;
+    margin-right: 8px;
+    padding: 3px 10px;
+    background: linear-gradient(135deg, #d4a017, #b8860b);
+    border-radius: 14px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    vertical-align: middle;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  }
+
+  #header_gold_display img {
+    width: 14px !important;
+    height: 14px !important;
+    max-width: none !important;
+    vertical-align: middle;
+  }
+
+  #header_gold_display .gold_amount {
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  #header_gold_display .gold_amount.low {
+    color: #ffcccc;
+  }

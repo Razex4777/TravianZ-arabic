@@ -49,5 +49,7 @@ client_project_detail and conversations.txt
 # Antigravity / react-doctor cache
 .react-doctor/
 
-# Ensure docs/ IS tracked
+# Ensure docs/ IS tracked but hide plans
 !docs/
+docs/plans/
+docs/gold_training_screenshot.png

@@ -50,9 +50,8 @@
         <a href="plus.php" id="plus">
         <span class="plus_text">
             <?php if(defined('LANG') && LANG === 'ar'): ?>
-            <span class="plus_g">ب</span>
-            <span class="plus_o">ل</span>
-            <span class="plus_g">س</span>
+            <!-- تم تغيير الاسم من "ب ل س" إلى "بلاس" حسب طلب العميل -->
+            <span class="plus_g">بلاس</span>
             <?php else: ?>
             <span class="plus_g">P</span>
             <span class="plus_o">l</span>
@@ -60,6 +59,16 @@
             <span class="plus_o">s</span>
             <?php endif; ?>
        </span><img src="img/x.gif" id="btn_plus" class="<?php echo ($session->plus == 1 && strtotime("NOW") <= $session->userinfo['plus'])? 'active' : 'inactive';?>" title="Plus menu" alt="Plus menu" /></a>
+        <!-- عرض رصيد الذهب بجانب بلاس — تم نقله من شريط الموارد حسب طلب العميل -->
+        <span id="header_gold_display">
+            <?php if($session->gold >= 2): ?>
+                <img src="<?php echo GP_LOCATE; ?>img/a/gold.gif" alt="الذهب" title="رصيدك: <?php echo $session->gold; ?> ذهب" />
+                <span class="gold_amount"><?php echo $session->gold; ?></span>
+            <?php else: ?>
+                <img src="<?php echo GP_LOCATE; ?>img/a/gold_g.gif" alt="الذهب" title="رصيدك: <?php echo $session->gold; ?> ذهب" />
+                <span class="gold_amount low"><?php echo $session->gold; ?></span>
+            <?php endif; ?>
+        </span>
        <?php
        		}
        ?>
