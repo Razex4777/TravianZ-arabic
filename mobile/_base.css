@@ -13,6 +13,15 @@
   display: none;
 }
 
+/* ── Hide old gold table in resource bar (moved to header) ──────────────
+   Gold display was moved from div#res to #header_gold_display in header.tpl.
+   The second table in div#res (which held "Gold XX") must be hidden on ALL
+   screen sizes to prevent duplicate gold display on desktop.
+   ────────────────────────────────────────────────────────────────────────── */
+div#res table:nth-child(2) {
+  display: none !important;
+}
+
 
 /* ==========================================================================
    TABLET + MOBILE ONLY ( ≤ 980px )
@@ -129,10 +138,7 @@
     color: #eee !important;
   }
 
-  /* ── Second table: Gold display (hide on mobile — shown in header) ── */
-  div#res table:nth-child(2) {
-    display: none !important;
-  }
+  /* Gold table hiding moved to global scope above (outside @media) */
 
 }
 

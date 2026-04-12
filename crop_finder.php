@@ -171,7 +171,7 @@ if ($wrefs) {
 	<?php if(defined('LANG') && LANG === 'ar'): ?>
 	
 	<?php endif; ?>
-	<link rel="stylesheet" type="text/css" href="mobile.css?v=4" />
+	<link rel="stylesheet" type="text/css" href="mobile.css?v=5" />
 </head>
 <body class="v35 ie ie8">
 <div class="wrapper">
