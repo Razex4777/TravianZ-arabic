@@ -13,14 +13,10 @@
   display: none;
 }
 
-/* ── Hide old gold table in resource bar (moved to header) ──────────────
-   Gold display was moved from div#res to #header_gold_display in header.tpl.
-   The second table in div#res (which held "Gold XX") must be hidden on ALL
-   screen sizes to prevent duplicate gold display on desktop.
+/* ── Gold display strategy ──────────────────────────────────────────────
+   DESKTOP (> 980px): Show original gold table in div#res, hide header badge
+   MOBILE  (≤ 980px): Hide gold table in div#res, show header badge
    ────────────────────────────────────────────────────────────────────────── */
-div#res table:nth-child(2) {
-  display: none !important;
-}
 
 
 /* ==========================================================================
@@ -138,7 +134,10 @@ div#res table:nth-child(2) {
     color: #eee !important;
   }
 
-  /* Gold table hiding moved to global scope above (outside @media) */
+  /* ── Second table: Gold display (hide on mobile — shown in header badge) ── */
+  div#res table:nth-child(2) {
+    display: none !important;
+  }
 
 }
 
@@ -146,25 +145,31 @@ div#res table:nth-child(2) {
 /* ==========================================================================
    HEADER GOLD DISPLAY — Next to بلاس
    --------------------------------------------------------------------------
-   This is safe to apply globally since the #header_gold_display element
-   only exists in our modified header.tpl. On desktop it appears inline
-   next to the Plus button. On mobile it appears in the sidebar.
+   HIDDEN on desktop by default. The original div#res gold table shows instead.
+   On mobile (≤ 980px), this badge is shown via the media query override below.
    ========================================================================== */
 
-/* عرض الذهب بجانب زر بلاس في الشريط العلوي */
+/* Desktop: hide the header gold badge (original res table gold is visible) */
 #header_gold_display {
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 4px;
-  margin-right: 8px;
-  padding: 3px 10px;
-  background: linear-gradient(135deg, #d4a017, #b8860b);
-  border-radius: 14px;
-  font-size: 12px;
-  font-weight: bold;
-  color: #fff;
-  vertical-align: middle;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  display: none !important;
+}
+
+/* Mobile: show the gold badge next to بلاس */
+@media screen and (max-width: 980px) {
+  #header_gold_display {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px;
+    margin-right: 8px;
+    padding: 3px 10px;
+    background: linear-gradient(135deg, #d4a017, #b8860b);
+    border-radius: 14px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    vertical-align: middle;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  }
 }
 
 #header_gold_display img {

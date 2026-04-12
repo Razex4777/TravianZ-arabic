@@ -82,7 +82,7 @@ if($_SESSION['ok'] == 2){
 	<?php if(defined('LANG') && LANG === 'ar'): ?>
 	
 	<?php endif; ?>
-	<link rel="stylesheet" type="text/css" href="mobile.css?v=5" />
+	<link rel="stylesheet" type="text/css" href="mobile.css?v=6" />
 </head>
 	<body class="v35 ie ie8">
 		<div class="wrapper">
