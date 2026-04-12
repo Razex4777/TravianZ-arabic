@@ -231,6 +231,7 @@ $worldLabel = worldSizeLabel();
 	<?php if(defined('LANG') && LANG === 'ar'): ?>
 	
 	<?php endif; ?>
+	<link rel="stylesheet" type="text/css" href="mobile.css" />
 </head>
 
 <body class="v35 ie ie8">

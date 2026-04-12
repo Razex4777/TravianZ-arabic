@@ -1,4 +1,4 @@
-<h1 class="left">Check &#38; Edit Map Tile</h1>
+<h1 class="left"><?php echo (defined('LANG') && LANG === 'ar') ? 'مربع الخريطة' : 'Check &#38; Edit Map Tile'; ?></h1>
 
 <?php
 

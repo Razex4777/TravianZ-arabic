@@ -26,13 +26,26 @@ $noticeClass = (defined('LANG') && LANG === 'ar') ?
 		<?php } else { ?>
 		<input class="check" type="checkbox" id="s10" name="s10" onclick="Allmsg(this.form);" />
 		<?php } ?></th>
-			<th class="buttons"><input name="del" type="image" id="btn_delete" class="dynamic_img" src="img/x.gif" value="delete" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'حذف' : 'delete'; ?>" />
+			<th class="buttons">
+            <?php if (defined('LANG') && LANG === 'ar') { ?>
+                <input name="del" type="submit" value="حذف" style="font-weight: bold; background: #f4f4f4; border: 1px solid #71D000; border-radius: 9px; padding: 2px 15px; cursor: pointer; color: #333; font-size: 11px;" />
+            <?php } else { ?>
+                <input name="del" type="image" id="btn_delete" class="dynamic_img" src="img/x.gif" value="delete" alt="delete" />
+            <?php } ?>
             <?php if($session->plus) {
 			if(isset($_GET['t']) && $_GET['t'] == 5) {
-				echo "<input name=\"start\" type=\"image\" value=\"back\" alt=\"".(defined('LANG') && LANG === 'ar' ? 'رجوع' : 'back')."\" id=\"btn_back\" class=\"dynamic_img\" src=\"img/x.gif\" />";
+                if (defined('LANG') && LANG === 'ar') {
+                    echo "<input name=\"start\" type=\"submit\" value=\"رجوع\" style=\"font-weight: bold; background: #f4f4f4; border: 1px solid #71D000; border-radius: 9px; padding: 2px 15px; cursor: pointer; color: #333; font-size: 11px; margin-right: 5px;\" />";
+                } else {
+				    echo "<input name=\"start\" type=\"image\" value=\"back\" alt=\"back\" id=\"btn_back\" class=\"dynamic_img\" src=\"img/x.gif\" />";
+                }
 			}
 			else {
-				echo "<input name=\"archive\" type=\"image\" value=\"Archive\" alt=\"".(defined('LANG') && LANG === 'ar' ? 'أرشيف' : 'Archive')."\" id=\"btn_archiv\" class=\"dynamic_img\" src=\"img/x.gif\" />";
+                if (defined('LANG') && LANG === 'ar') {
+                    echo "<input name=\"archive\" type=\"submit\" value=\"أرشيف\" style=\"font-weight: bold; background: #f4f4f4; border: 1px solid #71D000; border-radius: 9px; padding: 2px 15px; cursor: pointer; color: #333; font-size: 11px; margin-right: 5px;\" />";
+                } else {
+				    echo "<input name=\"archive\" type=\"image\" value=\"Archive\" alt=\"Archive\" id=\"btn_archiv\" class=\"dynamic_img\" src=\"img/x.gif\" />";
+                }
 			}
 			}?>
             </th>

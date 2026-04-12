@@ -20,20 +20,20 @@ $users = mysqli_num_rows(mysqli_query($GLOBALS["link"], "SELECT * FROM ".TB_PREF
 	<table id="profile">
 		<thead>
 			<tr>
-				<th colspan="2">World Information</th>
+				<th colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'معلومات العالم' : 'World Information'; ?></th>
 			</tr>
 		 </thead>
 		 <tbody>
 			<tr>
-				<td>Registered players</td>
+				<td><?php echo (defined('LANG') && LANG === 'ar') ? 'اللاعبين المسجلين' : 'Registered players'; ?></td>
 				<td><?php echo $users; ?></td>
 			</tr>
 			<tr>
-				<td>Active players</td>
+				<td><?php echo (defined('LANG') && LANG === 'ar') ? 'اللاعبين النشطين' : 'Active players'; ?></td>
 				<td><?php $result = mysqli_query($GLOBALS["link"], "SELECT * FROM ".TB_PREFIX."active"); $num_rows = mysqli_num_rows($result); echo $num_rows; ?></td>
 			</tr>
 			<tr>
-				<td>Players online</td>
+				<td><?php echo (defined('LANG') && LANG === 'ar') ? 'اللاعبين المتصلين' : 'Players online'; ?></td>
 				<td><?php $t =time();
 				$result = mysqli_query($GLOBALS["link"], "SELECT * FROM ".TB_PREFIX."users WHERE timestamp > ".($t - 300)) or die(mysqli_error($database->dblink));
 				$num_rows = mysqli_num_rows($result);
@@ -41,7 +41,7 @@ $users = mysqli_num_rows(mysqli_query($GLOBALS["link"], "SELECT * FROM ".TB_PREF
 				</td>
 			</tr>
 			<tr>
-				<td>Players Banned</td>
+				<td><?php echo (defined('LANG') && LANG === 'ar') ? 'اللاعبين المحظورين' : 'Players Banned'; ?></td>
 				<td><?php
 				$result = mysqli_query($GLOBALS["link"], "SELECT * FROM ".TB_PREFIX."users WHERE access = 0");
 				$num_rows = mysqli_num_rows($result);
@@ -49,7 +49,7 @@ $users = mysqli_num_rows(mysqli_query($GLOBALS["link"], "SELECT * FROM ".TB_PREF
 				</td>
 			</tr>
 			<tr>
-				<td>Villages settled</td>
+				<td><?php echo (defined('LANG') && LANG === 'ar') ? 'القرى المنشأة' : 'Villages settled'; ?></td>
 				<td><?php
 				$result = mysqli_query($GLOBALS["link"], "SELECT Count(*) as Total FROM ".TB_PREFIX."vdata");
 				$num_rows = mysqli_fetch_array($result, MYSQLI_ASSOC)['Total'];
@@ -58,7 +58,7 @@ $users = mysqli_num_rows(mysqli_query($GLOBALS["link"], "SELECT * FROM ".TB_PREF
 				</td>
 			</tr>
 			<tr>
-				<td>Total Population</td>
+				<td><?php echo (defined('LANG') && LANG === 'ar') ? 'إجمالي السكان' : 'Total Population'; ?></td>
 			<td><?php $pop = mysqli_query($database->dblink,"SELECT SUM(pop) AS sumofpop FROM ".TB_PREFIX."vdata");  $getpop = mysqli_fetch_assoc($pop);  echo $getpop['sumofpop']; ?></td>
 			</tr>
 		</tbody>
@@ -68,24 +68,24 @@ $users = mysqli_num_rows(mysqli_query($GLOBALS["link"], "SELECT * FROM ".TB_PREF
 
 	<table id="profile">
 		<thead>
-			<tr><th colspan="3">Player Information</th></tr>
-			<td class="b">Tribe</td>
-			<td class="b">Registered</td>
-			<td class="b">Percent</td>
+			<tr><th colspan="3"><?php echo (defined('LANG') && LANG === 'ar') ? 'معلومات اللاعبين' : 'Player Information'; ?></th></tr>
+			<td class="b"><?php echo (defined('LANG') && LANG === 'ar') ? 'القبيلة' : 'Tribe'; ?></td>
+			<td class="b"><?php echo (defined('LANG') && LANG === 'ar') ? 'المسجلين' : 'Registered'; ?></td>
+			<td class="b"><?php echo (defined('LANG') && LANG === 'ar') ? 'النسبة' : 'Percent'; ?></td>
 		</thead>
 		<tbody>
 			<tr>
-				<td>Romans</td>
+				<td><?php echo (defined('LANG') && LANG === 'ar') ? 'الرومان' : 'Romans'; ?></td>
 				<td><?php echo $tribes[0]; ?></td>
 				<td><?php echo ($users > 0) ? ($percents[0] = round(100 * ($tribes[0] / $users), 2))."%" : "---"; ?></td>
 			</tr>
 			<tr>
-				<td>Teutons</td>
+				<td><?php echo (defined('LANG') && LANG === 'ar') ? 'الجرمان' : 'Teutons'; ?></td>
 				<td><?php echo $tribes[1]; ?></td>
 				<td><?php echo ($users > 0) ? ($percents[1] = round(100 * ($tribes[1] / $users), 2))."%" : "---"; ?></td>
 			</tr>
 			<tr>
-				<td>Gauls</td>
+				<td><?php echo (defined('LANG') && LANG === 'ar') ? 'الإغريق' : 'Gauls'; ?></td>
 				<td><?php echo $tribes[2]; ?></td>
 				<td><?php echo ($users > 0) ? (100-$percents[0]-$percents[1])."%" : "---"; ?></td>
 			</tr>
@@ -97,15 +97,15 @@ $users = mysqli_num_rows(mysqli_query($GLOBALS["link"], "SELECT * FROM ".TB_PREF
 	<table id="profile">
 		<thead>
 		 <tr>
-			<th colspan="3">Server Information</th>
+			<th colspan="3"><?php echo (defined('LANG') && LANG === 'ar') ? 'معلومات السيرفر' : 'Server Information'; ?></th>
 		</tr>
 			<td class="b"></td>
-			<td class="b">Total</td>
-			<td class="b">Average</td>
+			<td class="b"><?php echo (defined('LANG') && LANG === 'ar') ? 'الإجمالي' : 'Total'; ?></td>
+			<td class="b"><?php echo (defined('LANG') && LANG === 'ar') ? 'المتوسط' : 'Average'; ?></td>
 		</thead>
 		<tbody>
 			<tr>
-				<td><img src="../<?php echo GP_LOCATE; ?>img/a/gold.gif" alt="Gold" title="Gold"> Gold</td>
+				<td><img src="../<?php echo GP_LOCATE; ?>img/a/gold.gif" alt="Gold" title="Gold"> <?php echo (defined('LANG') && LANG === 'ar') ? 'الذهب' : 'Gold'; ?></td>
 				<td><?php $gold = mysqli_query($GLOBALS["link"], "SELECT SUM(gold) AS sumofgold FROM ".TB_PREFIX."users"); $getgold=mysqli_fetch_assoc($gold); echo $getgold['sumofgold']; ?></td>
 				<td><?php $gold = mysqli_query($GLOBALS["link"], "SELECT SUM(gold) AS sumofgold FROM ".TB_PREFIX."users"); $getgold=mysqli_fetch_assoc($gold); echo round($getgold['sumofgold'] / $users);?></td>
 			</tr>
@@ -115,7 +115,7 @@ $users = mysqli_num_rows(mysqli_query($GLOBALS["link"], "SELECT * FROM ".TB_PREF
 	<table id="member">
 		<thead>
 			<tr>
-				<th colspan="10">Troops on the Server</th>
+				<th colspan="10"><?php echo (defined('LANG') && LANG === 'ar') ? 'القوات في السيرفر' : 'Troops on the Server'; ?></th>
 			</tr>
 			<?php
 				$cells = ['SUM(hero) as hero'];

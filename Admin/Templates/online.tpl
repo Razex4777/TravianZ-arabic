@@ -19,16 +19,16 @@ $active = $admin->getUserActive();
 <table id="member">
   <thead>
 	<tr>
-		<th colspan="6">Online users (<?php echo count($active);?>)</th>
+		<th colspan="6"><?php echo (defined('LANG') && LANG === 'ar') ? 'اللاعبون المتصلون' : 'Online users'; ?> (<?php echo count($active);?>)</th>
 	</tr>
   </thead>
 	<tr>
-		<td>Name [access]</td>
-		<td>Time</td>
-		<td>Tribe</td>
-		<td>Pop</td>
-		<td>Villages</td>
-		<td>Gold</td>
+		<td><?php echo (defined('LANG') && LANG === 'ar') ? 'الاسم [صلاحيات]' : 'Name [access]'; ?></td>
+		<td><?php echo (defined('LANG') && LANG === 'ar') ? 'الوقت' : 'Time'; ?></td>
+		<td><?php echo (defined('LANG') && LANG === 'ar') ? 'القبيلة' : 'Tribe'; ?></td>
+		<td><?php echo (defined('LANG') && LANG === 'ar') ? 'السكان' : 'Pop'; ?></td>
+		<td><?php echo (defined('LANG') && LANG === 'ar') ? 'القرى' : 'Villages'; ?></td>
+		<td><?php echo (defined('LANG') && LANG === 'ar') ? 'الذهب' : 'Gold'; ?></td>
 	</tr>
 <?php
 if($active){
@@ -40,11 +40,11 @@ foreach($varray as $vil) {
 	$totalpop += $vil['pop'];
 }
 		if($active[$i]['tribe'] == 1){
-		$tribe = "Roman";
+		$tribe = (defined('LANG') && LANG === 'ar') ? 'الرومان' : 'Roman';
 		} else if($active[$i]['tribe'] == 2){
-		$tribe = "Teuton";
+		$tribe = (defined('LANG') && LANG === 'ar') ? 'الجرمان' : 'Teuton';
 		} else if($active[$i]['tribe'] == 3){
-		$tribe = "Gaul";
+		$tribe = (defined('LANG') && LANG === 'ar') ? 'الإغريق' : 'Gaul';
 		}
 echo '
 	<tr>
@@ -58,7 +58,7 @@ echo '
 ';
 }
 }else{
-echo '<tr><td  colspan="6" class="hab">No online users</td></tr>';
+echo '<tr><td  colspan="6" class="hab">'.((defined('LANG') && LANG === 'ar') ? 'لا يوجد لاعبون متصلون' : 'No online users').'</td></tr>';
 
 }
 

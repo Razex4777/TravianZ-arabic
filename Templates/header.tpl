@@ -11,6 +11,14 @@
 ?>
 
 <div id="header">
+    <input type="checkbox" id="mobile-nav-toggle" style="display:none;" />
+    <label for="mobile-nav-toggle" class="mobile-hamburger" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
+    <label for="mobile-nav-toggle" class="mobile-sidebar-backdrop" style="display:none;"></label>
+    
     <div id="mtop">
         <a href="<?php echo ($_SESSION['id_user'] != 1 ? 'dorf1.php' : '#'); ?>" id="n1" accesskey="1"><img src="img/x.gif" title="<?php echo (defined('LANG') && LANG === 'ar' ? 'نظرة عامة على القرية' : 'Village overview'); ?>" alt="<?php echo (defined('LANG') && LANG === 'ar' ? 'نظرة عامة على القرية' : 'Village overview'); ?>" /></a>
         <a href="<?php echo ($_SESSION['id_user'] != 1 ? 'dorf2.php' : '#'); ?>" id="n2" accesskey="2"><img src="img/x.gif" title="<?php echo (defined('LANG') && LANG === 'ar' ? 'مركز القرية' : 'Village centre'); ?>" alt="<?php echo (defined('LANG') && LANG === 'ar' ? 'مركز القرية' : 'Village centre'); ?>" /></a>

@@ -1,4 +1,4 @@
-<h1>Player profile</h1>
+<h1><?php echo (defined('LANG') && LANG === 'ar') ? 'الملف الشخصي للاعب' : 'Player profile'; ?></h1>
 
 <?php
 
@@ -27,12 +27,12 @@ include("menu.tpl"); ?>
 
     <table cellpadding="1" cellspacing="1" id="edit" ><thead>
     <tr>
-        <th colspan="3">Player <?php echo $session->username; ?> </th>
+        <th colspan="3"><?php echo (defined('LANG') && LANG === 'ar') ? 'اللاعب' : 'Player'; ?> <?php echo $session->username; ?> </th>
     </tr>
     <tr>
-        <td colspan="2">Details</td>
+        <td colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'التفاصيل' : 'Details'; ?></td>
 
-        <td>Description</td>
+        <td><?php echo (defined('LANG') && LANG === 'ar') ? 'الوصف' : 'Description'; ?></td>
     </tr>
     </thead>
     <tbody>
@@ -47,7 +47,7 @@ include("menu.tpl"); ?>
    $bday = array('','','');
    }
    ?>
-    <th>Birthday</th><td class="birth"><input tabindex="1" class="text day" type="text" name="tag" value="<?php echo $bday[2]; ?>" maxlength="2" /> <select tabindex="2" name="monat" size="" class="dropdown">
+    <th><?php echo (defined('LANG') && LANG === 'ar') ? 'تاريخ الميلاد' : 'Birthday'; ?></th><td class="birth"><input tabindex="1" class="text day" type="text" name="tag" value="<?php echo $bday[2]; ?>" maxlength="2" /> <select tabindex="2" name="monat" size="" class="dropdown">
 
                 <option value="0"></option><option value="1" <?php if($bday[1] == 1) { echo "selected"; } ?>>Jan</option><option value="2"<?php if($bday[1] == 2) { echo "selected"; } ?>>Feb</option><option value="3"<?php if($bday[1] == 3) { echo "selected"; } ?>>Mar</option><option value="4"<?php if($bday[1] == 4) { echo "selected"; } ?>>Apr</option><option value="5"<?php if($bday[1] == 5) { echo "selected"; } ?>>May</option><option value="6"<?php if($bday[1] == 6) { echo "selected"; } ?>>June</option><option value="7"<?php if($bday[1] == 7) { echo "selected"; } ?>>July</option><option value="8"<?php if($bday[1] == 8) { echo "selected"; } ?>>Aug</option><option value="9"<?php if($bday[1] == 9) { echo "selected"; } ?>>Sep</option><option value="10"<?php if($bday[1] == 10) { echo "selected"; } ?>>Oct</option><option value="11"<?php if($bday[1] == 11) { echo "selected"; } ?>>Nov</option><option value="12"<?php if($bday[1] == 12) { echo "selected"; } ?>>Dec</option></select> <input tabindex="3" type="text" name="jahr" value="<?php echo $bday[0]; ?>" maxlength="4" class="text year"></td>
     <?php
@@ -56,20 +56,20 @@ include("menu.tpl"); ?>
 	?>
     <td rowspan="<?php echo $rowspan; ?>" class="desc1"><textarea tabindex="7" name="be1"><?php echo $session->userinfo['desc2']; ?></textarea></td></tr>
 
-    <tr><th>Gender</th>
+    <tr><th><?php echo (defined('LANG') && LANG === 'ar') ? 'الجنس' : 'Gender'; ?></th>
     <td class="gend">
         <label><input class="radio" type="radio" name="mw" value="0" <?php if($session->userinfo['gender'] == 0) { echo "checked"; } ?> tabindex="4">n/a</label>
         <label><input class="radio" type="radio" name="mw" value="1" <?php if($session->userinfo['gender'] == 1) { echo "checked"; } ?> >m</label>
         <label><input class="radio" type="radio" name="mw" value="2" <?php if($session->userinfo['gender'] == 2) { echo "checked"; } ?> >f</label>
     </td></tr>
 
-    <tr><th>Location</th><td><input tabindex="5" type="text" name="ort" value="<?php echo $session->userinfo['location']; ?>" maxlength="30" class="text"></td></tr>
+    <tr><th><?php echo (defined('LANG') && LANG === 'ar') ? 'الموقع' : 'Location'; ?></th><td><input tabindex="5" type="text" name="ort" value="<?php echo $session->userinfo['location']; ?>" maxlength="30" class="text"></td></tr>
 
 
     <tr><td colspan="2" class="empty"></td></tr>
     <?php
     for($i=0;$i<=count($varray)-1;$i++) {
-    echo "<tr><th>Village name</th><td><input tabindex=\"6\" type=\"text\" name=\"dname$i\" value=\"".$varray[$i]['name']."\" maxlength=\"30\" class=\"text\"></td></tr>";
+    echo "<tr><th>".((defined('LANG') && LANG === 'ar') ? 'اسم القرية' : 'Village name')."</th><td><input tabindex=\"6\" type=\"text\" name=\"dname$i\" value=\"".$varray[$i]['name']."\" maxlength=\"30\" class=\"text\"></td></tr>";
     }
     ?>
     <tr><td colspan="2" class="desc2"><textarea tabindex="8" name="be2"><?php echo $session->userinfo['desc1']; ?></textarea></td></tr>
@@ -78,12 +78,12 @@ include("menu.tpl"); ?>
 
 	<p>
 		<table cellspacing="1" cellpadding="2" class="tbg">
-		<tr><td class="rbg" colspan="4">Medals</td></tr>
+		<tr><td class="rbg" colspan="4"><?php echo (defined('LANG') && LANG === 'ar') ? 'الميداليات' : 'Medals'; ?></td></tr>
 		<tr>
-			<td>Category</td>
-			<td>Rank</td>
-			<td>Week</td>
-			<td>BB-Code</td>
+			<td><?php echo (defined('LANG') && LANG === 'ar') ? 'الفئة' : 'Category'; ?></td>
+			<td><?php echo (defined('LANG') && LANG === 'ar') ? 'المرتبة' : 'Rank'; ?></td>
+			<td><?php echo (defined('LANG') && LANG === 'ar') ? 'الأسبوع' : 'Week'; ?></td>
+			<td><?php echo (defined('LANG') && LANG === 'ar') ? 'رمز BB' : 'BB-Code'; ?></td>
 		</tr>
 				<?php
 /******************************
@@ -161,7 +161,7 @@ MEDAL CATEGORY:
 			 	 </tr>";
 				 } ?>
 				 <tr>
-				   <td>Beginners Protection</td>
+				   <td><?php echo (defined('LANG') && LANG === 'ar') ? 'حماية المبتدئين' : 'Beginners Protection'; ?></td>
 				   <td></td>
 				   <td></td>
 				   <td>[#0]</td>

@@ -32,9 +32,9 @@ $result = mysqli_query($GLOBALS['link'], $sql);
 
 function tribeLabel($tribe) {
     $tribe = (int)$tribe;
-    if ($tribe === 1) return 'Roman';
-    if ($tribe === 2) return 'Teuton';
-    if ($tribe === 3) return 'Gaul';
+    if ($tribe === 1) return (defined('LANG') && LANG === 'ar') ? 'الرومان' : 'Roman';
+    if ($tribe === 2) return (defined('LANG') && LANG === 'ar') ? 'الجرمان' : 'Teuton';
+    if ($tribe === 3) return (defined('LANG') && LANG === 'ar') ? 'الإغريق' : 'Gaul';
     return 'N/A';
 }
 ?>
@@ -42,16 +42,16 @@ function tribeLabel($tribe) {
 <table id="member" cellpadding="1" cellspacing="1">
     <thead>
         <tr>
-            <th colspan="7">Users list (<?php echo $totalUsers; ?>)</th>
+            <th colspan="7"><?php echo (defined('LANG') && LANG === 'ar') ? 'قائمة المستخدمين' : 'Users list'; ?> (<?php echo $totalUsers; ?>)</th>
         </tr>
         <tr>
-            <td>ID</td>
-            <td>Username</td>
-            <td>Email</td>
-            <td>Access</td>
-            <td>Tribe</td>
-            <td>Gold</td>
-            <td>Last activity</td>
+            <td><?php echo (defined('LANG') && LANG === 'ar') ? 'رقم اللاعب (ID)' : 'ID'; ?></td>
+            <td><?php echo (defined('LANG') && LANG === 'ar') ? 'اسم اللاعب' : 'Username'; ?></td>
+            <td><?php echo (defined('LANG') && LANG === 'ar') ? 'البريد الإلكتروني' : 'Email'; ?></td>
+            <td><?php echo (defined('LANG') && LANG === 'ar') ? 'الصلاحية (Access)' : 'Access'; ?></td>
+            <td><?php echo (defined('LANG') && LANG === 'ar') ? 'القبيلة' : 'Tribe'; ?></td>
+            <td><?php echo (defined('LANG') && LANG === 'ar') ? 'الذهب' : 'Gold'; ?></td>
+            <td><?php echo (defined('LANG') && LANG === 'ar') ? 'آخر نشاط' : 'Last activity'; ?></td>
         </tr>
     </thead>
     <tbody>
@@ -81,7 +81,7 @@ function tribeLabel($tribe) {
             <?php } ?>
         <?php } else { ?>
             <tr>
-                <td colspan="7" class="hab">No users found.</td>
+                <td colspan="7" class="hab"><?php echo (defined('LANG') && LANG === 'ar') ? 'لم يتم العثور على مستخدمين.' : 'No users found.'; ?></td>
             </tr>
         <?php } ?>
     </tbody>
@@ -89,10 +89,10 @@ function tribeLabel($tribe) {
 
 <div style="margin-top:10px;">
     <?php if ($page > 1) { ?>
-        <a href="?p=users&amp;upage=<?php echo $page - 1; ?>">&laquo; Previous</a>
+        <a href="?p=users&amp;upage=<?php echo $page - 1; ?>">&laquo; <?php echo (defined('LANG') && LANG === 'ar') ? 'السابق' : 'Previous'; ?></a>
     <?php } ?>
-    <span style="margin:0 10px;">Page <?php echo $page; ?> / <?php echo $totalPages; ?></span>
+    <span style="margin:0 10px;"><?php echo (defined('LANG') && LANG === 'ar') ? 'الصفحة' : 'Page'; ?> <?php echo $page; ?> / <?php echo $totalPages; ?></span>
     <?php if ($page < $totalPages) { ?>
-        <a href="?p=users&amp;upage=<?php echo $page + 1; ?>">Next &raquo;</a>
+        <a href="?p=users&amp;upage=<?php echo $page + 1; ?>"><?php echo (defined('LANG') && LANG === 'ar') ? 'التالي' : 'Next'; ?> &raquo;</a>
     <?php } ?>
 </div>

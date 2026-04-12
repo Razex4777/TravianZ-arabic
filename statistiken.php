@@ -97,6 +97,7 @@ if(isset($_GET['newdid'])) {
 	<?php if(defined('LANG') && LANG === 'ar'): ?>
 	
 	<?php endif; ?>
+	<link rel="stylesheet" type="text/css" href="mobile.css" />
 </head>
 
 
@@ -116,9 +117,9 @@ if(isset($_GET['newdid'])) {
  | <a href="statistiken.php?id=2" <?php if(isset($_GET['id']) && $_GET['id'] == 2) { echo "class=\"selected \""; } ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'القرى' : 'Villages'; ?></a>
  | <a href="statistiken.php?id=8" <?php if(isset($_GET['id']) && $_GET['id'] == 8) { echo "class=\"selected \""; } ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'الأبطال' : 'Heroes'; ?></a>
  | <a href="statistiken.php?id=0" <?php if(isset($_GET['id']) && $_GET['id'] == 0) { echo "class=\"selected \""; } ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'عام' : 'General'; ?></a>
- <?php if(WW == true) { echo
- '|'; } else { echo ''; } ?> <a href="statistiken.php?id=99" <?php if(isset($_GET['id']) && $_GET['id'] == 99) { echo "class=\"selected \""; } ?>><?php if(WW == true) { echo
- 'WW'; } else { echo ''; }?></a>
+ <?php if(WW == true) { ?>
+ | <a href="statistiken.php?id=99" <?php if(isset($_GET['id']) && $_GET['id'] == 99) { echo "class=\"selected \""; } ?>>WW</a>
+ <?php } ?>
  | <a href="statistiken.php?id=100" <?php if(isset($_GET['id']) && $_GET['id'] == 100) { echo "class=\"selected \""; } ?>><?php echo defined('HALL_OF_FAME') ? HALL_OF_FAME : 'Hall of Fame'; ?></a>
 </div>
 <?php

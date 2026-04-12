@@ -60,11 +60,11 @@ function refresh(tz) {
                         <td><?php echo CONF_SERV_LANG ?> <em class="tooltip">?<span class="classic"><?php echo CONF_SERV_LANG_TOOLTIP ?></span></em></td>
                         <td>
                             <select name="lang">
-                                <option value="en" <?php if (LANG=="en") echo "selected";?>>English</option>
-                                <option value="es" <?php if (LANG=="es") echo "selected";?>>Spain</option>
-                                <option value="rs" <?php if (LANG=="rs") echo "selected";?>>Serbian</option>
-                                <option value="ru" <?php if (LANG=="ru") echo "selected";?>>Russian</option>
-                                <option value="zh_tw" <?php if (LANG=="zh_tw") echo "selected";?>>Taiwanese</option>
+                                <option value="en" <?php if (LANG=="en") echo "selected";?>><?php echo (defined('LANG') && LANG === 'ar') ? 'الانجليزية' : 'English'; ?></option>
+                                <option value="es" <?php if (LANG=="es") echo "selected";?>><?php echo (defined('LANG') && LANG === 'ar') ? 'الاسبانية' : 'Spain'; ?></option>
+                                <option value="rs" <?php if (LANG=="rs") echo "selected";?>><?php echo (defined('LANG') && LANG === 'ar') ? 'الصربية' : 'Serbian'; ?></option>
+                                <option value="ru" <?php if (LANG=="ru") echo "selected";?>><?php echo (defined('LANG') && LANG === 'ar') ? 'الروسية' : 'Russian'; ?></option>
+                                <option value="zh_tw" <?php if (LANG=="zh_tw") echo "selected";?>><?php echo (defined('LANG') && LANG === 'ar') ? 'التايوانية' : 'Taiwanese'; ?></option>
                             </select>
                         </td>
 					</tr>
@@ -120,8 +120,8 @@ function refresh(tz) {
 						<td><?php echo CONF_SERV_VILLEXPSPEED ?> <em class="tooltip">?<span class="classic"><?php echo CONF_SERV_VILLEXPSPEED_TOOLTIP ?></span></em></td>
 						<td>
 							<select name="village_expand">
-								<option value="1" <?php if (CP=="1") echo "selected";?>>Slow</option>
-								<option value="0" <?php if (CP=="0") echo "selected";?>>Fast</option>
+								<option value="1" <?php if (CP=="1") echo "selected";?>><?php echo (defined('LANG') && LANG === 'ar') ? 'بطيء' : 'Slow'; ?></option>
+								<option value="0" <?php if (CP=="0") echo "selected";?>><?php echo (defined('LANG') && LANG === 'ar') ? 'سريع' : 'Fast'; ?></option>
 							</select>
 						</td>
 					</tr>
@@ -129,16 +129,16 @@ function refresh(tz) {
 						<td><?php echo CONF_SERV_BEGINPROTECT ?> <em class="tooltip">?<span class="classic"><?php echo CONF_SERV_BEGINPROTECT_TOOLTIP ?></span></em></td>
 						<td>
 							<select name="beginner">
-								<option value="7200" <?php if (PROTECTION=="7200") echo "selected";?>>2 hours</option>
-								<option value="10800" <?php if (PROTECTION=="10800") echo "selected";?>>3 hours</option>
-								<option value="18000" <?php if (PROTECTION=="18000") echo "selected";?>>5 hours</option>
-								<option value="28800" <?php if (PROTECTION=="28800") echo "selected";?>>8 hours</option>
-								<option value="36000" <?php if (PROTECTION=="36000") echo "selected";?>>10 hours</option>
-								<option value="43200" <?php if (PROTECTION=="43200") echo "selected";?>>12 hours</option>
-								<option value="86400" <?php if (PROTECTION=="86400") echo "selected";?>>24 hours (1 day)</option>
-								<option value="172800" <?php if (PROTECTION=="172800") echo "selected";?>>48 hours (2 days)</option>
-								<option value="259200" <?php if (PROTECTION=="259200") echo "selected";?>>72 hours (3 days)</option>
-								<option value="432000" <?php if (PROTECTION=="432000") echo "selected";?>>120 hours (5 days)</option>
+								<option value="7200" <?php if (PROTECTION=="7200") echo "selected";?>>2 <?php echo (defined('LANG') && LANG === 'ar') ? 'ساعات' : 'hours'; ?></option>
+								<option value="10800" <?php if (PROTECTION=="10800") echo "selected";?>>3 <?php echo (defined('LANG') && LANG === 'ar') ? 'ساعات' : 'hours'; ?></option>
+								<option value="18000" <?php if (PROTECTION=="18000") echo "selected";?>>5 <?php echo (defined('LANG') && LANG === 'ar') ? 'ساعات' : 'hours'; ?></option>
+								<option value="28800" <?php if (PROTECTION=="28800") echo "selected";?>>8 <?php echo (defined('LANG') && LANG === 'ar') ? 'ساعات' : 'hours'; ?></option>
+								<option value="36000" <?php if (PROTECTION=="36000") echo "selected";?>>10 <?php echo (defined('LANG') && LANG === 'ar') ? 'ساعات' : 'hours'; ?></option>
+								<option value="43200" <?php if (PROTECTION=="43200") echo "selected";?>>12 <?php echo (defined('LANG') && LANG === 'ar') ? 'ساعات' : 'hours'; ?></option>
+								<option value="86400" <?php if (PROTECTION=="86400") echo "selected";?>>24 <?php echo (defined('LANG') && LANG === 'ar') ? 'ساعة (1 يوم)' : 'hours (1 day)'; ?></option>
+								<option value="172800" <?php if (PROTECTION=="172800") echo "selected";?>>48 <?php echo (defined('LANG') && LANG === 'ar') ? 'ساعة (2 أيام)' : 'hours (2 days)'; ?></option>
+								<option value="259200" <?php if (PROTECTION=="259200") echo "selected";?>>72 <?php echo (defined('LANG') && LANG === 'ar') ? 'ساعة (3 أيام)' : 'hours (3 days)'; ?></option>
+								<option value="432000" <?php if (PROTECTION=="432000") echo "selected";?>>120 <?php echo (defined('LANG') && LANG === 'ar') ? 'ساعة (5 أيام)' : 'hours (5 days)'; ?></option>
 							</select>
 						</td>
 					</tr>
@@ -146,8 +146,8 @@ function refresh(tz) {
 						<td><?php echo CONF_SERV_REGOPEN ?> <em class="tooltip">?<span class="classic"><?php echo CONF_SERV_REGOPEN_TOOLTIP ?></span></em></td>
 						<td>
 							<select name="reg_open">
-								<option value="True" <?php if(REG_OPEN==true) echo "selected";?>>True</option>
-								<option value="False" <?php if(REG_OPEN==false) echo "selected";?>>False</option>
+								<option value="True" <?php if(REG_OPEN==true) echo "selected";?>><?php echo (defined('LANG') && LANG === 'ar') ? 'صحيح' : 'True'; ?></option>
+								<option value="False" <?php if(REG_OPEN==false) echo "selected";?>><?php echo (defined('LANG') && LANG === 'ar') ? 'خطأ' : 'False'; ?></option>
 							</select>
 						</td>
 					</tr>
@@ -155,8 +155,8 @@ function refresh(tz) {
 						<td><?php echo CONF_SERV_ACTIVMAIL ?> <em class="tooltip">?<span class="classic"><?php echo CONF_SERV_ACTIVMAIL_TOOLTIP ?></span></em></td>
 						<td>
 							<select name="activate">
-								<option value="true" <?php if (AUTH_EMAIL==true) echo "selected";?>>Yes</option>
-								<option value="false" <?php if (AUTH_EMAIL==false) echo "selected";?>>No</option>
+								<option value="true" <?php if (AUTH_EMAIL==true) echo "selected";?>><?php echo (defined('LANG') && LANG === 'ar') ? 'نعم' : 'Yes'; ?></option>
+								<option value="false" <?php if (AUTH_EMAIL==false) echo "selected";?>><?php echo (defined('LANG') && LANG === 'ar') ? 'لا' : 'No'; ?></option>
 							</select>
 						</td>
 					</tr>
@@ -164,8 +164,8 @@ function refresh(tz) {
 						<td><?php echo CONF_SERV_QUEST ?> <em class="tooltip">?<span class="classic"><?php echo CONF_SERV_QUEST_TOOLTIP ?></span></em></td>
 						<td>
 							<select name="quest">
-								<option value="true" <?php if(QUEST == true) echo "selected";?>>Yes</option>
-								<option value="false" <?php if(QUEST == false) echo "selected";?>>No</option>
+								<option value="true" <?php if(QUEST == true) echo "selected";?>><?php echo (defined('LANG') && LANG === 'ar') ? 'نعم' : 'Yes'; ?></option>
+								<option value="false" <?php if(QUEST == false) echo "selected";?>><?php echo (defined('LANG') && LANG === 'ar') ? 'لا' : 'No'; ?></option>
 							</select>
 						</td>
 					</tr>
@@ -173,8 +173,8 @@ function refresh(tz) {
 						<td><?php echo CONF_SERV_QTYPE ?> <em class="tooltip">?<span class="classic"><?php echo CONF_SERV_QTYPE_TOOLTIP ?></span></em></td>
 						<td>
 							<select name="qtype">
-								<option value="25" <?php if(QTYPE == 25) echo "selected";?>>Travian Official</option>
-								<option value="37" <?php if(QTYPE == 37) echo "selected";?>>TravianZ Extended</option>
+								<option value="25" <?php if(QTYPE == 25) echo "selected";?>><?php echo (defined('LANG') && LANG === 'ar') ? 'ترافيان الرسمي' : 'Travian Official'; ?></option>
+								<option value="37" <?php if(QTYPE == 37) echo "selected";?>><?php echo (defined('LANG') && LANG === 'ar') ? 'ترافيان زيد المطور' : 'TravianZ Extended'; ?></option>
 							</select>
 						</td>
 					</tr>
@@ -183,7 +183,7 @@ function refresh(tz) {
 						<td>
 							<select name="demolish">
 								<option value="5" <?php if(DEMOLISH_LEVEL_REQ == "5") echo "selected";?>>5</option>
-								<option value="10" <?php if(DEMOLISH_LEVEL_REQ == "10") echo "selected";?>>10 - Default</option>
+								<option value="10" <?php if(DEMOLISH_LEVEL_REQ == "10") echo "selected";?>>10 <?php echo (defined('LANG') && LANG === 'ar') ? '- افتراضي' : '- Default'; ?></option>
 								<option value="15" <?php if(DEMOLISH_LEVEL_REQ == "15") echo "selected";?>>15</option>
 								<option value="20" <?php if(DEMOLISH_LEVEL_REQ == "20") echo "selected";?>>20</option>
 							</select>
@@ -193,23 +193,23 @@ function refresh(tz) {
 						<td><?php echo CONF_SERV_WWSTATS ?> <em class="tooltip">?<span class="classic"><?php echo CONF_SERV_WWSTATS_TOOLTIP ?></span></em></td>
 						<td>
 							<select name="ww">
-								<option value="True" <?php if(WW == true) echo "selected";?>>True</option>
-								<option value="False" <?php if(WW == false) echo "selected";?>>False</option>
+								<option value="True" <?php if(WW == true) echo "selected";?>><?php echo (defined('LANG') && LANG === 'ar') ? 'صحيح' : 'True'; ?></option>
+								<option value="False" <?php if(WW == false) echo "selected";?>><?php echo (defined('LANG') && LANG === 'ar') ? 'خطأ' : 'False'; ?></option>
 							</select>
 					</tr>
 					<tr>
 						<td><?php echo CONF_SERV_NTRTIME ?> <em class="tooltip">?<span class="classic"><?php echo CONF_SERV_NTRTIME_TOOLTIP ?></span></em></td>
 						<td>
 							<select name="nature_regtime">
-								<option value="28800" <?php if(NATURE_REGTIME == 28800) echo "selected";?>>8 hours</option>
-								<option value="36000" <?php if(NATURE_REGTIME == 36000) echo "selected";?>>10 hours</option>
-								<option value="43200" <?php if(NATURE_REGTIME == 43200) echo "selected";?>>12 hours</option>
-                                <option value="57600" <?php if(NATURE_REGTIME == 57600) echo "selected";?>>16 hours</option>
-                                <option value="72000" <?php if(NATURE_REGTIME == 72000) echo "selected";?>>20 hours</option>
-								<option value="86400" <?php if(NATURE_REGTIME == 86400) echo "selected";?>>24 hours (1 day)</option>
-								<option value="172800" <?php if(NATURE_REGTIME == 172800) echo "selected";?>>48 hours (2 days)</option>
-								<option value="259200" <?php if(NATURE_REGTIME == 259200) echo "selected";?>>72 hours (3 days)</option>
-								<option value="432000" <?php if(NATURE_REGTIME == 432000) echo "selected";?>>120 hours (5 days)</option>
+								<option value="28800" <?php if(NATURE_REGTIME == 28800) echo "selected";?>>8 <?php echo (defined('LANG') && LANG === 'ar') ? 'ساعات' : 'hours'; ?></option>
+								<option value="36000" <?php if(NATURE_REGTIME == 36000) echo "selected";?>>10 <?php echo (defined('LANG') && LANG === 'ar') ? 'ساعات' : 'hours'; ?></option>
+								<option value="43200" <?php if(NATURE_REGTIME == 43200) echo "selected";?>>12 <?php echo (defined('LANG') && LANG === 'ar') ? 'ساعات' : 'hours'; ?></option>
+                                <option value="57600" <?php if(NATURE_REGTIME == 57600) echo "selected";?>>16 <?php echo (defined('LANG') && LANG === 'ar') ? 'ساعات' : 'hours'; ?></option>
+                                <option value="72000" <?php if(NATURE_REGTIME == 72000) echo "selected";?>>20 <?php echo (defined('LANG') && LANG === 'ar') ? 'ساعات' : 'hours'; ?></option>
+								<option value="86400" <?php if(NATURE_REGTIME == 86400) echo "selected";?>>24 <?php echo (defined('LANG') && LANG === 'ar') ? 'ساعة (1 يوم)' : 'hours (1 day)'; ?></option>
+								<option value="172800" <?php if(NATURE_REGTIME == 172800) echo "selected";?>>48 <?php echo (defined('LANG') && LANG === 'ar') ? 'ساعة (2 أيام)' : 'hours (2 days)'; ?></option>
+								<option value="259200" <?php if(NATURE_REGTIME == 259200) echo "selected";?>>72 <?php echo (defined('LANG') && LANG === 'ar') ? 'ساعة (3 أيام)' : 'hours (3 days)'; ?></option>
+								<option value="432000" <?php if(NATURE_REGTIME == 432000) echo "selected";?>>120 <?php echo (defined('LANG') && LANG === 'ar') ? 'ساعة (5 أيام)' : 'hours (5 days)'; ?></option>
 							</select>
 						</td>
 					</tr>
@@ -233,14 +233,14 @@ function refresh(tz) {
 						<td><?php echo CONF_SERV_MEDALINTERVAL ?> <em class="tooltip">?<span class="classic"><?php echo CONF_SERV_MEDALINTERVAL_TOOLTIP ?></span></em></td>
 						<td>
 							<select name="medalinterval">
-								<option value="0" <?php if(MEDALINTERVAL==0) echo "selected";?>>none</option>
-								<option value="(3600*24)" <?php if(MEDALINTERVAL==86400) echo "selected";?>>1 day</option>
-								<option value="(3600*24*2)" <?php if(MEDALINTERVAL==172800) echo "selected";?>>2 days</option>
-								<option value="(3600*24*3)" <?php if(MEDALINTERVAL==259200) echo "selected";?>>3 days</option>
-								<option value="(3600*24*4)" <?php if(MEDALINTERVAL==345600) echo "selected";?>>4 days</option>
-								<option value="(3600*24*5)" <?php if(MEDALINTERVAL==432000) echo "selected";?>>5 days</option>
-								<option value="(3600*24*6)" <?php if(MEDALINTERVAL==518400) echo "selected";?>>6 days</option>
-								<option value="(3600*24*7)" <?php if(MEDALINTERVAL==604800) echo "selected";?>>7 days</option>
+								<option value="0" <?php if(MEDALINTERVAL==0) echo "selected";?>><?php echo (defined('LANG') && LANG === 'ar') ? 'لا يوجد' : 'none'; ?></option>
+								<option value="(3600*24)" <?php if(MEDALINTERVAL==86400) echo "selected";?>>1 <?php echo (defined('LANG') && LANG === 'ar') ? 'يوم' : 'day'; ?></option>
+								<option value="(3600*24*2)" <?php if(MEDALINTERVAL==172800) echo "selected";?>>2 <?php echo (defined('LANG') && LANG === 'ar') ? 'أيام' : 'days'; ?></option>
+								<option value="(3600*24*3)" <?php if(MEDALINTERVAL==259200) echo "selected";?>>3 <?php echo (defined('LANG') && LANG === 'ar') ? 'أيام' : 'days'; ?></option>
+								<option value="(3600*24*4)" <?php if(MEDALINTERVAL==345600) echo "selected";?>>4 <?php echo (defined('LANG') && LANG === 'ar') ? 'أيام' : 'days'; ?></option>
+								<option value="(3600*24*5)" <?php if(MEDALINTERVAL==432000) echo "selected";?>>5 <?php echo (defined('LANG') && LANG === 'ar') ? 'أيام' : 'days'; ?></option>
+								<option value="(3600*24*6)" <?php if(MEDALINTERVAL==518400) echo "selected";?>>6 <?php echo (defined('LANG') && LANG === 'ar') ? 'أيام' : 'days'; ?></option>
+								<option value="(3600*24*7)" <?php if(MEDALINTERVAL==604800) echo "selected";?>>7 <?php echo (defined('LANG') && LANG === 'ar') ? 'أيام' : 'days'; ?></option>
 							</select>
 						</td>
 					</tr>
@@ -252,8 +252,8 @@ function refresh(tz) {
 						<td><?php echo CONF_SERV_GWORKSHOP ?> <em class="tooltip">?<span class="classic"><?php echo CONF_SERV_GWORKSHOP_TOOLTIP ?></span></em></td>
 						<td>
 							<select name="great_wks">
-								<option value="True" <?php if(GREAT_WKS==true) echo "selected";?>>True</option>
-								<option value="False" <?php if(GREAT_WKS==false) echo "selected";?>>False</option>
+								<option value="True" <?php if(GREAT_WKS==true) echo "selected";?>><?php echo (defined('LANG') && LANG === 'ar') ? 'صحيح' : 'True'; ?></option>
+								<option value="False" <?php if(GREAT_WKS==false) echo "selected";?>><?php echo (defined('LANG') && LANG === 'ar') ? 'خطأ' : 'False'; ?></option>
 							</select>
 						</td>
 					</tr>
@@ -261,8 +261,8 @@ function refresh(tz) {
 						<td><?php echo CONF_SERV_NATARSTAT ?> <em class="tooltip">?<span class="classic"><?php echo CONF_SERV_NATARSTAT_TOOLTIP ?></span></em></td>
 						<td>
 							<select name="show_natars">
-								<option value="True" <?php if(SHOW_NATARS==true) echo "selected";?>>True</option>
-								<option value="False" <?php if(SHOW_NATARS==false) echo "selected";?>>False</option>
+								<option value="True" <?php if(SHOW_NATARS==true) echo "selected";?>><?php echo (defined('LANG') && LANG === 'ar') ? 'صحيح' : 'True'; ?></option>
+								<option value="False" <?php if(SHOW_NATARS==false) echo "selected";?>><?php echo (defined('LANG') && LANG === 'ar') ? 'خطأ' : 'False'; ?></option>
 							</select>
 						</td>
 					</tr>
@@ -270,11 +270,11 @@ function refresh(tz) {
 						<td><?php echo CONF_SERV_PEACESYST ?> <em class="tooltip">?<span class="classic"><?php echo CONF_SERV_PEACESYST_TOOLTIP ?></span></em></td>
 						<td>
 							<select name="peace">
-								<option value="0" <?php if(PEACE==0) echo "selected";?>>None</option>
-								<option value="1" <?php if(PEACE==1) echo "selected";?>>Normal</option>
-								<option value="2" <?php if(PEACE==2) echo "selected";?>>Christmas</option>
-								<option value="3" <?php if(PEACE==3) echo "selected";?>>New Year</option>
-								<option value="4" <?php if(PEACE==4) echo "selected";?>>Easter</option>
+								<option value="0" <?php if(PEACE==0) echo "selected";?>><?php echo (defined('LANG') && LANG === 'ar') ? 'لا يوجد' : 'None'; ?></option>
+								<option value="1" <?php if(PEACE==1) echo "selected";?>><?php echo (defined('LANG') && LANG === 'ar') ? 'عادي' : 'Normal'; ?></option>
+								<option value="2" <?php if(PEACE==2) echo "selected";?>><?php echo (defined('LANG') && LANG === 'ar') ? 'الكريسماس' : 'Christmas'; ?></option>
+								<option value="3" <?php if(PEACE==3) echo "selected";?>><?php echo (defined('LANG') && LANG === 'ar') ? 'رأس السنة' : 'New Year'; ?></option>
+								<option value="4" <?php if(PEACE==4) echo "selected";?>><?php echo (defined('LANG') && LANG === 'ar') ? 'الفصح' : 'Easter'; ?></option>
 							</select>
 						</td>
 					</tr>
@@ -282,16 +282,16 @@ function refresh(tz) {
 						<td><?php echo CONF_SERV_GRAPHICPACK ?> <em class="tooltip">?<span class="classic"><?php echo CONF_SERV_GRAPHICPACK_TOOLTIP ?></span></em></td>
 						<td>
 							<select name="gpack">
-								<option value="true" <?php if(GP_ENABLE==true) echo "selected";?>>Yes</option>
-								<option value="false" <?php if(GP_ENABLE==false) echo "selected";?>>No</option>
+								<option value="true" <?php if(GP_ENABLE==true) echo "selected";?>><?php echo (defined('LANG') && LANG === 'ar') ? 'نعم' : 'Yes'; ?></option>
+								<option value="false" <?php if(GP_ENABLE==false) echo "selected";?>><?php echo (defined('LANG') && LANG === 'ar') ? 'لا' : 'No'; ?></option>
 							</select>
 						</td>
 					</tr>
 					<tr>
 						<td><?php echo CONF_SERV_ERRORREPORT ?> <em class="tooltip">?<span class="classic"><?php echo CONF_SERV_ERRORREPORT_TOOLTIP ?></span></em></td>
 						<td><select name="error">
-							<option value="error_reporting (E_ALL ^ E_NOTICE);" <?php if(ERROR_REPORT=="error_reporting (E_ALL ^ E_NOTICE);") echo "selected";?>>Yes</option>
-							<option value="error_reporting (0);" <?php if(ERROR_REPORT=="error_reporting (0);") echo "selected";?>>No</option>
+							<option value="error_reporting (E_ALL ^ E_NOTICE);" <?php if(ERROR_REPORT=="error_reporting (E_ALL ^ E_NOTICE);") echo "selected";?>><?php echo (defined('LANG') && LANG === 'ar') ? 'نعم' : 'Yes'; ?></option>
+							<option value="error_reporting (0);" <?php if(ERROR_REPORT=="error_reporting (0);") echo "selected";?>><?php echo (defined('LANG') && LANG === 'ar') ? 'لا' : 'No'; ?></option>
 						</select>
 						</td>
 					</tr>

@@ -76,6 +76,7 @@ AccessLogger::logRequest();
 	<?php if(defined('LANG') && LANG === 'ar'): ?>
 	
 	<?php endif; ?>
+	<link rel="stylesheet" type="text/css" href="mobile.css" />
 </head>
 
 <body class="presto indexPage">
@@ -91,6 +92,13 @@ AccessLogger::logRequest();
 		<div id="header"><h1><?php echo $lang['index'][0][1]; ?></h1></div>
 		<div id="navigation">
 			<a href="index.php" class="home"><img src="img/x.gif" alt="Travian" /></a>
+			<input type="checkbox" id="public-nav-toggle" style="display:none;" />
+			<label for="public-nav-toggle" class="public-hamburger" style="display:none;">
+				<span></span>
+				<span></span>
+				<span></span>
+			</label>
+			<div class="public-sidebar-backdrop" style="display:none;"></div>
 			<table class="menu">
 				<tr>
 					<td><a href="tutorial.php"><span><?php echo TUTORIAL; ?></span></a></td>

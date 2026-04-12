@@ -19,15 +19,15 @@ global $database;
 <table id="member">
     <thead>
         <tr>
-            <th colspan="7">Inactive users</th>
+            <th colspan="7"><?php echo (defined('LANG') && LANG === 'ar') ? 'لاعبون غير نشطين' : 'Inactive users'; ?></th>
         </tr>
         <tr>
-            <td>Name [access]</td>
-            <td>Time</td>
-            <td>Tribe</td>
-            <td>Population</td>
-            <td>Villages</td>
-            <td>Gold</td>
+            <td><?php echo (defined('LANG') && LANG === 'ar') ? 'الاسم [صلاحيات]' : 'Name [access]'; ?></td>
+            <td><?php echo (defined('LANG') && LANG === 'ar') ? 'الوقت' : 'Time'; ?></td>
+            <td><?php echo (defined('LANG') && LANG === 'ar') ? 'القبيلة' : 'Tribe'; ?></td>
+            <td><?php echo (defined('LANG') && LANG === 'ar') ? 'السكان' : 'Population'; ?></td>
+            <td><?php echo (defined('LANG') && LANG === 'ar') ? 'القرى' : 'Villages'; ?></td>
+            <td><?php echo (defined('LANG') && LANG === 'ar') ? 'الذهب' : 'Gold'; ?></td>
             <td></td>
         </tr>
     </thead>
@@ -55,13 +55,13 @@ global $database;
                         $totalpop += $vil['pop'];
                     }
                     if($active[$i]['tribe'] == 1){
-                        $tribe = "Roman";
+                        $tribe = (defined('LANG') && LANG === 'ar') ? 'الرومان' : 'Roman';
                         $img = "";
                     }else if($active[$i]['tribe'] == 2){
-                        $tribe = "Teuton";
+                        $tribe = (defined('LANG') && LANG === 'ar') ? 'الجرمان' : 'Teuton';
                         $img = "1";
                     }else if($active[$i]['tribe'] == 3){
-                        $tribe = "Gaul";
+                        $tribe = (defined('LANG') && LANG === 'ar') ? 'الإغريق' : 'Gaul';
                         $img = "2";
                     }
                     $getmin=((time()-$active[$i]['timestamp'])/60);
@@ -71,7 +71,7 @@ global $database;
                     echo "
                     <tr>
                         <td><a href=\"?p=player&uid=".$uid."\">".$active[$i]['username']." [".$active[$i]['access']."]</a></td>
-                        <td>".$getday." days ".intval($gethr-$getday*24)." hours</td>
+                        <td>".$getday." ".((defined('LANG') && LANG === 'ar') ? 'أيام ' : 'days ')." ".intval($gethr-$getday*24)." ".((defined('LANG') && LANG === 'ar') ? 'ساعات' : 'hours')."</td>
                         <td><img src=\"../gpack/travian_default/img/u/".$img."9.gif\" title=\"$tribe\" alt=\"$tribe\"></td>
                         <td>".$totalpop."</td>
                         <td>".count($varray)."</td>

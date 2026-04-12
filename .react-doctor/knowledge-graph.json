@@ -12,9 +12,9 @@
       "sql"
     ],
     "frameworks": [],
-    "description": "TravianZ-master — javascript, markdown, css, yaml, html, python, sql project with 146 files",
-    "analyzedAt": "2026-04-10T17:14:43.603Z",
-    "gitCommitHash": "b18b720a3d44ab4091e97db46ba4c71d60121ab7"
+    "description": "TravianZ-master — javascript, markdown, css, yaml, html, python, sql project with 162 files",
+    "analyzedAt": "2026-04-12T10:58:57.557Z",
+    "gitCommitHash": "c033f9108723a1ab425f3507f1311926cee6ef40"
   },
   "nodes": [
     {
@@ -134,6 +134,34 @@
       "complexity": "moderate"
     },
     {
+      "id": "file:bump_cache.js",
+      "type": "file",
+      "name": "bump_cache.js",
+      "filePath": "bump_cache.js",
+      "summary": "bump_cache.js — javascript source file",
+      "tags": [
+        "javascript",
+        "js"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "fn:bump_cache.js#replaceCacheBuster",
+      "type": "function",
+      "name": "replaceCacheBuster",
+      "filePath": "bump_cache.js",
+      "lineRange": [
+        4,
+        20
+      ],
+      "summary": "replaceCacheBuster(dir)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "moderate"
+    },
+    {
       "id": "file:CHANGELOG.md",
       "type": "file",
       "name": "CHANGELOG.md",
@@ -238,6 +266,18 @@
         "markdown",
         "md"
       ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:docs/plans/gold-instant-training.md",
+      "type": "file",
+      "name": "gold-instant-training.md",
+      "filePath": "docs/plans/gold-instant-training.md",
+      "summary": "gold-instant-training.md — markdown source file",
+      "tags": [
+        "markdown",
+        "md"
+      ],
       "complexity": "simple"
     },
     {
@@ -287,6 +327,30 @@
         "md"
       ],
       "complexity": "complex"
+    },
+    {
+      "id": "file:fix_mobile_css_order.sh",
+      "type": "file",
+      "name": "fix_mobile_css_order.sh",
+      "filePath": "fix_mobile_css_order.sh",
+      "summary": "fix_mobile_css_order.sh — unknown source file",
+      "tags": [
+        "unknown",
+        "sh"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:fix_rtl.js",
+      "type": "file",
+      "name": "fix_rtl.js",
+      "filePath": "fix_rtl.js",
+      "summary": "fix_rtl.js — javascript source file",
+      "tags": [
+        "javascript",
+        "js"
+      ],
+      "complexity": "moderate"
     },
     {
       "id": "file:flaggen.js",
@@ -1445,6 +1509,18 @@
       "complexity": "moderate"
     },
     {
+      "id": "file:gpack/travian_default/modules/new_layout_rtl.css",
+      "type": "file",
+      "name": "new_layout_rtl.css",
+      "filePath": "gpack/travian_default/modules/new_layout_rtl.css",
+      "summary": "new_layout_rtl.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
       "id": "file:gpack/travian_default/travian.css",
       "type": "file",
       "name": "travian.css",
@@ -1577,6 +1653,18 @@
       "complexity": "complex"
     },
     {
+      "id": "file:img/admin/admin_mobile.css",
+      "type": "file",
+      "name": "admin_mobile.css",
+      "filePath": "img/admin/admin_mobile.css",
+      "summary": "admin_mobile.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
       "id": "file:img/admin/b/zurueck.html",
       "type": "file",
       "name": "zurueck.html",
@@ -1669,6 +1757,126 @@
       "tags": [
         "markdown",
         "md"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:mobile/_base.css",
+      "type": "file",
+      "name": "_base.css",
+      "filePath": "mobile/_base.css",
+      "summary": "_base.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:mobile/_phone_alliance.css",
+      "type": "file",
+      "name": "_phone_alliance.css",
+      "filePath": "mobile/_phone_alliance.css",
+      "summary": "_phone_alliance.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:mobile/_phone_ingame.css",
+      "type": "file",
+      "name": "_phone_ingame.css",
+      "filePath": "mobile/_phone_ingame.css",
+      "summary": "_phone_ingame.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:mobile/_phone_ingame_pages.css",
+      "type": "file",
+      "name": "_phone_ingame_pages.css",
+      "filePath": "mobile/_phone_ingame_pages.css",
+      "summary": "_phone_ingame_pages.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:mobile/_phone_outgame.css",
+      "type": "file",
+      "name": "_phone_outgame.css",
+      "filePath": "mobile/_phone_outgame.css",
+      "summary": "_phone_outgame.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:mobile/_phone_plus.css",
+      "type": "file",
+      "name": "_phone_plus.css",
+      "filePath": "mobile/_phone_plus.css",
+      "summary": "_phone_plus.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:mobile/_phone_public.css",
+      "type": "file",
+      "name": "_phone_public.css",
+      "filePath": "mobile/_phone_public.css",
+      "summary": "_phone_public.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:mobile/_small_phone.css",
+      "type": "file",
+      "name": "_small_phone.css",
+      "filePath": "mobile/_small_phone.css",
+      "summary": "_small_phone.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:mobile/_tablet.css",
+      "type": "file",
+      "name": "_tablet.css",
+      "filePath": "mobile/_tablet.css",
+      "summary": "_tablet.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:mobile.css",
+      "type": "file",
+      "name": "mobile.css",
+      "filePath": "mobile.css",
+      "summary": "mobile.css — css source file",
+      "tags": [
+        "css",
+        "css"
       ],
       "complexity": "simple"
     },
@@ -3790,6 +3998,13 @@
       "weight": 0.9
     },
     {
+      "source": "file:bump_cache.js",
+      "target": "fn:bump_cache.js#replaceCacheBuster",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
       "source": "file:flaggen.js",
       "target": "fn:flaggen.js#show_flags",
       "type": "contains",
@@ -4724,6 +4939,7 @@
         "file:gpack/travian_default/modules/new_colors.css",
         "file:gpack/travian_default/modules/new_images.css",
         "file:gpack/travian_default/modules/new_layout_ltr.css",
+        "file:gpack/travian_default/modules/new_layout_rtl.css",
         "file:gpack/travian_default/travian.css",
         "file:gpack/travian_t4/lang/en/compact.css",
         "file:gpack/travian_t4/lang/en/gp_check.css",
@@ -4734,12 +4950,23 @@
         "file:gpack/travian_t4/travian.css",
         "file:img/admin/acp.css",
         "file:img/admin/admin.css",
+        "file:img/admin/admin_mobile.css",
         "file:img/admin/map.css",
         "file:img/img.css",
         "file:img/portal_ltr.css",
         "file:img/travian_basics.css",
         "file:img/tutorial/flaggs.css",
         "file:img/tutorial/main.css",
+        "file:mobile/_base.css",
+        "file:mobile/_phone_alliance.css",
+        "file:mobile/_phone_ingame.css",
+        "file:mobile/_phone_ingame_pages.css",
+        "file:mobile/_phone_outgame.css",
+        "file:mobile/_phone_plus.css",
+        "file:mobile/_phone_public.css",
+        "file:mobile/_small_phone.css",
+        "file:mobile/_tablet.css",
+        "file:mobile.css",
         "file:notification/gpack/notification_v1_zzjhons/lang/en/compact.css",
         "file:notification/gpack/notification_v1_zzjhons/lang/en/lang.css"
       ]
@@ -4752,6 +4979,7 @@
         "file:AC_OETags.js",
         "file:Admin/ajax.js",
         "file:Admin/jquery.cookie.js",
+        "file:bump_cache.js",
         "file:CHANGELOG.md",
         "file:client_project_detail and conversations.txt",
         "file:CODE_OF_CONDUCT.md",
@@ -4760,10 +4988,13 @@
         "file:Dockerfile",
         "file:DOCKER_README.md",
         "file:docs/changelog.md",
+        "file:docs/plans/gold-instant-training.md",
         "file:docs/plans/phase-1.md",
         "file:docs/plans/phase-2.md",
         "file:docs/plans/phase-3.md",
         "file:docs/project_structure.md",
+        "file:fix_mobile_css_order.sh",
+        "file:fix_rtl.js",
         "file:flaggen.js",
         "file:GameEngine/Admin/ajax.js",
         "file:gpack/travian_default/lang/ar/b/zurueck.html",
@@ -4806,7 +5037,7 @@
     {
       "order": 2,
       "title": "Styles Layer",
-      "description": "Explore the styles layer: admin_map_tile.css, flaggs.css, main.css, main_en.css, a2b.css (+98 more)",
+      "description": "Explore the styles layer: admin_map_tile.css, flaggs.css, main.css, main_en.css, a2b.css (+110 more)",
       "nodeIds": [
         "file:css/admin_map_tile.css",
         "file:gpack/travian/flaggs.css",
@@ -4893,6 +5124,7 @@
         "file:gpack/travian_default/modules/new_colors.css",
         "file:gpack/travian_default/modules/new_images.css",
         "file:gpack/travian_default/modules/new_layout_ltr.css",
+        "file:gpack/travian_default/modules/new_layout_rtl.css",
         "file:gpack/travian_default/travian.css",
         "file:gpack/travian_t4/lang/en/compact.css",
         "file:gpack/travian_t4/lang/en/gp_check.css",
@@ -4903,12 +5135,23 @@
         "file:gpack/travian_t4/travian.css",
         "file:img/admin/acp.css",
         "file:img/admin/admin.css",
+        "file:img/admin/admin_mobile.css",
         "file:img/admin/map.css",
         "file:img/img.css",
         "file:img/portal_ltr.css",
         "file:img/travian_basics.css",
         "file:img/tutorial/flaggs.css",
         "file:img/tutorial/main.css",
+        "file:mobile/_base.css",
+        "file:mobile/_phone_alliance.css",
+        "file:mobile/_phone_ingame.css",
+        "file:mobile/_phone_ingame_pages.css",
+        "file:mobile/_phone_outgame.css",
+        "file:mobile/_phone_plus.css",
+        "file:mobile/_phone_public.css",
+        "file:mobile/_small_phone.css",
+        "file:mobile/_tablet.css",
+        "file:mobile.css",
         "file:notification/gpack/notification_v1_zzjhons/lang/en/compact.css",
         "file:notification/gpack/notification_v1_zzjhons/lang/en/lang.css"
       ]
@@ -4916,11 +5159,12 @@
     {
       "order": 3,
       "title": "Core Layer",
-      "description": "Explore the core layer: AC_OETags.js, ajax.js, jquery.cookie.js, CHANGELOG.md, client_project_detail and conversations.txt (+35 more)",
+      "description": "Explore the core layer: AC_OETags.js, ajax.js, jquery.cookie.js, bump_cache.js, CHANGELOG.md (+39 more)",
       "nodeIds": [
         "file:AC_OETags.js",
         "file:Admin/ajax.js",
         "file:Admin/jquery.cookie.js",
+        "file:bump_cache.js",
         "file:CHANGELOG.md",
         "file:client_project_detail and conversations.txt",
         "file:CODE_OF_CONDUCT.md",
@@ -4929,10 +5173,13 @@
         "file:Dockerfile",
         "file:DOCKER_README.md",
         "file:docs/changelog.md",
+        "file:docs/plans/gold-instant-training.md",
         "file:docs/plans/phase-1.md",
         "file:docs/plans/phase-2.md",
         "file:docs/plans/phase-3.md",
         "file:docs/project_structure.md",
+        "file:fix_mobile_css_order.sh",
+        "file:fix_rtl.js",
         "file:flaggen.js",
         "file:GameEngine/Admin/ajax.js",
         "file:gpack/travian_default/lang/ar/b/zurueck.html",

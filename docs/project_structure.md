@@ -314,7 +314,10 @@ TravianZ-master/
 │   ├── 📄 romenai.png                # Roman tribe icon
 │   ├── 📄 lol.PNG                    # Misc image asset
 │   ├── 📄 x.gif                      # Transparent pixel spacer
-│   ├── 📁 admin/                     # Admin-specific images
+│   ├── 📁 admin/                     # Admin-specific images and CSS
+│   │   ├── 📄 admin.css              # Admin panel desktop layout CSS (696 lines)
+│   │   ├── 📄 acp.css                # Admin control panel styles (256 lines)
+│   │   └── 📄 admin_mobile.css       # Admin panel mobile responsive overrides (≤768px)
 │   ├── 📁 bezahlung/                 # Payment/billing images
 │   ├── 📁 en/                        # English-specific images
 │   ├── 📁 rpage/                     # Report page images
@@ -421,6 +424,19 @@ TravianZ-master/
 │   ├── 📄 index.php                  # Directory guard
 │   ├── 📁 db/                        # Database cache/temp files
 │   └── 📁 log/                       # Application log files
+│
+│
+├── 📄 mobile.css                      # Master mobile CSS aggregator — imports all partials from mobile/
+├── 📁 mobile/                         # Modular mobile responsive CSS partials (≤768px breakpoints)
+│   ├── 📄 _base.css                   # Global defaults (hide mobile-only elements on desktop)
+│   ├── 📄 _tablet.css                 # ≤980px — remove fixed widths for public + in-game pages
+│   ├── 📄 _phone_public.css           # ≤768px — public pages (index, tutorials, hamburger sidebar)
+│   ├── 📄 _phone_outgame.css          # ≤768px — outgame pages (login, signup, activate forms)
+│   ├── 📄 _phone_ingame.css           # ≤768px — in-game core (sidebar, resources, tables, map)
+│   ├── 📄 _phone_ingame_pages.css     # ≤768px — page-specific overrides (messages, reports, mass msg)
+│   ├── 📄 _phone_alliance.css         # ≤768px — alliance pages (forum, chat, overview, diplomacy)
+│   ├── 📄 _phone_plus.css             # ≤768px — gold shop/plus page (cards grid, buy buttons)
+│   └── 📄 _small_phone.css            # ≤480px — final tightening for narrow screens
 │
 └── 📁 docs/                          # Project documentation (our workspace)
     ├── 📄 project_structure.md       # This file - current architecture snapshot

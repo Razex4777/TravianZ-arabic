@@ -52,6 +52,7 @@ if($session->access == BANNED){
 	<?php if(defined('LANG') && LANG === 'ar'): ?>
 	
 	<?php endif; ?>
+	<link rel="stylesheet" type="text/css" href="mobile.css" />
 </head>
 
 

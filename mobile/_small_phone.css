@@ -1,0 +1,125 @@
+/* ==========================================================================
+   SMALL PHONE  ( ≤ 480px )  — Final tightening for narrow screens
+   ========================================================================== */
+
+@media screen and (max-width: 480px) {
+
+  /* ---------- PUBLIC PAGES ---------- */
+
+  body.indexPage #content {
+    padding-top: 100px !important;
+  }
+
+  body.contentPage #content {
+    padding-top: 80px !important;
+    padding-bottom: 60px !important;
+  }
+
+  body.contentPage h1 {
+    font-size: 18px !important;
+    padding-top: 15px !important;
+  }
+
+  #navigation a.home {
+    width: 120px !important;
+  }
+
+  .grit .infobox {
+    min-height: 0 !important;
+  }
+
+  #what_is_travian h2 {
+    font-size: 15px !important;
+  }
+
+  body.contentPage #content p,
+  body.contentPage #content .characteristics,
+  body.contentPage #content table,
+  body.contentPage form,
+  body.contentPage #content h2,
+  body.contentPage #content h3 {
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+  }
+
+  /* Tables — scroll in constrained container */
+  body.contentPage #content table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  body.contentPage table.culture_points {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* ---------- OUTGAME (Login/Signup) Small Phone ---------- */
+
+  body.v35 div#side_navi p a,
+  div#side_navi p a {
+    padding: 6px 12px !important;
+    font-size: 12px !important;
+  }
+
+  body.v35 div#content.login,
+  body.v35 div#content.signup,
+  body.v35 div#content.activate {
+    padding: 15px 10px !important;
+  }
+
+  body.v35 div.login table#login_form,
+  body.v35 div.login table,
+  body.v35 div.signup table {
+    max-width: 100% !important;
+    padding: 12px !important;
+  }
+
+  body.v35 div.login p.btn,
+  body.v35 div.signup p.btn {
+    max-width: 100% !important;
+  }
+
+  /* Only shrink the header on outgame pages (login/signup), NOT in-game */
+  body.v35:has(div#content.login) div#header,
+  body.v35:has(div#content.signup) div#header,
+  body.v35:has(div#content.activate) div#header {
+    height: 20px !important;
+  }
+
+  /* ---------- IN-GAME PAGES ---------- */
+
+  div#mtop a#n1 img,
+  div#mtop a#n2 img,
+  div#mtop a#n3 img,
+  div#mtop a#n4 img {
+    height: 40px !important;
+    width: 40px !important;
+  }
+
+  div#n5 img {
+    height: 40px !important;
+    width: 20px !important;
+  }
+
+  div#side_navi p a {
+    font-size: 10px !important;
+    padding: 3px 4px !important;
+  }
+
+  /* Footer */
+  div#footer div#mfoot {
+    font-size: 10px !important;
+    padding: 5px !important;
+  }
+
+  /* Resource bar — smaller text */
+  div#res table td {
+    font-size: 10px !important;
+  }
+
+  div#res table img {
+    width: 14px !important;
+    height: 14px !important;
+  }
+}

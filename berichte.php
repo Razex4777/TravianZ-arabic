@@ -71,6 +71,7 @@ if(isset($_GET['newdid'])) {
 	<?php if(defined('LANG') && LANG === 'ar'): ?>
 	
 	<?php endif; ?>
+	<link rel="stylesheet" type="text/css" href="mobile.css" />
 </head>
 
 
@@ -83,17 +84,17 @@ if(isset($_GET['newdid'])) {
 <div id="mid">
 <?php include("Templates/menu.tpl"); ?>
 		<div id="content"  class="reports">
-<h1>Reports</h1>
+<h1><?php echo (defined('LANG') && LANG === 'ar') ? 'التقارير' : 'Reports'; ?></h1>
 <div id="textmenu">
-   <a href="berichte.php" <?php if (!isset($_GET['t'])) { echo "class=\"selected \""; } ?>>All</a>
- | <a href="berichte.php?t=2" <?php if (isset($_GET['t']) && $_GET['t'] == 2) { echo "class=\"selected \""; } ?>>Trade</a>
- | <a href="berichte.php?t=1" <?php if (isset($_GET['t']) && $_GET['t'] == 1) { echo "class=\"selected \""; } ?>>Reinforcement</a>
- | <a href="berichte.php?t=3" <?php if (isset($_GET['t']) && $_GET['t'] == 3) { echo "class=\"selected \""; } ?>>Attacks</a>
- | <a href="berichte.php?t=4" <?php if (isset($_GET['t']) && $_GET['t'] == 4) { echo "class=\"selected \""; } ?>>Miscellaneous</a>
+   <a href="berichte.php" <?php if (!isset($_GET['t'])) { echo "class=\"selected \""; } ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'الكل' : 'All'; ?></a>
+ | <a href="berichte.php?t=2" <?php if (isset($_GET['t']) && $_GET['t'] == 2) { echo "class=\"selected \""; } ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'التجارة' : 'Trade'; ?></a>
+ | <a href="berichte.php?t=1" <?php if (isset($_GET['t']) && $_GET['t'] == 1) { echo "class=\"selected \""; } ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'التعزيزات' : 'Reinforcement'; ?></a>
+ | <a href="berichte.php?t=3" <?php if (isset($_GET['t']) && $_GET['t'] == 3) { echo "class=\"selected \""; } ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'الهجمات' : 'Attacks'; ?></a>
+ | <a href="berichte.php?t=4" <?php if (isset($_GET['t']) && $_GET['t'] == 4) { echo "class=\"selected \""; } ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'متنوعات' : 'Miscellaneous'; ?></a>
  <?php if($session->plus) {
  echo "| <a href=\"berichte.php?t=5\"";
  if (isset($_GET['t']) && $_GET['t'] == 5) { echo "class=\"selected \""; }
- echo ">Archive</a>";
+ echo ">" . ((defined('LANG') && LANG === 'ar') ? 'الأرشيف' : 'Archive') . "</a>";
  }
  ?>
 </div>

@@ -143,4 +143,25 @@ if($session->userinfo['gold'] >= 3 && $building->getTypeLevel(17) >= 1 && $villa
     }
 }
 
+// --- Gold: Upgrade to Max Level ---
+// Show a gold button to instantly upgrade this building to max level
+// Cost = max_level gold (1 gold per level)
+$currentBuildingType = $village->resarray['f'.$id.'t'];
+$currentBuildingLevel = (int) $village->resarray['f'.$id];
+$buildingMaxLevel = $building->getMaxLevel($currentBuildingType);
+
+if ($currentBuildingType > 0 && $currentBuildingLevel < $buildingMaxLevel && $buildingMaxLevel > 0) {
+	$upgradeCost = $buildingMaxLevel;
+	if ($session->gold >= $upgradeCost) {
+		echo "<p class=\"gold_upgrade\"><a href=\"build.php?id=$id&upgradeToMax=1\" onclick=\"return confirm('Upgrade this building to max level ($buildingMaxLevel) for $upgradeCost Gold?');\">";
+		echo "<img src=\"".GP_LOCATE."img/a/gold_g.gif\" alt=\"Gold\" title=\"Gold\"/> ";
+		echo "Upgrade to Level $buildingMaxLevel ($upgradeCost Gold)";
+		echo "</a></p>";
+	} else {
+		echo "<p class=\"gold_upgrade none\"><img src=\"".GP_LOCATE."img/a/gold_g.gif\" alt=\"Gold\" title=\"Gold\"/> ";
+		echo "Upgrade to Level $buildingMaxLevel ($upgradeCost Gold - Not enough gold)";
+		echo "</p>";
+	}
+}
+
 ?>

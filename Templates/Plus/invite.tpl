@@ -28,20 +28,13 @@ include("Templates/Plus/pmenu.tpl");
     <table id="brought_in" cellpadding="1" cellspacing="1">
         <thead>
             <tr>
-                <th colspan="6"><?php echo (defined('LANG') && LANG === 'ar') ? 'اللاعبون المدعوون' : 'Players brought in'; ?></th>
+                <th colspan="4"><?php echo (defined('LANG') && LANG === 'ar') ? 'اللاعبون المدعوون' : 'Players brought in'; ?></th>
             </tr>
 
             <tr>
-                <td></td>
-
-                <td><?php echo (defined('LANG') && LANG === 'ar') ? 'العالم' : 'World'; ?></td>
-
                 <td>UID</td>
-
                 <td><?php echo (defined('LANG') && LANG === 'ar') ? 'عضو منذ' : 'Member since'; ?></td>
-
                 <td><?php echo (defined('LANG') && LANG === 'ar') ? 'السكان' : 'Inhabitants'; ?></td>
-
                 <td><?php echo (defined('LANG') && LANG === 'ar') ? 'القرى' : 'Villages'; ?></td>
             </tr>
         </thead>
@@ -69,7 +62,7 @@ include("Templates/Plus/pmenu.tpl");
 		}}else{
 		?>
         <tr>
-            <td class="none" colspan="6"><?php echo (defined('LANG') && LANG === 'ar') ? 'لم تقم بدعوة أي لاعبين بعد.' : 'You have not brought in any new players yet.'; ?></td>
+            <td class="none" colspan="4"><?php echo (defined('LANG') && LANG === 'ar') ? 'لم تقم بدعوة أي لاعبين بعد.' : 'You have not brought in any new players yet.'; ?></td>
         </tr>
 		<?php } ?>
         </table>

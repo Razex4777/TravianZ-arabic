@@ -32,7 +32,7 @@ if(!empty($rep1))
 	<link href="../<?php echo GP_LOCATE; ?>lang/en/lang.css?f4b7d" rel="stylesheet" type="text/css">
 	<link href="../<?php echo GP_LOCATE; ?>lang/en/compact.css?v2" rel="stylesheet" type="text/css">
 	<link href="../<?php echo GP_LOCATE; ?>travian.css?v2" rel="stylesheet" type="text/css">
-	<h1>Players Report</h1>
+	<h1><?php echo (defined('LANG') && LANG === 'ar') ? 'تقارير اللاعبين' : 'Players Report'; ?></h1>
 	<div id="content" class="reports" style="padding: 0;">
 	<?php
 		include("Notice/all.tpl");
@@ -47,14 +47,14 @@ elseif(!empty($rep))
 	<link href="../<?php echo GP_LOCATE; ?>lang/en/compact.css?v2" rel="stylesheet" type="text/css">
 	<link href="../<?php echo GP_LOCATE; ?>travian.css?v2" rel="stylesheet" type="text/css">
 	<br />
-	<span class="b" style="padding: 0 4px 0;">Report of</span>: <?php echo $database->getUserField($rep['uid'], 'username', 0); ?><br />	
+	<span class="b" style="padding: 0 4px 0;"><?php echo (defined('LANG') && LANG === 'ar') ? 'تقرير' : 'Report of'; ?></span>: <?php echo $database->getUserField($rep['uid'], 'username', 0); ?><br />	
 	<div style="padding: 43px 4px 0;" id="content" class="reports">
-		<h1>Report</h1>
+		<h1><?php echo (defined('LANG') && LANG === 'ar') ? 'تقرير' : 'Report'; ?></h1>
 <?php
     $isAdmin = true;
 	$message = new Message();
 	$message->readingNotice = $rep;
 	include ("../Templates/Notice/".$message->getReportType($rep['ntype']).".tpl");
 }
-else echo "Report ID ".$bid." doesn't exist!";
+else echo (defined('LANG') && LANG === 'ar') ? "التقرير ".$bid." غير موجود!" : "Report ID ".$bid." doesn't exist!";
 ?>

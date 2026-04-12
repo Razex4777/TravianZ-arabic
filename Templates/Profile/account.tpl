@@ -1,23 +1,23 @@
-<h1>Player profile</h1>
+<h1><?php echo (defined('LANG') && LANG === 'ar') ? 'الملف الشخصي للاعب' : 'Player profile'; ?></h1>
 
 <?php include("menu.tpl"); ?>
 <form action="spieler.php" method="POST">
 <input type="hidden" name="ft" value="p3">
 <table cellpadding="1" cellspacing="1" id="change_pass" class="account">
 <thead><tr>
-    <th colspan="2">Change password</th>
+    <th colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'تغيير كلمة المرور' : 'Change password'; ?></th>
 </tr></thead><tbody>
 <tr>
-    <th>Old password</th>
+    <th><?php echo (defined('LANG') && LANG === 'ar') ? 'كلمة المرور القديمة' : 'Old password'; ?></th>
     <td><input class="text" type="password" name="pw1" maxlength="30" /></td>
 </tr>
 
 <tr>
-    <th>New password</th>
+    <th><?php echo (defined('LANG') && LANG === 'ar') ? 'كلمة المرور الجديدة' : 'New password'; ?></th>
     <td><input class="text" type="password" name="pw2" maxlength="30" /></td>
 </tr>
 <tr>
-    <th>New password</th>
+    <th><?php echo (defined('LANG') && LANG === 'ar') ? 'تأكيد كلمة المرور' : 'New password'; ?></th>
     <td><input class="text" type="password" name="pw3" maxlength="30" /></td>
 </tr></tbody></table>
 <?php
@@ -26,18 +26,18 @@ if(!empty($passError = $form->getError("pw"))) {
 }
 ?>
 <table cellpadding="1" cellspacing="1" id="change_mail" class="account"><thead><tr>
-        <th colspan="2">Change email</th>
+        <th colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'تغيير البريد الإلكتروني' : 'Change email'; ?></th>
 
     </tr></thead>
     <tbody><tr>
-        <td class="note" colspan="2">Please enter your old and your new e-mail addresses. You will then receive a code snippet at both e-mail addresses which you have to enter here.</td></tr>
+        <td class="note" colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'يرجى إدخال عنوان بريدك الإلكتروني القديم والجديد. ستتلقى رمز تأكيد على كلا العنوانين.' : 'Please enter your old and your new e-mail addresses. You will then receive a code snippet at both e-mail addresses which you have to enter here.'; ?></td></tr>
     <tr>
-        <th>Old email</th>
+        <th><?php echo (defined('LANG') && LANG === 'ar') ? 'البريد القديم' : 'Old email'; ?></th>
         <td><input class="text" type="text" name="email_alt" /></td>
     </tr>
     <tr>
 
-        <th>New email</th>
+        <th><?php echo (defined('LANG') && LANG === 'ar') ? 'البريد الجديد' : 'New email'; ?></th>
         <td><input class="text" type="text" name="email_neu" /></td>
     </tr></tbody></table>
 <?php
@@ -47,10 +47,10 @@ echo "<span class=\"error\">".$emailError."</span>";
 ?>
     <table cellpadding="1" cellspacing="1" id="sitter" class="account"><thead>
 <tr>
-    <th colspan="2">Account sitters</th>
+    <th colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'مساعدو الحساب' : 'Account sitters'; ?></th>
 </tr></thead>
 <tbody><tr>
-    <td class="note" colspan="2">A sitter can log into your account by using your name and his/her password. You can have up to two sitters.</td>
+    <td class="note" colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'يمكن للمساعد تسجيل الدخول إلى حسابك باستخدام اسمك وكلمة مروره. يمكنك تعيين مساعدين كحد أقصى.' : 'A sitter can log into your account by using your name and his/her password. You can have up to two sitters.'; ?></td>
 </tr>
     <?php
     $count = 0;
@@ -58,13 +58,13 @@ echo "<span class=\"error\">".$emailError."</span>";
     if($count < 2) {
     ?>
 <tr>
-    <th>Name of the sitter</th>
+    <th><?php echo (defined('LANG') && LANG === 'ar') ? 'اسم المساعد' : 'Name of the sitter'; ?></th>
     <td><input class="text" type="text" name="v1" maxlength="15"><span class="count">(<?php echo $count; ?>/2)</span></td>
 </tr>
 <?php 
 }
 ?><tr><td colspan="2" class="sitter">
-<?php if($count == 0) { echo "<span class=\"none\">You have no sitters.</span></td>"; }
+<?php if($count == 0) { echo "<span class=\"none\">".(defined('LANG') && LANG === 'ar' ? 'ليس لديك مساعدون.' : 'You have no sitters.')."</span></td>"; }
 if($session->userinfo['sit1'] != 0) {
 	echo "<div>";
     echo "<a href=\"spieler.php?s=3&e=3&id=".$session->userinfo['sit1']."&a=".$session->checker."&type=1\"><img class=\"del\" src=\"img/x.gif\" title=\"Remove sitters\" alt=\"Remove sitters\" /></a>";
@@ -78,11 +78,11 @@ echo "<a href=\"spieler.php?uid=".$session->userinfo['sit2']."\">".$database->ge
     echo "</div>";
 }
 ?></tr>
-<tr><td class="note" colspan="2">You have been entered as sitter on the following accounts. You can cancel this by clicking the red X.</td></tr><tr><td colspan="2" class="sitter">
+<tr><td class="note" colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'تم تعيينك كمساعد في الحسابات التالية. يمكنك إلغاء ذلك بالنقر على X الأحمر.' : 'You have been entered as sitter on the following accounts. You can cancel this by clicking the red X.'; ?></td></tr><tr><td colspan="2" class="sitter">
 <?php 
 $sitee = $database->getSitee($session->uid);
 if(count($sitee) == 0) {
-echo "<span class=\"none\">You have no sitters.</span>";
+echo "<span class=\"none\">".(defined('LANG') && LANG === 'ar' ? 'ليس لديك مساعدون.' : 'You have no sitters.')."</span>";
 }
 else {
 foreach($sitee as $sit) {
@@ -101,11 +101,11 @@ if(!empty($sitterError = $form->getError("sit"))) {
 ?>
     <table cellpadding="1" cellspacing="1" id="del_acc" class="account"><thead>
 <tr>
-    <th colspan="2">Delete account</th>
+    <th colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'حذف الحساب' : 'Delete account'; ?></th>
 </tr>
 </thead><tbody>
 <tr>
-	<td class="note" colspan="2">You can delete your account here. After starting the cancellation it will take three days to complete the cancellation of your account. You can cancel this process within the first 24 hours.</td>
+	<td class="note" colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'يمكنك حذف حسابك من هنا. بعد بدء الإلغاء سيستغرق ثلاثة أيام لإكمال حذف حسابك. يمكنك إلغاء العملية خلال أول 24 ساعة.' : 'You can delete your account here. After starting the cancellation it will take three days to complete the cancellation of your account. You can cancel this process within the first 24 hours.'; ?></td>
 </tr><tr>
 <?php
 $timestamp = $database->isDeleting($session->uid);
@@ -120,14 +120,14 @@ echo "<a href=\"spieler.php?s=3&id=".$session->uid."&a=1&e=4\"><img
 }
 else {
 ?>
-<th>Delete account?</th>
+<th><?php echo (defined('LANG') && LANG === 'ar') ? 'حذف الحساب؟' : 'Delete account?'; ?></th>
         <td class="del_selection">
-            <label><input class="radio" type="radio" name="del" value="1" /> Yes</label>
-            <label><input class="radio" type="radio" name="del" value="0" checked /> No</label>
+            <label><input class="radio" type="radio" name="del" value="1" /> <?php echo (defined('LANG') && LANG === 'ar') ? 'نعم' : 'Yes'; ?></label>
+            <label><input class="radio" type="radio" name="del" value="0" checked /> <?php echo (defined('LANG') && LANG === 'ar') ? 'لا' : 'No'; ?></label>
         </td>
     </tr>
     <tr>
-        <th>Confirm with password:</th>
+        <th><?php echo (defined('LANG') && LANG === 'ar') ? 'تأكيد بكلمة المرور:' : 'Confirm with password:'; ?></th>
 
         <td><input class="text" type="password" name="del_pw" maxlength="30" /></td>
         <?php 

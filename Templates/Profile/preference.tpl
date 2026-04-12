@@ -84,7 +84,7 @@ $links = [];
 while($data = mysqli_fetch_assoc($query)) $links[] = $data;
 ?>
 
-<h1>Player profile</h1>
+<h1><?php echo (defined('LANG') && LANG === 'ar') ? 'الملف الشخصي للاعب' : 'Player profile'; ?></h1>
 
 <?php include("menu.tpl"); ?>
 <form action="spieler.php?s=2" method="POST">
@@ -92,13 +92,13 @@ while($data = mysqli_fetch_assoc($query)) $links[] = $data;
   <table cellpadding="1" cellspacing="1" id="links">
     <thead>
       <tr>
-	<th colspan="4">Direct links</th>
+	<th colspan="4"><?php echo (defined('LANG') && LANG === 'ar') ? 'روابط مباشرة' : 'Direct links'; ?></th>
       </tr>
       <tr>
-	<td>Delete</td>
-	<td>No.</td>
-	<td>Link name</td>
-	<td>Link target</td>
+	<td><?php echo (defined('LANG') && LANG === 'ar') ? 'حذف' : 'Delete'; ?></td>
+	<td><?php echo (defined('LANG') && LANG === 'ar') ? 'رقم' : 'No.'; ?></td>
+	<td><?php echo (defined('LANG') && LANG === 'ar') ? 'اسم الرابط' : 'Link name'; ?></td>
+	<td><?php echo (defined('LANG') && LANG === 'ar') ? 'هدف الرابط' : 'Link target'; ?></td>
       </tr>
     </thead>      
     <tbody>
@@ -127,69 +127,69 @@ while($data = mysqli_fetch_assoc($query)) $links[] = $data;
 
 <table cellpadding="1" cellspacing="1" id="completion" class="set"><thead>
     <tr>
-	<th colspan="2">Auto completion</th>
+	<th colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'الإكمال التلقائي' : 'Auto completion'; ?></th>
     </tr>
     <tr>
-	<td colspan="2">Used for rally point and marketplace:</td>
+	<td colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'يُستخدم لنقطة التجمع والسوق:' : 'Used for rally point and marketplace:'; ?></td>
 
     </tr>
     </thead><tbody>
     <tr>
 	<td class="sel"><input class="check" type="checkbox" name="v1" value="1" checked></td>
-	<td>own villages</td>
+	<td><?php echo (defined('LANG') && LANG === 'ar') ? 'قراك الخاصة' : 'own villages'; ?></td>
     </tr>
     <tr>
 	<td class="sel"><input class="check" type="checkbox" name="v2" value="1" ></td>
 
-	<td>villages of the surroundings</td>
+	<td><?php echo (defined('LANG') && LANG === 'ar') ? 'قرى المحيط' : 'villages of the surroundings'; ?></td>
     </tr>
     <tr>
 	<td class="sel"><input class="check" type="checkbox" name="v3" value="1" ></td>
-	<td>villages from players of the alliance</td>
+	<td><?php echo (defined('LANG') && LANG === 'ar') ? 'قرى لاعبي التحالف' : 'villages from players of the alliance'; ?></td>
     </tr>
     </tbody></table><table cellpadding="1" cellspacing="1" id="big_map" class="set"><thead>
     <tr>
 
-	<th colspan="2">Large map</th>
+	<th colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'الخريطة الكبيرة' : 'Large map'; ?></th>
     </tr>
     </thead><tbody>
     <tr>
 	<td class="sel"><input class="check" type="checkbox" name="map" ></td>
-	<td>Show the large map in an extra window.</td>
+	<td><?php echo (defined('LANG') && LANG === 'ar') ? 'عرض الخريطة الكبيرة في نافذة منفصلة.' : 'Show the large map in an extra window.'; ?></td>
     </tr>
     </tbody>
 
     </table><table cellpadding="1" cellspacing="1" id="report_filter" class="set"><thead>
     <tr>
-	<th colspan="2">Report filter</th>
+	<th colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'فلتر التقارير' : 'Report filter'; ?></th>
     </tr>
     </thead><tbody>
     <tr>
 	<td class="sel"><input class="check" type="checkbox" name="v4" value="1" ></td>
-	<td>No reports for transfers to own villages.</td>
+	<td><?php echo (defined('LANG') && LANG === 'ar') ? 'بدون تقارير للتحويلات إلى قراك الخاصة.' : 'No reports for transfers to own villages.'; ?></td>
 
     </tr>
     <tr>
 	<td class="sel"><input class="check" type="checkbox" name="v5" value="1" ></td>
-	<td>No reports for transfers to foreign villages.</td>
+	<td><?php echo (defined('LANG') && LANG === 'ar') ? 'بدون تقارير للتحويلات إلى قرى أخرى.' : 'No reports for transfers to foreign villages.'; ?></td>
     </tr>
     <tr>
 	<td class="sel"><input class="check" type="checkbox" name="v6" value="1" ></td>
-	<td>No reports for transfers from foreign villages.</td>
+	<td><?php echo (defined('LANG') && LANG === 'ar') ? 'بدون تقارير للتحويلات من قرى أخرى.' : 'No reports for transfers from foreign villages.'; ?></td>
 
     </tr>
     </tbody>
     </table><table cellpadding="1" cellspacing="1" id="time" class="set"><thead>
 <tr>
-    <th colspan="2">Time preferences</th>
+    <th colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'تفضيلات الوقت' : 'Time preferences'; ?></th>
 </tr>
 <tr>
-    <td colspan="2">Here you can change Travian's displayed time to fit your time zone.</td>
+    <td colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'هنا يمكنك تغيير الوقت المعروض ليناسب منطقتك الزمنية.' : 'Here you can change Travian\'s displayed time to fit your time zone.'; ?></td>
 </tr>
 </thead><tbody>
 
 <tr>
-    <th>Time zones</th>
+    <th><?php echo (defined('LANG') && LANG === 'ar') ? 'المناطق الزمنية' : 'Time zones'; ?></th>
     <td><select name="timezone" class="dropdown">
 	<optgroup label="local time zones"><option value="495">Europe</option>
 <option value="99" selected="selected">UK</option>
@@ -232,7 +232,7 @@ while($data = mysqli_fetch_assoc($query)) $links[] = $data;
 
     </td>
 </tr><tr>
-    <th>Date</th>
+    <th><?php echo (defined('LANG') && LANG === 'ar') ? 'التاريخ' : 'Date'; ?></th>
     <td>
 	<label><input class="radio" type="Radio" name="tformat" value="0" checked> EU (dd.mm.yy 24h)</label><br />
 

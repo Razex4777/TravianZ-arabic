@@ -1,0 +1,397 @@
+/* ==========================================================================
+   IN-GAME MOBILE — Page-Specific Overrides  (≤ 768px)
+   --------------------------------------------------------------------------
+   Split from _phone_ingame.css to keep files under 500 lines.
+   Contains per-page responsive overrides for:
+   
+   15. Messages Page     (nachrichten.php)
+   16. Reports Page      (berichte.php)
+   17. Global Text Readability
+   18. Mass Message Page  (massmessage.php)
+   19. Alliance Pages     (allianz.php)
+   20. RTL Adjustments
+   ========================================================================== */
+
+@media screen and (max-width: 768px) {
+
+  /* ──────────────────────────────────────────────────────────────────────
+     15. MESSAGES PAGE (nachrichten.php)
+     ────────────────────────────────────────────────────────────────────── */
+  
+  /* Make the main messages container take full width */
+  div#content.messages {
+    width: 100% !important;
+    padding: 10px !important;
+    box-sizing: border-box;
+  }
+
+  /* Make the messages table horizontally scrollable */
+  div#content.messages table#overview {
+    width: 100% !important;
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
+
+  /* Wrap text slightly where it's needed, but let the table scroll horizontally */
+  div#content.messages table#overview th,
+  div#content.messages table#overview td {
+    padding: 8px 10px !important;
+  }
+  
+  /* Fix text menu items so they wrap elegantly */
+  div#content.messages div#textmenu {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 8px;
+    margin-bottom: 15px !important;
+  }
+  
+  div#content.messages div#textmenu a {
+    display: inline-block;
+    padding: 6px 12px;
+    background: rgba(0,0,0,0.03);
+    border-radius: 4px;
+    text-decoration: none;
+    border: 1px solid rgba(0,0,0,0.1);
+  }
+  
+  div#content.messages div#textmenu a.selected {
+    font-weight: bold;
+    background: rgba(113,208,0,0.1);
+    border-color: #71D000;
+  }
+  
+  /* Fix message writing inputs */
+  #content.messages form {
+    width: 100% !important;
+  }
+  
+  #content.messages input.text,
+  #content.messages textarea {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+    padding: 8px !important;
+  }
+
+  /* BBCode Toolbar Responsiveness */
+  #message_container #message_toolbar {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 5px;
+    margin-bottom: 10px;
+  }
+
+  #message_container #message_toolbarWindows {
+    max-width: 100% !important;
+    overflow-x: auto !important;
+  }
+
+
+  /* ──────────────────────────────────────────────────────────────────────
+     16. REPORTS PAGE (berichte.php)
+     ────────────────────────────────────────────────────────────────────── */
+
+  /* Make the main reports container take full width */
+  div#content.reports {
+    width: 100% !important;
+    padding: 10px !important;
+    box-sizing: border-box;
+  }
+
+  /* Page heading — clear, dark, readable */
+  div#content.reports h1 {
+    color: #222 !important;
+    font-size: 20px !important;
+    margin-bottom: 10px !important;
+  }
+
+  /* Report type tabs — wrap elegantly on mobile */
+  div#content.reports div#textmenu {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 6px;
+    margin-bottom: 15px !important;
+    line-height: 1.6;
+  }
+
+  div#content.reports div#textmenu a {
+    display: inline-block;
+    padding: 6px 14px;
+    background: rgba(0,0,0,0.03);
+    border-radius: 6px;
+    text-decoration: none;
+    border: 1px solid rgba(0,0,0,0.1);
+    color: #333 !important;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  div#content.reports div#textmenu a.selected {
+    font-weight: bold;
+    background: rgba(113,208,0,0.12) !important;
+    border-color: #71D000 !important;
+    color: #2a6800 !important;
+  }
+
+  /* Hide the pipe separators between tab links */
+  div#content.reports div#textmenu {
+    font-size: 0; /* collapse whitespace + pipe chars */
+  }
+  div#content.reports div#textmenu a {
+    font-size: 13px; /* restore on links */
+  }
+
+  /* Make the reports table horizontally scrollable */
+  div#content.reports table#overview {
+    width: 100% !important;
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  div#content.reports table#overview thead,
+  div#content.reports table#overview tbody,
+  div#content.reports table#overview tfoot {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  div#content.reports table#overview th,
+  div#content.reports table#overview td {
+    padding: 8px 6px !important;
+    font-size: 12px;
+    color: #333 !important;
+    word-break: break-word;
+  }
+
+  /* Subject column — allow wrapping */
+  div#content.reports table#overview td.sub {
+    white-space: normal !important;
+    word-wrap: break-word;
+  }
+
+  div#content.reports table#overview td.sub div {
+    display: inline;
+  }
+
+  div#content.reports table#overview td.sub a {
+    color: #1a5c00 !important;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  /* Date column */
+  div#content.reports table#overview td.dat {
+    white-space: nowrap;
+    font-size: 11px;
+    color: #666 !important;
+  }
+
+  /* Footer buttons (delete, archive) */
+  div#content.reports table#overview tfoot th.buttons {
+    text-align: center !important;
+  }
+
+  div#content.reports table#overview tfoot th.buttons input[type="submit"] {
+    font-size: 12px !important;
+    padding: 6px 16px !important;
+    margin: 4px !important;
+  }
+
+  /* Navigation arrows */
+  div#content.reports table#overview tfoot th.navi {
+    text-align: center !important;
+    font-size: 14px;
+  }
+
+  div#content.reports table#overview tfoot th.navi a {
+    color: #1a5c00 !important;
+    padding: 4px 8px;
+    font-size: 16px;
+  }
+
+  /* Report reading view — individual report */
+  div#content.reports .report_details {
+    width: 100% !important;
+    overflow-x: auto !important;
+  }
+
+  div#content.reports .report_details table {
+    width: 100% !important;
+    font-size: 12px;
+  }
+
+  /* ──────────────────────────────────────────────────────────────────────
+     17. GLOBAL TEXT READABILITY — High-contrast text on light backgrounds
+     ────────────────────────────────────────────────────────────────────── */
+
+  /* Main content headings */
+  div#content h1 {
+    color: #1a1a1a !important;
+  }
+
+  /* Table text — ensure dark, readable colors */
+  div#content table th {
+    color: #222 !important;
+  }
+
+  div#content table td {
+    color: #333 !important;
+  }
+
+  div#content table td a {
+    color: #1a5c00 !important;
+  }
+
+  /* Side info panel text */
+  div#side_info,
+  div#side_info td,
+  div#side_info a {
+    color: #333 !important;
+  }
+
+  /* Sidebar nav labels — high contrast on white bg */
+  div#mtop a#n1,
+  div#mtop a#n2,
+  div#mtop a#n3,
+  div#mtop a#n4 {
+    color: #333 !important;
+    font-size: 13px !important;
+    font-weight: 500;
+  }
+
+  /* Plus button text clearly white on green */
+  div#mtop a#plus span.plus_g,
+  div#mtop a#plus span.plus_o {
+    color: #fff !important;
+  }
+
+  /* General link readability */
+  div#content a {
+    color: #1a5c00 !important;
+  }
+
+  /* Side navigation links */
+  div#side_navi a {
+    color: #333 !important;
+  }
+
+  /* ──────────────────────────────────────────────────────────────────────
+     18. MASS MESSAGE PAGE (massmessage.php)
+     ────────────────────────────────────────────────────────────────────── */
+
+  /* The page uses div#content.login — force full width */
+  body .wrapper div#content.login {
+    width: 100% !important;
+    padding: 10px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Mass message main table — fluid single-column */
+  body .wrapper div#content.login table.tbg {
+    width: 100% !important;
+    display: block !important;
+    overflow-x: visible !important;
+    box-sizing: border-box !important;
+    border-collapse: collapse !important;
+  }
+
+  body .wrapper div#content.login table.tbg tbody {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  body .wrapper div#content.login table.tbg tr {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    margin-bottom: 6px;
+  }
+
+  body .wrapper div#content.login table.tbg td {
+    display: block !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    text-align: start !important;
+    padding: 6px 10px !important;
+    font-size: 13px !important;
+    color: #333 !important;
+  }
+
+  /* Header cell — center the title */
+  body .wrapper div#content.login table.tbg td.rbg {
+    text-align: center !important;
+    font-weight: bold;
+    font-size: 15px !important;
+    background: rgba(113,208,0,0.08) !important;
+    border-bottom: 2px solid #71D000 !important;
+    padding: 12px !important;
+  }
+
+  /* Form inputs — fill container */
+  body .wrapper div#content.login input[type="text"],
+  body .wrapper div#content.login input.fm {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 10px !important;
+    font-size: 13px !important;
+    border: 1px solid #ccc !important;
+    border-radius: 4px !important;
+  }
+
+  body .wrapper div#content.login textarea,
+  body .wrapper div#content.login textarea.fm {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 10px !important;
+    font-size: 13px !important;
+    border: 1px solid #ccc !important;
+    border-radius: 4px !important;
+    min-height: 200px !important;
+    resize: vertical !important;
+  }
+
+  /* Submit button — centered, touch-friendly */
+  body .wrapper div#content.login input[type="submit"] {
+    display: block !important;
+    width: 100% !important;
+    max-width: 280px !important;
+    margin: 10px auto !important;
+    padding: 12px 20px !important;
+    font-size: 14px !important;
+    font-weight: bold;
+    cursor: pointer !important;
+    background: #71D000 !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: 6px !important;
+  }
+
+  /* Confirm step — stack Yes/No buttons vertically */
+  body .wrapper div#content.login input[name="confirm"] {
+    width: 100% !important;
+    max-width: 200px !important;
+    margin: 8px auto !important;
+  }
+
+  /* Smilies/units panel — scrollable on mobile */
+  #message_smilies {
+    max-width: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    overflow-x: auto !important;
+  }
+
+
+}

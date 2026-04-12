@@ -105,7 +105,11 @@ include("next.tpl");
     	echo "
     <table cellpadding=\"1\" cellspacing=\"1\" class=\"under_progress\">
 		<thead><tr>
-			<td>".TRAINING."</td>
+			<td>".TRAINING."";
+		if($session->gold >= 35) {
+			echo " <a href=\"?id=".$id."&trainingFinish=1\" onclick=\"return confirm('Finish all training in this village immediately for 35 Gold?');\" title=\"Finish all training immediately for 35 Gold?\"><img class=\"clock\" alt=\"Finish training\" src=\"img/x.gif\"/></a>";
+		}
+		echo "</td>
 			<td>".DURATION."</td>
 			<td>".FINISHED."</td>
 		</tr></thead>

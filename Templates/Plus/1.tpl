@@ -29,7 +29,7 @@ function loadProductGroup(group_id) {
 	</thead>
 	<tbody>
 		<tr>
-			<td class="pic"><img src="img/bezahlung/Travian_verdienen.jpg" style="99px; height:99px;" alt="Package A" />
+			<td class="pic"><img src="img/bezahlung/Travian_verdienen.jpg" style="width: 99px; height: 99px;" alt="Package A" />
 
 			<div><?php echo (defined('LANG') && LANG === 'ar') ? 'متجر الذهب' : 'Gold Shop'; ?></div>
 			</td>
@@ -59,8 +59,7 @@ function loadProductGroup(group_id) {
 
 										<tr>
 						<td class="pic"><a href="plus1.php?id=110">
-							<img src="img/bezahlung/Travian_paket_a.jpg" style="width:
-							99px; height:99px;"
+							<img src="img/bezahlung/Travian_paket_a.jpg" style="width: 99px; height: 99px;"
 				                         alt="Package A" /></a></td>
 					</tr>
 					<tr>
@@ -87,8 +86,7 @@ function loadProductGroup(group_id) {
 										<tr>
 						<td class="pic"><a
 							href="plus1.php?id=111">
-							<img src="img/bezahlung/Travian_paket_b.jpg" style="width:
-							99px; height:99px;"
+							<img src="img/bezahlung/Travian_paket_b.jpg" style="width: 99px; height: 99px;"
 				                         alt="Package B" /></a></td>
 					</tr>
 					<tr>
@@ -115,8 +113,7 @@ function loadProductGroup(group_id) {
 										<tr>
 						<td class="pic"><a
 							href="plus1.php?id=112">
-							<img src="img/bezahlung/Travian_paket_c.jpg" style="width:
-							99px; height:99px;"
+							<img src="img/bezahlung/Travian_paket_c.jpg" style="width: 99px; height: 99px;"
 				                         alt="Package C" /></a></td>
 					</tr>
 					<tr>
@@ -143,8 +140,7 @@ function loadProductGroup(group_id) {
 										<tr>
 						<td class="pic"><a
 							href="plus1.php?id=113">
-							<img src="img/bezahlung/Travian_paket_d.jpg" style="width:
-							99px; height:99px;"
+							<img src="img/bezahlung/Travian_paket_d.jpg" style="width: 99px; height: 99px;"
 				                         alt="Package D" /></a></td>
 					</tr>
 					<tr>
@@ -171,8 +167,7 @@ function loadProductGroup(group_id) {
 										<tr>
 						<td class="pic"><a
 							href="plus1.php?id=3110">
-							<img src="img/bezahlung/Travian_paket_e.jpg" style="width:
-							99px; height:99px;"
+							<img src="img/bezahlung/Travian_paket_e.jpg" style="width: 99px; height: 99px;"
 				                         alt="Package E" /></a></td>
 					</tr>
 					<tr>

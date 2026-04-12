@@ -696,6 +696,55 @@ class Technology {
 		return $this->unarray[$i];
 	}
 
+	/**
+	 * Instantly finish all training queues for the current village.
+	 * Adds the trained units to the village's unit table and deletes
+	 * the training rows from the database.
+	 *
+	 * @return int Number of training jobs that were finished
+	 */
+	public function finishTraining() {
+		global $database, $village;
+
+		$trainingRows = $database->getTraining($village->wid);
+		if (empty($trainingRows)) return 0;
+
+		$finishedCount = 0;
+
+		foreach ($trainingRows as $train) {
+			$unit = (int) $train['unit'];
+			$amt  = (int) $train['amt'];
+
+			if ($amt <= 0) continue;
+
+			// Great barracks/stable/workshop units are stored with +60 offset
+			// in the training table. Map them back to the original unit ID
+			// for the units table (mirrors Automation::trainingComplete logic).
+			$actualUnit = ($unit > 60 && $unit != 99) ? $unit - 60 : $unit;
+
+			// Add the units to the village's unit table
+			// modifyUnit expects arrays: [unit_ids], [amounts], [modes]
+			// mode 1 = add to existing count
+			$database->modifyUnit(
+				$village->wid,
+				[$actualUnit],
+				[$amt],
+				[1]
+			);
+
+			$finishedCount++;
+		}
+
+		// Delete all training rows for this village
+		if ($finishedCount > 0) {
+			$database->query(
+				"DELETE FROM " . TB_PREFIX . "training WHERE vref = " . (int) $village->wid
+			);
+		}
+
+		return $finishedCount;
+	}
+
 	public function finishTech() {
         global $database,$village;
         $q = "UPDATE ".TB_PREFIX."research SET timestamp=".(time()-1)." WHERE vref = ".(int) $village->wid;

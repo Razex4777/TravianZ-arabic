@@ -366,10 +366,12 @@ if (!empty($_GET['p'])) {
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="shortcut icon" href="favicon.ico"/>
 		<title>Admin Panel - <?php echo $subpage; ?></title>
 		<link rel="stylesheet" type="text/css" href="../img/admin/admin.css">
 		<link rel="stylesheet" type="text/css" href="../img/admin/acp.css">
+		<link rel="stylesheet" type="text/css" href="../img/admin/admin_mobile.css">
 		<link rel="stylesheet" type="text/css" href="../img/img.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script type="text/javascript" src="jquery.cookie.js"></script>
@@ -518,70 +520,70 @@ if (!empty($_GET['p'])) {
 							{
 					?>
 					<ul id="menu">
-						<li><a href="<?php echo HOMEPAGE; ?>">Server Homepage</a></li>
-						<li><a href="admin.php">Control Panel Home</a></li>
-						<li><a href="<?php echo rtrim(SERVER, '/'); ?>/dorf1.php">Return to the server</a></li>
+						<li><a href="<?php echo HOMEPAGE; ?>"><?php echo (defined('LANG') && LANG === 'ar') ? 'الصفحة الرئيسية' : 'Server Homepage'; ?></a></li>
+						<li><a href="admin.php"><?php echo (defined('LANG') && LANG === 'ar') ? 'لوحة التحكم' : 'Control Panel Home'; ?></a></li>
+						<li><a href="<?php echo rtrim(SERVER, '/'); ?>/dorf1.php"><?php echo (defined('LANG') && LANG === 'ar') ? 'العودة إلى السيرفر' : 'Return to the server'; ?></a></li>
 						<!--<li><a href="?p=update"><font color="Red"><b>Server Update (<?php echo $up_avl; ?>)</b></font></a></li>-->
-						<li><a href="?action=logout">Logout</a></li>
-						<li class="sub"><a href="#">Server Info</a>
+						<li><a href="?action=logout"><?php echo (defined('LANG') && LANG === 'ar') ? 'تسجيل الخروج' : 'Logout'; ?></a></li>
+						<li class="sub"><a href="#"><?php echo (defined('LANG') && LANG === 'ar') ? 'معلومات السيرفر' : 'Server Info'; ?></a>
 							<ul>
-								<li><a href="?p=server_info">Server Info</a></li>
-								<li><a href="?p=online">Online Users</a></li>
-								<li><a href="?p=notregistered">Players Not Activated</a></li>
-								<li><a href="?p=inactive">Players Inactivate</a></li>
-								<li><a href="?p=report">Players Report</a></li>
-								<li><a href="?p=msg">Players Message</a></li>
-								<li><a href="?p=map">Map</a></li>
-								<li><a href="?p=map_tile">Map Tile</a></li>
-								<li><a href="?p=natars">Natars Management</a></li>
+								<li><a href="?p=server_info"><?php echo (defined('LANG') && LANG === 'ar') ? 'معلومات السيرفر' : 'Server Info'; ?></a></li>
+								<li><a href="?p=online"><?php echo (defined('LANG') && LANG === 'ar') ? 'اللاعبون المتصلون' : 'Online Users'; ?></a></li>
+								<li><a href="?p=notregistered"><?php echo (defined('LANG') && LANG === 'ar') ? 'لاعبون غير مفعلين' : 'Players Not Activated'; ?></a></li>
+								<li><a href="?p=inactive"><?php echo (defined('LANG') && LANG === 'ar') ? 'لاعبون غير نشطين' : 'Players Inactivate'; ?></a></li>
+								<li><a href="?p=report"><?php echo (defined('LANG') && LANG === 'ar') ? 'تقارير اللاعبين' : 'Players Report'; ?></a></li>
+								<li><a href="?p=msg"><?php echo (defined('LANG') && LANG === 'ar') ? 'رسائل اللاعبين' : 'Players Message'; ?></a></li>
+								<li><a href="?p=map"><?php echo (defined('LANG') && LANG === 'ar') ? 'الخريطة' : 'Map'; ?></a></li>
+								<li><a href="?p=map_tile"><?php echo (defined('LANG') && LANG === 'ar') ? 'مربع الخريطة' : 'Map Tile'; ?></a></li>
+								<li><a href="?p=natars"><?php echo (defined('LANG') && LANG === 'ar') ? 'إدارة الناتار' : 'Natars Management'; ?></a></li>
 							</ul>
 						</li>
-						<li class="sub"><a href="#">Search</a>
+						<li class="sub"><a href="#"><?php echo (defined('LANG') && LANG === 'ar') ? 'البحث' : 'Search'; ?></a>
 							<ul>
-								<li><a href="?p=search">General Search</a></li>
-								<li><a href="?p=message">Search IGMs/Reports</a></li>
+								<li><a href="?p=search"><?php echo (defined('LANG') && LANG === 'ar') ? 'بحث عام' : 'General Search'; ?></a></li>
+								<li><a href="?p=message"><?php echo (defined('LANG') && LANG === 'ar') ? 'بحث الرسائل/التقارير' : 'Search IGMs/Reports'; ?></a></li>
 							</ul>
 						</li>
-						<li class="sub"><a href="#">Messages</a>
+						<li class="sub"><a href="#"><?php echo (defined('LANG') && LANG === 'ar') ? 'الرسائل' : 'Messages'; ?></a>
 							<ul>
-								<li><a href="<?php echo rtrim(SERVER, '/'); ?>/nachrichten.php">Read In-Game Messages</a></li>
-								<li><a href="<?php echo rtrim(SERVER, '/'); ?>/massmessage.php">Create Mass Message</a></li>
-								<li><a href="<?php echo rtrim(SERVER, '/'); ?>/sysmsg.php">Create System Message</a></li>
+								<li><a href="<?php echo rtrim(SERVER, '/'); ?>/nachrichten.php"><?php echo (defined('LANG') && LANG === 'ar') ? 'قراءة الرسائل' : 'Read In-Game Messages'; ?></a></li>
+								<li><a href="<?php echo rtrim(SERVER, '/'); ?>/massmessage.php"><?php echo (defined('LANG') && LANG === 'ar') ? 'إنشاء رسالة جماعية' : 'Create Mass Message'; ?></a></li>
+								<li><a href="<?php echo rtrim(SERVER, '/'); ?>/sysmsg.php"><?php echo (defined('LANG') && LANG === 'ar') ? 'إنشاء رسالة نظام' : 'Create System Message'; ?></a></li>
 							</ul>
 						</li>
-						<li class="sub"><a href="#">Ban</a>
+						<li class="sub"><a href="#"><?php echo (defined('LANG') && LANG === 'ar') ? 'الحظر' : 'Ban'; ?></a>
 							<ul>
-								<li><a href="?p=ban">Ban/Unban Players</a></li>
-								<li><a href="?p=maintenance">Server Maintenance</a></li>
-								<li><a href="?p=cleanban">Clean Banlist Data</a></li>
+								<li><a href="?p=ban"><?php echo (defined('LANG') && LANG === 'ar') ? 'حظر/إلغاء حظر اللاعبين' : 'Ban/Unban Players'; ?></a></li>
+								<li><a href="?p=maintenance"><?php echo (defined('LANG') && LANG === 'ar') ? 'صيانة السيرفر' : 'Server Maintenance'; ?></a></li>
+								<li><a href="?p=cleanban"><?php echo (defined('LANG') && LANG === 'ar') ? 'تنظيف قائمة الحظر' : 'Clean Banlist Data'; ?></a></li>
 							</ul>
 						</li>
-						<li class="sub"><a href="#">Gold</a>
+						<li class="sub"><a href="#"><?php echo (defined('LANG') && LANG === 'ar') ? 'الذهب' : 'Gold'; ?></a>
 							<ul>
-								<li><a href="?p=gold">Give All Free Gold</a></li>
-								<li><a href="?p=usergold">Give Free Gold To Specific User</a></li>
-								<li><a href="?p=maintenenceResetGold">Reset Gold</a></li>
+								<li><a href="?p=gold"><?php echo (defined('LANG') && LANG === 'ar') ? 'إعطاء ذهب مجاني للجميع' : 'Give All Free Gold'; ?></a></li>
+								<li><a href="?p=usergold"><?php echo (defined('LANG') && LANG === 'ar') ? 'إعطاء ذهب لمستخدم محدد' : 'Give Free Gold To Specific User'; ?></a></li>
+								<li><a href="?p=maintenenceResetGold"><?php echo (defined('LANG') && LANG === 'ar') ? 'إعادة تعيين الذهب' : 'Reset Gold'; ?></a></li>
 							</ul>
 						</li>
-						<li class="sub"><a href="#">Plus & Res Bonus</a>
+						<li class="sub"><a href="#"><?php echo (defined('LANG') && LANG === 'ar') ? 'بلس والمكافآت' : 'Plus & Res Bonus'; ?></a>
 							<ul>
-								<li><a href="?p=givePlus">Give All Plus</a></li>
-								<li><a href="?p=maintenenceResetPlus">Reset Plus</a></li>
-								<li><a href="?p=givePlusRes">Give All Res Bonus</a></li>
-								<li><a href="?p=maintenenceResetPlusBonus">Reset Res Bonus</a></li>
+								<li><a href="?p=givePlus"><?php echo (defined('LANG') && LANG === 'ar') ? 'إعطاء بلس للجميع' : 'Give All Plus'; ?></a></li>
+								<li><a href="?p=maintenenceResetPlus"><?php echo (defined('LANG') && LANG === 'ar') ? 'إعادة تعيين البلس' : 'Reset Plus'; ?></a></li>
+								<li><a href="?p=givePlusRes"><?php echo (defined('LANG') && LANG === 'ar') ? 'إعطاء مكافأة الموارد للجميع' : 'Give All Res Bonus'; ?></a></li>
+								<li><a href="?p=maintenenceResetPlusBonus"><?php echo (defined('LANG') && LANG === 'ar') ? 'إعادة تعيين مكافأة الموارد' : 'Reset Res Bonus'; ?></a></li>
 							</ul>
 						</li>
-						<li class="sub"><a href="#">Users</a>
+						<li class="sub"><a href="#"><?php echo (defined('LANG') && LANG === 'ar') ? 'المستخدمون' : 'Users'; ?></a>
 							<ul>
-                                <li><a href="?p=users">List Users</a></li>
-								<li><a href="?p=addUsers">Create Users</a></li>
+                                <li><a href="?p=users"><?php echo (defined('LANG') && LANG === 'ar') ? 'قائمة المستخدمين' : 'List Users'; ?></a></li>
+								<li><a href="?p=addUsers"><?php echo (defined('LANG') && LANG === 'ar') ? 'إنشاء مستخدمين' : 'Create Users'; ?></a></li>
 							</ul>
 						</li>
-						<li class="sub"><a href="#">Admin</a>
+						<li class="sub"><a href="#"><?php echo (defined('LANG') && LANG === 'ar') ? 'الإدارة' : 'Admin'; ?></a>
 							<ul>
-								<li><a href="?p=admin_log"><font color="Red"><b>Admin Log</b></font></a></li>
-								<li><a href="?p=config">Server Settings</a></li>
-								<li><a href="?p=resetServer">Server Resetting</a></li>
+								<li><a href="?p=admin_log"><font color="Red"><b><?php echo (defined('LANG') && LANG === 'ar') ? 'سجل الإدارة' : 'Admin Log'; ?></b></font></a></li>
+								<li><a href="?p=config"><?php echo (defined('LANG') && LANG === 'ar') ? 'إعدادات السيرفر' : 'Server Settings'; ?></a></li>
+								<li><a href="?p=resetServer"><?php echo (defined('LANG') && LANG === 'ar') ? 'إعادة تعيين السيرفر' : 'Server Resetting'; ?></a></li>
 							</ul>
 						</li>
 					</ul>
@@ -589,15 +591,15 @@ if (!empty($_GET['p'])) {
 							} else if($_SESSION['access'] == MULTIHUNTER) {
 					?>
 					<ul id="menu">
-						<li><a href="<?php echo HOMEPAGE; ?>">Server Homepage</a></li>
-						<li><a href="admin.php">Control Panel Home</a></li>
-						<li><a href="<?php echo rtrim(SERVER, '/'); ?>/nachrichten.php">In-Game Messages</a></li>
-						<li><a href="?p=server_info">Server Info</a></li>
-						<li><a href="?p=online">Online users</a></li>
-						<li><a href="?p=search">Search</a></li>
-						<li><a href="?p=message">Msg/Rep</a></li>
-						<li><a href="?p=ban">Ban</a></li>
-						<li><a href="?action=logout">Logout</a></li>
+						<li><a href="<?php echo HOMEPAGE; ?>"><?php echo (defined('LANG') && LANG === 'ar') ? 'الصفحة الرئيسية' : 'Server Homepage'; ?></a></li>
+						<li><a href="admin.php"><?php echo (defined('LANG') && LANG === 'ar') ? 'لوحة التحكم' : 'Control Panel Home'; ?></a></li>
+						<li><a href="<?php echo rtrim(SERVER, '/'); ?>/nachrichten.php"><?php echo (defined('LANG') && LANG === 'ar') ? 'الرسائل داخل اللعبة' : 'In-Game Messages'; ?></a></li>
+						<li><a href="?p=server_info"><?php echo (defined('LANG') && LANG === 'ar') ? 'معلومات السيرفر' : 'Server Info'; ?></a></li>
+						<li><a href="?p=online"><?php echo (defined('LANG') && LANG === 'ar') ? 'اللاعبون المتصلون' : 'Online users'; ?></a></li>
+						<li><a href="?p=search"><?php echo (defined('LANG') && LANG === 'ar') ? 'البحث' : 'Search'; ?></a></li>
+						<li><a href="?p=message"><?php echo (defined('LANG') && LANG === 'ar') ? 'الرسائل/التقارير' : 'Msg/Rep'; ?></a></li>
+						<li><a href="?p=ban"><?php echo (defined('LANG') && LANG === 'ar') ? 'الحظر' : 'Ban'; ?></a></li>
+						<li><a href="?action=logout"><?php echo (defined('LANG') && LANG === 'ar') ? 'تسجيل الخروج' : 'Logout'; ?></a></li>
 					</ul>
 					<?php
 							}

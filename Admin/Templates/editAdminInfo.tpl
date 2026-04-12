@@ -36,8 +36,8 @@ if($_SESSION['access'] < 9) die(ACCESS_DENIED_ADMIN);
 					<td><?php echo CONF_ADMIN_SHOWSTATS ?> <em class="tooltip">?<span class="classic"><?php echo CONF_ADMIN_SHOWSTATS_TOOLTIP ?></span></em></span></td>
 					<td>
 						<select name="admin_rank">
-							<option value="true" <?php if (INCLUDE_ADMIN==true) echo "selected";?>>True</option>
-							<option value="false" <?php if (INCLUDE_ADMIN==false) echo "selected";?>>False</option>
+							<option value="true" <?php if (INCLUDE_ADMIN==true) echo "selected";?>><?php echo (defined('LANG') && LANG === 'ar') ? 'صحيح' : 'True'; ?></option>
+							<option value="false" <?php if (INCLUDE_ADMIN==false) echo "selected";?>><?php echo (defined('LANG') && LANG === 'ar') ? 'خطأ' : 'False'; ?></option>
 						</select>
 					</td>
 				</tr>
@@ -45,8 +45,8 @@ if($_SESSION['access'] < 9) die(ACCESS_DENIED_ADMIN);
 					<td><?php echo CONF_ADMIN_SUPPMESS ?> <em class="tooltip">?<span class="classic"><?php echo CONF_ADMIN_SUPPMESS_TOOLTIP ?></span></em></td>
         			<td>
             			<select name="admin_support_msgs">
-                			<option value="True" <?php if (ADMIN_RECEIVE_SUPPORT_MESSAGES==true) echo "selected";?>>True</option>
-                			<option value="False" <?php if (ADMIN_RECEIVE_SUPPORT_MESSAGES==false) echo "selected";?>>False</option>
+                			<option value="True" <?php if (ADMIN_RECEIVE_SUPPORT_MESSAGES==true) echo "selected";?>><?php echo (defined('LANG') && LANG === 'ar') ? 'صحيح' : 'True'; ?></option>
+                			<option value="False" <?php if (ADMIN_RECEIVE_SUPPORT_MESSAGES==false) echo "selected";?>><?php echo (defined('LANG') && LANG === 'ar') ? 'خطأ' : 'False'; ?></option>
             			</select>
         			</td>
         		</tr>
@@ -54,8 +54,8 @@ if($_SESSION['access'] < 9) die(ACCESS_DENIED_ADMIN);
 					<td><?php echo CONF_ADMIN_RAIDATT ?> <em class="tooltip">?<span class="classic"><?php echo CONF_ADMIN_RAIDATT_TOOLTIP ?></span></em></td>
         			<td>
             			<select name="admin_raidable">
-                			<option value="True" <?php if (ADMIN_ALLOW_INCOMING_RAIDS==true) echo "selected";?>>True</option>
-                			<option value="False" <?php if (ADMIN_ALLOW_INCOMING_RAIDS==false) echo "selected";?>>False</option>
+                			<option value="True" <?php if (ADMIN_ALLOW_INCOMING_RAIDS==true) echo "selected";?>><?php echo (defined('LANG') && LANG === 'ar') ? 'صحيح' : 'True'; ?></option>
+                			<option value="False" <?php if (ADMIN_ALLOW_INCOMING_RAIDS==false) echo "selected";?>><?php echo (defined('LANG') && LANG === 'ar') ? 'خطأ' : 'False'; ?></option>
             			</select>
         			</td>
         		</tr>

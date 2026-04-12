@@ -165,6 +165,8 @@ class Building {
             }
         }
         elseif(isset($get['buildingFinish']) && $session->gold >= 2 && $session->sit == 0) $this->finishAll();
+        elseif(isset($get['trainingFinish']) && $session->gold >= 35 && $session->sit == 0) $this->finishTrainingGold();
+        elseif(isset($get['upgradeToMax']) && $session->sit == 0) $this->upgradeToMax($get['id']);
     }
 
 	public function canBuild($id, $tid) {
@@ -901,6 +903,143 @@ class Building {
 		$reqtime = max($rwtime, $rctime, $rcltime, $ritime);
 		$reqtime += time();
 		return $generator->procMtime($reqtime);
+	}
+
+	/**
+	 * Get the maximum level for a given building type.
+	 * Resource fields (1-4) have different caps for capital vs non-capital.
+	 * Village buildings use the full bid array length.
+	 *
+	 * @param int $buildingType The building type ID (bid)
+	 * @return int The maximum level achievable
+	 */
+	public function getMaxLevel($buildingType) {
+		global $village;
+		$name = "bid" . $buildingType;
+		global $$name;
+		$dataarray = $$name;
+
+		if (!$dataarray) return 0;
+
+		if ($buildingType <= 4) {
+			// Resource fields: capital can go to max, non-capital 10 less
+			return ($village->capital == 1)
+				? count($dataarray) - 1
+				: count($dataarray) - 11;
+		}
+
+		return count($dataarray);
+	}
+
+	/**
+	 * Instantly finish all training queues for the current village,
+	 * charging 35 gold. Separated from finishAll() which handles buildings.
+	 */
+	public function finishTrainingGold() {
+		global $database, $session, $logging, $village, $technology;
+
+		if ($session->gold < 35) {
+			header("Location: " . $session->referrer);
+			exit;
+		}
+
+		$finished = $technology->finishTraining();
+
+		if ($finished > 0) {
+			$logging->goldFinLog($village->wid);
+			$newgold = $session->gold - 35;
+			$database->updateUserField($session->uid, "gold", $newgold, 1);
+		}
+
+		self::recountCP($database, $village->wid);
+
+		header("Location: " . $session->referrer);
+		exit;
+	}
+
+	/**
+	 * Upgrade a building to its maximum level instantly using gold.
+	 * Cost = max_level gold pieces (1 gold per level of the building's max).
+	 * Sets the building directly to max level, updates population and CP.
+	 *
+	 * @param int $fieldId The field slot ID (1-40)
+	 */
+	public function upgradeToMax($fieldId) {
+		global $database, $session, $village, $logging;
+
+		$fieldId = (int) $fieldId;
+		if ($fieldId < 1 || $fieldId > 40) {
+			header("Location: " . $session->referrer);
+			exit;
+		}
+
+		$buildingType = $village->resarray['f' . $fieldId . 't'];
+		if ($buildingType == 0) {
+			header("Location: " . $session->referrer);
+			exit;
+		}
+
+		$currentLevel = (int) $village->resarray['f' . $fieldId];
+		$maxLevel = $this->getMaxLevel($buildingType);
+
+		if ($currentLevel >= $maxLevel || $maxLevel <= 0) {
+			header("Location: " . $session->referrer);
+			exit;
+		}
+
+		// Cost = max level in gold (1 gold per level)
+		$goldCost = $maxLevel;
+
+		if ($session->gold < $goldCost) {
+			header("Location: " . $session->referrer);
+			exit;
+		}
+
+		// Calculate total population to add
+		$name = "bid" . $buildingType;
+		global $$name;
+		$dataarray = $$name;
+		$totalPop = 0;
+
+		for ($lvl = $currentLevel + 1; $lvl <= $maxLevel; $lvl++) {
+			if (isset($dataarray[$lvl]['pop'])) {
+				$totalPop += $dataarray[$lvl]['pop'];
+			}
+		}
+
+		// Set building to max level directly
+		$q = "UPDATE " . TB_PREFIX . "fdata SET f" . $fieldId . " = " . $maxLevel . " WHERE vref = " . $village->wid;
+		$database->query($q);
+
+		// Update population
+		if ($totalPop > 0) {
+			$database->modifyPop($village->wid, $totalPop, 0);
+		}
+
+		// Cancel any queued build jobs for this field
+		$database->query(
+			"DELETE FROM " . TB_PREFIX . "bdata WHERE field = " . $fieldId . " AND wid = " . $village->wid
+		);
+
+		// Deduct gold
+		$newgold = $session->gold - $goldCost;
+		$database->updateUserField($session->uid, "gold", $newgold, 1);
+
+		// Handle alliance embassy (type 18)
+		if ($buildingType == 18) {
+			$bid18 = $GLOBALS['bid18'];
+			$owner = $database->getVillageField($village->wid, "owner");
+			$max = $bid18[$maxLevel]['attri'];
+			$database->query("UPDATE " . TB_PREFIX . "alidata SET max = $max WHERE leader = $owner");
+		}
+
+		$logging->goldFinLog($village->wid);
+
+		// Recount culture points
+		self::recountCP($database, $village->wid);
+
+		header("Location: build.php?id=" . $fieldId);
+		exit;
 	}
 };
 

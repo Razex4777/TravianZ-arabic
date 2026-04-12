@@ -1,0 +1,511 @@
+/* ==========================================================================
+   PHONE  ( ≤ 768px )  — Public pages (index, tutorial, anleitung, etc.)
+   Includes hamburger sidebar for navigation menu.
+   ========================================================================== */
+
+@media screen and (max-width: 768px) {
+
+  /* ===== GLOBAL OVERRIDES — Kill desktop fixed widths ===== */
+  html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+  }
+
+  .wrapper {
+    min-width: 0 !important;
+    width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  /* ===== CONTENT PAGE (tutorial, anleitung, etc.) ===== */
+  body.contentPage #header {
+    height: auto !important;
+    min-height: 120px;
+  }
+
+  body.contentPage #content {
+    padding-top: 120px !important;
+    padding-bottom: 80px !important;
+  }
+
+  body.contentPage #content .grit {
+    width: 100% !important;
+    min-height: auto !important;
+    background: none !important;
+    padding: 10px !important;
+    box-sizing: border-box !important;
+  }
+
+  body.contentPage #content .characteristics,
+  body.contentPage #content p,
+  body.contentPage #content table,
+  body.contentPage form {
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+  }
+
+  body.contentPage #content h2 {
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+  }
+
+  body.contentPage #content h3 {
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+  }
+
+  body.contentPage h1 {
+    font-size: 20px !important;
+    padding-top: 30px !important;
+    margin-bottom: 20px !important;
+  }
+
+  /* ===== HIDE DESKTOP-ONLY ELEMENTS ===== */
+  #country_select {
+    display: none !important;
+  }
+
+  /* Register CTA — visible as a clean button on mobile */
+  #register_now {
+    display: block !important;
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    margin: 0 auto !important;
+    width: auto !important;
+    height: auto !important;
+    text-align: center !important;
+    padding: 12px 16px !important;
+    z-index: 20 !important;
+  }
+
+  #register_now a {
+    display: block !important;
+    background: linear-gradient(135deg, #71D000, #5ab300) !important;
+    color: #fff !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    padding: 14px 20px !important;
+    border-radius: 10px !important;
+    text-decoration: none !important;
+    box-shadow: 0 4px 12px rgba(113, 208, 0, 0.35) !important;
+    margin: 0 auto !important;
+    max-width: 300px !important;
+  }
+
+  #register_now span {
+    display: block !important;
+    font-size: 11px !important;
+    color: #555 !important;
+    margin-top: 6px !important;
+  }
+
+  #t4play {
+    display: none !important;
+  }
+
+  /* ===== NAVIGATION — Kill desktop absolute positioning ===== */
+  #navigation {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    margin-left: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    background: none !important;
+    padding: 5px 0;
+    z-index: 80;
+  }
+
+  #navigation a.home {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    width: 120px !important;
+    height: 50px !important;
+    display: block;
+    margin: 5px 10px;
+  }
+
+  /* ===== HAMBURGER MENU — Floating white block ===== */
+  .public-hamburger {
+    display: block !important;
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    width: 48px;
+    height: 48px;
+    background: #ffffff !important;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+    z-index: 10001;
+    cursor: pointer;
+    box-sizing: border-box;
+    padding: 13px 10px;
+  }
+  html[dir="rtl"] .public-hamburger {
+    right: auto;
+    left: 15px;
+  }
+  .public-hamburger span {
+    display: block;
+    width: 26px;
+    height: 4px;
+    background: #71D000;
+    margin: 0 auto 4px auto;
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+  #public-nav-toggle:checked ~ .public-hamburger span:nth-child(1) { transform: translateY(8px) rotate(45deg); background: #ff4040; }
+  #public-nav-toggle:checked ~ .public-hamburger span:nth-child(2) { opacity: 0; }
+  #public-nav-toggle:checked ~ .public-hamburger span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); background: #ff4040; }
+
+  /* ===== DARK BACKDROP ===== */
+  .public-sidebar-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.6);
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+  }
+  #public-nav-toggle:checked ~ .public-sidebar-backdrop {
+    opacity: 1; visibility: visible; display: block !important;
+  }
+
+  /* ===== SLIDE-IN SIDEBAR ===== */
+  #navigation table.menu {
+    position: fixed !important;
+    top: 0 !important;
+    right: -260px !important;
+    bottom: 0 !important;
+    left: auto !important;
+    width: 260px !important;
+    height: 100vh !important;
+    background: #fdfdfd;
+    border-left: 3px solid #71D000;
+    z-index: 10000;
+    transition: right 0.3s ease;
+    display: block;
+    padding-top: 65px !important;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.4);
+    margin: 0 !important;
+  }
+
+  html[dir="rtl"] #navigation table.menu {
+    right: auto !important;
+    left: -260px !important;
+    border-left: none;
+    border-right: 3px solid #71D000;
+    box-shadow: 5px 0 15px rgba(0,0,0,0.4);
+    transition: left 0.3s ease;
+  }
+
+  #public-nav-toggle:checked ~ table.menu {
+    right: 0 !important;
+  }
+  html[dir="rtl"] #public-nav-toggle:checked ~ table.menu {
+    left: 0 !important;
+    right: auto !important;
+  }
+
+  #navigation table.menu tr, #navigation table.menu tbody {
+    display: block;
+    width: 100%;
+  }
+
+  #navigation table.menu td {
+    display: block;
+    width: 100%;
+    text-align: left !important;
+    border-bottom: 1px solid #ddd;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html[dir="rtl"] #navigation table.menu td {
+    text-align: right !important;
+  }
+
+  #navigation table.menu td:last-child {
+    border-bottom: none;
+  }
+
+  #navigation .menu a {
+    font-size: 16px !important;
+    padding: 15px 20px !important;
+    display: block;
+    color: #333 !important;
+    text-decoration: none !important;
+    text-shadow: none !important;
+  }
+
+  /* ===== INDEX PAGE — Full mobile overhaul ===== */
+
+  /* Sky-colored background instead of desktop tiling */
+  body.indexPage {
+    background: #d4eaf0 !important;
+  }
+
+  /* Header artwork — responsive, no fixed height */
+  body.indexPage #header {
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    height: 0 !important;
+    padding-top: 55% !important;   /* Aspect ratio crops nicely */
+    min-height: 0 !important;
+    background-size: cover !important;
+    background-position: center bottom !important;
+    overflow: hidden !important;
+  }
+
+  /* Content — kill the massive desktop padding-top */
+  body.indexPage #content {
+    position: relative !important;
+    padding-top: 10px !important;
+    padding-bottom: 30px !important;
+    z-index: 10 !important;
+  }
+
+  /* Grit container — flex column, full width */
+  body.indexPage #content .grit {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 12px !important;
+    box-sizing: border-box !important;
+    background: transparent !important;
+  }
+
+  /* Info + Secondary boxes — full width, no float */
+  body.indexPage .infobox,
+  body.indexPage .secondarybox {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    float: none !important;
+    background: transparent !important;
+    min-height: 0 !important;
+  }
+
+  /* Kill the fixed padding from desktop infobox divs */
+  body.indexPage .infobox div {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+
+  /* Card styling for each content block */
+  body.indexPage #what_is_travian {
+    background: #ffffff !important;
+    border-radius: 10px !important;
+    padding: 18px 16px !important;
+    margin-bottom: 12px !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+    border: 1px solid #e0e0e0 !important;
+  }
+
+  body.indexPage #what_is_travian h2 {
+    font-size: 17px !important;
+    margin: 0 0 8px 0 !important;
+    text-shadow: none !important;
+  }
+
+  body.indexPage #what_is_travian p {
+    margin: 0 0 8px 0 !important;
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+  }
+
+  body.indexPage #what_is_travian .play_now {
+    margin: 10px 0 0 0 !important;
+  }
+
+  body.indexPage #what_is_travian .play_now a {
+    display: block;
+    background: #71D000;
+    color: #fff !important;
+    text-align: center;
+    padding: 12px 0;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none !important;
+  }
+
+  /* Player counter — clean card */
+  body.indexPage #player_counter {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    background: #f8f9fa !important;
+    border-radius: 10px !important;
+    padding: 14px 16px !important;
+    margin-bottom: 12px !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+    border: 1px solid #e0e0e0 !important;
+    box-sizing: border-box !important;
+  }
+
+  body.indexPage #player_counter table {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    width: 100% !important;
+  }
+
+  body.indexPage #player_counter th,
+  body.indexPage #player_counter td {
+    padding: 4px 8px !important;
+    font-size: 13px !important;
+  }
+
+  /* About the game — card */
+  body.indexPage #about_the_game {
+    background: #ffffff !important;
+    border-radius: 10px !important;
+    padding: 18px 16px !important;
+    margin-bottom: 12px !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+    border: 1px solid #e0e0e0 !important;
+  }
+
+  body.indexPage #about_the_game h2 {
+    margin: 0 0 8px 0 !important;
+    font-size: 15px !important;
+  }
+
+  body.indexPage #about_the_game ul {
+    margin: 5px 0 0 15px !important;
+    padding: 0 !important;
+  }
+
+  body.indexPage #about_the_game li {
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+    margin-bottom: 4px;
+  }
+
+  /* Hide screenshots on mobile — useless space hog */
+  body.indexPage #screenshots {
+    display: none !important;
+  }
+
+  /* Newsbox — clean card */
+  body.indexPage #newsbox {
+    background: #ffffff !important;
+    border-radius: 10px !important;
+    padding: 0 !important;
+    margin-bottom: 12px !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+    border: 1px solid #e0e0e0 !important;
+    overflow: hidden;
+  }
+
+  body.indexPage #newsbox h2 {
+    background: #71D000 !important;
+    color: #fff !important;
+    font-size: 15px !important;
+    height: auto !important;
+    padding: 12px 16px !important;
+    margin: 0 !important;
+  }
+
+  body.indexPage #newsbox .news {
+    background: none !important;
+    width: auto !important;
+    padding: 12px 16px !important;
+  }
+
+  body.indexPage #newsbox .news h4 {
+    font-size: 14px !important;
+    margin: 0 0 4px 0 !important;
+  }
+
+  body.indexPage #newsbox .news p {
+    padding-right: 0 !important;
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+  }
+
+  /* ===== FOOTER — responsive ===== */
+  #footer {
+    position: relative !important;
+    height: auto !important;
+    padding: 15px 10px !important;
+    background-size: cover !important;
+  }
+
+  #footer .container {
+    width: 100% !important;
+    padding: 0 !important;
+  }
+
+  #footer .logo {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    display: block !important;
+    text-align: center !important;
+    margin-bottom: 10px !important;
+  }
+
+  #footer .menu {
+    position: relative !important;
+    right: auto !important;
+    top: auto !important;
+    float: none !important;
+    text-align: center !important;
+  }
+
+  #footer .menu li {
+    float: none !important;
+    display: inline !important;
+    font-size: 11px !important;
+  }
+
+  #footer .copyright {
+    position: relative !important;
+    right: auto !important;
+    top: auto !important;
+    clear: both !important;
+    display: block !important;
+    text-align: center !important;
+    margin-top: 8px !important;
+    font-size: 10px !important;
+  }
+
+  /* ===== OVERLAYS (login/signup popups) — mobile friendly ===== */
+  .overlay_content {
+    right: 5% !important;
+    left: 5% !important;
+    top: 80px !important;
+    width: 90% !important;
+    margin: 0 auto !important;
+  }
+
+  .overlay_content .world_list li {
+    width: 100% !important;
+    background-size: cover !important;
+  }
+
+  /* ===== CLEAR DIVS — not needed in flex ===== */
+  body.indexPage .grit > .clear {
+    display: none !important;
+  }
+
+}

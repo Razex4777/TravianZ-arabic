@@ -35,6 +35,7 @@ include_once("GameEngine/config.php");
 	<?php if(defined('LANG') && LANG === 'ar'): ?>
 	
 	<?php endif; ?>
+	<link rel="stylesheet" type="text/css" href="mobile.css" />
 </head>
 	<body class="manual">
 <?php

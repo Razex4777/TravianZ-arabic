@@ -1,0 +1,220 @@
+/* ==========================================================================
+   IN-GAME MOBILE — Alliance Page Overrides  (≤ 768px)
+   --------------------------------------------------------------------------
+   Split from _phone_ingame_pages.css for maintainability.
+   ========================================================================== */
+
+@media screen and (max-width: 768px) {
+
+  /* ──────────────────────────────────────────────────────────────────────
+     19. ALLIANCE PAGES (allianz.php)
+     ────────────────────────────────────────────────────────────────────── */
+
+  /* Alliance content container */
+  div#content.alliance {
+    width: 100% !important;
+    padding: 10px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Alliance heading */
+  div#content.alliance h1 {
+    color: #222 !important;
+    font-size: 18px !important;
+    text-align: center !important;
+    margin-bottom: 10px !important;
+    word-break: break-word;
+  }
+
+  /* Alliance tab menu — flex-wrap pills (same pattern as reports) */
+  div#content.alliance div#textmenu,
+  div#content div#textmenu {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    margin-bottom: 15px !important;
+    line-height: 1.6;
+    font-size: 0; /* collapse pipe separators */
+  }
+
+  div#content.alliance div#textmenu a,
+  div#content div#textmenu a {
+    display: inline-block !important;
+    padding: 7px 14px !important;
+    background: rgba(0,0,0,0.03) !important;
+    border-radius: 6px !important;
+    text-decoration: none !important;
+    border: 1px solid rgba(0,0,0,0.1) !important;
+    color: #333 !important;
+    font-size: 13px !important;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  div#content.alliance div#textmenu a.selected,
+  div#content div#textmenu a.selected {
+    font-weight: bold !important;
+    background: rgba(113,208,0,0.12) !important;
+    border-color: #71D000 !important;
+    color: #2a6800 !important;
+  }
+
+  /* ── Forum Tables ────────────────────────────────────────────── */
+  div#content.alliance table#public,
+  div#content.alliance table.forumline,
+  div#content.alliance table#overview,
+  div#content.alliance table.tbg {
+    width: 100% !important;
+    display: block !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box !important;
+  }
+
+  div#content.alliance table#public thead,
+  div#content.alliance table#public tbody,
+  div#content.alliance table.forumline thead,
+  div#content.alliance table.forumline tbody {
+    display: table;
+    width: 100%;
+  }
+
+  div#content.alliance table#public th {
+    background: rgba(113,208,0,0.08) !important;
+    color: #222 !important;
+    font-size: 13px !important;
+    padding: 10px 8px !important;
+    text-align: start !important;
+  }
+
+  div#content.alliance table#public td {
+    padding: 8px 6px !important;
+    font-size: 12px !important;
+    color: #333 !important;
+    word-break: break-word;
+  }
+
+  /* Forum name column — allow wrapping */
+  div#content.alliance table#public td.tit {
+    white-space: normal !important;
+    word-wrap: break-word;
+    max-width: 50vw;
+  }
+
+  div#content.alliance table#public td.tit a {
+    color: #1a5c00 !important;
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  /* Thread count column */
+  div#content.alliance table#public td.cou {
+    text-align: center !important;
+    white-space: nowrap;
+  }
+
+  /* Last post column */
+  div#content.alliance table#public td.last {
+    font-size: 11px !important;
+    color: #666 !important;
+    white-space: nowrap;
+  }
+
+  /* Icon column — shrink */
+  div#content.alliance table#public td.ico {
+    width: 30px !important;
+    min-width: 30px !important;
+    padding: 4px !important;
+  }
+
+  /* ── Thread List Inside Forum ──────────────────────────────── */
+  div#content.alliance table.forumline {
+    width: 100% !important;
+  }
+
+  div#content.alliance table.forumline td {
+    padding: 8px 6px !important;
+    font-size: 12px !important;
+    color: #333 !important;
+    word-break: break-word;
+  }
+
+  div#content.alliance table.forumline td a {
+    color: #1a5c00 !important;
+    text-decoration: none;
+  }
+
+  /* ── New Topic / Reply Forms ───────────────────────────────── */
+  div#content.alliance textarea,
+  div#content.alliance input[type="text"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 10px !important;
+    font-size: 13px !important;
+    border: 1px solid #ccc !important;
+    border-radius: 4px !important;
+  }
+
+  div#content.alliance textarea {
+    min-height: 150px !important;
+    resize: vertical !important;
+  }
+
+  div#content.alliance input[type="submit"] {
+    padding: 10px 20px !important;
+    font-size: 13px !important;
+    cursor: pointer;
+    background: #71D000 !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: 6px !important;
+    margin-top: 8px !important;
+  }
+
+  /* ── Alliance Overview Table ───────────────────────────────── */
+  div#content.alliance table.allianz_details,
+  div#content.alliance table.tbg {
+    width: 100% !important;
+    display: block !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  div#content.alliance table.allianz_details td,
+  div#content.alliance table.tbg td {
+    padding: 6px 8px !important;
+    font-size: 12px !important;
+    color: #333 !important;
+  }
+
+  div#content.alliance table.allianz_details td a,
+  div#content.alliance table.tbg td a {
+    color: #1a5c00 !important;
+  }
+
+  /* ── New Forum Button ──────────────────────────────────────── */
+  div#content.alliance #fbtn_newforum,
+  div#content.alliance .switch_admin {
+    display: inline-block !important;
+    margin: 8px 4px !important;
+  }
+
+  /* ── Chat / News Sections ──────────────────────────────────── */
+  div#content.alliance #chat_messages,
+  div#content.alliance .al_news {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    overflow-x: auto !important;
+    padding: 10px !important;
+  }
+
+  /* ── Alliance Options — form inputs ────────────────────────── */
+  div#content.alliance .opt_input,
+  div#content.alliance input.text {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+}

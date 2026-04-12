@@ -268,6 +268,7 @@ if(isset($_GET['mode']) && $_GET['mode'] == 'troops' && isset($_GET['cancel']) &
 	<?php if(defined('LANG') && LANG === 'ar'): ?>
 	
 	<?php endif; ?>
+	<link rel="stylesheet" type="text/css" href="mobile.css" />
 </head>
 
 
@@ -281,7 +282,7 @@ if(isset($_GET['mode']) && $_GET['mode'] == 'troops' && isset($_GET['cancel']) &
 <?php include("Templates/menu.tpl"); ?>
 <div id="content"  class="build">
 <?php
-if(isset($_GET['id']) || isset($_GET['gid']) || $route == 1 || isset($_POST['routeid']) || isset($_GET['buildingFinish'])) {
+if(isset($_GET['id']) || isset($_GET['gid']) || $route == 1 || isset($_POST['routeid']) || isset($_GET['buildingFinish']) || isset($_GET['trainingFinish']) || isset($_GET['upgradeToMax'])) {
     
     if(isset($_GET['s']) && !ctype_digit($_GET['s'])) $_GET['s'] = null;
     if(isset($_GET['t']) && !ctype_digit($_GET['t'])) $_GET['t'] = null;
@@ -307,6 +308,16 @@ if(isset($_GET['id']) || isset($_GET['gid']) || $route == 1 || isset($_POST['rou
         		$building->finishAll("build.php?gid=".$_GET['id']."&ty=".$_GET['ty']);
         		exit;
         	}
+        }
+		if((isset($_GET['trainingFinish'])) && $_GET['trainingFinish'] == 1) {
+        	if($session->gold >= 35) {
+        		$building->finishTrainingGold();
+        		exit;
+        	}
+        }
+		if((isset($_GET['upgradeToMax'])) && $_GET['upgradeToMax'] == 1) {
+        	$building->upgradeToMax($_GET['id']);
+        	exit;
         }
 	}
 }else{

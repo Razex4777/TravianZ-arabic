@@ -29,7 +29,7 @@ if(!empty($allMessages)){
 	<link href="../<?php echo GP_LOCATE; ?>lang/en/lang.css?f4b7d" rel="stylesheet" type="text/css">
 	<link href="../<?php echo GP_LOCATE; ?>lang/en/compact.css?v2" rel="stylesheet" type="text/css">
 	<link href="../<?php echo GP_LOCATE; ?>travian.css?v2" rel="stylesheet" type="text/css">
-	<h1>Players Message</h1>
+	<h1><?php echo (defined('LANG') && LANG === 'ar') ? 'رسائل اللاعبين' : 'Players Message'; ?></h1>
 	<div id="content" class="messages" style="padding: 0;">
 	<?php
 		include("Message/inbox.tpl");
@@ -47,10 +47,10 @@ elseif(!empty($msg)){
 
 	<br />
 
-	<span class="b">Sent to</span>: <?php echo $database->getUserField($msg[0]['target'],'username',0);?>
+	<span class="b"><?php echo (defined('LANG') && LANG === 'ar') ? 'أرسلت إلى' : 'Sent to'; ?></span>: <?php echo $database->getUserField($msg[0]['target'],'username',0);?>
 
 	<div style="padding: 43px 0 0;" id="content" class="messages">
-		<h1>Message</h1>
+		<h1><?php echo (defined('LANG') && LANG === 'ar') ? 'رسالة' : 'Message'; ?></h1>
 		<div id="read_head" class="msg_head"></div>
 		<div id="read_content" class="msg_content">
 			<img src="../img/x.gif" id="label" class="read" alt="">
@@ -79,5 +79,5 @@ echo stripslashes(nl2br($bbcoded));
 	<div id="read_foot" class="msg_foot"></div>
 	</div><?php
 }
-else echo "Message ID ".$nid." doesn't exist!";
+else echo (defined('LANG') && LANG === 'ar') ? "الرسالة ".$nid." غير موجودة!" : "Message ID ".$nid." doesn't exist!";
 ?>

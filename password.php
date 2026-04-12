@@ -49,6 +49,7 @@ if(!isset($_REQUEST['npw'])){
 	<?php if(defined('LANG') && LANG === 'ar'): ?>
 	
 	<?php endif; ?>
+	<link rel="stylesheet" type="text/css" href="mobile.css" />
 </head>
 
 <body class="v35 ie ie7" onload="initCounter()">

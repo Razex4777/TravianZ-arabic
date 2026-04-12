@@ -1,0 +1,477 @@
+/* ==========================================================================
+   PHONE  ( ≤ 768px )  — Outgame pages (Login, Signup, Activate, Password)
+   ========================================================================== */
+
+@media screen and (max-width: 768px) {
+
+  /* Kill fixed widths on the outgame layout skeleton */
+  body.v35 .wrapper,
+  body.v35 div#dynamic_header,
+  body.v35 div#header,
+  body.v35 div#mid {
+    min-width: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+
+  body.v35 div#mid {
+    float: none !important;
+    background-image: none !important;
+  }
+
+  /* Thin decorative header bar */
+  body.v35 div#header {
+    height: 30px !important;
+    background-size: cover !important;
+    background-position: center !important;
+  }
+
+  body.v35 div#dynamic_header {
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+  }
+
+  /* Side navigation — horizontal pill links */
+  body.v35 div#side_navi,
+  div#side_navi {
+    float: none !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: auto !important;
+    height: auto !important;
+    box-sizing: border-box;
+    padding: 10px 15px !important;
+    margin-top: 0 !important;
+    text-align: center;
+    background: #f9f9f9 !important;
+    background-image: none !important;
+    border-bottom: 2px solid #71D000;
+  }
+
+  body.v35 div#side_navi a#logo,
+  div#side_navi a#logo {
+    display: block !important;
+    margin: 0 auto 8px !important;
+    text-align: center;
+  }
+
+  body.v35 div#side_navi a#logo img,
+  div#side_navi a#logo img {
+    max-width: 80px !important;
+    height: auto !important;
+  }
+
+  body.v35 div#side_navi p,
+  div#side_navi p {
+    margin: 0 !important;
+    line-height: 1 !important;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  body.v35 div#side_navi p a,
+  div#side_navi p a {
+    display: inline-block !important;
+    padding: 8px 16px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    background: #fff !important;
+    border: 1px solid #ddd !important;
+    border-radius: 20px;
+    color: #333 !important;
+    text-decoration: none !important;
+    transition: all 0.2s;
+    width: auto !important;
+    height: auto !important;
+    background-image: none !important;
+    background-position: initial !important;
+  }
+
+  body.v35 div#side_navi p a:hover,
+  body.v35 div#side_navi p a:active,
+  div#side_navi p a:hover,
+  div#side_navi p a:active {
+    background: #71D000 !important;
+    color: #fff !important;
+    border-color: #5eac00 !important;
+    background-image: none !important;
+  }
+
+  /* Kill the desktop hover background-image on ALL side_navi links */
+  body.v35 div#side_navi a:hover,
+  div#side_navi a:hover {
+    background-image: none !important;
+    width: auto !important;
+    height: auto !important;
+  }
+
+  /* Main content area — full width, no float */
+  body.v35 div#content.login,
+  body.v35 div#content.signup,
+  body.v35 div#content.activate,
+  body.v35 div#content.logout {
+    float: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 20px 15px !important;
+    box-sizing: border-box;
+    min-height: auto !important;
+  }
+
+  /* Login/Signup headings */
+  body.v35 div.login h1,
+  body.v35 div.signup h1 {
+    text-align: center !important;
+    margin: 0 auto 10px !important;
+  }
+
+  body.v35 div.login h1 img,
+  body.v35 div.signup h1 img {
+    max-width: 100% !important;
+    width: auto !important;
+    height: auto !important;
+  }
+
+  body.v35 div.login h5 img,
+  body.v35 div.signup h5 img {
+    max-width: 160px !important;
+    height: auto !important;
+  }
+
+  body.v35 div.login h5,
+  body.v35 div.signup h5 {
+    text-align: center !important;
+    margin: 0 auto 10px !important;
+  }
+
+  body.v35 div.login p,
+  body.v35 div.signup p {
+    text-align: center !important;
+    padding: 0 5px !important;
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+  }
+
+  /* Login form table — modern card layout */
+  body.v35 div.login table#login_form,
+  body.v35 div.login table {
+    width: 100% !important;
+    max-width: 360px !important;
+    margin: 15px auto !important;
+    border: none !important;
+    border-radius: 12px !important;
+    background: #fdfdfd !important;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08) !important;
+    padding: 15px !important;
+    box-sizing: border-box !important;
+    display: block !important;
+    overflow: visible !important;
+    white-space: normal !important;
+  }
+
+  body.v35 div.login table#login_form tbody,
+  body.v35 div.login table tbody {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  body.v35 div.login table#login_form tr,
+  body.v35 div.login table tr {
+    display: flex !important;
+    flex-direction: column !important;
+    margin-bottom: 12px !important;
+  }
+
+  body.v35 div.login table#login_form th,
+  body.v35 div.login table th {
+    display: block !important;
+    width: 100% !important;
+    text-align: start !important;
+    padding: 0 0 5px 2px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: #555 !important;
+  }
+
+  body.v35 div.login table#login_form td,
+  body.v35 div.login table td {
+    display: block !important;
+    width: 100% !important;
+    padding: 0 !important;
+  }
+
+  body.v35 div.login table td input.text,
+  body.v35 div.login input.text {
+    width: 100% !important;
+    padding: 10px 12px !important;
+    font-size: 15px !important;
+    border: 2px solid #ddd !important;
+    border-radius: 8px !important;
+    box-sizing: border-box !important;
+    outline: none !important;
+    transition: border-color 0.2s;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  body.v35 div.login table td input.text:focus,
+  body.v35 div.login input.text:focus {
+    border-color: #71D000 !important;
+  }
+
+  /* Login/Signup button — full-width modern */
+  body.v35 div.login p.btn,
+  body.v35 div.signup p.btn {
+    text-align: center !important;
+    padding: 0 !important;
+    max-width: 360px;
+    margin: 0 auto !important;
+  }
+
+  body.v35 div.login p.btn button,
+  body.v35 div.login p.btn input[type="submit"],
+  body.v35 div.signup p.btn button,
+  body.v35 div.signup p.btn input[type="submit"] {
+    width: 100% !important;
+    padding: 12px 20px !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    background: linear-gradient(135deg, #71D000, #5eac00) !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: 10px !important;
+    cursor: pointer !important;
+    box-shadow: 0 3px 8px rgba(113,208,0,0.3) !important;
+    transition: all 0.2s;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  body.v35 div.login p.btn button:active,
+  body.v35 div.signup p.btn button:active {
+    transform: scale(0.97);
+    box-shadow: 0 1px 4px rgba(113,208,0,0.2) !important;
+  }
+
+  /* Error boxes */
+  body.v35 div.login p.error_box {
+    max-width: 360px;
+    margin: 10px auto !important;
+    padding: 10px !important;
+    border-radius: 8px !important;
+    border-color: #e74c3c !important;
+    font-size: 12px !important;
+    text-align: start !important;
+  }
+
+  /* Signup form tables */
+  body.v35 div.signup table#sign_input,
+  body.v35 div.signup table#sign_select,
+  body.v35 div.signup table {
+    width: 100% !important;
+    max-width: 400px !important;
+    margin: 15px auto !important;
+    border: none !important;
+    border-radius: 12px !important;
+    background: #fdfdfd !important;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08) !important;
+    padding: 15px !important;
+    box-sizing: border-box !important;
+    display: block !important;
+    overflow: visible !important;
+    white-space: normal !important;
+  }
+
+  body.v35 div.signup table tbody,
+  body.v35 div.signup table thead {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  body.v35 div.signup table tr {
+    display: flex !important;
+    flex-direction: column !important;
+    margin-bottom: 10px !important;
+  }
+
+  body.v35 div.signup table th,
+  body.v35 div.signup table td {
+    display: block !important;
+    width: 100% !important;
+    text-align: start !important;
+    padding: 2px 0 !important;
+    font-size: 13px !important;
+    box-sizing: border-box !important;
+  }
+
+  body.v35 div.signup input.text {
+    width: 100% !important;
+    padding: 10px 12px !important;
+    font-size: 15px !important;
+    border: 2px solid #ddd !important;
+    border-radius: 8px !important;
+    box-sizing: border-box !important;
+    outline: none !important;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  body.v35 div.signup input.text:focus {
+    border-color: #71D000 !important;
+  }
+
+  /* Radio buttons — bigger touch targets */
+  body.v35 div.signup input.radio {
+    width: 18px !important;
+    height: 18px !important;
+    margin-right: 6px !important;
+    vertical-align: middle !important;
+  }
+
+  body.v35 div.signup label {
+    display: flex !important;
+    align-items: center;
+    padding: 6px 0 !important;
+    font-size: 14px !important;
+    cursor: pointer !important;
+  }
+
+  body.v35 div.signup input.check {
+    width: 18px !important;
+    height: 18px !important;
+    margin-right: 8px !important;
+  }
+
+  /* Activate page */
+  body.v35 div.activate table {
+    width: 100% !important;
+    max-width: 360px !important;
+    margin: 15px auto !important;
+    border: none !important;
+    border-radius: 12px !important;
+    background: #fdfdfd !important;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08) !important;
+    padding: 15px !important;
+    box-sizing: border-box !important;
+    display: block !important;
+    overflow: visible !important;
+    white-space: normal !important;
+  }
+
+  body.v35 div.activate table tbody {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  body.v35 div.activate table tr {
+    display: flex !important;
+    flex-direction: column !important;
+    margin-bottom: 10px !important;
+  }
+
+  body.v35 div.activate table th,
+  body.v35 div.activate table td {
+    display: block !important;
+    width: 100% !important;
+    text-align: start !important;
+    padding: 2px 0 !important;
+    font-size: 13px !important;
+  }
+
+  /* Side info (news boxes) — stack below content */
+  body.v35 div#side_info.outgame {
+    float: none !important;
+    width: 100% !important;
+    padding: 10px 15px !important;
+    box-sizing: border-box !important;
+    margin-left: 0 !important;
+  }
+
+  body.v35 div#side_info.outgame div.news {
+    width: 100% !important;
+    max-width: 400px !important;
+    margin: 10px auto !important;
+    box-sizing: border-box !important;
+  }
+
+  /* ── Kill desktop layout backgrounds that bleed on mobile ── */
+  body.v35 div#mid,
+  div#mid {
+    background-image: none !important;   /* desktop: rand.gif sidebar stripe */
+    min-width: 0 !important;
+  }
+
+  /* ── Footer on outgame pages ── */
+
+  /* Kill the desktop footer-stopper spacer (float:right + margin-bottom:100px) */
+  body.v35 .footer-stopper,
+  .footer-stopper {
+    float: none !important;
+    margin-bottom: 0 !important;
+    height: 0 !important;
+    display: none !important;
+  }
+
+  /* Reset the desktop absolute-positioned footer bar */
+  body.v35 div#footer,
+  div#footer {
+    clear: both !important;
+    position: relative !important;       /* desktop: absolute; bottom:0 */
+    bottom: auto !important;
+    width: 100% !important;
+    min-width: 0 !important;             /* desktop: 980px */
+    height: auto !important;             /* desktop: 90px */
+    margin-top: 15px !important;         /* desktop: 90px */
+    background: #e8e6e0 !important;      /* shorthand kills btm.gif + repeat + position */
+    border-top: 1px solid #d5d3cd !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  /* Inner content container */
+  body.v35 div#footer div#mfoot,
+  div#footer div#mfoot {
+    width: 100% !important;              /* desktop: 905px / 812px */
+    max-width: 100% !important;
+    height: auto !important;             /* desktop: 28px */
+    margin: 0 auto !important;
+    padding: 12px 15px !important;
+    box-sizing: border-box !important;
+    text-align: center !important;       /* desktop: text-align:right */
+    background: none !important;         /* kill footer_logo.gif from new_images.css */
+  }
+
+  /* Footer menu container */
+  body.v35 div#footer div.footer-menu,
+  div#footer div.footer-menu {
+    text-align: center !important;       /* desktop: text-align:right */
+  }
+
+  /* Copyright lines */
+  body.v35 div#footer div.copyright,
+  div#footer div.copyright,
+  div#footer div#mfoot div.copyright {
+    text-align: center !important;       /* desktop: text-align:right */
+    direction: ltr !important;
+    font-size: 11px !important;
+    line-height: 1.6 !important;
+  }
+
+  /* Footer links */
+  div#footer div#mfoot a {
+    word-break: break-all !important;
+  }
+
+  /* Kill the empty cfoot spacer */
+  div#footer div#cfoot {
+    display: none !important;
+  }
+
+  /* Kill horizontal overflow */
+  body.v35 {
+    overflow-x: hidden !important;
+  }
+}

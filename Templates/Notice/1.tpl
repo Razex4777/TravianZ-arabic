@@ -40,14 +40,14 @@ else $deffrom_url="<font color=\"grey\"><b>[?]</b></font>";
 <table cellpadding="1" cellspacing="1" id="report_surround">
             <thead>
                 <tr>
-                    <th>Subject:</th>
+                    <th><?php echo (defined('LANG') && LANG === 'ar') ? 'الموضوع:' : 'Subject:'; ?></th>
                     <th><?php echo $message->readingNotice['topic']; ?></th>
                 </tr>
  
                 <tr>
                     <?php
                 $date = $generator->procMtime($message->readingNotice['time']); ?>
-                    <td class="sent">Sent:</td>
+                    <td class="sent"><?php echo (defined('LANG') && LANG === 'ar') ? 'أرسلت:' : 'Sent:'; ?></td>
                     <td>on <span><?php echo $date[0]." at ".$date[1]; ?></span> <span>hour</span></td>
                 </tr>
             </thead>

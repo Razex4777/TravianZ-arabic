@@ -46,7 +46,8 @@ if($_SESSION['access'] < 9) die(ACCESS_DENIED_ADMIN);
         			  elseif(LANG == 'es') echo "Spain";
         	 		  elseif(LANG == 'rs') echo "Serbian";
         	 		  elseif(LANG == 'ru') echo "Russian";
-        			  elseif(LANG == 'zh_tw') echo "Taiwanese"; ?>
+        			  elseif(LANG == 'zh_tw') echo "Taiwanese";
+        			  elseif(LANG == 'ar') echo "Arabic"; ?>
         	</td>
 	<tr>
 		<td><?php echo CONF_SERV_SERVSPEED ?> <em class="tooltip">?<span class="classic"><?php echo CONF_SERV_SERVSPEED_TOOLTIP ?></span></em></td>
@@ -98,27 +99,27 @@ if($_SESSION['access'] < 9) die(ACCESS_DENIED_ADMIN);
 	</tr>
 	<tr>
 		<td><?php echo CONF_SERV_VILLEXPSPEED ?> <em class="tooltip">?<span class="classic"><?php echo CONF_SERV_VILLEXPSPEED_TOOLTIP ?></span></em></td>
-		<td><?php echo CP == 0 ? "Fast" : "Slow"; ?></td>
+		<td><?php echo CP == 0 ? ((defined('LANG') && LANG === 'ar') ? 'سريع' : 'Fast') : ((defined('LANG') && LANG === 'ar') ? 'بطيء' : 'Slow'); ?></td>
 	</tr>
 	<tr>
 		<td><?php echo CONF_SERV_BEGINPROTECT ?> <em class="tooltip">?<span class="classic"><?php echo CONF_SERV_BEGINPROTECT_TOOLTIP ?></span></em></td>
-		<td><?php echo (PROTECTION / 3600);?> hour/s</td>
+		<td><?php echo (PROTECTION / 3600);?> <?php echo (defined('LANG') && LANG === 'ar') ? 'ساعة/ساعات' : 'hour/s'; ?></td>
 	</tr>
 	<tr>
 		<td><?php echo CONF_SERV_REGOPEN ?> <em class="tooltip">?<span class="classic"><?php echo CONF_SERV_REGOPEN_TOOLTIP ?></span></em></td>
-		<td><?php echo REG_OPEN ? "<b><font color='blue'>True</font></b>" : "<b><font color='Red'>False</font></b>"; ?></td>
+		<td><?php echo REG_OPEN ? "<b><font color='blue'>".((defined('LANG') && LANG === 'ar') ? 'صحيح' : 'True')."</font></b>" : "<b><font color='Red'>".((defined('LANG') && LANG === 'ar') ? 'خطأ' : 'False')."</font></b>"; ?></td>
 	</tr>
 	<tr>
 		<td><?php echo CONF_SERV_ACTIVMAIL ?> <em class="tooltip">?<span class="classic"><?php echo CONF_SERV_ACTIVMAIL_TOOLTIP ?></span></em></td>
-		<td><?php echo AUTH_EMAIL ? "<b><font color='Green'>Enabled</font></b>" : "<b><font color='Red'>Disabled</font></b>"; ?></td>
+		<td><?php echo AUTH_EMAIL ? "<b><font color='Green'>".((defined('LANG') && LANG === 'ar') ? 'مفعل' : 'Enabled')."</font></b>" : "<b><font color='Red'>".((defined('LANG') && LANG === 'ar') ? 'معطل' : 'Disabled')."</font></b>"; ?></td>
 	</tr>
 	<tr>
 		<td><?php echo CONF_SERV_QUEST ?> <em class="tooltip">?<span class="classic"><?php echo CONF_SERV_QUEST_TOOLTIP ?></span></em></td>
-		<td><?php echo QUEST ? "<b><font color='Green'>Enabled</font></b>" : "<b><font color='Red'>Disabled</font></b>"; ?></td>
+		<td><?php echo QUEST ? "<b><font color='Green'>".((defined('LANG') && LANG === 'ar') ? 'مفعل' : 'Enabled')."</font></b>" : "<b><font color='Red'>".((defined('LANG') && LANG === 'ar') ? 'معطل' : 'Disabled')."</font></b>"; ?></td>
 	</tr>
 	<tr>
 		<td><?php echo CONF_SERV_QTYPE ?> <em class="tooltip">?<span class="classic"><?php echo CONF_SERV_QTYPE_TOOLTIP ?></span></em></td>
-		<td><?php echo QTYPE == 25 ? "<b><font color='Blue'>Travian Official</font></b>" : "<b><font color='Blue'>TravianZ Extended</font></b>"; ?></td>
+		<td><?php echo QTYPE == 25 ? "<b><font color='Blue'>".((defined('LANG') && LANG === 'ar') ? 'ترافيان الرسمية' : 'Travian Official')."</font></b>" : "<b><font color='Blue'>".((defined('LANG') && LANG === 'ar') ? 'ترافيان ممتد' : 'TravianZ Extended')."</font></b>"; ?></td>
 	</tr>
 	<tr>
 		<td><?php echo CONF_SERV_DLR ?> <em class="tooltip">?<span class="classic"><?php echo CONF_SERV_DLR_TOOLTIP ?></span></em></td>
@@ -126,11 +127,11 @@ if($_SESSION['access'] < 9) die(ACCESS_DENIED_ADMIN);
 	</tr>
 	<tr>
 		<td><?php echo CONF_SERV_WWSTATS ?> <em class="tooltip">?<span class="classic"><?php echo CONF_SERV_WWSTATS_TOOLTIP ?></span></em></td>
-		<td><?php if(WW) { echo "<b><font color='Green'>Enabled</font></b>"; } else if(WW == false) { echo "<b><font color='Red'>Disabled</font></b>"; } ?></td>
+		<td><?php if(WW) { echo "<b><font color='Green'>".((defined('LANG') && LANG === 'ar') ? 'مفعل' : 'Enabled')."</font></b>"; } else if(WW == false) { echo "<b><font color='Red'>".((defined('LANG') && LANG === 'ar') ? 'معطل' : 'Disabled')."</font></b>"; } ?></td>
 	</tr>
 	<tr>	
 		<td><?php echo CONF_SERV_NTRTIME ?> <em class="tooltip">?<span class="classic"><?php echo CONF_SERV_NTRTIME_TOOLTIP ?></span></em></td>
-		<td><?php if(NATURE_REGTIME >= 86400){ echo ''.(NATURE_REGTIME/86400).' Days'; } else if(NATURE_REGTIME < 86400){ echo ''.(NATURE_REGTIME/3600).' Hours'; } ?></td>
+		<td><?php if(NATURE_REGTIME >= 86400){ echo ''.(NATURE_REGTIME/86400).' '.((defined('LANG') && LANG === 'ar') ? 'أيام' : 'Days'); } else if(NATURE_REGTIME < 86400){ echo ''.(NATURE_REGTIME/3600).' '.((defined('LANG') && LANG === 'ar') ? 'ساعات' : 'Hours'); } ?></td>
 	</tr>
 	<tr>	
 		<td><?php echo CONF_SERV_OASIS_WOOD_PROD_MULT ?> <em class="tooltip">?<span class="classic"><?php echo CONF_SERV_OASIS_WOOD_PROD_MULT_TOOLTIP ?></span></em></td>
@@ -150,7 +151,7 @@ if($_SESSION['access'] < 9) die(ACCESS_DENIED_ADMIN);
 	</tr>
     <tr>
 		<td><?php echo CONF_SERV_MEDALINTERVAL ?> <em class="tooltip">?<span class="classic"><?php echo CONF_SERV_MEDALINTERVAL_TOOLTIP ?></span></em></td>
-		<td><?php if(MEDALINTERVAL >= 86400){ echo ''.(MEDALINTERVAL/86400).' Days'; } else if(MEDALINTERVAL < 86400){ echo ''.(MEDALINTERVAL/3600).' Hours'; } ?></td>
+		<td><?php if(MEDALINTERVAL >= 86400){ echo ''.(MEDALINTERVAL/86400).' '.((defined('LANG') && LANG === 'ar') ? 'أيام' : 'Days'); } else if(MEDALINTERVAL < 86400){ echo ''.(MEDALINTERVAL/3600).' '.((defined('LANG') && LANG === 'ar') ? 'ساعات' : 'Hours'); } ?></td>
     </tr>
 	<tr>
 		<td><?php echo CONF_SERV_TOURNTHRES ?> <em class="tooltip">?<span class="classic"><?php echo CONF_SERV_TOURNTHRES_TOOLTIP ?></span></em></td>
@@ -158,31 +159,36 @@ if($_SESSION['access'] < 9) die(ACCESS_DENIED_ADMIN);
 	</tr>
 	<tr>
 		<td><?php echo CONF_SERV_GWORKSHOP ?> <em class="tooltip">?<span class="classic"><?php echo CONF_SERV_GWORKSHOP_TOOLTIP ?></span></em></td>
-		<td><?php if(GREAT_WKS) { echo "<b><font color='Green'>Enabled</font></b>"; } else { echo "<b><font color='Red'>Disabled</font></b>"; } ?></td>
+		<td><?php if(GREAT_WKS) { echo "<b><font color='Green'>".((defined('LANG') && LANG === 'ar') ? 'مفعل' : 'Enabled')."</font></b>"; } else { echo "<b><font color='Red'>".((defined('LANG') && LANG === 'ar') ? 'معطل' : 'Disabled')."</font></b>"; } ?></td>
 	</tr>
 	<tr>
 		<td><?php echo CONF_SERV_NATARSTAT ?> <em class="tooltip">?<span class="classic"><?php echo CONF_SERV_NATARSTAT_TOOLTIP ?></span></em></td>
-		<td><?php if(SHOW_NATARS) { echo "<b><font color='blue'>True</font></b>"; } else { echo "<b><font color='Red'>False</font></b>"; } ?></td>
+		<td><?php if(SHOW_NATARS) { echo "<b><font color='blue'>".((defined('LANG') && LANG === 'ar') ? 'صحيح' : 'True')."</font></b>"; } else { echo "<b><font color='Red'>".((defined('LANG') && LANG === 'ar') ? 'خطأ' : 'False')."</font></b>"; } ?></td>
 	<tr>
 		<td><?php echo CONF_SERV_PEACESYST ?> <em class="tooltip">?<span class="classic"><?php echo CONF_SERV_PEACESYST_TOOLTIP ?></span></em></td>
 		<td>
-			<?php echo (["None", "Normal", "Christmas", "New Year", "Easter"])[PEACE]; ?>
+			<?php 
+			$peaceArray = (defined('LANG') && LANG === 'ar') 
+				? ["لا يوجد", "عادي", "كريسماس", "رأس السنة", "عيد الفصح"]
+				: ["None", "Normal", "Christmas", "New Year", "Easter"];
+			echo $peaceArray[PEACE]; 
+			?>
 		</td>
 	</tr>
 	<tr>
 		<td><?php echo CONF_SERV_GRAPHICPACK ?> <em class="tooltip">?<span class="classic"><?php echo CONF_SERV_GRAPHICPACK_TOOLTIP ?></span></em></td>
-		<td><?php if(GP_ENABLE) { echo "<b><font color='Green'>Enabled</font></b>"; } else { echo "<b><font color='Red'>Disabled</font></b>"; } ?></td>
+		<td><?php if(GP_ENABLE) { echo "<b><font color='Green'>".((defined('LANG') && LANG === 'ar') ? 'مفعل' : 'Enabled')."</font></b>"; } else { echo "<b><font color='Red'>".((defined('LANG') && LANG === 'ar') ? 'معطل' : 'Disabled')."</font></b>"; } ?></td>
 	</tr>
 	<tr>
 	<tr>
 		<td><?php echo CONF_SERV_ERRORREPORT ?> <em class="tooltip">?<span class="classic"><?php echo CONF_SERV_ERRORREPORT_TOOLTIP ?></span></em></td>
-		<td><b><?php echo (ERROR_REPORT=="error_reporting (0);")? "No": "Yes";?></b></td>
+		<td><b><?php echo (ERROR_REPORT=="error_reporting (0);")? ((defined('LANG') && LANG === 'ar') ? 'لا' : 'No') : ((defined('LANG') && LANG === 'ar') ? 'نعم' : 'Yes');?></b></td>
 	</tr>
 	</table>
     <table id="member">
         <thead>
             <tr>
-                <th>New Mechanics and Functions <a href="admin.php?p=editNewFunctions"><img src="../img/admin/edit.gif" title="Edit New Mechanics and Functions"></a></th>
+                <th><?php echo (defined('LANG') && LANG === 'ar') ? 'الميكانيكيات والوظائف الجديدة' : 'New Mechanics and Functions'; ?> <a href="admin.php?p=editNewFunctions"><img src="../img/admin/edit.gif" title="<?php echo (defined('LANG') && LANG === 'ar') ? 'تعديل الميكانيكيات والوظائف الجديدة' : 'Edit New Mechanics and Functions'; ?>"></a></th>
             </tr>
         </thead>
     </table>
@@ -193,64 +199,64 @@ if($_SESSION['access'] < 9) die(ACCESS_DENIED_ADMIN);
             <td class="b"><?php echo SERV_VALUE ?></td>
         </tr>
         <tr>
-            <td>Display oasis in profile <em class="tooltip">?<span class="classic">Enable (Disable) the display of oases of each village in the player profile</span></em></td>
-            <td><?php echo NEW_FUNCTIONS_OASIS ? "<b><font color='Green'>Enabled</font></b>" : "<b><font color='Red'>Disabled</font></b>"; ?></td>
+            <td><?php echo (defined('LANG') && LANG === 'ar') ? 'إظهار الواحات في الملف الشخصي' : 'Display oasis in profile'; ?> <em class="tooltip">?<span class="classic"><?php echo (defined('LANG') && LANG === 'ar') ? 'تفعيل (أو تعطيل) إظهار واحات كل قرية في الملف الشخصي للاعب' : 'Enable (Disable) the display of oases of each village in the player profile'; ?></span></em></td>
+            <td><?php echo NEW_FUNCTIONS_OASIS ? "<b><font color='Green'>".((defined('LANG') && LANG === 'ar') ? 'مفعل' : 'Enabled')."</font></b>" : "<b><font color='Red'>".((defined('LANG') && LANG === 'ar') ? 'معطل' : 'Disabled')."</font></b>"; ?></td>
         </tr>
         <tr>
-            <td>Alliance invitation message <em class="tooltip">?<span class="classic">Enable (Disable) sending an in-game message to the player, if he was invited to the alliance</span></em></td>
-            <td><?php echo NEW_FUNCTIONS_ALLIANCE_INVITATION ? "<b><font color='Green'>Enabled</font></b>" : "<b><font color='Red'>Disabled</font></b>"; ?></td>
+            <td><?php echo (defined('LANG') && LANG === 'ar') ? 'رسالة دعوة التحالف' : 'Alliance invitation message'; ?> <em class="tooltip">?<span class="classic"><?php echo (defined('LANG') && LANG === 'ar') ? 'تفعيل (أو تعطيل) إرسال رسالة داخل اللعبة للاعب، في حال تم دعوته إلى التحالف' : 'Enable (Disable) sending an in-game message to the player, if he was invited to the alliance'; ?></span></em></td>
+            <td><?php echo NEW_FUNCTIONS_ALLIANCE_INVITATION ? "<b><font color='Green'>".((defined('LANG') && LANG === 'ar') ? 'مفعل' : 'Enabled')."</font></b>" : "<b><font color='Red'>".((defined('LANG') && LANG === 'ar') ? 'معطل' : 'Disabled')."</font></b>"; ?></td>
         </tr>
         <tr>
-            <td>New Alliance & Embassy Mechanics <em class="tooltip">?<span class="classic">For this setting, you can find more information on the link: <a href="https://github.com/Shadowss/TravianZ/wiki/New-Alliance-&-Embassy-Mechanics" target="_blank">https://github.com</a></span></em></td>
-            <td><?php echo NEW_FUNCTIONS_EMBASSY_MECHANICS ? "<b><font color='Green'>Enabled</font></b>" : "<b><font color='Red'>Disabled</font></b>"; ?></td>
+            <td><?php echo (defined('LANG') && LANG === 'ar') ? 'ميكانيكيات التحالف والسفارة الجديدة' : 'New Alliance & Embassy Mechanics'; ?> <em class="tooltip">?<span class="classic"><?php echo (defined('LANG') && LANG === 'ar') ? 'لهذا الإعداد، يمكنك العثور على مزيد من المعلومات على الرابط:' : 'For this setting, you can find more information on the link:'; ?> <a href="https://github.com/Shadowss/TravianZ/wiki/New-Alliance-&-Embassy-Mechanics" target="_blank">https://github.com</a></span></em></td>
+            <td><?php echo NEW_FUNCTIONS_EMBASSY_MECHANICS ? "<b><font color='Green'>".((defined('LANG') && LANG === 'ar') ? 'مفعل' : 'Enabled')."</font></b>" : "<b><font color='Red'>".((defined('LANG') && LANG === 'ar') ? 'معطل' : 'Disabled')."</font></b>"; ?></td>
         </tr>
         <tr>
-            <td>New forum post message <em class="tooltip">?<span class="classic">Enable (Disable) if a player leaves at least one message in the thread on the forum, he will receive in-game messages about the fact that new messages have appeared in the same thread (i.e. is technically "subscribed to")</span></em></td>
-            <td><?php echo NEW_FUNCTIONS_FORUM_POST_MESSAGE ? "<b><font color='Green'>Enabled</font></b>" : "<b><font color='Red'>Disabled</font></b>"; ?></td>
+            <td><?php echo (defined('LANG') && LANG === 'ar') ? 'رسالة موضوع المنتدى الجديد' : 'New forum post message'; ?> <em class="tooltip">?<span class="classic"><?php echo (defined('LANG') && LANG === 'ar') ? 'تفعيل (تلقي رسائل حول المواضيع المشترك بها)' : 'Enable (Disable) if a player leaves at least one message in the thread on the forum, he will receive in-game messages about the fact that new messages have appeared in the same thread (i.e. is technically "subscribed to")'; ?></span></em></td>
+            <td><?php echo NEW_FUNCTIONS_FORUM_POST_MESSAGE ? "<b><font color='Green'>".((defined('LANG') && LANG === 'ar') ? 'مفعل' : 'Enabled')."</font></b>" : "<b><font color='Red'>".((defined('LANG') && LANG === 'ar') ? 'معطل' : 'Disabled')."</font></b>"; ?></td>
         </tr>
         <tr>
-            <td>Tribes images in profile <em class="tooltip">?<span class="classic">Enable (Disable) displaying images of tribes with a description in the players profile</span></em></td>
-            <td><?php echo NEW_FUNCTIONS_TRIBE_IMAGES ? "<b><font color='Green'>Enabled</font></b>" : "<b><font color='Red'>Disabled</font></b>"; ?></td>
+            <td><?php echo (defined('LANG') && LANG === 'ar') ? 'صور القبائل في الملف الشخصي' : 'Tribes images in profile'; ?> <em class="tooltip">?<span class="classic"><?php echo (defined('LANG') && LANG === 'ar') ? 'تفعيل (أو تعطيل) عرض صور القبائل مع الوصف في الملف الشخصي للاعبين' : 'Enable (Disable) displaying images of tribes with a description in the players profile'; ?></span></em></td>
+            <td><?php echo NEW_FUNCTIONS_TRIBE_IMAGES ? "<b><font color='Green'>".((defined('LANG') && LANG === 'ar') ? 'مفعل' : 'Enabled')."</font></b>" : "<b><font color='Red'>".((defined('LANG') && LANG === 'ar') ? 'معطل' : 'Disabled')."</font></b>"; ?></td>
         </tr>
         <tr>
-            <td>MHs images in profile <em class="tooltip">?<span class="classic">Enable (Disable) displaying images of Multihunters with a description in the MHs profile</span></em></td>
-            <td><?php echo NEW_FUNCTIONS_MHS_IMAGES ? "<b><font color='Green'>Enabled</font></b>" : "<b><font color='Red'>Disabled</font></b>"; ?></td>
+            <td><?php echo (defined('LANG') && LANG === 'ar') ? 'صور متعدد الصيادين في الملف الشخصي' : 'MHs images in profile'; ?> <em class="tooltip">?<span class="classic"><?php echo (defined('LANG') && LANG === 'ar') ? 'تفعيل (أو تعطيل) عرض صور متعدد الصيادين مع الوصف في ملفه الشخصي' : 'Enable (Disable) displaying images of Multihunters with a description in the MHs profile'; ?></span></em></td>
+            <td><?php echo NEW_FUNCTIONS_MHS_IMAGES ? "<b><font color='Green'>".((defined('LANG') && LANG === 'ar') ? 'مفعل' : 'Enabled')."</font></b>" : "<b><font color='Red'>".((defined('LANG') && LANG === 'ar') ? 'معطل' : 'Disabled')."</font></b>"; ?></td>
         </tr>
         <tr>
-            <td>Display artifact in profile <em class="tooltip">?<span class="classic">Enable (Disable) the display of the artifact in the player profile, opposite the corresponding village in which it is located</span></em></td>
-            <td><?php echo NEW_FUNCTIONS_DISPLAY_ARTIFACT ? "<b><font color='Green'>Enabled</font></b>" : "<b><font color='Red'>Disabled</font></b>"; ?></td>
+            <td><?php echo (defined('LANG') && LANG === 'ar') ? 'عرض التحف في الملف الشخصي' : 'Display artifact in profile'; ?> <em class="tooltip">?<span class="classic"><?php echo (defined('LANG') && LANG === 'ar') ? 'تفعيل (أو تعطيل) عرض التحفة في الملف الشخصي للاعب' : 'Enable (Disable) the display of the artifact in the player profile, opposite the corresponding village in which it is located'; ?></span></em></td>
+            <td><?php echo NEW_FUNCTIONS_DISPLAY_ARTIFACT ? "<b><font color='Green'>".((defined('LANG') && LANG === 'ar') ? 'مفعل' : 'Enabled')."</font></b>" : "<b><font color='Red'>".((defined('LANG') && LANG === 'ar') ? 'معطل' : 'Disabled')."</font></b>"; ?></td>
         </tr>
 		<tr>
-            <td>Display WoW in profile <em class="tooltip">?<span class="classic">Enable (Disable) the display of the wonder in the player profile, opposite the corresponding village in which it is located</span></em></td>
-            <td><?php echo NEW_FUNCTIONS_DISPLAY_WONDER ? "<b><font color='Green'>Enabled</font></b>" : "<b><font color='Red'>Disabled</font></b>"; ?></td>
+            <td><?php echo (defined('LANG') && LANG === 'ar') ? 'عرض معجزة العالم' : 'Display WoW in profile'; ?> <em class="tooltip">?<span class="classic"><?php echo (defined('LANG') && LANG === 'ar') ? 'تفعيل (أو تعطيل) عرض معجزة العالم في الملف الشخصي للاعب' : 'Enable (Disable) the display of the wonder in the player profile, opposite the corresponding village in which it is located'; ?></span></em></td>
+            <td><?php echo NEW_FUNCTIONS_DISPLAY_WONDER ? "<b><font color='Green'>".((defined('LANG') && LANG === 'ar') ? 'مفعل' : 'Enabled')."</font></b>" : "<b><font color='Red'>".((defined('LANG') && LANG === 'ar') ? 'معطل' : 'Disabled')."</font></b>"; ?></td>
         </tr>
 		<tr>
-            <td>Vacation Mode <em class="tooltip">?<span class="classic">Enable (Disable) vacation mode, will be displayed or hidden in the player profile menu</span></em></td>
-            <td><?php echo NEW_FUNCTIONS_VACATION ? "<b><font color='Green'>Enabled</font></b>" : "<b><font color='Red'>Disabled</font></b>"; ?></td>
+            <td><?php echo (defined('LANG') && LANG === 'ar') ? 'وضع الإجازة' : 'Vacation Mode'; ?> <em class="tooltip">?<span class="classic"><?php echo (defined('LANG') && LANG === 'ar') ? 'تفعيل (أو تعطيل) وضع الإجازة' : 'Enable (Disable) vacation mode, will be displayed or hidden in the player profile menu'; ?></span></em></td>
+            <td><?php echo NEW_FUNCTIONS_VACATION ? "<b><font color='Green'>".((defined('LANG') && LANG === 'ar') ? 'مفعل' : 'Enabled')."</font></b>" : "<b><font color='Red'>".((defined('LANG') && LANG === 'ar') ? 'معطل' : 'Disabled')."</font></b>"; ?></td>
         </tr>
 		<tr>
-            <td>Catapult targets <em class="tooltip">?<span class="classic">Enable (Disable) the display of the targets of the catapults in the rally point that were sent by you</span></em></td>
-            <td><?php echo NEW_FUNCTIONS_DISPLAY_CATAPULT_TARGET ? "<b><font color='Green'>Enabled</font></b>" : "<b><font color='Red'>Disabled</font></b>"; ?></td>
+            <td><?php echo (defined('LANG') && LANG === 'ar') ? 'أهداف المقاليع' : 'Catapult targets'; ?> <em class="tooltip">?<span class="classic"><?php echo (defined('LANG') && LANG === 'ar') ? 'تفعيل (أو تعطيل) عرض أهداف المقاليع في نقطة التجمع' : 'Enable (Disable) the display of the targets of the catapults in the rally point that were sent by you'; ?></span></em></td>
+            <td><?php echo NEW_FUNCTIONS_DISPLAY_CATAPULT_TARGET ? "<b><font color='Green'>".((defined('LANG') && LANG === 'ar') ? 'مفعل' : 'Enabled')."</font></b>" : "<b><font color='Red'>".((defined('LANG') && LANG === 'ar') ? 'معطل' : 'Disabled')."</font></b>"; ?></td>
         </tr>
 		<tr>
-            <td>Manual on Nature and Natars <em class="tooltip">?<span class="classic">Enable (Disable) displaying information in the Manual about the troops of Nature and Natars</span></em></td>
-            <td><?php echo NEW_FUNCTIONS_MANUAL_NATURENATARS ? "<b><font color='Green'>Enabled</font></b>" : "<b><font color='Red'>Disabled</font></b>"; ?></td>
+            <td><?php echo (defined('LANG') && LANG === 'ar') ? 'الدليل للطبيعة والناتار' : 'Manual on Nature and Natars'; ?> <em class="tooltip">?<span class="classic"><?php echo (defined('LANG') && LANG === 'ar') ? 'تفعيل (أو تعطيل) عرض معلومات في الدليل عن قوات الطبيعة والناتار' : 'Enable (Disable) displaying information in the Manual about the troops of Nature and Natars'; ?></span></em></td>
+            <td><?php echo NEW_FUNCTIONS_MANUAL_NATURENATARS ? "<b><font color='Green'>".((defined('LANG') && LANG === 'ar') ? 'مفعل' : 'Enabled')."</font></b>" : "<b><font color='Red'>".((defined('LANG') && LANG === 'ar') ? 'معطل' : 'Disabled')."</font></b>"; ?></td>
         </tr>
 		<tr>
-            <td>Direct links placement <em class="tooltip">?<span class="classic">If Enabled, then the Direct links will be placed in the left menu, if Disabled then Direct links will be placed in the right menu as in the original Travian</span></em></td>
-            <td><?php echo NEW_FUNCTIONS_DISPLAY_LINKS ? "<b><font color='Green'>Enabled</font></b>" : "<b><font color='Red'>Disabled</font></b>"; ?></td>
+            <td><?php echo (defined('LANG') && LANG === 'ar') ? 'توضع الروابط المباشرة' : 'Direct links placement'; ?> <em class="tooltip">?<span class="classic"><?php echo (defined('LANG') && LANG === 'ar') ? 'إذا كان مفعلاً، فسيتم تركيز الروابط في القائمة اليسرى' : 'If Enabled, then the Direct links will be placed in the left menu, if Disabled then Direct links will be placed in the right menu as in the original Travian'; ?></span></em></td>
+            <td><?php echo NEW_FUNCTIONS_DISPLAY_LINKS ? "<b><font color='Green'>".((defined('LANG') && LANG === 'ar') ? 'مفعل' : 'Enabled')."</font></b>" : "<b><font color='Red'>".((defined('LANG') && LANG === 'ar') ? 'معطل' : 'Disabled')."</font></b>"; ?></td>
         </tr>
 		<tr>
-            <td>Medal Veteran Player <em class="tooltip">?<span class="classic">Enable (Disable) medal achieved for playing 3 years of Travian</span></em></td>
-            <td><?php echo NEW_FUNCTIONS_MEDAL_3YEAR ? "<b><font color='Green'>Enabled</font></b>" : "<b><font color='Red'>Disabled</font></b>"; ?></td>
+            <td><?php echo (defined('LANG') && LANG === 'ar') ? 'ميدالية اللاعب المخضرم' : 'Medal Veteran Player'; ?> <em class="tooltip">?<span class="classic"><?php echo (defined('LANG') && LANG === 'ar') ? 'تفعيل (أو تعطيل) ميدالية اللعب لـ 3 سنوات' : 'Enable (Disable) medal achieved for playing 3 years of Travian'; ?></span></em></td>
+            <td><?php echo NEW_FUNCTIONS_MEDAL_3YEAR ? "<b><font color='Green'>".((defined('LANG') && LANG === 'ar') ? 'مفعل' : 'Enabled')."</font></b>" : "<b><font color='Red'>".((defined('LANG') && LANG === 'ar') ? 'معطل' : 'Disabled')."</font></b>"; ?></td>
         </tr>
 		<tr>
-            <td>Medal Veteran Player 5a <em class="tooltip">?<span class="classic">Enable (Disable) medal achieved for playing 5 years of Travian</span></em></td>
-            <td><?php echo NEW_FUNCTIONS_MEDAL_5YEAR ? "<b><font color='Green'>Enabled</font></b>" : "<b><font color='Red'>Disabled</font></b>"; ?></td>
+            <td><?php echo (defined('LANG') && LANG === 'ar') ? 'ميدالية اللاعب المخضرم 5 سنوات' : 'Medal Veteran Player 5a'; ?> <em class="tooltip">?<span class="classic"><?php echo (defined('LANG') && LANG === 'ar') ? 'تفعيل (أو تعطيل) ميدالية اللعب لـ 5 سنوات' : 'Enable (Disable) medal achieved for playing 5 years of Travian'; ?></span></em></td>
+            <td><?php echo NEW_FUNCTIONS_MEDAL_5YEAR ? "<b><font color='Green'>".((defined('LANG') && LANG === 'ar') ? 'مفعل' : 'Enabled')."</font></b>" : "<b><font color='Red'>".((defined('LANG') && LANG === 'ar') ? 'معطل' : 'Disabled')."</font></b>"; ?></td>
         </tr>
 		<tr>
-            <td>Medal Veteran Player 10a <em class="tooltip">?<span class="classic">Enable (Disable) medal achieved for playing 10 years of Travian</span></em></td>
-            <td><?php echo NEW_FUNCTIONS_MEDAL_10YEAR ? "<b><font color='Green'>Enabled</font></b>" : "<b><font color='Red'>Disabled</font></b>"; ?></td>
+            <td><?php echo (defined('LANG') && LANG === 'ar') ? 'ميدالية اللاعب المخضرم 10 سنوات' : 'Medal Veteran Player 10a'; ?> <em class="tooltip">?<span class="classic"><?php echo (defined('LANG') && LANG === 'ar') ? 'تفعيل (أو تعطيل) ميدالية اللعب لـ 10 سنوات' : 'Enable (Disable) medal achieved for playing 10 years of Travian'; ?></span></em></td>
+            <td><?php echo NEW_FUNCTIONS_MEDAL_10YEAR ? "<b><font color='Green'>".((defined('LANG') && LANG === 'ar') ? 'مفعل' : 'Enabled')."</font></b>" : "<b><font color='Red'>".((defined('LANG') && LANG === 'ar') ? 'معطل' : 'Disabled')."</font></b>"; ?></td>
         </tr>
     </table>
     <table id="member">
@@ -312,11 +318,11 @@ if($_SESSION['access'] < 9) die(ACCESS_DENIED_ADMIN);
     </tr>
     <tr>
         <td><?php echo CONF_PLUS_ACCDURATION ?> <em class="tooltip">?<span class="classic"><?php echo CONF_PLUS_ACCDURATION_TOOLTIP ?></span></em></td>
-        <td><?php if(PLUS_TIME >= 86400){ echo ''.(PLUS_TIME/86400).' Days'; } else if(PLUS_TIME < 86400){ echo ''.(PLUS_TIME / 3600).' Hours'; } ?></td>
+        <td><?php if(PLUS_TIME >= 86400){ echo ''.(PLUS_TIME/86400).' '.((defined('LANG') && LANG === 'ar') ? 'أيام' : 'Days'); } else if(PLUS_TIME < 86400){ echo ''.(PLUS_TIME / 3600).' '.((defined('LANG') && LANG === 'ar') ? 'ساعات' : 'Hours'); } ?></td>
     </tr>
     <tr>
         <td><?php echo CONF_PLUS_PRODUCTDURATION ?> <em class="tooltip">?<span class="classic"><?php echo CONF_PLUS_PRODUCTDURATION_TOOLTIP ?></span></em></td>
-        <td><?php if(PLUS_PRODUCTION >= 86400){ echo ''.(PLUS_PRODUCTION/86400).' Days'; } else if(PLUS_PRODUCTION < 86400){ echo ''.(PLUS_PRODUCTION/3600).' Hours'; } ?></td>
+        <td><?php if(PLUS_PRODUCTION >= 86400){ echo ''.(PLUS_PRODUCTION/86400).' '.((defined('LANG') && LANG === 'ar') ? 'أيام' : 'Days'); } else if(PLUS_PRODUCTION < 86400){ echo ''.(PLUS_PRODUCTION/3600).' '.((defined('LANG') && LANG === 'ar') ? 'ساعات' : 'Hours'); } ?></td>
     </tr>
 </table>
 
@@ -335,35 +341,35 @@ if($_SESSION['access'] < 9) die(ACCESS_DENIED_ADMIN);
 	</tr>
 	<tr>
 		<td><?php echo CONF_LOG_BUILD ?> <em class="tooltip">?<span class="classic"><?php echo CONF_LOG_BUILD_TOOLTIP ?></span></em></td>
-		<td><?php if(LOG_BUILD) { echo "<b><font color='Green'>Enabled</font></b>"; } elseif(!LOG_BUILD){ echo "<b><font color='Red'>Disabled</font></b>"; } ?></td>
+		<td><?php if(LOG_BUILD) { echo "<b><font color='Green'>".((defined('LANG') && LANG === 'ar') ? 'مفعل' : 'Enabled')."</font></b>"; } elseif(!LOG_BUILD){ echo "<b><font color='Red'>".((defined('LANG') && LANG === 'ar') ? 'معطل' : 'Disabled')."</font></b>"; } ?></td>
 	</tr>
 	<tr>
 		<td><?php echo CONF_LOG_TECHNOLOGY ?> <em class="tooltip">?<span class="classic"><?php echo CONF_LOG_TECHNOLOGY_TOOLTIP ?></span></em></td>
-		<td><?php if(LOG_TECH) { echo "<b><font color='Green'>Enabled</font></b>"; } elseif(!LOG_TECH){ echo "<b><font color='Red'>Disabled</font></b>"; } ?></td>
+		<td><?php if(LOG_TECH) { echo "<b><font color='Green'>".((defined('LANG') && LANG === 'ar') ? 'مفعل' : 'Enabled')."</font></b>"; } elseif(!LOG_TECH){ echo "<b><font color='Red'>".((defined('LANG') && LANG === 'ar') ? 'معطل' : 'Disabled')."</font></b>"; } ?></td>
 	</tr>
 	<tr>
 		<td><?php echo CONF_LOG_LOGIN ?> <em class="tooltip">?<span class="classic"><?php echo CONF_LOG_LOGIN_TOOLTIP ?></span></em></td>
-		<td><?php if(LOG_LOGIN) { echo "<b><font color='Green'>Enabled</font></b>"; } elseif(!LOG_LOGIN){ echo "<b><font color='Red'>Disabled</font></b>";  } ?></td>
+		<td><?php if(LOG_LOGIN) { echo "<b><font color='Green'>".((defined('LANG') && LANG === 'ar') ? 'مفعل' : 'Enabled')."</font></b>"; } elseif(!LOG_LOGIN){ echo "<b><font color='Red'>".((defined('LANG') && LANG === 'ar') ? 'معطل' : 'Disabled')."</font></b>";  } ?></td>
 	</tr>
 	<tr>
 		<td><?php echo CONF_LOG_GOLD ?> <em class="tooltip">?<span class="classic"><?php echo CONF_LOG_GOLD_TOOLTIP ?></span></em></td>
-		<td><?php if(LOG_GOLD_FIN) { echo "<b><font color='Green'>Enabled</font></b>"; } elseif(!LOG_GOLD_FIN){ echo "<b><font color='Red'>Disabled</font></b>"; } ?></td>
+		<td><?php if(LOG_GOLD_FIN) { echo "<b><font color='Green'>".((defined('LANG') && LANG === 'ar') ? 'مفعل' : 'Enabled')."</font></b>"; } elseif(!LOG_GOLD_FIN){ echo "<b><font color='Red'>".((defined('LANG') && LANG === 'ar') ? 'معطل' : 'Disabled')."</font></b>"; } ?></td>
 	</tr>
 	<tr>
 		<td><?php echo CONF_LOG_ADMIN ?> <em class="tooltip">?<span class="classic"><?php echo CONF_LOG_ADMIN_TOOLTIP ?></span></em></td>
-		<td><?php if(LOG_ADMIN) { echo "<b><font color='Green'>Enabled</font></b>"; } elseif(!LOG_ADMIN){ echo "<b><font color='Red'>Disabled</font></b>";  } ?></td>
+		<td><?php if(LOG_ADMIN) { echo "<b><font color='Green'>".((defined('LANG') && LANG === 'ar') ? 'مفعل' : 'Enabled')."</font></b>"; } elseif(!LOG_ADMIN){ echo "<b><font color='Red'>".((defined('LANG') && LANG === 'ar') ? 'معطل' : 'Disabled')."</font></b>";  } ?></td>
 	</tr>
 	<tr>
 		<td><?php echo CONF_LOG_WAR ?> <em class="tooltip">?<span class="classic"><?php echo CONF_LOG_WAR_TOOLTIP ?></span></em></td>
-		<td><?php if(LOG_WAR) {	echo "<b><font color='Green'>Enabled</font></b>"; } elseif(!LOG_WAR){ echo "<b><font color='Red'>Disabled</font></b>"; } ?></td>
+		<td><?php if(LOG_WAR) {	echo "<b><font color='Green'>".((defined('LANG') && LANG === 'ar') ? 'مفعل' : 'Enabled')."</font></b>"; } elseif(!LOG_WAR){ echo "<b><font color='Red'>".((defined('LANG') && LANG === 'ar') ? 'معطل' : 'Disabled')."</font></b>"; } ?></td>
 	</tr>
 	<tr>
 		<td><?php echo CONF_LOG_MARKET ?> <em class="tooltip">?<span class="classic"><?php echo CONF_LOG_MARKET_TOOLTIP ?></span></em></td>
-		<td><?php if(LOG_MARKET) { echo "<b><font color='Green'>Enabled</font></b>"; } elseif(!LOG_MARKET){ echo "<b><font color='Red'>Disabled</font></b>"; } ?></td>
+		<td><?php if(LOG_MARKET) { echo "<b><font color='Green'>".((defined('LANG') && LANG === 'ar') ? 'مفعل' : 'Enabled')."</font></b>"; } elseif(!LOG_MARKET){ echo "<b><font color='Red'>".((defined('LANG') && LANG === 'ar') ? 'معطل' : 'Disabled')."</font></b>"; } ?></td>
 	</tr>
 	<tr>
 		<td><?php echo CONF_LOG_ILLEGAL ?> <em class="tooltip">?<span class="classic"><?php echo CONF_LOG_ILLEGAL_TOOLTIP ?></span></em></td>
-		<td><?php if(LOG_ILLEGAL) { echo "<b><font color='Green'>Enabled</font></b>"; } elseif(!LOG_ILLEGAL){ echo "<b><font color='Red'>Disabled</font></b>";  } ?></td>
+		<td><?php if(LOG_ILLEGAL) { echo "<b><font color='Green'>".((defined('LANG') && LANG === 'ar') ? 'مفعل' : 'Enabled')."</font></b>"; } elseif(!LOG_ILLEGAL){ echo "<b><font color='Red'>".((defined('LANG') && LANG === 'ar') ? 'معطل' : 'Disabled')."</font></b>";  } ?></td>
 	</tr>
 </table>
 
@@ -382,15 +388,15 @@ if($_SESSION['access'] < 9) die(ACCESS_DENIED_ADMIN);
 	</tr>
 	<tr>
 		<td><?php echo EDIT_NEWSBOX1 ?> <em class="tooltip">?<span class="classic"><?php echo EDIT_NEWSBOX1_TOOLTIP ?></span></em></td>
-		<td><?php if(NEWSBOX1){ echo "<b><font color='Green'>Enabled</font></b>"; } elseif(!NEWSBOX1){ echo "<b><font color='Red'>Disabled</font></b>"; } ?> </td>
+		<td><?php if(NEWSBOX1){ echo "<b><font color='Green'>".((defined('LANG') && LANG === 'ar') ? 'مفعل' : 'Enabled')."</font></b>"; } elseif(!NEWSBOX1){ echo "<b><font color='Red'>".((defined('LANG') && LANG === 'ar') ? 'معطل' : 'Disabled')."</font></b>"; } ?> </td>
 	</tr>
 	<tr>
 		<td><?php echo EDIT_NEWSBOX2 ?> <em class="tooltip">?<span class="classic"><?php echo EDIT_NEWSBOX2_TOOLTIP ?></span></em></td>
-		<td><?php if(NEWSBOX2){ echo "<b><font color='Green'>Enabled</font></b>"; } elseif(!NEWSBOX2){ echo "<b><font color='Red'>Disabled</font></b>"; } ?> </td>
+		<td><?php if(NEWSBOX2){ echo "<b><font color='Green'>".((defined('LANG') && LANG === 'ar') ? 'مفعل' : 'Enabled')."</font></b>"; } elseif(!NEWSBOX2){ echo "<b><font color='Red'>".((defined('LANG') && LANG === 'ar') ? 'معطل' : 'Disabled')."</font></b>"; } ?> </td>
 	</tr>
 	<tr>
 		<td><?php echo EDIT_NEWSBOX3 ?> <em class="tooltip">?<span class="classic"><?php echo EDIT_NEWSBOX3_TOOLTIP ?></span></em></td>
-		<td><?php if(NEWSBOX3){ echo "<b><font color='Green'>Enabled</font></b>"; } elseif(!NEWSBOX3){ echo "<b><font color='Red'>Disabled</font></b>"; } ?> </td>
+		<td><?php if(NEWSBOX3){ echo "<b><font color='Green'>".((defined('LANG') && LANG === 'ar') ? 'مفعل' : 'Enabled')."</font></b>"; } elseif(!NEWSBOX3){ echo "<b><font color='Red'>".((defined('LANG') && LANG === 'ar') ? 'معطل' : 'Disabled')."</font></b>"; } ?> </td>
 	</tr>
 	<tr>
 	<!--<td>Home 1</td>
@@ -464,11 +470,11 @@ if($_SESSION['access'] < 9) die(ACCESS_DENIED_ADMIN);
 	</tr>
 	<tr>
 		<td><?php echo CONF_EXTRA_LIMITMAIL ?> <em class="tooltip">?<span class="classic"><?php echo CONF_EXTRA_LIMITMAIL_TOOLTIP ?></span></em></td>
-		<td><?php if(LIMIT_MAILBOX){ echo "<b><font color='Green'>Enabled</font></b>"; } else if(LIMIT_MAILBOX == false){ echo "<b><font color='Red'>Disabled</font></b>"; } ?></td>
+		<td><?php if(LIMIT_MAILBOX){ echo "<b><font color='Green'>".((defined('LANG') && LANG === 'ar') ? 'مفعل' : 'Enabled')."</font></b>"; } else if(LIMIT_MAILBOX == false){ echo "<b><font color='Red'>".((defined('LANG') && LANG === 'ar') ? 'معطل' : 'Disabled')."</font></b>"; } ?></td>
 	</tr>
 	<tr>
 		<td><?php echo CONF_EXTRA_MAXMAIL ?> <em class="tooltip">?<span class="classic"><?php echo CONF_EXTRA_MAXMAIL_TOOLTIP ?></span></em></td>
-		<td><?php if(LIMIT_MAILBOX){ echo MAX_MAIL; } else if(LIMIT_MAILBOX == false){ echo "<font color='Gray'>Limit mailbox disabled</font>"; } ?></td>
+		<td><?php if(LIMIT_MAILBOX){ echo MAX_MAIL; } else if(LIMIT_MAILBOX == false){ echo "<font color='Gray'>".((defined('LANG') && LANG === 'ar') ? 'تقييد الرسائل معطل' : 'Limit mailbox disabled')."</font>"; } ?></td>
 	</tr>
 </table>
 
@@ -486,23 +492,23 @@ if($_SESSION['access'] < 9) die(ACCESS_DENIED_ADMIN);
 	</tr>
 	<tr>
 		<td><?php echo CONF_ADMIN_NAME ?> <em class="tooltip">?<span class="classic"><?php echo CONF_ADMIN_NAME_TOOLTIP ?></span></em></td>
-		<td><?php if(empty(ADMIN_NAME)){ echo "<b><font color='Red'>No admin name defined!</b></font>"; } else if(ADMIN_NAME != ''){ echo ADMIN_NAME; } ?></td>
+		<td><?php if(empty(ADMIN_NAME)){ echo "<b><font color='Red'>".((defined('LANG') && LANG === 'ar') ? 'لم يتم تحديد اسم المسؤول!' : 'No admin name defined!')."</b></font>"; } else if(ADMIN_NAME != ''){ echo ADMIN_NAME; } ?></td>
 	</tr>
 	<tr>
 		<td><?php echo CONF_ADMIN_EMAIL ?> <em class="tooltip">?<span class="classic"><?php echo CONF_ADMIN_EMAIL_TOOLTIP ?></span></em></td>
-		<td><?php if(empty(ADMIN_EMAIL)){ echo "<b><font color='Red'>No admin email defined!</b></font>"; } else if(ADMIN_EMAIL != ''){ echo ADMIN_EMAIL; } ?></td>
+		<td><?php if(empty(ADMIN_EMAIL)){ echo "<b><font color='Red'>".((defined('LANG') && LANG === 'ar') ? 'لم يتم تحديد بريد المسؤول!' : 'No admin email defined!')."</b></font>"; } else if(ADMIN_EMAIL != ''){ echo ADMIN_EMAIL; } ?></td>
 	</tr>
 	<tr>
 		<td><?php echo CONF_ADMIN_SHOWSTATS ?> <em class="tooltip">?<span class="classic"><?php echo CONF_ADMIN_SHOWSTATS_TOOLTIP ?></span></em></td>
-		<td><?php if(INCLUDE_ADMIN){ echo "<b><font color='Green'>Enabled</font></b>"; } else if(INCLUDE_ADMIN == false){ echo "<b><font color='Red'>Disabled</font></b>"; } ?></td>
+		<td><?php if(INCLUDE_ADMIN){ echo "<b><font color='Green'>".((defined('LANG') && LANG === 'ar') ? 'مفعل' : 'Enabled')."</font></b>"; } else if(INCLUDE_ADMIN == false){ echo "<b><font color='Red'>".((defined('LANG') && LANG === 'ar') ? 'معطل' : 'Disabled')."</font></b>"; } ?></td>
 	</tr>
 	<tr>
 		<td><?php echo CONF_ADMIN_SUPPMESS ?> <em class="tooltip">?<span class="classic"><?php echo CONF_ADMIN_SUPPMESS_TOOLTIP ?></span></em></td>
-		<td><?php if(ADMIN_RECEIVE_SUPPORT_MESSAGES){ echo "<b><font color='Green'>Enabled</font></b>"; } else if(ADMIN_RECEIVE_SUPPORT_MESSAGES == false){ echo "<b><font color='Red'>Disabled</font></b>"; } ?></td>
+		<td><?php if(ADMIN_RECEIVE_SUPPORT_MESSAGES){ echo "<b><font color='Green'>".((defined('LANG') && LANG === 'ar') ? 'مفعل' : 'Enabled')."</font></b>"; } else if(ADMIN_RECEIVE_SUPPORT_MESSAGES == false){ echo "<b><font color='Red'>".((defined('LANG') && LANG === 'ar') ? 'معطل' : 'Disabled')."</font></b>"; } ?></td>
 	</tr>
 	<tr>
 		<td><?php echo CONF_ADMIN_RAIDATT ?> <em class="tooltip">?<span class="classic"><?php echo CONF_ADMIN_RAIDATT_TOOLTIP ?></span></em></td>
-		<td><?php if(ADMIN_ALLOW_INCOMING_RAIDS){ echo "<b><font color='Green'>Yes</font></b>"; } else if(ADMIN_ALLOW_INCOMING_RAIDS == false){ echo "<b><font color='Red'>No</font></b>"; } ?></td>
+		<td><?php if(ADMIN_ALLOW_INCOMING_RAIDS){ echo "<b><font color='Green'>".((defined('LANG') && LANG === 'ar') ? 'نعم' : 'Yes')."</font></b>"; } else if(ADMIN_ALLOW_INCOMING_RAIDS == false){ echo "<b><font color='Red'>".((defined('LANG') && LANG === 'ar') ? 'لا' : 'No')."</font></b>"; } ?></td>
 	</tr>
 </table>
 

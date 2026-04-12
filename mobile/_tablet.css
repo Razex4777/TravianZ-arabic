@@ -1,0 +1,183 @@
+/* ==========================================================================
+   TABLET  ( ≤ 980px )  — Public + In-game layout resets
+   ========================================================================== */
+
+@media screen and (max-width: 980px) {
+
+  /* ---------- PUBLIC PAGES ---------- */
+
+  .wrapper {
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+
+  #navigation {
+    position: relative !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    left: 0 !important;
+    height: auto !important;
+    top: 0 !important;
+    padding: 10px 0;
+    box-sizing: border-box;
+  }
+
+  #navigation a.home {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    display: block;
+    margin: 0 auto;
+    width: 200px !important;
+  }
+
+  #navigation table.menu {
+    position: relative !important;
+    right: auto !important;
+    left: auto !important;
+    top: auto !important;
+    width: auto !important;
+    margin: 10px auto 0;
+  }
+
+  body.indexPage #content .grit,
+  body.contentPage #content .grit,
+  #content .grit {
+    width: 100% !important;
+    max-width: 840px;
+    box-sizing: border-box;
+    padding: 0 15px;
+  }
+
+  body.contentPage #content p,
+  body.contentPage #content .characteristics,
+  body.contentPage #content table,
+  body.contentPage form,
+  body.contentPage #content h2,
+  body.contentPage #content h3 {
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+  }
+
+  body.contentPage .rules {
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+  }
+
+  body.contentPage table.table_data,
+  body.contentPage table.culture_points,
+  #tutorial_nav,
+  body.contentPage table.tutorial_table,
+  body.contentPage table.middle {
+    width: 100% !important;
+    max-width: 550px;
+    box-sizing: border-box;
+  }
+
+  .grit .infobox {
+    float: none !important;
+    width: 100% !important;
+    max-width: 420px;
+    margin: 0 auto !important;
+    box-sizing: border-box;
+    background: #fff !important;
+    border: 2px solid #b3b3b3;
+    border-radius: 12px;
+    padding: 15px !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .grit .secondarybox {
+    float: none !important;
+    width: 100% !important;
+    max-width: 420px;
+    margin: 15px auto 0 !important;
+    box-sizing: border-box;
+    background: #fff !important;
+    border: 2px solid #b3b3b3;
+    border-radius: 12px;
+    padding: 15px !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  #footer .container {
+    width: 100% !important;
+    max-width: 840px;
+    box-sizing: border-box;
+    padding: 0 10px;
+  }
+
+  #footer .menu {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    text-align: center;
+  }
+
+  #footer .copyright {
+    position: relative !important;
+    right: auto !important;
+    text-align: center;
+    clear: both;
+  }
+
+  #footer .logo {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    display: block;
+    margin: 10px auto;
+  }
+
+  /* ---------- IN-GAME PAGES ---------- */
+
+  /* Hide desktop debug guides (#guide1-4) that use position:fixed
+     with margin-right:-480px — invisible but can force scrollbar */
+  #guide1, #guide2, #guide3, #guide4 {
+    display: none !important;
+  }
+
+  div#header,
+  div#mid,
+  div#dynamic_header {
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+
+  /* Prevent ALL children from exceeding the viewport width */
+  div#mid *,
+  div#content * {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Exclude images & canvas (village map, sprites, icons) */
+  div#mid img,
+  div#mid canvas,
+  div#content img,
+  div#content canvas {
+    max-width: none !important;
+  }
+
+  body.mod3 div#ltime,
+  body.mod3 div#res {
+    min-width: 0 !important;
+  }
+
+  div#mid {
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+
+  div#footer {
+    min-width: 0 !important;
+  }
+
+  div#footer div#mfoot {
+    width: 100% !important;
+    max-width: 812px;
+    box-sizing: border-box;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}

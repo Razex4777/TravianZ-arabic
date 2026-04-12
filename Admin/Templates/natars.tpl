@@ -5,18 +5,18 @@ $deletedArtifacts = $database->getDeletedArtifacts();
 <link href="../<?php echo GP_LOCATE; ?>lang/en/lang.css?f4b7d" rel="stylesheet" type="text/css">
 <link href="../<?php echo GP_LOCATE; ?>lang/en/compact.css?v2" rel="stylesheet" type="text/css">
 
-<h1>Artifacts management</h1>
+<h1><?php echo (defined('LANG') && LANG === 'ar') ? 'إدارة التحف' : 'Artifacts management'; ?></h1>
 <form method="post" action="../Admin/admin.php?action=addArtifacts">
 <table id="member">
   <thead>
 	<tr>
-		<th colspan="4">Add artifact(s)</th>
+		<th colspan="4"><?php echo (defined('LANG') && LANG === 'ar') ? 'إضافة تحف' : 'Add artifact(s)'; ?></th>
 	</tr>
 	<tr>
 		<td class="ra"></td>
-		<td>Type</td>
-		<td>Quantity</td>
-		<td>Player id</td>
+		<td><?php echo (defined('LANG') && LANG === 'ar') ? 'النوع' : 'Type'; ?></td>
+		<td><?php echo (defined('LANG') && LANG === 'ar') ? 'الكمية' : 'Quantity'; ?></td>
+		<td><?php echo (defined('LANG') && LANG === 'ar') ? 'معرف اللاعب' : 'Player id'; ?></td>
 	</tr>
   </thead>
   </tbody>
@@ -39,7 +39,7 @@ $deletedArtifacts = $database->getDeletedArtifacts();
 		<td><input type="text" value="<?php echo Artifacts::NATARS_UID; ?>" name="playerId"></td>
 	</tr>
 	<tr>
-		<td colspan="4"><div style="text-align: center"><button id="addArtifacts" class="trav_buttons" value="add" name="addArtifacts" onclick="this.disabled=true;this.form.submit();"> Add </button></div></td>
+		<td colspan="4"><div style="text-align: center"><button id="addArtifacts" class="trav_buttons" value="add" name="addArtifacts" onclick="this.disabled=true;this.form.submit();"> <?php echo (defined('LANG') && LANG === 'ar') ? 'إضافة' : 'Add'; ?> </button></div></td>
 	</tr>
    </tbody>
 </table>
@@ -48,17 +48,17 @@ $deletedArtifacts = $database->getDeletedArtifacts();
 <table id="member">
 	<thead>
 		<tr>
-			<th colspan="8">Deleted artifact(s)</th>
+			<th colspan="8"><?php echo (defined('LANG') && LANG === 'ar') ? 'التحف المحذوفة' : 'Deleted artifact(s)'; ?></th>
 		</tr>
 		<tr>
 			<td class="ra"></td>
 			<td class="ra"></td>
-			<td colspan="1">Name</td>
-			<td colspan="1">Bonus</td>
-			<td colspan="1">Area of effect</td>
-			<td colspan="1">Time of conquer</td>
-			<td colspan="1">Old owner</td>
-			<td colspan="1">Old village</td>
+			<td colspan="1"><?php echo (defined('LANG') && LANG === 'ar') ? 'الاسم' : 'Name'; ?></td>
+			<td colspan="1"><?php echo (defined('LANG') && LANG === 'ar') ? 'المكافأة' : 'Bonus'; ?></td>
+			<td colspan="1"><?php echo (defined('LANG') && LANG === 'ar') ? 'مدى التأثير' : 'Area of effect'; ?></td>
+			<td colspan="1"><?php echo (defined('LANG') && LANG === 'ar') ? 'وقت الاحتلال' : 'Time of conquer'; ?></td>
+			<td colspan="1"><?php echo (defined('LANG') && LANG === 'ar') ? 'المالك القديم' : 'Old owner'; ?></td>
+			<td colspan="1"><?php echo (defined('LANG') && LANG === 'ar') ? 'القرية القديمة' : 'Old village'; ?></td>
 		</tr>
 	</thead>
 	<tbody>
@@ -118,16 +118,16 @@ $deletedArtifacts = $database->getDeletedArtifacts();
 	</tbody>
 </table><br />
 
-<h1>WW villages management</h1>
+<h1><?php echo (defined('LANG') && LANG === 'ar') ? 'إدارة قرى المعجزة' : 'WW villages management'; ?></h1>
 <form method="post" action="../Admin/admin.php?action=addWWVillages">
 <table id="member">
   <thead>
 	<tr>
-		<th colspan="2">Add WW village(s)</th>
+		<th colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'إضافة قرى معجزة' : 'Add WW village(s)'; ?></th>
 	</tr>
 	<tr>
-		<td>Number of village(s)</td>
-		<td>Player id</td>
+		<td><?php echo (defined('LANG') && LANG === 'ar') ? 'عدد القرى' : 'Number of village(s)'; ?></td>
+		<td><?php echo (defined('LANG') && LANG === 'ar') ? 'معرف اللاعب' : 'Player id'; ?></td>
 	</tr>
   </thead>
   </tbody>
@@ -144,7 +144,7 @@ $deletedArtifacts = $database->getDeletedArtifacts();
 		</td>
 	</tr>
 	<tr>
-		<td colspan="2"><div style="text-align: center"><button id="addWWVillages" class="trav_buttons" value="add" name="addWWVillages" onclick="this.disabled=true;this.form.submit();"> Add </button></div></td>
+		<td colspan="2"><div style="text-align: center"><button id="addWWVillages" class="trav_buttons" value="add" name="addWWVillages" onclick="this.disabled=true;this.form.submit();"> <?php echo (defined('LANG') && LANG === 'ar') ? 'إضافة' : 'Add'; ?> </button></div></td>
 	</tr>
    </tbody>
 </table>

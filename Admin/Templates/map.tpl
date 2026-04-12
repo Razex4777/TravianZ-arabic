@@ -51,7 +51,7 @@ if ($check1 == "" && $check2 == "" && $check3 == "") $criteria = "";
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title><?php echo SERVER_NAME; ?> Map</title>
+<title><?php echo SERVER_NAME; ?> <?php echo (defined('LANG') && LANG === 'ar') ? 'خريطة' : 'Map'; ?></title>
 <link rel="stylesheet" href="../img/admin/map.css" type="text/css" media="all">
 
 <style>
@@ -125,16 +125,16 @@ if ($check1 == "" && $check2 == "" && $check3 == "") $criteria = "";
 <body>
 
 <div id="start">
-  <div class="clear"><h2 class="left"><?php echo SERVER_NAME;?> Map!</h2></div>
-  <p>This is the map of <?php echo SERVER_NAME;?>. Search and find players.</p>
+  <div class="clear"><h2 class="left"><?php echo SERVER_NAME;?> <?php echo (defined('LANG') && LANG === 'ar') ? 'خريطة!' : 'Map!'; ?></h2></div>
+  <p><?php echo (defined('LANG') && LANG === 'ar') ? 'هذه هي خريطة ' . SERVER_NAME . '. ابحث واعثر على اللاعبين.' : 'This is the map of '.SERVER_NAME.'. Search and find players.'; ?></p>
 
-  <h1>Show Option</h1>
+  <h1><?php echo (defined('LANG') && LANG === 'ar') ? 'خيارات العرض' : 'Show Option'; ?></h1>
   <form id="show" name="show" action="admin.php?p=map" method="POST">
     <table width="70%"><tr>
-      <td><input id="show1" name="show1" type="checkbox" <?php echo $check1;?> value="1">Players</td>
+      <td><input id="show1" name="show1" type="checkbox" <?php echo $check1;?> value="1"><?php echo (defined('LANG') && LANG === 'ar') ? 'اللاعبين' : 'Players'; ?></td>
       <td><input id="show2" name="show2" type="checkbox" <?php echo $check2;?> value="2"><?php echo TRIBE5; ?></td>
-      <td><input id="show3" name="show3" type="checkbox" <?php echo $check3;?> value="2">Artifacts</td>
-      <td><input id="btnshow" type="submit" value="Show" style="font-size:9px"></td>
+      <td><input id="show3" name="show3" type="checkbox" <?php echo $check3;?> value="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'التحف' : 'Artifacts'; ?></td>
+      <td><input id="btnshow" type="submit" value="<?php echo (defined('LANG') && LANG === 'ar') ? 'عرض' : 'Show'; ?>" style="font-size:9px"></td>
     </tr></table>
   </form>
 </div>
@@ -235,7 +235,7 @@ if ($check1 == "" && $check2 == "" && $check3 == "") $criteria = "";
 
   <div id="legenda">
     <div class="content">
-      <h3>Legend</h3>
+      <h3><?php echo (defined('LANG') && LANG === 'ar') ? 'المفتاح' : 'Legend'; ?></h3>
       <div id="items">
         <div class="first"></div>
         <table>
@@ -251,7 +251,7 @@ if ($check1 == "" && $check2 == "" && $check3 == "") $criteria = "";
 
   <div id="legenda">
     <div class="content">
-      <h3>Artifacts Legend</h3>
+      <h3><?php echo (defined('LANG') && LANG === 'ar') ? 'مفتاح التحف' : 'Artifacts Legend'; ?></h3>
       <div id="items">
         <div class="first"></div>
         <table>

@@ -135,14 +135,14 @@ function refresh(tz) {
 						<td><?php echo CONF_PLUS_ACCDURATION ?> <em class="tooltip">?<span class="classic"><?php echo CONF_PLUS_ACCDURATION_TOOLTIP ?></span></em></td>
 						<td>
 							<select name="plus_time">
-								<option value="(3600*12)" <?php if(PLUS_TIME==43200) echo "selected";?>>12 hours</option>
-								<option value="(3600*24)" <?php if(PLUS_TIME==86400) echo "selected";?>>1 day</option>
-								<option value="(3600*24*2)" <?php if(PLUS_TIME==172800) echo "selected";?>>2 days</option>
-								<option value="(3600*24*3)" <?php if(PLUS_TIME==259200) echo "selected";?>>3 days</option>
-								<option value="(3600*24*4)" <?php if(PLUS_TIME==345600) echo "selected";?>>4 days</option>
-								<option value="(3600*24*5)" <?php if(PLUS_TIME==432000) echo "selected";?>>5 days</option>
-								<option value="(3600*24*6)" <?php if(PLUS_TIME==518400) echo "selected";?>>6 days</option>
-								<option value="(3600*24*7)" <?php if(PLUS_TIME==604800) echo "selected";?>>7 days</option>
+								<option value="(3600*12)" <?php if(PLUS_TIME==43200) echo "selected";?>>12 <?php echo (defined('LANG') && LANG === 'ar') ? 'ساعات' : 'hours'; ?></option>
+								<option value="(3600*24)" <?php if(PLUS_TIME==86400) echo "selected";?>>1 <?php echo (defined('LANG') && LANG === 'ar') ? 'يوم' : 'day'; ?></option>
+								<option value="(3600*24*2)" <?php if(PLUS_TIME==172800) echo "selected";?>>2 <?php echo (defined('LANG') && LANG === 'ar') ? 'أيام' : 'days'; ?></option>
+								<option value="(3600*24*3)" <?php if(PLUS_TIME==259200) echo "selected";?>>3 <?php echo (defined('LANG') && LANG === 'ar') ? 'أيام' : 'days'; ?></option>
+								<option value="(3600*24*4)" <?php if(PLUS_TIME==345600) echo "selected";?>>4 <?php echo (defined('LANG') && LANG === 'ar') ? 'أيام' : 'days'; ?></option>
+								<option value="(3600*24*5)" <?php if(PLUS_TIME==432000) echo "selected";?>>5 <?php echo (defined('LANG') && LANG === 'ar') ? 'أيام' : 'days'; ?></option>
+								<option value="(3600*24*6)" <?php if(PLUS_TIME==518400) echo "selected";?>>6 <?php echo (defined('LANG') && LANG === 'ar') ? 'أيام' : 'days'; ?></option>
+								<option value="(3600*24*7)" <?php if(PLUS_TIME==604800) echo "selected";?>>7 <?php echo (defined('LANG') && LANG === 'ar') ? 'أيام' : 'days'; ?></option>
 							</select>
 						</td>
 					</tr>
@@ -150,14 +150,14 @@ function refresh(tz) {
 						<td><?php echo CONF_PLUS_PRODUCTDURATION ?> <em class="tooltip">?<span class="classic"><?php echo CONF_PLUS_PRODUCTDURATION_TOOLTIP ?></span></em></td>
 						<td>
 							<select name="plus_production">
-								<option value="(3600*12)" <?php if(PLUS_TIME==43200) echo "selected";?>>12 hours</option>
-								<option value="(3600*24)" <?php if(PLUS_TIME==86400) echo "selected";?>>1 day</option>
-								<option value="(3600*24*2)" <?php if(PLUS_TIME==172800) echo "selected";?>>2 days</option>
-								<option value="(3600*24*3)" <?php if(PLUS_TIME==259200) echo "selected";?>>3 days</option>
-								<option value="(3600*24*4)" <?php if(PLUS_TIME==345600) echo "selected";?>>4 days</option>
-								<option value="(3600*24*5)" <?php if(PLUS_TIME==432000) echo "selected";?>>5 days</option>
-								<option value="(3600*24*6)" <?php if(PLUS_TIME==518400) echo "selected";?>>6 days</option>
-								<option value="(3600*24*7)" <?php if(PLUS_TIME==604800) echo "selected";?>>7 days</option>
+								<option value="(3600*12)" <?php if(PLUS_TIME==43200) echo "selected";?>>12 <?php echo (defined('LANG') && LANG === 'ar') ? 'ساعات' : 'hours'; ?></option>
+								<option value="(3600*24)" <?php if(PLUS_TIME==86400) echo "selected";?>>1 <?php echo (defined('LANG') && LANG === 'ar') ? 'يوم' : 'day'; ?></option>
+								<option value="(3600*24*2)" <?php if(PLUS_TIME==172800) echo "selected";?>>2 <?php echo (defined('LANG') && LANG === 'ar') ? 'أيام' : 'days'; ?></option>
+								<option value="(3600*24*3)" <?php if(PLUS_TIME==259200) echo "selected";?>>3 <?php echo (defined('LANG') && LANG === 'ar') ? 'أيام' : 'days'; ?></option>
+								<option value="(3600*24*4)" <?php if(PLUS_TIME==345600) echo "selected";?>>4 <?php echo (defined('LANG') && LANG === 'ar') ? 'أيام' : 'days'; ?></option>
+								<option value="(3600*24*5)" <?php if(PLUS_TIME==432000) echo "selected";?>>5 <?php echo (defined('LANG') && LANG === 'ar') ? 'أيام' : 'days'; ?></option>
+								<option value="(3600*24*6)" <?php if(PLUS_TIME==518400) echo "selected";?>>6 <?php echo (defined('LANG') && LANG === 'ar') ? 'أيام' : 'days'; ?></option>
+								<option value="(3600*24*7)" <?php if(PLUS_TIME==604800) echo "selected";?>>7 <?php echo (defined('LANG') && LANG === 'ar') ? 'أيام' : 'days'; ?></option>
 							</select>
 						</td>
 					</tr>

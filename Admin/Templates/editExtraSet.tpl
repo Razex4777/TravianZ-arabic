@@ -28,8 +28,8 @@ if($_SESSION['access'] < 9) die(ACCESS_DENIED_ADMIN);
 					<td width="50%"><?php echo CONF_EXTRA_LIMITMAIL ?> <em class="tooltip">?<span class="classic"><?php echo CONF_EXTRA_LIMITMAIL_TOOLTIP ?></span></em></td>
 					<td width="50%">
 						<select name="limit_mailbox">
-							<option value="true" <?php if (LIMIT_MAILBOX==true) echo "selected";?>>Yes</option>
-							<option value="false" <?php if (LIMIT_MAILBOX==false) echo "selected";?>>No</option>
+							<option value="true" <?php if (LIMIT_MAILBOX==true) echo "selected";?>><?php echo (defined('LANG') && LANG === 'ar') ? 'نعم' : 'Yes'; ?></option>
+							<option value="false" <?php if (LIMIT_MAILBOX==false) echo "selected";?>><?php echo (defined('LANG') && LANG === 'ar') ? 'لا' : 'No'; ?></option>
 						</select>
 					</td>
 				</tr>
