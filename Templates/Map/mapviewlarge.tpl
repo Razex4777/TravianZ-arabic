@@ -451,6 +451,7 @@ if (isset($neutralarray[0])) {
 					<div id="map_coords">
 						<form name="map_coords" method="post" >
 							<span>x </span><input id="mcx" class="text" name="xp" value="<?php echo $x ?>" maxlength="4"/>
+							<span>y </span><input id="mcy" class="text" name="yp" value="<?php echo $y ?>" maxlength="4"/>
 							<input type="image" id="btn_ok" class="dynamic_img" value="ok" name="s1" src="img/x.gif" alt="OK" /><br /><br />
 							<?php echo "<a href=\"finder.php\"><img src=\"".GP_LOCATE."img/misc/cropfinder.gif\" style=\"width:16px; height:16px; vertical-align:middle;\" alt=\"Search Map\" /> ".(defined('LANG') && LANG === 'ar' ? 'البحث بالخريطة' : 'Map Search')."</a>"; ?>
 						</form>

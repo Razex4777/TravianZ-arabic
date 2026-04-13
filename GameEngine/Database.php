@@ -658,7 +658,7 @@ public function getBestOasisCropBonus($x, $y) {
     $q = mysqli_query($this->dblink, $sql);
     $row = mysqli_fetch_assoc($q);
     $total = (int)($row['total'] ?? 0);
-    if ($total > 350) $total = 350; // Max possible is theoretically up to 3x 150% = 450%, but safety cap
+    if ($total > 450) $total = 450; // Max possible is theoretically up to 3x 150% = 450%, but safety cap
     return $total;
 }
 
@@ -7276,53 +7276,10 @@ References: User ID/Message ID, Mode
                         $chunk  = array_slice($rows, $i, $sliceSize);
                         $values = [];
 
-                        // Compute oasis crop bonus in batch for the whole chunk.
-                        $bonusByWref = [];
-                        $wrefs = [];
-                        foreach ($chunk as $r) {
-                            $wrefs[] = (int)$r['wref'];
-                        }
-
-                        if (!empty($wrefs)) {
-                            $bonusSql = "SELECT
-                                    c.id AS wref,
-                                    LEAST(
-                                        150,
-                                        (50 * LEAST(SUM(CASE WHEN od.type = 12 THEN 1 ELSE 0 END), 3)) +
-                                        (25 * LEAST(
-                                            GREATEST(3 - LEAST(SUM(CASE WHEN od.type = 12 THEN 1 ELSE 0 END), 3), 0),
-                                            SUM(CASE WHEN od.type IN (4,9,10,11) THEN 1 ELSE 0 END)
-                                        ))
-                                    ) AS bonus
-                                FROM `$WDATA` c
-                                LEFT JOIN `$WDATA` o
-                                    ON o.fieldtype = 0
-                                   AND o.x BETWEEN (c.x - 3) AND (c.x + 3)
-                                   AND o.y BETWEEN (c.y - 3) AND (c.y + 3)
-                                LEFT JOIN `{$TBP}odata` od
-                                    ON od.wref = o.id
-                                   AND od.type IN (12,4,9,10,11)
-                                WHERE c.id IN (".implode(',', $wrefs).")
-                                GROUP BY c.id";
-
-                            $bonusRes = mysqli_query($this->dblink, $bonusSql);
-                            if (!$bonusRes) {
-                                mysqli_rollback($this->dblink);
-                                $inTransaction = false;
-                                return ['ok'=>false,'msg'=>'BONUS SELECT failed: '.mysqli_error($this->dblink),'processed'=>$total,'target'=>$countTotal];
-                            }
-
-                            while ($bonusRow = mysqli_fetch_assoc($bonusRes)) {
-                                $bonusByWref[(int)$bonusRow['wref']] = (int)($bonusRow['bonus'] ?? 0);
-                            }
-                        }
-
                         foreach ($chunk as $r) {
                             $x = (int)$r['x'];
                             $y = (int)$r['y'];
-                            $bonus = (int)($bonusByWref[(int)$r['wref']] ?? 0);
-                            if ($bonus < 0) $bonus = 0;
-                            if ($bonus > 150) $bonus = 150;
+                            $bonus = $this->getBestOasisCropBonus($x, $y);
                             $values[] = sprintf("(%d,%d,%d,%d,%d)", (int)$r['wref'], $x, $y, (int)$r['fieldtype'], $bonus);
                         }
 
@@ -8133,12 +8090,14 @@ References: User ID/Message ID, Mode
                 case 3:
                 case 6:
                 case 9:
+                    $cropo += 75;
+                    break;
                 case 10:
                 case 11:
-                    $cropo++;
+                    $cropo += 100;
                     break;
                 case 12:
-                    $cropo += 2;
+                    $cropo += 150;
                     break;
 			}
 		}
@@ -8147,7 +8106,7 @@ References: User ID/Message ID, Mode
 			$basecrop += $bid4[$buildarray[$cropholder[$i]]]['prod'];
 		}
 		
-		$crop = $basecrop + $basecrop * 0.25 * $cropo;
+		$crop = $basecrop + $basecrop * ($cropo / 100);
 		
 		if($grainmill >= 1 || $bakery >= 1){
 			$crop += $basecrop / 100 * ((isset($bid8[$grainmill]['attri']) ? $bid8[$grainmill]['attri'] : 0) + (isset($bid9[$bakery]['attri']) ? $bid9[$bakery]['attri'] : 0));

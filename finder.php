@@ -16,6 +16,11 @@ $ODATA = $TBP . 'odata';
 $VDATA = $TBP . 'vdata';
 $USERS = $TBP . 'users';
 
+if (!defined('OASIS_BONUS_NORMAL')) define('OASIS_BONUS_NORMAL', 100);
+if (!defined('OASIS_BONUS_MIXED')) define('OASIS_BONUS_MIXED', 75);
+if (!defined('OASIS_BONUS_STRONG')) define('OASIS_BONUS_STRONG', 150);
+
+
 $RENDER_MAX = 50;
 
 // ---------- POST -> GET ----------
@@ -29,8 +34,10 @@ if (isset($_POST['s']) && !isset($_POST['oasis_search'])) {
 }
 
 // ---------- Coordinates ----------
-if (!empty($_GET['x']) && !empty($_GET['y']) && is_numeric($_GET['x']) && is_numeric($_GET['y'])) {
-    $coor2 = ['x'=>(int)$_GET['x'], 'y'=>(int)$_GET['y']];
+$reqX = isset($_POST['x']) ? $_POST['x'] : (isset($_GET['x']) ? $_GET['x'] : null);
+$reqY = isset($_POST['y']) ? $_POST['y'] : (isset($_GET['y']) ? $_GET['y'] : null);
+if ($reqX !== null && $reqY !== null && is_numeric($reqX) && is_numeric($reqY)) {
+    $coor2 = ['x'=>(int)$reqX, 'y'=>(int)$reqY];
 } else {
     $wref2 = $village->wid;
     $coor2 = $database->getCoor($wref2);
@@ -44,16 +51,23 @@ $oasis_results = null;
 $oasis_error = "";
 $searched_player = "";
 
+if (!isset($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+
 if (isset($_POST['oasis_search'])) {
-    $pname = trim($_POST['player_name']);
-    $searched_player = $pname;
-    $cost = 2000;
-    
-    if ($session->gold < $cost) {
-        $oasis_error = (defined('LANG') && LANG === 'ar') ? "لا تملك ذهب كافي (المطلوب $cost ذهب)" : "Not enough gold (Required $cost)";
-    } elseif (empty($pname)) {
-        $oasis_error = (defined('LANG') && LANG === 'ar') ? "الرجاء إدخال إسم اللاعب" : "Please enter a player name";
+    if (empty($_POST['csrf_token']) || !hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
+        $oasis_error = (defined('LANG') && LANG === 'ar') ? "الجلسة غير صالحة، يرجى المحاولة مرة أخرى" : "Invalid session token, please try again";
     } else {
+        $pname = trim($_POST['player_name']);
+        $searched_player = $pname;
+        $cost = 2000;
+        
+        if ($session->gold < $cost) {
+            $oasis_error = (defined('LANG') && LANG === 'ar') ? "لا تملك ذهب كافي (المطلوب $cost ذهب)" : "Not enough gold (Required $cost)";
+        } elseif (empty($pname)) {
+            $oasis_error = (defined('LANG') && LANG === 'ar') ? "الرجاء إدخال إسم اللاعب" : "Please enter a player name";
+        } else {
         $pname_esc = mysqli_real_escape_string($database->dblink, $pname);
         $q = "SELECT id, username FROM `$USERS` WHERE username = '$pname_esc'";
         $res = mysqli_query($database->dblink, $q);
@@ -126,14 +140,14 @@ if ($searchTriggered) {
         // Complex oasis search
         // Define required bonuses
         $reqWood = 0; $reqClay = 0; $reqIron = 0; $reqCrop = 0;
-        if ($selType == 3) $reqCrop = 150;
-        if ($selType == 4) $reqCrop = 100;
-        if ($selType == 5) $reqClay = 100;
-        if ($selType == 6) $reqIron = 100;
-        if ($selType == 7) $reqWood = 100;
-        if ($selType == 8) { $reqClay = 75; $reqCrop = 75; }
-        if ($selType == 9) { $reqIron = 75; $reqCrop = 75; }
-        if ($selType == 10) { $reqWood = 75; $reqCrop = 75; }
+        if ($selType == 3) $reqCrop = OASIS_BONUS_STRONG;
+        if ($selType == 4) $reqCrop = OASIS_BONUS_NORMAL;
+        if ($selType == 5) $reqClay = OASIS_BONUS_NORMAL;
+        if ($selType == 6) $reqIron = OASIS_BONUS_NORMAL;
+        if ($selType == 7) $reqWood = OASIS_BONUS_NORMAL;
+        if ($selType == 8) { $reqClay = OASIS_BONUS_MIXED; $reqCrop = OASIS_BONUS_MIXED; }
+        if ($selType == 9) { $reqIron = OASIS_BONUS_MIXED; $reqCrop = OASIS_BONUS_MIXED; }
+        if ($selType == 10) { $reqWood = OASIS_BONUS_MIXED; $reqCrop = OASIS_BONUS_MIXED; }
 
         $R = 40; 
         $CAP = $RENDER_MAX;
@@ -193,14 +207,14 @@ if ($searchTriggered) {
 
                     if ($dx <= 3 && $dy <= 3) {
                         $typ = $o['type'];
-                        if ($typ == 1 || $typ == 2) { $tw+=100; }
-                        elseif ($typ == 3) { $tw+=75; $tcr+=75; }
-                        elseif ($typ == 4 || $typ == 5) { $tc+=100; }
-                        elseif ($typ == 6) { $tc+=75; $tcr+=75; }
-                        elseif ($typ == 7 || $typ == 8) { $ti+=100; }
-                        elseif ($typ == 9) { $ti+=75; $tcr+=75; }
-                        elseif ($typ == 10 || $typ == 11) { $tcr+=100; }
-                        elseif ($typ == 12) { $tcr+=150; }
+                        if ($typ == 1 || $typ == 2) { $tw+=OASIS_BONUS_NORMAL; }
+                        elseif ($typ == 3) { $tw+=OASIS_BONUS_MIXED; $tcr+=OASIS_BONUS_MIXED; }
+                        elseif ($typ == 4 || $typ == 5) { $tc+=OASIS_BONUS_NORMAL; }
+                        elseif ($typ == 6) { $tc+=OASIS_BONUS_MIXED; $tcr+=OASIS_BONUS_MIXED; }
+                        elseif ($typ == 7 || $typ == 8) { $ti+=OASIS_BONUS_NORMAL; }
+                        elseif ($typ == 9) { $ti+=OASIS_BONUS_MIXED; $tcr+=OASIS_BONUS_MIXED; }
+                        elseif ($typ == 10 || $typ == 11) { $tcr+=OASIS_BONUS_NORMAL; }
+                        elseif ($typ == 12) { $tcr+=OASIS_BONUS_STRONG; }
                     }
                 }
                 if ($tw >= $reqWood && $tc >= $reqClay && $ti >= $reqIron && $tcr >= $reqCrop) {
@@ -409,6 +423,7 @@ if (empty($out)) {
 <?php } else { ?>
 <!-- OASIS SEARCH MODE -->
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>?mode=oasis" method="post">
+<input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>" />
 <table>
 <tr>
   <td width="200"><?php echo (defined('LANG') && LANG === 'ar') ? 'اسم اللاعب:' : 'Player Name:'; ?></td>
@@ -458,18 +473,18 @@ if (empty($oasis_results)) {
         // Types strings
         $typeStr = '?';
         switch ($row['type']) {
-            case 1: $typeStr = '<img src="img/x.gif" class="r1"> 25%'; break;
-            case 2: $typeStr = '<img src="img/x.gif" class="r1"> 50%'; break;
-            case 3: $typeStr = '<img src="img/x.gif" class="r1"> 25% <img src="img/x.gif" class="r4"> 25%'; break;
-            case 4: $typeStr = '<img src="img/x.gif" class="r2"> 25%'; break;
-            case 5: $typeStr = '<img src="img/x.gif" class="r2"> 50%'; break;
-            case 6: $typeStr = '<img src="img/x.gif" class="r2"> 25% <img src="img/x.gif" class="r4"> 25%'; break;
-            case 7: $typeStr = '<img src="img/x.gif" class="r3"> 25%'; break;
-            case 8: $typeStr = '<img src="img/x.gif" class="r3"> 50%'; break;
-            case 9: $typeStr = '<img src="img/x.gif" class="r3"> 25% <img src="img/x.gif" class="r4"> 25%'; break;
-            case 10: $typeStr = '<img src="img/x.gif" class="r4"> 25%'; break;
-            case 11: $typeStr = '<img src="img/x.gif" class="r4"> 25%'; break;
-            case 12: $typeStr = '<img src="img/x.gif" class="r4"> 50%'; break;
+            case 1: $typeStr = '<img src="img/x.gif" class="r1"> '.OASIS_BONUS_NORMAL.'%'; break;
+            case 2: $typeStr = '<img src="img/x.gif" class="r1"> '.OASIS_BONUS_NORMAL.'%'; break;
+            case 3: $typeStr = '<img src="img/x.gif" class="r1"> '.OASIS_BONUS_MIXED.'% <img src="img/x.gif" class="r4"> '.OASIS_BONUS_MIXED.'%'; break;
+            case 4: $typeStr = '<img src="img/x.gif" class="r2"> '.OASIS_BONUS_NORMAL.'%'; break;
+            case 5: $typeStr = '<img src="img/x.gif" class="r2"> '.OASIS_BONUS_NORMAL.'%'; break;
+            case 6: $typeStr = '<img src="img/x.gif" class="r2"> '.OASIS_BONUS_MIXED.'% <img src="img/x.gif" class="r4"> '.OASIS_BONUS_MIXED.'%'; break;
+            case 7: $typeStr = '<img src="img/x.gif" class="r3"> '.OASIS_BONUS_NORMAL.'%'; break;
+            case 8: $typeStr = '<img src="img/x.gif" class="r3"> '.OASIS_BONUS_NORMAL.'%'; break;
+            case 9: $typeStr = '<img src="img/x.gif" class="r3"> '.OASIS_BONUS_MIXED.'% <img src="img/x.gif" class="r4"> '.OASIS_BONUS_MIXED.'%'; break;
+            case 10: $typeStr = '<img src="img/x.gif" class="r4"> '.OASIS_BONUS_NORMAL.'%'; break;
+            case 11: $typeStr = '<img src="img/x.gif" class="r4"> '.OASIS_BONUS_NORMAL.'%'; break;
+            case 12: $typeStr = '<img src="img/x.gif" class="r4"> '.OASIS_BONUS_STRONG.'%'; break;
         }
 
         $x = (int)$row['x']; $y = (int)$row['y']; $oid = (int)$row['oasis_id'];
