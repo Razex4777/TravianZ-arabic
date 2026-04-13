@@ -27,7 +27,7 @@ define('HOME', 'الصفحة الرئيسية');
 define('INSTRUCT', 'التعليمات');
 define('ADMIN_PANEL', 'لوحة الإدارة');
 define('MH_PANEL', 'لوحة المراقب');
-define('MASS_MESSAGE', 'رسالة جماعية');
+define('MASS_MESSAGE', 'الشات العام');
 define('LOGOUT', 'تسجيل الخروج');
 define('PROFILE', 'الملف الشخصي');
 define('SUPPORT', 'الدعم الفني');
