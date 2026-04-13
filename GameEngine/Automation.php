@@ -91,12 +91,14 @@ class Automation {
         				  "spawnWWVillages", "spawnWWBuildingPlans", "activateArtifacts"];
         
         foreach($methodsArrays as $method){
-        	$file = fopen($autoprefix."GameEngine/Prevention/".$method.".txt", "w");
-        	if(flock($file, LOCK_EX)) {
-        		call_user_func(array($this, $method));
-        		flock($file, LOCK_UN);     		
-        	}
-        	fclose($file);
+        	$file = @fopen($autoprefix."GameEngine/Prevention/".$method.".txt", "a");
+        	if($file) {
+                if(flock($file, LOCK_EX)) {
+            		call_user_func(array($this, $method));
+            		flock($file, LOCK_UN);     		
+            	}
+            	fclose($file);
+            }
         }
         
         $this->MasterBuilder();
@@ -390,7 +392,7 @@ class Automation {
              FROM
                 ".TB_PREFIX."bdata
             WHERE
-                timestamp < $time and master = 0"
+                timestamp <= $time and master = 0"
         );
 
         // preload village data

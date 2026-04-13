@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-04-13 14:23
+- **★ FIX**: Fixed severe Public Chat layout corruption overlapping with footer/sidebar.
+  - Root cause: The custom public chat window was originally written to escape `div#content` or render outside its flex/float context, lacking the structural wrappers `div#content.messages` and `menu.tpl`.
+  - Fix: Wrapped the entire chat interface (header, container, input area) inside `<div id="content" class="messages">` and included `menu.tpl` to mirror the natural layout structure of the `inbox.tpl` and `sent.tpl` sections. Adjusted CSS heights and constraints to preserve containment, which keeps the mascot knight and the right sidebar perfectly in place.
+
 ## 2026-04-12 18:35
 - **★ CRITICAL FIX**: Desktop layout was completely broken by `mobile/_base.css`.
   - Root cause: ALL resource bar overrides (green pill cards, `position: relative !important`, flexbox layout, hidden gold table) were in `_base.css` with **NO `@media` wrapper**, applying to ALL screen sizes including desktop.
