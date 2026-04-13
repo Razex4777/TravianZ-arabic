@@ -768,6 +768,7 @@ class Building {
                             // non-master builder build, we should count +2 gold for it
                             $countPlus2Gold = true;
                             $jobFinishSuccess = true;
+                            $enought_res = 1; // Fix undefined variable issue
                         }
                         
                         // update build level in the database

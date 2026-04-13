@@ -153,13 +153,14 @@ $buildingMaxLevel = $building->getMaxLevel($currentBuildingType);
 if ($currentBuildingType > 0 && $currentBuildingLevel < $buildingMaxLevel && $buildingMaxLevel > 0) {
 	$upgradeCost = $buildingMaxLevel;
 	if ($session->gold >= $upgradeCost) {
-		echo "<p class=\"gold_upgrade\"><a href=\"build.php?id=$id&upgradeToMax=1\" onclick=\"return confirm('Upgrade this building to max level ($buildingMaxLevel) for $upgradeCost Gold?');\">";
-		echo "<img src=\"".GP_LOCATE."img/a/gold_g.gif\" alt=\"Gold\" title=\"Gold\"/> ";
-		echo "Upgrade to Level $buildingMaxLevel ($upgradeCost Gold)";
+		$confirmText = sprintf(CONFIRM_UPGRADE_MAX_GOLD, $buildingMaxLevel, $upgradeCost);
+		echo "<p class=\"gold_upgrade\"><a href=\"build.php?id=$id&upgradeToMax=1\" onclick=\"return confirm('$confirmText');\">";
+		echo "<img src=\"".GP_LOCATE."img/a/gold_g.gif\" alt=\"".GOLD_TEXT."\" title=\"".GOLD_TEXT."\"/> ";
+		echo UPGRADE_TO_LEVEL_MAX." $buildingMaxLevel ($upgradeCost ".GOLD_TEXT.")";
 		echo "</a></p>";
 	} else {
-		echo "<p class=\"gold_upgrade none\"><img src=\"".GP_LOCATE."img/a/gold_g.gif\" alt=\"Gold\" title=\"Gold\"/> ";
-		echo "Upgrade to Level $buildingMaxLevel ($upgradeCost Gold - Not enough gold)";
+		echo "<p class=\"gold_upgrade none\"><img src=\"".GP_LOCATE."img/a/gold_g.gif\" alt=\"".GOLD_TEXT."\" title=\"".GOLD_TEXT."\"/> ";
+		echo UPGRADE_TO_LEVEL_MAX." $buildingMaxLevel ($upgradeCost ".GOLD_TEXT." - ".NOT_ENOUGH_GOLD_TEXT.")";
 		echo "</p>";
 	}
 }
