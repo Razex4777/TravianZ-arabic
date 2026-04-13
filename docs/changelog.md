@@ -1,5 +1,18 @@
 # Changelog
 
+## 2026-04-13 21:55
+- **Fix: Crop Reduction Formula** — Corrected the 75% crop reduction to add 75% of base crop field production as bonus, instead of reducing upkeep. Formula: `netCrop = (cropProd - totalUpkeep) + (cropProd * 0.75)`. Example at x100: base=30M, net=-2M → final=+20.5M. Removed the "only when negative" condition — bonus now applies always when active.
+- **Price Update: Plus Account** — Changed Plus Account cost from 10 to **20 gold** per activation (24h). Updated handler `8.tpl` (3 locations: session check, DB check, gold deduction) and display template `3.tpl` (price label + threshold checks).
+- **Feature: Finder Requires Plus** — Map search (`finder.php`) now requires an active Plus account. Non-Plus players see a gated message with a link to buy Plus. Server-side guards on all 3 code paths (POST redirect, GET search, oasis POST search) prevent URL bypass.
+
+## 2026-04-13 20:30
+- **Feature: 3 New Plus Page Gold Features** — Implemented Hassan's requested Plus page enhancements:
+  - **75% Crop Consumption Reduction** (350 gold, 5 hours): When active AND village crop production is negative, reduces total upkeep (pop + troops) by 75%. Handler: `Templates/Plus/18.tpl`. Engine: `Village.php::calculateProduction()` with `$session->cropReduction` flag.
+  - **Buy Resources with Gold** (1 gold = 20,000 each resource): Dynamic calculator UI with live preview. Fills warehouse/granary up to max capacity. Handler: `Templates/Plus/19.tpl`. Uses POST form submission.
+  - **24-Hour Gold Protection** (base 1000 gold, doubles each activation): Password-verified via bcrypt/md5. Shows green "✅ الحماية مفعلة" status when active. Cost progression: 1000 → 2000 → 4000 → 8000. Does not include artifact villages. Handler: `Templates/Plus/20.tpl`.
+  - **DB Migration**: Added 3 columns to `users` table: `gold_protect` (timestamp), `gold_protect_count` (int), `crop_reduction` (timestamp).
+  - **Session Layer**: Added `cropReduction` and `goldProtect` to `Session.php` for engine-wide access.
+  - All features bilingual (AR/EN) and follow existing `3.tpl` table structure.
 ## 2026-04-13 16:10
 - **Feature**: Replaced the separate `crop_finder.php` tool entirely with a unified and accessible search tool in the map (`finder.php`).
   - Added a global magnifying glass icon pointing to `finder.php` on both the normal and large map views (`mapview.tpl` and `mapviewlarge.tpl`), replacing the old gold-club exclusive `crop_finder.php` link.

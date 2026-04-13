@@ -157,7 +157,20 @@ class Village {
 		$this->production['wood'] = $this->getWoodProd();
 		$this->production['clay'] = $this->getClayProd();
 		$this->production['iron'] = $this->getIronProd();
-		$this->production['crop'] = $this->getCropProd() - (!$this->natar ? $this->pop : round($this->pop / 2)) - $upkeep;
+		
+		$cropProd = $this->getCropProd(); // raw crop field production (village "empty" base)
+		$popCost = !$this->natar ? $this->pop : round($this->pop / 2);
+		$totalUpkeep = $popCost + $upkeep;
+		$netCrop = $cropProd - $totalUpkeep;
+		
+		// 75% Crop Reduction: Add 75% of base crop production as bonus
+		// Example at x100: base=30M, net=-2M → bonus=22.5M → final=+20.5M
+		if ($session->cropReduction == 1) {
+			$cropBonus = round($cropProd * 0.75);
+			$netCrop = $netCrop + $cropBonus;
+		}
+		
+		$this->production['crop'] = $netCrop;
 	}
 
 	private function processProduction() {

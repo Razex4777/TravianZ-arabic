@@ -91,7 +91,7 @@ if (PLUS_TIME >= 86400) {
     ?>
             </td>
 			<td class="cost"><img src="img/x.gif" class="gold" alt="Gold"
-				title="Gold" alt="Gold" title="Gold" />10</td>
+				title="Gold" alt="Gold" title="Gold" />20</td>
 			<td class="act">
 
 <?php
@@ -99,10 +99,10 @@ if (PLUS_TIME >= 86400) {
     $golds = mysqli_fetch_array($MyGold);
     
     if (mysqli_num_rows($MyGold)) {
-        if ($golds['gold'] > 9 && $datetimep < $date2) {
+        if ($golds['gold'] >= 20 && $datetimep < $date2) {
             echo '
                 <a href="plus.php?id=8"><span>'.((defined('LANG') && LANG === 'ar') ? 'تفعيل' : 'Activate');
-        } elseif ($golds['gold'] > 9 && $datetimep > $date2) {
+        } elseif ($golds['gold'] >= 20 && $datetimep > $date2) {
             echo '
                 <a href="plus.php?id=8"><span>'.((defined('LANG') && LANG === 'ar') ? 'تمديد' : 'Extend');
         } else {
@@ -469,6 +469,141 @@ if ($session->access != BANNED) {
 				}
 				?>
 				</span></a></td>
+			</tr>
+
+			<!-- ========== 75% CROP REDUCTION ========== -->
+			<tr>
+				<td colspan="5" class="empty"></td>
+			</tr>
+			<tr>
+				<td class="man"><a href="#" onClick="return Popup(0,6);"><img class="help" src="img/x.gif" alt="" title="" /></a></td>
+				<td class="desc">
+					<b><?php echo (defined('LANG') && LANG === 'ar') ? 'تقليل استهلاك القمح 75%' : '75% Crop Consumption Reduction'; ?></b><br />
+					<span class="run">
+<?php
+$cropRedTime = $golds['crop_reduction'];
+if ($cropRedTime > $date2) {
+    echo "<font color='#B3B3B3' size='1'>" . formatRemainingTime($cropRedTime, $date2) . "</font>";
+} else {
+    echo (defined('LANG') && LANG === 'ar') ? 'يعمل فقط عندما يكون إنتاج القمح بالسالب' : 'Only works when crop production is negative';
+}
+?>
+					</span>
+				</td>
+				<td class="dur"><?php echo (defined('LANG') && LANG === 'ar') ? '5 ساعات' : '5 Hours'; ?></td>
+				<td class="cost"><img src="img/x.gif" class="gold" alt="Gold" title="Gold" />350</td>
+				<td class="act">
+<?php
+if ($session->access != BANNED) {
+    if ($golds['gold'] >= 350) {
+        if ($cropRedTime <= $date2) {
+            echo '<a href="plus.php?id=18"><span>'.((defined('LANG') && LANG === 'ar') ? 'تفعيل' : 'Activate');
+        } else {
+            echo '<a href="plus.php?id=18"><span>'.((defined('LANG') && LANG === 'ar') ? 'تمديد' : 'Extend');
+        }
+    } else {
+        echo '<a href="plus.php?s=1"><span class="none">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold');
+    }
+} else {
+    echo '<a href="banned.php"><span class="none">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold');
+}
+?>
+				</span></a></td>
+			</tr>
+
+			<!-- ========== BUY RESOURCES WITH GOLD ========== -->
+			<tr>
+				<td colspan="5" class="empty"></td>
+			</tr>
+			<tr>
+				<td class="man"><a href="#" onClick="return Popup(0,6);"><img class="help" src="img/x.gif" alt="" title="" /></a></td>
+				<td class="desc" colspan="3">
+					<b><?php echo (defined('LANG') && LANG === 'ar') ? 'شراء الموارد بالذهب' : 'Buy Resources with Gold'; ?></b><br />
+					<span class="run">
+						<?php echo (defined('LANG') && LANG === 'ar') ? 'كل 1 ذهب = 20,000 من كل مورد. لا يعمل بالذهب المجاني.' : 'Each 1 gold = 20,000 of each resource. Does not work with free gold.'; ?>
+					</span>
+					<br /><br />
+					<form method="POST" action="plus.php?id=19" style="display:inline;">
+						<label><?php echo (defined('LANG') && LANG === 'ar') ? 'كمية الذهب:' : 'Gold amount:'; ?></label>
+						<input type="number" name="gold_amount" min="1" max="<?php echo $golds['gold']; ?>" value="1" style="width:60px; text-align:center;" 
+							onchange="updateResourcePreview(this.value)" oninput="updateResourcePreview(this.value)" />
+						<span id="resourcePreview" style="color:#B3B3B3; font-size:11px;">
+							(<?php echo (defined('LANG') && LANG === 'ar') ? 'الموارد: 20,000 لكل نوع' : 'Resources: 20,000 each type'; ?>)
+						</span>
+						<br />
+<?php
+if ($session->access != BANNED && $golds['gold'] >= 1) {
+    echo '<input type="submit" name="buy_resources" value="'.((defined('LANG') && LANG === 'ar') ? 'شراء' : 'Buy').'" style="margin-top:5px; cursor:pointer;" />';
+} else {
+    echo '<span class="none">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold').'</span>';
+}
+?>
+					</form>
+					<script>
+					function updateResourcePreview(val) {
+						var amount = parseInt(val) || 0;
+						var total = amount * 20000;
+						var formatted = total.toLocaleString();
+						var label = <?php echo (defined('LANG') && LANG === 'ar') ? "'الموارد: ' + formatted + ' لكل نوع'" : "'Resources: ' + formatted + ' each type'"; ?>;
+						document.getElementById('resourcePreview').innerHTML = '(' + label + ')';
+					}
+					</script>
+				</td>
+				<td class="act"></td>
+			</tr>
+
+			<!-- ========== 24-HOUR GOLD PROTECTION ========== -->
+			<tr>
+				<td colspan="5" class="empty"></td>
+			</tr>
+			<tr>
+				<td class="man"><a href="#" onClick="return Popup(0,6);"><img class="help" src="img/x.gif" alt="" title="" /></a></td>
+				<td class="desc" colspan="3">
+<?php
+$protectTime = $golds['gold_protect'];
+$protectCount = (int)$golds['gold_protect_count'];
+$protectCost = 1000 * pow(2, $protectCount);
+$isProtected = ($protectTime > $date2);
+?>
+					<b><?php echo (defined('LANG') && LANG === 'ar') ? 'تفعيل الحماية 24 ساعة' : '24-Hour Gold Protection'; ?></b><br />
+					<span class="run">
+<?php
+if ($isProtected) {
+    echo "<font color='#71D000'>" . ((defined('LANG') && LANG === 'ar') ? '✅ الحماية مفعلة - ' : '✅ Protection Active - ') . "</font>";
+    echo "<font color='#B3B3B3' size='1'>" . formatRemainingTime($protectTime, $date2) . "</font>";
+} else {
+    echo (defined('LANG') && LANG === 'ar') 
+        ? 'يتطلب كلمة سر الحساب. لا يشمل القرى التي فيها تحفة أثرية. التكلفة تتضاعف في كل مرة.' 
+        : 'Requires account password. Does not include villages with artifacts. Cost doubles each activation.';
+}
+?>
+					</span>
+<?php if (!$isProtected): ?>
+					<br /><br />
+					<?php if (isset($_GET['error']) && $_GET['error'] == 'password'): ?>
+						<span style="color:red; font-weight:bold;"><?php echo (defined('LANG') && LANG === 'ar') ? '❌ كلمة السر غير صحيحة!' : '❌ Incorrect password!'; ?></span><br />
+					<?php endif; ?>
+					<form method="POST" action="plus.php?id=20" style="display:inline;">
+						<label><?php echo (defined('LANG') && LANG === 'ar') ? 'كلمة السر:' : 'Password:'; ?></label>
+						<input type="password" name="password" required style="width:120px;" />
+						<br />
+						<span style="color:#B3B3B3; font-size:11px;">
+							<?php echo (defined('LANG') && LANG === 'ar') 
+								? 'التكلفة: ' . number_format($protectCost) . ' ذهب (المرة رقم ' . ($protectCount + 1) . ')' 
+								: 'Cost: ' . number_format($protectCost) . ' gold (activation #' . ($protectCount + 1) . ')'; ?>
+						</span>
+						<br />
+<?php
+if ($session->access != BANNED && $golds['gold'] >= $protectCost) {
+    echo '<input type="submit" name="activate_protection" value="'.((defined('LANG') && LANG === 'ar') ? 'تفعيل الحماية' : 'Activate Protection').'" style="margin-top:5px; cursor:pointer;" />';
+} else {
+    echo '<span class="none">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي (تحتاج ' . number_format($protectCost) . ')' : 'too little gold (need ' . number_format($protectCost) . ')').'</span>';
+}
+?>
+					</form>
+<?php endif; ?>
+				</td>
+				<td class="act"></td>
 			</tr>
 
 		</tbody>

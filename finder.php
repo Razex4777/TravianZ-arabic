@@ -23,8 +23,13 @@ if (!defined('OASIS_BONUS_STRONG')) define('OASIS_BONUS_STRONG', 150);
 
 $RENDER_MAX = 50;
 
+// ---------- Plus Account Gate (server-side) ----------
+$_plusGate = mysqli_query($database->dblink, "SELECT plus FROM " . TB_PREFIX . "users WHERE id = '" . $session->uid . "'");
+$_plusGateRow = mysqli_fetch_assoc($_plusGate);
+$_hasPlus = ($_plusGateRow && (int)$_plusGateRow['plus'] > time());
+
 // ---------- POST -> GET ----------
-if (isset($_POST['s']) && !isset($_POST['oasis_search'])) {
+if ($_hasPlus && isset($_POST['s']) && !isset($_POST['oasis_search'])) {
     $x = isset($_POST['x']) ? preg_replace("/[^0-9-]/", "", $_POST['x']) : '0';
     $y = isset($_POST['y']) ? preg_replace("/[^0-9-]/", "", $_POST['y']) : '0';
     $s = isset($_POST['s']) ? preg_replace("/[^0-9]/", "", $_POST['s']) : '1';
@@ -55,7 +60,7 @@ if (!isset($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 }
 
-if (isset($_POST['oasis_search'])) {
+if ($_hasPlus && isset($_POST['oasis_search'])) {
     if (empty($_POST['csrf_token']) || !hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
         $oasis_error = (defined('LANG') && LANG === 'ar') ? "الجلسة غير صالحة، يرجى المحاولة مرة أخرى" : "Invalid session token, please try again";
     } else {
@@ -121,7 +126,7 @@ $emptyCond = $empty_only ? " AND occupied = 0" : "";
 $out = [];
 $tries = 0;
 
-if ($searchTriggered) {
+if ($searchTriggered && $_hasPlus) {
     if ($selType == 1 || $selType == 2) {
         // Simple search for 15c or 9c (no specific oasis required)
         $fieldWhere = ($selType == 1) ? "6" : "1"; // 6 = 15c, 1 = 9c based on fieldtype in wdata
@@ -286,6 +291,31 @@ if ($wrefs) {
 
 <div id="content" class="player">
 <h1><?php echo (defined('LANG') && LANG === 'ar') ? 'باحث الخريطة' : 'Map Finder'; ?></h1>
+
+<?php
+// Check if player has an active Plus account
+$plusCheck = mysqli_query($database->dblink, "SELECT plus FROM " . TB_PREFIX . "users WHERE id = '" . $session->uid . "'");
+$plusRow = mysqli_fetch_assoc($plusCheck);
+$hasPlusActive = ($plusRow && (int)$plusRow['plus'] > time());
+
+if (!$hasPlusActive) {
+    // No Plus = no access
+    echo '<div style="text-align:center; padding:40px 20px;">';
+    echo '<p style="font-size:16px; color:#c00; font-weight:bold;">';
+    echo (defined('LANG') && LANG === 'ar')
+        ? '⚠️ هذه الخاصية تتطلب حساب بلاس نشط.'
+        : '⚠️ This feature requires an active Plus account.';
+    echo '</p>';
+    echo '<p style="margin-top:15px;">';
+    echo '<a href="plus.php?id=3" style="color:#71D000; font-weight:bold; font-size:14px;">';
+    echo (defined('LANG') && LANG === 'ar')
+        ? '🛒 اشترِ حساب بلاس الآن'
+        : '🛒 Buy Plus Account Now';
+    echo '</a></p>';
+    echo '</div>';
+} else {
+// Plus active — show the full search interface
+?>
 <div style="font-weight:bold; font-size:14px; margin-bottom:15px; text-align:center;">
     <a href="finder.php?mode=oasis" style="text-decoration:none; <?php echo ($mode == 'oasis') ? 'color:#000;' : 'color:#71D000;'; ?>">
         <?php echo (defined('LANG') && LANG === 'ar') ? 'البحث عن الواحات بإسم اللاعب' : 'Search for Occupied Oases'; ?>
@@ -503,8 +533,10 @@ if (empty($oasis_results)) {
 ?>
 </tbody>
 </table>
+<?php } ?> 
 <?php } ?>
-<?php } ?>
+
+<?php } // end Plus account check ?>
 
 </div>
 

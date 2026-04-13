@@ -69,6 +69,8 @@ class Session {
 			var $bonus2 = 0;
 			var $bonus3 = 0;
 			var $bonus4 = 0;
+			var $cropReduction = 0;
+			var $goldProtect = 0;
 			var $timer = 0;
 			var $sharedForums = [];
 			var $checker, $mchecker;
@@ -309,6 +311,8 @@ class Session {
 				if($this->userarray['b2'] > $this->time) $this->bonus2 = 1;
 				if($this->userarray['b3'] > $this->time) $this->bonus3 = 1;
 				if($this->userarray['b4'] > $this->time) $this->bonus4 = 1;
+				if($this->userarray['crop_reduction'] > $this->time) $this->cropReduction = 1;
+				if($this->userarray['gold_protect'] > $this->time) $this->goldProtect = 1;
 
 				if (!in_array($this->username, ['Support', 'Multihunter'])) $this->CheckHeroReal();
 			}
