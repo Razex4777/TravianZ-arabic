@@ -150,6 +150,9 @@ else if(isset($_GET['t'])) {
 			include("Templates/Message/notes.tpl");
 		}
 		break;
+		case 5:
+		include("Templates/Message/chat.tpl");
+		break;
 		default:
 		include("Templates/Message/inbox.tpl");
 		break;
