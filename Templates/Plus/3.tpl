@@ -339,7 +339,7 @@ if ($session->access != BANNED) {
 
 			<td class="man"><a href="#" onClick="return Popup(7,6);"><img
 					class="help" src="img/x.gif" alt="" title="" /></a></td>
-			<td class="desc"><?php echo (defined('LANG') && LANG === 'ar') ? 'إكمال أوامر البناء والأبحاث في هذه القرية الآن (لا يعمل مع القصر والإقامة).' : 'Complete construction orders and researches in this
+			<td class="desc"><?php echo (defined('LANG') && LANG === 'ar') ? 'إكمال أوامر البناء والأبحاث في هذه القرية الآن (لا يعمل مع القصر والسكن).' : 'Complete construction orders and researches in this
 				village now (does not work for Palace and Residence).'; ?></td>
 			<td class="dur"><?php echo (defined('LANG') && LANG === 'ar') ? 'الآن' : 'now'; ?></td>
 			<td class="cost"><img src="img/x.gif" class="gold" alt="Gold"

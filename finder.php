@@ -287,11 +287,11 @@ if ($wrefs) {
 <div id="content" class="player">
 <h1><?php echo (defined('LANG') && LANG === 'ar') ? 'باحث الخريطة' : 'Map Finder'; ?></h1>
 <div style="font-weight:bold; font-size:14px; margin-bottom:15px; text-align:center;">
-    <a href="finder.php?mode=oasis" style="text-decoration:none; <?php echo ($mode == 'oasis') ? 'color:#71D000;' : 'color:#000;'; ?>">
+    <a href="finder.php?mode=oasis" style="text-decoration:none; <?php echo ($mode == 'oasis') ? 'color:#000;' : 'color:#71D000;'; ?>">
         <?php echo (defined('LANG') && LANG === 'ar') ? 'البحث عن الواحات بإسم اللاعب' : 'Search for Occupied Oases'; ?>
     </a>
     | 
-    <a href="finder.php" style="text-decoration:none; <?php echo ($mode == 'crop') ? 'color:#71D000;' : 'color:#000;'; ?>">
+    <a href="finder.php" style="text-decoration:none; <?php echo ($mode == 'crop') ? 'color:#000;' : 'color:#71D000;'; ?>">
         <?php echo (defined('LANG') && LANG === 'ar') ? 'البحث عن القمحيات والواحات' : 'Search for Croppers'; ?>
     </a>
 </div>
