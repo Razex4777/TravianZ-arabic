@@ -33,7 +33,7 @@ define('PROFILE', 'الملف الشخصي');
 define('SUPPORT', 'الدعم الفني');
 define('UPDATE_T_10', 'تحديث أفضل 10');
 define('SYSTEM_MESSAGE', 'رسالة النظام');
-define('TRAVIAN_PLUS', 'ترافيان <b><span class="plus_g">ب</span><span class="plus_o">ل</span><span class="plus_g">س</span></span></span></b>');
+define('TRAVIAN_PLUS', 'ترافيان <b><span class="plus_g">ب</span><span class="plus_o">ل</span><span class="plus_g">ا</span><span class="plus_o">س</span></b>');
 define('CONTACT', 'اتصل بنا!');
 define('GAME_RULES', 'قوانين اللعبة');
 define('BUILD_CROPPER', 'تأسيس قرية قمحية');

@@ -108,6 +108,7 @@ class Automation {
         $this->CheckBan();
         $this->regenerateOasisTroops();
         $this->medals();
+        $this->dailyGoldRewards();
         $this->artefactOfTheFool();
     }
 
@@ -4147,8 +4148,8 @@ class Automation {
             }
 
 
-            // Gold rewards for top 10
-            $goldRewards = [1=>100, 2=>90, 3=>80, 4=>70, 5=>60, 6=>50, 7=>40, 8=>30, 9=>20, 10=>10];
+            // Gold rewards for top 10 (medal system - Hassan's tier structure)
+            $goldRewards = [1=>450, 2=>300, 3=>250, 4=>200, 5=>150, 6=>140, 7=>130, 8=>120, 9=>110, 10=>100];
 
             //Attackers of the day
             $result = mysqli_query($database->dblink,"SELECT id, ap FROM ".TB_PREFIX."users WHERE id > 5 AND access < 8 ORDER BY ap DESC, id DESC Limit 10");
@@ -4771,6 +4772,86 @@ class Automation {
                 mysqli_query($database->dblink,"UPDATE ".TB_PREFIX."artefacts SET kind = ". (int) $kind. ", bad_effect = $bad_effect, effect2 = $effect, lastupdate = $time WHERE id = ".(int) $artefact['id']);
             }
         }
+    }
+
+    /**
+     * Daily Gold Rewards — Distributes gold to ALL players at 00:00 server time.
+     *
+     * - Base: 500 gold to every active player (id > 5, access < 8)
+     * - Bonus for Top 10 by population rank:
+     *   1st: 450, 2nd: 300, 3rd: 250, 4th: 200, 5th: 150,
+     *   6th: 140, 7th: 130, 8th: 120, 9th: 110, 10th: 100
+     *
+     * Uses `lastgavedailygold` in config table (stores next midnight timestamp).
+     * Fully independent of the weekly medal system.
+     */
+    private function dailyGoldRewards() {
+        global $database;
+
+        $now = time();
+
+        // Read the scheduled execution timestamp
+        $q = "SELECT lastgavedailygold FROM ".TB_PREFIX."config";
+        $result = mysqli_query($database->dblink, $q);
+        if (!$result) return;
+
+        $row = mysqli_fetch_assoc($result);
+        if ($row === null) return;
+
+        $lastGave = (int) $row['lastgavedailygold'];
+
+        // First-time initialization: schedule for next midnight
+        if ($lastGave === 0) {
+            $nextMidnight = strtotime('tomorrow midnight');
+            mysqli_query($database->dblink,
+                "UPDATE ".TB_PREFIX."config SET lastgavedailygold = ".(int)$nextMidnight
+            );
+            return;
+        }
+
+        // Not yet time to distribute
+        if ($now < $lastGave) return;
+
+        // ---- Time to distribute! ----
+
+        $baseGold = 500;
+        $rankBonuses = [
+            1 => 450, 2 => 300, 3 => 250, 4 => 200, 5 => 150,
+            6 => 140, 7 => 130, 8 => 120, 9 => 110, 10 => 100
+        ];
+
+        // Step 1: Give 500 base gold to ALL active players
+        mysqli_query($database->dblink,
+            "UPDATE ".TB_PREFIX."users SET gold = gold + ".(int)$baseGold
+            ." WHERE id > 5 AND access < 8 AND tribe > 0 AND tribe <= 3"
+        );
+
+        // Step 2: Give rank-based bonus to top 10 players (by population)
+        $topResult = mysqli_query($database->dblink,
+            "SELECT u.id FROM ".TB_PREFIX."users u "
+            ."LEFT JOIN (SELECT owner, SUM(pop) AS totalpop FROM ".TB_PREFIX."vdata GROUP BY owner) v ON v.owner = u.id "
+            ."WHERE u.id > 5 AND u.access < 8 AND u.tribe > 0 AND u.tribe <= 3 "
+            ."ORDER BY v.totalpop DESC, u.id DESC LIMIT 10"
+        );
+
+        if ($topResult) {
+            $rank = 0;
+            while ($topRow = mysqli_fetch_assoc($topResult)) {
+                $rank++;
+                if (isset($rankBonuses[$rank])) {
+                    mysqli_query($database->dblink,
+                        "UPDATE ".TB_PREFIX."users SET gold = gold + ".(int)$rankBonuses[$rank]
+                        ." WHERE id = ".(int)$topRow['id']
+                    );
+                }
+            }
+        }
+
+        // Step 3: Schedule next distribution for tomorrow midnight
+        $nextMidnight = strtotime('tomorrow midnight');
+        mysqli_query($database->dblink,
+            "UPDATE ".TB_PREFIX."config SET lastgavedailygold = ".(int)$nextMidnight
+        );
     }
 }
 $automation = new Automation;

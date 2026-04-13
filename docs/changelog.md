@@ -1,5 +1,21 @@
 # Changelog
 
+## 2026-04-14 01:00
+- **Feature: Fill Storage Calculator** — Implemented "Fill Storage" (ملئ المخزن) feature on the Plus page for Gold-to-Resources.
+  - Added auto-calculating logic in `3.tpl` to determine the maximum gold to spend based on the lowest available storage across all 4 resources (warehouse or granary).
+  - Prevents resource waste/overflow from gold purchases by intelligently finding the limiting factor.
+  - Added a visual breakdown panel showcasing before/after projections for each resource and highlighting the limiting factor.
+  - Supported localized Arabic text strings.
+
+## 2026-04-14 00:30
+- **Feature: Daily Gold Rewards System** — Implemented automated daily gold distribution triggered at 00:00 server time via `Automation.php`.
+  - **Base reward**: 500 gold to ALL active players (id > 5, access < 8, valid tribe).
+  - **Top 10 rank bonus** (by total population): 1st=450, 2nd=300, 3rd=250, 4th=200, 5th=150, 6th=140, 7th=130, 8th=120, 9th=110, 10th=100.
+  - Uses `lastgavedailygold` column in `config` table (stores next midnight timestamp). Self-initializing on first run.
+  - Fully independent of the weekly medal system — separate function, separate timing column.
+  - Registered in `Automation::__construct()` between `medals()` and `artefactOfTheFool()`.
+- **Fix: Medal Gold Rewards** — Updated weekly medal system `$goldRewards` array from old values (100→10) to Hassan's new tier structure (450→100) matching the daily system.
+
 ## 2026-04-13 23:10
 - **Security: CSRF Protection** — Added `bin2hex(random_bytes(32))` CSRF tokens to both forms on the Plus page (`buy_resources` form → `19.tpl`, `activate_protection` form → `20.tpl`). Tokens are generated in `3.tpl`, embedded as hidden fields, and validated with `hash_equals()` in handlers. Rotated after each successful use.
 - **Security: Prepared Statements** — Converted all raw `mysqli_query` calls in `20.tpl` (protection handler) to `mysqli_prepare` + `bind_param` to prevent SQL injection on user-controlled data.

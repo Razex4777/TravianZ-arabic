@@ -41,7 +41,7 @@ if (mysqli_num_rows($MyGold)) {
 		<tr>
 			<td class="man"><a href="#" onClick="return Popup(0,6);"><img
 					class="help" src="img/x.gif" alt="" title="" /></a></td>
-			<td class="desc"><b><?php echo (defined('LANG') && LANG === 'ar') ? '<font color="#71D000">ب</font><font color="#FF6F0F">ل</font><font color="#71D000">ا</font><font color="#FF6F0F">س</font>' : '<font color="#71D000">P</font><font color="#FF6F0F">l</font><font color="#71D000">u</font><font color="#FF6F0F">s</font>'; ?></b> <?php echo (defined('LANG') && LANG === 'ar') ? 'حساب' : 'Account'; ?><br /> <span class="run">
+			<td class="desc"><b><?php echo (defined('LANG') && LANG === 'ar') ? 'حساب <font color="#71D000">ب</font><font color="#FF6F0F">ل</font><font color="#71D000">ا</font><font color="#FF6F0F">س</font>' : '<font color="#71D000">P</font><font color="#FF6F0F">l</font><font color="#71D000">u</font><font color="#FF6F0F">s</font> Account'; ?></b><br /> <span class="run">
 <?php
 $datetimep = $golds['plus'];
 $datetime1 = $golds['b1'];
@@ -531,6 +531,17 @@ if ($session->access != BANNED) {
 			<tr>
 				<td colspan="5" class="empty"></td>
 			</tr>
+<?php
+// Gather village storage data for the Fill Storage calculator
+$_villageData = $database->getVillage($village->wid);
+$_curWood = (int)$_villageData['wood'];
+$_curClay = (int)$_villageData['clay'];
+$_curIron = (int)$_villageData['iron'];
+$_curCrop = (int)$_villageData['crop'];
+$_maxStore = (int)$_villageData['maxstore'];
+$_maxCrop  = (int)$_villageData['maxcrop'];
+$_playerGold = (int)$golds['gold'];
+?>
 			<tr>
 				<td class="man"><a href="#" onClick="return Popup(0,6);"><img class="help" src="img/x.gif" alt="" title="" /></a></td>
 				<td class="desc" colspan="3">
@@ -542,12 +553,17 @@ if ($session->access != BANNED) {
 					<form method="POST" action="plus.php?id=19" style="display:inline;">
 						<input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>" />
 						<label><?php echo (defined('LANG') && LANG === 'ar') ? 'كمية الذهب:' : 'Gold amount:'; ?></label>
-						<input type="number" name="gold_amount" min="1" max="<?php echo $golds['gold']; ?>" value="1" style="width:60px; text-align:center;" 
+						<input type="number" name="gold_amount" id="goldAmountInput" min="1" max="<?php echo $_playerGold; ?>" value="1" style="width:60px; text-align:center;" 
 							onchange="updateResourcePreview(this.value)" oninput="updateResourcePreview(this.value)" />
-						<span id="resourcePreview" style="color:#B3B3B3; font-size:11px;">
-							(<?php echo (defined('LANG') && LANG === 'ar') ? 'الموارد: 20,000 لكل نوع' : 'Resources: 20,000 each type'; ?>)
-						</span>
+						<button type="button" id="fillStorageBtn" onclick="fillStorageCalc()" style="margin-right:5px; cursor:pointer; background:linear-gradient(135deg,#71D000,#5ab800); color:#fff; border:1px solid #4a9900; border-radius:3px; padding:2px 10px; font-weight:bold; font-size:11px;">
+							<?php echo (defined('LANG') && LANG === 'ar') ? '🏪 ملئ المخزن' : '🏪 Fill Storage'; ?>
+						</button>
 						<br />
+						<div id="resourcePreview" style="color:#B3B3B3; font-size:11px; margin:5px 0;">
+							(<?php echo (defined('LANG') && LANG === 'ar') ? 'الموارد: 20,000 لكل نوع' : 'Resources: 20,000 each type'; ?>)
+						</div>
+						<div id="fillBreakdown" style="display:none; background:rgba(0,0,0,0.03); border:1px solid #ddd; border-radius:4px; padding:6px 10px; margin:5px 0; font-size:11px; line-height:1.7;">
+						</div>
 <?php
 if ($session->access != BANNED && $golds['gold'] >= 1) {
     echo '<input type="submit" name="buy_resources" value="'.((defined('LANG') && LANG === 'ar') ? 'شراء' : 'Buy').'" style="margin-top:5px; cursor:pointer;" />';
@@ -557,12 +573,80 @@ if ($session->access != BANNED && $golds['gold'] >= 1) {
 ?>
 					</form>
 					<script>
+					var _RATE = 20000;
+					var _curRes = {
+						wood: <?php echo $_curWood; ?>,
+						clay: <?php echo $_curClay; ?>,
+						iron: <?php echo $_curIron; ?>,
+						crop: <?php echo $_curCrop; ?>
+					};
+					var _maxStore = <?php echo $_maxStore; ?>;
+					var _maxCrop  = <?php echo $_maxCrop; ?>;
+					var _playerGold = <?php echo $_playerGold; ?>;
+					var _isAr = <?php echo (defined('LANG') && LANG === 'ar') ? 'true' : 'false'; ?>;
+
 					function updateResourcePreview(val) {
 						var amount = parseInt(val) || 0;
-						var total = amount * 20000;
-						var formatted = total.toLocaleString();
-						var label = <?php echo (defined('LANG') && LANG === 'ar') ? "'الموارد: ' + formatted + ' لكل نوع'" : "'Resources: ' + formatted + ' each type'"; ?>;
-						document.getElementById('resourcePreview').innerHTML = '(' + label + ')';
+						var total = amount * _RATE;
+						var fmtTotal = total.toLocaleString();
+						// Calculate per-resource after fill (capped at storage)
+						var addWood = Math.min(total, _maxStore - _curRes.wood); addWood = Math.max(0, addWood);
+						var addClay = Math.min(total, _maxStore - _curRes.clay); addClay = Math.max(0, addClay);
+						var addIron = Math.min(total, _maxStore - _curRes.iron); addIron = Math.max(0, addIron);
+						var addCrop = Math.min(total, _maxCrop  - _curRes.crop); addCrop = Math.max(0, addCrop);
+
+						var html = _isAr
+							? '(الموارد: ' + fmtTotal + ' لكل نوع)'
+							: '(Resources: ' + fmtTotal + ' each type)';
+						document.getElementById('resourcePreview').innerHTML = html;
+
+						// Show detailed breakdown
+						var bd = document.getElementById('fillBreakdown');
+						if (amount > 0) {
+							bd.style.display = 'block';
+							bd.innerHTML = (_isAr ? '🪵 خشب' : '🪵 Wood') + ': ' + _curRes.wood.toLocaleString() + ' → <b style="color:#060">' + (_curRes.wood + addWood).toLocaleString() + '</b> / ' + _maxStore.toLocaleString() + '<br>'
+								+ (_isAr ? '🧱 طين' : '🧱 Clay') + ': ' + _curRes.clay.toLocaleString() + ' → <b style="color:#960">' + (_curRes.clay + addClay).toLocaleString() + '</b> / ' + _maxStore.toLocaleString() + '<br>'
+								+ (_isAr ? '⚙️ حديد' : '⚙️ Iron') + ': ' + _curRes.iron.toLocaleString() + ' → <b style="color:#666">' + (_curRes.iron + addIron).toLocaleString() + '</b> / ' + _maxStore.toLocaleString() + '<br>'
+								+ (_isAr ? '🌾 قمح' : '🌾 Crop') + ': ' + _curRes.crop.toLocaleString() + ' → <b style="color:#C90">' + (_curRes.crop + addCrop).toLocaleString() + '</b> / ' + _maxCrop.toLocaleString();
+						} else {
+							bd.style.display = 'none';
+						}
+					}
+
+					function fillStorageCalc() {
+						// Calculate remaining space for each resource
+						var spaceWood = Math.max(0, _maxStore - _curRes.wood);
+						var spaceClay = Math.max(0, _maxStore - _curRes.clay);
+						var spaceIron = Math.max(0, _maxStore - _curRes.iron);
+						var spaceCrop = Math.max(0, _maxCrop  - _curRes.crop);
+
+						// The limiting resource is the one with LEAST remaining space
+						// because buying X gold gives X*20000 of ALL resources equally
+						var minSpace = Math.min(spaceWood, spaceClay, spaceIron, spaceCrop);
+
+						// Gold needed = minSpace / rate, floored (no overpaying)
+						var goldNeeded = Math.floor(minSpace / _RATE);
+
+						// Cap at player's available gold
+						goldNeeded = Math.min(goldNeeded, _playerGold);
+						goldNeeded = Math.max(1, goldNeeded); // at least 1
+
+						// Set the input and trigger preview update
+						var input = document.getElementById('goldAmountInput');
+						input.value = goldNeeded;
+						updateResourcePreview(goldNeeded);
+
+						// Highlight the limiting resource in breakdown
+						var limitRes = '';
+						if (minSpace === spaceWood) limitRes = _isAr ? 'الخشب' : 'Wood';
+						else if (minSpace === spaceClay) limitRes = _isAr ? 'الطين' : 'Clay';
+						else if (minSpace === spaceIron) limitRes = _isAr ? 'الحديد' : 'Iron';
+						else limitRes = _isAr ? 'القمح' : 'Crop';
+
+						var note = '<br><span style="color:#D4A017; font-weight:bold;">⚡ '
+							+ (_isAr ? 'المحدد: ' + limitRes + ' (سيمتلئ أولاً)' : 'Limiting: ' + limitRes + ' (fills first)')
+							+ '</span>';
+						document.getElementById('fillBreakdown').innerHTML += note;
 					}
 					</script>
 				</td>

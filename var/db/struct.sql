@@ -478,9 +478,10 @@ CREATE TABLE IF NOT EXISTS `%PREFIX%chat` (
 --
 
 CREATE TABLE IF NOT EXISTS `%PREFIX%config` (
- `lastgavemedal` int(11) NULL
+ `lastgavemedal` int(11) NULL,
+ `lastgavedailygold` int(11) NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-INSERT INTO `%PREFIX%config` VALUES (0);
+INSERT INTO `%PREFIX%config` VALUES (0, 0);
 
 --
 -- Dumping data for table `%prefix%config`
