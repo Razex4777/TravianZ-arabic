@@ -290,7 +290,7 @@ div.statistics table#wonder td.at {
 }
 
 div.statistics table#search_navi div.search span.or {
-    font-style: italic;
+    font-style:normal;
 }
 
 div.statistics table#search_navi div.navi {

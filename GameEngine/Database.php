@@ -775,13 +775,13 @@ public function getBestOasisCropBonus($x, $y) {
         //If we're registering the Natars tribe, the protection must be 0
 		$protectionTime = $uid != 3 ? (($startTime > $time) ? $stime : $time) + PROTECTION : 0;
 
-		$q = "INSERT INTO " . TB_PREFIX . "users (id, username, password, access, email, timestamp, tribe, act, protect, lastupdate, regtime, desc2, is_bcrypt) VALUES ($uid, '$username', '$password', " . USER . ", '$email', $time, $tribe, '$act', $protectionTime, $time, $time, '$desc', 1)";
+		$q = "INSERT INTO " . TB_PREFIX . "users (id, username, password, access, email, timestamp, tribe, act, protect, lastupdate, regtime, desc2, is_bcrypt, gold) VALUES ($uid, '$username', '$password', " . USER . ", '$email', $time, $tribe, '$act', $protectionTime, $time, $time, '$desc', 1, 500)";
 		
 		if(mysqli_query($this->dblink, $q)) return mysqli_insert_id($this->dblink);		
 		else 
 		{
 		    // if an error has occured, we probably don't have DB converted to handle bcrypt passwords yet
-		    $q = "INSERT INTO " . TB_PREFIX . "users (id, username, password, access, email, timestamp, tribe, act, protect, lastupdate, regtime, desc2) VALUES ($uid, '$username', '$password', " . USER . ", '$email', $time, $tribe, '$act', $protectionTime, $time, $time, '$desc')";
+		    $q = "INSERT INTO " . TB_PREFIX . "users (id, username, password, access, email, timestamp, tribe, act, protect, lastupdate, regtime, desc2, gold) VALUES ($uid, '$username', '$password', " . USER . ", '$email', $time, $tribe, '$act', $protectionTime, $time, $time, '$desc', 500)";
 		    if(mysqli_query($this->dblink, $q)) return mysqli_insert_id($this->dblink);	      
 		    else return false;
 		}

@@ -333,7 +333,7 @@
    div#content.plus table#brought_in tbody tr td.none {
      display: block !important;
      padding: 24px !important;
-     font-style: italic !important;
+     font-style: normal !important;
      color: #888 !important;
    }
 

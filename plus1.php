@@ -21,7 +21,7 @@ else {
 <html<?php echo (defined('LANG') && LANG === 'ar') ? ' dir="rtl"' : ''; ?>>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title><?php echo SERVER_NAME ?> - PLUS Packages</title>
+	<title><?php echo SERVER_NAME; ?> - <?php echo (defined('LANG') && LANG === 'ar') ? 'شراء الذهب' : 'Buy Gold'; ?></title>
     <link rel="shortcut icon" href="favicon.ico"/>
 	<meta http-equiv="cache-control" content="max-age=0" />
 	<meta http-equiv="pragma" content="no-cache" />
@@ -66,33 +66,46 @@ else {
 <?php include("Templates/menu.tpl"); ?>
 <?php
 if(isset($_GET['id'])) {
-$id = $_GET['id'];
+	$id = $_GET['id'];
 } else {
-$id = "";
+	$id = "";
 }
-if ($id == 110) {
-include("Templates/Plus/110.tpl");
-}
-if ($id == 111) {
-include("Templates/Plus/111.tpl");
-}
-if ($id == 112) {
-include("Templates/Plus/112.tpl");
-}
-if ($id == 113) {
-include("Templates/Plus/113.tpl");
-}
-if ($id == 114) {
-include("Templates/Plus/114.tpl");
-}
-if ($id == 116) {
-include("Templates/Plus/116.tpl");
-}
-if ($id == 3110) {
-include("Templates/Plus/3110.tpl");
+
+// Default: show Gold Shop (1.tpl) when no id is given
+if(empty($id)) {
+	include("Templates/Plus/1.tpl");
+} elseif ($id == 110) {
+	include("Templates/Plus/110.tpl");
+} elseif ($id == 111) {
+	include("Templates/Plus/111.tpl");
+} elseif ($id == 112) {
+	include("Templates/Plus/112.tpl");
+} elseif ($id == 113) {
+	include("Templates/Plus/113.tpl");
+} elseif ($id == 114) {
+	include("Templates/Plus/114.tpl");
+} elseif ($id == 115) {
+	include("Templates/Plus/115.tpl");
+} elseif ($id == 116) {
+	include("Templates/Plus/116.tpl");
+} elseif ($id == 3110) {
+	include("Templates/Plus/3110.tpl");
 }
 ?>
 
+<br /><br /><br /><br /><div id="side_info">
+<?php
+include("Templates/multivillage.tpl");
+include("Templates/quest.tpl");
+include("Templates/news.tpl");
+if(!NEW_FUNCTIONS_DISPLAY_LINKS) {
+	echo "<br><br><br><br>";
+	include("Templates/links.tpl");
+}
+?>
+</div>
+<div class="clear"></div>
+</div>
 <div class="footer-stopper"></div>
 <div class="clear"></div>
 

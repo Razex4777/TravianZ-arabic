@@ -18,7 +18,7 @@ $building->loadBuilding();
             
             if($session->gold >= 2) {
             ?> 
-            	<a href="?buildingFinish=1" onclick="return confirm('Finish all construction and research orders in this village immediately for 2 Gold?');" title="Finish all construction and research orders in this village immediately for 2 Gold?"><img class="clock" alt="Finish all construction and research orders in this village immediately for 2 Gold?" src="img/x.gif"/></a>
+            	<a href="?buildingFinish=1" onclick="return confirm('<?php echo FINISH_ALL_CONSTRUCTION_GOLD; ?>');" title="<?php echo FINISH_ALL_CONSTRUCTION_GOLD; ?>"><img class="clock" alt="<?php echo FINISH_ALL_CONSTRUCTION_GOLD; ?>" src="img/x.gif"/></a>
 			<?php 
             }
             ?>
@@ -30,18 +30,18 @@ $building->loadBuilding();
 		if($jobs['master'] == 0){
         	echo "<tr><td class=\"ico\"><a href=\"?d=".$jobs['id']."&a=0&c=$session->checker\">";
             echo "<img src=\"img/x.gif\" class=\"del\" title=\"cancel\" alt=\"cancel\" /></a></td><td>";
-			echo "<a href=build.php?id=". $jobs['field'] . ">".Building::procResType($jobs['type'])."</a> (Level ".$jobs['level'].").";
+			echo "<a href=build.php?id=". $jobs['field'] . ">".Building::procResType($jobs['type'])."</a> (".LEVEL_TEXT." ".$jobs['level'].").";
 
-			if($jobs['loopcon'] == 1) echo " (waiting loop)";
+			if($jobs['loopcon'] == 1) echo " <span class=\"none\">".WAITING."</span>";
 
-            echo "</td><td>in <span id=\"timer".++$session->timer."\">";
+            echo "</td><td>".IN_TEXT." <span id=\"timer".++$session->timer."\">";
             echo $generator->getTimeFormat($jobs['timestamp']-time());
-            echo "</span> hrs.</td>";
-            echo "<td>done at ".date('H:i', $jobs['timestamp'])."</td></tr>";
+            echo "</span> ".HRS_TEXT."</td>";
+            echo "<td>".DONE_AT_TEXT." ".date('H:i', $jobs['timestamp'])."</td></tr>";
 		}else{
         	echo "<tr><td class=\"ico\"><a href=\"?d=".$jobs['id']."&a=0&c=$session->checker\">";
             echo "<img src=\"img/x.gif\" class=\"del\" title=\"cancel\" alt=\"cancel\" /></a></td><td>";
-            echo Building::procResType($jobs['type'])."<span class=\"none\"> (Level ".$jobs['level'].")</span>";
+            echo Building::procResType($jobs['type'])."<span class=\"none\"> (".LEVEL_TEXT." ".$jobs['level'].")</span>";
 			}
       	}
         ?>

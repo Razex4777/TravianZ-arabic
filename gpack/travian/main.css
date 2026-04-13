@@ -1,4 +1,4 @@
-﻿@charset utf-8;
+@charset utf-8;
 /* allgemeines */
 body
 {
@@ -212,7 +212,7 @@ body.contentpage #content td.beschreibung
 body.contentpage table.tutorial_table td.visual
 {
 	font-size:11px;
-	font-style:italic;
+	font-style:normal;
 	text-align:center
 }
 
@@ -277,7 +277,7 @@ body.contentpage #content ul
 #content .question
 {
 	color:#333;
-	font-style:italic;
+	font-style:normal;
 	padding-top:30px
 }
 

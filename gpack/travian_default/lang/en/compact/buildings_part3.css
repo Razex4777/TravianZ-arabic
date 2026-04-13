@@ -58,7 +58,7 @@ div#build.gid17 table#target_select td.vil, div#build.gid17 table#target_select 
 }
 
 div#build.gid17 table#target_select td.or {
-    font-style: italic;
+    font-style:normal;
 }
 
 div#build.gid17 table#target_validate td.vil {
@@ -102,7 +102,7 @@ div#build.gid27 table#art_details td.desc {
 }
 
 div#build.gid27 table#art_details td.desc span.detail {
-    font-style: italic;
+    font-style:normal;
 }
 
 div#build.gid37 table#distribution thead th a {

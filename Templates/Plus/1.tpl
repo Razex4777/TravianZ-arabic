@@ -182,7 +182,91 @@ function loadProductGroup(group_id) {
 					</tr>
 									</tbody>
 			</table>
-			    			   
+			
+			    <table class="product lang_ltr lang_de" cellpadding="1" cellspacing="1">
+				<thead>
+					<tr>
+						<th><?php echo (defined('LANG') && LANG === 'ar') ? 'الحزمة F' : 'Package F'; ?></th>
+					</tr>
+				</thead>
+				<tbody>
+
+
+										<tr>
+						<td class="pic"><a
+							href="plus1.php?id=114">
+							<img src="img/bezahlung/Travian_paket_e.jpg" style="width: 99px; height: 99px;"
+				                         alt="Package F" /></a></td>
+					</tr>
+					<tr>
+                        <td><?php echo (defined('PLUS_PACKAGE_F_GOLD') ? PLUS_PACKAGE_F_GOLD : 5000); ?>&nbsp;<?php echo (defined('LANG') && LANG === 'ar') ? 'ذهب' : 'Gold'; ?></td>
+                    </tr>
+                    <tr>
+                        <td><?php echo (defined('PLUS_PACKAGE_F_PRICE') ? PLUS_PACKAGE_F_PRICE : '99,99') . ' ' . (defined('PAYPAL_CURRENCY') ? PAYPAL_CURRENCY : 'EUR'); ?></td>
+
+                    </tr>
+					<tr>
+						<td><a href="plus1.php?id=114"><?php echo (defined('LANG') && LANG === 'ar') ? '&laquo; شراء' : '&raquo; buy'; ?></a></td>
+					</tr>
+									</tbody>
+			</table>
+			
+			<table class="product lang_ltr lang_de" cellpadding="1" cellspacing="1">
+				<thead>
+					<tr>
+						<th><?php echo (defined('LANG') && LANG === 'ar') ? 'الحزمة G' : 'Package G'; ?></th>
+					</tr>
+				</thead>
+				<tbody>
+
+
+										<tr>
+						<td class="pic"><a
+							href="plus1.php?id=115">
+							<img src="img/bezahlung/Travian_paket_e.jpg" style="width: 99px; height: 99px;"
+				                         alt="Package G" /></a></td>
+					</tr>
+					<tr>
+                        <td><?php echo (defined('PLUS_PACKAGE_G_GOLD') ? PLUS_PACKAGE_G_GOLD : 12000); ?>&nbsp;<?php echo (defined('LANG') && LANG === 'ar') ? 'ذهب' : 'Gold'; ?></td>
+                    </tr>
+                    <tr>
+                        <td><?php echo (defined('PLUS_PACKAGE_G_PRICE') ? PLUS_PACKAGE_G_PRICE : '199,99') . ' ' . (defined('PAYPAL_CURRENCY') ? PAYPAL_CURRENCY : 'EUR'); ?></td>
+
+                    </tr>
+					<tr>
+						<td><a href="plus1.php?id=115"><?php echo (defined('LANG') && LANG === 'ar') ? '&laquo; شراء' : '&raquo; buy'; ?></a></td>
+					</tr>
+									</tbody>
+			</table>
+
+			<table class="product lang_ltr lang_de" cellpadding="1" cellspacing="1">
+				<thead>
+					<tr>
+						<th><?php echo (defined('LANG') && LANG === 'ar') ? 'الحزمة H' : 'Package H'; ?></th>
+					</tr>
+				</thead>
+				<tbody>
+
+
+										<tr>
+						<td class="pic"><a
+							href="plus1.php?id=116">
+							<img src="img/bezahlung/Travian_paket_e.jpg" style="width: 99px; height: 99px;"
+				                         alt="Package H" /></a></td>
+					</tr>
+					<tr>
+                        <td><?php echo (defined('PLUS_PACKAGE_H_GOLD') ? PLUS_PACKAGE_H_GOLD : 20000); ?>&nbsp;<?php echo (defined('LANG') && LANG === 'ar') ? 'ذهب' : 'Gold'; ?></td>
+                    </tr>
+                    <tr>
+                        <td><?php echo (defined('PLUS_PACKAGE_H_PRICE') ? PLUS_PACKAGE_H_PRICE : '299,99') . ' ' . (defined('PAYPAL_CURRENCY') ? PAYPAL_CURRENCY : 'EUR'); ?></td>
+
+                    </tr>
+					<tr>
+						<td><a href="plus1.php?id=116"><?php echo (defined('LANG') && LANG === 'ar') ? '&laquo; شراء' : '&raquo; buy'; ?></a></td>
+					</tr>
+									</tbody>
+			</table>
+			
 			   <!-- <table class="product lang_ltr lang_de" cellpadding="1" cellspacing="1">
 				<thead>
 					<tr>
@@ -216,7 +300,7 @@ function loadProductGroup(group_id) {
 
 
 <div class="clear"></div>
-<div style="padding: 10px 10px; font-style: italic; font-size: 10px; color: #F00;"><b><?php echo (defined('LANG') && LANG === 'ar') ? 'لا يمكن استرداد أي من الحزم!' : 'None of the packages are refundable!'; ?></b></div>
+<div style="padding: 10px 10px; font-size: 10px; color: #F00;"><b><?php echo (defined('LANG') && LANG === 'ar') ? 'لا يمكن استرداد أي من الحزم!' : 'None of the packages are refundable!'; ?></b></div>
 
 </div>
 

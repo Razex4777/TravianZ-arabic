@@ -169,6 +169,12 @@ $fh = fopen($myFile, 'w') or die("<br/><br/><br/>Can't open file: GameEngine\con
 		$text = preg_replace("'%PLUS_PACKAGE_D_GOLD%'", (defined('PLUS_PACKAGE_D_GOLD') ? PLUS_PACKAGE_D_GOLD : '1000'), $text);
 		$text = preg_replace("'%PLUS_PACKAGE_E_PRICE%'", (defined('PLUS_PACKAGE_E_PRICE') ? PLUS_PACKAGE_E_PRICE : '49,99'), $text);
 		$text = preg_replace("'%PLUS_PACKAGE_E_GOLD%'", (defined('PLUS_PACKAGE_E_GOLD') ? PLUS_PACKAGE_E_GOLD : '2000'), $text);
+		$text = preg_replace("'%PLUS_PACKAGE_F_PRICE%'", (defined('PLUS_PACKAGE_F_PRICE') ? PLUS_PACKAGE_F_PRICE : '99,99'), $text);
+		$text = preg_replace("'%PLUS_PACKAGE_F_GOLD%'", (defined('PLUS_PACKAGE_F_GOLD') ? PLUS_PACKAGE_F_GOLD : '5000'), $text);
+		$text = preg_replace("'%PLUS_PACKAGE_G_PRICE%'", (defined('PLUS_PACKAGE_G_PRICE') ? PLUS_PACKAGE_G_PRICE : '199,99'), $text);
+		$text = preg_replace("'%PLUS_PACKAGE_G_GOLD%'", (defined('PLUS_PACKAGE_G_GOLD') ? PLUS_PACKAGE_G_GOLD : '12000'), $text);
+		$text = preg_replace("'%PLUS_PACKAGE_H_PRICE%'", (defined('PLUS_PACKAGE_H_PRICE') ? PLUS_PACKAGE_H_PRICE : '299,99'), $text);
+		$text = preg_replace("'%PLUS_PACKAGE_H_GOLD%'", (defined('PLUS_PACKAGE_H_GOLD') ? PLUS_PACKAGE_H_GOLD : '20000'), $text);
 
 		fwrite($fh, $text);
 		fclose($fh);

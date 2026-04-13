@@ -37,9 +37,7 @@ if (mysqli_num_rows($MyGold)) {
 		<tr>
 			<td class="man"><a href="#" onClick="return Popup(0,6);"><img
 					class="help" src="img/x.gif" alt="" title="" /></a></td>
-			<td class="desc"><b><font color="#71D000">P</font><font
-					color="#FF6F0F">l</font><font color="#71D000">u</font><font
-					color="#FF6F0F">s</font></b> <?php echo (defined('LANG') && LANG === 'ar') ? 'حساب' : 'Account'; ?><br /> <span class="run">
+			<td class="desc"><b><?php echo (defined('LANG') && LANG === 'ar') ? '<font color="#71D000">ب</font><font color="#FF6F0F">ل</font><font color="#71D000">ا</font><font color="#FF6F0F">س</font>' : '<font color="#71D000">P</font><font color="#FF6F0F">l</font><font color="#71D000">u</font><font color="#FF6F0F">s</font>'; ?></b> <?php echo (defined('LANG') && LANG === 'ar') ? 'حساب' : 'Account'; ?><br /> <span class="run">
 <?php
 $datetimep = $golds['plus'];
 $datetime1 = $golds['b1'];
@@ -353,7 +351,7 @@ if ($session->access != BANNED) {
     if (mysqli_num_rows($MyGold)) {
         if ($golds['gold'] > 1) {
             echo '
-                <a href="plus.php?id=7"><span>'.((defined('LANG') && LANG === 'ar') ? 'تشغيل' : 'On');
+                <a href="plus.php?id=7"><span>'.((defined('LANG') && LANG === 'ar') ? 'إنهاء' : 'On');
         } else {
             echo '<a href="plus.php?s=1"><span class="none">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold');
         }
@@ -362,7 +360,7 @@ if ($session->access != BANNED) {
     if (mysqli_num_rows($MyGold)) {
         if ($golds['gold'] > 1) {
             echo '
-                <a href="banned.php"><span>'.((defined('LANG') && LANG === 'ar') ? 'تشغيل' : 'On');
+                <a href="banned.php"><span>'.((defined('LANG') && LANG === 'ar') ? 'إنهاء' : 'On');
         } else {
             echo '<a href="banned.php"><span class="none">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold');
         }
@@ -375,7 +373,7 @@ if ($session->access != BANNED) {
 		<tr>
 			<td class="man"><a href="#" onClick="return Popup(8,6);"><img
 					class="help" src="img/x.gif" alt="" title="" /></a></td>
-			<td class="desc"><?php echo (defined('LANG') && LANG === 'ar') ? 'تبادل 1:1 مع تاجر NPC' : '1:1 Trade with the NPC merchant'; ?></td>
+			<td class="desc"><?php echo (defined('LANG') && LANG === 'ar') ? 'الانتقال الى تاجر المبادلة' : '1:1 Trade with the NPC merchant'; ?></td>
 			<td class="dur"><?php echo (defined('LANG') && LANG === 'ar') ? 'الآن' : 'now'; ?></td>
 			<td class="cost"><img src="img/x.gif" class="gold" alt="Gold"
 				title="Gold" />3</td>
@@ -386,7 +384,7 @@ if ($session->access != BANNED) {
 if ($session->access != BANNED) {
     if (mysqli_num_rows($MyGold)) {
         if ($golds['gold'] > 2) {
-            echo ' <a href="build.php?gid=17&t=3"><span>'.((defined('LANG') && LANG === 'ar') ? 'تبادل' : 'NPC');
+            echo ' <a href="build.php?gid=17&t=3"><span>'.((defined('LANG') && LANG === 'ar') ? 'انتقال' : 'Go');
         } else {
             echo '<a href="plus.php?s=1"><span class="none">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold');
         }
@@ -394,7 +392,7 @@ if ($session->access != BANNED) {
 } else {
     if (mysqli_num_rows($MyGold)) {
         if ($golds['gold'] > 2) {
-            echo ' <a href="banned.php"><span>'.((defined('LANG') && LANG === 'ar') ? 'تبادل' : 'NPC');
+            echo ' <a href="banned.php"><span>'.((defined('LANG') && LANG === 'ar') ? 'انتقال' : 'Go');
         } else {
             echo '<a href="banned.php"><span class="none">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold');
         }
@@ -406,52 +404,73 @@ if ($session->access != BANNED) {
 
 	</tbody>
 </table>
+
+
 <table class="plusFunctions" cellpadding="1" cellspacing="1">
-	<thead>
-		<tr>
-			<th colspan="5"><?php echo (defined('LANG') && LANG === 'ar') ? 'نادي ترافيان الذهبي' : 'Travian Gold Club'; ?></th>
-		</tr>
-		<tr>
-			<td></td>
+		<thead>
+			<tr>
+				<th colspan="5"><?php echo (defined('LANG') && LANG === 'ar') ? 'خدمات الذهب' : 'Gold Services'; ?></th>
+			</tr>
+			<tr>
+				<td></td>
+				<td><?php echo (defined('LANG') && LANG === 'ar') ? 'الوصف' : 'Description'; ?></td>
+				<td><?php echo (defined('LANG') && LANG === 'ar') ? 'المدة' : 'Duration'; ?></td>
+				<td><?php echo (defined('LANG') && LANG === 'ar') ? 'الذهب' : 'Gold'; ?></td>
+				<td><?php echo (defined('LANG') && LANG === 'ar') ? 'الإجراء' : 'Action'; ?></td>
+			</tr>
+		</thead>
+		<tbody>
 
-			<td><?php echo (defined('LANG') && LANG === 'ar') ? 'الوصف' : 'Description'; ?></td>
-			<td><?php echo (defined('LANG') && LANG === 'ar') ? 'المدة' : 'Duration'; ?></td>
-			<td><?php echo (defined('LANG') && LANG === 'ar') ? 'الذهب' : 'Gold'; ?></td>
-			<td><?php echo (defined('LANG') && LANG === 'ar') ? 'الإجراء' : 'Action'; ?></td>
-		</tr>
-	</thead>
-	<tbody>
+			<tr>
+				<td class="man"><a href="#" onClick="return Popup(0,6);"><img class="help" src="img/x.gif" alt="" title="" /></a></td>
+				<td class="desc"><?php echo (defined('LANG') && LANG === 'ar') ? '<b>إنهاء تدريب الجنود فوراً</b><br />إكمال جميع تدريبات القوات في هذه القرية حالاً' : '<b>Finish troop training instantly</b><br />Complete all troop training in this village now'; ?></td>
+				<td class="dur"><?php echo (defined('LANG') && LANG === 'ar') ? 'الآن' : 'now'; ?></td>
+				<td class="cost"><img src="img/x.gif" class="gold" alt="Gold" title="Gold" />35</td>
+				<td class="act">
+				<?php
+				$MyGold = mysqli_query($database->dblink, "SELECT * FROM " . TB_PREFIX . "users WHERE `id`='" . $session->uid . "'") or die(mysqli_error($database->dblink));
+				$golds = mysqli_fetch_array($MyGold);
+				$trainingRows = $database->getTraining($village->wid);
+				$hasTraining = !empty($trainingRows);
+				if ($session->access != BANNED) {
+				    if ($golds['gold'] >= 35) {
+				        if ($hasTraining) {
+				            echo '<a href="plus.php?id=16"><span>'.((defined('LANG') && LANG === 'ar') ? 'إنهاء' : 'Finish');
+				        } else {
+				            echo '<span class="none">'.((defined('LANG') && LANG === 'ar') ? 'لا تدريب' : 'No training');
+				        }
+				    } else {
+				        echo '<a href="plus.php?s=1"><span class="none">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold');
+				    }
+				} else {
+				    echo '<a href="banned.php"><span class="none">'.((defined('LANG') && LANG === 'ar') ? 'إنهاء' : 'Finish');
+				}
+				?>
+				</span></a></td>
+			</tr>
 
-		<tr>
-			<td class="man"><a href="#" onClick="return Popup(9,6);"><img
-					class="help" src="img/x.gif" alt="" title="" /></a></td>
-			<td class="desc"><b><?php echo (defined('LANG') && LANG === 'ar') ? 'النادي الذهبي' : 'Gold Club'; ?></b></br> <span class="run"> </span></td>
-			<td class="dur"><?php echo (defined('LANG') && LANG === 'ar') ? 'طوال الجولة' : 'Whole game round'; ?></td>
-			<td class="cost"><img src="img/x.gif" class="gold" alt="Gold"
-				title="Gold" alt="Gold" title="Gold" />100</td>
-			<td class="act">
+			<tr>
+				<td class="man"><a href="#" onClick="return Popup(0,6);"><img class="help" src="img/x.gif" alt="" title="" /></a></td>
+				<td class="desc"><?php echo (defined('LANG') && LANG === 'ar') ? '<b>وصول التعزيزات فوراً</b><br />عودة جميع القوات إلى هذه القرية حالاً (لا يعمل مع المنجنيقات ومحطمات الأبواب والزعماء)' : '<b>Instant reinforcement arrival</b><br />Return all troops to this village now (does not work with catapults, battering rams and chiefs)'; ?></td>
+				<td class="dur"><?php echo (defined('LANG') && LANG === 'ar') ? 'الآن' : 'now'; ?></td>
+				<td class="cost"><img src="img/x.gif" class="gold" alt="Gold" title="Gold" />35</td>
+				<td class="act">
+				<?php
+				$MyGold = mysqli_query($database->dblink, "SELECT * FROM " . TB_PREFIX . "users WHERE `id`='" . $session->uid . "'") or die(mysqli_error($database->dblink));
+				$golds = mysqli_fetch_array($MyGold);
+				if ($session->access != BANNED) {
+				    if ($golds['gold'] >= 35) {
+				        echo '<a href="plus.php?id=17"><span>'.((defined('LANG') && LANG === 'ar') ? 'تعجيل' : 'Speed up');
+				    } else {
+				        echo '<a href="plus.php?s=1"><span class="none">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold');
+				    }
+				} else {
+				    echo '<a href="banned.php"><span class="none">'.((defined('LANG') && LANG === 'ar') ? 'تعجيل' : 'Speed up');
+				}
+				?>
+				</span></a></td>
+			</tr>
 
-<?php
-$MyGold = mysqli_query($database->dblink, "SELECT * FROM " . TB_PREFIX . "users WHERE `id`='" . $session->uid . "'") or die(mysqli_error($database->dblink));
-$golds = mysqli_fetch_array($MyGold);
-
-if (mysqli_num_rows($MyGold)) {
-    if ($golds['goldclub'] == 0) {
-        if ($golds['gold'] > 99) {
-            echo '
-                <a href="plus.php?id=15"><span>'.((defined('LANG') && LANG === 'ar') ? 'تفعيل' : 'Activate');
-        } else {
-            echo '
-                <a href="plus.php?s=1"><span class="none">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold');
-        }
-    } else {
-        echo '<a href="plus.php?id=3"><span class="none">'.((defined('LANG') && LANG === 'ar') ? 'مفعّل' : 'On');
-    }
-}
-?>
-    </span></a>
-			</td>
-		</tr>
-	</tbody>
-</table>
+		</tbody>
+	</table>
 </div>

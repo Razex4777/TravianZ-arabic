@@ -8,7 +8,7 @@ include("Templates/Plus/pmenu.tpl");
 
 	echo " <br /><div align=center><h2>Get <font color=#71D000>P</font><font color=#FF6F0F>l</font><font  color=#71D000>u</font><font color=#FF6F0F>s</font></h2>";
 	echo " <br /> To enter you login then select the plus site. <br />You will be redirected to the plus site.";
-	echo " <br /> <i>The plus system will be monitored. Account name, site plus on ip, <br /> and points given are logged,<br /> if caught cheating account will be banned.</i> <br /> <br /> </div>";
+	echo " <br /> The plus system will be monitored. Account name, site plus on ip, <br /> and points given are logged,<br /> if caught cheating account will be banned. <br /> <br /> </div>";
 
 if(!$_POST['plus']){
 echo <<<EOT

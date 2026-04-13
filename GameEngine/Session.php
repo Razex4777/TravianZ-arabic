@@ -287,7 +287,9 @@ class Session {
 				$this->gpack = $this->userarray['gpack'];
 				$this->access = $this->userarray['access'];
 				$this->plus = ($this->userarray['plus'] > $this->time);
-				$this->goldclub = $this->userarray['goldclub'];
+				// Gold Club is now free for all users (Hassan: "ليس له اهمية")
+			// Force-enable so farmlist, master builder, inter-village features work for everyone
+			$this->goldclub = 1;
 				$this->villages = $database->getVillagesID($this->uid);
 				$this->tribe = $this->userarray['tribe'];
 				$this->isAdmin = $this->access >= MODERATOR;

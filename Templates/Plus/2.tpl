@@ -188,7 +188,7 @@ include("Templates/Plus/pmenu.tpl");
 		<td class="preview"><a href="plus.php?id=3"><img class="bau0" src="img/x.gif" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'إكمال أوامر البناء والأبحاث فوراً' : 'Complete construction orders & research immediately.'; ?>" title="<?php echo (defined('LANG') && LANG === 'ar') ? 'إكمال أوامر البناء والأبحاث فوراً' : 'Complete construction orders & research immediately.'; ?>" /></a></td>
 		<td class="text"><?php echo (defined('LANG') && LANG === 'ar') ? 'في القرية الحالية، جميع المباني التي هي قيد البناء، بالإضافة للأبحاث في الأكاديمية والحداد ومستودع الأسلحة يتم إكمالها فوراً.' : 'In the current village all construction orders and research in the academy as well as the blacksmith and armoury will be completed immediately.'; ?>
 <br /><br />
-<?php echo (defined('LANG') && LANG === 'ar') ? 'لكن المباني مثل السكن والقصر والقرى التي تحتوي على أعجوبة العالم غير مشمولة.' : 'However, the <i>buildings</i> Residence and Palace and <i>villages</i> with a wonder of the world inside them are excluded.'; ?>
+<?php echo (defined('LANG') && LANG === 'ar') ? 'لكن المباني مثل السكن والقصر والقرى التي تحتوي على أعجوبة العالم غير مشمولة.' : 'However, the buildings Residence and Palace and villages with a wonder of the world inside them are excluded.'; ?>
 
 <br /><br />
 <?php echo (defined('LANG') && LANG === 'ar') ? '<span style="color:#FF0000">هذه الميزة غير مشمولة في نادي الذهب!</span>' : '<span style="color:#FF0000">This feature is NOT included in the gold club!</span>'; ?></p></td>

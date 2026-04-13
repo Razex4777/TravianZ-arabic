@@ -47,28 +47,32 @@
 			// no PLUS needed for Support
 			if ($_SESSION['id_user'] != 1) {
 		?>
-        <a href="plus.php" id="plus">
-        <span class="plus_text">
-            <?php if(defined('LANG') && LANG === 'ar'): ?>
-            <!-- تم تغيير الاسم من "ب ل س" إلى "بلاس" حسب طلب العميل -->
-            <span class="plus_g">بلاس</span>
-            <?php else: ?>
-            <span class="plus_g">P</span>
-            <span class="plus_o">l</span>
-            <span class="plus_g">u</span>
-            <span class="plus_o">s</span>
-            <?php endif; ?>
-       </span><img src="img/x.gif" id="btn_plus" class="<?php echo ($session->plus == 1 && strtotime("NOW") <= $session->userinfo['plus'])? 'active' : 'inactive';?>" title="Plus menu" alt="Plus menu" /></a>
-        <!-- عرض رصيد الذهب بجانب بلاس — تم نقله من شريط الموارد حسب طلب العميل -->
-        <span id="header_gold_display">
+        <a href="plus.php?id=3" id="plus" style="background: transparent !important; width: auto !important; height: auto !important; margin-left: 0 !important; margin-top: 20px !important;">
+        <span id="header_gold_display" style="
+            display: inline-flex !important;
+            align-items: center;
+            gap: 5px;
+            background: linear-gradient(180deg, #FFD54F 0%, #FF9800 50%, #E65100 100%);
+            border: 1px solid #BF6C00;
+            border-radius: 6px;
+            padding: 3px 12px 3px 8px;
+            color: #fff;
+            font-weight: bold;
+            font-size: 13px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.35), 0 1px 3px rgba(0,0,0,0.25);
+            line-height: 18px;
+            cursor: pointer;
+        ">
             <?php if($session->gold >= 2): ?>
-                <img src="<?php echo GP_LOCATE; ?>img/a/gold.gif" alt="الذهب" title="رصيدك: <?php echo $session->gold; ?> ذهب" />
-                <span class="gold_amount"><?php echo $session->gold; ?></span>
+                <img src="<?php echo GP_LOCATE; ?>img/a/gold.gif" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'الذهب' : 'Gold'; ?>" title="<?php echo $session->gold; ?> <?php echo (defined('LANG') && LANG === 'ar') ? 'ذهب' : 'Gold'; ?>" style="vertical-align: middle; width: 16px; height: 16px;" />
+                <span class="gold_amount" style="display: inline !important; color: #fff; font-weight: bold; font-size: 13px; vertical-align: middle;"><?php echo $session->gold; ?></span>
             <?php else: ?>
-                <img src="<?php echo GP_LOCATE; ?>img/a/gold_g.gif" alt="الذهب" title="رصيدك: <?php echo $session->gold; ?> ذهب" />
-                <span class="gold_amount low"><?php echo $session->gold; ?></span>
+                <img src="<?php echo GP_LOCATE; ?>img/a/gold_g.gif" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'الذهب' : 'Gold'; ?>" title="<?php echo $session->gold; ?> <?php echo (defined('LANG') && LANG === 'ar') ? 'ذهب' : 'Gold'; ?>" style="vertical-align: middle; width: 16px; height: 16px;" />
+                <span class="gold_amount low" style="display: inline !important; color: rgba(255,255,255,0.7); font-weight: bold; font-size: 13px; vertical-align: middle;"><?php echo $session->gold; ?></span>
             <?php endif; ?>
         </span>
+        </a>
        <?php
        		}
        ?>

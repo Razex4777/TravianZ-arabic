@@ -179,7 +179,7 @@ div#map table#map_infobox th, div#map table#map_infobox td {
 }
 
 div#map table.empty thead th, div#map table.oasis_empty thead th, div#map table.oasis thead th {
-    font-style: italic;
+    font-style:normal;
     font-weight: normal;
 }
 

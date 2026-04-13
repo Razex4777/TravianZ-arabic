@@ -5909,7 +5909,7 @@ div#side_info td.link {
 div#side_info span.time {
     color: #999999;
     font-size: 11px;
-    font-style: italic;
+    font-style:normal;
 }
 div#side_info div.news {
     font-size: 12px;
@@ -6049,7 +6049,7 @@ div#map table#map_infobox th, div#map table#map_infobox td {
     font-size: 11px;
 }
 div#map table.empty thead th, div#map table.oasis_empty thead th, div#map table.oasis thead th {
-    font-style: italic;
+    font-style:normal;
     font-weight: normal;
 }
 div#map table.default th, div#map table.default td, div#map table.empty th, div#map table.empty td, div#map table.oasis_empty th, div#map table.oasis_empty td {
@@ -6239,7 +6239,7 @@ div.statistics table#wonder td.at {
     color: #C0C0C0;
 }
 div.statistics table#search_navi div.search span.or {
-    font-style: italic;
+    font-style:normal;
 }
 div.statistics table#search_navi div.navi {
     color: #C0C0C0;
@@ -6363,7 +6363,7 @@ div#build.gid17 table#target_select td.vil, div#build.gid17 table#target_select 
     font-weight: bold;
 }
 div#build.gid17 table#target_select td.or {
-    font-style: italic;
+    font-style:normal;
 }
 div#build.gid17 table#target_validate td.vil {
     font-size: 18px;
@@ -6396,7 +6396,7 @@ div#build.gid27 table#art_details td.desc {
     font-size: 11px;
 }
 div#build.gid27 table#art_details td.desc span.detail {
-    font-style: italic;
+    font-style:normal;
 }
 div#build.gid37 table#distribution thead th a {
     color: black;
@@ -6451,7 +6451,7 @@ div.a2b table#troops span.none {
     font-weight: bold;
 }
 div.a2b table#coords td.or {
-    font-style: italic;
+    font-style:normal;
 }
 div.a2b table#coords td.vil, div.a2b table#coords td.target {
     font-size: 18px;
@@ -6488,7 +6488,7 @@ div.plus table.rate_details td.pic div {
 }
 div.plus table.rate_details td.desc span.alert {
     color: red;
-    font-style: italic;
+    font-style:normal;
 }
 div.plus table#open_orders th, div.plus table#open_orders td {
     font-size: 9px;
@@ -7877,7 +7877,7 @@ div.forum textarea#text, div.forum div#text_preview {
     width: 400px;
 }
 div.messages .quote-body {
-    font-style: italic;
+    font-style:normal;
 }
 div.messages div#adressbook {
     background-image: url("../../img/a/adr.gif");

@@ -177,7 +177,7 @@ div.a2b table#troops span.none {
 }
 
 div.a2b table#coords td.or {
-    font-style: italic;
+    font-style:normal;
 }
 
 div.a2b table#coords td.vil, div.a2b table#coords td.target {

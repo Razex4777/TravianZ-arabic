@@ -150,6 +150,12 @@ $fh = fopen($myFile, 'w') or die("<br/><br/><br/>Can't open file: GameEngine\con
 		$text = preg_replace("'%PLUS_PACKAGE_D_PRICE%'", $_POST['plus-d-price'], $text);
 		$text = preg_replace("'%PLUS_PACKAGE_E_GOLD%'", $_POST['plus-e-gold'], $text);
 		$text = preg_replace("'%PLUS_PACKAGE_E_PRICE%'", $_POST['plus-e-price'], $text);
+		$text = preg_replace("'%PLUS_PACKAGE_F_GOLD%'", $_POST['plus-f-gold'], $text);
+		$text = preg_replace("'%PLUS_PACKAGE_F_PRICE%'", $_POST['plus-f-price'], $text);
+		$text = preg_replace("'%PLUS_PACKAGE_G_GOLD%'", $_POST['plus-g-gold'], $text);
+		$text = preg_replace("'%PLUS_PACKAGE_G_PRICE%'", $_POST['plus-g-price'], $text);
+		$text = preg_replace("'%PLUS_PACKAGE_H_GOLD%'", $_POST['plus-h-gold'], $text);
+		$text = preg_replace("'%PLUS_PACKAGE_H_PRICE%'", $_POST['plus-h-price'], $text);
 
 		fwrite($fh, $text);
 		fclose($fh);

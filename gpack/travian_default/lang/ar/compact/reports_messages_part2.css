@@ -100,7 +100,7 @@ div.messages div#message_container div#message_toolbar img, div#text_container d
 }
 
 div.messages .quote-body {
-    font-style: italic;
+    font-style:normal;
 }
 
 div.messages div#adressbook {

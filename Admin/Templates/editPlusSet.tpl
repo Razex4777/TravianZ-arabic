@@ -130,6 +130,105 @@ function refresh(tz) {
                            <input class="fm" name="plus-e-price" value="<?php echo (defined('PLUS_PACKAGE_E_PRICE') ? PLUS_PACKAGE_E_PRICE : '49,99'); ?>" style="width: 70%;">
                         </td>
                     </tr>
+                    <tr>
+                        <td width="50%">
+                           Package F Gold <em class="tooltip">?<span class="classic">Package F Gold Amount</span></em>
+                        </td>
+                        <td width="50%">
+                           <input class="fm" name="plus-f-gold" value="<?php echo (defined('PLUS_PACKAGE_F_GOLD') ? PLUS_PACKAGE_F_GOLD : 5000); ?>" style="width: 70%;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="50%">
+                           Package F Price <em class="tooltip">?<span class="classic">Package F Price</span></em>
+                        </td>
+                        <td width="50%">
+                           <input class="fm" name="plus-f-price" value="<?php echo (defined('PLUS_PACKAGE_F_PRICE') ? PLUS_PACKAGE_F_PRICE : '99,99'); ?>" style="width: 70%;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="50%">
+                           Package G Gold <em class="tooltip">?<span class="classic">Package G Gold Amount</span></em>
+                        </td>
+                        <td width="50%">
+                           <input class="fm" name="plus-g-gold" value="<?php echo (defined('PLUS_PACKAGE_G_GOLD') ? PLUS_PACKAGE_G_GOLD : 12000); ?>" style="width: 70%;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="50%">
+                           Package G Price <em class="tooltip">?<span class="classic">Package G Price</span></em>
+                        </td>
+                        <td width="50%">
+                           <input class="fm" name="plus-g-price" value="<?php echo (defined('PLUS_PACKAGE_G_PRICE') ? PLUS_PACKAGE_G_PRICE : '199,99'); ?>" style="width: 70%;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="50%">
+                           Package H Gold <em class="tooltip">?<span class="classic">Package H Gold Amount</span></em>
+                        </td>
+                        <td width="50%">
+                           <input class="fm" name="plus-h-gold" value="<?php echo (defined('PLUS_PACKAGE_H_GOLD') ? PLUS_PACKAGE_H_GOLD : 20000); ?>" style="width: 70%;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="50%">
+                           Package H Price <em class="tooltip">?<span class="classic">Package H Price</span></em>
+                        </td>
+                        <td width="50%">
+                           <input class="fm" name="plus-h-price" value="<?php echo (defined('PLUS_PACKAGE_H_PRICE') ? PLUS_PACKAGE_H_PRICE : '299,99'); ?>" style="width: 70%;">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td width="50%">
+                           Package F Gold <em class="tooltip">?<span class="classic">Package F Gold Amount</span></em>
+                        </td>
+                        <td width="50%">
+                           <input class="fm" name="plus-f-gold" value="<?php echo (defined('PLUS_PACKAGE_F_GOLD') ? PLUS_PACKAGE_F_GOLD : 5000); ?>" style="width: 70%;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="50%">
+                           Package F Price <em class="tooltip">?<span class="classic">Package F Price</span></em>
+                        </td>
+                        <td width="50%">
+                           <input class="fm" name="plus-f-price" value="<?php echo (defined('PLUS_PACKAGE_F_PRICE') ? PLUS_PACKAGE_F_PRICE : '99,99'); ?>" style="width: 70%;">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td width="50%">
+                           Package G Gold <em class="tooltip">?<span class="classic">Package G Gold Amount</span></em>
+                        </td>
+                        <td width="50%">
+                           <input class="fm" name="plus-g-gold" value="<?php echo (defined('PLUS_PACKAGE_G_GOLD') ? PLUS_PACKAGE_G_GOLD : 12000); ?>" style="width: 70%;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="50%">
+                           Package G Price <em class="tooltip">?<span class="classic">Package G Price</span></em>
+                        </td>
+                        <td width="50%">
+                           <input class="fm" name="plus-g-price" value="<?php echo (defined('PLUS_PACKAGE_G_PRICE') ? PLUS_PACKAGE_G_PRICE : '199,99'); ?>" style="width: 70%;">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td width="50%">
+                           Package H Gold <em class="tooltip">?<span class="classic">Package H Gold Amount</span></em>
+                        </td>
+                        <td width="50%">
+                           <input class="fm" name="plus-h-gold" value="<?php echo (defined('PLUS_PACKAGE_H_GOLD') ? PLUS_PACKAGE_H_GOLD : 20000); ?>" style="width: 70%;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="50%">
+                           Package H Price <em class="tooltip">?<span class="classic">Package H Price</span></em>
+                        </td>
+                        <td width="50%">
+                           <input class="fm" name="plus-h-price" value="<?php echo (defined('PLUS_PACKAGE_H_PRICE') ? PLUS_PACKAGE_H_PRICE : '299,99'); ?>" style="width: 70%;">
+                        </td>
+                    </tr>
 
 					<tr>
 						<td><?php echo CONF_PLUS_ACCDURATION ?> <em class="tooltip">?<span class="classic"><?php echo CONF_PLUS_ACCDURATION_TOOLTIP ?></span></em></td>

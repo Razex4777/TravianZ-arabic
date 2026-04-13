@@ -317,6 +317,30 @@ if($_SESSION['access'] < 9) die(ACCESS_DENIED_ADMIN);
         <td><?php echo (defined('PLUS_PACKAGE_E_PRICE') ? PLUS_PACKAGE_E_PRICE : '49,99') . ' ' . (defined('PAYPAL_CURRENCY') ? PAYPAL_CURRENCY : 'EUR'); ?></td>
     </tr>
     <tr>
+        <td>Package F Gold <em class="tooltip">?<span class="classic">Package F Gold Amount</span></em></td>
+        <td><?php echo (defined('PLUS_PACKAGE_F_GOLD') ? PLUS_PACKAGE_F_GOLD : 5000); ?></td>
+    </tr>
+    <tr>
+        <td>Package F Price <em class="tooltip">?<span class="classic">Package F Price</span></em></td>
+        <td><?php echo (defined('PLUS_PACKAGE_F_PRICE') ? PLUS_PACKAGE_F_PRICE : '99,99') . ' ' . (defined('PAYPAL_CURRENCY') ? PAYPAL_CURRENCY : 'EUR'); ?></td>
+    </tr>
+    <tr>
+        <td>Package G Gold <em class="tooltip">?<span class="classic">Package G Gold Amount</span></em></td>
+        <td><?php echo (defined('PLUS_PACKAGE_G_GOLD') ? PLUS_PACKAGE_G_GOLD : 12000); ?></td>
+    </tr>
+    <tr>
+        <td>Package G Price <em class="tooltip">?<span class="classic">Package G Price</span></em></td>
+        <td><?php echo (defined('PLUS_PACKAGE_G_PRICE') ? PLUS_PACKAGE_G_PRICE : '199,99') . ' ' . (defined('PAYPAL_CURRENCY') ? PAYPAL_CURRENCY : 'EUR'); ?></td>
+    </tr>
+    <tr>
+        <td>Package H Gold <em class="tooltip">?<span class="classic">Package H Gold Amount</span></em></td>
+        <td><?php echo (defined('PLUS_PACKAGE_H_GOLD') ? PLUS_PACKAGE_H_GOLD : 20000); ?></td>
+    </tr>
+    <tr>
+        <td>Package H Price <em class="tooltip">?<span class="classic">Package H Price</span></em></td>
+        <td><?php echo (defined('PLUS_PACKAGE_H_PRICE') ? PLUS_PACKAGE_H_PRICE : '299,99') . ' ' . (defined('PAYPAL_CURRENCY') ? PAYPAL_CURRENCY : 'EUR'); ?></td>
+    </tr>
+    <tr>
         <td><?php echo CONF_PLUS_ACCDURATION ?> <em class="tooltip">?<span class="classic"><?php echo CONF_PLUS_ACCDURATION_TOOLTIP ?></span></em></td>
         <td><?php if(PLUS_TIME >= 86400){ echo ''.(PLUS_TIME/86400).' '.((defined('LANG') && LANG === 'ar') ? 'أيام' : 'Days'); } else if(PLUS_TIME < 86400){ echo ''.(PLUS_TIME / 3600).' '.((defined('LANG') && LANG === 'ar') ? 'ساعات' : 'Hours'); } ?></td>
     </tr>

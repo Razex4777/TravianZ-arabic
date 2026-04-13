@@ -149,7 +149,13 @@ if($id == 14){
 if($id == 15){
 	include ("Templates/Plus/15.tpl");
 }
-if($id > 15){
+if($id == 16){
+	include ("Templates/Plus/16.tpl");
+}
+if($id == 17){
+	include ("Templates/Plus/17.tpl");
+}
+if($id > 17){
 	include ("Templates/Plus/3.tpl");
 }
 if(isset($_POST['mail'])){
