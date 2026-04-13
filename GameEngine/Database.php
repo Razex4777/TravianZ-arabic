@@ -1643,13 +1643,13 @@ public function getBestOasisCropBonus($x, $y) {
                 $HeroMansionLevel = $AttackerFields[ 'f' . $i ];
             }
         }
-        if ( $this->VillageOasisCount( $vref ) < floor( ( $HeroMansionLevel - 5 ) / 5 ) ) {
+        if ( $this->VillageOasisCount( $vref ) < floor( ( $HeroMansionLevel - 5 ) / 5 ) * 2 ) {
             $OasisInfo = $this->getOasisInfo( $wref );
             //fix by ronix
             if (
                 $OasisInfo['conqured'] == 0 ||
                 $OasisInfo['conqured'] != 0 &&
-                intval( $OasisInfo['loyalty'] ) < ( 99 / min(3, (4 - $this->VillageOasisCount($OasisInfo['conqured'], $use_cache))) )
+                intval( $OasisInfo['loyalty'] ) < ( 99 / min(6, max(1, 7 - $this->VillageOasisCount($OasisInfo['conqured'], $use_cache))) )
             ) {
                 $CoordsVillage = $this->getCoor( $vref );
                 $CoordsOasis   = $this->getCoor( $wref );
@@ -1693,7 +1693,7 @@ public function getBestOasisCropBonus($x, $y) {
         if($this->isVillageOases($wref) != 0) {
             $OasisInfo = $this->getOasisInfo($wref);
             if($OasisInfo['conqured'] != 0) {
-                $LoyaltyAmendment = floor(100 / min(3,(4-$this->VillageOasisCount($OasisInfo['conqured']))));
+                $LoyaltyAmendment = floor(100 / min(6, max(1, 7 - $this->VillageOasisCount($OasisInfo['conqured']))));
                 $q = "UPDATE `".TB_PREFIX."odata` SET loyalty=loyalty-$LoyaltyAmendment, lastupdated=".time()." WHERE wref=".$wref;
                 $result=mysqli_query($this->dblink,$q);
                 return $OasisInfo['loyalty']-$LoyaltyAmendment;
@@ -7276,10 +7276,18 @@ References: User ID/Message ID, Mode
                         $chunk  = array_slice($rows, $i, $sliceSize);
                         $values = [];
 
+                        $bonusMap = [];
+                        foreach ($chunk as $r) {
+                            $key = $r['x'] . '_' . $r['y'];
+                            if (!isset($bonusMap[$key])) {
+                                $bonusMap[$key] = $this->getBestOasisCropBonus((int)$r['x'], (int)$r['y']);
+                            }
+                        }
+
                         foreach ($chunk as $r) {
                             $x = (int)$r['x'];
                             $y = (int)$r['y'];
-                            $bonus = $this->getBestOasisCropBonus($x, $y);
+                            $bonus = $bonusMap[$x . '_' . $y];
                             $values[] = sprintf("(%d,%d,%d,%d,%d)", (int)$r['wref'], $x, $y, (int)$r['fieldtype'], $bonus);
                         }
 

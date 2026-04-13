@@ -545,20 +545,19 @@ class MYSQLi_DB {
         for($i=19;$i<=38;$i++) {
             if($AttackerFields[\'f\'.$i.\'t\'] == 37) { $HeroMansionLevel = $AttackerFields[\'f\'.$i]; }
         }
-        if($this->VillageOasisCount($vref) < floor(($HeroMansionLevel-5)/5)) {
+        if($this->VillageOasisCount($vref) < floor(($HeroMansionLevel-5)/5) * 2) {
             $OasisInfo = $this->getOasisInfo($wref);
-            //fix by ronix
-            if($OasisInfo[\'conqured\'] == 0 || $OasisInfo[\'conqured\'] != 0 && intval($OasisInfo[\'loyalty\']) < 99 / min(3,(4-$this->VillageOasisCount($OasisInfo[\'conqured\'])))){ 
+            if($OasisInfo['conqured'] == 0 || $OasisInfo['conqured'] != 0 && intval($OasisInfo['loyalty']) < 99 / min(6, max(1, 7 - $this->VillageOasisCount($OasisInfo['conqured'])))){ 
                 $CoordsVillage = $this->getCoor($vref);
                 $CoordsOasis = $this->getCoor($wref);
-                                $max = 2 * WORLD_MAX + 1;
-                        $x1 = intval($CoordsOasis[\'x\']);
-                        $y1 = intval($CoordsOasis[\'y\']);
-                        $x2 = intval($CoordsVillage[\'x\']);
-                        $y2 = intval($CoordsVillage[\'y\']);
-                        $distanceX = min(abs($x2 - $x1), abs($max - abs($x2 - $x1)));
-                        $distanceY = min(abs($y2 - $y1), abs($max - abs($y2 - $y1)));
-                    if ($distanceX<=3 && $distanceY<=3) {
+                $max = 2 * WORLD_MAX + 1;
+                $x1 = intval($CoordsOasis[\'x\']);
+                $y1 = intval($CoordsOasis[\'y\']);
+                $x2 = intval($CoordsVillage[\'x\']);
+                $y2 = intval($CoordsVillage[\'y\']);
+                $distanceX = min(abs($x2 - $x1), abs($max - abs($x2 - $x1)));
+                $distanceY = min(abs($y2 - $y1), abs($max - abs($y2 - $y1)));
+                if ($distanceX<=3 && $distanceY<=3) {
                     return 1; //can
                 } else {
                     return 2; //can but not in 7x7 field
@@ -582,7 +581,7 @@ class MYSQLi_DB {
         if($this->isVillageOases($wref) != 0) {
             $OasisInfo = $this->getOasisInfo($wref);
             if($OasisInfo[\'conqured\'] != 0) {
-                $LoyaltyAmendment = floor(100 / min(3,(4-$this->VillageOasisCount($OasisInfo[\'conqured\']))));
+                $LoyaltyAmendment = floor(100 / min(6, max(1, 7 - $this->VillageOasisCount($OasisInfo['conqured']))));
                 $q = "UPDATE `".TB_PREFIX."odata` SET loyalty=loyalty-$LoyaltyAmendment, lastupdated=".time()." WHERE wref=$wref";
                 $result=mysqli_query($this->dblink,$q);
                 return $OasisInfo[\'loyalty\']-$LoyaltyAmendment;

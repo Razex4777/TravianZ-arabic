@@ -100,6 +100,7 @@ if (isset($_POST['oasis_search'])) {
         }
     }
 }
+}
 
 $selType = (!empty($_GET['s'])) ? (int)$_GET['s'] : 1;
 // selType mappings:
@@ -287,11 +288,11 @@ if ($wrefs) {
 <h1><?php echo (defined('LANG') && LANG === 'ar') ? 'باحث الخريطة' : 'Map Finder'; ?></h1>
 <div style="font-weight:bold; font-size:14px; margin-bottom:15px; text-align:center;">
     <a href="finder.php?mode=oasis" style="text-decoration:none; <?php echo ($mode == 'oasis') ? 'color:#71D000;' : 'color:#000;'; ?>">
-        <?php echo (defined('LANG') && LANG === 'ar') ? 'البحث عن واحات محتلة' : 'Search for Occupied Oases'; ?>
+        <?php echo (defined('LANG') && LANG === 'ar') ? 'البحث عن الواحات بإسم اللاعب' : 'Search for Occupied Oases'; ?>
     </a>
     | 
     <a href="finder.php" style="text-decoration:none; <?php echo ($mode == 'crop') ? 'color:#71D000;' : 'color:#000;'; ?>">
-        <?php echo (defined('LANG') && LANG === 'ar') ? 'البحث عن حقول قمحية' : 'Search for Croppers'; ?>
+        <?php echo (defined('LANG') && LANG === 'ar') ? 'البحث عن القمحيات والواحات' : 'Search for Croppers'; ?>
     </a>
 </div>
 
@@ -307,14 +308,14 @@ if ($wrefs) {
           <option value="2" <?php if($selType==2) echo 'selected'; ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'قمحية 9 حقول' : '9 Crop Village'; ?></option>
       </optgroup>
       <optgroup label="<?php echo (defined('LANG') && LANG === 'ar') ? 'تبويب الواحات' : 'Oasis Bonus Villages'; ?>">
-          <option value="3" <?php if($selType==3) echo 'selected'; ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'قرية بـ واحات قمح 150%' : '150% Crop Bonus spot'; ?></option>
-          <option value="4" <?php if($selType==4) echo 'selected'; ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'قرية بـ واحات قمح 100%' : '100% Crop Bonus spot'; ?></option>
-          <option value="5" <?php if($selType==5) echo 'selected'; ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'قرية بـ واحات طين 100%' : '100% Clay Bonus spot'; ?></option>
-          <option value="6" <?php if($selType==6) echo 'selected'; ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'قرية بـ واحات حديد 100%' : '100% Iron Bonus spot'; ?></option>
-          <option value="7" <?php if($selType==7) echo 'selected'; ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'قرية بـ واحات خشب 100%' : '100% Wood Bonus spot'; ?></option>
-          <option value="8" <?php if($selType==8) echo 'selected'; ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'قرية بـ واحات طين 75% وقمح 75%' : '75% Clay & 75% Crop spot'; ?></option>
-          <option value="9" <?php if($selType==9) echo 'selected'; ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'قرية بـ واحات حديد 75% وقمح 75%' : '75% Iron & 75% Crop spot'; ?></option>
-          <option value="10" <?php if($selType==10) echo 'selected'; ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'قرية بـ واحات خشب 75% وقمح 75%' : '75% Wood & 75% Crop spot'; ?></option>
+          <option value="3" <?php if($selType==3) echo 'selected'; ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'واحات قمح 150%' : '150% Crop Bonus spot'; ?></option>
+          <option value="4" <?php if($selType==4) echo 'selected'; ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'واحات قمح 100%' : '100% Crop Bonus spot'; ?></option>
+          <option value="5" <?php if($selType==5) echo 'selected'; ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'واحات طين 100%' : '100% Clay Bonus spot'; ?></option>
+          <option value="6" <?php if($selType==6) echo 'selected'; ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'واحات حديد 100%' : '100% Iron Bonus spot'; ?></option>
+          <option value="7" <?php if($selType==7) echo 'selected'; ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'واحات خشب 100%' : '100% Wood Bonus spot'; ?></option>
+          <option value="8" <?php if($selType==8) echo 'selected'; ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'واحات طين 75% وقمح 75%' : '75% Clay & 75% Crop spot'; ?></option>
+          <option value="9" <?php if($selType==9) echo 'selected'; ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'واحات حديد 75% وقمح 75%' : '75% Iron & 75% Crop spot'; ?></option>
+          <option value="10" <?php if($selType==10) echo 'selected'; ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'واحات خشب 75% وقمح 75%' : '75% Wood & 75% Crop spot'; ?></option>
       </optgroup>
     </select>
   </td>
