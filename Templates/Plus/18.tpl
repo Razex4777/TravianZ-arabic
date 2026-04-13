@@ -3,7 +3,8 @@
  * Plus Feature: 75% Crop Consumption Reduction
  * Cost: 350 gold
  * Duration: 5 hours (18000 seconds)
- * Only activates when crop production is negative
+ * Adds 75% of base crop field production as a flat bonus to net crop,
+ * regardless of whether net crop is positive or negative.
  */
 $CROP_REDUCTION_COST = 350;
 $CROP_REDUCTION_DURATION = 18000; // 5 hours

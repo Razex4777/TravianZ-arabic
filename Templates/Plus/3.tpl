@@ -1,5 +1,9 @@
 <?php
 //TODO: Reduce this file by a lot, by using arrays
+// Generate CSRF token for forms on this page
+if (empty($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
 $MyGold = mysqli_query($database->dblink, "SELECT * FROM " . TB_PREFIX . "users WHERE `id`='" . $session->uid . "'") or die(mysqli_error($database->dblink));
 $golds = mysqli_fetch_array($MyGold);
 
@@ -98,17 +102,29 @@ if (PLUS_TIME >= 86400) {
     $MyGold = mysqli_query($database->dblink, "SELECT * FROM " . TB_PREFIX . "users WHERE `id`='" . $session->uid . "'") or die(mysqli_error($database->dblink));
     $golds = mysqli_fetch_array($MyGold);
     
+if ($session->access != BANNED) {
     if (mysqli_num_rows($MyGold)) {
-        if ($golds['gold'] >= 20 && $datetimep < $date2) {
+        if ($golds['gold'] > 19 && $datetimep < $date2) {
             echo '
                 <a href="plus.php?id=8"><span>'.((defined('LANG') && LANG === 'ar') ? 'تفعيل' : 'Activate');
-        } elseif ($golds['gold'] >= 20 && $datetimep > $date2) {
+        } elseif ($golds['gold'] > 19 && $datetimep > $date2) {
             echo '
                 <a href="plus.php?id=8"><span>'.((defined('LANG') && LANG === 'ar') ? 'تمديد' : 'Extend');
         } else {
             echo '<a href="plus.php?s=1"><span class="none">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold');
         }
     }
+} else {
+    if (mysqli_num_rows($MyGold)) {
+        if ($golds['gold'] > 19 && $datetimep < $date2) {
+            echo '<a href="banned.php"><span>'.((defined('LANG') && LANG === 'ar') ? 'تفعيل' : 'Activate');
+        } elseif ($golds['gold'] > 19 && $datetimep > $date2) {
+            echo '<a href="banned.php"><span>'.((defined('LANG') && LANG === 'ar') ? 'تمديد' : 'Extend');
+        } else {
+            echo '<a href="banned.php"><span class="none">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold');
+        }
+    }
+}
 ?>
     </span></a>
 			</td>
@@ -524,6 +540,7 @@ if ($session->access != BANNED) {
 					</span>
 					<br /><br />
 					<form method="POST" action="plus.php?id=19" style="display:inline;">
+						<input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>" />
 						<label><?php echo (defined('LANG') && LANG === 'ar') ? 'كمية الذهب:' : 'Gold amount:'; ?></label>
 						<input type="number" name="gold_amount" min="1" max="<?php echo $golds['gold']; ?>" value="1" style="width:60px; text-align:center;" 
 							onchange="updateResourcePreview(this.value)" oninput="updateResourcePreview(this.value)" />
@@ -584,6 +601,7 @@ if ($isProtected) {
 						<span style="color:red; font-weight:bold;"><?php echo (defined('LANG') && LANG === 'ar') ? '❌ كلمة السر غير صحيحة!' : '❌ Incorrect password!'; ?></span><br />
 					<?php endif; ?>
 					<form method="POST" action="plus.php?id=20" style="display:inline;">
+						<input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>" />
 						<label><?php echo (defined('LANG') && LANG === 'ar') ? 'كلمة السر:' : 'Password:'; ?></label>
 						<input type="password" name="password" required style="width:120px;" />
 						<br />

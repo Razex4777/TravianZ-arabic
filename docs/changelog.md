@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-04-13 23:10
+- **Security: CSRF Protection** — Added `bin2hex(random_bytes(32))` CSRF tokens to both forms on the Plus page (`buy_resources` form → `19.tpl`, `activate_protection` form → `20.tpl`). Tokens are generated in `3.tpl`, embedded as hidden fields, and validated with `hash_equals()` in handlers. Rotated after each successful use.
+- **Security: Prepared Statements** — Converted all raw `mysqli_query` calls in `20.tpl` (protection handler) to `mysqli_prepare` + `bind_param` to prevent SQL injection on user-controlled data.
+- **Security: Transaction Safety** — Wrapped the gold deduction + protection activation queries in `20.tpl` with `mysqli_begin_transaction` / `commit` / `rollback` for atomicity.
+- **Fix: Plus Account BANNED Guard** — Added the same BANNED-status guard used by resource rows to the Plus Account activation block in `3.tpl`. Banned users now see `banned.php` links instead of action links.
+- **Fix: Plus Gold Comparison** — Changed Plus feature check from `$golds['gold'] >= 20` to `$golds['gold'] > 19` for consistency with other feature rows that use `> N` style.
+- **Fix: Protection Redirect Logic** — Moved success redirect inside `$session->sit == 0` branch only. Added `&error=sit_active` redirect when sitter account attempts activation.
+- **Fix: Stale Docstring** — Updated `18.tpl` comment: removed "Only activates when crop production is negative" since `Village.php` applies the 75% bonus unconditionally.
+
 ## 2026-04-13 21:55
 - **Fix: Crop Reduction Formula** — Corrected the 75% crop reduction to add 75% of base crop field production as bonus, instead of reducing upkeep. Formula: `netCrop = (cropProd - totalUpkeep) + (cropProd * 0.75)`. Example at x100: base=30M, net=-2M → final=+20.5M. Removed the "only when negative" condition — bonus now applies always when active.
 - **Price Update: Plus Account** — Changed Plus Account cost from 10 to **20 gold** per activation (24h). Updated handler `8.tpl` (3 locations: session check, DB check, gold deduction) and display template `3.tpl` (price label + threshold checks).

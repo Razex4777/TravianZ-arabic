@@ -8,6 +8,19 @@
 $RESOURCE_PER_GOLD = 20000;
 
 if (isset($_POST['buy_resources']) && isset($_POST['gold_amount'])) {
+
+    // --- CSRF Validation ---
+    if (
+        !isset($_POST['csrf_token']) ||
+        !isset($_SESSION['csrf_token']) ||
+        !hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])
+    ) {
+        header("Location: plus.php?id=3&error=csrf");
+        exit;
+    }
+    // Rotate token after use
+    unset($_SESSION['csrf_token']);
+
     $goldAmount = (int)$_POST['gold_amount'];
     
     if ($goldAmount <= 0) {
