@@ -4147,7 +4147,10 @@ class Automation {
             }
 
 
-            //Attackers of the week
+            // Gold rewards for top 10
+            $goldRewards = [1=>100, 2=>90, 3=>80, 4=>70, 5=>60, 6=>50, 7=>40, 8=>30, 9=>20, 10=>10];
+
+            //Attackers of the day
             $result = mysqli_query($database->dblink,"SELECT id, ap FROM ".TB_PREFIX."users WHERE id > 5 AND access < 8 ORDER BY ap DESC, id DESC Limit 10");
             $i=0;
             while($row = mysqli_fetch_array($result)){
@@ -4155,9 +4158,14 @@ class Automation {
                 $img="t2_".($i)."";
                 $quer="insert into ".TB_PREFIX."medal (userid, categorie, plaats, week, points, img) values(".(int) $row['id'].", 1, ".($i).", ".(int) $week.", '".$row['ap']."', '".$img."')";
                 $resul=mysqli_query($database->dblink,$quer);
+                
+                // Add gold reward
+                if (isset($goldRewards[$i])) {
+                    mysqli_query($database->dblink, "UPDATE ".TB_PREFIX."users SET gold = gold + ".(int)$goldRewards[$i]." WHERE id = ".(int)$row['id']);
+                }
             }
 
-            //Defender of the week
+            //Defender of the day
             $result = mysqli_query($database->dblink,"SELECT id, dp FROM ".TB_PREFIX."users WHERE id > 5 AND access < 8 ORDER BY dp DESC, id DESC Limit 10");
             $i=0;
             while($row = mysqli_fetch_array($result)){
@@ -4165,9 +4173,14 @@ class Automation {
                 $img="t3_".($i)."";
                 $quer="insert into ".TB_PREFIX."medal(userid, categorie, plaats, week, points, img) values(".(int) $row['id'].", '2', ".($i).", '".(int) $week."', '".$row['dp']."', '".$img."')";
                 $resul=mysqli_query($database->dblink,$quer);
+                
+                // Add gold reward
+                if (isset($goldRewards[$i])) {
+                    mysqli_query($database->dblink, "UPDATE ".TB_PREFIX."users SET gold = gold + ".(int)$goldRewards[$i]." WHERE id = ".(int)$row['id']);
+                }
             }
 
-            //Climbers of the week
+            //Climbers of the day
             $result = mysqli_query($database->dblink,"SELECT id, Rc FROM ".TB_PREFIX."users WHERE id > 5 AND access < 8 ORDER BY Rc DESC, id DESC Limit 10");
             $i=0;
             while($row = mysqli_fetch_array($result)){
@@ -4175,6 +4188,11 @@ class Automation {
                 $img="t1_".($i)."";
                 $quer="insert into ".TB_PREFIX."medal(userid, categorie, plaats, week, points, img) values(".(int) $row['id'].", '3', ".($i).", '".(int) $week."', '".$row['Rc']."', '".$img."')";
                 $resul=mysqli_query($database->dblink,$quer);
+                
+                // Add gold reward
+                if (isset($goldRewards[$i])) {
+                    mysqli_query($database->dblink, "UPDATE ".TB_PREFIX."users SET gold = gold + ".(int)$goldRewards[$i]." WHERE id = ".(int)$row['id']);
+                }
             }
 
             //Rank climbers of the week
@@ -4187,7 +4205,7 @@ class Automation {
                 $resul=mysqli_query($database->dblink,$quer);
             }
 
-            //Robbers of the week
+            //Robbers of the day
             $result = mysqli_query($database->dblink,"SELECT id, RR FROM ".TB_PREFIX."users WHERE id > 5 AND access < 8 ORDER BY RR DESC, id DESC Limit 10");
             $i=0;
             while($row = mysqli_fetch_array($result)){
@@ -4195,6 +4213,11 @@ class Automation {
                 $img="t4_".($i)."";
                 $quer="insert into ".TB_PREFIX."medal(userid, categorie, plaats, week, points, img) values(".(int) $row['id'].", '4', ".($i).", '".(int) $week."', '".$row['RR']."', '".$img."')";
                 $resul=mysqli_query($database->dblink,$quer);
+                
+                // Add gold reward
+                if (isset($goldRewards[$i])) {
+                    mysqli_query($database->dblink, "UPDATE ".TB_PREFIX."users SET gold = gold + ".(int)$goldRewards[$i]." WHERE id = ".(int)$row['id']);
+                }
             }
 
             //Part of the bonus for top 10 attack + defense out
