@@ -31,15 +31,18 @@
 	</thead>
 	<tbody>
 <?php
+    $goldRewards = [1=>100, 2=>90, 3=>80, 4=>70, 5=>60, 6=>50, 7=>40, 8=>30, 9=>20, 10=>10];
     while($row = mysqli_fetch_array($result))
       {
 	  if($row['id']==$session->uid) {
 	  if($row['id']==$session->uid) {
 	  $place = $i;
 	  }
-	  echo "<tr class=\"own hl\">"; } else { echo "<tr>"; }
+	  }
+	  $reward = isset($goldRewards[$i]) ? ' <span style="color:#FFA500; font-size:10px; font-weight:bold" title="Gold Reward">💰 +'.$goldRewards[$i].'</span>' : '';
+	  if($row['id']==$session->uid) echo "<tr class=\"own hl\">"; else echo "<tr>"; 
       echo "<td class=\"ra fc\">".$i++.".&nbsp;</td>";
-      echo "<td class=\"pla\"><a href='spieler.php?uid=".$row['id']."'>".$row['username']."</a></td>";
+      echo "<td class=\"pla\"><a href='spieler.php?uid=".$row['id']."'>".$row['username']."</a>".$reward."</td>";
       echo "<td class=\"val lc\">".$row['ap']."</td>";
       echo "</tr>";
       }
@@ -90,10 +93,11 @@
 	  if($row['id']==$session->uid) {
 	  $place1 = $i;
 	  }
+	  $reward = isset($goldRewards[$i]) ? ' <span style="color:#FFA500; font-size:10px; font-weight:bold" title="Gold Reward">💰 +'.$goldRewards[$i].'</span>' : '';
 	  if($row['id']==$session->uid) {
 	  echo "<tr class=\"own hl\">"; } else { echo "<tr>"; }
       echo "<td class=\"ra fc\">".$i++.".&nbsp;</td>";
-	  echo "<td class=\"pla\"><a href='spieler.php?uid=".$row['id']."'>".$row['username']."</a></td>";
+	  echo "<td class=\"pla\"><a href='spieler.php?uid=".$row['id']."'>".$row['username']."</a>".$reward."</td>";
       echo "<td class=\"val lc\">".$row['dp']."</td>";
       echo "</tr>";
       }
@@ -145,10 +149,11 @@
 	  if($row['id']==$session->uid) {
 	  $place2 = $i;
 	  }
+	  $reward = isset($goldRewards[$i]) ? ' <span style="color:#FFA500; font-size:10px; font-weight:bold" title="Gold Reward">💰 +'.$goldRewards[$i].'</span>' : '';
 	  if($row['id']==$session->uid) {
 	  echo "<tr class=\"own hl\">"; } else { echo "<tr>"; }
       echo "<td class=\"ra fc\">".$i++.".&nbsp;</td>";
-      echo "<td class=\"pla\"><a href='spieler.php?uid=".$row['id']."'>".$row['username']."</a></td>";
+      echo "<td class=\"pla\"><a href='spieler.php?uid=".$row['id']."'>".$row['username']."</a>".$reward."</td>";
       echo "<td class=\"val lc\">".$row['clp']."</td>";
       echo "</tr>";
       }
@@ -197,10 +202,11 @@
 	  if($row['id']==$session->uid) {
 	  $place3 = $i;
 	  }
+	  $reward = isset($goldRewards[$i]) ? ' <span style="color:#FFA500; font-size:10px; font-weight:bold" title="Gold Reward">💰 +'.$goldRewards[$i].'</span>' : '';
 	  if($row['id']==$session->uid) {
 	  echo "<tr class=\"own hl\">"; } else { echo "<tr>"; }
       echo "<td class=\"ra fc\">".$i++.".&nbsp;</td>";
-      echo "<td class=\"pla\"><a href='spieler.php?uid=".$row['id']."'>".$row['username']."</a></td>";
+      echo "<td class=\"pla\"><a href='spieler.php?uid=".$row['id']."'>".$row['username']."</a>".$reward."</td>";
       echo "<td class=\"val lc\">".$row['RR']."</td>";
       echo "</tr>";
 	  }
