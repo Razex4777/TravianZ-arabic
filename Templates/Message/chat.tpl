@@ -1,127 +1,104 @@
-<?php
-/**
- * Public Chat Template
- * 
- * Real-time public chat that replaces the old "Group Message" system.
- * Uses AJAX polling every 5 seconds for near-real-time updates.
- */
-?>
+<div id="content" class="messages">
+    <h1><?php echo (defined('LANG') && LANG === 'ar' ? 'الرسائل' : 'Messages'); ?></h1>
+    <?php include("menu.tpl"); ?>
 
-<?php include("Templates/Message/menu.tpl"); ?>
-
-<div id="public-chat-container">
-    <h1><?php echo (defined('LANG') && LANG === 'ar' ? 'الدردشة العامة' : 'Public Chat'); ?></h1>
-    
-    <div id="chat-messages-box">
-        <div id="chat-messages-inner">
-            <!-- Messages loaded via AJAX -->
-            <div id="chat-loading" style="text-align:center; padding:40px; color:#888;">
-                <?php echo (defined('LANG') && LANG === 'ar' ? 'جاري التحميل...' : 'Loading...'); ?>
+    <div id="public-chat-box">
+        <div id="chat-messages-box">
+            <div id="chat-messages-inner">
+                <div id="chat-loading" style="text-align:center; padding:40px; color:#999;">
+                    <?php echo (defined('LANG') && LANG === 'ar' ? 'جاري التحميل...' : 'Loading...'); ?>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div id="chat-input-area">
-        <form id="chat-form" onsubmit="return sendChatMessage(event);">
-            <input type="text" 
-                   id="chat-input" 
-                   maxlength="500" 
-                   placeholder="<?php echo (defined('LANG') && LANG === 'ar' ? 'اكتب رسالتك هنا...' : 'Type your message...'); ?>"
-                   autocomplete="off" />
-            <button type="submit" id="chat-send-btn">
-                <?php echo (defined('LANG') && LANG === 'ar' ? 'إرسال' : 'Send'); ?>
-            </button>
-        </form>
-        <div id="chat-status"></div>
+        <div id="chat-input-area">
+            <form id="chat-form" onsubmit="return sendChatMessage(event);">
+                <input type="text" 
+                       id="chat-input" 
+                       maxlength="500" 
+                       placeholder="<?php echo (defined('LANG') && LANG === 'ar' ? 'اكتب رسالتك هنا...' : 'Type your message...'); ?>"
+                       autocomplete="off" />
+                <button type="submit" id="chat-send-btn">
+                    <?php echo (defined('LANG') && LANG === 'ar' ? 'إرسال' : 'Send'); ?>
+                </button>
+            </form>
+            <div id="chat-status"></div>
+        </div>
     </div>
 </div>
 
 <style>
 /* ═══════════════════════════════════════════════════════════
-   PUBLIC CHAT — Embedded styles (no external CSS needed)
+   PUBLIC CHAT — Light theme, fits inside TravianZ #content
    ═══════════════════════════════════════════════════════════ */
 
-#public-chat-container {
-    background: #1a1a2e;
-    border: 1px solid #2d2d44;
-    border-radius: 8px;
-    overflow: hidden;
-    margin: 10px 0;
-    font-family: Verdana, Arial, sans-serif;
-}
-
-#public-chat-container h1 {
-    background: linear-gradient(135deg, #16213e 0%, #0f3460 100%);
-    color: #e0e0e0;
-    font-size: 16px;
-    font-weight: bold;
-    margin: 0;
-    padding: 12px 16px;
-    border-bottom: 1px solid #2d2d44;
+#public-chat-box {
+    background: #fff;
+    border: 1px solid #d6d2c5;
+    margin-top: 6px;
 }
 
 /* ─── Messages Area ─── */
 #chat-messages-box {
-    height: 380px;
+    height: 340px;
     overflow-y: auto;
-    background: #0d0d1a;
-    padding: 0;
+    background: #faf8f3;
 }
 
 #chat-messages-inner {
-    padding: 10px;
+    padding: 8px;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 5px;
 }
 
 .chat-msg {
-    padding: 8px 12px;
+    padding: 6px 10px;
     border-radius: 6px;
-    font-size: 12px;
+    font-size: 11px;
     line-height: 1.5;
-    animation: chatFadeIn 0.3s ease-out;
-    max-width: 85%;
+    animation: chatFadeIn 0.25s ease-out;
+    max-width: 75%;
     word-wrap: break-word;
     position: relative;
 }
 
 .chat-msg.other {
-    background: #1e1e36;
-    border: 1px solid #2a2a4a;
+    background: #f0ede4;
+    border: 1px solid #ddd5c3;
     align-self: flex-start;
-    border-top-left-radius: 0;
+    border-top-left-radius: 2px;
 }
 
 .chat-msg.mine {
-    background: linear-gradient(135deg, #0f4c2e 0%, #1a6b3f 100%);
-    border: 1px solid #2a7d4a;
+    background: #e8f5e2;
+    border: 1px solid #b8daa8;
     align-self: flex-end;
-    border-top-right-radius: 0;
+    border-top-right-radius: 2px;
 }
 
 .chat-msg .chat-username {
     font-weight: bold;
-    color: #71D000;
-    font-size: 11px;
+    color: #4a7028;
+    font-size: 10px;
     display: block;
-    margin-bottom: 2px;
+    margin-bottom: 1px;
 }
 
 .chat-msg.mine .chat-username {
-    color: #8eff8e;
+    color: #3a6620;
     text-align: right;
 }
 
 .chat-msg .chat-text {
-    color: #d0d0d0;
-    font-size: 12px;
+    color: #333;
+    font-size: 11px;
 }
 
 .chat-msg .chat-time {
-    color: #666;
-    font-size: 10px;
-    margin-top: 3px;
+    color: #aaa;
+    font-size: 9px;
+    margin-top: 2px;
     display: block;
 }
 
@@ -131,14 +108,14 @@
 
 .chat-msg .chat-delete-btn {
     position: absolute;
-    top: 4px;
-    left: 4px;
-    background: #ff3b3b;
+    top: 3px;
+    left: 3px;
+    background: #d9534f;
     color: #fff;
     border: none;
     border-radius: 3px;
     font-size: 9px;
-    padding: 2px 5px;
+    padding: 1px 4px;
     cursor: pointer;
     opacity: 0;
     transition: opacity 0.2s;
@@ -150,145 +127,117 @@
 
 .chat-msg.mine .chat-delete-btn {
     left: auto;
-    right: 4px;
-}
-
-/* ─── System messages ─── */
-.chat-system-msg {
-    text-align: center;
-    color: #666;
-    font-size: 10px;
-    padding: 4px;
+    right: 3px;
 }
 
 /* ─── Input Area ─── */
 #chat-input-area {
-    background: #16213e;
-    padding: 10px 12px;
-    border-top: 1px solid #2d2d44;
+    background: #f0ede4;
+    padding: 8px 10px;
+    border-top: 1px solid #d6d2c5;
 }
 
 #chat-form {
     display: flex;
-    gap: 8px;
+    gap: 6px;
     align-items: center;
 }
 
 #chat-input {
     flex: 1;
-    background: #0d0d1a;
-    border: 1px solid #2d2d44;
-    border-radius: 20px;
-    padding: 10px 16px;
-    color: #e0e0e0;
-    font-size: 13px;
+    background: #fff;
+    border: 1px solid #c5b593;
+    border-radius: 4px;
+    padding: 6px 10px;
+    color: #333;
+    font-size: 12px;
     outline: none;
     font-family: Verdana, Arial, sans-serif;
     transition: border-color 0.2s;
 }
 
 #chat-input:focus {
-    border-color: #71D000;
+    border-color: #6b8e3d;
 }
 
 #chat-input::placeholder {
-    color: #555;
+    color: #aaa;
 }
 
 #chat-send-btn {
-    background: linear-gradient(135deg, #4CAF50, #45a049);
+    background: linear-gradient(180deg, #6b8e3d 0%, #4a7028 100%);
     color: #fff;
-    border: none;
-    border-radius: 20px;
-    padding: 10px 20px;
-    font-size: 13px;
+    border: 1px solid #3d5a1e;
+    border-radius: 4px;
+    padding: 6px 14px;
+    font-size: 12px;
     font-weight: bold;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: background 0.2s;
     white-space: nowrap;
 }
 
 #chat-send-btn:hover {
-    background: linear-gradient(135deg, #5CC960, #4CAF50);
-    transform: translateY(-1px);
-}
-
-#chat-send-btn:active {
-    transform: translateY(0);
+    background: linear-gradient(180deg, #7ca248 0%, #5a8332 100%);
 }
 
 #chat-status {
-    color: #ff6b6b;
-    font-size: 11px;
-    margin-top: 4px;
-    min-height: 14px;
+    color: #d9534f;
+    font-size: 10px;
+    margin-top: 3px;
+    min-height: 12px;
 }
 
 /* ─── Empty state ─── */
 .chat-empty {
     text-align: center;
-    color: #555;
-    padding: 60px 20px;
-    font-size: 13px;
+    color: #aaa;
+    padding: 50px 20px;
+    font-size: 12px;
 }
 
 .chat-empty-icon {
-    font-size: 40px;
-    margin-bottom: 10px;
+    font-size: 32px;
+    margin-bottom: 8px;
     display: block;
 }
 
 /* ─── Scrollbar ─── */
-#chat-messages-box::-webkit-scrollbar {
-    width: 6px;
-}
-
-#chat-messages-box::-webkit-scrollbar-track {
-    background: #0d0d1a;
-}
-
-#chat-messages-box::-webkit-scrollbar-thumb {
-    background: #2d2d44;
-    border-radius: 3px;
-}
-
-#chat-messages-box::-webkit-scrollbar-thumb:hover {
-    background: #3d3d5a;
-}
+#chat-messages-box::-webkit-scrollbar { width: 5px; }
+#chat-messages-box::-webkit-scrollbar-track { background: #faf8f3; }
+#chat-messages-box::-webkit-scrollbar-thumb { background: #c5b593; border-radius: 3px; }
+#chat-messages-box::-webkit-scrollbar-thumb:hover { background: #a89970; }
 
 /* ─── Animation ─── */
 @keyframes chatFadeIn {
-    from { opacity: 0; transform: translateY(8px); }
+    from { opacity: 0; transform: translateY(6px); }
     to   { opacity: 1; transform: translateY(0); }
 }
 
 /* ─── Responsive ─── */
 @media (max-width: 768px) {
-    #chat-messages-box { height: 300px; }
-    #chat-input { padding: 8px 12px; font-size: 12px; }
-    #chat-send-btn { padding: 8px 14px; font-size: 12px; }
-    .chat-msg { max-width: 92%; font-size: 11px; }
+    #chat-messages-box { height: 260px; }
+    #chat-input { padding: 5px 8px; font-size: 11px; }
+    #chat-send-btn { padding: 5px 10px; font-size: 11px; }
+    .chat-msg { max-width: 90%; font-size: 10px; }
 }
 </style>
 
 <script>
 (function() {
-    var CHAT_POLL_INTERVAL = 5000; // 5 seconds
+    var CHAT_POLL_INTERVAL = 5000;
     var lastMessageId = 0;
     var currentUid = 0;
     var isAdmin = <?php echo ($session->access >= ADMIN ? 'true' : 'false'); ?>;
     var pollTimer = null;
     var isRTL = <?php echo (defined('LANG') && LANG === 'ar' ? 'true' : 'false'); ?>;
 
-    // ─── Initial load ───
     fetchMessages(true);
     pollTimer = setInterval(function() { fetchMessages(false); }, CHAT_POLL_INTERVAL);
 
-    // ─── Focus input on load ───
     var chatInput = document.getElementById('chat-input');
     if (chatInput) chatInput.focus();
 
-    // ─── Expose send function globally ───
     window.sendChatMessage = function(e) {
         if (e) e.preventDefault();
         var input = document.getElementById('chat-input');
@@ -311,7 +260,6 @@
                     input.value = '';
                     input.focus();
                     document.getElementById('chat-status').textContent = '';
-                    // Immediately fetch new messages
                     fetchMessages(false);
                 } else if (xhr.status === 429) {
                     document.getElementById('chat-status').textContent = 
@@ -326,7 +274,6 @@
         return false;
     };
 
-    // ─── Fetch messages ───
     function fetchMessages(isInitial) {
         var xhr = new XMLHttpRequest();
         var url = 'chat_api.php?action=fetch&after=' + lastMessageId;
@@ -353,16 +300,13 @@
         xhr.send();
     }
 
-    // ─── Render messages ───
     function renderMessages(messages, isInitial) {
         var container = document.getElementById('chat-messages-inner');
         var box = document.getElementById('chat-messages-box');
         
-        // Remove loading indicator
         var loading = document.getElementById('chat-loading');
         if (loading) loading.remove();
 
-        // Remove empty state
         var empty = container.querySelector('.chat-empty');
         if (empty) empty.remove();
 
@@ -381,7 +325,6 @@
 
             var html = '';
             
-            // Admin delete button
             if (isAdmin) {
                 html += '<button class="chat-delete-btn" onclick="deleteChatMsg(' + msg.id + ')">&times;</button>';
             }
@@ -398,7 +341,6 @@
             }
         }
 
-        // Auto-scroll to bottom if user was near bottom or initial load
         if (isInitial || wasAtBottom) {
             box.scrollTop = box.scrollHeight;
         }
@@ -415,7 +357,6 @@
             '</div>';
     }
 
-    // ─── Delete message (admin) ───
     window.deleteChatMsg = function(id) {
         if (!confirm(isRTL ? 'حذف هذه الرسالة؟' : 'Delete this message?')) return;
         
@@ -431,14 +372,12 @@
         xhr.send('id=' + id);
     };
 
-    // ─── Utility ───
     function escapeHtml(str) {
         var div = document.createElement('div');
         div.appendChild(document.createTextNode(str));
         return div.innerHTML;
     }
 
-    // Enter key sends message
     document.getElementById('chat-input').addEventListener('keydown', function(e) {
         if (e.keyCode === 13 && !e.shiftKey) {
             e.preventDefault();
