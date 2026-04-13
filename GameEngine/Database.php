@@ -642,19 +642,23 @@ public function getBestOasisCropBonus($x, $y) {
     $x = (int)$x;
     $y = (int)$y;
 
-    // Adjust oasis type codes if your fork differs:
-    //  - 50% crop only: type IN (12)
-    //  - 25% crop (pure or mixed w/ wood/clay/iron): type IN (4,9,10,11)
+    // Adjust oasis type codes:
+    //  - 150% crop: type IN (12)
+    //  - 100% crop: type IN (10,11)
+    //  - 75% crop: type IN (3,6,9)
     $sql = "SELECT COALESCE(SUM(bonus), 0) AS total FROM (SELECT CASE
-            WHEN o.type IN (12) THEN 50 WHEN o.type IN (4,9,10,11) THEN 25 ELSE 0
+            WHEN o.type = 12 THEN 150
+            WHEN o.type IN (10,11) THEN 100
+            WHEN o.type IN (3,6,9) THEN 75
+            ELSE 0
             END AS bonus FROM " . TB_PREFIX . "wdata w JOIN " . TB_PREFIX . "odata o ON o.wref = w.id
-            WHERE w.fieldtype = 0 AND ABS(w.x - $x) <= 3 AND ABS(w.y - $y) <= 3 AND o.type IN (12,4,9,10,11)
+            WHERE w.fieldtype = 0 AND ABS(w.x - $x) <= 3 AND ABS(w.y - $y) <= 3 AND o.type IN (3,6,9,10,11,12)
             ORDER BY bonus DESC LIMIT 3) t";
 
     $q = mysqli_query($this->dblink, $sql);
     $row = mysqli_fetch_assoc($q);
     $total = (int)($row['total'] ?? 0);
-    if ($total > 150) $total = 150; // safety cap
+    if ($total > 350) $total = 350; // Max possible is theoretically up to 3x 150% = 450%, but safety cap
     return $total;
 }
 

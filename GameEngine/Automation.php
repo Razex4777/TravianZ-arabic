@@ -3074,39 +3074,39 @@ class Automation {
     }
 
     private function bountysortOasis($oasisArray) {
-        $crop = $clay = $wood = $iron = 0;
+        $crop = $clay = $wood = $iron = 0.0;
         foreach ($oasisArray as $oasis) {
             switch($oasis['type']) {
                 case 1:
                 case 2:
-                    $wood++;
+                    $wood += 1.0;
                     break;
                 case 3:
-                    $wood++;
-                    $crop++;
+                    $wood += 0.75;
+                    $crop += 0.75;
                     break;
                 case 4:
                 case 5:
-                    $clay++;
+                    $clay += 1.0;
                     break;
                 case 6:
-                    $clay++;
-                    $crop++;
+                    $clay += 0.75;
+                    $crop += 0.75;
                     break;
                 case 7:
                 case 8:
-                    $iron++;
+                    $iron += 1.0;
                     break;
                 case 9:
-                    $iron++;
-                    $crop++;
+                    $iron += 0.75;
+                    $crop += 0.75;
                     break;
                 case 10:
                 case 11:
-                    $crop++;
+                    $crop += 1.0;
                     break;
                 case 12:
-                    $crop += 2;
+                    $crop += 1.5;
                     break;
             }
         }
@@ -3186,7 +3186,7 @@ class Automation {
         for($i = 0; $i <= count($woodholder) - 1; $i++) $wood += $bid1[$resArray[$woodholder[$i]]]['prod'];
         
         if($sawmill >= 1) $wood += $wood / 100 * $bid5[$sawmill]['attri'];
-        if($oasisNumber[0] > 0) $wood += $wood * 0.25 * $oasisNumber[0];
+        if($oasisNumber[0] > 0) $wood += $wood * $oasisNumber[0];
 
         return round($wood * SPEED);
     }
@@ -3204,7 +3204,7 @@ class Automation {
         for($i = 0; $i <= count($clayholder) - 1; $i++) $clay += $bid2[$resArray[$clayholder[$i]]]['prod'];
         
         if($brick >= 1) $clay += $clay / 100 * $bid6[$brick]['attri'];
-        if($oasisNumber[1] > 0) $clay += $clay * 0.25 * $oasisNumber[1];
+        if($oasisNumber[1] > 0) $clay += $clay * $oasisNumber[1];
 
         return round($clay * SPEED);
     }
@@ -3222,7 +3222,7 @@ class Automation {
         for($i = 0; $i <= count($ironholder) - 1; $i++) $iron += $bid3[$resArray[$ironholder[$i]]]['prod'];
         
         if($foundry >= 1) $iron += $iron / 100 * $bid7[$foundry]['attri'];
-        if($oasisNumber[2] > 0) $iron += $iron * 0.25 * $oasisNumber[2];
+        if($oasisNumber[2] > 0) $iron += $iron * $oasisNumber[2];
 
         return round($iron * SPEED);
     }
@@ -3241,7 +3241,7 @@ class Automation {
         
         if($grainmill >= 1) $crop += $crop / 100 * (isset($bid8[$grainmill]['attri']) ? $bid8[$grainmill]['attri'] : 0);
         if($bakery >= 1) $crop += $crop / 100 * (isset($bid9[$bakery]['attri']) ? $bid9[$bakery]['attri'] : 0);                
-        if($oasisNumber[3] > 0) $crop += $crop * 0.25 * $oasisNumber[3];       
+        if($oasisNumber[3] > 0) $crop += $crop * $oasisNumber[3];       
         
         if(!empty($resArray['vref']) && is_numeric($resArray['vref'])){
         	$who = $database->getVillageField($resArray['vref'], "owner");

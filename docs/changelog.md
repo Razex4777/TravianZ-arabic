@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-04-13 16:10
+- **Feature**: Replaced the separate `crop_finder.php` tool entirely with a unified and accessible search tool in the map (`finder.php`).
+  - Added a global magnifying glass icon pointing to `finder.php` on both the normal and large map views (`mapview.tpl` and `mapviewlarge.tpl`), replacing the old gold-club exclusive `crop_finder.php` link.
+  - Deleted `crop_finder.php` as it is now obsolete.
+
 ## 2026-04-13 14:23
 - **★ FIX**: Fixed severe Public Chat layout corruption overlapping with footer/sidebar.
   - Root cause: The custom public chat window was originally written to escape `div#content` or render outside its flex/float context, lacking the structural wrappers `div#content.messages` and `menu.tpl`.

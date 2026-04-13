@@ -185,7 +185,7 @@ class Village {
 		}
 		
 		for($i = 0; $i <= count($woodholder) - 1; $i++) $wood += $bid1[$this->resarray[$woodholder[$i]]]['prod'];
-		$wood = $wood + $wood * 0.25 * $this->ocounter[0];
+		$wood = $wood + $wood * $this->ocounter[0];
 		
 		if($sawmill >= 1) $wood += $wood / 100 * $bid5[$sawmill]['attri'];
 		if($session->bonus1 == 1) $wood *= 1.25;
@@ -204,7 +204,7 @@ class Village {
 		}
 		
 		for($i = 0; $i <= count($clayholder) - 1; $i++) $clay+= $bid2[$this->resarray[$clayholder[$i]]]['prod'];
-		$clay = $clay + $clay * 0.25 * $this->ocounter[1];
+		$clay = $clay + $clay * $this->ocounter[1];
 		
 		if($brick >= 1) $clay += $clay / 100 * $bid6[$brick]['attri'];
 		if($session->bonus2 == 1) $clay *= 1.25;
@@ -223,7 +223,7 @@ class Village {
 		}
 		
 		for($i = 0;$i <= count($ironholder) - 1; $i++) $iron+= $bid3[$this->resarray[$ironholder[$i]]]['prod'];
-		$iron = $iron + $iron * 0.25 * $this->ocounter[2];
+		$iron = $iron + $iron * $this->ocounter[2];
 		
 		if($foundry >= 1) $iron += $iron / 100 * $bid7[$foundry]['attri'];
 		if($session->bonus3 == 1) $iron *= 1.25;
@@ -243,8 +243,8 @@ class Village {
 		}
 		
 		for ($i = 0; $i <= count($cropholder) - 1; $i++) $crop += $bid4[$this->resarray[$cropholder[$i]]]['prod'];
-		$bonus = 0.25 * $this->ocounter[3];
-		$crop = $crop + $crop * 0.25 * $this->ocounter[3];
+		$bonus = $this->ocounter[3];
+		$crop = $crop + $crop * $this->ocounter[3];
 		
 		if($grainmill >= 1 || $bakery >= 1) {
 		    $crop += $crop / 100 * ((isset($bid8[$grainmill]['attri']) ? $bid8[$grainmill]['attri'] : 0) + (isset($bid9[$bakery]['attri']) ? $bid9[$bakery]['attri'] : 0));
@@ -255,40 +255,40 @@ class Village {
 	}
 
 	private function sortOasis() {
-		$crop = $clay = $wood = $iron = 0;
+		$crop = $clay = $wood = $iron = 0.0;
 		if(!empty($this->oasisowned)){
 			foreach($this->oasisowned as $oasis){
 			switch($oasis['type']){
                 case 1:
                 case 2:
-                    $wood++;
+                    $wood += 1.0;
                     break;
                 case 3:
-                    $wood++;
-                    $crop++;
+                    $wood += 0.75;
+                    $crop += 0.75;
                     break;
                 case 4:
                 case 5:
-                    $clay++;
+                    $clay += 1.0;
                     break;
                 case 6:
-                    $clay++;
-                    $crop++;
+                    $clay += 0.75;
+                    $crop += 0.75;
                     break;
                 case 7:
                 case 8:
-                    $iron++;
+                    $iron += 1.0;
                     break;
                 case 9:
-                    $iron++;
-                    $crop++;
+                    $iron += 0.75;
+                    $crop += 0.75;
                     break;
                 case 10:
                 case 11:
-                    $crop++;
+                    $crop += 1.0;
                     break;
                 case 12:
-                    $crop += 2;
+                    $crop += 1.5;
                     break;
 				}
 			}

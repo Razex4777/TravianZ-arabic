@@ -53,7 +53,7 @@ TravianZ-master/
 ├── 📄 plus1.php                      # Plus feature activation handler
 ├── 📄 packages.php                   # Gold package purchase page
 ├── 📄 celebration.php                # Village celebration/party launcher
-├── 📄 crop_finder.php                # Cropper village finder tool
+├── 📄 finder.php                     # Generic map search for oases and croppers
 ├── 📄 massmessage.php                # Mass messaging system for alliances
 ├── 📄 support.php                    # Player support ticket system
 ├── 📄 warsim.php                     # Battle simulator for attack planning
