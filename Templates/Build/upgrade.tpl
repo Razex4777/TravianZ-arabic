@@ -145,23 +145,39 @@ if($session->userinfo['gold'] >= 3 && $building->getTypeLevel(17) >= 1 && $villa
 
 // --- Gold: Upgrade to Max Level ---
 // Show a gold button to instantly upgrade this building to max level
-// Cost = max_level gold (1 gold per level)
+// Cost = max_level - current_level gold
 $currentBuildingType = $village->resarray['f'.$id.'t'];
 $currentBuildingLevel = (int) $village->resarray['f'.$id];
 $buildingMaxLevel = $building->getMaxLevel($currentBuildingType);
 
 if ($currentBuildingType > 0 && $currentBuildingLevel < $buildingMaxLevel && $buildingMaxLevel > 0) {
-	$upgradeCost = $buildingMaxLevel;
+	$upgradeCost = $buildingMaxLevel - $currentBuildingLevel;
+	echo " | ";
 	if ($session->gold >= $upgradeCost) {
-		$confirmText = sprintf(CONFIRM_UPGRADE_MAX_GOLD, $buildingMaxLevel, $upgradeCost);
-		echo "<p class=\"gold_upgrade\"><a href=\"build.php?id=$id&upgradeToMax=1\" onclick=\"return confirm('$confirmText');\">";
-		echo "<img src=\"".GP_LOCATE."img/a/gold_g.gif\" alt=\"".GOLD_TEXT."\" title=\"".GOLD_TEXT."\"/> ";
-		echo UPGRADE_TO_LEVEL_MAX." $buildingMaxLevel ($upgradeCost ".GOLD_TEXT.")";
-		echo "</a></p>";
+		echo "<a href=\"build.php?id=$id&upgradeToMax=1\" style=\"color:#000; font-weight:normal;\">";
+		echo UPGRADE_TO_LEVEL_MAX." $buildingMaxLevel <span style=\"color:#000;\"><b>$upgradeCost</b> <img src=\"".GP_LOCATE."img/a/gold_g.gif\" alt=\"".GOLD_TEXT."\" title=\"".GOLD_TEXT."\"/></span>";
+		echo "</a>";
 	} else {
-		echo "<p class=\"gold_upgrade none\"><img src=\"".GP_LOCATE."img/a/gold_g.gif\" alt=\"".GOLD_TEXT."\" title=\"".GOLD_TEXT."\"/> ";
-		echo UPGRADE_TO_LEVEL_MAX." $buildingMaxLevel ($upgradeCost ".GOLD_TEXT." - ".NOT_ENOUGH_GOLD_TEXT.")";
-		echo "</p>";
+		echo "<span class=\"none\" style=\"color:#000; font-weight:normal;\">";
+		echo UPGRADE_TO_LEVEL_MAX." $buildingMaxLevel <span style=\"color:#000;\"><b>$upgradeCost</b> <img src=\"".GP_LOCATE."img/a/gold_g.gif\" alt=\"".GOLD_TEXT."\" title=\"".GOLD_TEXT."\"/></span> - ".NOT_ENOUGH_GOLD_TEXT;
+		echo "</span>";
+	}
+}
+
+// --- Gold: Demolish to Zero ---
+// Show a gold button to instantly demolish this building to level 0
+// Cost = current_level gold (1 gold per level)
+if ($currentBuildingType > 0 && $currentBuildingLevel > 0) {
+	$demolishCost = $currentBuildingLevel;
+	echo " | ";
+	if ($session->gold >= $demolishCost) {
+		echo "<a href=\"build.php?id=$id&demolishToZero=1\" style=\"color:#000; font-weight:normal;\">";
+		echo DEMOLISH_TO_ZERO." <span style=\"color:#000;\"><b>$demolishCost</b> <img src=\"".GP_LOCATE."img/a/gold_g.gif\" alt=\"".GOLD_TEXT."\" title=\"".GOLD_TEXT."\"/></span>";
+		echo "</a>";
+	} else {
+		echo "<span class=\"none\" style=\"color:#000; font-weight:normal;\">";
+		echo DEMOLISH_TO_ZERO." <span style=\"color:#000;\"><b>$demolishCost</b> <img src=\"".GP_LOCATE."img/a/gold_g.gif\" alt=\"".GOLD_TEXT."\" title=\"".GOLD_TEXT."\"/></span> - ".NOT_ENOUGH_GOLD_TEXT;
+		echo "</span>";
 	}
 }
 

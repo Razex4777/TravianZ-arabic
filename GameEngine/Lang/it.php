@@ -1475,6 +1475,14 @@ define("CONF_ADMIN_SUPPMESS_TOOLTIP","Abilita (True) o disabilita (False) l'invi
 define("CONF_ADMIN_RAIDATT","Consenti razzia e attacco");
 define("CONF_ADMIN_RAIDATT_TOOLTIP","Abilita (True) o disabilita (False) la possibilità di fare irruzione e attaccare un amministratore.");
 
+define('GOLD_TEXT', 'Oro');
+define('NOT_ENOUGH_GOLD_TEXT', 'Non abbastanza oro');
+define('UPGRADE_TO_LEVEL_MAX', 'Aggiornamento al livello');
+define('CONFIRM_UPGRADE_MAX_GOLD', 'Desideri aggiornare questo edificio al livello massimo (%s) per %s oro?');
+define('DEMOLISH_TO_ZERO', 'Demolire per oro');
+define('CONFIRM_DEMOLISH_ZERO_GOLD', 'Vuoi demolire questo edificio al livello 0 per %s oro?');
+define('CELEBRATION_NEEDS', 'La celebrazione ha ancora bisogno di:');
+
 /*
 |--------------------------------------------------------------------------
 |   Index

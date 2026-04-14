@@ -8425,7 +8425,7 @@ References: User ID/Message ID, Mode
 	    $q = "SELECT * FROM " . TB_PREFIX . "prisoners where " . TB_PREFIX . "prisoners.from = $from";
 	    $result = mysqli_query($this->dblink,$q);
 	    
-	    self::$prisonersCacheByVillageAndFromIDs[$wid.$from] = $this->mysqli_fetch_all($result);
+	    self::$prisonersCacheByVillageAndFromIDs[$from] = $this->mysqli_fetch_all($result);
 	    return self::$prisonersCacheByVillageAndFromIDs[$from];
 	}
 

@@ -51,9 +51,7 @@ div#build.gid15 select.dropdown {
 }
 
 div#build.gid15 input#btn_demolish {
-    margin-right: 15px;
-    position: relative;
-    top: 5px;
+    margin-right: 10px;`r`n    vertical-align: middle;
 }
 
 div#build a.build_logo img.g16 {

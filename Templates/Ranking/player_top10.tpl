@@ -32,6 +32,7 @@
 	<tbody>
 <?php
     $goldRewards = [1=>450, 2=>300, 3=>250, 4=>200, 5=>150, 6=>140, 7=>130, 8=>120, 9=>110, 10=>100];
+    $i = 1;
     while($row = mysqli_fetch_array($result))
       {
 	  if($row['id']==$session->uid) {
@@ -67,9 +68,7 @@
 
 
 <?php
-    for($i=1;$i<=0;$i++) {
-    echo "Row ".$i;
-    }
+    $i = 1;
     $result = mysqli_query($database->dblink,"SELECT * FROM ".TB_PREFIX."users WHERE access<".(INCLUDE_ADMIN?"10":"8")." AND id > 5 AND tribe<=3 AND tribe > 0 ORDER BY dp DESC, id DESC Limit 10");
     $result2 = mysqli_query($database->dblink,"SELECT * FROM ".TB_PREFIX."users WHERE id = '".$session->uid."' ORDER BY dp DESC Limit 1");
 ?>
@@ -122,9 +121,7 @@
 </table>
 	
 <?php
-    for($i=1;$i<=0;$i++) {
-    echo "Row ".$i;
-    }
+    $i = 1;
     $result = mysqli_query($database->dblink,"SELECT * FROM ".TB_PREFIX."users WHERE access<".(INCLUDE_ADMIN?"10":"8")." AND id > 5 AND tribe<=3 AND tribe > 0 ORDER BY clp DESC, id DESC Limit 10");
     $result2 = mysqli_query($database->dblink,"SELECT * FROM ".TB_PREFIX."users WHERE id = '".$session->uid."' ORDER BY clp DESC Limit 1");
 ?>
@@ -175,9 +172,7 @@
          </tbody>
 </table>
 <?php
-    for($i=1;$i<=0;$i++) {
-    echo "Row ".$i;
-    }
+    $i = 1;
     $result = mysqli_query($database->dblink,"SELECT * FROM ".TB_PREFIX."users WHERE access<".(INCLUDE_ADMIN?"10":"8")." AND id > 5 AND tribe<=3 AND tribe > 0 ORDER BY RR DESC, id DESC Limit 10");
     $result2 = mysqli_query($database->dblink,"SELECT * FROM ".TB_PREFIX."users WHERE id = '".$session->uid."' ORDER BY RR DESC Limit 1");
 ?>

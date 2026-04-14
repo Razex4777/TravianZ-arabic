@@ -47,6 +47,23 @@ if ( isset( $_GET['id'] ) ) {
         $_GET['id'] = "1";
     }
 
+    if (isset($_GET['upgradeToMax'])) {
+        $building->upgradeToMax($_GET['id']);
+        header("Location: " . ($_GET['id'] <= 18 ? "dorf1.php" : "dorf2.php"));
+        exit;
+    }
+    if (isset($_GET['demolishToZero'])) {
+        $building->demolishToZero($_GET['id']);
+        header("Location: " . ($_GET['id'] <= 18 ? "dorf1.php" : "dorf2.php"));
+        exit;
+    }
+    if (isset($_GET['goldDemolish']) && isset($_GET['slot'])) {
+        $building->demolishToZero($_GET['slot']);
+        header("Location: " . ($_GET['slot'] <= 18 ? "dorf1.php" : "dorf2.php"));
+        exit;
+    }
+
+
     $checkBuildings = [0, 16, 17, 25, 26, 27];
 
     if ( $_GET['id'] < 19 || ( isset( $_GET['gid'] ) && ! in_array( $_GET['gid'], $checkBuildings ) ) ) {
@@ -268,7 +285,7 @@ if(isset($_GET['mode']) && $_GET['mode'] == 'troops' && isset($_GET['cancel']) &
 	<?php if(defined('LANG') && LANG === 'ar'): ?>
 	
 	<?php endif; ?>
-	<link rel="stylesheet" type="text/css" href="mobile.css?v=6" />
+	<link rel="stylesheet" type="text/css" href="mobile.css?v=13" />
 </head>
 
 
@@ -288,6 +305,30 @@ if(isset($_GET['id']) || isset($_GET['gid']) || $route == 1 || isset($_POST['rou
     if(isset($_GET['t']) && !ctype_digit($_GET['t'])) $_GET['t'] = null;
 	if (!ctype_digit($_GET['id'])) $_GET['id'] = 1;
 
+	// Self-heal resource field types if they somehow became 0
+	if ($_GET['id'] >= 1 && $_GET['id'] <= 18 && $village->resarray['f'.$_GET['id'].'t'] == 0) {
+		$vtypes = [
+			1 => [4,4,1,4,4,2,3,4,4,3,3,4,4,1,4,2,1,2],
+			2 => [3,4,1,3,2,2,3,4,4,3,3,4,4,1,4,2,1,2],
+			3 => [1,4,1,3,2,2,3,4,4,3,3,4,4,1,4,2,1,2],
+			4 => [1,4,1,2,2,2,3,4,4,3,3,4,4,1,4,2,1,2],
+			5 => [1,4,1,3,1,2,3,4,4,3,3,4,4,1,4,2,1,2],
+			6 => [4,4,1,3,4,4,4,4,4,4,4,4,4,4,4,2,4,4],
+			7 => [1,4,4,1,2,2,3,4,4,3,3,4,4,1,4,2,1,2],
+			8 => [3,4,4,1,2,2,3,4,4,3,3,4,4,1,4,2,1,2],
+			9 => [3,4,4,1,1,2,3,4,4,3,3,4,4,1,4,2,1,2],
+			10 => [3,4,4,1,2,2,2,4,4,3,3,4,4,1,4,2,1,2],
+			11 => [3,1,4,1,1,2,2,4,4,3,3,4,4,1,4,2,1,2],
+			12 => [1,4,1,1,2,2,3,4,4,3,3,4,4,1,4,2,1,2]
+		];
+		$vt = $village->type;
+		if(isset($vtypes[$vt])) {
+			$realType = $vtypes[$vt][$_GET['id'] - 1];
+			$database->query("UPDATE " . TB_PREFIX . "fdata SET f" . $_GET['id'] . "t = $realType WHERE vref = " . $village->wid);
+			$village->resarray['f'.$_GET['id'].'t'] = $realType;
+		}
+	}
+
 	$id = $_GET['id'];
 	if($_GET['id'] == 99 && $village->resarray['f99t'] == 40){
 	   include("Templates/Build/ww.tpl");
@@ -305,19 +346,16 @@ if(isset($_GET['id']) || isset($_GET['gid']) || $route == 1 || isset($_POST['rou
 		
 		if((isset($_GET['buildingFinish'])) && $_GET['buildingFinish'] == 1) {
         	if($session->gold >= 2) {
-        		$building->finishAll("build.php?gid=".$_GET['id']."&ty=".$_GET['ty']);
+        		$building->finishAll(($_GET['id'] <= 18 ? "dorf1.php" : "dorf2.php"));
         		exit;
         	}
         }
 		if((isset($_GET['trainingFinish'])) && $_GET['trainingFinish'] == 1) {
         	if($session->gold >= 35) {
         		$building->finishTrainingGold();
+        		header("Location: " . ($_GET['id'] <= 18 ? "dorf1.php" : "dorf2.php"));
         		exit;
         	}
-        }
-		if((isset($_GET['upgradeToMax'])) && $_GET['upgradeToMax'] == 1) {
-        	$building->upgradeToMax($_GET['id']);
-        	exit;
         }
 	}
 }else{

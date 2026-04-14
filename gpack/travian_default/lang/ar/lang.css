@@ -53,7 +53,7 @@ input#btn_back {width:97px; background-image: url(b/zurueck.html);}
 input#btn_train {width:97px; background-image: url(b/train.gif);}
 input#btn_back {width:97px; background-image: url(b/back.gif);}
 input#btn_forward {width:97px; background-image: url(b/forward.gif);}
-input#btn_demolish {width:97px; background-image: url(b/demolish.gif);}
+input#btn_demolish {width:auto; background-image: none;}
 input#btn_search {width:97px; background-image: url(b/search.gif);}
 
 /* Ally Forum */

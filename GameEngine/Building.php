@@ -167,6 +167,7 @@ class Building {
         elseif(isset($get['buildingFinish']) && $session->gold >= 2 && $session->sit == 0) $this->finishAll();
         elseif(isset($get['trainingFinish']) && $session->gold >= 35 && $session->sit == 0) $this->finishTrainingGold();
         elseif(isset($get['upgradeToMax']) && $session->sit == 0) $this->upgradeToMax($get['id']);
+        elseif(isset($get['demolishToZero']) && $session->sit == 0) $this->demolishToZero($get['id']);
     }
 
 	public function canBuild($id, $tid) {
@@ -565,10 +566,10 @@ class Building {
             case 37: return $this->getTypeLevel(15) >= 3 && $this->getTypeLevel(16) >= 1 && !$isBuilt;
 
             // great warehouse can only be built with artefact or in Natar villages
-            case 38: return $this->getTypeLevel(15) >= 10 && (!$isBuilt || $this->getTypeLevel($id) == 20) && ($village->natar == 1 || count($database->getOwnUniqueArtefactInfo2($village->wid, 6, 1, 1)) || count($database->getOwnUniqueArtefactInfo2($session->uid, 6, 2, 0)));
+            case 38: return $this->getTypeLevel(15) >= 10 && (!$isBuilt || $this->getTypeLevel($id) == 20) && (GREAT_WHS || $village->natar == 1 || count($database->getOwnUniqueArtefactInfo2($village->wid, 6, 1, 1)) || count($database->getOwnUniqueArtefactInfo2($session->uid, 6, 2, 0)));
 
             // great granary can only be built with artefact or in Natar villages
-            case 39: return $this->getTypeLevel(15) >= 10 && (!$isBuilt || $this->getTypeLevel($id) == 20) && ($village->natar == 1 || count($database->getOwnUniqueArtefactInfo2($village->wid, 6, 1, 1)) || count($database->getOwnUniqueArtefactInfo2($session->uid, 6, 2, 0)));
+            case 39: return $this->getTypeLevel(15) >= 10 && (!$isBuilt || $this->getTypeLevel($id) == 20) && (GREAT_WHS || $village->natar == 1 || count($database->getOwnUniqueArtefactInfo2($village->wid, 6, 1, 1)) || count($database->getOwnUniqueArtefactInfo2($session->uid, 6, 2, 0)));
             
             case 40: return $this->allowWwUpgrade();
             case 41: return $this->getTypeLevel(16) >= 10 && $this->getTypeLevel(20) == 20 && $session->tribe == 1 && !$isBuilt;
@@ -988,8 +989,8 @@ class Building {
 			exit;
 		}
 
-		// Cost = max level in gold (1 gold per level)
-		$goldCost = $maxLevel;
+		// Cost = max level in gold minus current level (1 gold per upgraded level)
+		$goldCost = $maxLevel - $currentLevel;
 
 		if ($session->gold < $goldCost) {
 			header("Location: " . $session->referrer);
@@ -1025,6 +1026,7 @@ class Building {
 		// Deduct gold
 		$newgold = $session->gold - $goldCost;
 		$database->updateUserField($session->uid, "gold", $newgold, 1);
+		$session->gold = $newgold;
 
 		// Handle alliance embassy (type 18)
 		if ($buildingType == 18) {
@@ -1039,7 +1041,104 @@ class Building {
 		// Recount culture points
 		self::recountCP($database, $village->wid);
 
-		header("Location: build.php?id=" . $fieldId);
+		// Redirect to dorf1 for resource fields, dorf2 for buildings
+		$redirect = ($fieldId <= 18) ? 'dorf1.php' : 'dorf2.php';
+		header("Location: " . $redirect);
+		exit;
+	}
+
+	/**
+	 * Demolish a building to zero instantly using gold.
+	 * Cost = current level in gold (1 gold per level).
+	 * Sets the building directly to level zero, decreases population and CP.
+	 *
+	 * @param int $fieldId The field slot ID (1-40)
+	 */
+	public function demolishToZero($fieldId) {
+		global $database, $session, $village, $logging;
+
+		$fieldId = (int) $fieldId;
+		if ($fieldId < 1 || $fieldId > 40) {
+			header("Location: dorf2.php");
+			exit;
+		}
+
+		$buildingType = $village->resarray['f' . $fieldId . 't'];
+		if ($buildingType == 0) {
+			header("Location: dorf2.php");
+			exit;
+		}
+
+		$currentLevel = (int) $village->resarray['f' . $fieldId];
+
+		if ($currentLevel <= 0) {
+			header("Location: dorf2.php");
+			exit;
+		}
+
+		// Cost = current level in gold (1 gold per level)
+		$goldCost = $currentLevel;
+
+		if ($session->gold < $goldCost) {
+			header("Location: build.php?id=" . $fieldId);
+			exit;
+		}
+
+		// Calculate total population to subtract
+		$name = "bid" . $buildingType;
+		global $$name;
+		$dataarray = $$name;
+		$totalPop = 0;
+
+		for ($lvl = 1; $lvl <= $currentLevel; $lvl++) {
+			if (isset($dataarray[$lvl]['pop'])) {
+				$totalPop += $dataarray[$lvl]['pop'];
+			}
+		}
+
+		// Set building to level 0. Only remove type if it's not a resource field (id >= 19)
+		if ($fieldId >= 19) {
+			$q = "UPDATE " . TB_PREFIX . "fdata SET f" . $fieldId . " = 0, f" . $fieldId . "t = 0 WHERE vref = " . $village->wid;
+		} else {
+			$q = "UPDATE " . TB_PREFIX . "fdata SET f" . $fieldId . " = 0 WHERE vref = " . $village->wid;
+		}
+		$database->query($q);
+
+		// Update population
+		if ($totalPop > 0) {
+			$database->modifyPop($village->wid, $totalPop, 1);
+		}
+
+		// Cancel any queued build jobs for this field
+		$database->query(
+			"DELETE FROM " . TB_PREFIX . "bdata WHERE field = " . $fieldId . " AND wid = " . $village->wid
+		);
+
+        // Remove from demolition queue if any
+        $database->query(
+			"DELETE FROM " . TB_PREFIX . "demolition WHERE buildnumber = " . $fieldId . " AND vref = " . $village->wid
+		);
+
+		// Deduct gold
+		$newgold = $session->gold - $goldCost;
+		$database->updateUserField($session->uid, "gold", $newgold, 1);
+		$session->gold = $newgold;
+
+		// Handle alliance embassy (type 18)
+		if ($buildingType == 18) {
+			// If deleting embassy, alliance processing might be needed, but normally Travian handles this 
+			// by removing the user from the alliance if it was the embassy that held the alliance,
+			// or recalculating max.
+			$owner = $database->getVillageField($village->wid, "owner");
+			$database->query("UPDATE " . TB_PREFIX . "alidata SET max = 9 WHERE leader = $owner");
+		}
+
+		$logging->goldFinLog($village->wid);
+
+		// Recount culture points
+		self::recountCP($database, $village->wid);
+
+		header("Location: dorf2.php");
 		exit;
 	}
 };

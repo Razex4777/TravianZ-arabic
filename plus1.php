@@ -52,7 +52,7 @@ else {
 	<?php if(defined('LANG') && LANG === 'ar'): ?>
 	
 	<?php endif; ?>
-	<link rel="stylesheet" type="text/css" href="mobile.css?v=6" />
+	<link rel="stylesheet" type="text/css" href="mobile.css?v=13" />
 </head>
 
 
@@ -128,3 +128,4 @@ echo round(($generator->pageLoadTimeEnd()-$start_timer)*1000);
 <div id="ce"></div>
 </body>
 </html>
+

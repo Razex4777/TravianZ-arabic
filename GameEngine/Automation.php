@@ -4820,38 +4820,49 @@ class Automation {
             6 => 140, 7 => 130, 8 => 120, 9 => 110, 10 => 100
         ];
 
-        // Step 1: Give 500 base gold to ALL active players
-        mysqli_query($database->dblink,
-            "UPDATE ".TB_PREFIX."users SET gold = gold + ".(int)$baseGold
-            ." WHERE id > 5 AND access < 8 AND tribe > 0 AND tribe <= 3"
-        );
+        $database->dblink->begin_transaction();
 
-        // Step 2: Give rank-based bonus to top 10 players (by population)
-        $topResult = mysqli_query($database->dblink,
-            "SELECT u.id FROM ".TB_PREFIX."users u "
-            ."LEFT JOIN (SELECT owner, SUM(pop) AS totalpop FROM ".TB_PREFIX."vdata GROUP BY owner) v ON v.owner = u.id "
-            ."WHERE u.id > 5 AND u.access < 8 AND u.tribe > 0 AND u.tribe <= 3 "
-            ."ORDER BY v.totalpop DESC, u.id DESC LIMIT 10"
-        );
+        try {
+            // Step 1: Give 500 base gold to ALL active players
+            $res1 = mysqli_query($database->dblink,
+                "UPDATE ".TB_PREFIX."users SET gold = gold + ".(int)$baseGold
+                ." WHERE id > 5 AND access < 8 AND tribe > 0 AND tribe <= 3"
+            );
+            if (!$res1) throw new Exception("Step 1 failed");
 
-        if ($topResult) {
+            // Step 2: Give rank-based bonus to top 10 players (by population)
+            $topResult = mysqli_query($database->dblink,
+                "SELECT u.id FROM ".TB_PREFIX."users u "
+                ."LEFT JOIN (SELECT owner, SUM(pop) AS totalpop FROM ".TB_PREFIX."vdata GROUP BY owner) v ON v.owner = u.id "
+                ."WHERE u.id > 5 AND u.access < 8 AND u.tribe > 0 AND u.tribe <= 3 "
+                ."ORDER BY v.totalpop DESC, u.id DESC LIMIT 10"
+            );
+            if (!$topResult) throw new Exception("Step 2 SELECT failed");
+
             $rank = 0;
             while ($topRow = mysqli_fetch_assoc($topResult)) {
                 $rank++;
                 if (isset($rankBonuses[$rank])) {
-                    mysqli_query($database->dblink,
+                    $res2 = mysqli_query($database->dblink,
                         "UPDATE ".TB_PREFIX."users SET gold = gold + ".(int)$rankBonuses[$rank]
                         ." WHERE id = ".(int)$topRow['id']
                     );
+                    if (!$res2) throw new Exception("Step 2 UPDATE failed for rank $rank");
                 }
             }
-        }
 
-        // Step 3: Schedule next distribution for tomorrow midnight
-        $nextMidnight = strtotime('tomorrow midnight');
-        mysqli_query($database->dblink,
-            "UPDATE ".TB_PREFIX."config SET lastgavedailygold = ".(int)$nextMidnight
-        );
+            // Step 3: Schedule next distribution for tomorrow midnight
+            $nextMidnight = strtotime('tomorrow midnight');
+            $res3 = mysqli_query($database->dblink,
+                "UPDATE ".TB_PREFIX."config SET lastgavedailygold = ".(int)$nextMidnight
+            );
+            if (!$res3) throw new Exception("Step 3 failed");
+
+            $database->dblink->commit();
+        } catch (Exception $e) {
+            $database->dblink->rollback();
+            error_log("Automation Daily Gold Error: " . $e->getMessage());
+        }
     }
 }
 $automation = new Automation;

@@ -11,6 +11,33 @@
 ?>
 
 <div id="header">
+<?php
+$_protect_ts = isset($session->userinfo['protect']) ? (int)$session->userinfo['protect'] : 0;
+if ($_protect_ts > time()) {
+    $_protect_remaining = $_protect_ts - time();
+?>
+    <div id="bp_timer_box" style="position: absolute; left: 20px; top: 20px; background: #1cb5c9; color: white; border-radius: 12px; padding: 5px 12px; font-weight: bold; font-family: Tahoma, Arial, sans-serif; font-size: 14px; display: flex; align-items: center; gap: 6px; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.3);">
+        <span style="font-size: 16px;">🕊️</span>
+        <span id="bp_countdown"><?php echo $generator->getTimeFormat($_protect_remaining); ?></span>
+    </div>
+    <script>
+    (function(){
+        var rem = <?php echo $_protect_remaining; ?>;
+        var el = document.getElementById('bp_countdown');
+        if(!el) return;
+        setInterval(function(){
+            rem--;
+            if(rem <= 0){ el.parentNode.style.display='none'; return; }
+            var h = Math.floor(rem/3600);
+            var m = Math.floor((rem%3600)/60);
+            var s = rem%60;
+            el.textContent = (h<10?'0'+h:h)+':'+(m<10?'0'+m:m)+':'+(s<10?'0'+s:s);
+        }, 1000);
+    })();
+    </script>
+<?php
+}
+?>
     <input type="checkbox" id="mobile-nav-toggle" style="display:none;" />
     <label for="mobile-nav-toggle" class="mobile-hamburger" style="display:none;">
         <span></span>
@@ -49,7 +76,6 @@
 		?>
         <a href="plus.php?id=3" id="plus" style="background: transparent !important; width: auto !important; height: auto !important; margin-left: 0 !important; margin-top: 20px !important;">
         <span id="header_gold_display" style="
-            display: inline-flex !important;
             align-items: center;
             gap: 5px;
             background: linear-gradient(180deg, #FFD54F 0%, #FF9800 50%, #E65100 100%);

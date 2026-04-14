@@ -25,6 +25,20 @@
 @media screen and (max-width: 768px) {
 
   /* ──────────────────────────────────────────────────────────────────────
+     0. HIDE DESKTOP-ONLY ELEMENTS
+     ────────────────────────────────────────────────────────────────────── */
+
+  /* Travian logo — desktop only, hide on mobile */
+  a#logo,
+  div#side_navi a#logo,
+  div#side_navi a#logo img {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+  }
+
+  /* ──────────────────────────────────────────────────────────────────────
      1. GLOBAL RESETS — Kill desktop fixed-width skeleton
      ────────────────────────────────────────────────────────────────────── */
 
@@ -65,13 +79,14 @@
     display: none !important;
   }
 
-  /* Fix popup3 centering — desktop uses right:50%; margin-right:-285px */
+  /* Fix popup3 centering */
   div.popup3 {
-    right: 50% !important;
-    margin-right: 0 !important;
-    transform: translateX(50%) !important;
-    max-width: 95vw !important;
-    width: auto !important;
+    right: 2.5% !important;
+    left: 2.5% !important;
+    margin: 10px 0 !important;
+    transform: none !important;
+    width: 95% !important;
+    max-width: none !important;
     box-sizing: border-box !important;
   }
 
@@ -137,184 +152,84 @@
     background-position: center top !important;
   }
 
-  /* Hamburger Button — CSS-only toggle */
-  .mobile-hamburger {
-    display: block !important;
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    width: 30px;
-    height: 24px;
-    z-index: 10001;
-    cursor: pointer;
+  /* Hamburger Button & Backdrop — hide them completely */
+  .mobile-hamburger, .mobile-sidebar-backdrop {
+    display: none !important;
   }
 
-  .mobile-hamburger span {
-    display: block;
-    width: 100%;
-    height: 4px;
-    background: #71D000;
-    margin-bottom: 4px;
-    border-radius: 2px;
-    transition: transform 0.3s, opacity 0.3s;
-  }
-
-  #mobile-nav-toggle:checked ~ .mobile-hamburger span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-  }
-  #mobile-nav-toggle:checked ~ .mobile-hamburger span:nth-child(2) {
-    opacity: 0;
-  }
-  #mobile-nav-toggle:checked ~ .mobile-hamburger span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-  }
-
-  /* Dark Backdrop overlay */
-  .mobile-sidebar-backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0,0,0,0.55);
-    z-index: 9999;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s, visibility 0.3s;
-  }
-
-  #mobile-nav-toggle:checked ~ .mobile-sidebar-backdrop {
-    opacity: 1;
-    visibility: visible;
-    display: block !important;
-  }
-
-  /* Slide-in Top Nav Sidebar (div#mtop) —
-     Desktop: 700px wide, fixed position via negative margin.
-     Mobile: slide-in panel from right edge.
-     ★ Uses transform to hide (right:-280px was unreliable with RTL cascade). */
+  /* Horizontal Top Nav Row (div#mtop)
+     Overrides desktop fixed margin positioning, puts icons below header. */
   div#mtop,
   body.mod1 div#mtop,
   body.mod2 div#mtop,
   body.mod3 div#mtop {
-    position: fixed !important;
-    top: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
     left: auto !important;
-    width: 260px !important;
-    height: 100vh !important;
-    margin: 0 !important;
-    margin-right: 0 !important;
-    background: #fff !important;
-    border-left: 3px solid #71D000 !important;
-    z-index: 10000;
-    transform: translateX(110%) !important;
-    visibility: hidden !important;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-                visibility 0.3s;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-    padding: 60px 15px 20px 15px !important;
-    box-shadow: -5px 0 20px rgba(0,0,0,0.15);
-    overflow-y: auto;
-    gap: 6px;
-  }
-
-  #mobile-nav-toggle:checked ~ div#mtop {
-    transform: translateX(0) !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 45px !important;
+    margin: 5px 0 15px 0 !important;
+    background: transparent !important;
+    border: none !important;
+    z-index: 100;
+    transform: none !important;
     visibility: visible !important;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 5px !important;
+    box-shadow: none !important;
+    gap: 0px 4px !important;
+    overflow: visible !important;
   }
 
-  /* Nav icons inside the sidebar — each one gets a full-width row */
+  /* Nav icons container scale */
   div#mtop a#n1,
   div#mtop a#n2,
   div#mtop a#n3,
-  div#mtop a#n4 {
+  div#mtop a#n4,
+  div#mtop div#n5 {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 12px;
-    width: 100% !important;
-    padding: 10px 14px !important;
-    margin: 0 !important;
-    background-color: rgba(0,0,0,0.04) !important;
-    border-radius: 10px !important;
-    text-decoration: none !important;
-    transition: background-color 0.2s;
+    float: none !important;
+    /* Scale the desktop visual size down without breaking its internal background offsets */
+    transform: scale(0.65) !important;
+    transform-origin: center !important;
+    /* Keep logical dimensions so backgrounds don't clip */
+    width: 60px !important; 
+    height: 60px !important;
+    /* Collapse the wrapping layout size so they fit tightly */
+    margin: -10px -10px !important; 
   }
 
   div#mtop a#n1:active,
   div#mtop a#n2:active,
   div#mtop a#n3:active,
-  div#mtop a#n4:active {
-    background-color: rgba(113,208,0,0.15) !important;
+  div#mtop a#n4:active,
+  div#mtop div#n5 a:active {
+    opacity: 0.7;
   }
 
-  /* Nav icon images — sized for touch, sprite locked */
+  /* Make sure internal elements don't get restricted by any generic mobile overrides */
   div#mtop a#n1 img,
   div#mtop a#n2 img,
   div#mtop a#n3 img,
-  div#mtop a#n4 img {
-    height: 50px !important;
-    width: 50px !important;
-    background-size: 50px auto !important;
-    background-repeat: no-repeat !important;
-    background-position: 0 -21px !important;
-    flex-shrink: 0;
-  }
-
-  /* ★ FIX: Kill the desktop hover sprite-shift that blanks out icons.
-     Desktop CSS (compact/global.css line 199) shifts background-position
-     from 0 -21px to 0 -121px on hover, which goes off-canvas on mobile.
-     We lock it to the normal position. */
-  a#n1:hover img,
-  a#n2:hover img,
-  a#n3:hover img,
-  a#n4:hover img {
-    background-position: 0 -21px !important;
-  }
-
-  /* ★ FIX: Reports + Messages icon pair (5th nav item)
-     CRITICAL: div#n5 gets its background-image from .i1/.i2/.i3/.i4 classes
-     (misc_part3.css → m1.gif through m4.gif). Using `background:` shorthand
-     here KILLS that image. Must use `background-color:` to preserve sprite. */
-  div#n5 {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    gap: 10px;
-    margin: 4px 0 !important;
-    height: auto !important;
-    width: 100% !important;
-    min-height: 60px !important;
-    padding: 10px 14px !important;
-    background-color: rgba(0,0,0,0.04) !important;
-    background-size: 70px auto !important;
-    background-position: center -21px !important;
-    background-repeat: no-repeat !important;
-    border-radius: 10px !important;
-    box-sizing: border-box !important;
-  }
-
-  /* n5 child links — side by side within the sprite */
-  div#n5 a {
-    display: block !important;
-    float: none !important;
-  }
-
-  div#n5 img {
-    height: 50px !important;
-    width: 35px !important;
-    background-size: contain !important;
-    background-repeat: no-repeat !important;
+  div#mtop a#n4 img,
+  div#mtop div#n5 img {
+    max-width: none !important;
+    max-height: none !important;
+    margin: 0 !important;
   }
 
   /* Plus button inside the sidebar */
   div#mtop a#plus {
-    margin: 10px 0 0 0 !important;
+    margin: 0 5px 0 0 !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -851,20 +766,66 @@
 
   /* Desktop: right:50%, margin-right:-285px → centered hardcoded */
   div.popup3 {
-    right: auto !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
+    right: 2.5% !important;
+    left: 2.5% !important;
+    transform: none !important;
     margin-right: 0 !important;
-    width: 90% !important;
-    max-width: 560px !important;
+    margin-left: 0 !important;
+    width: 95% !important;
+    max-width: none !important;
     box-sizing: border-box !important;
+    overflow-x: hidden !important;
   }
 
   div#sysmsg {
     width: 90% !important;
     max-width: 500px;
+    margin: 10px auto !important;
   }
 
+  /* Quest & Welcome Popups Overlay Fixes */
+  div#side_info div#anm {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 10px auto !important;
+    z-index: 1000 !important;
+    box-sizing: border-box !important;
+  }
+
+  div.quest {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  div.quest div#qstd {
+    width: 95% !important;
+    margin: 0 auto !important;
+    position: relative !important;
+    left: 0 !important;
+    right: 0 !important;
+    box-sizing: border-box !important;
+    border-radius: 8px !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    overflow: hidden !important;
+  }
+
+  div.quest div#qstbg {
+    width: 95% !important;
+    margin: 0 auto !important;
+    height: auto !important;
+    min-height: 200px !important;
+    background-size: 100% auto !important;
+    background-position: center bottom !important;
+    background-repeat: no-repeat !important;
+    position: relative !important;
+    left: 0 !important;
+    right: 0 !important;
+    box-sizing: border-box !important;
+  }
 
   /* ──────────────────────────────────────────────────────────────────────
      14. LAYOUT MODULE OVERRIDES (mod1, mod2, mod3 variants)

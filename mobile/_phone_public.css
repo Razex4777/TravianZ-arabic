@@ -65,39 +65,44 @@
     display: none !important;
   }
 
-  /* Register CTA — visible as a clean button on mobile */
+  /* Register CTA — visible as a massive clean button on mobile */
   #register_now {
     display: block !important;
     position: relative !important;
     left: auto !important;
     top: auto !important;
-    margin: 0 auto !important;
-    width: auto !important;
+    margin: 20px auto 30px auto !important;
+    width: 90% !important;
     height: auto !important;
     text-align: center !important;
-    padding: 12px 16px !important;
+    padding: 0 !important;
     z-index: 20 !important;
   }
 
   #register_now a {
-    display: block !important;
-    background: linear-gradient(135deg, #71D000, #5ab300) !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    background: linear-gradient(135deg, #7ad513 0%, #468c00 100%) !important;
     color: #fff !important;
-    font-size: 18px !important;
-    font-weight: 700 !important;
-    padding: 14px 20px !important;
-    border-radius: 10px !important;
+    font-size: 24px !important;
+    font-weight: 800 !important;
+    padding: 20px 20px !important;
+    border-radius: 12px !important;
     text-decoration: none !important;
-    box-shadow: 0 4px 12px rgba(113, 208, 0, 0.35) !important;
+    box-shadow: 0 8px 16px rgba(113, 208, 0, 0.4) !important;
     margin: 0 auto !important;
-    max-width: 300px !important;
+    width: 100% !important;
+    max-width: 400px !important;
+    border: 2px solid #82e21b !important;
   }
 
   #register_now span {
     display: block !important;
-    font-size: 11px !important;
-    color: #555 !important;
-    margin-top: 6px !important;
+    font-size: 14px !important;
+    color: #333 !important;
+    margin-top: 10px !important;
+    font-weight: bold !important;
   }
 
   #t4play {

@@ -203,17 +203,17 @@ define('TRAINING_COMMENCE_BARRACKS', 'يمكن بدء التدريب عند اك
 define('BARRACKS_DESC', 'الثكنة حيث يتم تدريب جنود المشاة. كلما زاد المستوى زادت سرعة التدريب.');
 
 define('STABLE', 'الإسطبل');
-define('AVAILABLE_ACADEMY', 'لا وحدات متاحة. ابحث في الأكاديمية');
+define('AVAILABLE_ACADEMY', 'لا وحدات متاحة. ابحث في الأكاديمية الحربية');
 define('TRAINING_COMMENCE_STABLE', 'يمكن البدء بالتدريب عند اكتمال الإسطبل.');
 define('STABLE_DESC', 'الإسطبل للخيالة. كلما زاد مستواه أصبحت تدريبات الخيالة أسرع.');
 
-define('WORKSHOP', 'المصنع');
-define('TRAINING_COMMENCE_WORKSHOP', 'يمكن البدء بالتدريب عند اكتمال المصنع.');
-define('WORKSHOP_DESC', 'في المصنع يتم تصنيع آلات الحصار كالمقاليق والمحطمات.');
+define('WORKSHOP', 'المصانع الحربية');
+define('TRAINING_COMMENCE_WORKSHOP', 'يمكن البدء بالتدريب عند اكتمال المصانع الحربية.');
+define('WORKSHOP_DESC', 'في المصانع الحربية يتم تصنيع آلات الحصار كالمقاليق والمحطمات.');
 
-define('ACADEMY', 'الأكاديمية');
+define('ACADEMY', 'الأكاديمية الحربية');
 define('RESEARCH_AVAILABLE', 'لا توجد أبحاث متاحة');
-define('RESEARCH_COMMENCE_ACADEMY', 'يمكن بدء البحث عند اكتمال الأكاديمية.');
+define('RESEARCH_COMMENCE_ACADEMY', 'يمكن بدء البحث عند اكتمال الأكاديمية الحربية.');
 define('RESEARCH', 'البحث');
 define('EXPAND_WAREHOUSE1', 'تطوير المخزن');
 define('EXPAND_GRANARY1', 'تطوير مخزن الحبوب');
@@ -222,7 +222,7 @@ define('RESEARCHING', 'جاري البحث');
 define('PREREQUISITES', 'الشروط');
 define('SHOW_MORE', 'عرض المزيد');
 define('HIDE_MORE', 'إخفاء المزيد');
-define('ACADEMY_DESC', 'الأكاديمية حيث يتم استكشاف القوات الجديدة.');
+define('ACADEMY_DESC', 'الأكاديمية الحربية حيث يتم استكشاف القوات الجديدة.');
 
 define('CRANNY', 'المخبأ');
 define('CURRENT_HIDDEN_UNITS', 'الوحدات المخبأة لكل مورد:');
@@ -394,8 +394,8 @@ define('WORLD_WONDER_NAME_CHANGED', 'تم تغيير الاسم');
 define('HORSEDRINKING', 'حوض شرب الخيول');
 define('HORSEDRINKING_DESC', 'يخفض زمن تدريب الخيالة الرومانية واستهلاكهم للقمح.');
 
-define('GREATWORKSHOP', 'المصنع الكبير');
-define('TRAINING_COMMENCE_GREATWORKSHOP', 'يبدأ التدريب عند اكتمال المصنع الكبير.');
+define('GREATWORKSHOP', 'المصانع الحربية الكبيرة');
+define('TRAINING_COMMENCE_GREATWORKSHOP', 'يبدأ التدريب عند اكتمال المصانع الحربية الكبيرة.');
 define('GREATWORKSHOP_DESC', 'يسمح لك بصنع المقلاع والمحطمة بسرعة مضاعفة.');
 
 define('BUILDING_MAX_LEVEL_UNDER', 'أقصى مستوى للمبنى قيد الإنشاء');

@@ -624,24 +624,36 @@ if ($session->access != BANNED && $golds['gold'] >= 1) {
 						// because buying X gold gives X*20000 of ALL resources equally
 						var minSpace = Math.min(spaceWood, spaceClay, spaceIron, spaceCrop);
 
-						// Gold needed = minSpace / rate, floored (no overpaying)
-						var goldNeeded = Math.floor(minSpace / _RATE);
-
-						// Cap at player's available gold
-						goldNeeded = Math.min(goldNeeded, _playerGold);
-						goldNeeded = Math.max(1, goldNeeded); // at least 1
-
-						// Set the input and trigger preview update
-						var input = document.getElementById('goldAmountInput');
-						input.value = goldNeeded;
-						updateResourcePreview(goldNeeded);
-
 						// Highlight the limiting resource in breakdown
 						var limitRes = '';
 						if (minSpace === spaceWood) limitRes = _isAr ? 'الخشب' : 'Wood';
 						else if (minSpace === spaceClay) limitRes = _isAr ? 'الطين' : 'Clay';
 						else if (minSpace === spaceIron) limitRes = _isAr ? 'الحديد' : 'Iron';
 						else limitRes = _isAr ? 'القمح' : 'Crop';
+
+						if (Math.floor(minSpace / _RATE) === 0) {
+							var goldNeeded = 0;
+							var input = document.getElementById('goldAmountInput');
+							input.value = "0";
+							updateResourcePreview(0);
+							var bd = document.getElementById('fillBreakdown');
+							bd.style.display = 'block';
+							bd.innerHTML += '<br><span style="color:#D4A017; font-weight:bold;">⚡ '
+								+ (_isAr ? 'المساحة المتبقية لـ ' + limitRes + ' غير كافية لعملية شراء واحدة' : 'Remaining storage for ' + limitRes + ' is insufficient for a single gold purchase')
+								+ '</span>';
+							return;
+						}
+
+						// Gold needed = minSpace / rate, floored (no overpaying)
+						var goldNeeded = Math.floor(minSpace / _RATE);
+
+						// Cap at player's available gold
+						goldNeeded = Math.min(goldNeeded, _playerGold);
+
+						// Set the input and trigger preview update
+						var input = document.getElementById('goldAmountInput');
+						input.value = goldNeeded;
+						updateResourcePreview(goldNeeded);
 
 						var note = '<br><span style="color:#D4A017; font-weight:bold;">⚡ '
 							+ (_isAr ? 'المحدد: ' + limitRes + ' (سيمتلئ أولاً)' : 'Limiting: ' + limitRes + ' (fills first)')

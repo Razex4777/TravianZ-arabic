@@ -63,7 +63,7 @@ else $building->procBuild($_GET);
 	<?php if(defined('LANG') && LANG === 'ar'): ?>
 	
 	<?php endif; ?>
-	<link rel="stylesheet" type="text/css" href="mobile.css?v=6" />
+	<link rel="stylesheet" type="text/css" href="mobile.css?v=13" />
 </head>
 
 

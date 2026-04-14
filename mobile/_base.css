@@ -57,7 +57,7 @@
     max-width: 100% !important;
     right: auto !important;
     left: auto !important;
-    margin: 0 auto !important;
+    margin: 15px auto 0 auto !important;
     position: relative !important;
   }
 
@@ -94,27 +94,38 @@
     padding: 1px 5px !important;
   }
 
+  /* ──────────────────────────────────────────────────────────────────────
+     HIDE DESKTOP ELEMENTS
+     ────────────────────────────────────────────────────────────────────── */
+  /* Hide Questmaster / Dragon Knight fighter on mobile */
+  div#qge,
+  div#anm {
+    display: none !important;
+  }
+
+  /* Hide Travian logo on mobile — desktop only */
+  div#side_navi a#logo {
+    display: none !important;
+  }
+
 }
 
 
 /* ==========================================================================
-   HEADER GOLD DISPLAY — Next to بلاس
-   --------------------------------------------------------------------------
-   HIDDEN on desktop by default. The original div#res gold table shows instead.
-   On mobile (≤ 980px), this badge is shown via the media query override below.
+   HEADER GOLD DISPLAY — Shows on ALL screens (desktop + mobile)
    ========================================================================== */
 
-/* Desktop: hide the header gold badge (original res table gold is visible) */
+/* Always visible — gold badge next to #plus */
 #header_gold_display {
-  display: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px;
+  vertical-align: middle;
 }
 
-/* Mobile: show the gold badge next to بلاس */
+/* Mobile: extra styling tweaks */
 @media screen and (max-width: 980px) {
   #header_gold_display {
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 4px;
     margin-right: 8px;
     padding: 3px 10px;
     background: linear-gradient(135deg, #d4a017, #b8860b);
@@ -122,7 +133,6 @@
     font-size: 12px;
     font-weight: bold;
     color: #fff;
-    vertical-align: middle;
     box-shadow: 0 1px 4px rgba(0,0,0,0.2);
   }
 }

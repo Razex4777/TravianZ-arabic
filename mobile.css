@@ -12,12 +12,12 @@
    _small_phone.css   — ≤ 480px  — Final tightening for narrow screens
    ========================================================================== */
 
-@import url('mobile/_base.css?v=5');
-@import url('mobile/_tablet.css?v=2');
-@import url('mobile/_phone_public.css?v=6');
-@import url('mobile/_phone_outgame.css?v=2');
-@import url('mobile/_phone_ingame.css?v=4');
-@import url('mobile/_phone_ingame_pages.css?v=7');
-@import url('mobile/_phone_alliance.css?v=5');
-@import url('mobile/_phone_plus.css?v=9');
-@import url('mobile/_small_phone.css?v=2');
+@import url('mobile/_base.css?v=13');
+@import url('mobile/_tablet.css?v=13');
+@import url('mobile/_phone_public.css?v=13');
+@import url('mobile/_phone_outgame.css?v=13');
+@import url('mobile/_phone_ingame.css?v=13');
+@import url('mobile/_phone_ingame_pages.css?v=13');
+@import url('mobile/_phone_alliance.css?v=13');
+@import url('mobile/_phone_plus.css?v=13');
+@import url('mobile/_small_phone.css?v=13');

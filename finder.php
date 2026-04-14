@@ -279,7 +279,7 @@ if ($wrefs) {
     echo " <link href='".$session->gpack."lang/".LANG."/lang.css?v2' rel='stylesheet' type='text/css' />";
 } ?>
 <script type="text/javascript">window.addEvent('domready', start);</script>
-<link rel="stylesheet" type="text/css" href="mobile.css?v=6" />
+<link rel="stylesheet" type="text/css" href="mobile.css?v=13" />
 </head>
 <body class="v35 ie ie8">
 <div class="wrapper">
@@ -569,3 +569,4 @@ if(!NEW_FUNCTIONS_DISPLAY_LINKS) {
 </div>
 </body>
 </html>
+

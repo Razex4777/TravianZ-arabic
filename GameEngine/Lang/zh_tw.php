@@ -1709,6 +1709,14 @@ define('CONF_ADMIN_SUPPMESS_TOOLTIP', 'Enable (True) or disable (False) the send
 define('CONF_ADMIN_RAIDATT', 'Allow Raided and Attacked');
 define('CONF_ADMIN_RAIDATT_TOOLTIP', 'Enable (True) or disable (False) the ability to Raided and Attacked an administrator.');
 
+define('GOLD_TEXT', 'Gold');
+define('NOT_ENOUGH_GOLD_TEXT', 'Not enough gold');
+define('UPGRADE_TO_LEVEL_MAX', 'Upgrade to level');
+define('CONFIRM_UPGRADE_MAX_GOLD', 'Do you wish to upgrade this building to max level (%s) for %s gold?');
+define('DEMOLISH_TO_ZERO', 'Demolish for gold');
+define('CONFIRM_DEMOLISH_ZERO_GOLD', 'Do you wish to demolish this building to level 0 for %s gold?');
+define('CELEBRATION_NEEDS', 'Celebration still needs:');
+
 /*
 |--------------------------------------------------------------------------
 |   Index

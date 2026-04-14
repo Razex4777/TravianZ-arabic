@@ -76,7 +76,7 @@ AccessLogger::logRequest();
 	<?php if(defined('LANG') && LANG === 'ar'): ?>
 	
 	<?php endif; ?>
-	<link rel="stylesheet" type="text/css" href="mobile.css?v=6" />
+	<link rel="stylesheet" type="text/css" href="mobile.css?v=13" />
 </head>
 
 <body class="presto indexPage">
@@ -221,8 +221,12 @@ AccessLogger::logRequest();
 					<li><a href="spielregeln.php"><?php echo SPIELREGELN; ?></a>|</li>
 					<li><a href="agb.php"><?php echo AGB; ?></a>|</li>
 					<li><a href="impressum.php"><?php echo IMPRINT; ?></a></li>
-					<li class="copyright">&copy; 2011-<?php echo date('Y'); ?> - TravianZ - All rights reserved</li>
+					<li class="copyright">&copy; 2011-<?php echo date('Y'); ?> - TravianZ - <?php echo (defined('LANG') && LANG === 'ar') ? 'جميع الحقوق محفوظة' : 'All rights reserved'; ?></li>
 				</ul>
+				<div style="text-align: center; margin-top: 8px; font-size: 11px; color: #999; line-height: 1.6;">
+					<?php echo (defined('LANG') && LANG === 'ar') ? 'تم الإصدار بواسطة TravianZ &mdash; شكرا لاستخدامكم نسختنا' : 'Released by TravianZ &mdash; Thank you for using our version'; ?><br>
+					<?php echo (defined('LANG') && LANG === 'ar') ? 'تعريب: Razex Xelite' : 'Arabic localization: Razex Xelite'; ?>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -311,3 +315,4 @@ AccessLogger::logRequest();
 	</script>
 </body>
 </html>
+
