@@ -41,7 +41,7 @@ $end = $tribe * 10;
 
                     <tr>
 
-                        <th>Destination:</th>
+                        <th><?php echo (defined('LANG') && LANG === 'ar') ? 'الهدف:' : 'Destination:'; ?></th>
 
                         <td><a href="karte.php?d=<?php echo $process[0]; ?>&c=<?php echo $generator->getMapCheck($process[0]); ?>"><?php echo $process[1]; ?> (<?php echo $coor['x']; ?>|<?php echo $coor['y']; ?>)</a></td>
 
@@ -49,7 +49,7 @@ $end = $tribe * 10;
 
                     <tr>
 
-                        <th>Owner:</th>
+                        <th><?php echo (defined('LANG') && LANG === 'ar') ? 'المالك:' : 'Owner:'; ?></th>
 
                         <td><a href="spieler.php?uid=<?php echo $process['2']; ?>"><?php echo $database->getUserField($process['2'],'username',0); ?></a></td>
 
@@ -84,7 +84,8 @@ $end = $tribe * 10;
                 for($i=$start;$i<=($end);$i++) {
                       echo "<td><img src=\"img/x.gif\" class=\"unit u$i\" title=\"".$technology->getUnitName($i)."\" alt=\"".$technology->getUnitName($i)."\" /></td>";
                   } if (!empty($process['t11'])){
-                  echo "<td><img src=\"img/x.gif\" class=\"unit uhero\" title=\"Hero\" alt=\"Hero\" /></td>";
+                  $heroName = (defined('LANG') && LANG === 'ar') ? 'البطل' : 'Hero';
+                  echo "<td><img src=\"img/x.gif\" class=\"unit uhero\" title=\"$heroName\" alt=\"$heroName\" /></td>";
 
                   }?>
 
@@ -92,7 +93,7 @@ $end = $tribe * 10;
 
                     <tr>
 
-                        <th>Troops</th>
+                        <th><?php echo (defined('LANG') && LANG === 'ar') ? 'القوات' : 'Troops'; ?></th>
 
                         <td <?php if (!isset($process['t1']) || $process['t1'] == ''){ echo "class=\"none\">0"; }else{ echo ">".$process['t1'];} ?></td>
 
@@ -124,9 +125,9 @@ $end = $tribe * 10;
 ?>
                 <tbody class="options">
         <tr>
-            <th>Options</th>
-            <td colspan="<?php if(!empty($process['t11'])){ echo"11"; }else{ echo"10"; } ?>"><input class="radio" name="spy" value="1" checked="checked" type="radio">Scout resources and troops<br>
-            <input class="radio" name="spy" value="2" type="radio">Scout defences and troops                                            </td>
+            <th><?php echo (defined('LANG') && LANG === 'ar') ? 'الخيارات' : 'Options'; ?></th>
+            <td colspan="<?php if(!empty($process['t11'])){ echo"11"; }else{ echo"10"; } ?>"><input class="radio" name="spy" value="1" checked="checked" type="radio"><?php echo (defined('LANG') && LANG === 'ar') ? 'تجسس على الموارد والقوات' : 'Scout resources and troops'; ?><br>
+            <input class="radio" name="spy" value="2" type="radio"><?php echo (defined('LANG') && LANG === 'ar') ? 'تجسس على الدفاعات والقوات' : 'Scout defences and troops'; ?></td>
         </tr>
     </tbody>
     <?php } ?>
@@ -136,59 +137,59 @@ $end = $tribe * 10;
 
             <?php if($process['c']== 3){ ?><tbody class="cata">
                 <tr>
-                    <th>Destination:</th>
+                    <th><?php echo (defined('LANG') && LANG === 'ar') ? 'الهدف:' : 'Destination:'; ?></th>
                     <td colspan="<?php echo !empty($process['t11']) ? 11 : 10; ?>">
 
                         <select name="ctar1" class="dropdown">
-                            <option value="0">Random</option>
+                            <option value="0"><?php echo (defined('LANG') && LANG === 'ar') ? 'عشوائي' : 'Random'; ?></option>
                             <?php if($building->getTypeLevel(16) >= 5) { ?>
-                <optgroup label="Resources">
-                <option value="1">Woodcutter</option>
-                                <option value="2">Clay Pit</option>
-                                <option value="3">Iron Mine</option>
-                                <option value="4">Cropland</option>
-                                <option value="5">Sawmill</option>
-                                <option value="6">Brickyard</option>
+                <optgroup label="<?php echo (defined('LANG') && LANG === 'ar') ? 'الموارد' : 'Resources'; ?>">
+                <option value="1"><?php echo (defined('LANG') && LANG === 'ar') ? 'الحطاب' : 'Woodcutter'; ?></option>
+                                <option value="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'حفرة الطين' : 'Clay Pit'; ?></option>
+                                <option value="3"><?php echo (defined('LANG') && LANG === 'ar') ? 'منجم الحديد' : 'Iron Mine'; ?></option>
+                                <option value="4"><?php echo (defined('LANG') && LANG === 'ar') ? 'حقل القمح' : 'Cropland'; ?></option>
+                                <option value="5"><?php echo (defined('LANG') && LANG === 'ar') ? 'معمل النشر' : 'Sawmill'; ?></option>
+                                <option value="6"><?php echo (defined('LANG') && LANG === 'ar') ? 'مصنع الطوب' : 'Brickyard'; ?></option>
 
-                                <option value="7">Iron Foundry</option>
-                                <option value="8">Grain Mill</option>
-                                <option value="9">Bakery</option>
+                                <option value="7"><?php echo (defined('LANG') && LANG === 'ar') ? 'مسبك الحديد' : 'Iron Foundry'; ?></option>
+                                <option value="8"><?php echo (defined('LANG') && LANG === 'ar') ? 'المطحنة' : 'Grain Mill'; ?></option>
+                                <option value="9"><?php echo (defined('LANG') && LANG === 'ar') ? 'المخبز' : 'Bakery'; ?></option>
                             </optgroup>
                             <?php } ?>
                             <?php if($building->getTypeLevel(16) >= 3) { ?>
-                            <optgroup label="Infrastructure">
-                                <option value="10">Warehouse</option>
-                                <option value="11">Granary</option>
+                            <optgroup label="<?php echo (defined('LANG') && LANG === 'ar') ? 'البنية التحتية' : 'Infrastructure'; ?>">
+                                <option value="10"><?php echo (defined('LANG') && LANG === 'ar') ? 'المخزن' : 'Warehouse'; ?></option>
+                                <option value="11"><?php echo (defined('LANG') && LANG === 'ar') ? 'مخزن الحبوب' : 'Granary'; ?></option>
                                 <?php if($building->getTypeLevel(16) >= 10) { ?>
-                                <option value="15">Main building</option>
-                                <option value="17">Marketplace</option>
-                                <option value="18">Embassy</option>
-                                <option value="24">Townhall</option>
-                                <option value="25">Residence</option>
-                                <option value="26">Palace</option>
-                                <option value="27">Treasury</option>
-                                <option value="28">Trade office</option>
-                                <option value="35">Brewery</option>
+                                <option value="15"><?php echo (defined('LANG') && LANG === 'ar') ? 'المبنى الرئيسي' : 'Main building'; ?></option>
+                                <option value="17"><?php echo (defined('LANG') && LANG === 'ar') ? 'السوق' : 'Marketplace'; ?></option>
+                                <option value="18"><?php echo (defined('LANG') && LANG === 'ar') ? 'السفارة' : 'Embassy'; ?></option>
+                                <option value="24"><?php echo (defined('LANG') && LANG === 'ar') ? 'البلدية' : 'Townhall'; ?></option>
+                                <option value="25"><?php echo (defined('LANG') && LANG === 'ar') ? 'السكن' : 'Residence'; ?></option>
+                                <option value="26"><?php echo (defined('LANG') && LANG === 'ar') ? 'القصر' : 'Palace'; ?></option>
+                                <option value="27"><?php echo (defined('LANG') && LANG === 'ar') ? 'الخزنة' : 'Treasury'; ?></option>
+                                <option value="28"><?php echo (defined('LANG') && LANG === 'ar') ? 'المكتب التجاري' : 'Trade office'; ?></option>
+                                <option value="35"><?php echo (defined('LANG') && LANG === 'ar') ? 'مصنع الجعة' : 'Brewery'; ?></option>
                                 <?php } ?>
-                                <option value="38">Great warehouse</option>
-                                <option value="39">Great granary</option>
-                                <option value="40">Wonder of the World</option>
+                                <option value="38"><?php echo (defined('LANG') && LANG === 'ar') ? 'المخزن الكبير' : 'Great warehouse'; ?></option>
+                                <option value="39"><?php echo (defined('LANG') && LANG === 'ar') ? 'مخزن الحبوب الكبير' : 'Great granary'; ?></option>
+                                <option value="40"><?php echo (defined('LANG') && LANG === 'ar') ? 'معجزة العالم' : 'Wonder of the World'; ?></option>
                             </optgroup>
                             <?php } ?>
                             <?php if($building->getTypeLevel(16) >= 10) { ?>
-                            <optgroup label="Military">
-                                <option value="12">Blacksmith</option>
-                                <option value="13">Armoury</option>
-                                <option value="14">Tournament square</option>
-                                <option value="16">Rally point</option>
-                                <option value="19">Barracks</option>
-                                <option value="20">Stable</option>
-                                <option value="21">Workshop</option>
+                            <optgroup label="<?php echo (defined('LANG') && LANG === 'ar') ? 'العسكرية' : 'Military'; ?>">
+                                <option value="12"><?php echo (defined('LANG') && LANG === 'ar') ? 'الحداد' : 'Blacksmith'; ?></option>
+                                <option value="13"><?php echo (defined('LANG') && LANG === 'ar') ? 'مستودع الأسلحة' : 'Armoury'; ?></option>
+                                <option value="14"><?php echo (defined('LANG') && LANG === 'ar') ? 'ساحة البطولة' : 'Tournament square'; ?></option>
+                                <option value="16"><?php echo (defined('LANG') && LANG === 'ar') ? 'نقطة التجمع' : 'Rally point'; ?></option>
+                                <option value="19"><?php echo (defined('LANG') && LANG === 'ar') ? 'الثكنة' : 'Barracks'; ?></option>
+                                <option value="20"><?php echo (defined('LANG') && LANG === 'ar') ? 'الإسطبل' : 'Stable'; ?></option>
+                                <option value="21"><?php echo (defined('LANG') && LANG === 'ar') ? 'المصنع' : 'Workshop'; ?></option>
 
-                                <option value="22">Academy</option>
-                                <option value="29">Great barracks</option>
-                                <option value="30">Great stable</option>
-                                <option value="37">Hero's mansion</option>
+                                <option value="22"><?php echo (defined('LANG') && LANG === 'ar') ? 'الأكاديمية' : 'Academy'; ?></option>
+                                <option value="29"><?php echo (defined('LANG') && LANG === 'ar') ? 'الثكنة الكبيرة' : 'Great barracks'; ?></option>
+                                <option value="30"><?php echo (defined('LANG') && LANG === 'ar') ? 'الإسطبل الكبير' : 'Great stable'; ?></option>
+                                <option value="37"><?php echo (defined('LANG') && LANG === 'ar') ? 'مبنى البطل' : 'Hero's mansion'; ?></option>
                             </optgroup>
                             <?php } ?>
                         </select>
@@ -196,62 +197,62 @@ $end = $tribe * 10;
             <?php if($building->getTypeLevel(16) == 20 && $process['t8'] >= 20) { ?>
                      <select name="ctar2" class="dropdown">
                 <option value="0">-</option>
-                <option value="99">Random</option>
+                <option value="99"><?php echo (defined('LANG') && LANG === 'ar') ? 'عشوائي' : 'Random'; ?></option>
                             <?php if($building->getTypeLevel(16) >= 5) { ?>
-                            <optgroup label="Resources">
-                                <option value="1">Woodcutter</option>
-                                <option value="2">Clay Pit</option>
-                                <option value="3">Iron Mine</option>
-                                <option value="4">Cropland</option>
-                                <option value="5">Sawmill</option>
-                                <option value="6">Brickyard</option>
+                            <optgroup label="<?php echo (defined('LANG') && LANG === 'ar') ? 'الموارد' : 'Resources'; ?>">
+                                <option value="1"><?php echo (defined('LANG') && LANG === 'ar') ? 'الحطاب' : 'Woodcutter'; ?></option>
+                                <option value="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'حفرة الطين' : 'Clay Pit'; ?></option>
+                                <option value="3"><?php echo (defined('LANG') && LANG === 'ar') ? 'منجم الحديد' : 'Iron Mine'; ?></option>
+                                <option value="4"><?php echo (defined('LANG') && LANG === 'ar') ? 'حقل القمح' : 'Cropland'; ?></option>
+                                <option value="5"><?php echo (defined('LANG') && LANG === 'ar') ? 'معمل النشر' : 'Sawmill'; ?></option>
+                                <option value="6"><?php echo (defined('LANG') && LANG === 'ar') ? 'مصنع الطوب' : 'Brickyard'; ?></option>
 
-                                <option value="7">Iron Foundry</option>
-                                <option value="8">Grain Mill</option>
-                                <option value="9">Bakery</option>
+                                <option value="7"><?php echo (defined('LANG') && LANG === 'ar') ? 'مسبك الحديد' : 'Iron Foundry'; ?></option>
+                                <option value="8"><?php echo (defined('LANG') && LANG === 'ar') ? 'المطحنة' : 'Grain Mill'; ?></option>
+                                <option value="9"><?php echo (defined('LANG') && LANG === 'ar') ? 'المخبز' : 'Bakery'; ?></option>
                             </optgroup>
                             <?php } ?>
                             <?php if($building->getTypeLevel(16) >= 3) { ?>
-                            <optgroup label="Infrastructure">
-                                <option value="10">Warehouse</option>
-                                <option value="11">Granary</option>
+                            <optgroup label="<?php echo (defined('LANG') && LANG === 'ar') ? 'البنية التحتية' : 'Infrastructure'; ?>">
+                                <option value="10"><?php echo (defined('LANG') && LANG === 'ar') ? 'المخزن' : 'Warehouse'; ?></option>
+                                <option value="11"><?php echo (defined('LANG') && LANG === 'ar') ? 'مخزن الحبوب' : 'Granary'; ?></option>
                                 <?php if($building->getTypeLevel(16) >= 10) { ?>
-                                <option value="15">Main building</option>
-                                <option value="17">Marketplace</option>
-                                <option value="18">Embassy</option>
-                                <option value="24">Townhall</option>
-                                <option value="25">Residence</option>
-                                <option value="26">Palace</option>
+                                <option value="15"><?php echo (defined('LANG') && LANG === 'ar') ? 'المبنى الرئيسي' : 'Main building'; ?></option>
+                                <option value="17"><?php echo (defined('LANG') && LANG === 'ar') ? 'السوق' : 'Marketplace'; ?></option>
+                                <option value="18"><?php echo (defined('LANG') && LANG === 'ar') ? 'السفارة' : 'Embassy'; ?></option>
+                                <option value="24"><?php echo (defined('LANG') && LANG === 'ar') ? 'البلدية' : 'Townhall'; ?></option>
+                                <option value="25"><?php echo (defined('LANG') && LANG === 'ar') ? 'السكن' : 'Residence'; ?></option>
+                                <option value="26"><?php echo (defined('LANG') && LANG === 'ar') ? 'القصر' : 'Palace'; ?></option>
 
-                                <option value="27">Treasury</option>
-                                <option value="28">Trade office</option>
-                                <option value="35">Brewery</option>
+                                <option value="27"><?php echo (defined('LANG') && LANG === 'ar') ? 'الخزنة' : 'Treasury'; ?></option>
+                                <option value="28"><?php echo (defined('LANG') && LANG === 'ar') ? 'المكتب التجاري' : 'Trade office'; ?></option>
+                                <option value="35"><?php echo (defined('LANG') && LANG === 'ar') ? 'مصنع الجعة' : 'Brewery'; ?></option>
                                 <?php } ?>
-                                <option value="38">Great warehouse</option>
-                                <option value="39">Great granary</option>
-								<option value="40">Wonder of the World</option>
+                                <option value="38"><?php echo (defined('LANG') && LANG === 'ar') ? 'المخزن الكبير' : 'Great warehouse'; ?></option>
+                                <option value="39"><?php echo (defined('LANG') && LANG === 'ar') ? 'مخزن الحبوب الكبير' : 'Great granary'; ?></option>
+								<option value="40"><?php echo (defined('LANG') && LANG === 'ar') ? 'معجزة العالم' : 'Wonder of the World'; ?></option>
                             </optgroup>
                             <?php } ?>
                             <?php if($building->getTypeLevel(16) >= 10) { ?>
-                            <optgroup label="Military">
-                                <option value="12">Blacksmith</option>
-                                <option value="13">Armoury</option>
-                                <option value="14">Tournament square</option>
-                                <option value="16">Rally point</option>
-                                <option value="19">Barracks</option>
-                                <option value="20">Stable</option>
-                                <option value="21">Workshop</option>
+                            <optgroup label="<?php echo (defined('LANG') && LANG === 'ar') ? 'العسكرية' : 'Military'; ?>">
+                                <option value="12"><?php echo (defined('LANG') && LANG === 'ar') ? 'الحداد' : 'Blacksmith'; ?></option>
+                                <option value="13"><?php echo (defined('LANG') && LANG === 'ar') ? 'مستودع الأسلحة' : 'Armoury'; ?></option>
+                                <option value="14"><?php echo (defined('LANG') && LANG === 'ar') ? 'ساحة البطولة' : 'Tournament square'; ?></option>
+                                <option value="16"><?php echo (defined('LANG') && LANG === 'ar') ? 'نقطة التجمع' : 'Rally point'; ?></option>
+                                <option value="19"><?php echo (defined('LANG') && LANG === 'ar') ? 'الثكنة' : 'Barracks'; ?></option>
+                                <option value="20"><?php echo (defined('LANG') && LANG === 'ar') ? 'الإسطبل' : 'Stable'; ?></option>
+                                <option value="21"><?php echo (defined('LANG') && LANG === 'ar') ? 'المصنع' : 'Workshop'; ?></option>
 
-                                <option value="22">Academy</option>
-                                <option value="29">Great barracks</option>
-                                <option value="30">Great stable</option>
-                                <option value="37">Hero's mansion</option>
+                                <option value="22"><?php echo (defined('LANG') && LANG === 'ar') ? 'الأكاديمية' : 'Academy'; ?></option>
+                                <option value="29"><?php echo (defined('LANG') && LANG === 'ar') ? 'الثكنة الكبيرة' : 'Great barracks'; ?></option>
+                                <option value="30"><?php echo (defined('LANG') && LANG === 'ar') ? 'الإسطبل الكبير' : 'Great stable'; ?></option>
+                                <option value="37"><?php echo (defined('LANG') && LANG === 'ar') ? 'مبنى البطل' : 'Hero's mansion'; ?></option>
                             </optgroup>
                             <?php } ?>
                         </select>
                     <?php }?>
 
-                    <span class="info">(will be attacked by catapult(s))</span>
+                    <span class="info"><?php echo (defined('LANG') && LANG === 'ar') ? '(سيتم الهجوم بالمقاليع)' : '(will be attacked by catapult(s))'; ?></span>
                      </td>
                 </tr>
             </tbody><?PHP
@@ -260,11 +261,11 @@ $end = $tribe * 10;
             {
                 ?><tbody class="infos">               
 		<tr>
-		<th>Destination:</th>
+		<th><?php echo (defined('LANG') && LANG === 'ar') ? 'الهدف:' : 'Destination:'; ?></th>
         <td colspan="<?php echo !empty($process['t11']) ? 11 : 10; ?>">
                 <?php
 
-                echo"Warning: Catapult will <b>ONLY</b> shoot with a normal attack (they dont shoot with raids!)";
+                echo (defined('LANG') && LANG === 'ar') ? 'تحذير: المقاليع تهاجم بفعالية <b>فقط</b> في الهجوم العادي (لا تأثير لها في النهب!)' : 'Warning: Catapult will <b>ONLY</b> shoot with a normal attack (they dont shoot with raids!)';
                 ?>
         </td>
         </tr>
@@ -279,7 +280,7 @@ $end = $tribe * 10;
              <tbody class="infos">
     <tr>
 
-   <th>Arrived:</th>
+   <th><?php echo (defined('LANG') && LANG === 'ar') ? 'الوصول:' : 'Arrived:'; ?></th>
 
 
 
@@ -290,9 +291,9 @@ $end = $tribe * 10;
 
             <td colspan="<?php echo !empty($process['t11']) ? 11 : 10; ?>">
 
-            <div class="in">in <?php echo $generator->getTimeFormat($time); ?></div>
+            <div class="in"><?php echo (defined('LANG') && LANG === 'ar') ? 'في' : 'in'; ?> <?php echo $generator->getTimeFormat($time); ?></div>
 
-            <div class="at">at <span id="tp2"> <?php echo $generator->procMtime(date('U') + $time, 9)?></span><span> hours</span></div>
+            <div class="at"><?php echo (defined('LANG') && LANG === 'ar') ? 'الساعة' : 'at'; ?> <span id="tp2"> <?php echo $generator->procMtime(date('U') + $time, 9)?></span><span> <?php echo (defined('LANG') && LANG === 'ar') ? 'ساعة' : 'hours'; ?></span></div>
 
             </td>
 

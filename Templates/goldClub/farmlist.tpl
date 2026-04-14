@@ -35,11 +35,11 @@ while($row = mysqli_fetch_array($sql)){
         <thead>
             <tr>
                 <td></td>
-                <td>Village</td>
-                <td>Pop</td>
-                <td>Distance</td>
-                <td>Troops</td>
-                <td>Last raid</td>
+                <td><?php echo (defined('LANG') && LANG === 'ar') ? 'القرية' : 'Village'; ?></td>
+                <td><?php echo (defined('LANG') && LANG === 'ar') ? 'السكان' : 'Pop'; ?></td>
+                <td><?php echo (defined('LANG') && LANG === 'ar') ? 'المسافة' : 'Distance'; ?></td>
+                <td><?php echo (defined('LANG') && LANG === 'ar') ? 'القوات' : 'Troops'; ?></td>
+                <td><?php echo (defined('LANG') && LANG === 'ar') ? 'أخر هجوم' : 'Last raid'; ?></td>
                 <td></td>
             </tr>
         </thead>
@@ -139,7 +139,7 @@ while($row2 = mysqli_fetch_array($getnotice)){
                 <div class="clear"></div>
             </td>
             <td class="action">
-                <a class="arrow" href="build.php?id=39&t=99&action=showSlot&eid=<?php echo $id; ?>">edit</a>
+                <a class="arrow" href="build.php?id=39&t=99&action=showSlot&eid=<?php echo $id; ?>"><?php echo (defined('LANG') && LANG === 'ar') ? 'تعديل' : 'edit'; ?></a>
             </td>
             </tr>
 <?php
@@ -160,15 +160,15 @@ while($row2 = mysqli_fetch_array($getnotice)){
 <?php if($database->getVilFarmlist($session->uid)){ ?>
 <div class="markAll">
 	<input type="checkbox" id="raidListMarkAll" name="s10" class="markAll" onclick="Allmsg(this.form);">
-	<label for="raidListMarkAll">Select all</label>
+	<label for="raidListMarkAll"><?php echo (defined('LANG') && LANG === 'ar') ? 'تحديد الكل' : 'Select all'; ?></label>
 </div><br />
 <div class="addSlot">
-<button type="button" class="trav_buttons" onclick="window.location.href = '?gid=16&t=99&action=addraid';">Add Raid</button>
-<button type="submit" class="trav_buttons" value="Start Raid">Start Raid</button>
+<button type="button" class="trav_buttons" onclick="window.location.href = '?gid=16&t=99&action=addraid';"><?php echo (defined('LANG') && LANG === 'ar') ? 'إضافة هجمة (-1 ذهب)' : 'Add Raid (-1 Gold)'; ?></button>
+<button type="submit" class="trav_buttons" value="Start Raid"><?php echo (defined('LANG') && LANG === 'ar') ? 'بدء الهجوم (-1 ذهب / قرية)' : 'Start Raid (-1 Gold / farm)'; ?></button>
 </div><br />
 <?php } ?>
 <div class="options">
-    <a class="arrow" href="build.php?gid=16&t=99&action=addList">Create a new list</a>
+    <a class="arrow" href="build.php?gid=16&t=99&action=addList"><?php echo (defined('LANG') && LANG === 'ar') ? 'إنشاء قائمة جديدة' : 'Create a new list'; ?></a>
 </div>
 <?php
 }

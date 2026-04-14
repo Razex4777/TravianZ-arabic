@@ -16,11 +16,11 @@
 
             <label>
                 <input class="radio" name="c" <?php if ( ( !isset($disabledr) || !$disabledr ) && ( !isset($checked) || !$checked ) ) {?> checked=checked <?php }?>value="2" type="radio" <?php echo (isset($disabledr) ? $disabledr : ''); ?>>
-                Reinforcement
+                <?php echo (defined('LANG') && LANG === 'ar') ? 'تعزيز' : 'Reinforcement'; ?>
             </label>
         </td>
         <td class="vil">
-            <span>Village:</span>
+            <span><?php echo (defined('LANG') && LANG === 'ar') ? 'القرية:' : 'Village:'; ?></span>
              <input class="text" name="dname" value="<?php echo $form->getValue('dname');?>" maxlength="20" type="text" >
         </td>
 
@@ -29,12 +29,12 @@
         <td class="sel">
             <label>
                 <input class="radio" name="c" value="3" type="radio" <?php echo $disabled; ?>>
-                Normal attack
+                <?php echo (defined('LANG') && LANG === 'ar') ? 'هجوم عادي' : 'Normal attack'; ?>
             </label>
         </td>
         <td class="or">
 
-            or        </td>
+            <?php echo (defined('LANG') && LANG === 'ar') ? 'أو' : 'or'; ?>        </td>
     </tr>
     <tr>
         <td class="sel">
@@ -45,7 +45,7 @@
                   }
                   echo ( ( isset($checked) ? $checked : '' ) );
                 ?> value="4" type="radio">
-                Raid
+                <?php echo (defined('LANG') && LANG === 'ar') ? 'للنهب' : 'Raid'; ?>
             </label>
         </td>
 
@@ -59,15 +59,15 @@ $coor['y']=$form->getValue("y");
 }
 ?>
         <td class="target">
-            <span>x:</span>
+            <span><?php echo (defined('LANG') && LANG === 'ar') ? 'س:' : 'x:'; ?></span>
             <input class="text" name="x" value="<?php echo $coor['x']; ?>" maxlength="4" type="text">
-            <span>y:</span>
+            <span><?php echo (defined('LANG') && LANG === 'ar') ? 'ص:' : 'y:'; ?></span>
             <input class="text" name="y" value="<?php echo $coor['y']; ?>" maxlength="4" type="text">
         </td>
     </tr>
 </tbody></table>
 
-       <button value="ok" name="s1" id="btn_ok" class="trav_buttons" alt="OK" onclick="this.disabled=true;this.form.submit();" /> Ok </button>
+       <button value="ok" name="s1" id="btn_ok" class="trav_buttons" alt="OK" onclick="this.disabled=true;this.form.submit();" /> <?php echo (defined('LANG') && LANG === 'ar') ? 'تم' : 'Ok'; ?> </button>
     </form>
 <p class="error"><?php echo $form->getError("error"); ?></p>
 </div>

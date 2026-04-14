@@ -8,7 +8,7 @@ $start = ($att_tribe - 1) * 10 + 1;
 $end = $att_tribe * 10;
 ?>
 
-<h1>Send units back</h1>			
+<h1><?php echo (defined('LANG') && LANG === 'ar') ? 'إرجاع القوات' : 'Send units back'; ?></h1>			
 
 <form method="POST" name="snd" action="a2b.php">
 
@@ -18,7 +18,7 @@ $end = $att_tribe * 10;
 
 					<tr>
 
-						<th>Destination:</th>
+						<th><?php echo (defined('LANG') && LANG === 'ar') ? 'الهدف:' : 'Destination:'; ?></th>
 
 						<td><a href="karte.php?d=<?php echo $generator->getBaseID($fromcoor['x'],$fromcoor['y']); ?>&amp;c=<?php echo $generator->getMapCheck($generator->getBaseID($fromcoor['x'],$fromcoor['y'])); ?>"><?php echo $to['name']; ?> (<?php echo $fromcoor['x']; ?>|<?php echo $fromcoor['y']; ?>)</a></td>
 
@@ -26,7 +26,7 @@ $end = $att_tribe * 10;
 
 					<tr>
 
-						<th>Owner:</th>
+						<th><?php echo (defined('LANG') && LANG === 'ar') ? 'المالك:' : 'Owner:'; ?></th>
 
 						<td><a href="spieler.php?uid=<?php echo $to['owner']; ?>"><?php echo $database->getUserField($to['owner'],'username',0); ?></a></td>
 
@@ -42,7 +42,7 @@ $end = $att_tribe * 10;
 <table class="troop_details" cellpadding="1" cellspacing="1">
 	<thead>
 		<tr>
-		<td colspan="10">Send units back to <?php echo $to['name']; ?></td>
+		<td colspan="10"><?php echo (defined('LANG') && LANG === 'ar') ? 'إرجاع القوات إلى' : 'Send units back to'; ?> <?php echo $to['name']; ?></td>
 		</tr>
 	</thead>
 </table>
@@ -106,7 +106,7 @@ $end = $att_tribe * 10;
 		echo"<span class=\"none\">(".$enforce['u'.($start + 5)].")</span></td>";
 		if($enforce['hero']>0){
         ?>
-		<td class="line-last large"><img class="unit uhero" src="img/x.gif" title="Hero" alt="Hero"> <input class="text" name="t11" value="<?php echo $enforce['hero']; ?>" maxlength="6" type="text">
+		<td class="line-last large"><img class="unit uhero" src="img/x.gif" title="<?php echo (defined('LANG') && LANG === 'ar') ? 'البطل' : 'Hero'; ?>" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'البطل' : 'Hero'; ?>"> <input class="text" name="t11" value="<?php echo $enforce['hero']; ?>" maxlength="6" type="text">
 		<?php 
        	echo"<span class=\"none\">(".$enforce['hero'].")</span></td>";
 		}
@@ -118,7 +118,7 @@ $end = $att_tribe * 10;
 <table class="troop_details" cellpadding="1" cellspacing="1">
 	<tbody class="infos">
 		<tr>
-			<th>Arrived:</th>
+			<th><?php echo (defined('LANG') && LANG === 'ar') ? 'الوصول:' : 'Arrived:'; ?></th>
 
 			<?php
 			$troopsTime = $units->getWalkingTroopsTime($enforce['from'], $enforce['vref'], $to['owner'], $att_tribe, $enforce, 1);
@@ -126,8 +126,8 @@ $end = $att_tribe * 10;
 			?>
 
 			<td colspan="10">
-			<div class="in">in <?php echo $generator->getTimeFormat($time); ?></div>
-			<div class="at">at <span id="tp2"> <?php echo date("H:i:s",time() + $time)?></span><span> hours</span></div>
+			<div class="in"><?php echo (defined('LANG') && LANG === 'ar') ? 'في' : 'in'; ?> <?php echo $generator->getTimeFormat($time); ?></div>
+			<div class="at"><?php echo (defined('LANG') && LANG === 'ar') ? 'الساعة' : 'at'; ?> <span id="tp2"> <?php echo date("H:i:s",time() + $time)?></span><span> <?php echo (defined('LANG') && LANG === 'ar') ? 'ساعة' : 'hours'; ?></span></div>
 			</td>
 		</tr>
 	</tbody>

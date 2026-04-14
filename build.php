@@ -179,53 +179,52 @@ if ($session->goldclub == 1 && count($session->villages) > 1) {
     }
 }
 
-if ($session->goldclub == 1) {
-    if (isset($_GET['t']) == 99) {
-        if(isset($_GET['action'])){
-            if($_GET['action'] == 'addList') $create = 1;
-            elseif($_GET['action'] == 'addraid') $create = 2;
-            elseif($_GET['action'] == 'showSlot' && $_GET['eid']) $create = 3; 
-        }       
-        else $create = 0;
+if (isset($_GET['t']) == 99) {
+    if(isset($_GET['action'])){
+        if($_GET['action'] == 'addList') $create = 1;
+        elseif($_GET['action'] == 'addraid') $create = 2;
+        elseif($_GET['action'] == 'showSlot' && $_GET['eid']) $create = 3; 
+    }       
+    else $create = 0;
 
-        if(isset($_GET['slid']) && $_GET['slid']){
-            $FLData = $database->getFLData($_GET['slid']);
-            if ($FLData['owner'] == $session->uid) $checked[$_GET['slid']] = 1;
-        }
-
-        if(isset($_GET['action']) && $_GET['action'] == 'deleteList') {
-            $database->delFarmList($_GET['lid'], $session->uid);
-            header("Location: build.php?id=39&t=99");
-            exit;
-        } elseif(isset($_GET['action']) && $_GET['action'] == 'deleteSlot') {
-            $database->delSlotFarm($_GET['eid'], $session->uid, $_GET['lid']);
-            header("Location: build.php?id=39&t=99");
-            exit;
-        }
-
-        if(isset($_POST['action']) && $_POST['action'] == 'startRaid') $units->startRaidList($_POST);
-
-        if(isset($_GET['slid']) && is_numeric($_GET['slid'])) {
-            $FLData = $database->getFLData($_GET['slid']);
-            if ($FLData['owner'] == $session->uid) $checked[$_GET['slid']] = 1;
-        }
-
-        if(isset($_GET['evasion']) && is_numeric($_GET['evasion'])) {
-            $evasionvillage = $database->getVillage($_GET['evasion']);
-            if($evasionvillage['owner'] == $session->uid) $database->setVillageEvasion($_GET['evasion']);
-            
-            header("Location: build.php?id=39&t=99");
-            exit;
-        }
-
-        if (isset($_POST['maxevasion']) && is_numeric($_POST['maxevasion'])) {
-            $database->updateUserField($session->uid, "maxevasion", $_POST['maxevasion'], 1);
-            header("Location: build.php?id=39&t=99" );
-            exit;
-        }
+    if(isset($_GET['slid']) && $_GET['slid']){
+        $FLData = $database->getFLData($_GET['slid']);
+        if ($FLData['owner'] == $session->uid) $checked[$_GET['slid']] = 1;
     }
+
+    if(isset($_GET['action']) && $_GET['action'] == 'deleteList') {
+        $database->delFarmList($_GET['lid'], $session->uid);
+        header("Location: build.php?id=39&t=99");
+        exit;
+    } elseif(isset($_GET['action']) && $_GET['action'] == 'deleteSlot') {
+        $database->delSlotFarm($_GET['eid'], $session->uid, $_GET['lid']);
+        header("Location: build.php?id=39&t=99");
+        exit;
+    }
+
+    if(isset($_POST['action']) && $_POST['action'] == 'startRaid') $units->startRaidList($_POST);
+
+    if(isset($_GET['slid']) && is_numeric($_GET['slid'])) {
+        $FLData = $database->getFLData($_GET['slid']);
+        if ($FLData['owner'] == $session->uid) $checked[$_GET['slid']] = 1;
+    }
+
+    if(isset($_GET['evasion']) && is_numeric($_GET['evasion'])) {
+        $evasionvillage = $database->getVillage($_GET['evasion']);
+        if($evasionvillage['owner'] == $session->uid) $database->setVillageEvasion($_GET['evasion']);
+        
+        header("Location: build.php?id=39&t=99");
+        exit;
+    }
+
+    if (isset($_POST['maxevasion']) && is_numeric($_POST['maxevasion'])) {
+        $database->updateUserField($session->uid, "maxevasion", $_POST['maxevasion'], 1);
+        header("Location: build.php?id=39&t=99" );
+        exit;
+    }
+} else {
+    $create = 0;
 }
-else $create = 0;
 
 if(isset($_POST['a']) == 533374 && isset($_POST['id']) == 39) $units->Settlers($_POST);
 

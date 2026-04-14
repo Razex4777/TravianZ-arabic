@@ -9,7 +9,9 @@ if(isset($_POST['action']) && $_POST['action'] == 'addSlot' && isset($_POST['lid
 
 	$troops = 0;
 	for($i = 1; $i <= 6; $i++){
-		if(!in_array($i + ($session->tribe - 1) * 10, [4, 14, 23])) $troops += $_POST['t'.$i];
+		if(!in_array($i + ($session->tribe - 1) * 10, [4, 14, 23])) {
+            $troops += isset($_POST['t'.$i]) ? (int)$_POST['t'.$i] : 0;
+        }
 	}
     
     if(!empty($_POST['target_id'])){
@@ -88,29 +90,38 @@ $sql = mysqli_query($database->dblink, "SELECT id, name, owner, wref FROM ".TB_P
                     </td>
                 </tr>
                 <tr>
-                    <th>Target village:</th>
+                    <th><?php echo (defined('LANG') && LANG === 'ar') ? 'القرية المستهدفة:' : 'Target village:'; ?></th>
                     <td class="target">
                         
             <div class="coordinatesInput">
+<?php
+$px = isset($_POST['x']) ? htmlspecialchars($_POST['x']) : '';
+$py = isset($_POST['y']) ? htmlspecialchars($_POST['y']) : '';
+if(empty($px) && empty($py) && !empty($_GET['z'])) {
+    $coor = $database->getCoor($_GET['z']);
+    $px = $coor['x'];
+    $py = $coor['y'];
+}
+?>
                 <div class="xCoord">
                     <label for="xCoordInput">X:</label>
-                    <input value="<?php echo $_POST['x']; ?>" name="x" id="xCoordInput" class="text coordinates x ">
+                    <input value="<?php echo $px; ?>" name="x" id="xCoordInput" class="text coordinates x ">
                 </div>
                 <br />
                 <div class="yCoord">
                     <label for="yCoordInput">Y:</label>
-                    <input value="<?php echo $_POST['y']; ?>" name="y" id="yCoordInput" class="text coordinates y ">
+                    <input value="<?php echo $py; ?>" name="y" id="yCoordInput" class="text coordinates y ">
                 </div>
                 <div class="clear"></div>
             </div>
             <br />
                                 <div class="targetSelect">
-                            <label class="lastTargets">Last targets:</label>
+                            <label class="lastTargets"><?php echo (defined('LANG') && LANG === 'ar') ? 'الأهداف السابقة:' : 'Last targets:'; ?></label>
 							<select name="target_id">
 <?php
 $getwref = "SELECT movement.to, movement.ref, attacks.* FROM ".TB_PREFIX."movement as movement INNER JOIN ".TB_PREFIX."attacks as attacks ON attacks.id = movement.ref WHERE attacks.attack_type = 4 AND movement.proc = 1 AND movement.from = ".$village->wid;
 $arraywref = $database->query_return($getwref);
-echo '<option value="">Select village</option>';
+echo '<option value="">' . ((defined('LANG') && LANG === 'ar') ? 'اختر قرية' : 'Select village') . '</option>';
 if(mysqli_num_rows(mysqli_query($database->dblink, $getwref)) != 0){
 	foreach($arraywref as $row){
 		$towref = $row["to"];
@@ -135,6 +146,6 @@ if(mysqli_num_rows(mysqli_query($database->dblink, $getwref)) != 0){
                 </div>
         <?php include("Templates/goldClub/trooplist.tpl"); ?>
 <br />
-<button type="submit" value="save" name="save" id="save" class="trav_buttons">Create</button>
+<button type="submit" value="save" name="save" id="save" class="trav_buttons"><?php echo (defined('LANG') && LANG === 'ar') ? 'حفظ' : 'Create'; ?></button>
 </form>
 </div>

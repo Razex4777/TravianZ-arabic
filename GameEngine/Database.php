@@ -6124,12 +6124,12 @@ References: User ID/Message ID, Mode
         $end              = ( $ownertribe * 10 );
 
         for ( $i = $start; $i <= $end; $i ++ ) {
-            $totalunits += $movingunits[ 'u' . $i ];
-            $totalunits += $reinforcingunits[ 'u' . $i ];
+            $totalunits += isset($movingunits[ 'u' . $i ]) ? $movingunits[ 'u' . $i ] : 0;
+            $totalunits += isset($reinforcingunits[ 'u' . $i ]) ? $reinforcingunits[ 'u' . $i ] : 0;
         }
 
-        $totalunits += $movingunits['hero'];
-        $totalunits += $reinforcingunits['hero'];
+        $totalunits += isset($movingunits['hero']) ? $movingunits['hero'] : 0;
+        $totalunits += isset($reinforcingunits['hero']) ? $reinforcingunits['hero'] : 0;
 
 		return $totalunits;
 	}

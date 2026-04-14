@@ -1,4 +1,4 @@
-<h1>Send Troops</h1>
+<h1><?php echo (defined('LANG') && LANG === 'ar') ? 'إرسال القوات' : 'Send Troops'; ?></h1>
 
 <form method="POST" name="snd" action="a2b.php"><input name="timestamp" value="3278280730" type="hidden"> <input name="timestamp_checksum" value="597fa8" type="hidden"> <input name="b" value="1" type="hidden">
 
@@ -95,7 +95,7 @@
         ?>
 		<td class="line-last regular"><?php 
         if ($village->unitarray['hero']>0){
-        echo "<img class=\"unit uhero\" src=\"img/x.gif\" title=\"Hero\" alt=\"Hero\"> <input class=\"text\" name=\"t11\" value=\"\" maxlength=\"6\" type=\"text\">   ";
+        echo "<img class=\"unit uhero\" src=\"img/x.gif\" title=\"<?php echo (defined('LANG') && LANG === 'ar') ? 'البطل' : 'Hero'; ?>\" alt=\"<?php echo (defined('LANG') && LANG === 'ar') ? 'البطل' : 'Hero'; ?>\"> <input class=\"text\" name=\"t11\" value=\"\" maxlength=\"6\" type=\"text\">   ";
             echo "<a href=\"#\" onclick=\"document.snd.t11.value=".$village->unitarray['hero']."; return false;\">(".$village->unitarray['hero'].")</a></td>";
         }
         ?></td>

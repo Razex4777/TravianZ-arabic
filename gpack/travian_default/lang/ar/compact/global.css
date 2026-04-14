@@ -67,12 +67,13 @@ div#ce {
 }
 
 div#ltime {
-    height: 15px;
+    height: auto;
     right: 5px;
     position: absolute;
     top: 42px;
     width: 220px;
     z-index: 3;
+    line-height: 1.5;
 }
 
 div#res {

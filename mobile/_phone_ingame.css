@@ -295,9 +295,10 @@
     height: auto !important;                    /* desktop: 15px — kills overflow */
     min-width: 0 !important;
     text-align: center !important;
-    padding: 4px 0;
+    padding: 6px 0 !important;                 /* Increased padding for breathing room */
     z-index: auto !important;
-    font-size: 10px;
+    font-size: 11px !important;                /* Larger font for readability */
+    line-height: 1.8 !important;               /* Fixes vertical overlap of Arabic text */
     color: #666;
   }
 

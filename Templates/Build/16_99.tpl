@@ -1,8 +1,3 @@
-﻿<?php
-if(!$session->goldclub) include("Templates/Build/16.tpl");
-else
-{
-?>
 <div id="build" class="gid16"><a href="#" onClick="return Popup(16,4);" class="build_logo">
 	<img class="g16" src="img/x.gif" alt="Rally point" title="<?php echo RALLYPOINT;?>" />
 </a>
@@ -57,4 +52,3 @@ else
 <div class="clear"></div><p><button value="ok" name="s1" id="btn_ok" class="trav_buttons" tabindex="8">OK</button></p></form>
 <?php } ?>
 	</div>
-<?php } ?>

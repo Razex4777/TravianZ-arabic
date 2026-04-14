@@ -528,6 +528,11 @@ if($type >= 18 && $type <= 21){
 		  ?>
 		  </td>
 				</tr>
+                <tr>
+                    <td class="none">
+                        <a href="build.php?id=39&t=99&action=addraid&z=<?php echo $_GET['d']; ?>">&raquo; <?php echo (defined('LANG') && LANG === 'ar') ? 'إضافة الى قائمة المزارع' : 'Add to farm list'; ?></a>
+                    </td>
+                </tr>
                 <?php } ?>
 		</tbody>
 </table>
