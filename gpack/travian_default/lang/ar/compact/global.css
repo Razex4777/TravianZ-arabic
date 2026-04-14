@@ -1,3 +1,15 @@
+/* ==============================================
+   Noto Sans Arabic — Self-hosted Variable Font
+   Covers weights 100-900 in a single .ttf file
+   ============================================== */
+@font-face {
+    font-family: 'Noto Sans Arabic';
+    src: url('../fonts/NotoSansArabic-Variable.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
 BODY
 {
 COLOR: #6495ED; /* 1 */
@@ -11,7 +23,7 @@ margin-top:0px;
 margin-bottom:0px;
 margin-right:0px;
 margin-left:0px;
-font-family: Verdana, Arial, Helvetica, sans-serif;
+font-family: 'Noto Sans Arabic', Verdana, Arial, Helvetica, sans-serif;
 direction: rtl;
 text-align: right;
 }
@@ -123,7 +135,7 @@ div#mbig h1 {
 
 body {
     color: #000000;
-    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-family: 'Noto Sans Arabic',Verdana,Arial,Helvetica,sans-serif;
     font-size: 13px;
     font-weight: normal;
 }

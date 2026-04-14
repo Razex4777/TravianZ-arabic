@@ -309,7 +309,7 @@ table thead th, table tfoot th {
 }
 
 input.text, select.dropdown, textarea {
-    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-family: 'Noto Sans Arabic',Verdana,Arial,Helvetica,sans-serif;
     font-size: 11px;
 }
 

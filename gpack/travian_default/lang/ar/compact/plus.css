@@ -208,12 +208,12 @@ div.plus #brought_in th, div.plus #brought_in td {
 }
 
 div.plus table th, div.plus table td {
-    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-family: 'Noto Sans Arabic',Verdana,Arial,Helvetica,sans-serif;
     font-size: 13px;
 }
 
 div.plus table.lang_ar th, div.plus table.lang_ar td {
-    font-family: Tahoma,Helvetica,Arial,Verdana,sans-serif;
+    font-family: 'Noto Sans Arabic',Tahoma,Helvetica,Arial,Verdana,sans-serif;
     font-size: 14px;
 }
 

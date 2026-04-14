@@ -807,6 +807,12 @@ class Units {
 
 				//Send the attack
 				if($canSend){				
+                    if($session->gold < 1) {
+                        continue;
+                    }
+                    $database->updateUserField($session->uid, 'gold', $session->gold - 1, 1);
+                    $session->gold -= 1;
+
 					$ckey = $generator->generateRandStr(6);
 					$id = $database->addA2b($ckey, 0, $wref, $t1, $t2, $t3, $t4, $t5, $t6, 0, 0, 0, 0, 0, 4);
 					$data = $database->getA2b($ckey);

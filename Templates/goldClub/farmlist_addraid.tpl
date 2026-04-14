@@ -35,6 +35,7 @@ if(isset($_POST['action']) && $_POST['action'] == 'addSlot' && isset($_POST['lid
     elseif($troops == 0) $errormsg = "No troops has been selected.";   	
     elseif($database->hasBeginnerProtection($Wref) == 1) $errormsg = "Player under protection.";  
     elseif($_POST['target_id'] == $FLData['wref'] || $vdata['wref'] == $FLData['wref']) $errormsg = "You can't attack the same village you're sending troops from.";
+    elseif($session->gold < 1) $errormsg = (defined('LANG') && LANG === 'ar') ? "ليس لديك ذهب كافٍ. إضافة قرية يكلف 1 ذهب." : "Not enough gold. Adding a village costs 1 gold.";
     else
     {   
 		if(!empty($_POST['target_id'])){
@@ -50,6 +51,7 @@ if(isset($_POST['action']) && $_POST['action'] == 'addSlot' && isset($_POST['lid
 		
         $coor = $database->getCoor($village->wid);        
         $distance = $database->getDistance($coor['x'], $coor['y'], $WrefX, $WrefY);
+        $database->updateUserField($session->uid, 'gold', $session->gold - 1, 1);
         $database->addSlotFarm($_POST['lid'], $Wref, $WrefX, $WrefY, $distance, $_POST['t1'], $_POST['t2'], $_POST['t3'], $_POST['t4'], $_POST['t5'], $_POST['t6']);
 
         header("Location: build.php?id=39&t=99");
