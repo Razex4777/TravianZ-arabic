@@ -2713,7 +2713,7 @@ public function getBestOasisCropBonus($x, $y) {
 
 	function getVillageType2($wref) {
         // retirieve form cache
-        return $this->getVillageByWorldID($wref, $use_cache)['oasistype'];
+        return $this->getVillageByWorldID($wref, true)['oasistype'];
 	}
 
 	// no need to cache this method

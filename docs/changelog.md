@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-04-14 23:51
+- **Fix: Desktop Footer Overflow** — Fixed footer content spilling beyond viewport bounds after adding multi-line copyright/localization text.
+  - Root cause: legacy desktop footer CSS enforced `height: 90px`, while footer now renders 3 lines.
+  - Updated `Templates/footer.tpl` with desktop-safe overrides: `div#footer { height:auto; min-height:120px; }`, auto-height `#mfoot`, centered text, and increased `.footer-stopper` spacing.
+  - Cleaned invalid footer markup by removing deprecated `<center>` wrapper to avoid inconsistent rendering.
+
 ## 2026-04-14 01:00
 - **Feature: Fill Storage Calculator** — Implemented "Fill Storage" (ملئ المخزن) feature on the Plus page for Gold-to-Resources.
   - Added auto-calculating logic in `3.tpl` to determine the maximum gold to spend based on the lowest available storage across all 4 resources (warehouse or granary).
@@ -173,7 +179,8 @@
 - Updated `GameEngine/Lang/ar.php` to act cleanly as an inclusion wrapper.
 ## 2026-04-10 17:25
 - Resolved massive PHP Constant already defined warnings by refactoring GameEngine/Technology.php to dynamically include the active LANG file instead of hardcoding en.php.
-- Created lip_css.js and bulk-converted 36 modular CSS files in gpack/travian_default/lang/ar/compact/ using tlcss (converting floats, margins, paddings for RTL architecture).
+- Created lip_css.js and bulk-converted 36 modular CSS files in gpack/travian_default/lang/ar/compact/ using 
+tlcss (converting floats, margins, paddings for RTL architecture).
 - Appended direction: rtl; text-align: right; directly to ody in gpack/travian_default/lang/ar/compact/global.css.
 - Started standard docker-compose stack (DB, phpMyAdmin, Web) for local review.
 

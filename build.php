@@ -377,7 +377,7 @@ if(!NEW_FUNCTIONS_DISPLAY_LINKS) {
 ?>
 </div>
 <div class="clear"></div>
-
+</div>
 <div class="footer-stopper"></div>
 <div class="clear"></div>
 

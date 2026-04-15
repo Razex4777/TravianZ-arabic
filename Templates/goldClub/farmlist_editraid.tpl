@@ -44,6 +44,7 @@ if(isset($_POST['action']) == 'editSlot' && isset($_GET['eid']) && !empty($_GET[
     elseif($troops == 0) $errormsg = "No troops has been selected.";
     elseif($database->hasBeginnerProtection($Wref) == 1) $errormsg = "Player under protection."; 
     elseif($_POST['target_id'] == $FLData['wref'] || $vdata['wref'] == $FLData['wref']) $errormsg = "You can't attack the same village you're sending troops from.";
+    elseif($session->gold < 1) $errormsg = (defined('LANG') && LANG === 'ar') ? "ليس لديك ذهب كافٍ. تعديل قرية يكلف 1 ذهب." : "Not enough gold. Editing a village costs 1 gold.";
     else
     {
 		if(!empty($_POST['target_id'])){
@@ -59,6 +60,7 @@ if(isset($_POST['action']) == 'editSlot' && isset($_GET['eid']) && !empty($_GET[
 		
 		$coor = $database->getCoor($village->wid);
 		$distance = $database->getDistance($coor['x'], $coor['y'], $WrefX, $WrefY);  
+        $database->updateUserField($session->uid, 'gold', $session->gold - 1, 1);
 		$database->editSlotFarm($_GET['eid'], $_POST['lid'], $database->getRaidList($_GET['eid'])['lid'], $session->uid, $Wref, $WrefX, $WrefY, $distance, $_POST['t1'], $_POST['t2'], $_POST['t3'], $_POST['t4'], $_POST['t5'], $_POST['t6']);
         
         header("Location: build.php?id=39&t=99");
@@ -70,7 +72,7 @@ if(isset($_POST['action']) == 'editSlot' && isset($_GET['eid']) && !empty($_GET[
 <div id="raidListSlot">
 	<h4>Edit Slot</h4>
 <font color="#FF0000"><b>    
-<?php echo $errormsg; ?>
+<?php if(isset($errormsg)) echo $errormsg; ?>
 </b></font>
 	
 	<form id="edit_form" action="build.php?id=39&t=99&action=showSlot&eid=<?php echo $_GET['eid']; ?>" method="post">
@@ -83,7 +85,7 @@ $lid2 = $getlid['lid'];
 		<input type="hidden" name="action" value="editSlot">			
 			<table cellpadding="1" cellspacing="1" class="transparent" id="raidList">
 				<tbody><tr>
-					<th>List name:</th><?php echo $_GET["lid"]; ?>
+					<th>List name:</th>
 					<td>
 						<select onchange="getTargetsByLid();" id="lid" name="lid">
 <?php
@@ -152,7 +154,7 @@ if(mysqli_num_rows(mysqli_query($database->dblink, $getwref)) != 0){
 		<?php include "Templates/goldClub/trooplist.tpl"; ?>
 
 <br />		
-<button type="submit" value="save" name="save" id="save" class="trav_buttons">Save</button>&nbsp;
-<button type="button" value="delete" name="delete" id="delete" class="trav_buttons" onclick="window.location.href = '?gid=16&t=99&action=deleteSlot&eid=<?php echo $_GET["eid"]; ?>&lid=<?php echo $eiddata['lid']; ?>';">Delete</button>
+<button type="submit" value="save" name="save" id="save" class="trav_buttons"><?php echo (defined('LANG') && LANG === 'ar') ? 'حفظ (-1 ذهب)' : 'Save (-1 Gold)'; ?></button>&nbsp;
+<button type="button" value="delete" name="delete" id="delete" class="trav_buttons" onclick="window.location.href = '?gid=16&t=99&action=deleteSlot&eid=<?php echo $_GET["eid"]; ?>&lid=<?php echo $eiddata['lid']; ?>';"><?php echo (defined('LANG') && LANG === 'ar') ? 'حذف' : 'Delete'; ?></button>
 </form>
 </div>

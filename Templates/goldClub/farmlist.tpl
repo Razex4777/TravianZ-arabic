@@ -1,4 +1,8 @@
 <?php
+$res = mysqli_query($database->dblink, "SHOW COLUMNS FROM ".TB_PREFIX."raidlist LIKE 'sort_order'");
+if(mysqli_num_rows($res) == 0) {
+    mysqli_query($database->dblink, "ALTER TABLE ".TB_PREFIX."raidlist ADD COLUMN sort_order INT(11) NOT NULL DEFAULT 0");
+}
 
 if(isset($_GET['t']) == 99 && isset($_GET['action']) == 0) {
 
@@ -46,7 +50,7 @@ while($row = mysqli_fetch_array($sql)){
         <tbody>
 
 <?php
-$sql2 = mysqli_query($database->dblink,"SELECT * FROM ".TB_PREFIX."raidlist WHERE lid = ".(int) $lid." ORDER BY distance ASC");
+$sql2 = mysqli_query($database->dblink,"SELECT * FROM ".TB_PREFIX."raidlist WHERE lid = ".(int) $lid." ORDER BY sort_order ASC, distance ASC");
 $query2 = mysqli_num_rows($sql2);
 if(!$query2) echo '<td class="noData" colspan="7">'.NO_VILLAGES.'</td>';
 else
@@ -163,7 +167,7 @@ while($row2 = mysqli_fetch_array($getnotice)){
 	<label for="raidListMarkAll"><?php echo (defined('LANG') && LANG === 'ar') ? 'تحديد الكل' : 'Select all'; ?></label>
 </div><br />
 <div class="addSlot">
-<button type="button" class="trav_buttons" onclick="window.location.href = '?gid=16&t=99&action=addraid';"><?php echo (defined('LANG') && LANG === 'ar') ? 'إضافة هجمة (-1 ذهب)' : 'Add Raid (-1 Gold)'; ?></button>
+<button type="button" class="trav_buttons" onclick="window.location.href = '?gid=16&t=99&action=addraid';"><?php echo (defined('LANG') && LANG === 'ar') ? 'إضافة هجمة (-5 ذهب)' : 'Add Raid (-5 Gold)'; ?></button>
 <button type="submit" class="trav_buttons" value="Start Raid"><?php echo (defined('LANG') && LANG === 'ar') ? 'بدء الهجوم (-1 ذهب / قرية)' : 'Start Raid (-1 Gold / farm)'; ?></button>
 </div><br />
 <?php } ?>
@@ -176,7 +180,6 @@ while($row2 = mysqli_fetch_array($getnotice)){
 ?>
 </form>
 <?php
-
 if($create == 1){
 	$hideevasion = 1;
 	include("Templates/goldClub/farmlist_add.tpl");
@@ -188,3 +191,122 @@ if($create == 1){
 	include("Templates/goldClub/farmlist_editraid.tpl");
 }
 ?>
+
+<style>
+/* visual feedback for drag and drop and sorting */
+table#raidList thead td { transition: background-color 0.2s; }
+table#raidList thead td:hover { background-color: rgba(200,200,200,0.3); }
+tr.slotRow.dragging { background-color: #f0f0f0; opacity: 0.6; }
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const tables = document.querySelectorAll('table#raidList');
+    tables.forEach((table, index) => {
+        const ths = table.querySelectorAll('thead td');
+        
+        // 1. Column Sorting
+        ths.forEach(th => {
+            th.style.cursor = "pointer";
+            th.title = "<?php echo (defined('LANG') && LANG === 'ar') ? 'اضغط للترتيب' : 'Click to sort'; ?>";
+            th.addEventListener('click', () => {
+                const tbody = table.querySelector('tbody');
+                const rows = Array.from(tbody.querySelectorAll('tr.slotRow'));
+                let asc = th.dataset.asc === 'true' || false;
+                th.dataset.asc = !asc;
+                
+                rows.sort((a, b) => {
+                    let aCol = a.children[th.cellIndex];
+                    let bCol = b.children[th.cellIndex];
+                    if(!aCol || !bCol) return 0;
+                    
+                    let aText = aCol.textContent.replace(/[^0-9.-]/g, '').trim(); 
+                    if(aText === '') aText = aCol.textContent.trim();
+                    let bText = bCol.textContent.replace(/[^0-9.-]/g, '').trim();
+                    if(bText === '') bText = bCol.textContent.trim();
+                    
+                    let aNum = parseFloat(aText);
+                    let bNum = parseFloat(bText);
+                    
+                    if(!isNaN(aNum) && !isNaN(bNum)) {
+                        return asc ? aNum - bNum : bNum - aNum;
+                    } else {
+                        return asc ? aCol.textContent.trim().localeCompare(bCol.textContent.trim()) : bCol.textContent.trim().localeCompare(aCol.textContent.trim());
+                    }
+                });
+                
+                rows.forEach(row => tbody.appendChild(row));
+                saveOrder(tbody);
+            });
+        });
+
+        // 2. Drag and Drop sorting
+        const tbody = table.querySelector('tbody');
+        let draggedRow = null;
+        
+        const rows = tbody.querySelectorAll('tr.slotRow');
+        rows.forEach(row => {
+            row.draggable = true;
+            row.style.cursor = "move";
+            row.title = "<?php echo (defined('LANG') && LANG === 'ar') ? 'اسحب لإعادة الترتيب' : 'Drag to reorder'; ?>";
+            
+            row.addEventListener('dragstart', function(e) {
+                draggedRow = row;
+                e.dataTransfer.effectAllowed = 'move';
+                row.classList.add('dragging');
+            });
+            
+            row.addEventListener('dragend', function() {
+                row.classList.remove('dragging');
+                draggedRow = null;
+                saveOrder(tbody);
+            });
+            
+            row.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                if(!draggedRow) return;
+                const afterElement = getDragAfterElement(tbody, e.clientY);
+                if (afterElement == null) {
+                    tbody.appendChild(draggedRow);
+                } else {
+                    tbody.insertBefore(draggedRow, afterElement);
+                }
+            });
+        });
+    });
+
+    function getDragAfterElement(container, y) {
+        const draggableElements = [...container.querySelectorAll('tr.slotRow:not(.dragging)')];
+        return draggableElements.reduce((closest, child) => {
+            const box = child.getBoundingClientRect();
+            const offset = y - box.top - box.height / 2;
+            if (offset < 0 && offset > closest.offset) {
+                return { offset: offset, element: child };
+            } else {
+                return closest;
+            }
+        }, { offset: Number.NEGATIVE_INFINITY }).element;
+    }
+
+    function saveOrder(tbody) {
+        const rows = tbody.querySelectorAll('tr.slotRow');
+        let order = [];
+        rows.forEach(row => {
+            const cb = row.querySelector('input.markSlot');
+            if(cb) order.push(cb.value);
+        });
+        
+        if(order.length === 0) return;
+        
+        let formData = new FormData();
+        order.forEach((id, index) => {
+            formData.append('order['+index+']', id);
+        });
+        
+        fetch('ajax_farmsort.php', {
+            method: 'POST',
+            body: formData
+        }).then(res => res.text()).then(txt => console.log('saved'));
+    }
+});
+</script>

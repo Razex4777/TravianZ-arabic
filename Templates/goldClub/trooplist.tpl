@@ -21,7 +21,7 @@ for($i = $start; $i <= $end; $i++){
 	if(in_array($i, [4, 14, 23])) continue;
 ?>
 <td>
-	<input class="text" id="t<?php echo $i - $start + 1; ?>" type="text" name="t<?php echo $i - $start + 1; ?>" value="<?php echo (${'t'.($i - $start + 1)} > 0) ? ${'t'.($i - $start + 1)} : 0; ?>">
+	<input class="text" id="t<?php echo $i - $start + 1; ?>" type="text" name="t<?php echo $i - $start + 1; ?>" value="<?php echo (isset(${'t'.($i - $start + 1)}) && ${'t'.($i - $start + 1)} > 0) ? ${'t'.($i - $start + 1)} : 0; ?>">
 </td>
 <?php
 }

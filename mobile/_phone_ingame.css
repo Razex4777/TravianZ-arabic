@@ -101,6 +101,7 @@
        must visually appear ABOVE the village content on mobile */
     display: flex !important;
     flex-direction: column !important;
+    gap: 15px !important;
   }
 
   /* Re-order wrapper children so resources sit between header and content */
@@ -138,6 +139,29 @@
     min-height: 50px;
     position: relative !important;
     width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    flex-shrink: 0 !important;
+    padding: 58px 0 8px 0 !important;
+  }
+
+  /* Protection Timer Box (Newcomers Protection) */
+  #bp_timer_box {
+    position: absolute !important;
+    left: auto !important;
+    right: 8px !important;
+    top: 8px !important;
+    margin: 0 !important;
+    width: auto !important;
+    max-width: calc(50% - 12px) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 12 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
   }
 
   /* Dynamic header artwork — scale to viewport */
@@ -171,10 +195,10 @@
     width: 100% !important;
     height: auto !important;
     min-height: 45px !important;
-    margin: 5px 0 15px 0 !important;
+    margin: 0 0 6px 0 !important;
     background: transparent !important;
     border: none !important;
-    z-index: 100;
+    z-index: 10;
     transform: none !important;
     visibility: visible !important;
     display: flex !important;
@@ -182,10 +206,11 @@
     flex-wrap: wrap !important;
     align-items: center !important;
     justify-content: center !important;
-    padding: 0 5px !important;
+    padding: 0 5px 6px 5px !important;
     box-shadow: none !important;
-    gap: 0px 4px !important;
+    gap: 4px 6px !important;
     overflow: visible !important;
+    flex-shrink: 0 !important;
   }
 
   /* Nav icons container scale */
@@ -199,13 +224,11 @@
     justify-content: center !important;
     float: none !important;
     /* Scale the desktop visual size down without breaking its internal background offsets */
-    transform: scale(0.65) !important;
-    transform-origin: center !important;
-    /* Keep logical dimensions so backgrounds don't clip */
-    width: 60px !important; 
-    height: 60px !important;
-    /* Collapse the wrapping layout size so they fit tightly */
-    margin: -10px -10px !important; 
+    transform: scale(0.62) !important;
+    transform-origin: center center !important;
+    width: 48px !important;
+    height: 48px !important;
+    margin: 0 1px !important;
   }
 
   div#mtop a#n1:active,
@@ -229,33 +252,36 @@
 
   /* Plus button inside the sidebar */
   div#mtop a#plus {
-    margin: 0 5px 0 0 !important;
+    margin: 0 !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     float: none !important;
+    position: absolute !important;
+    top: -50px !important;
+    left: 8px !important;
     height: auto !important;
-    width: 100% !important;
-    padding: 10px !important;
-    background: linear-gradient(135deg, #71D000, #5eac00) !important;
-    border-radius: 10px !important;
+    width: auto !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
     text-decoration: none !important;
-    color: #fff !important;
-    font-weight: bold;
+    z-index: 13 !important;
   }
 
   div#mtop a#plus span.plus_text {
-    background: none !important;
-    float: none !important;
-    display: inline !important;
-    padding: 0 !important;
-    height: auto !important;
-    color: #fff !important;
-    font-size: 14px !important;
+    display: none !important;
   }
 
   div#mtop a#plus img#btn_plus {
     display: none !important;
+  }
+
+  div#mtop a#plus #header_gold_display {
+    white-space: nowrap !important;
+    max-width: calc(50vw - 16px) !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
   }
 
   /* Day/Night widget — hide in sidebar, too small to matter */

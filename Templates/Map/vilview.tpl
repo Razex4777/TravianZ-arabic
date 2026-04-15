@@ -530,7 +530,7 @@ if($type >= 18 && $type <= 21){
 				</tr>
                 <tr>
                     <td class="none">
-                        <a href="build.php?id=39&t=99&action=addraid&z=<?php echo $_GET['d']; ?>">&raquo; <?php echo (defined('LANG') && LANG === 'ar') ? 'إضافة الى قائمة المزارع' : 'Add to farm list'; ?></a>
+                        <a href="build.php?id=39&t=99&action=addraid&z=<?php echo $_GET['d']; ?>">&raquo; <?php echo (defined('LANG') && LANG === 'ar') ? 'إضافة الى قائمة المزارع (-1 ذهب)' : 'Add to farm list (-1 Gold)'; ?></a>
                     </td>
                 </tr>
                 <?php } ?>

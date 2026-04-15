@@ -74,8 +74,9 @@ if ($_protect_ts > time()) {
 			// no PLUS needed for Support
 			if ($_SESSION['id_user'] != 1) {
 		?>
-        <a href="plus.php?id=3" id="plus" style="background: transparent !important; width: auto !important; height: auto !important; margin-left: 0 !important; margin-top: 20px !important;">
+        <a href="plus.php?id=3" id="plus" style="background: transparent; width: auto; height: auto; margin-left: 0; margin-top: 20px;">
         <span id="header_gold_display" style="
+            display: inline-flex;
             align-items: center;
             gap: 5px;
             background: linear-gradient(180deg, #FFD54F 0%, #FF9800 50%, #E65100 100%);

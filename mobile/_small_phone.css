@@ -89,18 +89,6 @@
 
   /* ---------- IN-GAME PAGES ---------- */
 
-  div#mtop a#n1 img,
-  div#mtop a#n2 img,
-  div#mtop a#n3 img,
-  div#mtop a#n4 img {
-    height: 40px !important;
-    width: 40px !important;
-  }
-
-  div#n5 img {
-    height: 40px !important;
-    width: 20px !important;
-  }
 
   div#side_navi p a {
     font-size: 10px !important;
