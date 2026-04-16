@@ -20,7 +20,7 @@
 		<tr>
 			<th onclick="return Popup(3,5)"><img src="img/x.gif" class="help" alt="Instructions" title="Instructions">
 			</th>
-			<th colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'مهاجمو الأسبوع' : 'Attackers of the week'; ?></th>
+			<th colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'مهاجمو اليوم' : 'Attackers of the day'; ?></th>
 		</tr>
 		<tr>
 			<td><?php echo (defined('LANG') && LANG === 'ar') ? 'رقم' : 'No.'; ?></td>
@@ -74,7 +74,7 @@
 		<tr>
 			<th onclick="return Popup(3,5)"><img src="img/x.gif" class="help" alt="Instructions" title="Instructions">
 			</th>
-			<th colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'مدافعو الأسبوع' : 'Defenders of the week'; ?></th>
+			<th colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'مدافعو اليوم' : 'Defenders of the day'; ?></th>
 		</tr>
 		<tr>
 			<td><?php echo (defined('LANG') && LANG === 'ar') ? 'رقم' : 'No.'; ?></td>
@@ -129,7 +129,7 @@
 		<tr>
 			<th onclick="return Popup(3,5)"><img src="img/x.gif" class="help" alt="Instructions" title="Instructions">
 			</th>
-			<th colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'متسلقو الأسبوع' : 'Climbers of the week'; ?></th>
+			<th colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'مطورو اليوم' : 'Climbers of the day'; ?></th>
 		</tr>
 		<tr>
 			<td><?php echo (defined('LANG') && LANG === 'ar') ? 'رقم' : 'No.'; ?></td>
@@ -181,7 +181,7 @@
 		<tr>
 			<th onclick="return Popup(3,5)"><img src="img/x.gif" class="help" alt="Instructions" title="Instructions">
 			</th>
-			<th colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'لصوص الأسبوع' : 'Robbers of the week'; ?></th>
+			<th colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'سارقو اليوم' : 'Robbers of the day'; ?></th>
 		</tr>
 		<tr>
 			<td><?php echo (defined('LANG') && LANG === 'ar') ? 'رقم' : 'No.'; ?></td>

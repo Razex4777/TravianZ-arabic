@@ -70,7 +70,7 @@ if(isset($_POST['action']) == 'editSlot' && isset($_GET['eid']) && !empty($_GET[
 ?>
 
 <div id="raidListSlot">
-	<h4>Edit Slot</h4>
+	<h4><?php echo (defined('LANG') && LANG === 'ar') ? 'تعديل مزرعة' : 'Edit Slot'; ?></h4>
 <font color="#FF0000"><b>    
 <?php if(isset($errormsg)) echo $errormsg; ?>
 </b></font>
@@ -85,7 +85,7 @@ $lid2 = $getlid['lid'];
 		<input type="hidden" name="action" value="editSlot">			
 			<table cellpadding="1" cellspacing="1" class="transparent" id="raidList">
 				<tbody><tr>
-					<th>List name:</th>
+					<th><?php echo (defined('LANG') && LANG === 'ar') ? 'اسم القائمة:' : 'List name:'; ?></th>
 					<td>
 						<select onchange="getTargetsByLid();" id="lid" name="lid">
 <?php
@@ -104,7 +104,7 @@ $lvname = $database->getVillageField($row["wref"], 'name');
 					</td>
 				</tr>
 				<tr>
-					<th>Target village:</th>
+					<th><?php echo (defined('LANG') && LANG === 'ar') ? 'القرية المستهدفة:' : 'Target village:'; ?></th>
 					<td class="target">
 						
 			<div class="coordinatesInput">
@@ -120,12 +120,12 @@ $lvname = $database->getVillageField($row["wref"], 'name');
 				<div class="clear"></div>
 			</div>
 								<div class="targetSelect"><br />
-							<label class="lastTargets">Last targets:</label>
+							<label class="lastTargets"><?php echo (defined('LANG') && LANG === 'ar') ? 'الأهداف السابقة:' : 'Last targets:'; ?></label>
 							<select name="target_id">
 <?php
 $getwref = "SELECT movement.to, movement.ref, attacks.* FROM ".TB_PREFIX."movement as movement INNER JOIN ".TB_PREFIX."attacks as attacks ON attacks.id = movement.ref WHERE attacks.attack_type = 4 AND movement.proc = 1 AND movement.from = ".$village->wid;
 $arraywref = $database->query_return($getwref);
-echo '<option value="">Select village</option>';
+echo '<option value="">' . ((defined('LANG') && LANG === 'ar') ? 'اختر قرية' : 'Select village') . '</option>';
 if(mysqli_num_rows(mysqli_query($database->dblink, $getwref)) != 0){
 	foreach($arraywref as $row){
 		$towref = $row["to"];

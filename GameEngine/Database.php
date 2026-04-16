@@ -7962,7 +7962,7 @@ References: User ID/Message ID, Mode
 		$q = 'SELECT * FROM ' . TB_PREFIX . 'farmlist WHERE owner = '.$uid.' ORDER BY wref ASC LIMIT 1';
 		$result = mysqli_query($this->dblink,$q);
 		$dbarray = mysqli_fetch_array($result);
-		return $dbarray['id'] > 0;
+		return $dbarray !== null && $dbarray['id'] > 0;
 	}
 
     // no need to cache this method

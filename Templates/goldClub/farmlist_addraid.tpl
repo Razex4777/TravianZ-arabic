@@ -63,7 +63,7 @@ if(isset($_POST['action']) && $_POST['action'] == 'addSlot' && isset($_POST['lid
 ?>
 
 <div id="raidListSlot">
-    <h4>Add Slot</h4>
+    <h4><?php echo (defined('LANG') && LANG === 'ar') ? 'إضافة مزرعة' : 'Add Slot'; ?></h4>
 <font color="#FF0000"><b>    
 <?php if(isset($errormsg)) echo $errormsg; ?>
 </b></font>
@@ -73,7 +73,7 @@ if(isset($_POST['action']) && $_POST['action'] == 'addSlot' && isset($_POST['lid
         <input type="hidden" name="action" value="addSlot">
             <table cellpadding="1" cellspacing="1" class="transparent" id="raidList">
                 <tbody><tr>
-                    <th>List name:</th>
+                    <th><?php echo (defined('LANG') && LANG === 'ar') ? 'اسم القائمة:' : 'List name:'; ?></th>
                     <td>
                         <select name="lid">
 <?php
