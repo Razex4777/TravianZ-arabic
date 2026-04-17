@@ -154,29 +154,27 @@ if ($currentBuildingType > 0 && $currentBuildingLevel < $buildingMaxLevel && $bu
 	$upgradeCost = $buildingMaxLevel - $currentBuildingLevel;
 	echo " | ";
 	if ($session->gold >= $upgradeCost) {
-		echo "<a href=\"build.php?id=$id&upgradeToMax=1\" style=\"color:#000; font-weight:normal;\">";
-		echo UPGRADE_TO_LEVEL_MAX." $buildingMaxLevel <span style=\"color:#000;\"><b>$upgradeCost</b> <img src=\"".GP_LOCATE."img/a/gold_g.gif\" alt=\"".GOLD_TEXT."\" title=\"".GOLD_TEXT."\"/></span>";
+		echo "<a class=\"build\" href=\"build.php?id=$id&upgradeToMax=1\">";
+		echo UPGRADE_TO_LEVEL_MAX." $buildingMaxLevel <span style=\"color:#000;font-weight:normal;\">$upgradeCost <img src=\"".GP_LOCATE."img/a/gold_g.gif\" alt=\"".GOLD_TEXT."\" title=\"".GOLD_TEXT."\"/></span>";
 		echo "</a>";
 	} else {
-		echo "<span class=\"none\" style=\"color:#000; font-weight:normal;\">";
-		echo UPGRADE_TO_LEVEL_MAX." $buildingMaxLevel <span style=\"color:#000;\"><b>$upgradeCost</b> <img src=\"".GP_LOCATE."img/a/gold_g.gif\" alt=\"".GOLD_TEXT."\" title=\"".GOLD_TEXT."\"/></span> - ".NOT_ENOUGH_GOLD_TEXT;
+		echo "<span class=\"none\">";
+		echo UPGRADE_TO_LEVEL_MAX." $buildingMaxLevel $upgradeCost <img src=\"".GP_LOCATE."img/a/gold_g.gif\" alt=\"".GOLD_TEXT."\" title=\"".GOLD_TEXT."\"/> - ".NOT_ENOUGH_GOLD_TEXT;
 		echo "</span>";
 	}
 }
 
-// --- Gold: Demolish to Zero ---
-// Show a gold button to instantly demolish this building to level 0
-// Cost = current_level gold (1 gold per level)
+// Note: Gold demolish (هدم بالذهب) is available on all building pages
 if ($currentBuildingType > 0 && $currentBuildingLevel > 0) {
 	$demolishCost = $currentBuildingLevel;
 	echo " | ";
 	if ($session->gold >= $demolishCost) {
-		echo "<a href=\"build.php?id=$id&demolishToZero=1\" style=\"color:#000; font-weight:normal;\">";
-		echo DEMOLISH_TO_ZERO." <span style=\"color:#000;\"><b>$demolishCost</b> <img src=\"".GP_LOCATE."img/a/gold_g.gif\" alt=\"".GOLD_TEXT."\" title=\"".GOLD_TEXT."\"/></span>";
+		echo "<a class=\"build\" href=\"build.php?id=$id&demolishToZero=1\">";
+		echo DEMOLISH_TO_ZERO." <span style=\"color:#000;font-weight:normal;\">$demolishCost <img src=\"".GP_LOCATE."img/a/gold_g.gif\" alt=\"".GOLD_TEXT."\" title=\"".GOLD_TEXT."\"/></span>";
 		echo "</a>";
 	} else {
-		echo "<span class=\"none\" style=\"color:#000; font-weight:normal;\">";
-		echo DEMOLISH_TO_ZERO." <span style=\"color:#000;\"><b>$demolishCost</b> <img src=\"".GP_LOCATE."img/a/gold_g.gif\" alt=\"".GOLD_TEXT."\" title=\"".GOLD_TEXT."\"/></span> - ".NOT_ENOUGH_GOLD_TEXT;
+		echo "<span class=\"none\">";
+		echo DEMOLISH_TO_ZERO." $demolishCost <img src=\"".GP_LOCATE."img/a/gold_g.gif\" alt=\"".GOLD_TEXT."\" title=\"".GOLD_TEXT."\"/> - ".NOT_ENOUGH_GOLD_TEXT;
 		echo "</span>";
 	}
 }

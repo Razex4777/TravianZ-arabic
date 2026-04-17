@@ -9,24 +9,24 @@ div.statistics table {
 
 div.statistics div#submenu {
     position: absolute;
-    left: 29px;
+    right: 29px;
     top: 107px;
 }
 
 div.statistics div#submenu img {
-    float: left;
-    margin-right: 5px;
+    float: right;
+    margin-left: 5px;
 }
 
 div.statistics div#submenu2 {
-    right: 29px;
+    left: 29px;
     position: absolute;
     top: 107px;
 }
 
 div.statistics div#submenu2 img {
-    float: right;
-    margin-left: 5px;
+    float: left;
+    margin-right: 5px;
 }
 
 div.statistics table.top10 {

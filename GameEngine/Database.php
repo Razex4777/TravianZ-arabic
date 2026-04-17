@@ -8015,6 +8015,13 @@ References: User ID/Message ID, Mode
 		return mysqli_query($this->dblink,$q);
 	}
 
+	function renameFarmList($id, $owner, $newname) {
+		list($id, $owner, $newname) = $this->escape_input((int) $id, (int) $owner, $newname);
+
+		$q = "UPDATE " . TB_PREFIX . "farmlist SET name = '$newname' WHERE id = $id AND owner = $owner";
+		return mysqli_query($this->dblink, $q);
+	}
+
 	function addSlotFarm($lid, $towref, $x, $y, $distance, $t1, $t2, $t3, $t4, $t5, $t6) {
         list($lid, $towref, $x, $y, $distance, $t1, $t2, $t3, $t4, $t5, $t6) = $this->escape_input($lid, $towref, $x, $y, $distance, $t1, $t2, $t3, $t4, $t5, $t6);
         

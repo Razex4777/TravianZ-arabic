@@ -6,7 +6,49 @@ if (empty($_SESSION['csrf_token'])) {
 }
 $MyGold = mysqli_query($database->dblink, "SELECT * FROM " . TB_PREFIX . "users WHERE `id`='" . $session->uid . "'") or die(mysqli_error($database->dblink));
 $golds = mysqli_fetch_array($MyGold);
-
+?>
+<style>
+/* Green action buttons for gold features */
+.gold-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #71D000 0%, #5ab800 50%, #4a9900 100%);
+    color: #fff !important;
+    border: 1px solid #3d8000;
+    border-radius: 4px;
+    padding: 3px 14px;
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none !important;
+    cursor: pointer;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.25);
+    transition: all 0.2s ease;
+    font-family: inherit;
+    line-height: 1.4;
+}
+.gold-btn:hover {
+    background: linear-gradient(135deg, #82e800 0%, #6cd400 50%, #5ab800 100%);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.3);
+    transform: translateY(-1px);
+}
+.gold-btn.disabled {
+    background: linear-gradient(135deg, #999 0%, #777 100%);
+    border-color: #666;
+    cursor: default;
+    opacity: 0.7;
+}
+.gold-btn.disabled:hover {
+    transform: none;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
+/* Ensure button elements also get gold-btn style properly */
+button.gold-btn {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+</style>
+<?php
 include ("Templates/Plus/pmenu.tpl");
 
 $MyGold = mysqli_query($database->dblink, "SELECT * FROM " . TB_PREFIX . "users WHERE `id`='" . $session->uid . "'") or die(mysqli_error($database->dblink));
@@ -25,7 +67,7 @@ if (mysqli_num_rows($MyGold)) {
 <table class="plusFunctions" cellpadding="1" cellspacing="1">
 	<thead>
 		<tr>
-			<th colspan="5"><?php echo (defined('LANG') && LANG === 'ar') ? 'خصائص بلس' : 'Plus function'; ?></th>
+			<th colspan="5"><?php echo (defined('LANG') && LANG === 'ar') ? 'خصائص <font color="#71D000">ب</font><font color="#FF6F0F">ل</font><font color="#71D000">ا</font><font color="#FF6F0F">س</font>' : '<font color="#71D000">P</font><font color="#FF6F0F">l</font><font color="#71D000">u</font><font color="#FF6F0F">s</font> Functions'; ?></th>
 		</tr>
 		<tr>
 			<td></td>
@@ -105,28 +147,25 @@ if (PLUS_TIME >= 86400) {
 if ($session->access != BANNED) {
     if (mysqli_num_rows($MyGold)) {
         if ($golds['gold'] > 19 && $datetimep < $date2) {
-            echo '
-                <a href="plus.php?id=8"><span>'.((defined('LANG') && LANG === 'ar') ? 'تفعيل' : 'Activate');
+            echo '<a href="plus.php?id=8" class="gold-btn">'.((defined('LANG') && LANG === 'ar') ? '✨ تفعيل' : '✨ Activate').'</a>';
         } elseif ($golds['gold'] > 19 && $datetimep > $date2) {
-            echo '
-                <a href="plus.php?id=8"><span>'.((defined('LANG') && LANG === 'ar') ? 'تمديد' : 'Extend');
+            echo '<a href="plus.php?id=8" class="gold-btn">'.((defined('LANG') && LANG === 'ar') ? '🔄 تمديد' : '🔄 Extend').'</a>';
         } else {
-            echo '<a href="plus.php?s=1"><span class="none">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold');
+            echo '<span class="gold-btn disabled">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold').'</span>';
         }
     }
 } else {
     if (mysqli_num_rows($MyGold)) {
         if ($golds['gold'] > 19 && $datetimep < $date2) {
-            echo '<a href="banned.php"><span>'.((defined('LANG') && LANG === 'ar') ? 'تفعيل' : 'Activate');
+            echo '<a href="banned.php" class="gold-btn disabled">'.((defined('LANG') && LANG === 'ar') ? 'تفعيل' : 'Activate').'</a>';
         } elseif ($golds['gold'] > 19 && $datetimep > $date2) {
-            echo '<a href="banned.php"><span>'.((defined('LANG') && LANG === 'ar') ? 'تمديد' : 'Extend');
+            echo '<a href="banned.php" class="gold-btn disabled">'.((defined('LANG') && LANG === 'ar') ? 'تمديد' : 'Extend').'</a>';
         } else {
-            echo '<a href="banned.php"><span class="none">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold');
+            echo '<span class="gold-btn disabled">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold').'</span>';
         }
     }
 }
 ?>
-    </span></a>
 			</td>
 		</tr>
 
@@ -166,26 +205,26 @@ if (PLUS_PRODUCTION >= 86400) {
 if ($session->access != BANNED) {
     if (mysqli_num_rows($MyGold)) {
         if ($golds['gold'] > 4 && $tl_b1 < $date2) {
-            echo '<a href="plus.php?id=9"><span>'.((defined('LANG') && LANG === 'ar') ? 'تفعيل' : 'Activate');
+            echo '<a href="plus.php?id=9" class="gold-btn">'.((defined('LANG') && LANG === 'ar') ? '✨ تفعيل' : '✨ Activate').'</a>';
         } elseif ($golds['gold'] > 4 && $datetime1 > $date2) {
-            echo '        <a href="plus.php?id=9"><span>'.((defined('LANG') && LANG === 'ar') ? 'تمديد' : 'Extend');
+            echo '<a href="plus.php?id=9" class="gold-btn">'.((defined('LANG') && LANG === 'ar') ? '🔄 تمديد' : '🔄 Extend').'</a>';
         } else {
-            echo '<a href="plus.php?s=1"><span class="none">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold');
+            echo '<span class="gold-btn disabled">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold').'</span>';
         }
     }
 } else {
     if (mysqli_num_rows($MyGold)) {
         if ($golds['gold'] > 4 && $tl_b1 < $date2) {
-            echo '<a href="banned.php"><span>'.((defined('LANG') && LANG === 'ar') ? 'تفعيل' : 'Activate');
+            echo '<a href="banned.php" class="gold-btn disabled">'.((defined('LANG') && LANG === 'ar') ? 'تفعيل' : 'Activate').'</a>';
         } elseif ($golds['gold'] > 4 && $datetime1 > $date2) {
-            echo '        <a href="banned.php"><span>'.((defined('LANG') && LANG === 'ar') ? 'تمديد' : 'Extend');
+            echo '<a href="banned.php" class="gold-btn disabled">'.((defined('LANG') && LANG === 'ar') ? 'تمديد' : 'Extend').'</a>';
         } else {
-            echo '<a href="banned.php"><span class="none">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold');
+            echo '<span class="gold-btn disabled">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold').'</span>';
         }
     }
 }
 ?>
-   </span></a></td>
+   </td>
 		</tr>
 
 		<tr>
@@ -214,34 +253,31 @@ if (PLUS_PRODUCTION >= 86400) {
 			<td class="cost"><img src="img/x.gif" class="gold" alt="Gold"
 				title="Gold" />5</td>
 
-			<td class="act"><span class="none">
-
+			<td class="act">
 <?php
 if ($session->access != BANNED) {
     if (mysqli_num_rows($MyGold)) {
         if ($golds['gold'] > 4 && $tl_b2 < $date2) {
-            echo '<a href="plus.php?id=10"><span>'.((defined('LANG') && LANG === 'ar') ? 'تفعيل' : 'Activate');
+            echo '<a href="plus.php?id=10" class="gold-btn">'.((defined('LANG') && LANG === 'ar') ? '✨ تفعيل' : '✨ Activate').'</a>';
         } elseif ($golds['gold'] > 4 && $tl_b2 > $date2) {
-            echo '        <a href="plus.php?id=10"><span>'.((defined('LANG') && LANG === 'ar') ? 'تمديد' : 'Extend');
+            echo '<a href="plus.php?id=10" class="gold-btn">'.((defined('LANG') && LANG === 'ar') ? '🔄 تمديد' : '🔄 Extend').'</a>';
         } else {
-            echo '<a href="plus.php?s=1"><span class="none">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold').'</span></a></td>';
+            echo '<span class="gold-btn disabled">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold').'</span>';
         }
     }
 } else {
     if (mysqli_num_rows($MyGold)) {
         if ($golds['gold'] > 4 && $tl_b2 < $date2) {
-            echo '<a href="banned.php"><span>'.((defined('LANG') && LANG === 'ar') ? 'تفعيل' : 'Activate');
+            echo '<a href="banned.php" class="gold-btn disabled">'.((defined('LANG') && LANG === 'ar') ? 'تفعيل' : 'Activate').'</a>';
         } elseif ($golds['gold'] > 4 && $tl_b2 > $date2) {
-            echo '        <a href="banned.php"><span>'.((defined('LANG') && LANG === 'ar') ? 'تمديد' : 'Extend');
+            echo '<a href="banned.php" class="gold-btn disabled">'.((defined('LANG') && LANG === 'ar') ? 'تمديد' : 'Extend').'</a>';
         } else {
-            echo '<a href="banned.php"><span class="none">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold').'</span></a></td>';
+            echo '<span class="gold-btn disabled">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold').'</span>';
         }
     }
 }
 ?>
-
-        
-		
+			</td>
 		</tr>
 
 		<tr>
@@ -268,32 +304,31 @@ if (PLUS_PRODUCTION >= 86400) {
 ?></td>
 			<td class="cost"><img src="img/x.gif" class="gold" alt="Gold"
 				title="Gold" />5</td>
-			<td class="act"><span class="none">
-
+			<td class="act">
 <?php
 if ($session->access != BANNED) {
     if (mysqli_num_rows($MyGold)) {
         if ($golds['gold'] > 4 && $tl_b3 < $date2) {
-            echo '<a href="plus.php?id=11"><span>'.((defined('LANG') && LANG === 'ar') ? 'تفعيل' : 'Activate');
+            echo '<a href="plus.php?id=11" class="gold-btn">'.((defined('LANG') && LANG === 'ar') ? '✨ تفعيل' : '✨ Activate').'</a>';
         } elseif ($golds['gold'] > 4 && $tl_b3 > $date2) {
-            echo '        <a href="plus.php?id=11"><span>'.((defined('LANG') && LANG === 'ar') ? 'تمديد' : 'Extend');
+            echo '<a href="plus.php?id=11" class="gold-btn">'.((defined('LANG') && LANG === 'ar') ? '🔄 تمديد' : '🔄 Extend').'</a>';
         } else {
-            echo '<a href="plus.php?s=1"><span class="none">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold');
+            echo '<span class="gold-btn disabled">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold').'</span>';
         }
     }
 } else {
     if (mysqli_num_rows($MyGold)) {
         if ($golds['gold'] > 4 && $tl_b3 < $date2) {
-            echo '<a href="banned.php"><span>'.((defined('LANG') && LANG === 'ar') ? 'تفعيل' : 'Activate');
+            echo '<a href="banned.php" class="gold-btn disabled">'.((defined('LANG') && LANG === 'ar') ? 'تفعيل' : 'Activate').'</a>';
         } elseif ($golds['gold'] > 4 && $tl_b3 > $date2) {
-            echo '        <a href="banned.php"><span>'.((defined('LANG') && LANG === 'ar') ? 'تمديد' : 'Extend');
+            echo '<a href="banned.php" class="gold-btn disabled">'.((defined('LANG') && LANG === 'ar') ? 'تمديد' : 'Extend').'</a>';
         } else {
-            echo '<a href="banned.php"><span class="none">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold');
+            echo '<span class="gold-btn disabled">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold').'</span>';
         }
     }
 }
 ?>
-&nbsp;    </span></a></td>
+			</td>
 		</tr>
 
 		<tr>
@@ -321,31 +356,68 @@ if (PLUS_PRODUCTION >= 86400) {
 ?></td>
 			<td class="cost"><img src="img/x.gif" class="gold" alt="Gold"
 				title="Gold" />5</td>
-			<td><span class="none">
+			<td class="act">
 <?php
 if ($session->access != BANNED) {
     if (mysqli_num_rows($MyGold)) {
         if ($golds['gold'] > 4 && $tl_b4 < $date2) {
-            echo '<a href="plus.php?id=12"><span>'.((defined('LANG') && LANG === 'ar') ? 'تفعيل' : 'Activate');
+            echo '<a href="plus.php?id=12" class="gold-btn">'.((defined('LANG') && LANG === 'ar') ? '✨ تفعيل' : '✨ Activate').'</a>';
         } elseif ($golds['gold'] > 4 && $tl_b4 > $date2) {
-            echo '        <a href="plus.php?id=12"><span>'.((defined('LANG') && LANG === 'ar') ? 'تمديد' : 'Extend');
+            echo '<a href="plus.php?id=12" class="gold-btn">'.((defined('LANG') && LANG === 'ar') ? '🔄 تمديد' : '🔄 Extend').'</a>';
         } else {
-            echo '<a href="plus.php?s=1"><span class="none">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold');
+            echo '<span class="gold-btn disabled">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold').'</span>';
         }
     }
 } else {
     if (mysqli_num_rows($MyGold)) {
         if ($golds['gold'] > 4 && $tl_b4 < $date2) {
-            echo '<a href="banned.php"><span>'.((defined('LANG') && LANG === 'ar') ? 'تفعيل' : 'Activate');
+            echo '<a href="banned.php" class="gold-btn disabled">'.((defined('LANG') && LANG === 'ar') ? 'تفعيل' : 'Activate').'</a>';
         } elseif ($golds['gold'] > 4 && $tl_b4 > $date2) {
-            echo '        <a href="banned.php"><span>'.((defined('LANG') && LANG === 'ar') ? 'تمديد' : 'Extend');
+            echo '<a href="banned.php" class="gold-btn disabled">'.((defined('LANG') && LANG === 'ar') ? 'تمديد' : 'Extend').'</a>';
         } else {
-            echo '<a href="banned.php"><span class="none">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold');
+            echo '<span class="gold-btn disabled">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold').'</span>';
         }
     }
 }
 ?>
-</span></a></td>
+			</td>
+		</tr>
+
+		<!-- ========== 75% CROP REDUCTION (moved here per Hassan) ========== -->
+		<tr>
+			<td class="man"><a href="#" onClick="return Popup(0,6);"><img class="help" src="img/x.gif" alt="" title="" /></a></td>
+			<td class="desc">
+				<b><span style="position:relative; display:inline-block;"><img class="r4" src="img/x.gif" alt="Crop" title="Crop" style="opacity:0.7;" /><span style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); color:#c00; font-size:16px; font-weight:bold; text-shadow:0 0 2px #fff;">✖</span></span> <?php echo (defined('LANG') && LANG === 'ar') ? 'تقليل استهلاك القمح 75%' : '75% Crop Consumption Reduction'; ?></b><br />
+				<span class="run">
+<?php
+$cropRedTime = $golds['crop_reduction'];
+if ($cropRedTime > $date2) {
+    echo "<font color='#B3B3B3' size='1'>" . formatRemainingTime($cropRedTime, $date2) . "</font>";
+} else {
+    echo (defined('LANG') && LANG === 'ar') ? 'يعمل فقط عندما يكون إنتاج القمح بالسالب' : 'Only works when crop production is negative';
+}
+?>
+				</span>
+			</td>
+			<td class="dur"><?php echo (defined('LANG') && LANG === 'ar') ? '5 ساعات' : '5 Hours'; ?></td>
+			<td class="cost"><img src="img/x.gif" class="gold" alt="Gold" title="Gold" />350</td>
+			<td class="act">
+<?php
+if ($session->access != BANNED) {
+    if ($golds['gold'] >= 350) {
+        if ($cropRedTime <= $date2) {
+            echo '<a href="plus.php?id=18" class="gold-btn">'.((defined('LANG') && LANG === 'ar') ? '✨ تفعيل' : '✨ Activate').'</a>';
+        } else {
+            echo '<a href="plus.php?id=18" class="gold-btn">'.((defined('LANG') && LANG === 'ar') ? '🔄 تمديد' : '🔄 Extend').'</a>';
+        }
+    } else {
+        echo '<span class="gold-btn disabled">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold').'</span>';
+    }
+} else {
+    echo '<a href="banned.php" class="gold-btn disabled">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold').'</a>';
+}
+?>
+			</td>
 		</tr>
 
 		<tr>
@@ -360,30 +432,27 @@ if ($session->access != BANNED) {
 			<td class="dur"><?php echo (defined('LANG') && LANG === 'ar') ? 'الآن' : 'now'; ?></td>
 			<td class="cost"><img src="img/x.gif" class="gold" alt="Gold"
 				title="Gold" />2</td>
-			<td class="act"><span class="none">
-
+			<td class="act">
 <?php
 if ($session->access != BANNED) {
     if (mysqli_num_rows($MyGold)) {
         if ($golds['gold'] > 1) {
-            echo '
-                <a href="plus.php?id=7"><span>'.((defined('LANG') && LANG === 'ar') ? 'إنهاء' : 'On');
+            echo '<a href="plus.php?id=7" class="gold-btn">'.((defined('LANG') && LANG === 'ar') ? '⚡ إنهاء' : '⚡ Finish').'</a>';
         } else {
-            echo '<a href="plus.php?s=1"><span class="none">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold');
+            echo '<span class="gold-btn disabled">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold').'</span>';
         }
     }
 } else {
     if (mysqli_num_rows($MyGold)) {
         if ($golds['gold'] > 1) {
-            echo '
-                <a href="banned.php"><span>'.((defined('LANG') && LANG === 'ar') ? 'إنهاء' : 'On');
+            echo '<a href="banned.php" class="gold-btn disabled">'.((defined('LANG') && LANG === 'ar') ? 'إنهاء' : 'Finish').'</a>';
         } else {
-            echo '<a href="banned.php"><span class="none">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold');
+            echo '<span class="gold-btn disabled">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold').'</span>';
         }
     }
 }
 ?>
-</span></a></td>
+			</td>
 		</tr>
 
 		<tr>
@@ -394,28 +463,27 @@ if ($session->access != BANNED) {
 			<td class="cost"><img src="img/x.gif" class="gold" alt="Gold"
 				title="Gold" />3</td>
 
-			<td class="act"><span class="none">
-
+			<td class="act">
 <?php
 if ($session->access != BANNED) {
     if (mysqli_num_rows($MyGold)) {
         if ($golds['gold'] > 2) {
-            echo ' <a href="build.php?gid=17&t=3"><span>'.((defined('LANG') && LANG === 'ar') ? 'انتقال' : 'Go');
+            echo '<a href="build.php?gid=17&t=3" class="gold-btn">'.((defined('LANG') && LANG === 'ar') ? '➡️ انتقال' : '➡️ Go').'</a>';
         } else {
-            echo '<a href="plus.php?s=1"><span class="none">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold');
+            echo '<span class="gold-btn disabled">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold').'</span>';
         }
     }
 } else {
     if (mysqli_num_rows($MyGold)) {
         if ($golds['gold'] > 2) {
-            echo ' <a href="banned.php"><span>'.((defined('LANG') && LANG === 'ar') ? 'انتقال' : 'Go');
+            echo '<a href="banned.php" class="gold-btn disabled">'.((defined('LANG') && LANG === 'ar') ? 'انتقال' : 'Go').'</a>';
         } else {
-            echo '<a href="banned.php"><span class="none">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold');
+            echo '<span class="gold-btn disabled">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold').'</span>';
         }
     }
 }
 ?>
-</span></a></td>
+			</td>
 		</tr>
 
 	</tbody>
@@ -451,18 +519,18 @@ if ($session->access != BANNED) {
 				if ($session->access != BANNED) {
 				    if ($golds['gold'] >= 35) {
 				        if ($hasTraining) {
-				            echo '<a href="plus.php?id=16"><span>'.((defined('LANG') && LANG === 'ar') ? 'إنهاء' : 'Finish');
+				            echo '<a href="plus.php?id=16" class="gold-btn">'.((defined('LANG') && LANG === 'ar') ? '⚡ إنهاء' : '⚡ Finish').'</a>';
 				        } else {
-				            echo '<span class="none">'.((defined('LANG') && LANG === 'ar') ? 'لا تدريب' : 'No training');
+				            echo '<span class="gold-btn disabled">'.((defined('LANG') && LANG === 'ar') ? 'لا تدريب' : 'No training').'</span>';
 				        }
 				    } else {
-				        echo '<a href="plus.php?s=1"><span class="none">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold');
+				        echo '<span class="gold-btn disabled">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold').'</span>';
 				    }
 				} else {
-				    echo '<a href="banned.php"><span class="none">'.((defined('LANG') && LANG === 'ar') ? 'إنهاء' : 'Finish');
+				    echo '<a href="banned.php" class="gold-btn disabled">'.((defined('LANG') && LANG === 'ar') ? 'إنهاء' : 'Finish').'</a>';
 				}
 				?>
-				</span></a></td>
+				</td>
 			</tr>
 
 			<tr>
@@ -476,55 +544,15 @@ if ($session->access != BANNED) {
 				$golds = mysqli_fetch_array($MyGold);
 				if ($session->access != BANNED) {
 				    if ($golds['gold'] >= 35) {
-				        echo '<a href="plus.php?id=17"><span>'.((defined('LANG') && LANG === 'ar') ? 'تعجيل' : 'Speed up');
+				        echo '<a href="plus.php?id=17" class="gold-btn">'.((defined('LANG') && LANG === 'ar') ? '🚀 تعجيل' : '🚀 Speed up').'</a>';
 				    } else {
-				        echo '<a href="plus.php?s=1"><span class="none">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold');
+				        echo '<span class="gold-btn disabled">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold').'</span>';
 				    }
 				} else {
-				    echo '<a href="banned.php"><span class="none">'.((defined('LANG') && LANG === 'ar') ? 'تعجيل' : 'Speed up');
+				    echo '<a href="banned.php" class="gold-btn disabled">'.((defined('LANG') && LANG === 'ar') ? 'تعجيل' : 'Speed up').'</a>';
 				}
 				?>
-				</span></a></td>
-			</tr>
-
-			<!-- ========== 75% CROP REDUCTION ========== -->
-			<tr>
-				<td colspan="5" class="empty"></td>
-			</tr>
-			<tr>
-				<td class="man"><a href="#" onClick="return Popup(0,6);"><img class="help" src="img/x.gif" alt="" title="" /></a></td>
-				<td class="desc">
-					<b><?php echo (defined('LANG') && LANG === 'ar') ? 'تقليل استهلاك القمح 75%' : '75% Crop Consumption Reduction'; ?></b><br />
-					<span class="run">
-<?php
-$cropRedTime = $golds['crop_reduction'];
-if ($cropRedTime > $date2) {
-    echo "<font color='#B3B3B3' size='1'>" . formatRemainingTime($cropRedTime, $date2) . "</font>";
-} else {
-    echo (defined('LANG') && LANG === 'ar') ? 'يعمل فقط عندما يكون إنتاج القمح بالسالب' : 'Only works when crop production is negative';
-}
-?>
-					</span>
 				</td>
-				<td class="dur"><?php echo (defined('LANG') && LANG === 'ar') ? '5 ساعات' : '5 Hours'; ?></td>
-				<td class="cost"><img src="img/x.gif" class="gold" alt="Gold" title="Gold" />350</td>
-				<td class="act">
-<?php
-if ($session->access != BANNED) {
-    if ($golds['gold'] >= 350) {
-        if ($cropRedTime <= $date2) {
-            echo '<a href="plus.php?id=18"><span>'.((defined('LANG') && LANG === 'ar') ? 'تفعيل' : 'Activate');
-        } else {
-            echo '<a href="plus.php?id=18"><span>'.((defined('LANG') && LANG === 'ar') ? 'تمديد' : 'Extend');
-        }
-    } else {
-        echo '<a href="plus.php?s=1"><span class="none">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold');
-    }
-} else {
-    echo '<a href="banned.php"><span class="none">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold');
-}
-?>
-				</span></a></td>
 			</tr>
 
 			<!-- ========== BUY RESOURCES WITH GOLD ========== -->
@@ -544,34 +572,41 @@ $_playerGold = (int)$golds['gold'];
 ?>
 			<tr>
 				<td class="man"><a href="#" onClick="return Popup(0,6);"><img class="help" src="img/x.gif" alt="" title="" /></a></td>
-				<td class="desc" colspan="3">
+				<td class="desc">
 					<b><?php echo (defined('LANG') && LANG === 'ar') ? 'شراء الموارد بالذهب' : 'Buy Resources with Gold'; ?></b><br />
 					<span class="run">
 						<?php echo (defined('LANG') && LANG === 'ar') ? 'كل 1 ذهب = 20,000 من كل مورد. لا يعمل بالذهب المجاني.' : 'Each 1 gold = 20,000 of each resource. Does not work with free gold.'; ?>
 					</span>
-					<br /><br />
-					<form method="POST" action="plus.php?id=19" style="display:inline;">
+				</td>
+				<td class="dur">
+					<form method="POST" action="plus.php?id=19" id="buyResourcesForm" style="display:inline;">
 						<input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>" />
-						<label><?php echo (defined('LANG') && LANG === 'ar') ? 'كمية الذهب:' : 'Gold amount:'; ?></label>
-						<input type="number" name="gold_amount" id="goldAmountInput" min="1" max="<?php echo $_playerGold; ?>" value="1" style="width:60px; text-align:center;" 
+						<label><?php echo (defined('LANG') && LANG === 'ar') ? 'كمية الذهب:' : 'Gold:'; ?></label>
+						<input type="number" name="gold_amount" id="goldAmountInput" min="1" max="<?php echo $_playerGold; ?>" value="1" style="width:50px; text-align:center;" 
 							onchange="updateResourcePreview(this.value)" oninput="updateResourcePreview(this.value)" />
-						<button type="button" id="fillStorageBtn" onclick="fillStorageCalc()" style="margin-right:5px; cursor:pointer; background:linear-gradient(135deg,#71D000,#5ab800); color:#fff; border:1px solid #4a9900; border-radius:3px; padding:2px 10px; font-weight:bold; font-size:11px;">
+						<button type="button" id="fillStorageBtn" onclick="fillStorageCalc()" class="gold-btn" style="font-size:10px; padding:2px 8px;">
 							<?php echo (defined('LANG') && LANG === 'ar') ? '🏪 ملئ المخزن' : '🏪 Fill Storage'; ?>
 						</button>
-						<br />
-						<div id="resourcePreview" style="color:#B3B3B3; font-size:11px; margin:5px 0;">
+						<div id="resourcePreview" style="color:#B3B3B3; font-size:11px; margin:3px 0;">
 							(<?php echo (defined('LANG') && LANG === 'ar') ? 'الموارد: 20,000 لكل نوع' : 'Resources: 20,000 each type'; ?>)
 						</div>
 						<div id="fillBreakdown" style="display:none; background:rgba(0,0,0,0.03); border:1px solid #ddd; border-radius:4px; padding:6px 10px; margin:5px 0; font-size:11px; line-height:1.7;">
 						</div>
+					</form>
+				</td>
+				<td class="cost"><img src="img/x.gif" class="gold" alt="Gold" title="Gold" /><?php echo (defined('LANG') && LANG === 'ar') ? 'متغير' : 'varies'; ?></td>
+				<td class="act">
 <?php
 if ($session->access != BANNED && $golds['gold'] >= 1) {
-    echo '<input type="submit" name="buy_resources" value="'.((defined('LANG') && LANG === 'ar') ? 'شراء' : 'Buy').'" style="margin-top:5px; cursor:pointer;" />';
+    echo '<button type="submit" name="buy_resources" form="buyResourcesForm" class="gold-btn">'.((defined('LANG') && LANG === 'ar') ? '💰 شراء' : '💰 Buy').'</button>';
 } else {
-    echo '<span class="none">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold').'</span>';
+    echo '<span class="gold-btn disabled">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold').'</span>';
 }
 ?>
-					</form>
+				</td>
+			</tr>
+			<tr style="display:none;"><!-- hidden row for script only -->
+				<td colspan="5">
 					<script>
 					var _RATE = 20000;
 					var _curRes = {
@@ -589,7 +624,6 @@ if ($session->access != BANNED && $golds['gold'] >= 1) {
 						var amount = parseInt(val) || 0;
 						var total = amount * _RATE;
 						var fmtTotal = total.toLocaleString();
-						// Calculate per-resource after fill (capped at storage)
 						var addWood = Math.min(total, _maxStore - _curRes.wood); addWood = Math.max(0, addWood);
 						var addClay = Math.min(total, _maxStore - _curRes.clay); addClay = Math.max(0, addClay);
 						var addIron = Math.min(total, _maxStore - _curRes.iron); addIron = Math.max(0, addIron);
@@ -600,7 +634,6 @@ if ($session->access != BANNED && $golds['gold'] >= 1) {
 							: '(Resources: ' + fmtTotal + ' each type)';
 						document.getElementById('resourcePreview').innerHTML = html;
 
-						// Show detailed breakdown
 						var bd = document.getElementById('fillBreakdown');
 						if (amount > 0) {
 							bd.style.display = 'block';
@@ -614,17 +647,13 @@ if ($session->access != BANNED && $golds['gold'] >= 1) {
 					}
 
 					function fillStorageCalc() {
-						// Calculate remaining space for each resource
 						var spaceWood = Math.max(0, _maxStore - _curRes.wood);
 						var spaceClay = Math.max(0, _maxStore - _curRes.clay);
 						var spaceIron = Math.max(0, _maxStore - _curRes.iron);
 						var spaceCrop = Math.max(0, _maxCrop  - _curRes.crop);
 
-						// The limiting resource is the one with LEAST remaining space
-						// because buying X gold gives X*20000 of ALL resources equally
 						var minSpace = Math.min(spaceWood, spaceClay, spaceIron, spaceCrop);
 
-						// Highlight the limiting resource in breakdown
 						var limitRes = '';
 						if (minSpace === spaceWood) limitRes = _isAr ? 'الخشب' : 'Wood';
 						else if (minSpace === spaceClay) limitRes = _isAr ? 'الطين' : 'Clay';
@@ -644,13 +673,9 @@ if ($session->access != BANNED && $golds['gold'] >= 1) {
 							return;
 						}
 
-						// Gold needed = minSpace / rate, floored (no overpaying)
 						var goldNeeded = Math.floor(minSpace / _RATE);
-
-						// Cap at player's available gold
 						goldNeeded = Math.min(goldNeeded, _playerGold);
 
-						// Set the input and trigger preview update
 						var input = document.getElementById('goldAmountInput');
 						input.value = goldNeeded;
 						updateResourcePreview(goldNeeded);
@@ -662,7 +687,6 @@ if ($session->access != BANNED && $golds['gold'] >= 1) {
 					}
 					</script>
 				</td>
-				<td class="act"></td>
 			</tr>
 
 			<!-- ========== 24-HOUR GOLD PROTECTION ========== -->
@@ -671,7 +695,7 @@ if ($session->access != BANNED && $golds['gold'] >= 1) {
 			</tr>
 			<tr>
 				<td class="man"><a href="#" onClick="return Popup(0,6);"><img class="help" src="img/x.gif" alt="" title="" /></a></td>
-				<td class="desc" colspan="3">
+				<td class="desc">
 <?php
 $protectTime = $golds['gold_protect'];
 $protectCount = (int)$golds['gold_protect_count'];
@@ -696,7 +720,7 @@ if ($isProtected) {
 					<?php if (isset($_GET['error']) && $_GET['error'] == 'password'): ?>
 						<span style="color:red; font-weight:bold;"><?php echo (defined('LANG') && LANG === 'ar') ? '❌ كلمة السر غير صحيحة!' : '❌ Incorrect password!'; ?></span><br />
 					<?php endif; ?>
-					<form method="POST" action="plus.php?id=20" style="display:inline;">
+					<form method="POST" action="plus.php?id=20" id="protectForm" style="display:inline;">
 						<input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>" />
 						<label><?php echo (defined('LANG') && LANG === 'ar') ? 'كلمة السر:' : 'Password:'; ?></label>
 						<input type="password" name="password" required style="width:120px;" />
@@ -706,18 +730,24 @@ if ($isProtected) {
 								? 'التكلفة: ' . number_format($protectCost) . ' ذهب (المرة رقم ' . ($protectCount + 1) . ')' 
 								: 'Cost: ' . number_format($protectCost) . ' gold (activation #' . ($protectCount + 1) . ')'; ?>
 						</span>
-						<br />
-<?php
-if ($session->access != BANNED && $golds['gold'] >= $protectCost) {
-    echo '<input type="submit" name="activate_protection" value="'.((defined('LANG') && LANG === 'ar') ? 'تفعيل الحماية' : 'Activate Protection').'" style="margin-top:5px; cursor:pointer;" />';
-} else {
-    echo '<span class="none">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي (تحتاج ' . number_format($protectCost) . ')' : 'too little gold (need ' . number_format($protectCost) . ')').'</span>';
-}
-?>
 					</form>
 <?php endif; ?>
 				</td>
-				<td class="act"></td>
+				<td class="dur"><?php echo (defined('LANG') && LANG === 'ar') ? '24 ساعة' : '24 Hours'; ?></td>
+				<td class="cost"><img src="img/x.gif" class="gold" alt="Gold" title="Gold" /><?php echo number_format($protectCost); ?></td>
+				<td class="act">
+<?php
+if (!$isProtected) {
+    if ($session->access != BANNED && $golds['gold'] >= $protectCost) {
+        echo '<button type="submit" name="activate_protection" form="protectForm" class="gold-btn">'.((defined('LANG') && LANG === 'ar') ? '🛡️ تفعيل' : '🛡️ Activate').'</button>';
+    } else {
+        echo '<span class="gold-btn disabled">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold').'</span>';
+    }
+} else {
+    echo '<span style="color:#71D000; font-weight:bold;">✅</span>';
+}
+?>
+				</td>
 			</tr>
 
 		</tbody>

@@ -6,11 +6,28 @@ if(mysqli_num_rows($res) == 0) {
 
 if(isset($_GET['t']) == 99 && isset($_GET['action']) == 0) {
 
+// --- Handle rename action ---
+if(isset($_POST['action']) && $_POST['action'] == 'renameList' && !empty($_POST['lid']) && !empty($_POST['newname'])){
+    $rlid = (int)$_POST['lid'];
+    $rnewname = trim($_POST['newname']);
+    if($rnewname !== '') {
+        $database->renameFarmList($rlid, $session->uid, $rnewname);
+    }
+    header("Location: build.php?id=39&t=99");
+    exit;
+}
+
 if(isset($_GET['t']) == 99 && isset($_POST['action']) == 'addList' && !empty($_POST['did']) && !empty($_POST['name']) && $database->getVillageField($_POST['did'], 'owner') == $session->uid){
     $database->createFarmList($_POST['did'], $session->uid, $_POST['name']);
 }else if(isset($_GET['t']) == 99 && isset($_POST['action']) == 'addList'){
 	header("Location: build.php?gid=16&t=99&action=addList");
 	exit;
+}
+
+// --- Auto-create default farmlist if user has none ---
+if(!$database->getVilFarmlist($session->uid)) {
+    $defaultName = (defined('LANG') && LANG === 'ar') ? 'قائمة افتراضية' : 'Default List';
+    $database->createFarmList($village->wid, $session->uid, $defaultName);
 }
 
 ?>
@@ -28,7 +45,14 @@ while($row = mysqli_fetch_array($sql)){
 ?>
                         <div class="listTitleText">
 							<a href="build.php?gid=16&t=99&action=deleteList&lid=<?php echo $lid; ?>"><img class="del" src="img/x.gif" alt="delete" title="delete"></a>
-                            <?php echo $lvname; ?> - <?php echo $lname; ?>
+                            <?php echo $lvname; ?> - <span id="listName_<?php echo $lid; ?>"><?php echo htmlspecialchars($lname); ?></span>
+                            <a href="#" onclick="document.getElementById('renameForm_<?php echo $lid; ?>').style.display='inline'; this.style.display='none'; return false;" title="<?php echo (defined('LANG') && LANG === 'ar') ? 'تعديل الاسم' : 'Rename'; ?>" style="margin-right:5px; margin-left:5px; cursor:pointer; font-size:11px;">✏️</a>
+                            <form id="renameForm_<?php echo $lid; ?>" method="post" action="build.php?id=39&t=99" style="display:none; margin:0; padding:0;">
+                                <input type="hidden" name="action" value="renameList">
+                                <input type="hidden" name="lid" value="<?php echo $lid; ?>">
+                                <input type="text" name="newname" value="<?php echo htmlspecialchars($lname); ?>" style="width:120px; font-size:11px;">
+                                <button type="submit" style="font-size:10px; cursor:pointer; padding:1px 6px;"><?php echo (defined('LANG') && LANG === 'ar') ? 'حفظ' : 'Save'; ?></button>
+                            </form>
                         </div>
                         <div class="openedClosedSwitch switchOpened"></div>
                         <div class="clear"></div>

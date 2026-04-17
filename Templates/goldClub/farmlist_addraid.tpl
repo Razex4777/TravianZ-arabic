@@ -1,8 +1,8 @@
 <?php
-//If the player has no farm lists, return
+// If the player has no farm lists, auto-create a default one instead of redirecting
 if(!$database->getVilFarmlist($session->uid)){
-	header("Location: build.php?id=39&t=99");
-	exit;
+	$defaultName = (defined('LANG') && LANG === 'ar') ? 'قائمة افتراضية' : 'Default List';
+	$database->createFarmList($village->wid, $session->uid, $defaultName);
 }
 
 if(isset($_POST['action']) && $_POST['action'] == 'addSlot' && isset($_POST['lid']) && ($FLData = $database->getFLData($_POST['lid']))['owner'] == $session->uid) {

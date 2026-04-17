@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-04-17 00:00
+- **Fix: Statistics Page Overlap (RTL/Tablet)** — Resolved overlapping between the statistics content area and side navigation in Arabic layout on medium widths.
+  - Removed orphan closing tags in `statistiken.php` (`</td></tr></table>`) that were breaking the page structure and causing layout instability.
+  - Added tablet guard rules in `mobile/_tablet.css` for `div#content.statistics` to keep the content width constrained and enable horizontal scrolling for ranking tables when needed.
+
 ## 2026-04-14 23:51
 - **Fix: Desktop Footer Overflow** — Fixed footer content spilling beyond viewport bounds after adding multi-line copyright/localization text.
   - Root cause: legacy desktop footer CSS enforced `height: 90px`, while footer now renders 3 lines.

@@ -54,6 +54,7 @@ div.c1 {text-align: center}
         	    if ($_SESSION['id_user'] != 1) {
             ?>
 			<a href="plus.php?id=3"><?php echo TRAVIAN_PLUS; ?></a>
+			<a href="nachrichten.php?t=5"><?php echo (defined('LANG') && LANG === 'ar') ? '💬 الدردشة الحية' : '💬 Live Chat'; ?></a>
             <?php
         	    }
             	// no support for support :-D
