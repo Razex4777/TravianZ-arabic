@@ -72,49 +72,55 @@ if (!empty($village)) {
 
 #res td {
     font-weight: bold;
-    padding: 1px !important;
+    padding: 0 !important;
     vertical-align: middle;
 }
 
 /* Icon cells — snug spacing */
-#res td:has(img.r1),
-#res td:has(img.r2),
-#res td:has(img.r3),
-#res td:has(img.r4),
-#res td:has(img.r5) {
-    padding: 0 0 0 6px !important;
+#res td:has(img) {
+    padding-inline-end: 4px !important; /* Space between icon and its pill */
+}
+
+/* Add space after each pill to separate it from the next resource icon */
+#res td:has(.res-pill) {
+    padding-inline-end: 12px !important; 
 }
 
 /* Resource value pills */
 .res-pill {
-    background: linear-gradient(180deg, #8BC34A 0%, #689F38 100%);
+    display: inline-block;
+    background: linear-gradient(180deg, #9CCC65 0%, #7CB342 100%); /* Softer, richer green */
     border: 1px solid #558B2F;
-    border-radius: 4px;
-    padding: 1px 6px !important;
+    border-radius: 8px; /* rounder */
+    padding: 3px 8px !important;
     color: #fff;
-    font-weight: bold;
+    font-family: inherit;
+    font-weight: 700;
     font-size: 11px;
-    text-shadow: 0 1px 1px rgba(0,0,0,0.25);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 0 2px 4px rgba(0,0,0,0.1);
     white-space: nowrap;
 }
 
-/* Full storage: bright green glow */
+/* Full storage: bright glowing green */
 .res-pill.res_full {
-    background: linear-gradient(180deg, #AEEA00 0%, #71D000 50%, #4CAF50 100%);
+    background: linear-gradient(180deg, #B2FF59 0%, #76FF03 50%, #64DD17 100%);
     border-color: #33691E;
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.35), 0 0 4px rgba(139,195,74,0.4);
+    color: #000;
+    text-shadow: none;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.6), 0 0 8px rgba(118,255,3,0.6);
 }
 
-/* Crop consumption: neutral grey-blue */
+/* Crop consumption: sleek slate-gray */
 .res-pill.res-consumption {
-    background: linear-gradient(180deg, #90A4AE 0%, #607D8B 100%);
-    border-color: #455A64;
+    background: linear-gradient(180deg, #78909C 0%, #546E7A 100%);
+    border-color: #37474F;
 }
 
-/* Resource icon spacing */
+/* Reset margin for images so padding-inline-end does the work */
 #res table img {
-    margin-left: 5px;
+    margin: 0 !important;
+    display: block;
 }
 </style>
 <?php

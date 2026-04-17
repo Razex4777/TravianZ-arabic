@@ -1,5 +1,21 @@
 # Changelog
 
+## 2026-04-18 00:05
+- **Refactor: Mobile CSS 500-Line Limit** — Adhering to the strict 500-line limitation rule, `mobile/_phone_ingame.css` (+1100 lines) was broken down into manageable component modules.
+  - Created directory `mobile/_phone_ingame/` to house the modular CSS chunks.
+  - `global.css`: Global resets, viewport properties, flexbox wrapper layout.
+  - `header.css`: Overrides for the server time, top panorama banner, and resource bar.
+  - `navigation.css`: Side menu navigation and tab pill buttons.
+  - `content.css`: Main UI overrides for `dorf1.php`, `dorf2.php`, tables, side info, and the large `karte.php` map.
+  - `popups_footer.css`: Responsive adjustments for popups (`div.popup3`) and footer styling.
+  - Updated `mobile/_phone_ingame.css` to act correctly as an `@import` aggregator, maintaining the global API surface for the overarching `mobile.css`.
+## 2026-04-17 16:15
+- **🔴 CRITICAL FIX: Gold Demolish Handler Was Dead Code** — In `15_1.tpl`, the gold instant demolish handler (checkbox-based) was placed AFTER the regular demolish handler. Since both check `$_REQUEST["demolish"]`, the regular handler matched first and called `exit`, making the gold demolish code unreachable. Fixed by moving the gold handler before the regular handler. Also added proper operator precedence parentheses to the slot range check `(($slot >= 19 && $slot <= 40) || $slot == 99)`.
+- **🟡 Security: Gold Upgrade Confirmation Dialog** — Added `onclick="return confirm('...')"` to the gold "Upgrade to Max Level" link in `upgrade.tpl`. Uses `sprintf(CONFIRM_UPGRADE_MAX_GOLD, ...)` to show the target level and gold cost before proceeding.
+- **🟡 Security: CSRF Protection for Farmlist Rename** — Added CSRF token (`$session->mchecker`) validation to the rename handler in `farmlist.tpl`. The rename form now includes a hidden `c` field, and the handler verifies `$_POST['c'] == $session->mchecker` before processing. Token is rotated after successful rename via `$session->changeChecker()`.
+- **🟡 Security: Farmlist Rename Input Validation** — Enhanced `Database::renameFarmList()` with `trim()` to reject empty/whitespace-only names, and `mb_substr()` truncation to 100 chars (DB column max). Also added `maxlength="100"` to the HTML input field.
+- **Localization: Missing Language Constants** — Added `DEMOLISH_GOLD_PER_LEVEL` and `CONFIRM_DEMOLISH_ZERO_GOLD_JS` constants to both `ar/part1.php` and `en.php`.
+
 ## 2026-04-17 00:00
 - **Fix: Statistics Page Overlap (RTL/Tablet)** — Resolved overlapping between the statistics content area and side navigation in Arabic layout on medium widths.
   - Removed orphan closing tags in `statistiken.php` (`</td></tr></table>`) that were breaking the page structure and causing layout instability.

@@ -1,0 +1,368 @@
+/* ==========================================================================
+   PHONE INGAME — Main Content Area, Maps, Tables & Side Info
+   ========================================================================== */
+
+@media screen and (max-width: 768px) {
+
+  /* Main Content Area */
+  div#content,
+  body.mod1 div#content,
+  body.mod2 div#content,
+  body.mod3 div#content {
+    float: none !important;
+    width: 100% !important;
+    min-height: 0 !important;
+    height: auto !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+    padding: 0 !important;
+  }
+
+  div.village1,
+  div.village2 {
+    width: 100% !important;
+    padding: 10px 0 0 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  div.village1 h1,
+  div.village2 h1 {
+    right: auto !important;
+    left: auto !important;
+    position: relative !important;
+    text-align: center !important;
+    margin: 0 0 8px 0 !important;
+    font-size: 16px;
+  }
+
+  div.village1 h1 div,
+  div.village2 h1 div {
+    float: none !important;
+    display: inline !important;
+  }
+
+  div#cap {
+    text-align: center !important;
+    margin-bottom: 8px !important;
+  }
+
+  /* Village Map */
+  div.village1 div#village_map,
+  div.village2 div#village_map {
+    float: none !important;
+    margin: 0 auto 12px auto !important;
+  }
+
+  /* Village 2 specific map scaling to prevent horizontal overflow */
+  div.village2 div#village_map {
+    transform-origin: top center !important;
+  }
+
+  div.village1 div#map_details,
+  div.village2 div#map_details {
+    float: none !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 5px !important;
+    box-sizing: border-box !important;
+  }
+
+  div.village1 div#map_details table,
+  div.village2 div#map_details table {
+    width: 100% !important;
+    margin-bottom: 10px !important;
+  }
+
+  /* Side Info */
+  div#side_info,
+  body.mod1 div#side_info,
+  body.mod2 div#side_info,
+  body.mod3 div#side_info {
+    float: none !important;
+    width: 100% !important;
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 10px 8px !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    background: none !important;
+    z-index: auto !important;
+  }
+
+  /* Tables */
+  div#content table,
+  div#content table.row_table_data,
+  div#content table.tbg,
+  div#content table#overview,
+  div.village1 table {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
+
+  div.village1 table#building_contract {
+    width: 100% !important;
+    margin: 0 !important;
+    clear: both !important;
+  }
+
+  div#content table td.sub div {
+    white-space: normal !important;
+    min-width: 140px;
+    line-height: 1.4;
+  }
+
+  div.village1 table#movements,
+  div.village1 table#movements td,
+  div.village1 table#production {
+    white-space: normal !important;
+  }
+
+  div.village1 table#movements td {
+    padding: 2px 4px !important;
+  }
+
+
+  /* Big Map Page (karte.php) */
+  div#content.map {
+    width: 100% !important;
+    overflow-x: hidden !important; /* Keep it bound properly since we scale it */
+    box-sizing: border-box !important;
+    padding-bottom: 20px !important;
+    text-align: center;
+  }
+
+  div#content.map div#map {
+    float: none !important;
+    position: relative !important;
+    margin: 0 auto !important;
+    max-width: none !important;
+    width: 552px !important;
+    height: 750px !important;
+    transform-origin: top center !important;
+  }
+
+  /* 3. The green arrows navigation box (Centered at the bottom) */
+  div#content.map div#map img#map_navibox {
+    top: 660px !important;
+    bottom: auto !important;    
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    /* Do NOT override width/height so the <map> overlay works correctly! */
+  }
+
+  /* 1. Table (Details) - Centered */
+  div#content.map div#map table#map_infobox {
+    position: absolute !important;
+    top: 360px !important;     
+    left: 50% !important;    
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    width: 300px !important;
+    max-width: none !important;
+    margin: 0 !important;
+    z-index: 100;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+  }
+
+  div#content.map div#map table#map_infobox thead th {
+    font-size: 18px !important;
+    padding: 8px !important;
+    text-align: center !important;
+  }
+
+  div#content.map div#map table#map_infobox tbody th,
+  div#content.map div#map table#map_infobox tbody td {
+    padding: 8px !important;
+    font-size: 16px !important;
+    white-space: nowrap !important;
+  }
+
+  /* 2. Coordinate Layout - Centered Below Table */
+  div#content.map div#map div#map_coords {
+    top: 540px !important;
+    bottom: auto !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    width: 340px !important;
+    height: auto !important;
+  }
+
+  div#content.map div#map div#map_coords form {
+    display: block !important;
+    text-align: center;
+  }
+
+  div#content.map div#map div#map_coords form br {
+    display: block !important;
+  }
+
+  div#content.map div#map div#map_coords span {
+    font-size: 20px !important;
+    font-weight: bold;
+    color: #444;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  div#content.map div#map div#map_coords input.text {
+    width: 50px !important;
+    height: 38px !important;
+    font-size: 18px !important;
+    border: 2px solid #aeb29a !important;
+    border-radius: 8px !important;
+    text-align: center;
+    background: #fff;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 4px;
+  }
+
+  /* Fix for OK button sprite repeating issues */
+  div#map_coords input#btn_ok,
+  div#content.map div#map div#map_coords input[type="image"] {
+    width: 50px !important;
+    height: 20px !important;
+    transform: scale(2.0);
+    margin: 15px 30px !important; /* Forces layout spacing to compensate for 2x scale */
+    filter: drop-shadow(0 1px 1px rgba(0,0,0,0.2));
+    display: inline-block !important;
+    vertical-align: middle !important;
+    background-repeat: no-repeat !important;
+    background-position: top center !important;
+  }
+
+  div#content.map div#map div#map_coords a {
+    font-size: 20px !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(to bottom, #f9f9f9, #e0e0e0);
+    padding: 8px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #333;
+    border: 2px solid #ccc;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-top: 5px;
+    width: auto !important;
+    box-sizing: border-box;
+  }
+
+  div#content.map div#map div#map_coords a img {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  div#content.map img#detailed_map {
+    float: none !important;
+    margin: 15px auto !important;
+    display: block !important;
+  }
+
+  div#content.map div#map_details {
+    float: none !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 8px !important;
+    box-sizing: border-box !important;
+  }
+
+  div#content.map div#map_details table {
+    width: 100% !important;
+    margin-bottom: 15px !important;
+    display: block !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  div#content.map div#map_details table th,
+  div#content.map div#map_details table td {
+    white-space: normal;
+  }
+
+  div#mbig {
+    width: 100% !important;
+    max-width: 100%;
+    overflow: auto;
+    height: auto !important;
+  }
+
+  div#mbig div#lightframe,
+  div#mbig div#darkframe {
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+  div#mbig div#lightframe {
+    right: 0 !important;
+    left: 0 !important;
+  }
+
+  /* Action Buttons */
+  th.buttons input[type="submit"],
+  th.buttons button {
+    display: inline-block;
+    width: 100%;
+    margin-top: 5px;
+    padding: 10px !important;
+    font-size: 14px !important;
+    border-radius: 8px !important;
+  }
+
+  th.navi {
+    font-size: 16px;
+    letter-spacing: 4px;
+    padding: 8px 0;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  div.village2 div#village_map {
+    transform: scale(0.88) !important;
+    margin-bottom: -50px !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  div.village2 div#village_map {
+    transform: scale(0.78) !important;
+    margin-bottom: -95px !important;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  div.village2 div#village_map {
+    transform: scale(0.70) !important;
+    margin-bottom: -130px !important;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  div.village2 div#village_map {
+    transform: scale(0.62) !important;
+    margin-bottom: -160px !important;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  div.village1 div#village_map {
+    transform: scale(0.9) !important;
+    transform-origin: top center !important;
+    margin-bottom: -10px !important;
+  }
+  div.village2 div#village_map {
+    transform: scale(0.58) !important;
+    margin-bottom: -180px !important;
+  }
+}

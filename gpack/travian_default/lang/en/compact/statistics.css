@@ -7,10 +7,15 @@ div.statistics table {
     margin-top: 5px;
 }
 
+div.statistics th {
+    position: relative;
+}
+
 div.statistics div#submenu {
     position: absolute;
-    right: 29px;
-    top: 107px;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 div.statistics div#submenu img {
@@ -19,9 +24,10 @@ div.statistics div#submenu img {
 }
 
 div.statistics div#submenu2 {
-    left: 29px;
+    left: 5px;
     position: absolute;
-    top: 107px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 div.statistics div#submenu2 img {

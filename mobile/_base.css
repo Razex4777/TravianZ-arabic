@@ -57,7 +57,7 @@
     max-width: 100% !important;
     right: auto !important;
     left: auto !important;
-    margin: 15px auto 0 auto !important;
+    margin: 30px auto 0 auto !important;
     position: relative !important;
   }
 
@@ -125,15 +125,10 @@
 
 /* Mobile: extra styling tweaks */
 @media screen and (max-width: 980px) {
+  /* Gold display on mobile — base overrides (specific phone styles in _phone_ingame.css) */
   #header_gold_display {
-    margin-right: 8px;
-    padding: 3px 10px;
-    background: linear-gradient(135deg, #d4a017, #b8860b);
-    border-radius: 14px;
-    font-size: 12px;
-    font-weight: bold;
-    color: #fff;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    margin-right: 0;
+    padding: 0;
   }
 }
 

@@ -14,6 +14,7 @@ $ckey = $generator->generateRandStr(6);
  if (!isset($process['t11']) || $process['t11'] == ''){  $t11 = 0; }else{  $t11 = $process['t11']; $showhero=1; }
  
 
+$totalunits = 0;
 for($i = 1; $i <= 11; $i++){
     $totalunits += (($i != 3 && $session->tribe == 3) ||
                     ($i != 4 && $session->tribe != 3)) ? (!empty($process['t'.$i]) ? $process['t'.$i] : 0) : 0;
@@ -189,7 +190,7 @@ $end = $tribe * 10;
                                 <option value="22"><?php echo (defined('LANG') && LANG === 'ar') ? 'الأكاديمية' : 'Academy'; ?></option>
                                 <option value="29"><?php echo (defined('LANG') && LANG === 'ar') ? 'الثكنة الكبيرة' : 'Great barracks'; ?></option>
                                 <option value="30"><?php echo (defined('LANG') && LANG === 'ar') ? 'الإسطبل الكبير' : 'Great stable'; ?></option>
-                                <option value="37"><?php echo (defined('LANG') && LANG === 'ar') ? 'مبنى البطل' : 'Hero's mansion'; ?></option>
+                                <option value="37"><?php echo (defined('LANG') && LANG === 'ar') ? 'مبنى البطل' : 'Hero\'s mansion'; ?></option>
                             </optgroup>
                             <?php } ?>
                         </select>
@@ -246,7 +247,7 @@ $end = $tribe * 10;
                                 <option value="22"><?php echo (defined('LANG') && LANG === 'ar') ? 'الأكاديمية' : 'Academy'; ?></option>
                                 <option value="29"><?php echo (defined('LANG') && LANG === 'ar') ? 'الثكنة الكبيرة' : 'Great barracks'; ?></option>
                                 <option value="30"><?php echo (defined('LANG') && LANG === 'ar') ? 'الإسطبل الكبير' : 'Great stable'; ?></option>
-                                <option value="37"><?php echo (defined('LANG') && LANG === 'ar') ? 'مبنى البطل' : 'Hero's mansion'; ?></option>
+                                <option value="37"><?php echo (defined('LANG') && LANG === 'ar') ? 'مبنى البطل' : 'Hero\'s mansion'; ?></option>
                             </optgroup>
                             <?php } ?>
                         </select>

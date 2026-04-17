@@ -278,10 +278,7 @@
     color: #1a5c00 !important;
   }
 
-  /* Side navigation links */
-  div#side_navi a {
-    color: #333 !important;
-  }
+  /* Side navigation links — handled by _phone_ingame.css slider */
 
   /* ──────────────────────────────────────────────────────────────────────
      18. MASS MESSAGE PAGE (massmessage.php)

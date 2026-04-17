@@ -49,7 +49,7 @@ $_SESSION[ 'csrf' ] = $key;
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 	<script src="mt-core.js?0faab" type="text/javascript"></script>
 	<script src="mt-more.js?0faab" type="text/javascript"></script>
-	<script src="unx.js?f4b7j" type="text/javascript"></script>
+	<script src="unx.js?g5c8m" type="text/javascript"></script>
 	<script src="new.js?0faab" type="text/javascript"></script>
 	<link href="<?php echo GP_LOCATE; ?>lang/<?php echo LANG; ?>/compact.css?f4b7h" rel="stylesheet" type="text/css" />
 	<link href="<?php echo GP_LOCATE; ?>lang/<?php echo LANG; ?>/lang.css?f4b7d" rel="stylesheet" type="text/css" />
@@ -59,7 +59,7 @@ $_SESSION[ 'csrf' ] = $key;
 	<?php if(defined('LANG') && LANG === 'ar'): ?>
 	
 	<?php endif; ?>
-	<link rel="stylesheet" type="text/css" href="mobile.css?v=13" />
+	<link rel="stylesheet" type="text/css" href="mobile.css?v=37" />
 </head>
 
 <body class="v35 ie ie7" onload="initCounter()">

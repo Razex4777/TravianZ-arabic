@@ -9,8 +9,10 @@ if(isset($_REQUEST["cancel"]) && $_REQUEST["cancel"] == "1") {
 if($session->alliance) $memberCount = $database->countAllianceMembers($session->alliance);
 else $memberCount = 0;
 
-if(!empty($_REQUEST["demolish"]) && $_REQUEST["c"] == $session->mchecker) {
-    if($_REQUEST["type"] != null && ($_REQUEST["type"] >= 19 && $_REQUEST["type"] <= 40 || $_REQUEST["type"] == 99)) {
+// --- Regular demolish (queue-based, one level at a time) ---
+// Gold demolish is handled in build.php before template loading
+if(!empty($_REQUEST["demolish"]) && $_REQUEST["c"] == $session->mchecker && !(isset($_POST['goldDemolish']) && $_POST['goldDemolish'] == '1')) {
+    if($_REQUEST["type"] != null && (($_REQUEST["type"] >= 19 && $_REQUEST["type"] <= 40) || $_REQUEST["type"] == 99)) {
         $type = $_REQUEST['type'];
         $demolish_permitted = $database->addDemolition($village->wid,$type);
         if ($demolish_permitted === true) {
@@ -18,16 +20,6 @@ if(!empty($_REQUEST["demolish"]) && $_REQUEST["c"] == $session->mchecker) {
             header("Location: build.php?gid=15&ty=$type&cancel=0&demolish=0");
         } 
         else header("Location: build.php?gid=15&ty=$type&nodemolish=".$demolish_permitted);
-        exit;
-    }
-}
-
-// --- Gold instant demolish from main building ---
-if(isset($_GET['goldDemolish']) && isset($_GET['slot']) && $_GET['goldDemolish'] == 1) {
-    $slot = (int) $_GET['slot'];
-    if ($slot >= 19 && $slot <= 40) {
-        $building->demolishToZero($slot);
-        header("Location: dorf2.php");
         exit;
     }
 }
@@ -60,53 +52,55 @@ echo "</b>";
 		}
 
         echo "
-<form action=\"build.php?gid=15&amp;demolish=1&amp;cancel=0&amp;c=".$session->mchecker."\" method=\"POST\" style=\"display:inline\">
+<form action=\"build.php?gid=15&amp;demolish=1&amp;cancel=0&amp;c=".$session->mchecker."\" method=\"POST\" style=\"display:inline\" id=\"demolish_form\">
 <select id=\"demolition_type\" name=\"type\" class=\"dropdown\">";
         for ($i=19; $i<=41; $i++) {
             $select=($i==$ty)? " SELECTED":"";
             if (isset($VillageResourceLevels['f'.$i]) && $VillageResourceLevels['f'.$i] >= 1 && !$building->isCurrent($i) && !$building->isLoop($i)) {
-                echo "<option value=".$i.$select.">".$i.". ".$building->procResType($VillageResourceLevels['f'.$i.'t'])." (".LEVEL." ".$VillageResourceLevels['f'.$i].")</option>";
+                $bLevel = $VillageResourceLevels['f'.$i];
+                echo "<option value=".$i.$select." data-level=\"".$bLevel."\">".$i.". ".$building->procResType($VillageResourceLevels['f'.$i.'t'])." (".LEVEL." ".$bLevel.")</option>";
             }
 }
 if ($village->natar==1) {
             $select=($ty==99)? " SELECTED":"";
             if ($VillageResourceLevels['f99'] >= 1 && !$building->isCurrent(99) && !$building->isLoop(99)) {
-                echo "<option value=99".$select.">99. ".$building->procResType(40)." (".LEVEL." ".$VillageResourceLevels['f99'].")</option>";
+                $bLevel = $VillageResourceLevels['f99'];
+                echo "<option value=99".$select." data-level=\"".$bLevel."\">99. ".$building->procResType(40)." (".LEVEL." ".$bLevel.")</option>";
             }
 }
-echo "</select> <button name=\"demolish\" value=\"1\" type=\"submit\" class=\"trav_buttons\" onClick=\"javascript:return verify_demolition();\">".DEMOLISH."</button></form>";
-
-// --- Gold instant demolish option ---
-echo "<hr style='border:none; border-top:1px solid #ddd; margin:10px 0;'>";
-echo "<p style='font-weight:bold; color:#996633;'>🪙 ".DEMOLISH_TO_ZERO." (".GOLD_TEXT.")</p>";
-echo "<form style='display:inline'>";
-echo "<input type='hidden' name='gid' value='15'>";
-echo "<select id='gold_demolish_type' name='slot' class='dropdown'>";
-for ($i=19; $i<=41; $i++) {
-    $gSelect = ($i==$ty)? " SELECTED":"";
-    if (isset($VillageResourceLevels['f'.$i]) && $VillageResourceLevels['f'.$i] >= 1 && !$building->isCurrent($i) && !$building->isLoop($i)) {
-        $bLevel = $VillageResourceLevels['f'.$i];
-        $goldNeeded = $bLevel; // 1 gold per level
-        echo "<option value=".$i.$gSelect.">".$i.". ".$building->procResType($VillageResourceLevels['f'.$i.'t'])." (".LEVEL." ".$bLevel.") — ".$goldNeeded." ".GOLD_TEXT."</option>";
-    }
-}
 echo "</select> ";
-echo "<a href='#' onclick='doGoldDemolish(); return false;' style='color:#996633; font-weight:bold; cursor:pointer;'>🪙 ".DEMOLISH_TO_ZERO."</a>";
-echo "</form>";
+// Gold checkbox — like the reference video
+echo "<label style='margin: 0 8px; cursor:pointer;'><input type='checkbox' id='gold_demolish_check' name='goldDemolish' value='1'> <img src=\"img/x.gif\" class=\"gold\" alt=\"".GOLD_TEXT."\" title=\"".GOLD_TEXT."\"/> ".DEMOLISH_GOLD_PER_LEVEL."</label> ";
+echo "<button name=\"demolish\" value=\"1\" type=\"submit\" class=\"trav_buttons\" onClick=\"javascript:return verify_demolition();\">".DEMOLISH."</button></form>";
+if (isset($_GET['nogold'])) {
+    echo "<p style='color:red;'>".(defined('LANG') && LANG === 'ar' ? 'ليس لديك ذهب كافٍ لإتمام عملية الهدم.' : 'Not enough gold to demolish this building.')."</p>";
+}
 }
 }
 ?> 
 
 <script type="text/javascript">
 <!--
-	function doGoldDemolish() {
-		var sel = document.getElementById('gold_demolish_type');
-		var slot = sel.value;
-		window.location.href = 'build.php?gid=15&goldDemolish=1&slot=' + slot;
-	}
-
 	function verify_demolition() {
 		var dType    = document.getElementById('demolition_type');
+		var goldCheck = document.getElementById('gold_demolish_check');
+		var selectedOption = dType.options[dType.selectedIndex];
+		var buildingLevel = parseInt(selectedOption.getAttribute('data-level')) || 0;
+
+		// If gold checkbox is checked, confirm gold spending then redirect via GET
+		if (goldCheck && goldCheck.checked) {
+			var goldCost = buildingLevel;
+			if (!window.confirm('<?php echo DEMOLISH_TO_ZERO; ?>\n\n' 
+				+ selectedOption.text + '\n\n'
+				+ '<?php echo GOLD_TEXT; ?>: ' + goldCost + '\n\n'
+				+ '<?php echo addslashes(CONFIRM_DEMOLISH_ZERO_GOLD_JS ?? "هل أنت متأكد؟"); ?>')) {
+				return false;
+			}
+			// Redirect via GET to the existing goldDemolish handler in build.php
+			window.location.href = 'build.php?id=' + dType.value + '&goldDemolish=1&slot=' + dType.value;
+			return false; // prevent form submission
+		}
+
 		var warnLvl3 = <?php
 			if (
 				$session->alliance &&

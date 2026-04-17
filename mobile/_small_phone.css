@@ -88,12 +88,7 @@
   }
 
   /* ---------- IN-GAME PAGES ---------- */
-
-
-  div#side_navi p a {
-    font-size: 10px !important;
-    padding: 3px 4px !important;
-  }
+  /* (side_navi slider rules handled in _phone_ingame.css) */
 
   /* Footer */
   div#footer div#mfoot {

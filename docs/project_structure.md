@@ -432,7 +432,13 @@ TravianZ-master/
 │   ├── 📄 _tablet.css                 # ≤980px — remove fixed widths for public + in-game pages
 │   ├── 📄 _phone_public.css           # ≤768px — public pages (index, tutorials, hamburger sidebar)
 │   ├── 📄 _phone_outgame.css          # ≤768px — outgame pages (login, signup, activate forms)
-│   ├── 📄 _phone_ingame.css           # ≤768px — in-game core (sidebar, resources, tables, map)
+│   ├── 📄 _phone_ingame.css           # ≤768px — in-game core (import aggregator)
+│   ├── 📁 _phone_ingame/              # Modularized ingame CSS chunks
+│   │   ├── 📄 global.css              # Global resets and flexbox wrappers
+│   │   ├── 📄 header.css              # Top navigation, time display, and banner
+│   │   ├── 📄 navigation.css          # Side and tab pill-button navigation
+│   │   ├── 📄 content.css             # Main content area, maps, side info, and tables
+│   │   └── 📄 popups_footer.css       # Popups, dialog overrides, and footer
 │   ├── 📄 _phone_ingame_pages.css     # ≤768px — page-specific overrides (messages, reports, mass msg)
 │   ├── 📄 _phone_alliance.css         # ≤768px — alliance pages (forum, chat, overview, diplomacy)
 │   ├── 📄 _phone_plus.css             # ≤768px — gold shop/plus page (cards grid, buy buttons)

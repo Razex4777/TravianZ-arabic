@@ -1,0 +1,121 @@
+/* ==========================================================================
+   PHONE INGAME — Global Resets
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+
+@media screen and (max-width: 768px) {
+  /* 0. HIDE DESKTOP-ONLY ELEMENTS */
+  a#logo,
+  div#side_navi a#logo,
+  div#side_navi a#logo img {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+  }
+
+  /* 1. GLOBAL RESETS */
+  html, body {
+    overflow-x: hidden !important;
+    min-width: 0 !important;
+    max-width: 100vw !important;
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+  }
+
+  ::-webkit-scrollbar {
+    width: 0px !important;
+    height: 0px !important;
+    display: none !important;
+    background: transparent !important;
+  }
+  * {
+    scrollbar-width: none !important;
+  }
+
+  div#mid *,
+  div#content *,
+  div#side_info *,
+  div#side_navi * {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  div#mid img,
+  div#mid canvas,
+  div#content img,
+  div#content canvas {
+    max-width: none !important;
+  }
+
+  #guide1, #guide2, #guide3, #guide4 {
+    display: none !important;
+  }
+
+  /* Wrapper */
+  div.wrapper, div#wrapper {
+    position: relative !important;
+    min-width: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    background-image: none !important;
+    background-size: 100% auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 15px !important;
+  }
+
+  div.wrapper > img#msfilter, div#wrapper > img#msfilter       { display: none !important; }
+  div.wrapper > div#dynamic_header, div#wrapper > div#dynamic_header  { display: none !important; }
+  div.wrapper > div#header, div#wrapper > div#header          { order: 3 !important; }
+  div.wrapper > div#res, div#wrapper > div#res             { order: 4 !important; }
+  div.wrapper > div#mid, div#wrapper > div#mid             { order: 6 !important; }
+  div.wrapper > .footer-stopper, div#wrapper > .footer-stopper     { order: 7 !important; }
+  div.wrapper > div#footer, div#wrapper > div#footer          { order: 8 !important; }
+  div.wrapper > div#ce, div#wrapper > div#ce              { order: 9 !important; }
+  div.wrapper > div.clear, div#wrapper > div.clear           { display: none !important; }
+
+  div#mid {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    float: none !important;
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    background-image: none !important;
+    box-sizing: border-box !important;
+    padding: 0 8px !important;
+  }
+
+  /* CE empty div */
+  div#ce {
+    width: 100% !important;
+    height: 0 !important;
+  }
+
+  /* Layout module overrides */
+  body.mod1 div#dynamic_header div.dyn1,
+  body.mod1 div#dynamic_header div.dyn2,
+  body.mod2 div#dynamic_header div.dyn1,
+  body.mod2 div#dynamic_header div.dyn2,
+  body.mod3 div#dynamic_header div.dyn1,
+  body.mod3 div#dynamic_header div.dyn2 {
+    width: 100% !important;
+    float: none !important;
+    height: auto !important;
+    position: relative !important;
+    right: auto !important;
+    left: auto !important;
+    min-width: 0 !important;
+  }
+  body.mod2 div#dynamic_header #ad_iframe {
+    right: auto !important;
+    margin-right: 0 !important;
+    position: relative !important;
+  }
+}

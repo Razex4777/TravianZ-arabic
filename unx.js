@@ -1,3 +1,39 @@
+/* ═══════════════════════════════════════════════════════════
+   SCROLL-TOP ENFORCER + FOCUS GUARD (Mobile)
+   Prevents ALL scroll-jumps on page load globally.
+   ═══════════════════════════════════════════════════════════ */
+(function() {
+  // 1. Disable browser scroll restoration
+  if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+  window.scrollTo(0, 0);
+
+  // 2. Global focus() override — prevent ANY .focus() call from scrolling
+  //    during the first 2 seconds of page load (covers all templates/JS)
+  var _origFocus = HTMLElement.prototype.focus;
+  var _loadGuardActive = true;
+  HTMLElement.prototype.focus = function(opts) {
+    if (_loadGuardActive) {
+      opts = opts || {};
+      opts.preventScroll = true;
+    }
+    return _origFocus.call(this, opts);
+  };
+
+  // 3. Multi-stage scroll reset
+  document.addEventListener('DOMContentLoaded', function() { window.scrollTo(0, 0); });
+  window.addEventListener('load', function() {
+    window.scrollTo(0, 0);
+    requestAnimationFrame(function() { window.scrollTo(0, 0); });
+    setTimeout(function() { window.scrollTo(0, 0); }, 0);
+    setTimeout(function() { window.scrollTo(0, 0); }, 50);
+    setTimeout(function() { window.scrollTo(0, 0); }, 100);
+    setTimeout(function() { window.scrollTo(0, 0); }, 200);
+  });
+
+  // 4. Lift the focus guard after 2s — normal focus behavior resumes
+  setTimeout(function() { _loadGuardActive = false; }, 2000);
+})();
+
 window.dlang = 'ar';  // edit it to en if fullscreen map not working
 window.reloading = false;
 var xhttp = new XMLHttpRequest();

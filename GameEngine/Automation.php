@@ -3375,7 +3375,7 @@ class Automation {
                     $database->query("
                         UPDATE ".TB_PREFIX."vdata
                             SET
-                                `maxstore` = IF(`maxstore` - ".$buildarray[$level]['attri']." <= ".STORAGE_BASE.", ".STORAGE_BASE.", `maxstore` - ".$buildarray[$level]['attri']."),
+                                `maxstore` = IF(`maxstore` - ".$buildarray[$level]['attri']." <= ".STORAGE_BASE.", ".STORAGE_BASE.", `maxstore` - ".$buildarray[$level]['attri'].")
                             WHERE
                                 wref=".(int) $vil['vref']);
                 }
@@ -3384,7 +3384,7 @@ class Automation {
                     $database->query("
                         UPDATE ".TB_PREFIX."vdata
                             SET
-                                `maxcrop` = IF(`maxcrop` - ".$buildarray[$level]['attri']." <= ".STORAGE_BASE.", ".STORAGE_BASE.", `maxcrop` - ".$buildarray[$level]['attri']."),
+                                `maxcrop` = IF(`maxcrop` - ".$buildarray[$level]['attri']." <= ".STORAGE_BASE.", ".STORAGE_BASE.", `maxcrop` - ".$buildarray[$level]['attri'].")
                             WHERE
                                 wref=".(int) $vil['vref']);
                 }

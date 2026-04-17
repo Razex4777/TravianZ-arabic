@@ -3,6 +3,7 @@ use App\Entity\User;
 
 ob_start(); // Enesure, that no more header already been sent error not showing up again
 mb_internal_encoding("UTF-8"); // Add for utf8 varriables.
+header('Content-Type: text/html; charset=UTF-8'); // Ensure correct charset through reverse proxies (ngrok)
 
 #################################################################################
 ##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##

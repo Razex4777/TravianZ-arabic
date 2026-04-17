@@ -11,6 +11,10 @@
 ?>
 
 <div id="header">
+<!-- Mobile-only panorama banner (hidden on desktop via CSS, shown on mobile) -->
+<div id="mobile_header_banner">
+    <span class="mobile_server_name"><?php echo SERVER_NAME; ?></span>
+</div>
 <?php
 $_protect_ts = isset($session->userinfo['protect']) ? (int)$session->userinfo['protect'] : 0;
 if ($_protect_ts > time()) {

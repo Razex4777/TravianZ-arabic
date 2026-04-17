@@ -8016,6 +8016,14 @@ References: User ID/Message ID, Mode
 	}
 
 	function renameFarmList($id, $owner, $newname) {
+		$newname = trim($newname);
+		if ($newname === '' || strlen($newname) === 0) {
+			return false;
+		}
+		// Truncate to DB column max length (100 chars)
+		if (mb_strlen($newname, 'UTF-8') > 100) {
+			$newname = mb_substr($newname, 0, 100, 'UTF-8');
+		}
 		list($id, $owner, $newname) = $this->escape_input((int) $id, (int) $owner, $newname);
 
 		$q = "UPDATE " . TB_PREFIX . "farmlist SET name = '$newname' WHERE id = $id AND owner = $owner";

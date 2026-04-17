@@ -24,8 +24,11 @@
     background-image: none !important;
   }
 
-  /* Thin decorative header bar */
-  body.v35 div#header {
+  /* Thin decorative header bar (only on outgame pages) */
+  body.v35:has(div#content.login) div#header,
+  body.v35:has(div#content.signup) div#header,
+  body.v35:has(div#content.activate) div#header,
+  body.v35:has(div#content.logout) div#header {
     height: 30px !important;
     background-size: cover !important;
     background-position: center !important;

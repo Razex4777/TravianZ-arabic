@@ -11,7 +11,7 @@ include("next.tpl");
 	<table cellpadding="1" cellspacing="1" id="build_value">
 	<tr>
 		<th><?php echo CURRENT_CAPACITY; ?></th>
-		<td><b><?php echo $bid38[$village->resarray['f'.$id]]['attri']*STORAGE_MULTIPLIER; ?></b> <?php echo RESOURCE_UNITS; ?></td>
+		<td><b><?php $lvl = (int)$village->resarray['f'.$id]; echo ($lvl > 0 && isset($bid38[$lvl])) ? $bid38[$lvl]['attri']*STORAGE_MULTIPLIER : 0; ?></b> <?php echo RESOURCE_UNITS; ?></td>
 	</tr>
 	<tr>
 <?php 

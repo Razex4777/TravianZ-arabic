@@ -1729,7 +1729,9 @@ define('NOT_ENOUGH_GOLD_TEXT', 'Not enough gold');
 define('UPGRADE_TO_LEVEL_MAX', 'Upgrade to level');
 define('CONFIRM_UPGRADE_MAX_GOLD', 'Do you wish to upgrade this building to max level (%s) for %s gold?');
 define('DEMOLISH_TO_ZERO', 'Demolish for gold');
+define('DEMOLISH_GOLD_PER_LEVEL', 'Gold per full level');
 define('CONFIRM_DEMOLISH_ZERO_GOLD', 'Do you wish to demolish this building to level 0 for %s gold?');
+define('CONFIRM_DEMOLISH_ZERO_GOLD_JS', 'Are you sure you want to fully demolish this building with gold?');
 define('CELEBRATION_NEEDS', 'Celebration still needs:');
 
 /*

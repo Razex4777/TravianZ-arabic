@@ -413,5 +413,7 @@ define('GOLD_TEXT', 'ذهب');
 define('NOT_ENOUGH_GOLD_TEXT', 'الذهب لا يكفي');
 define('CONFIRM_UPGRADE_MAX_GOLD', 'هل ترغب في ترقية هذا المبنى إلى أقصى مستوى (%s) مقابل %s ذهب؟');
 define('DEMOLISH_TO_ZERO', 'هدم بالذهب');
+define('DEMOLISH_GOLD_PER_LEVEL', 'ذهب لكل مستوى كامل');
 define('CONFIRM_DEMOLISH_ZERO_GOLD', 'هل ترغب في هدم هذا المبنى إلى المستوى 0 مقابل %s ذهب؟');
+define('CONFIRM_DEMOLISH_ZERO_GOLD_JS', 'هل أنت متأكد من هدم هذا المبنى بالكامل بالذهب؟');
 define('CELEBRATION_NEEDS', 'الاحتفال لا يزال يحتاج إلى:');

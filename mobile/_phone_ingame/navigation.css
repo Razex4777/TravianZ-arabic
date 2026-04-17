@@ -1,0 +1,194 @@
+/* ==========================================================================
+   PHONE INGAME — Side & Tab Navigation
+   ========================================================================== */
+
+@media screen and (max-width: 768px) {
+
+  /* Side Navigation Container (Dedicated Top Navbar Mode) */
+  div#side_navi {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important; 
+    right: 0 !important; 
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    height: 48px !important; /* Slightly taller to accommodate the curved corners gracefully */
+    box-sizing: border-box !important;
+    padding: 0 45px 0 10px !important; /* Right padding protects hamburger, left margin very small */
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important; /* Forces a single line! */
+    overflow: hidden !important; /* No sliding */
+    gap: 10px !important;
+    align-items: stretch !important; /* Stretch so links fill height for easy tapping */
+    justify-content: flex-start !important; /* Start from right since RTL */
+    
+    /* Elegant Glassmorphism */
+    background: rgba(255, 255, 255, 0.8) !important;
+    background-color: rgba(255, 255, 255, 0.8) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    
+    border-radius: 0 !important;
+    
+    border: none !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.6) !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05), inset 0 -1px 0 rgba(255, 255, 255, 0.5) !important;
+    
+    z-index: 1000 !important;
+    margin: 0 !important;
+    scrollbar-width: none !important;
+    transition: all 0.3s ease !important;
+  }
+
+  /* When sidebar is opened via hamburger */
+  body:has(#mobile-nav-toggle:checked) div#side_navi {
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    left: auto !important;
+    width: 250px !important;
+    height: 100vh !important;
+    background: rgba(255, 255, 255, 0.98) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    align-items: stretch !important;
+    overflow-y: auto !important;
+    padding: 60px 20px 20px 20px !important;
+    box-shadow: -4px 0 15px rgba(0,0,0,0.3) !important;
+    z-index: 1002 !important;
+    gap: 12px !important;
+    border-left: 1px solid #ddd !important;
+  }
+
+  div#side_navi::-webkit-scrollbar { display: none !important; }
+  div#side_navi a#logo { display: none !important; }
+
+  div#side_navi p {
+    display: flex !important;
+    height: 100% !important;
+    gap: 10px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  div#side_navi br,
+  div#side_navi td,
+  div#side_navi div,
+  div#side_navi table,
+  div#side_navi span,
+  div#side_navi img,
+  div#side_navi .count { display: none !important; }
+
+  /* Only show first 3 pills in Top Bar mode (Offset by 1 because of hidden logo anchor) */
+  body:not(:has(#mobile-nav-toggle:checked)) div#side_navi > a:nth-of-type(n+5),
+  body:not(:has(#mobile-nav-toggle:checked)) div#side_navi p a:nth-of-type(n+4) {
+    display: none !important;
+  }
+
+  /* Base styles for Top Navbar Links */
+  div#side_navi a,
+  div#side_navi p a {
+    font-size: 14px !important;
+    margin: 0 !important;
+    padding: 0 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 3px solid transparent !important; /* Always present — just invisible */
+    border-radius: 0 !important;
+    color: #555 !important;
+    text-decoration: none !important;
+    font-weight: 700 !important;
+    box-shadow: none !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    transition: color 0.25s ease, border-color 0.25s ease !important;
+  }
+
+  /* Active / Tap state — green underline slides in via color change only */
+  div#side_navi a:active,
+  div#side_navi p a:active {
+    color: #71D000 !important;
+    border-bottom-color: #71D000 !important;
+  }
+
+  /* Adjust buttons inside the full sidebar to become pill buttons */
+  body:has(#mobile-nav-toggle:checked) div#side_navi a,
+  body:has(#mobile-nav-toggle:checked) div#side_navi p a {
+    display: inline-flex !important;
+    width: 100% !important;
+    border-radius: 12px !important;
+    padding: 12px 15px !important;
+    font-size: 15px !important;
+    justify-content: flex-start !important;
+    background: #fdfdfd !important;
+    border: 1px solid #eee !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.04) !important;
+    color: #444 !important;
+  }
+
+  body:has(#mobile-nav-toggle:checked) div#side_navi a:active,
+  body:has(#mobile-nav-toggle:checked) div#side_navi p a:active {
+    background: #71D000 !important;
+    color: #fff !important;
+    border-color: #5eac00 !important;
+    transform: scale(0.97) !important;
+  }
+
+
+  /* Tab Navigation (Text Menu) */
+  div#textmenu {
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 0 12px 0;
+    margin-bottom: 8px;
+    font-size: 0;
+    border-bottom: 1px solid #ddd;
+  }
+
+  div#textmenu a {
+    font-size: 12px;
+    padding: 5px 12px;
+    background: #f4f4f4;
+    border: 1px solid #c0c0c0;
+    border-radius: 18px;
+    color: #333 !important;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    transition: all 0.2s ease;
+  }
+
+  div#textmenu a.selected {
+    background: #71D000;
+    color: #fff !important;
+    border-color: #5eac00;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.15);
+  }
+
+  div#textmenu a:active {
+    transform: scale(0.96);
+  }
+
+}
+
+@media screen and (max-width: 360px) {
+  div#side_navi p a {
+    font-size: 10px !important;
+    padding: 4px 7px !important;
+  }
+
+  div#textmenu a {
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+}

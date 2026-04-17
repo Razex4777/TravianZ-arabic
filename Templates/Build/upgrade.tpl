@@ -150,10 +150,15 @@ $currentBuildingType = $village->resarray['f'.$id.'t'];
 $currentBuildingLevel = (int) $village->resarray['f'.$id];
 $buildingMaxLevel = $building->getMaxLevel($currentBuildingType);
 
-if ($currentBuildingType > 0 && $currentBuildingLevel < $buildingMaxLevel && $buildingMaxLevel > 0) {
+// Exclude unique/special buildings from gold upgrade to max:
+// 25 = Residence, 26 = Palace, 40 = WW (these have special building rules)
+$excludeFromGoldMax = [25, 26, 40];
+
+if ($currentBuildingType > 0 && $currentBuildingLevel < $buildingMaxLevel && $buildingMaxLevel > 0 && !in_array($currentBuildingType, $excludeFromGoldMax)) {
 	$upgradeCost = $buildingMaxLevel - $currentBuildingLevel;
 	echo " | ";
 	if ($session->gold >= $upgradeCost) {
+		
 		echo "<a class=\"build\" href=\"build.php?id=$id&upgradeToMax=1\">";
 		echo UPGRADE_TO_LEVEL_MAX." $buildingMaxLevel <span style=\"color:#000;font-weight:normal;\">$upgradeCost <img src=\"".GP_LOCATE."img/a/gold_g.gif\" alt=\"".GOLD_TEXT."\" title=\"".GOLD_TEXT."\"/></span>";
 		echo "</a>";
@@ -164,19 +169,6 @@ if ($currentBuildingType > 0 && $currentBuildingLevel < $buildingMaxLevel && $bu
 	}
 }
 
-// Note: Gold demolish (هدم بالذهب) is available on all building pages
-if ($currentBuildingType > 0 && $currentBuildingLevel > 0) {
-	$demolishCost = $currentBuildingLevel;
-	echo " | ";
-	if ($session->gold >= $demolishCost) {
-		echo "<a class=\"build\" href=\"build.php?id=$id&demolishToZero=1\">";
-		echo DEMOLISH_TO_ZERO." <span style=\"color:#000;font-weight:normal;\">$demolishCost <img src=\"".GP_LOCATE."img/a/gold_g.gif\" alt=\"".GOLD_TEXT."\" title=\"".GOLD_TEXT."\"/></span>";
-		echo "</a>";
-	} else {
-		echo "<span class=\"none\">";
-		echo DEMOLISH_TO_ZERO." $demolishCost <img src=\"".GP_LOCATE."img/a/gold_g.gif\" alt=\"".GOLD_TEXT."\" title=\"".GOLD_TEXT."\"/> - ".NOT_ENOUGH_GOLD_TEXT;
-		echo "</span>";
-	}
-}
+// Gold demolish (هدم بالذهب) is only available in the Main Building (المبنى الرئيسي)
 
 ?>

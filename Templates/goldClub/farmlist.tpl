@@ -7,11 +7,12 @@ if(mysqli_num_rows($res) == 0) {
 if(isset($_GET['t']) == 99 && isset($_GET['action']) == 0) {
 
 // --- Handle rename action ---
-if(isset($_POST['action']) && $_POST['action'] == 'renameList' && !empty($_POST['lid']) && !empty($_POST['newname'])){
+if(isset($_POST['action']) && $_POST['action'] == 'renameList' && !empty($_POST['lid']) && !empty($_POST['newname']) && isset($_POST['c']) && $_POST['c'] == $session->mchecker){
     $rlid = (int)$_POST['lid'];
     $rnewname = trim($_POST['newname']);
     if($rnewname !== '') {
         $database->renameFarmList($rlid, $session->uid, $rnewname);
+        $session->changeChecker();
     }
     header("Location: build.php?id=39&t=99");
     exit;
@@ -50,7 +51,8 @@ while($row = mysqli_fetch_array($sql)){
                             <form id="renameForm_<?php echo $lid; ?>" method="post" action="build.php?id=39&t=99" style="display:none; margin:0; padding:0;">
                                 <input type="hidden" name="action" value="renameList">
                                 <input type="hidden" name="lid" value="<?php echo $lid; ?>">
-                                <input type="text" name="newname" value="<?php echo htmlspecialchars($lname); ?>" style="width:120px; font-size:11px;">
+                                <input type="hidden" name="c" value="<?php echo $session->mchecker; ?>">
+                                <input type="text" name="newname" value="<?php echo htmlspecialchars($lname); ?>" maxlength="100" style="width:120px; font-size:11px;">
                                 <button type="submit" style="font-size:10px; cursor:pointer; padding:1px 6px;"><?php echo (defined('LANG') && LANG === 'ar') ? 'حفظ' : 'Save'; ?></button>
                             </form>
                         </div>
@@ -191,7 +193,7 @@ while($row2 = mysqli_fetch_array($getnotice)){
 	<label for="raidListMarkAll"><?php echo (defined('LANG') && LANG === 'ar') ? 'تحديد الكل' : 'Select all'; ?></label>
 </div><br />
 <div class="addSlot">
-<button type="button" class="trav_buttons" onclick="window.location.href = '?gid=16&t=99&action=addraid';"><?php echo (defined('LANG') && LANG === 'ar') ? 'إضافة هجمة (-5 ذهب)' : 'Add Raid (-5 Gold)'; ?></button>
+<button type="button" class="trav_buttons" onclick="window.location.href = '?gid=16&t=99&action=addraid';"><?php echo (defined('LANG') && LANG === 'ar') ? 'إضافة هجمة (-5 ذهب)' : 'Add Raid <span style=\"color:#000;font-weight:normal;\">(5 <img src=\"img/x.gif\" class=\"gold\" alt=\"Gold\">)</span>'; ?></button>
 <button type="submit" class="trav_buttons" value="Start Raid"><?php echo (defined('LANG') && LANG === 'ar') ? 'بدء الهجوم (-1 ذهب / قرية)' : 'Start Raid (-1 Gold / farm)'; ?></button>
 </div><br />
 <?php } ?>
@@ -204,6 +206,7 @@ while($row2 = mysqli_fetch_array($getnotice)){
 ?>
 </form>
 <?php
+if(!isset($create)) $create = 0;
 if($create == 1){
 	$hideevasion = 1;
 	include("Templates/goldClub/farmlist_add.tpl");
@@ -334,3 +337,5 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 </script>
+
+

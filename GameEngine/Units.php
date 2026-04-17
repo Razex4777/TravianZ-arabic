@@ -150,6 +150,7 @@ class Units {
         if($post['c'] < 2 || $post['c'] > 4) return "Invalid attack type.";
             
         //check if at least one troops has been selected
+        $selectedTroops = 0;
         for($i = 1; $i <= 11; $i++) $selectedTroops += empty($post['t'.$i]) ? 0 : $post['t'.$i];        
         if($selectedTroops == 0) return "You need to select min. one troop";
         

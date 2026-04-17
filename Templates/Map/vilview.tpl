@@ -530,7 +530,7 @@ if($type >= 18 && $type <= 21){
 				</tr>
                 <tr>
                     <td class="none">
-                        <a href="build.php?id=39&t=99&action=addraid&z=<?php echo $_GET['d']; ?>">&raquo; <?php echo (defined('LANG') && LANG === 'ar') ? 'إضافة الى قائمة المزارع (-1 ذهب)' : 'Add to farm list (-1 Gold)'; ?></a>
+                        <a href="build.php?id=39&t=99&action=addraid&z=<?php echo $_GET['d']; ?>">&raquo; <?php echo (defined('LANG') && LANG === 'ar') ? 'إضافة الى قائمة المزارع <span style="color:#000;font-weight:normal;">(5 <img src="" . GP_LOCATE . "img/a/gold_g.gif" alt="Gold" title="Gold"/>)</span>' : 'Add to farm list <span style="color:#000;font-weight:normal;">(5 <img src="" . GP_LOCATE . "img/a/gold_g.gif" alt="Gold" title="Gold"/>)</span>'; ?></a>
                     </td>
                 </tr>
                 <?php } ?>
@@ -538,3 +538,6 @@ if($type >= 18 && $type <= 21){
 </table>
 
 </div>
+
+
+

@@ -236,7 +236,7 @@
     pollTimer = setInterval(function() { fetchMessages(false); }, CHAT_POLL_INTERVAL);
 
     var chatInput = document.getElementById('chat-input');
-    if (chatInput) chatInput.focus();
+    if (chatInput) chatInput.focus({preventScroll: true});
 
     window.sendChatMessage = function(e) {
         if (e) e.preventDefault();
@@ -258,7 +258,7 @@
                 
                 if (xhr.status === 200) {
                     input.value = '';
-                    input.focus();
+                    input.focus({preventScroll: true});
                     document.getElementById('chat-status').textContent = '';
                     fetchMessages(false);
                 } else if (xhr.status === 429) {

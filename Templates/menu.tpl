@@ -37,53 +37,47 @@ div.c1 {text-align: center}
     <div id="side_navi">
         <a id="logo" href="<?php echo HOMEPAGE; ?>" name="logo"><img src="img/x.gif" <?php if($session->plus) { echo "class=\"logo_plus\""; } ?> alt="Travian"></a>
 
+        <a href="<?php echo HOMEPAGE; ?>"><?php echo HOME; ?></a>
+        <a href="#" onclick="return Popup(0,0,1);"><?php echo INSTRUCT; ?></a>
+        <a href="spieler.php?uid=<?php echo $session->uid; ?>"><?php echo PROFILE; ?></a>
+        <?php if($session->access == MULTIHUNTER) {
+            echo "<a href=\"Admin/admin.php\"><font color=\"Blue\">".MH_PANEL."</font></a>";
+        } ?>
+        <?php if($session->access == ADMIN) {
+            echo "<a href=\"Admin/admin.php\"><font color=\"Red\">".ADMIN_PANEL."</font></a>";
+            echo "<a href=\"nachrichten.php?t=5\">".MASS_MESSAGE."</a>";
+            echo "<a href=\"sysmsg.php\">".SYSTEM_MESSAGE."</a>";
+        } ?>
+        <a href="logout.php"><?php echo LOGOUT;?></a>
+        <?php
+        // no PLUS needed for Support
+        if ($_SESSION['id_user'] != 1) {
+        ?>
+        <a href="plus.php?id=3"><?php echo TRAVIAN_PLUS; ?></a>
+        <?php
+        }
+        // no support for support :-D
+        if ($_SESSION['id_user'] != 1) {
+        ?>
+        <a href="spieler.php?uid=1"><?php echo SUPPORT;?></a>
+        <?php
+        }
+        ?>
+    </div><?php /* close #side_navi */
+        if(NEW_FUNCTIONS_DISPLAY_LINKS) include("Templates/links.tpl");
+        include("Templates/natars.tpl");
 
-        <p><a href="<?php echo HOMEPAGE; ?>"><?php echo HOME; ?></a> <a href="#" onclick="return Popup(0,0,1);"><?php echo INSTRUCT; ?></a> <a href="spieler.php?uid=<?php echo $session->uid; ?>"><?php echo PROFILE; ?></a> <?php if($session->access == MULTIHUNTER) {
-
-                    echo "<a href=\"Admin/admin.php\"><font color=\"Blue\">".MH_PANEL."</font></a>";
-                    } ?> <?php if($session->access == ADMIN) {
-                    echo "<a href=\"Admin/admin.php\"><font color=\"Red\">".ADMIN_PANEL."</font></a>";
-                    echo "<a href=\"nachrichten.php?t=5\">".MASS_MESSAGE."</a>";
-
-                    echo "<a href=\"sysmsg.php\">".SYSTEM_MESSAGE."</a>";
-                    } ?> <a href="logout.php"><?php echo LOGOUT;?></a></p>
-
-        <p>
-		    <?php
-        	// no PLUS needed for Support
-        	    if ($_SESSION['id_user'] != 1) {
-            ?>
-			<a href="plus.php?id=3"><?php echo TRAVIAN_PLUS; ?></a>
-			<a href="nachrichten.php?t=5"><?php echo (defined('LANG') && LANG === 'ar') ? '💬 الدردشة الحية' : '💬 Live Chat'; ?></a>
-            <?php
-        	    }
-            	// no support for support :-D
-            	if ($_SESSION['id_user'] != 1) {
-            ?>
-            <a href="spieler.php?uid=1"><?php echo SUPPORT;?></a>
-            <?php
-            	}
-            	if(NEW_FUNCTIONS_DISPLAY_LINKS) include("Templates/links.tpl");
-            	include("Templates/natars.tpl")
-            ?>
-        </p>
-		<?php
-		$timestamp = $database->isDeleting($session->uid);
-		if($timestamp){
-		echo "<br /><td colspan=\"2\" class=\"count\">";
-		
-		if($timestamp > time() + 172800){
-			echo "<a href=\"spieler.php?s=3&id=" . $session->uid . "&a=1&e=4\"><img
-			class=\"del\" src=\"img/x.gif\" alt=\"Cancel process\"
-			title=\"Cancel process\" /> </a>";
-		}
-		
-		$time = $generator->getTimeFormat(($timestamp - time()));
-		echo "<a href=\"spieler.php?s=3\"> The account will be deleted in <span
-		id=\"timer" . ++$session->timer . "\">" . $time . "</span> .</a></td><br />";
-		}
-		?>
-    </div><?php
+        $timestamp = $database->isDeleting($session->uid);
+        if($timestamp){
+            echo "<div class=\"delete-timer\" style=\"text-align:center;padding:5px;font-size:12px;\">";
+            if($timestamp > time() + 172800){
+                echo "<a href=\"spieler.php?s=3&id=" . $session->uid . "&a=1&e=4\"><img class=\"del\" src=\"img/x.gif\" alt=\"Cancel process\" title=\"Cancel process\" /> </a>";
+            }
+            $time = $generator->getTimeFormat(($timestamp - time()));
+            echo "<a href=\"spieler.php?s=3\"> The account will be deleted in <span id=\"timer" . ++$session->timer . "\">" . $time . "</span> .</a>";
+            echo "</div>";
+        }
+    ?><?php
     if($_SESSION['ok'] == 1){
     ?>
 

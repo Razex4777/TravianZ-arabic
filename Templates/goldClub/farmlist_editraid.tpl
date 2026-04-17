@@ -154,7 +154,9 @@ if(mysqli_num_rows(mysqli_query($database->dblink, $getwref)) != 0){
 		<?php include "Templates/goldClub/trooplist.tpl"; ?>
 
 <br />		
-<button type="submit" value="save" name="save" id="save" class="trav_buttons"><?php echo (defined('LANG') && LANG === 'ar') ? 'حفظ (-1 ذهب)' : 'Save (-1 Gold)'; ?></button>&nbsp;
+<button type="submit" value="save" name="save" id="save" class="trav_buttons"><?php echo (defined('LANG') && LANG === 'ar') ? 'حفظ (-1 ذهب)' : 'Save <span style=\"color:#000;font-weight:normal;\">(5 <img src=\"img/x.gif\" class=\"gold\" alt=\"Gold\">)</span>'; ?></button>&nbsp;
 <button type="button" value="delete" name="delete" id="delete" class="trav_buttons" onclick="window.location.href = '?gid=16&t=99&action=deleteSlot&eid=<?php echo $_GET["eid"]; ?>&lid=<?php echo $eiddata['lid']; ?>';"><?php echo (defined('LANG') && LANG === 'ar') ? 'حذف' : 'Delete'; ?></button>
 </form>
 </div>
+
+

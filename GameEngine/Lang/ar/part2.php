@@ -322,10 +322,10 @@ define('VILLAGE_OF_THE_ELDERS_TROOPS', 'قوات قرية الحكماء');
 
 //SEND TROOP
 define('REINFORCE', 'تعزيز');
-define('NORMALATTACK', 'هجوم عادي');
-define('RAID', 'نهب');
+define('NORMALATTACK', 'هجوم كامل');
+define('RAID', 'هجوم للنهب');
 define('OR', 'أو');
-define('SENDTROOP', 'إرسال وتجهيز');
+define('SENDTROOP', 'ارسال قوات');
 define('NOTROOP', 'لا قوات');
 
 //map
@@ -342,13 +342,13 @@ define('ALLIANCE', 'التحالف');
 define('POP', 'السكان');
 define('REPORT', 'تقرير');
 define('OPTION', 'خيارات');
-define('CENTREMAP', 'توسيط الخريطة');
+define('CENTREMAP', 'مركز الخريطة');
 define('FNEWVILLAGE', 'تأسيس قرية جديدة');
 define('CULTUREPOINT', 'النقاط الحضارية');
 define('BUILDRALLY', 'بناء نقطة التجمع');
 define('SETTLERSAVAIL', 'المستوطنين المتاحين');
 define('BEGINPRO', 'حماية المبتدئين');
-define('SENDMERC', 'إرسال تاجر');
+define('SENDMERC', 'ارسال تجار');
 define('BAN', 'اللاعب محظور');
 define('BUILDMARKET', 'بناء السوق');
 define('PERHOUR', 'في الساعة');

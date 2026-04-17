@@ -29,12 +29,12 @@
         <td class="sel">
             <label>
                 <input class="radio" name="c" value="3" type="radio" <?php echo $disabled; ?>>
-                <?php echo (defined('LANG') && LANG === 'ar') ? 'هجوم عادي' : 'Normal attack'; ?>
+                <?php echo (defined('LANG') && LANG === 'ar') ? 'هجوم كامل' : 'Normal attack'; ?>
             </label>
         </td>
         <td class="or">
 
-            <?php echo (defined('LANG') && LANG === 'ar') ? 'أو' : 'or'; ?>        </td>
+                    </td>
     </tr>
     <tr>
         <td class="sel">
@@ -45,7 +45,7 @@
                   }
                   echo ( ( isset($checked) ? $checked : '' ) );
                 ?> value="4" type="radio">
-                <?php echo (defined('LANG') && LANG === 'ar') ? 'للنهب' : 'Raid'; ?>
+                <?php echo (defined('LANG') && LANG === 'ar') ? 'هجوم للنهب' : 'Raid'; ?>
             </label>
         </td>
 
@@ -71,3 +71,4 @@ $coor['y']=$form->getValue("y");
     </form>
 <p class="error"><?php echo $form->getError("error"); ?></p>
 </div>
+

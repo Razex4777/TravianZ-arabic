@@ -71,12 +71,332 @@ AccessLogger::logRequest();
 		<!-- li.c3 {background-image:url('img/en/welten/en1_big_g.jpg');} -->
 		div.c2 {left:237px;}
 		ul.c1 {position:absolute; left:0px; width: 686px;}
+		.grit {
+			display: flex;
+			justify-content: center;
+		}
+		.grit .infobox {
+			float: none !important;
+			margin: 0 auto !important;
+			width: 600px !important;
+			background: white !important;
+			border-radius: 10px !important;
+			box-shadow: 0 4px 20px rgba(0,0,0,0.15) !important;
+			min-height: auto !important;
+			padding: 30px !important;
+			text-align: center !important;
+		}
+		.grit .infobox div {
+			padding: 0 !important;
+		}
+		#what_is_travian h2 {
+			font-size: 24px;
+			margin-bottom: 10px;
+		}
+		#what_is_travian p {
+			font-size: 14px;
+			color: #333;
+		}
+		.play_now .signup_link {
+			display: inline-block;
+			background: linear-gradient(180deg, #d30000 0%, #aa0000 100%);
+			color: white !important;
+			padding: 12px 40px;
+			border-radius: 30px;
+			font-weight: bold;
+			text-decoration: none;
+			font-size: 18px;
+			margin-top: 15px;
+			box-shadow: 0 4px 10px rgba(170,0,0,0.3);
+			transition: all 0.2s ease;
+			border: 1px solid #880000;
+		}
+		.play_now .signup_link:hover {
+			background: linear-gradient(180deg, #ff1111 0%, #cc0000 100%);
+			box-shadow: 0 6px 15px rgba(170,0,0,0.4);
+			transform: scale(1.05);
+		}
+		.stats-premium {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 15px;
+			margin: 30px 0;
+			padding: 20px;
+			background: #f8f9fa;
+			border-radius: 15px;
+			box-shadow: inset 0 2px 5px rgba(0,0,0,0.03);
+			border: 1px solid #e9ecef;
+			direction: rtl;
+		}
+		.stat-item {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			padding: 15px 10px;
+			background: white;
+			border-radius: 12px;
+			box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+			border: 1px solid #f1f1f1;
+		}
+		.stat-item:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+		}
+		.stat-item .stat-value {
+			font-size: 28px;
+			font-weight: 900;
+			color: #aa0000;
+			margin-bottom: 5px;
+		}
+		.stat-item .stat-label {
+			font-size: 13px;
+			color: #666;
+			font-weight: 700;
+			text-align: center;
+		}
+		#about_the_game {
+			margin-top: 25px;
+			text-align: right;
+			background: #ffffff;
+			padding: 20px;
+			border-radius: 12px;
+			border: 1px solid #eee;
+			box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+		}
+		#about_the_game h2 {
+			text-align: right;
+			margin-bottom: 15px;
+			font-size: 18px;
+			color: #333;
+			border-bottom: 2px solid #aa0000;
+			display: inline-block;
+			padding-bottom: 5px;
+		}
+		#about_the_game ul {
+			list-style-type: none;
+			padding-right: 0;
+			margin: 0;
+		}
+		#about_the_game li {
+			margin-bottom: 12px;
+			font-size: 15px;
+			color: #444;
+			position: relative;
+			padding-right: 25px;
+		}
+		#about_the_game li::before {
+			content: "■";
+			color: #aa0000;
+			font-size: 12px;
+			position: absolute;
+			right: 5px;
+			top: 5px;
+		}
+
+		/* Tips Section Styles */
+		#tips_section {
+			margin-top: 25px;
+			text-align: right;
+			background: #ffffff;
+			padding: 20px;
+			border-radius: 12px;
+			border: 1px solid #eee;
+			box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+		}
+		#tips_section h2 {
+			text-align: right;
+			margin-bottom: 15px;
+			font-size: 18px;
+			color: #333;
+			border-bottom: 2px solid #27ae60;
+			display: inline-block;
+			padding-bottom: 5px;
+		}
+		#tips_section ul {
+			list-style-type: none;
+			padding-right: 0;
+			margin: 0;
+		}
+		#tips_section li {
+			margin-bottom: 12px;
+			font-size: 15px;
+			color: #444;
+			position: relative;
+			padding-right: 25px;
+		}
+		#tips_section li::before {
+			content: "★";
+			color: #f39c12;
+			font-size: 14px;
+			position: absolute;
+			right: 5px;
+			top: 2px;
+		}
+
+		/* Screenshots Premium UI */
+		#premium_screenshots {
+			margin-top: 25px;
+			background: #ffffff;
+			border-radius: 12px;
+			border: 1px solid #eee;
+			box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+			padding: 20px;
+			text-align: center;
+			position: relative;
+			overflow: hidden;
+		}
+		#premium_screenshots h2 {
+			text-align: right;
+			margin-bottom: 15px;
+			font-size: 18px;
+			color: #333;
+			border-bottom: 2px solid #2980b9;
+			display: inline-block;
+			float: right;
+			padding-bottom: 5px;
+		}
+		
+		#premium_screenshots_preview {
+			overflow: hidden;
+			width: 100%;
+			clear: both;
+			margin: 15px 0 0 0;
+			padding: 10px 0;
+		}
+		#premium_screenshot_list {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			display: flex;
+			gap: 15px;
+			justify-content: center;
+			flex-wrap: wrap;
+		}
+		#premium_screenshot_list li { display: inline-block; }
+		#premium_screenshot_list img {
+			width: 110px;
+			height: 85px;
+			border-radius: 8px;
+			box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+			transition: transform 0.3s ease, border-color 0.3s ease;
+			border: 2px solid transparent;
+		}
+		#premium_screenshot_list img:hover {
+			transform: scale(1.1) translateY(-5px);
+			border-color: #aa0000;
+		}
+		#premium_screenshots .navi { display: none !important; }
 	</style>
 
 	<?php if(defined('LANG') && LANG === 'ar'): ?>
 	
 	<?php endif; ?>
-	<link rel="stylesheet" type="text/css" href="mobile.css?v=13" />
+	<link rel="stylesheet" type="text/css" href="mobile.css?v=37" />
+
+	<!-- Premium Mobile Overrides -->
+	<style type="text/css">
+		/* Fix double horizontal/vertical scrollbars on mobile */
+		html { overflow-y: auto !important; height: auto !important; }
+		body { height: auto !important; overflow: visible !important; }
+		.wrapper { overflow-x: hidden !important; overflow-y: visible !important; min-height: 100vh; }
+
+		/* Override ugly green from mobile.css and make it look premium */
+		body.indexPage #content .grit {
+			background: transparent !important;
+			border: none !important;
+			box-shadow: none !important;
+			padding: 10px !important;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		
+		/* Bring back our premium white box */
+		body.indexPage .infobox {
+			background: rgba(255, 255, 255, 0.95) !important;
+			border-radius: 16px !important;
+			box-shadow: 0 8px 30px rgba(0,0,0,0.12) !important;
+			border: 1px solid rgba(255, 255, 255, 0.8) !important;
+			backdrop-filter: blur(10px);
+			padding: 40px !important;
+			width: 600px !important;
+			max-width: 95% !important;
+			margin: 20px auto !important;
+		}
+
+		/* Play Now Button - Force Premium Red Gradient */
+		.play_now .signup_link {
+			background: linear-gradient(135deg, #d30000 0%, #aa0000 100%) !important;
+			border: 1px solid #880000 !important;
+			color: #fff !important;
+			box-shadow: 0 4px 15px rgba(170,0,0,0.4) !important;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+		}
+
+		/* Responsive Grid for Stats & Mobile UI Restructuring */
+		@media (max-width: 768px) {
+			/* Kill blank spacing at very top from wrapper/body */
+			html, body { margin: 0 !important; padding: 0 !important; }
+			body.indexPage .wrapper { margin: 0 !important; padding: 0 !important; }
+
+			/* Make the Header Village Artwork act as a top background image */
+			body.indexPage #header {
+				position: absolute !important;
+				top: 0 !important;
+				left: 0 !important;
+				right: 0 !important;
+				width: 100% !important;
+				height: 500px !important;
+				padding-top: 0 !important;
+				background-image: url('img/mobile_bg_no_ui.webp') !important;
+				background-size: cover !important;
+				background-position: center top !important;
+				z-index: 1 !important;
+			}
+			
+			/* Push the content box down so it overlaps the bottom of the village image beautifully */
+			body.indexPage #content {
+				position: relative !important;
+				z-index: 10 !important;
+				margin-top: 360px !important;
+				width: 100% !important;
+			}
+			
+			/* Remove the hamburger menu, mobile navbar, and redundant top green register button */
+			#navigation table.menu, 
+			label.public-hamburger, 
+			#public-nav-toggle, 
+			.public-sidebar-backdrop,
+			#register_now {
+				display: none !important;
+				visibility: hidden !important;
+			}
+
+			.stats-premium {
+				grid-template-columns: 1fr !important;
+				gap: 12px !important;
+				padding: 15px !important;
+			}
+			body.indexPage .infobox {
+				padding: 25px 15px !important;
+				margin: 0 auto 30px auto !important;
+			}
+			#what_is_travian h2 {
+				font-size: 20px !important;
+			}
+			.stat-item .stat-value {
+				font-size: 24px !important;
+			}
+
+			/* Remove flex-column from wrapper to allow absolute positioning of header to work correctly */
+			body.indexPage .wrapper {
+				display: block !important;
+			}
+		}
+	</style>
 </head>
 
 <body class="presto indexPage">
@@ -130,54 +450,28 @@ AccessLogger::logRequest();
 						<p><?php echo $lang['index'][0][5]; ?></p>
 						<p class="play_now"><a href="?signup" class="signup_link"><?php echo $lang['index'][0][6]; ?></a></p>
 					</div>
-					<div id="player_counter">
-						<table>
-							<tbody>
-								<tr>
-									<th><?php
-
-										   echo $lang['index'][0][7];
-
-									?>:</th>
-
-									<td><?php
-
-											$return = mysqli_query($link, "SELECT Count(*) as Total FROM " . TB_PREFIX . "users WHERE tribe IN(1, 2, 3)");
-											echo ($users = !empty($return) ? mysqli_fetch_assoc($return)['Total'] : 0);
-									?></td>
-								</tr>
-
-								<tr>
-									<th><?php
-
-										   echo $lang['index'][0][8];
-
-									?>:</th>
-
-									<td><?php
-
-									       $return = mysqli_query($link,"SELECT Count(*) as Total FROM " . TB_PREFIX . "users WHERE timestamp > ".(time() - (3600*24))." AND tribe IN(1, 2, 3)");
-									       echo !empty($return) ? mysqli_fetch_assoc($return)['Total'] : 0;
-
-									?></td>
-								</tr>
-
-								<tr>
-									<th><?php
-
-										   echo $lang['index'][0][9];
-
-									?>:</th>
-
-									<td><?php
-
-										   $return = mysqli_query($link,"SELECT Count(*) as Total FROM " . TB_PREFIX . "users WHERE timestamp > ".(time() - (60*10))." AND tribe IN(1, 2, 3)");
-										   echo ($online = !empty($return) ? mysqli_fetch_assoc($return)['Total'] : 0);
-
-									?></td>
-								</tr>
-							</tbody>
-						</table>
+					<div class="stats-premium">
+						<div class="stat-item">
+							<span class="stat-value"><?php
+								$return = mysqli_query($link, "SELECT Count(*) as Total FROM " . TB_PREFIX . "users WHERE tribe IN(1, 2, 3)");
+								echo ($users = !empty($return) ? mysqli_fetch_assoc($return)['Total'] : 0);
+							?></span>
+							<span class="stat-label"><?php echo $lang['index'][0][7]; ?></span>
+						</div>
+						<div class="stat-item">
+							<span class="stat-value"><?php
+								$return = mysqli_query($link,"SELECT Count(*) as Total FROM " . TB_PREFIX . "users WHERE timestamp > ".(time() - (3600*24))." AND tribe IN(1, 2, 3)");
+								echo !empty($return) ? mysqli_fetch_assoc($return)['Total'] : 0;
+							?></span>
+							<span class="stat-label"><?php echo str_replace(':', '', $lang['index'][0][8]); ?></span>
+						</div>
+						<div class="stat-item">
+							<span class="stat-value"><?php
+								$return = mysqli_query($link,"SELECT Count(*) as Total FROM " . TB_PREFIX . "users WHERE timestamp > ".(time() - (60*10))." AND tribe IN(1, 2, 3)");
+								echo ($online = !empty($return) ? mysqli_fetch_assoc($return)['Total'] : 0);
+							?></span>
+							<span class="stat-label"><?php echo str_replace(':', '', $lang['index'][0][9]); ?></span>
+						</div>
 					</div>
 					<div id="about_the_game">
 						<h2><?php echo $lang['index'][0][10]; ?>:</h2>
@@ -187,28 +481,35 @@ AccessLogger::logRequest();
 							<li><?php echo $lang['index'][0][13]; ?></li>
 						</ul>
 					</div>
-				</div>
-				<div class="secondarybox">
-					<div id="screenshots">
+					
+					<!-- New Tips & Tricks Section -->
+					<div id="tips_section">
+						<h2><?php echo (defined('LANG') && LANG === 'ar') ? 'نصائح استراتيجية' : 'Strategic Tips'; ?></h2>
+						<ul>
+							<li><?php echo (defined('LANG') && LANG === 'ar') ? 'اختر قبيلتك بحكمة، فكل قبيلة تمتلك مميزات فريدة تساعدك إما في الهجوم أو الدفاع.' : 'Choose your tribe wisely, each has unique advantages for attack or defense.'; ?></li>
+							<li><?php echo (defined('LANG') && LANG === 'ar') ? 'قم بتوسيع حقول الموارد الخاصة بك لضمان دخل ثابت وتمويل جيشك القوي.' : 'Expand your resource fields to ensure steady income to fund your army.'; ?></li>
+							<li><?php echo (defined('LANG') && LANG === 'ar') ? 'التحالفات هي مفتاح النصر، انضم لأقوى اللاعبين وسيطروا على العالم معاً.' : 'Alliances are key to victory, join forces to dominate the world together.'; ?></li>
+						</ul>
+					</div>
+
+					<!-- Screenshots Showcase -->
+					<div id="premium_screenshots">
 						<h2><?php echo SCREENSHOTS; ?></h2>
+						<div class="clear"></div>
 						<a href="#last" class="navi prev dynamic_btn"><img class="dynamic_btn" src="img/x.gif" alt="previous" /></a>
-						<div id="screenshots_preview">
-							<ul id="screenshot_list" class="c1">
+						<div id="premium_screenshots_preview">
+							<ul id="premium_screenshot_list">
 								<li><a href="#"><img src="img/un/s/s1s.jpg" alt="Screenshot" /></a></li>
 								<li><a href="#"><img src="img/un/s/s2s.jpg" alt="Screenshot" /></a></li>
 								<li><a href="#"><img src="img/un/s/s4s.jpg" alt="Screenshot" /></a></li>
 								<li><a href="#"><img src="img/un/s/s3s.jpg" alt="Screenshot" /></a></li>
-								<li><a href="#"><img src="img/un/s/s5s.jpg" alt="Screenshot" /></a></li>
-								<li><a href="#"><img src="img/un/s/s7s.jpg" alt="Screenshot" /></a></li>
-								<li><a href="#"><img src="img/un/s/s8s.jpg" alt="Screenshot" /></a></li>
 							</ul>
-						</div><a href="#next" class="navi next"><img class="dynamic_btn" src="img/x.gif" alt="next" /></a>
+						</div>
+						<a href="#next" class="navi next"><img class="dynamic_btn" src="img/x.gif" alt="next" /></a>
 					</div>
-					<div id="newsbox">
-						<h2><?php echo NEWS; ?></h2>
-						<div class="news"><?php include ("Templates/indexnews.tpl"); ?></div>
-					</div>
+
 				</div>
+
 			</div>
 			<div class="clear"></div>
 		</div>

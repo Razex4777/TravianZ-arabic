@@ -28,7 +28,7 @@ if($session->plus){
 	<meta http-equiv="imagetoolbar" content="no" />
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 	<script src="mt-core.js" type="text/javascript"></script>
-	<script src="unx.js?f4b7h type="text/javascript"></script>
+	<script src="unx.js?g5c8m type="text/javascript"></script>
 	<script src="mt-more.js" type="text/javascript"></script>
 	<link href="<?php echo GP_LOCATE; ?>lang/<?php echo LANG; ?>/lang.css?f4b7d" rel="stylesheet" type="text/css" />
 	<link href="<?php echo GP_LOCATE; ?>lang/<?php echo LANG; ?>/compact.css?v2" rel="stylesheet" type="text/css" />
@@ -37,7 +37,7 @@ if($session->plus){
 	<?php if(defined('LANG') && LANG === 'ar'): ?>
 	
 	<?php endif; ?>
-	<link rel="stylesheet" type="text/css" href="mobile.css?v=13" />
+	<link rel="stylesheet" type="text/css" href="mobile.css?v=37" />
 </head>
 <body onload="start()"><?php
 	include("Templates/Map/mapviewlarge.tpl");?>

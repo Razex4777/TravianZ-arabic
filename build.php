@@ -32,6 +32,17 @@ $alliance->procAlliForm($_POST);
 $technology->procTech($_POST);
 $market->procMarket($_POST);
 
+// Early handler: Finish all building orders with gold (from Building.tpl clock icon)
+// Building.tpl links to ?buildingFinish=1 without preserving id, so handle it early
+if (isset($_GET['buildingFinish']) && $_GET['buildingFinish'] == 1 && !isset($_GET['id']) && !isset($_GET['gid'])) {
+    if ($session->gold >= 2) {
+        $building->finishAll("dorf2.php");
+        exit;
+    }
+    header("Location: dorf2.php");
+    exit;
+}
+
 if ( isset( $_GET['gid'] ) ) {
     $_GET['id'] = strval( $building->getTypeField( preg_replace( "/[^a-zA-Z0-9_-]/", "", $_GET['gid'] ) ) );
 } else if ( isset( $_POST['id'] ) ) {
@@ -63,6 +74,24 @@ if ( isset( $_GET['id'] ) ) {
         exit;
     }
 
+    // Gold instant demolish via POST (from Main Building form checkbox)
+    if (!empty($_REQUEST["demolish"]) && isset($_REQUEST["c"]) && $_REQUEST["c"] == $session->mchecker
+        && isset($_POST['goldDemolish']) && $_POST['goldDemolish'] == '1'
+        && isset($_POST['type'])) {
+        $slot = (int) $_POST['type'];
+        if (($slot >= 19 && $slot <= 40) || $slot == 99) {
+            $slotLevel = (int) $village->resarray['f'.$slot];
+            if ($session->gold >= $slotLevel && $slotLevel > 0) {
+                $building->demolishToZero($slot);
+                $session->changeChecker();
+                header("Location: build.php?gid=15&ty=$slot&cancel=0&demolish=0");
+                exit;
+            } else {
+                header("Location: build.php?gid=15&ty=$slot&cancel=0&demolish=0&nogold=1");
+                exit;
+            }
+        }
+    }
 
     $checkBuildings = [0, 16, 17, 25, 26, 27];
 
@@ -261,7 +290,7 @@ if(isset($_GET['mode']) && $_GET['mode'] == 'troops' && isset($_GET['cancel']) &
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 
 	<script src="mt-full.js?ebe79" type="text/javascript"></script>
-	<script src="unx.js?f4b7h" type="text/javascript"></script>
+	<script src="unx.js?g5c8m" type="text/javascript"></script>
 	<script src="new.js?ebe79" type="text/javascript"></script>
 	<link href="<?php echo GP_LOCATE; ?>lang/<?php echo LANG; ?>/lang.css?f4b7d" rel="stylesheet" type="text/css" />
 	<link href="<?php echo GP_LOCATE; ?>lang/<?php echo LANG; ?>/compact.css?v2" rel="stylesheet" type="text/css" />
@@ -284,11 +313,12 @@ if(isset($_GET['mode']) && $_GET['mode'] == 'troops' && isset($_GET['cancel']) &
 	<?php if(defined('LANG') && LANG === 'ar'): ?>
 	
 	<?php endif; ?>
-	<link rel="stylesheet" type="text/css" href="mobile.css?v=13" />
+	<link rel="stylesheet" type="text/css" href="mobile.css?v=37" />
 </head>
 
 
 <body class="v35 ie ie8">
+<script>if('scrollRestoration'in history)history.scrollRestoration='manual';window.scrollTo(0,0);window.addEventListener('load',function(){window.scrollTo(0,0);setTimeout(function(){window.scrollTo(0,0)},0);setTimeout(function(){window.scrollTo(0,0)},50);setTimeout(function(){window.scrollTo(0,0)},100);setTimeout(function(){window.scrollTo(0,0)},200)});</script>
 <div class="wrapper">
 <img style="filter:chroma();" src="img/x.gif" id="msfilter" alt="" />
 <div id="dynamic_header">

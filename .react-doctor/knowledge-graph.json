@@ -12,9 +12,9 @@
       "sql"
     ],
     "frameworks": [],
-    "description": "TravianZ-master — javascript, markdown, css, yaml, html, python, sql project with 162 files",
-    "analyzedAt": "2026-04-12T10:58:57.557Z",
-    "gitCommitHash": "c033f9108723a1ab425f3507f1311926cee6ef40"
+    "description": "TravianZ-master — javascript, markdown, css, yaml, html, python, sql project with 163 files",
+    "analyzedAt": "2026-04-17T21:05:04.871Z",
+    "gitCommitHash": "d9fc2ba9ac6225578bc88f86d4e76d6a5d387255"
   },
   "nodes": [
     {
@@ -174,18 +174,6 @@
       "complexity": "moderate"
     },
     {
-      "id": "file:client_project_detail and conversations.txt",
-      "type": "file",
-      "name": "client_project_detail and conversations.txt",
-      "filePath": "client_project_detail and conversations.txt",
-      "summary": "client_project_detail and conversations.txt — unknown source file",
-      "tags": [
-        "unknown",
-        "txt"
-      ],
-      "complexity": "moderate"
-    },
-    {
       "id": "file:CODE_OF_CONDUCT.md",
       "type": "file",
       "name": "CODE_OF_CONDUCT.md",
@@ -267,54 +255,6 @@
         "md"
       ],
       "complexity": "moderate"
-    },
-    {
-      "id": "file:docs/plans/gold-instant-training.md",
-      "type": "file",
-      "name": "gold-instant-training.md",
-      "filePath": "docs/plans/gold-instant-training.md",
-      "summary": "gold-instant-training.md — markdown source file",
-      "tags": [
-        "markdown",
-        "md"
-      ],
-      "complexity": "simple"
-    },
-    {
-      "id": "file:docs/plans/phase-1.md",
-      "type": "file",
-      "name": "phase-1.md",
-      "filePath": "docs/plans/phase-1.md",
-      "summary": "phase-1.md — markdown source file",
-      "tags": [
-        "markdown",
-        "md"
-      ],
-      "complexity": "simple"
-    },
-    {
-      "id": "file:docs/plans/phase-2.md",
-      "type": "file",
-      "name": "phase-2.md",
-      "filePath": "docs/plans/phase-2.md",
-      "summary": "phase-2.md — markdown source file",
-      "tags": [
-        "markdown",
-        "md"
-      ],
-      "complexity": "simple"
-    },
-    {
-      "id": "file:docs/plans/phase-3.md",
-      "type": "file",
-      "name": "phase-3.md",
-      "filePath": "docs/plans/phase-3.md",
-      "summary": "phase-3.md — markdown source file",
-      "tags": [
-        "markdown",
-        "md"
-      ],
-      "complexity": "simple"
     },
     {
       "id": "file:docs/project_structure.md",
@@ -1770,7 +1710,7 @@
         "css",
         "css"
       ],
-      "complexity": "simple"
+      "complexity": "moderate"
     },
     {
       "id": "file:mobile/_phone_alliance.css",
@@ -1778,6 +1718,66 @@
       "name": "_phone_alliance.css",
       "filePath": "mobile/_phone_alliance.css",
       "summary": "_phone_alliance.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:mobile/_phone_ingame/content.css",
+      "type": "file",
+      "name": "content.css",
+      "filePath": "mobile/_phone_ingame/content.css",
+      "summary": "content.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:mobile/_phone_ingame/global.css",
+      "type": "file",
+      "name": "global.css",
+      "filePath": "mobile/_phone_ingame/global.css",
+      "summary": "global.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:mobile/_phone_ingame/header.css",
+      "type": "file",
+      "name": "header.css",
+      "filePath": "mobile/_phone_ingame/header.css",
+      "summary": "header.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:mobile/_phone_ingame/navigation.css",
+      "type": "file",
+      "name": "navigation.css",
+      "filePath": "mobile/_phone_ingame/navigation.css",
+      "summary": "navigation.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:mobile/_phone_ingame/popups_footer.css",
+      "type": "file",
+      "name": "popups_footer.css",
+      "filePath": "mobile/_phone_ingame/popups_footer.css",
+      "summary": "popups_footer.css — css source file",
       "tags": [
         "css",
         "css"
@@ -1794,7 +1794,7 @@
         "css",
         "css"
       ],
-      "complexity": "complex"
+      "complexity": "simple"
     },
     {
       "id": "file:mobile/_phone_ingame_pages.css",
@@ -1830,7 +1830,7 @@
         "css",
         "css"
       ],
-      "complexity": "moderate"
+      "complexity": "complex"
     },
     {
       "id": "file:mobile/_phone_public.css",
@@ -1842,7 +1842,7 @@
         "css",
         "css"
       ],
-      "complexity": "moderate"
+      "complexity": "complex"
     },
     {
       "id": "file:mobile/_small_phone.css",
@@ -1877,6 +1877,18 @@
       "tags": [
         "css",
         "css"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:mobile_screens.js",
+      "type": "file",
+      "name": "mobile_screens.js",
+      "filePath": "mobile_screens.js",
+      "summary": "mobile_screens.js — javascript source file",
+      "tags": [
+        "javascript",
+        "js"
       ],
       "complexity": "simple"
     },
@@ -4959,6 +4971,11 @@
         "file:img/tutorial/main.css",
         "file:mobile/_base.css",
         "file:mobile/_phone_alliance.css",
+        "file:mobile/_phone_ingame/content.css",
+        "file:mobile/_phone_ingame/global.css",
+        "file:mobile/_phone_ingame/header.css",
+        "file:mobile/_phone_ingame/navigation.css",
+        "file:mobile/_phone_ingame/popups_footer.css",
         "file:mobile/_phone_ingame.css",
         "file:mobile/_phone_ingame_pages.css",
         "file:mobile/_phone_outgame.css",
@@ -4981,17 +4998,12 @@
         "file:Admin/jquery.cookie.js",
         "file:bump_cache.js",
         "file:CHANGELOG.md",
-        "file:client_project_detail and conversations.txt",
         "file:CODE_OF_CONDUCT.md",
         "file:CONTRIBUTING.md",
         "file:docker-compose.yml",
         "file:Dockerfile",
         "file:DOCKER_README.md",
         "file:docs/changelog.md",
-        "file:docs/plans/gold-instant-training.md",
-        "file:docs/plans/phase-1.md",
-        "file:docs/plans/phase-2.md",
-        "file:docs/plans/phase-3.md",
         "file:docs/project_structure.md",
         "file:fix_mobile_css_order.sh",
         "file:fix_rtl.js",
@@ -5005,6 +5017,7 @@
         "file:gpack/travian_t4/lang/en/b/zurueck.html",
         "file:img/admin/b/zurueck.html",
         "file:ISSUE_TEMPLATE.md",
+        "file:mobile_screens.js",
         "file:mt-core.js",
         "file:mt-full.js",
         "file:mt-more.js",
@@ -5037,7 +5050,7 @@
     {
       "order": 2,
       "title": "Styles Layer",
-      "description": "Explore the styles layer: admin_map_tile.css, flaggs.css, main.css, main_en.css, a2b.css (+110 more)",
+      "description": "Explore the styles layer: admin_map_tile.css, flaggs.css, main.css, main_en.css, a2b.css (+115 more)",
       "nodeIds": [
         "file:css/admin_map_tile.css",
         "file:gpack/travian/flaggs.css",
@@ -5144,6 +5157,11 @@
         "file:img/tutorial/main.css",
         "file:mobile/_base.css",
         "file:mobile/_phone_alliance.css",
+        "file:mobile/_phone_ingame/content.css",
+        "file:mobile/_phone_ingame/global.css",
+        "file:mobile/_phone_ingame/header.css",
+        "file:mobile/_phone_ingame/navigation.css",
+        "file:mobile/_phone_ingame/popups_footer.css",
         "file:mobile/_phone_ingame.css",
         "file:mobile/_phone_ingame_pages.css",
         "file:mobile/_phone_outgame.css",
@@ -5159,24 +5177,19 @@
     {
       "order": 3,
       "title": "Core Layer",
-      "description": "Explore the core layer: AC_OETags.js, ajax.js, jquery.cookie.js, bump_cache.js, CHANGELOG.md (+39 more)",
+      "description": "Explore the core layer: AC_OETags.js, ajax.js, jquery.cookie.js, bump_cache.js, CHANGELOG.md (+35 more)",
       "nodeIds": [
         "file:AC_OETags.js",
         "file:Admin/ajax.js",
         "file:Admin/jquery.cookie.js",
         "file:bump_cache.js",
         "file:CHANGELOG.md",
-        "file:client_project_detail and conversations.txt",
         "file:CODE_OF_CONDUCT.md",
         "file:CONTRIBUTING.md",
         "file:docker-compose.yml",
         "file:Dockerfile",
         "file:DOCKER_README.md",
         "file:docs/changelog.md",
-        "file:docs/plans/gold-instant-training.md",
-        "file:docs/plans/phase-1.md",
-        "file:docs/plans/phase-2.md",
-        "file:docs/plans/phase-3.md",
         "file:docs/project_structure.md",
         "file:fix_mobile_css_order.sh",
         "file:fix_rtl.js",
@@ -5190,6 +5203,7 @@
         "file:gpack/travian_t4/lang/en/b/zurueck.html",
         "file:img/admin/b/zurueck.html",
         "file:ISSUE_TEMPLATE.md",
+        "file:mobile_screens.js",
         "file:mt-core.js",
         "file:mt-full.js",
         "file:mt-more.js",
