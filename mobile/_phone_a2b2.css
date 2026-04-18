@@ -1,0 +1,303 @@
+/* ==========================================================================
+   IN-GAME MOBILE — Account Statement Page (a2b2.php)  (≤ 768px)
+   --------------------------------------------------------------------------
+   a2b2.php is a standalone page that does NOT use div#content.plus wrapper.
+   It puts content directly inside div#mid > div#products.
+   Desktop: 5-column table.plusFunctions inside fixed-width div#products.
+   Mobile: full-width centered card layout with flexbox reflow.
+   ========================================================================== */
+
+@media screen and (max-width: 768px) {
+
+  /* ── Page-level layout: kill desktop float/min-width ──────────────── */
+  div#mid {
+    float: none !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    background-image: none !important;
+  }
+
+  /* ── h1 — centered page title ─────────────────────────────────────── */
+  div#mid > h1 {
+    width: 100% !important;
+    font-size: 16px !important;
+    text-align: center !important;
+    padding: 10px 12px !important;
+    margin: 0 0 6px 0 !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    line-height: 1.4 !important;
+    float: none !important;
+    box-sizing: border-box !important;
+  }
+
+  /* ── Plus menu tabs — centered, scrollable row ───────────────────── */
+  div#mid table.lang_ltr,
+  div#mid table.lang_rtl {
+    width: 100% !important;
+    max-width: 500px !important;
+    display: block !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 auto !important;
+    float: none !important;
+  }
+
+  div#mid table.lang_ltr td,
+  div#mid table.lang_rtl td,
+  div#mid table.lang_ltr th,
+  div#mid table.lang_rtl th {
+    padding: 4px 6px !important;
+    font-size: 11px !important;
+    white-space: nowrap !important;
+  }
+
+  /* ── div#products container — centered content block ──────────────── */
+  div#mid div#products {
+    float: none !important;
+    width: 100% !important;
+    max-width: 500px !important;
+    margin: 0 auto !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 0 10px !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+  }
+
+  /* ── Paragraphs inside #products ──────────────────────────────────── */
+  div#mid div#products > p {
+    font-size: 13px !important;
+    line-height: 1.6 !important;
+    padding: 8px 4px !important;
+    text-align: center !important;
+    color: #555 !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    margin: 6px 0 !important;
+  }
+
+  div#mid div#products > p a {
+    color: #71D000 !important;
+    font-weight: 600 !important;
+    text-decoration: underline !important;
+  }
+
+  /* ── table.plusFunctions — block container ────────────────────────── */
+  div#mid div#products table.plusFunctions {
+    display: block !important;
+    width: 100% !important;
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+    overflow: visible !important;
+    background: transparent !important;
+    border: none !important;
+    margin: 0 0 16px 0 !important;
+    padding: 0 !important;
+    float: none !important;
+  }
+
+  /* ── thead — golden banner + hide column headers ──────────────────── */
+  div#mid div#products table.plusFunctions thead {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  div#mid div#products table.plusFunctions thead tr:first-child th {
+    display: block !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    background: linear-gradient(135deg, #f5f0e0 0%, #ece4cc 100%) !important;
+    padding: 12px 16px !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    color: #5a4a2a !important;
+    text-align: center !important;
+    border-radius: 12px 12px 0 0 !important;
+    border: 1px solid rgba(0,0,0,0.08) !important;
+    border-bottom: 2px solid #d4c9a5 !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02) !important;
+    height: auto !important;
+    float: none !important;
+  }
+
+  div#mid div#products table.plusFunctions thead tr:nth-child(2) {
+    display: none !important;
+  }
+
+  /* ── tbody — vertical card stack ──────────────────────────────────── */
+  div#mid div#products table.plusFunctions tbody {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+    padding-top: 8px !important;
+  }
+
+  /* ── Each row → card ──────────────────────────────────────────────── */
+  div#mid div#products table.plusFunctions tbody tr {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: stretch !important;
+    background: #fff !important;
+    border: 1px solid rgba(0,0,0,0.07) !important;
+    border-radius: 10px !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05) !important;
+    overflow: hidden !important;
+    position: relative !important;
+    padding: 0 !important;
+    float: none !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* ── Cell base ────────────────────────────────────────────────────── */
+  div#mid div#products table.plusFunctions tbody tr td {
+    display: block !important;
+    box-sizing: border-box !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+    color: #333 !important;
+    text-align: center !important;
+    vertical-align: middle !important;
+    float: none !important;
+  }
+
+  /* Override inline style divs inside cells */
+  div#mid div#products table.plusFunctions tbody tr td div {
+    text-align: center !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    float: none !important;
+    width: auto !important;
+  }
+
+  /* ── First td = label — full width header row inside card ─────────── */
+  div#mid div#products table.plusFunctions tbody tr td.desc:first-child {
+    flex: 1 1 100% !important;
+    width: 100% !important;
+    text-align: center !important;
+    padding: 10px 14px 6px !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    color: #222 !important;
+    background: linear-gradient(135deg, #faf8f4 0%, #f5f0e6 100%) !important;
+    border-bottom: 1px solid rgba(0,0,0,0.05) !important;
+  }
+
+  /* ── RTL: align label right ───────────────────────────────────────── */
+  html[dir="rtl"] div#mid div#products table.plusFunctions tbody tr td.desc:first-child {
+    text-align: right !important;
+  }
+
+  /* ── Remaining desc tds — 3-column data grid ──────────────────────── */
+  div#mid div#products table.plusFunctions tbody tr td.desc:not(:first-child) {
+    flex: 1 1 33% !important;
+    padding: 8px 6px !important;
+    font-size: 13px !important;
+    min-height: 36px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* ── td.act (date column) — full-width footer row ─────────────────── */
+  div#mid div#products table.plusFunctions tbody tr td.act {
+    flex: 1 1 100% !important;
+    width: 100% !important;
+    padding: 4px 14px 8px !important;
+    font-size: 11px !important;
+    color: #999 !important;
+    text-align: center !important;
+    border-top: 1px solid rgba(0,0,0,0.04) !important;
+    background: rgba(0,0,0,0.01) !important;
+  }
+
+  /* ── Gold icon sizing ─────────────────────────────────────────────── */
+  div#mid div#products table.plusFunctions tbody tr td img.gold {
+    width: 14px !important;
+    height: 14px !important;
+    vertical-align: middle !important;
+    margin-right: 2px !important;
+  }
+
+  /* ── Package highlight (green text) ───────────────────────────────── */
+  div#mid div#products table.plusFunctions tbody tr td font[color="#71D000"] {
+    color: #71D000 !important;
+    font-weight: 700 !important;
+    font-size: 13px !important;
+  }
+
+  /* ── Side info — stack below content, full width ──────────────────── */
+  div#mid div#side_info {
+    float: none !important;
+    width: 100% !important;
+    max-width: 500px !important;
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 10px 8px !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+    background: none !important;
+    z-index: auto !important;
+    clear: both !important;
+    position: relative !important;
+    left: auto !important;
+  }
+
+  /* ── Footer stopper / clear fixes ─────────────────────────────────── */
+  div#mid div.footer-stopper {
+    float: none !important;
+    clear: both !important;
+  }
+
+  div#mid div.clear {
+    clear: both !important;
+  }
+
+  /* ── RTL adjustments ──────────────────────────────────────────────── */
+  html[dir="rtl"] div#mid div#products table.plusFunctions tbody tr td.act {
+    text-align: center !important;
+  }
+
+  html[dir="rtl"] div#mid div#products {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* ── Smaller phones — tighter gaps ────────────────────────────────── */
+  @media screen and (max-width: 480px) {
+    div#mid div#products {
+      padding: 0 6px !important;
+    }
+
+    div#mid div#products table.plusFunctions thead tr:first-child th {
+      font-size: 14px !important;
+      padding: 10px 12px !important;
+    }
+
+    div#mid div#products table.plusFunctions tbody tr td.desc:first-child {
+      font-size: 13px !important;
+      padding: 8px 10px 4px !important;
+    }
+
+    div#mid div#products table.plusFunctions tbody tr td.desc:not(:first-child) {
+      font-size: 12px !important;
+      padding: 6px 4px !important;
+    }
+  }
+}

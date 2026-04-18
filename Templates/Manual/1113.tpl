@@ -21,8 +21,8 @@ For a more graphical and in-depth information about how this new system works, y
 </div>
 
 <map id="nav" name="nav">
-    <area href="manual.php?typ=11&amp;s=12" title="back" coords="0,0,45,18" shape="rect" alt="" />
+    <area href="manual.php?typ=11&amp;s=12" title="<?php echo (defined("LANG") && LANG === "ar") ? 'رجوع' : 'back'; ?>" coords="0,0,45,18" shape="rect" alt="" />
     <area href="manual.php?typ=13&amp;s=31" title="new features" coords="46,0,70,18" shape="rect" alt="" />
-    <area href="manual.php?typ=11&amp;s=14" title="forward" coords="71,0,116,18" shape="rect" alt="" />
+    <area href="manual.php?typ=11&amp;s=14" title="<?php echo (defined("LANG") && LANG === "ar") ? 'التالي' : 'forward'; ?>" coords="71,0,116,18" shape="rect" alt="" />
 </map>
 <img usemap="#nav" src="img/x.gif" class="navi" alt="" />

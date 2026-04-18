@@ -16,6 +16,7 @@
     overflow-x: hidden !important;
     box-sizing: border-box !important;
     padding: 0 !important;
+    margin: 0 !important;
   }
 
   div.village1,
@@ -93,7 +94,6 @@
   div#content table,
   div#content table.row_table_data,
   div#content table.tbg,
-  div#content table#overview,
   div.village1 table {
     display: block !important;
     width: 100% !important;
@@ -125,6 +125,81 @@
     padding: 2px 4px !important;
   }
 
+  /* Fix for Build.php Available Buildings tables overflowing (e.g., .new_building) */
+  table.new_building,
+  div#content table.new_building {
+    white-space: normal !important;
+    display: block !important;
+    width: 100% !important;
+    margin-bottom: 24px !important;
+    background: #ffffff; /* Modern card background */
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05); /* Soft shadow */
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+  }
+  
+  table.new_building tbody,
+  table.new_building tr,
+  table.new_building td {
+    display: block !important;
+    width: 100% !important;
+    white-space: normal !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+  
+  table.new_building td.desc {
+    padding-bottom: 12px !important;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #444;       /* Softer dark color for modern feel */
+    font-weight: 600;  /* Bold as requested */
+  }
+  
+  table.new_building td.bimg img {
+    margin: 8px auto !important;
+    display: block !important;
+    transform: scale(1.1); /* Slightly enlarge the building graphic */
+  }
+  
+  table.new_building td.res {
+    padding: 12px 0 !important;
+    line-height: 1.8 !important;
+  }
+
+  /* Resource Blocks for mobile UI */
+  .res-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+  
+  .res-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    background-color: #f7f9fa; /* Modern light contrast */
+    border: 1px solid #e1e8ed;
+    border-radius: 8px;
+    padding: 4px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  }
+
+  .res-item img {
+    margin: 0 !important;
+  }
+
+  /* Construct Building Actions (e.g. a.build in availupgrade.tpl) */
+  .new_building .link {
+     margin-top: 5px;
+  }
 
   /* Big Map Page (karte.php) */
   div#content.map {
@@ -134,6 +209,33 @@
     padding-bottom: 20px !important;
     text-align: center;
   }
+
+  /* Construct Building Actions (e.g. a.build in availupgrade.tpl) */
+  a.build,
+  #content a.build {
+    display: inline-block !important;
+    background: linear-gradient(180deg, #71ba00 0%, #528c00 100%) !important;
+    color: #fff !important;
+    font-weight: bold !important;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.4) !important;
+    border: 1px solid #427200 !important;
+    border-radius: 8px !important;
+    padding: 10px 20px !important;
+    text-decoration: none !important;
+    font-size: 15px !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 0 2px 4px rgba(0,0,0,0.15) !important;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+    transition: all 0.2s ease !important;
+  }
+
+  a.build:active,
+  #content a.build:active {
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.4) !important;
+    transform: translateY(2px) !important;
+    background: linear-gradient(180deg, #528c00 0%, #71ba00 100%) !important;
+  }
+
 
   div#content.map div#map {
     float: none !important;
@@ -155,114 +257,198 @@
     /* Do NOT override width/height so the <map> overlay works correctly! */
   }
 
-  /* 1. Table (Details) - Centered */
+  /* 1. Table (Details) - Centered and modern */
   div#content.map div#map table#map_infobox {
     position: absolute !important;
-    top: 360px !important;     
-    left: 50% !important;    
+    top: 360px !important;
+    left: 50% !important;
     right: auto !important;
     transform: translateX(-50%) !important;
-    width: 300px !important;
-    max-width: none !important;
-    margin: 0 !important;
+    width: 90% !important;
+    max-width: 400px !important;
+    margin: 0 auto !important;
     z-index: 100;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    border: 1px solid #e1e8ed !important;
+    border-radius: 12px !important;
     overflow: hidden;
-    background: #fff;
+    background: #ffffff !important;
   }
 
   div#content.map div#map table#map_infobox thead th {
     font-size: 18px !important;
-    padding: 8px !important;
+    padding: 12px !important;
     text-align: center !important;
+    background: #f8fafc !important;
+    border-bottom: 1px solid #e1e8ed !important;
+    color: #444 !important;
   }
 
-  div#content.map div#map table#map_infobox tbody th,
-  div#content.map div#map table#map_infobox tbody td {
+  div#content.map div#map table#map_infobox tbody {
+    display: flex !important;
+    flex-direction: column !important;
     padding: 8px !important;
-    font-size: 16px !important;
+  }
+
+  div#content.map div#map table#map_infobox tbody tr {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    border-bottom: 1px dashed #edf2f7 !important;
+  }
+
+  div#content.map div#map table#map_infobox tbody tr:last-child {
+    border-bottom: none !important;
+  }
+
+  div#content.map div#map table#map_infobox tbody th {
+    padding: 10px !important;
+    font-size: 15px !important;
+    color: #555 !important;
+    font-weight: bold !important;
+    text-align: right !important; /* RTL */
+    border: none !important;
+  }
+
+  div#content.map div#map table#map_infobox tbody td {
+    padding: 10px !important;
+    font-size: 15px !important;
+    color: #222 !important;
+    text-align: left !important; /* RTL */
+    border: none !important;
     white-space: nowrap !important;
   }
 
-  /* 2. Coordinate Layout - Centered Below Table */
+  /* 2. Coordinate Layout - Modern Flexbox Layout */
   div#content.map div#map div#map_coords {
+    position: absolute !important;
     top: 540px !important;
-    bottom: auto !important;
     left: 50% !important;
     right: auto !important;
     transform: translateX(-50%) !important;
-    width: 340px !important;
+    width: 90% !important;
+    max-width: 400px !important;
     height: auto !important;
+    background: #ffffff !important;
+    border: 1px solid #e1e8ed !important;
+    border-radius: 12px !important;
+    padding: 16px !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06) !important;
+    box-sizing: border-box !important;
   }
 
   div#content.map div#map div#map_coords form {
-    display: block !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 16px !important;
     text-align: center;
   }
 
   div#content.map div#map div#map_coords form br {
-    display: block !important;
+    display: none !important; /* Remove legacy BR tags */
   }
 
-  div#content.map div#map div#map_coords span {
-    font-size: 20px !important;
-    font-weight: bold;
-    color: #444;
-    display: inline-block;
-    vertical-align: middle;
+  /* Style coordinate inputs & labels */
+  div#content.map div#map div#map_coords form > div.coord-inputs {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 0 16px 0 !important;
+    direction: ltr !important; /* Locks LTR flow for coordinates */
+  }
+
+  div#content.map div#map div#map_coords span.coord-label {
+    font-size: 16px !important;
+    font-weight: 800 !important;
+    color: #64748b !important;
+    text-transform: uppercase !important;
   }
 
   div#content.map div#map div#map_coords input.text {
-    width: 50px !important;
-    height: 38px !important;
-    font-size: 18px !important;
-    border: 2px solid #aeb29a !important;
-    border-radius: 8px !important;
-    text-align: center;
-    background: #fff;
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
-    display: inline-block;
-    vertical-align: middle;
-    margin: 0 4px;
+    width: 65px !important;
+    height: 44px !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    border: 2px solid #e2e8f0 !important;
+    border-radius: 10px !important;
+    text-align: center !important;
+    background: #f8fafc !important;
+    color: #334155 !important;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.02) !important;
+    transition: all 0.2s ease !important;
+    margin: 0 !important;
+    -moz-appearance: textfield !important;
+  }
+  
+  /* Remove number arrows natively */
+  div#content.map div#map div#map_coords input.text::-webkit-outer-spin-button,
+  div#content.map div#map div#map_coords input.text::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
 
-  /* Fix for OK button sprite repeating issues */
-  div#map_coords input#btn_ok,
-  div#content.map div#map div#map_coords input[type="image"] {
-    width: 50px !important;
-    height: 20px !important;
-    transform: scale(2.0);
-    margin: 15px 30px !important; /* Forces layout spacing to compensate for 2x scale */
-    filter: drop-shadow(0 1px 1px rgba(0,0,0,0.2));
-    display: inline-block !important;
-    vertical-align: middle !important;
-    background-repeat: no-repeat !important;
-    background-position: top center !important;
+  div#content.map div#map div#map_coords input.text:focus {
+    border-color: #84cc29 !important;
+    background: #ffffff !important;
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(132, 204, 41, 0.2) !important;
   }
 
-  div#content.map div#map div#map_coords a {
-    font-size: 20px !important;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    background: linear-gradient(to bottom, #f9f9f9, #e0e0e0);
-    padding: 8px 12px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    color: #333;
-    border: 2px solid #ccc;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    margin-top: 5px;
-    width: auto !important;
-    box-sizing: border-box;
+  /* PREMIUM MOBILE BUTTONS */
+  div#content.map div#map div#map_coords button.modern-btn.btn-ok {
+    height: 44px !important;
+    padding: 0 20px !important;
+    background: linear-gradient(135deg, #84cc29 0%, #6eb318 100%) !important;
+    color: #ffffff !important;
+    font-weight: 800 !important;
+    font-size: 16px !important;
+    border: none !important;
+    border-radius: 10px !important;
+    cursor: pointer !important;
+    box-shadow: 0 4px 10px rgba(110, 179, 24, 0.3), inset 0 1px 0 rgba(255,255,255,0.3) !important;
+    transition: all 0.2s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-left: 4px !important;
   }
 
-  div#content.map div#map div#map_coords a img {
-    width: 24px !important;
-    height: 24px !important;
+  div#content.map div#map div#map_coords button.modern-btn.btn-ok:active {
+    transform: translateY(2px) !important;
+    box-shadow: 0 2px 5px rgba(110, 179, 24, 0.3) !important;
+  }
+
+  div#content.map div#map div#map_coords a.modern-btn.btn-search {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    gap: 10px !important;
+    background: #ffffff !important;
+    padding: 14px !important;
+    border-radius: 10px !important;
+    text-decoration: none !important;
+    font-weight: 700 !important;
+    color: #475569 !important;
+    border: 2px solid #e2e8f0 !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04) !important;
+    font-size: 16px !important;
+    box-sizing: border-box !important;
+    transition: all 0.2s ease !important;
+  }
+
+  div#content.map div#map div#map_coords a.modern-btn.btn-search svg {
+    color: #94a3b8 !important;
+  }
+
+  div#content.map div#map div#map_coords a.modern-btn.btn-search:active {
+    background: #f1f5f9 !important;
+    border-color: #cbd5e1 !important;
+    transform: translateY(1px) !important;
   }
 
   div#content.map img#detailed_map {
@@ -364,5 +550,259 @@
   div.village2 div#village_map {
     transform: scale(0.58) !important;
     margin-bottom: -180px !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* Custom Mobile App UI for Reports & Messages */
+
+  div.reports #textmenu, 
+  div.messages #textmenu {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: 8px;
+      padding: 10px 5px;
+      margin-bottom: 20px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      box-sizing: border-box !important;
+  }
+  div.reports #textmenu::-webkit-scrollbar, 
+  div.messages #textmenu::-webkit-scrollbar {
+      display: none;
+  }
+  div.reports #textmenu a, 
+  div.messages #textmenu a {
+      white-space: nowrap;
+      flex: 0 0 auto;
+      background: #f7f9fa !important;
+      border: 1px solid #e1e8ed !important;
+      color: #444 !important;
+      padding: 8px 16px !important;
+      border-radius: 20px !important;
+      font-size: 13px !important;
+      font-weight: 600 !important;
+      text-decoration: none !important;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+      box-sizing: border-box !important;
+  }
+  div.reports #textmenu a.selected, 
+  div.messages #textmenu a.selected {
+      background: #e9f5e9 !important;
+      border-color: #71D000 !important;
+      color: #2b5900 !important;
+  }
+  div.reports #textmenu a:first-child,
+  div.messages #textmenu a:first-child {
+      margin-right: auto; /* removes default separators or extra spaces in HTML */
+  }
+
+  /* Form structure */
+  div.reports form, div.messages form {
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box !important;
+      width: auto !important;
+      margin: 0 !important;
+      padding: 0 10px !important; /* give the cards some breathing room against the screen edges */
+  }
+
+  /* The overview table */
+  table#overview {
+      width: auto !important;
+      display: block !important;
+      border: none !important;
+      background: transparent !important;
+      box-sizing: border-box !important;
+      margin: 0 !important;
+      padding: 0 !important;
+  }
+  table#overview thead {
+      display: none !important;
+  }
+
+  /* Report body items */
+  table#overview tbody {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: auto !important;
+      box-sizing: border-box !important;
+      margin: 0 !important;
+      padding: 0 !important;
+  }
+
+  table#overview tbody tr {
+      display: flex;
+      flex-wrap: wrap;
+      background: #ffffff !important;
+      border: 1px solid #e9ebee !important;
+      border-radius: 12px !important;
+      padding: 12px !important;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.04) !important;
+      align-items: center;
+      width: auto !important;
+      margin: 0 !important;
+      box-sizing: border-box !important;
+  }
+
+  table#overview tbody tr td.none {
+      width: 100%;
+      text-align: center !important;
+      padding: 20px !important;
+      color: #888 !important;
+      font-weight: bold;
+      border: none !important;
+      box-sizing: border-box !important;
+  }
+
+  table#overview tbody tr td {
+      border: none !important;
+      padding: 0 !important;
+      background: transparent !important;
+      box-sizing: border-box !important;
+  }
+
+  table#overview tbody tr td.sel {
+      flex: 0 0 35px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+  table#overview tbody tr td.sel input[type="checkbox"] {
+      width: 22px;
+      height: 22px;
+      margin: 0;
+      cursor: pointer;
+  }
+
+  table#overview tbody tr td.sub {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+  }
+
+  table#overview tbody tr td.sub img {
+      flex: 0 0 auto;
+      width: 16px;
+      height: 16px;
+  }
+
+  table#overview tbody tr td.sub div {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      width: 100%;
+  }
+
+  table#overview tbody tr td.sub div a {
+      font-size: 14px !important;
+      font-weight: bold !important;
+      color: #1a4f00 !important;
+      text-decoration: none;
+      line-height: 1.4;
+      word-break: break-word;
+  }
+
+  table#overview tbody tr td.dat {
+      flex: 1 1 100%;
+      /* Put the date at the bottom nicely separated */
+      font-size: 12px !important;
+      color: #7f8c8d !important;
+      margin-top: 10px !important;
+      padding-top: 10px !important;
+      border-top: 1px dashed #e1e8ed !important;
+      text-align: center !important;
+  }
+
+  /* Floating Action Footer (Delete, Archive, Pagination) */
+  table#overview tfoot {
+      display: block !important;
+      width: auto !important;
+      margin: 20px 0 !important;
+      box-sizing: border-box !important;
+  }
+  table#overview tfoot tr {
+      display: flex !important;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      background: #fdfdfd !important;
+      border: 1px solid #dcdde1 !important;
+      border-radius: 12px !important;
+      padding: 12px 15px !important;
+      gap: 12px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05) !important;
+      width: auto !important;
+      margin: 0 !important;
+      box-sizing: border-box !important;
+  }
+  table#overview tfoot tr th {
+      display: flex;
+      align-items: center;
+      border: none !important;
+      padding: 0 !important;
+      background: transparent !important;
+      box-sizing: border-box !important;
+  }
+
+  /* Select All Checkbox area */
+  table#overview tfoot tr th:nth-child(1) {
+      flex: 0 0 auto;
+  }
+  table#overview tfoot tr th:nth-child(1) input[type="checkbox"] {
+      width: 22px;
+      height: 22px;
+  }
+
+  /* Buttons Area */
+  table#overview tfoot tr th.buttons {
+      flex: 1;
+      display: flex;
+      gap: 10px;
+      justify-content: center; /* keep buttons centered for a cleaner look */
+  }
+
+  table#overview tfoot tr th.buttons input[type="submit"],
+  table#overview tfoot tr th.buttons button {
+      background: #f1f2f6 !important;
+      border: 1px solid #ced6e0 !important;
+      color: #2f3542 !important;
+      padding: 8px 30px !important;
+      border-radius: 8px !important;
+      font-size: 14px !important;
+      font-weight: bold !important;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05) !important;
+      box-sizing: border-box !important;
+      width: auto !important;
+  }
+  table#overview tfoot tr th.buttons input[name="del"] {
+      background: #ffefef !important;
+      color: #e74c3c !important;
+      border-color: #fab1a0 !important;
+  }
+
+  /* Pagination Area */
+  table#overview tfoot tr th.navi {
+      flex: 1 1 100%;
+      justify-content: center;
+      margin-top: 4px;
+      padding-top: 12px !important;
+      border-top: 1px solid #f1f2f6 !important;
+      font-weight: bold;
+      font-size: 14px !important;
+  }
+  table#overview tfoot tr th.navi a {
+      padding: 6px 14px;
+      background: #fff;
+      border: 1px solid #dfe4ea;
+      border-radius: 6px;
+      text-decoration: none;
+      color: #333;
+      margin: 0 4px;
   }
 }

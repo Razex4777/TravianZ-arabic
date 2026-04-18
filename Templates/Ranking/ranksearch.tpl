@@ -10,7 +10,7 @@ if(!isset($_GET['id'])){ $_GET['id']='1'; }
 								<span class="or"><?php echo (defined('LANG') && LANG === 'ar') ? 'أو' : 'or'; ?></span>
 								<span><?php echo (defined('LANG') && LANG === 'ar') ? 'الاسم' : 'name'; ?><input type="text" class="text name" maxlength="30" name="name" value="<?php if(!is_numeric($search)) {echo $search; } ?>" /></span>
                                 <input type="hidden" name="ft" value="r<?php echo isset($_GET['id'])? $_GET['id'] : 1; ?>" />
-								<button value="submit" name="submit" id="btn_ok" class="trav_buttons" alt="OK" /> <?php echo (defined('LANG') && LANG === 'ar') ? 'موافق' : 'Ok'; ?> </button>
+								<button type="submit" value="submit" name="submit" id="btn_ok" class="trav_buttons" alt="OK"><?php echo (defined('LANG') && LANG === 'ar') ? 'موافق' : 'Ok'; ?></button>
 							</div>
 							</form>
 							<div class="navi">
@@ -25,3 +25,7 @@ if(count($rankArray) < 22){
     echo "<a href=\"statistiken.php?id=".$_GET['id']."&amp;rank=".($start - 20)."\">&laquo; ".((defined('LANG') && LANG === 'ar') ? 'السابق' : 'back')."</a> | ".((defined('LANG') && LANG === 'ar') ? 'التالي' : 'forward')." &raquo;";
 }
 ?>
+							</div>
+						</td>
+					</tr>
+</table>

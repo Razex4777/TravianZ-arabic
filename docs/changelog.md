@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-04-18 17:35
+- **Fix: Mobile Top 10 Tables Layout** — Centered the ranking tables in mobile view by overriding RTL float behavior and forcing full width (`table#top10_offs, table#top10_defs...`).
+- **Fix: Missing Tooltip Translations** — Translated "Top 10 statistics" popup content in `Templates/Manual/medal.tpl` to Arabic.
+- **Fix: Help Icon Localization** — Dynamically translated the `alt` and `title` attributes on help icons (`Popup(3,5)`) across `player_top10.tpl` and `ally_top10.tpl`.
+- **Refactor: CSS Emojis** — Fixed broken characters in `_phone_statistics.css` pseudo-element icons directly.
+- **Fix (CSS/HTML): Rebuilt mobile search navigation layout for ranking tables** — Closed trailing slash bug in `ranksearch.tpl` `<button>` and wrote custom flex stacking CSS in `_phone_statistics.css`.
+- **Fix (CSS/HTML): Rebuilt Map coordinates and navigation layout (`karte.php`) for mobile** — Wrapped input fields in `<div class="coord-inputs">` inside `Templates/Map/mapview.tpl`. Replaced `position: absolute` top offsets with clean, stacked modern cards in `mobile/_phone_ingame/content.css`, and enforced `direction: ltr` for coordinates flow.
+
 ## 2026-04-18 00:05
 - **Refactor: Mobile CSS 500-Line Limit** — Adhering to the strict 500-line limitation rule, `mobile/_phone_ingame.css` (+1100 lines) was broken down into manageable component modules.
   - Created directory `mobile/_phone_ingame/` to house the modular CSS chunks.

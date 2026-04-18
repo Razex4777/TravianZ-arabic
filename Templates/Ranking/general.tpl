@@ -476,4 +476,3 @@ echo $getpop['sumofpop'];
     </table>
     <?php  ?>
     
-<table cellpadding="1" cellspacing="1" id="search_navi"> <?php //fix the problem with footer.php, don't change or remove it ?>

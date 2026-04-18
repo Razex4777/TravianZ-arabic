@@ -71,7 +71,7 @@
 
     $sent_as_text = '';
 
-    if (!$support_messages || ($support_messages && $message->inbox1[$i-1]['target'] != 1) || ($multihunter_messages && $message->inbox1[$i-1]['target'] != 5)) {
+    if (!$support_messages || ($support_messages && $message->sent1[$i-1]['target'] != 1) || ($multihunter_messages && $message->sent1[$i-1]['target'] != 5)) {
         $sent_as_text = "<input class=\"check\" type=\"checkbox\" name=\"n".$name."\" value=\"".$message->sent1[$i-1]['id']."\" />";
     } else if ($support_messages) {
         $sent_as_text = '<u><b title="'.(defined('LANG') && LANG === 'ar' ? 'أُرسلت كدعم' : 'Sent as Support').'"><i>S</i></b></u>';

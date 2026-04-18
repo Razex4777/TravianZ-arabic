@@ -17,7 +17,7 @@ use App\Utils\AccessLogger;
 include_once("GameEngine/Village.php");
 AccessLogger::logRequest();
 
-$amount = $_SESSION['amount'];
+$amount = isset($_SESSION['amount']) ? $_SESSION['amount'] : 0;
 if(isset($_GET['newdid'])) {
 	$_SESSION['wid'] = $_GET['newdid'];
 	header("Location: ".$_SERVER['PHP_SELF']);
@@ -61,7 +61,7 @@ else $building->procBuild($_GET);
 	<?php if(defined('LANG') && LANG === 'ar'): ?>
 	
 	<?php endif; ?>
-	<link rel="stylesheet" type="text/css" href="mobile.css?v=37" />
+	<link rel="stylesheet" type="text/css" href="mobile.css?v=47" />
 </head>
 <body class="v35 ie ie8">
 <script>if('scrollRestoration'in history)history.scrollRestoration='manual';window.scrollTo(0,0);window.addEventListener('load',function(){window.scrollTo(0,0);setTimeout(function(){window.scrollTo(0,0)},0);setTimeout(function(){window.scrollTo(0,0)},50);setTimeout(function(){window.scrollTo(0,0)},100);setTimeout(function(){window.scrollTo(0,0)},200)});</script>

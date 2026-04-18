@@ -44,7 +44,7 @@ $invited=(isset($_GET['uid'])) ? filter_var($_GET['uid'], FILTER_SANITIZE_NUMBER
 	<?php if(defined('LANG') && LANG === 'ar'): ?>
 	
 	<?php endif; ?>
-	<link rel="stylesheet" type="text/css" href="mobile.css?v=37" />
+	<link rel="stylesheet" type="text/css" href="mobile.css?v=47" />
 </head>
 
 <body class="v35 ie ie7" onload="initCounter()">
@@ -58,8 +58,7 @@ $invited=(isset($_GET['uid'])) ? filter_var($_GET['uid'], FILTER_SANITIZE_NUMBER
 if(REG_OPEN == true){ ?>
 <div id="content"  class="signup">
 
-<h1><img src="img/x.gif" class="anmelden" alt="register for the game" /></h1>
-<h5><img src="img/x.gif" class="img_u05" alt="registration"/></h5>
+<h5 style="text-align: center; margin: 10px 0 25px 0; font-size: 32px; font-weight: 800; font-family: 'Inter', Tahoma, sans-serif; text-transform: uppercase; background: linear-gradient(135deg, #8dc63f 0%, #3e6015 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0px 4px 10px rgba(141, 198, 63, 0.2);">Registration</h5>
 
 <p><?php echo BEFORE_REGISTER; ?></p>
 

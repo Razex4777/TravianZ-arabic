@@ -59,3 +59,5 @@ if (WW == True)
             exit;
         } 
         ?>
+    </tbody>
+</table>

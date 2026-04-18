@@ -9,7 +9,8 @@
    ========================================================================== */
 
 /* Hide mobile-only UI elements on all screen sizes (safe global rule) */
-#mobile_menu_icon {
+#mobile_menu_icon,
+#mobile_header_banner {
   display: none;
 }
 

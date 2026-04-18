@@ -1,0 +1,204 @@
+/* ==========================================================================
+   MOBILE RESPONSIVE — Manual / Popups (e.g., Plus Account Info)
+   ========================================================================== */
+
+@media screen and (max-width: 768px) {
+  /* Reset manual body to a sleek mobile design */
+  body.manual {
+    background: #f8f9fa !important;
+    background-image: radial-gradient(circle at top right, rgba(0, 150, 64, 0.04), transparent 60%),
+                      radial-gradient(circle at bottom left, rgba(255, 152, 0, 0.04), transparent 60%) !important;
+    margin: 0 !important;
+    padding: 24px 20px !important;
+    font-family: "Inter", "Segoe UI", Tahoma, sans-serif !important;
+    color: #343a40 !important;
+    line-height: 1.6 !important;
+    font-size: 15px !important;
+    min-height: 100vh !important;
+    box-sizing: border-box !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  body.manual h1 {
+    font-size: 24px !important;
+    color: #212529 !important;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.05) !important;
+    padding-bottom: 12px !important;
+    margin-top: 0 !important;
+    margin-bottom: 24px !important;
+    font-weight: 800 !important;
+    text-shadow: 1px 1px 2px rgba(255,255,255,1);
+  }
+
+  body.manual ul {
+    list-style: none !important;
+    padding: 16px !important;
+    margin: 16px 0 24px 0 !important;
+    background: rgba(255, 255, 255, 0.8) !important;
+    border: 1px solid rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04) !important;
+  }
+
+  body.manual ul li {
+    font-size: 15px !important;
+    color: #495057 !important;
+    padding: 12px 12px 12px 36px !important;
+    position: relative !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03) !important;
+  }
+  
+  html[dir="rtl"] body.manual ul li {
+    padding: 12px 36px 12px 12px !important;
+  }
+
+  body.manual ul li:last-child {
+    border-bottom: none !important;
+  }
+
+  /* Custom Checkmark Bullet */
+  body.manual ul li::before {
+    content: "✓" !important;
+    position: absolute !important;
+    left: 8px !important;
+    top: 12px !important;
+    color: #2e7d32 !important; /* Green Accent */
+    font-weight: bold !important;
+    font-size: 12px !important;
+    background: rgba(46, 125, 50, 0.1) !important;
+    border-radius: 50% !important;
+    width: 20px !important;
+    height: 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  html[dir="rtl"] body.manual ul li::before {
+    left: auto !important;
+    right: 8px !important;
+  }
+
+  /* General Table Styling within Manual */
+  body.manual table {
+    width: 100% !important;
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04) !important;
+    margin-top: 16px !important;
+    margin-bottom: 24px !important;
+    background: rgba(255,255,255,0.6) !important;
+  }
+
+  body.manual table th {
+    background: rgba(0,0,0,0.04) !important;
+    color: #212529 !important;
+    padding: 14px !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+  }
+
+  body.manual table td {
+    padding: 14px !important;
+    font-size: 14px !important;
+    border-top: 1px solid rgba(0,0,0,0.03) !important;
+    color: #495057 !important;
+  }
+
+  /* Generic links inside manual */
+  body.manual a {
+    color: #1976d2 !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+  }
+
+  body.manual a:hover {
+    text-decoration: underline !important;
+  }
+
+  /* Hide default travian manual images and fixed borders */
+  body.manual > img,
+  body.manual img.a1_1, body.manual img.a1_2, body.manual img.a1_3, body.manual img.a1_4,
+  body.manual img.t1_1, body.manual img.t1_2, body.manual img.t1_3, body.manual img.t1_4 {
+    display: none !important;
+  }
+
+  /* ----------------------------------------------------
+     THE FRAME AND CLOSE BUTTON (Outer Parent Page)
+     ---------------------------------------------------- */
+  #ce .popup3 {
+    background: none !important;
+    width: 90vw !important;
+    height: 85vh !important;
+    max-width: 440px !important;
+    max-height: 600px !important;
+    position: fixed !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin: auto !important;
+    transform: none !important;
+    z-index: 9999 !important;
+    border-radius: 16px !important;
+    overflow: visible !important;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3) !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+
+  /* Make iframe fill the popup perfectly and round the corners */
+  #ce .popup3 iframe#Frame {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 16px !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    display: block !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  /* The Close X Button - Made very clear */
+  #ce .popup3 a[onclick*="Close"] {
+    position: absolute !important;
+    top: -15px !important;
+    right: -15px !important;
+    width: 36px !important;
+    height: 36px !important;
+    background: #ef5350 !important; /* Red */
+    border-radius: 50% !important;
+    border: 3px solid #fff !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2) !important;
+    z-index: 10000 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-decoration: none !important;
+  }
+
+  /* Keep it on left for RTL */
+  html[dir="rtl"] #ce .popup3 a[onclick*="Close"] {
+    left: -15px !important;
+    right: auto !important;
+  }
+
+  /* We replace the old X image with a modern text 'X' */
+  #ce .popup3 a[onclick*="Close"] img {
+    display: none !important;
+  }
+
+  #ce .popup3 a[onclick*="Close"]::after {
+    content: "✕" !important;
+    color: #fff !important;
+    font-size: 18px !important;
+    font-weight: bold !important;
+    line-height: 1 !important;
+  }
+}

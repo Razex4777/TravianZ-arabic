@@ -6,12 +6,12 @@
 <li><a href="manual.php?s=1&amp;typ=2">The troops</a></li>
 
 <ul>
-	<li><a href="manual.php?typ=2&amp;s=1">Romans</a></li>
-	<li><a href="manual.php?typ=2&amp;s=2">Teutons</a></li>
-	<li><a href="manual.php?typ=2&amp;s=3">Gauls</a></li>
+	<li><a href="manual.php?typ=2&amp;s=1"><?php echo (defined("LANG") && LANG === "ar") ? "الرومان" : "Romans"; ?></a></li>
+	<li><a href="manual.php?typ=2&amp;s=2"><?php echo (defined("LANG") && LANG === "ar") ? "التيوتون" : "Teutons"; ?></a></li>
+	<li><a href="manual.php?typ=2&amp;s=3"><?php echo (defined("LANG") && LANG === "ar") ? "الغال" : "Gauls"; ?></a></li>
 	<?php if(NEW_FUNCTIONS_MANUAL_NATURENATARS){ ?>
-	<li><a href="manual.php?typ=2&amp;s=4">Nature</a></li>
-	<li><a href="manual.php?typ=2&amp;s=5">Natars</a></li>
+	<li><a href="manual.php?typ=2&amp;s=4"><?php echo (defined("LANG") && LANG === "ar") ? "الطبيعة" : "Nature"; ?></a></li>
+	<li><a href="manual.php?typ=2&amp;s=5"><?php echo (defined("LANG") && LANG === "ar") ? "الناتار" : "Natars"; ?></a></li>
 	<?php } ?>
 </ul>
 
@@ -33,8 +33,8 @@
 <li><a href="anleitung.php?s=3" target="_blank">Travian FAQ <img class="external" src="img/x.gif" alt="new window" title="new window" /></a><br>This ingame help just gives you brief information. More information is available at the <a href="http://travian.wikia.com/wiki/Travian_Wiki" target=blank>Fandom Travian Wiki</a>.</li>
 </ul>
 <map id="nav" name="nav">
-    <area href="manual.php?typ=3&amp;s=3" title="back" coords="0,0,45,18" shape="rect" alt="" />
-    <area href="manual.php?s=1" title="Overview" coords="46,0,70,18" shape="rect" alt="" />
-    <area href="manual.php?typ=2&amp;s=1" title="forward" coords="71,0,116,18" shape="rect" alt="" />
+    <area href="manual.php?typ=3&amp;s=3" title="<?php echo (defined("LANG") && LANG === "ar") ? 'رجوع' : 'back'; ?>" coords="0,0,45,18" shape="rect" alt="" />
+    <area href="manual.php?s=1" title="<?php echo (defined("LANG") && LANG === "ar") ? 'نظرة عامة' : 'Overview'; ?>" coords="46,0,70,18" shape="rect" alt="" />
+    <area href="manual.php?typ=2&amp;s=1" title="<?php echo (defined("LANG") && LANG === "ar") ? 'التالي' : 'forward'; ?>" coords="71,0,116,18" shape="rect" alt="" />
 </map>
 <img usemap="#nav" src="img/x.gif" class="navi" alt="" />

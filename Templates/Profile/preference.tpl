@@ -102,7 +102,7 @@ while($data = mysqli_fetch_assoc($query)) $links[] = $data;
       </tr>
     </thead>      
     <tbody>
-	  <?php $i = 0; foreach($links as $link): ?>
+	  <?php $i = 0; $last_pos = 0; foreach($links as $link): ?>
       <tr>
 	  <td>
 	  <a href="spieler.php?del=<?php echo $link['id']; ?>&s=2"><img class="del" src="img/x.gif" alt="delete" title="delete"></a>

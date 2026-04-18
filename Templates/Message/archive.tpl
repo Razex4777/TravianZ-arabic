@@ -43,19 +43,19 @@ include("menu.tpl");
       $name = 1;
     for($i=(1+$s);$i<=(10+$s);$i++) {
     if(count($message->archived1) >= $i) {
-    if($message->archived[$i-1]['owner'] == 0) {
+    if($message->archived1[$i-1]['owner'] == 0) {
     echo "<tr class=\"sup\">";
     }
     else {
     echo "<tr>";
     }
-    echo "<td class=\"sel\"><input class=\"check\" type=\"checkbox\" name=\"n".$name."\" value=\"".$message->archived[$i-1]['id']."\" /></td>
-		<td class=\"top\"><a href=\"nachrichten.php?id=".$message->archived[$i-1]['id']."\">".$message->archived[$i-1]['topic']."</a> ";
-    if($message->archived[$i-1]['viewed'] == 0) {
+    echo "<td class=\"sel\"><input class=\"check\" type=\"checkbox\" name=\"n".$name."\" value=\"".$message->archived1[$i-1]['id']."\" /></td>
+		<td class=\"top\"><a href=\"nachrichten.php?id=".$message->archived1[$i-1]['id']."\">".$message->archived1[$i-1]['topic']."</a> ";
+    if($message->archived1[$i-1]['viewed'] == 0) {
     echo "(".(defined('LANG') && LANG === 'ar' ? 'جديد' : 'new').")";
     }
-    $date = $generator->procMtime($message->archived[$i-1]['time']);
-    echo "</td><td class=\"send\"><a href=\"spieler.php?uid=".$message->archived[$i-1]['owner']."\"><u>".$database->getUserField($message->archived[$i-1]['owner'],'username',0)."</u></a></td>
+    $date = $generator->procMtime($message->archived1[$i-1]['time']);
+    echo "</td><td class=\"send\"><a href=\"spieler.php?uid=".$message->archived1[$i-1]['owner']."\"><u>".$database->getUserField($message->archived1[$i-1]['owner'],'username',0)."</u></a></td>
 		<td class=\"dat\">".$date[0]." ".$date[1]."</td></tr>";
         }
         $name++;

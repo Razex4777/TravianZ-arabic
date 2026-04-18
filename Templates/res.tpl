@@ -39,23 +39,23 @@ if (!empty($village)) {
 	<table cellpadding="1" cellspacing="1">
 		<tr>
 			<td><img src="img/x.gif" class="r1" alt="<?php echo LUMBER; ?>" title="<?php echo LUMBER; ?>" /></td>
-			<td id="l4" title="<?php echo $wood; ?>" class="res-pill<?php echo $woodClass; ?>"><?php echo $awood."/".$maxstore; ?></td>
+			<td><div id="l4" title="<?php echo $wood; ?>" class="res-pill<?php echo $woodClass; ?>"><?php echo $awood."/".$maxstore; ?></div></td>
 
 			<td><img src="img/x.gif" class="r2" alt="<?php echo CLAY; ?>" title="<?php echo CLAY; ?>" /></td>
-			<td id="l3" title="<?php echo $clay; ?>" class="res-pill<?php echo $clayClass; ?>"><?php echo $aclay."/".$maxstore; ?></td>
+			<td><div id="l3" title="<?php echo $clay; ?>" class="res-pill<?php echo $clayClass; ?>"><?php echo $aclay."/".$maxstore; ?></div></td>
 
 			<td><img src="img/x.gif" class="r3" alt="<?php echo IRON; ?>" title="<?php echo IRON; ?>" /></td>
-			<td id="l2" title="<?php echo $iron; ?>" class="res-pill<?php echo $ironClass; ?>"><?php echo $airon."/".$maxstore; ?></td>
+			<td><div id="l2" title="<?php echo $iron; ?>" class="res-pill<?php echo $ironClass; ?>"><?php echo $airon."/".$maxstore; ?></div></td>
 
 			<td><img src="img/x.gif" class="r4" alt="<?php echo CROP; ?>" title="<?php echo CROP; ?>" /></td>
 			<?php if($acrop > 0){ ?>
-			<td id="l1" title="<?php echo $crop; ?>" class="res-pill<?php echo $cropClass; ?>"><?php echo $acrop."/".$maxcrop; ?></td>
+			<td><div id="l1" title="<?php echo $crop; ?>" class="res-pill<?php echo $cropClass; ?>"><?php echo $acrop."/".$maxcrop; ?></div></td>
 			<?php }else{ ?>
-			<td title="<?php echo $crop; ?>" class="res-pill"><?php echo "0/".$maxcrop; ?></td>
+			<td><div title="<?php echo $crop; ?>" class="res-pill"><?php echo "0/".$maxcrop; ?></div></td>
 			<?php } ?>
 
 			<td><img src="img/x.gif" class="r5" alt="<?php echo CROP_COM; ?>" title="<?php echo CROP_COM; ?>" /></td>
-			<td class="res-pill res-consumption"><?php echo ($village->pop+$technology->getUpkeep($village->unitall,0))."/".$totalproduction; ?></td>
+			<td><div class="res-pill res-consumption"><?php echo ($village->pop+$technology->getUpkeep($village->unitall,0))."/".$totalproduction; ?></div></td>
 		</tr>
 	</table>
     </div>
@@ -83,7 +83,7 @@ if (!empty($village)) {
 
 /* Add space after each pill to separate it from the next resource icon */
 #res td:has(.res-pill) {
-    padding-inline-end: 12px !important; 
+    padding-inline-end: 14px !important; 
 }
 
 /* Resource value pills */
@@ -91,15 +91,24 @@ if (!empty($village)) {
     display: inline-block;
     background: linear-gradient(180deg, #9CCC65 0%, #7CB342 100%); /* Softer, richer green */
     border: 1px solid #558B2F;
-    border-radius: 8px; /* rounder */
-    padding: 3px 8px !important;
+    border-radius: 12px; /* rounder */
+    padding: 2px 6px !important; /* Smaller on desktop */
     color: #fff;
     font-family: inherit;
     font-weight: 700;
-    font-size: 11px;
+    font-size: 11px; /* Normal size on desktop */
+    line-height: normal;
     text-shadow: 0 1px 2px rgba(0,0,0,0.3);
     box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 0 2px 4px rgba(0,0,0,0.1);
     white-space: nowrap;
+}
+
+/* Enlarge on Mobile */
+@media screen and (max-width: 768px) {
+    .res-pill {
+        padding: 4px 10px !important;
+        font-size: 13px !important;
+    }
 }
 
 /* Full storage: bright glowing green */

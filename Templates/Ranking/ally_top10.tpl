@@ -18,7 +18,7 @@
 <table cellpadding="1" cellspacing="1" id="top10_offs" class="top10 row_table_data">
 	<thead>
 		<tr>
-			<th onclick="return Popup(3,5)"><img src="img/x.gif" class="help" alt="Instructions" title="Instructions">
+			<th onclick="return Popup(3,5)"><img src="img/x.gif" class="help" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'تعليمات' : 'Instructions'; ?>" title="<?php echo (defined('LANG') && LANG === 'ar') ? 'تعليمات' : 'Instructions'; ?>">
 			</th>
 			<th colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'مهاجمو اليوم' : 'Attackers of the day'; ?></th>
 		</tr>
@@ -72,7 +72,7 @@
 <table cellpadding="1" cellspacing="1" id="top10_defs" class="top10 row_table_data">
 	<thead>
 		<tr>
-			<th onclick="return Popup(3,5)"><img src="img/x.gif" class="help" alt="Instructions" title="Instructions">
+			<th onclick="return Popup(3,5)"><img src="img/x.gif" class="help" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'تعليمات' : 'Instructions'; ?>" title="<?php echo (defined('LANG') && LANG === 'ar') ? 'تعليمات' : 'Instructions'; ?>">
 			</th>
 			<th colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'مدافعو اليوم' : 'Defenders of the day'; ?></th>
 		</tr>
@@ -127,7 +127,7 @@
 <table cellpadding="1" cellspacing="1" id="top10_climbers" class="top10 row_table_data">
 	<thead>
 		<tr>
-			<th onclick="return Popup(3,5)"><img src="img/x.gif" class="help" alt="Instructions" title="Instructions">
+			<th onclick="return Popup(3,5)"><img src="img/x.gif" class="help" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'تعليمات' : 'Instructions'; ?>" title="<?php echo (defined('LANG') && LANG === 'ar') ? 'تعليمات' : 'Instructions'; ?>">
 			</th>
 			<th colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'مطورو اليوم' : 'Climbers of the day'; ?></th>
 		</tr>
@@ -179,7 +179,7 @@
 <table cellpadding="1" cellspacing="1" id="top10_raiders" class="top10 row_table_data">
 	<thead>
 		<tr>
-			<th onclick="return Popup(3,5)"><img src="img/x.gif" class="help" alt="Instructions" title="Instructions">
+			<th onclick="return Popup(3,5)"><img src="img/x.gif" class="help" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'تعليمات' : 'Instructions'; ?>" title="<?php echo (defined('LANG') && LANG === 'ar') ? 'تعليمات' : 'Instructions'; ?>">
 			</th>
 			<th colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'سارقو اليوم' : 'Robbers of the day'; ?></th>
 		</tr>
@@ -225,4 +225,3 @@
 ?>
          </tbody>
 </table>
-<div>

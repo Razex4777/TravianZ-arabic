@@ -6,12 +6,12 @@
 <li><a href="manual.php?s=1&amp;typ=2"><?php echo (defined('LANG') && LANG === 'ar') ? 'القوات' : 'The troops'; ?></a></li>
 
 <ul>
-	<li><a href="manual.php?typ=2&amp;s=1"><?php echo (defined('LANG') && LANG === 'ar') ? 'الرومان' : 'Romans'; ?></a></li>
-	<li><a href="manual.php?typ=2&amp;s=2"><?php echo (defined('LANG') && LANG === 'ar') ? 'التيوتون' : 'Teutons'; ?></a></li>
-	<li><a href="manual.php?typ=2&amp;s=3"><?php echo (defined('LANG') && LANG === 'ar') ? 'الغال' : 'Gauls'; ?></a></li>
+	<li><a href="manual.php?typ=2&amp;s=1"><?php echo (defined('LANG') && LANG === 'ar') ? 'الرومان' : '<?php echo (defined("LANG") && LANG === "ar") ? "الرومان" : "Romans"; ?>'; ?></a></li>
+	<li><a href="manual.php?typ=2&amp;s=2"><?php echo (defined('LANG') && LANG === 'ar') ? 'التيوتون' : '<?php echo (defined("LANG") && LANG === "ar") ? "التيوتون" : "Teutons"; ?>'; ?></a></li>
+	<li><a href="manual.php?typ=2&amp;s=3"><?php echo (defined('LANG') && LANG === 'ar') ? 'الغال' : '<?php echo (defined("LANG") && LANG === "ar") ? "الغال" : "Gauls"; ?>'; ?></a></li>
 	<?php if(NEW_FUNCTIONS_MANUAL_NATURENATARS){ ?>
-	<li><a href="manual.php?typ=2&amp;s=4"><?php echo (defined('LANG') && LANG === 'ar') ? 'الطبيعة' : 'Nature'; ?></a></li>
-	<li><a href="manual.php?typ=2&amp;s=5"><?php echo (defined('LANG') && LANG === 'ar') ? 'الناتار' : 'Natars'; ?></a></li>
+	<li><a href="manual.php?typ=2&amp;s=4"><?php echo (defined('LANG') && LANG === 'ar') ? 'الطبيعة' : '<?php echo (defined("LANG") && LANG === "ar") ? "الطبيعة" : "Nature"; ?>'; ?></a></li>
+	<li><a href="manual.php?typ=2&amp;s=5"><?php echo (defined('LANG') && LANG === 'ar') ? 'الناتار' : '<?php echo (defined("LANG") && LANG === "ar") ? "الناتار" : "Natars"; ?>'; ?></a></li>
 	<?php } ?>
 </ul>
 

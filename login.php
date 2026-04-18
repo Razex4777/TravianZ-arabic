@@ -59,7 +59,7 @@ $_SESSION[ 'csrf' ] = $key;
 	<?php if(defined('LANG') && LANG === 'ar'): ?>
 	
 	<?php endif; ?>
-	<link rel="stylesheet" type="text/css" href="mobile.css?v=37" />
+	<link rel="stylesheet" type="text/css" href="mobile.css?v=47" />
 </head>
 
 <body class="v35 ie ie7" onload="initCounter()">
@@ -73,8 +73,6 @@ $_SESSION[ 'csrf' ] = $key;
 
 <div id="content"  class="login">
 
-<h1><img class="img_login" src="img/x.gif" alt="log in the game" /></h1>
-
 <?php
 $time = time();
 if( COMMENCE > $time )
@@ -84,7 +82,7 @@ echo '<p><font color="red" size="6">'.NOT_OPENED_YET.'</font></p>' ;
 else
 {
 ?>
-<h5><img class="img_u04" src="img/x.gif" alt="login" /></h5>
+<h5 style="text-align: center; margin: 15px 0 25px 0; font-size: 28px; font-weight: 800; font-family: 'Inter', Tahoma, sans-serif; text-transform: uppercase; background: linear-gradient(135deg, #8dc63f 0%, #3e6015 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0px 4px 10px rgba(141, 198, 63, 0.2);">Login</h5>
 <p><?php echo COOKIES; ?></p>
 <?php
 $stime = strtotime( date( 'm/d/Y H:i', strtotime(START_DATE . ' ' . START_TIME ) ) );

@@ -70,10 +70,22 @@
 
   div#side_navi p {
     display: flex !important;
-    height: 100% !important;
     gap: 10px !important;
     margin: 0 !important;
     padding: 0 !important;
+  }
+  
+  /* Top bar mode constraint */
+  body:not(:has(#mobile-nav-toggle:checked)) div#side_navi p {
+    height: 100% !important;
+    flex-direction: row !important;
+  }
+
+  /* Opened sidebar mode constraint */
+  body:has(#mobile-nav-toggle:checked) div#side_navi p {
+    height: auto !important;
+    flex-direction: column !important;
+    width: 100% !important;
   }
 
   div#side_navi br,
@@ -84,9 +96,10 @@
   div#side_navi img,
   div#side_navi .count { display: none !important; }
 
-  /* Only show first 3 pills in Top Bar mode (Offset by 1 because of hidden logo anchor) */
+  /* Only show first 3 pills in Top Bar mode */
   body:not(:has(#mobile-nav-toggle:checked)) div#side_navi > a:nth-of-type(n+5),
-  body:not(:has(#mobile-nav-toggle:checked)) div#side_navi p a:nth-of-type(n+4) {
+  body:not(:has(#mobile-nav-toggle:checked)) div#side_navi p:nth-of-type(n+2),
+  body:not(:has(#mobile-nav-toggle:checked)) div#side_navi p:first-of-type a:nth-of-type(n+4) {
     display: none !important;
   }
 
@@ -112,11 +125,27 @@
     transition: color 0.25s ease, border-color 0.25s ease !important;
   }
 
-  /* Active / Tap state — green underline slides in via color change only */
+  /* ═══ NUCLEAR: Kill ALL desktop hover effects on mobile ═══
+     compact.css sets width:113px, height:20px, background-image on hover
+     with NO media query — this overrides everything to prevent jumping */
+  div#side_navi a:hover,
+  div#side_navi p a:hover,
+  div#side_navi a:focus,
+  div#side_navi p a:focus,
   div#side_navi a:active,
-  div#side_navi p a:active {
+  div#side_navi p a:active,
+  div#side_navi p.deltimer a:hover,
+  div#side_navi p.deltimer a:focus {
+    background: transparent !important;
+    background-image: none !important;
+    background-color: transparent !important;
+    width: auto !important;
+    height: auto !important;
     color: #71D000 !important;
     border-bottom-color: #71D000 !important;
+    box-shadow: none !important;
+    transform: none !important;
+    outline: none !important;
   }
 
   /* Adjust buttons inside the full sidebar to become pill buttons */
@@ -124,6 +153,7 @@
   body:has(#mobile-nav-toggle:checked) div#side_navi p a {
     display: inline-flex !important;
     width: 100% !important;
+    box-sizing: border-box !important;
     border-radius: 12px !important;
     padding: 12px 15px !important;
     font-size: 15px !important;

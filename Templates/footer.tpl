@@ -51,9 +51,7 @@
 <div class="copyright" style="margin-top: 6px; font-size: 11px; color: #999;">
     Released by TravianZ &mdash; Thank you for using our version
 </div>
-<div class="copyright" style="margin-top: 4px; font-size: 11px; color: #888;">
-    <?php echo (defined('LANG') && LANG === 'ar') ? 'تعريب: Razex Xelite' : 'Arabic localization: Razex Xelite'; ?>
-</div>
+
 </div>
 </div>
 <div id="cfoot">

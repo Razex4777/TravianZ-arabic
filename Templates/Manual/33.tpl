@@ -17,8 +17,8 @@
     <li><a href="manual.php?typ=4&amp;gid=40"><?php echo (defined('LANG') && LANG === 'ar') ? 'معجزة العالم' : 'Wonder Of The World'; ?></a></li>
 </ul>
 <map id="nav" name="nav">
-    <area href="manual.php?typ=3&amp;s=2" title="back" coords="0,0,45,18" shape="rect" alt="" />
-    <area href="manual.php?s=1" title="Overview" coords="46,0,70,18" shape="rect" alt="" />
-    <area href="manual.php?s=1" title="forward" coords="71,0,116,18" shape="rect" alt="" />
+    <area href="manual.php?typ=3&amp;s=2" title="<?php echo (defined("LANG") && LANG === "ar") ? 'رجوع' : 'back'; ?>" coords="0,0,45,18" shape="rect" alt="" />
+    <area href="manual.php?s=1" title="<?php echo (defined("LANG") && LANG === "ar") ? 'نظرة عامة' : 'Overview'; ?>" coords="46,0,70,18" shape="rect" alt="" />
+    <area href="manual.php?s=1" title="<?php echo (defined("LANG") && LANG === "ar") ? 'التالي' : 'forward'; ?>" coords="71,0,116,18" shape="rect" alt="" />
 </map>
 <img usemap="#nav" src="img/x.gif" class="navi" alt="" />

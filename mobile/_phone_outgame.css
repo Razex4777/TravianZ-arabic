@@ -24,78 +24,86 @@
     background-image: none !important;
   }
 
-  /* Thin decorative header bar (only on outgame pages) */
+  /* Nuke the massive desktop outgame headers on mobile since they just leave empty white space */
+  body.v35:has(div.outgame) div#header,
+  body.v35:has(div.outgame) div#dynamic_header,
   body.v35:has(div#content.login) div#header,
+  body.v35:has(div#content.login) div#dynamic_header,
   body.v35:has(div#content.signup) div#header,
-  body.v35:has(div#content.activate) div#header,
-  body.v35:has(div#content.logout) div#header {
-    height: 30px !important;
-    background-size: cover !important;
-    background-position: center !important;
-  }
-
-  body.v35 div#dynamic_header {
-    height: auto !important;
+  body.v35:has(div#content.signup) div#dynamic_header {
+    height: 0 !important;
     min-height: 0 !important;
-    overflow: visible !important;
+    max-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    display: none !important;
   }
 
   /* Side navigation — horizontal pill links */
-  body.v35 div#side_navi,
-  div#side_navi {
+  body.v35:has(div.outgame) div#side_navi,
+  body.v35:has(div#content.login) div#side_navi,
+  body.v35:has(div#content.signup) div#side_navi {
+    position: static !important;
     float: none !important;
+    clear: both !important;
     width: 100% !important;
+    max-width: 100% !important;
     min-width: 0 !important;
     min-height: auto !important;
     height: auto !important;
-    box-sizing: border-box;
-    padding: 10px 15px !important;
-    margin-top: 0 !important;
-    text-align: center;
+    box-sizing: border-box !important;
+    padding: 15px 10px !important;
+    margin: 0 auto !important;
+    inset: auto !important; /* Clears top/right RTL offsets */
+    text-align: center !important;
     background: #f9f9f9 !important;
     background-image: none !important;
-    border-bottom: 2px solid #71D000;
-  }
-
-  body.v35 div#side_navi a#logo,
-  div#side_navi a#logo {
+    border-bottom: 2px solid #71D000 !important;
     display: block !important;
-    margin: 0 auto 8px !important;
-    text-align: center;
   }
 
-  body.v35 div#side_navi a#logo img,
-  div#side_navi a#logo img {
-    max-width: 80px !important;
-    height: auto !important;
+  body.v35:has(div.outgame) div#side_navi a#logo,
+  body.v35:has(div#content.login) div#side_navi a#logo,
+  body.v35:has(div#content.signup) div#side_navi a#logo {
+    display: none !important;
   }
 
-  body.v35 div#side_navi p,
-  div#side_navi p {
+  body.v35:has(div.outgame) div#side_navi a#logo img,
+  body.v35:has(div#content.login) div#side_navi a#logo img,
+  body.v35:has(div#content.signup) div#side_navi a#logo img {
+    display: none !important;
+  }
+
+  body.v35:has(div.outgame) div#side_navi p,
+  body.v35:has(div#content.login) div#side_navi p,
+  body.v35:has(div#content.signup) div#side_navi p {
     margin: 0 !important;
     line-height: normal !important;
     display: flex !important;
-    flex-wrap: wrap !important;
+    flex-wrap: nowrap !important;
     flex-direction: row !important;
     justify-content: center !important;
     align-items: center !important;
     gap: 8px !important;
   }
 
-  body.v35 div#side_navi p a,
-  div#side_navi p a {
-    display: inline-flex !important;
+  body.v35:has(div.outgame) div#side_navi p a,
+  body.v35:has(div#content.login) div#side_navi p a,
+  body.v35:has(div#content.signup) div#side_navi p a {
+    display: flex !important;
+    flex: 0 0 auto !important;
     align-items: center !important;
     justify-content: center !important;
     padding: 8px 16px !important;
     font-size: 14px !important;
-    font-weight: 600 !important;
+    font-weight: 700 !important;
     background: #fff !important;
     border: 1px solid #ddd !important;
     border-radius: 20px !important;
     color: #333 !important;
     text-decoration: none !important;
-    transition: all 0.2s;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease !important;
     min-height: 0 !important;
     min-width: 0 !important;
     width: auto !important;
@@ -103,23 +111,28 @@
     line-height: normal !important;
     background-image: none !important;
     background-position: initial !important;
+    transform: translateZ(0) !important; /* Force GPU calculation to prevent RTL flex jitter */
   }
 
-  body.v35 div#side_navi p a:hover,
-  body.v35 div#side_navi p a:active,
-  div#side_navi p a:hover,
-  div#side_navi p a:active {
-    background: #71D000 !important;
-    color: #fff !important;
-    border-color: #5eac00 !important;
-    background-image: none !important;
-  }
-
-  /* Kill the desktop hover background-image on ALL side_navi links */
+  /* ═══ NUCLEAR: Kill ALL desktop hover effects on outgame mobile ═══ */
   body.v35 div#side_navi a:hover,
-  div#side_navi a:hover {
+  body.v35 div#side_navi p a:hover,
+  body.v35 div#side_navi a:focus,
+  body.v35 div#side_navi p a:focus,
+  body.v35 div#side_navi a:active,
+  body.v35 div#side_navi p a:active,
+  body.v35 div#side_navi p.deltimer a:hover,
+  body.v35 div#side_navi p.deltimer a:focus {
+    background: transparent !important;
     background-image: none !important;
+    background-color: transparent !important;
     background-position: initial !important;
+    width: auto !important;
+    height: auto !important;
+    color: #71D000 !important;
+    box-shadow: none !important;
+    transform: translateZ(0) !important;
+    outline: none !important;
   }
 
   /* Main content area — full width, no float */

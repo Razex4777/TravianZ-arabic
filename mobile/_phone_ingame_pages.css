@@ -22,47 +22,11 @@
   div#content.messages {
     width: 100% !important;
     padding: 10px !important;
+    margin: 0 !important;
     box-sizing: border-box;
   }
 
-  /* Make the messages table horizontally scrollable */
-  div#content.messages table#overview {
-    width: 100% !important;
-    display: block;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    white-space: nowrap;
-  }
-
-  /* Wrap text slightly where it's needed, but let the table scroll horizontally */
-  div#content.messages table#overview th,
-  div#content.messages table#overview td {
-    padding: 8px 10px !important;
-  }
-  
-  /* Fix text menu items so they wrap elegantly */
-  div#content.messages div#textmenu {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    gap: 8px;
-    margin-bottom: 15px !important;
-  }
-  
-  div#content.messages div#textmenu a {
-    display: inline-block;
-    padding: 6px 12px;
-    background: rgba(0,0,0,0.03);
-    border-radius: 4px;
-    text-decoration: none;
-    border: 1px solid rgba(0,0,0,0.1);
-  }
-  
-  div#content.messages div#textmenu a.selected {
-    font-weight: bold;
-    background: rgba(113,208,0,0.1);
-    border-color: #71D000;
-  }
+  /* (Removed conflicting legacy table#overview scroll container and textmenu for messages. Handled gracefully by the modern card UI in _phone_ingame/content.css) */
   
   /* Fix message writing inputs */
   #content.messages form {
@@ -99,7 +63,8 @@
   div#content.reports {
     width: 100% !important;
     padding: 10px !important;
-    box-sizing: border-box;
+    margin: 0 !important;
+    box-sizing: border-box !important;
   }
 
   /* Page heading — clear, dark, readable */
@@ -109,113 +74,7 @@
     margin-bottom: 10px !important;
   }
 
-  /* Report type tabs — wrap elegantly on mobile */
-  div#content.reports div#textmenu {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    gap: 6px;
-    margin-bottom: 15px !important;
-    line-height: 1.6;
-  }
-
-  div#content.reports div#textmenu a {
-    display: inline-block;
-    padding: 6px 14px;
-    background: rgba(0,0,0,0.03);
-    border-radius: 6px;
-    text-decoration: none;
-    border: 1px solid rgba(0,0,0,0.1);
-    color: #333 !important;
-    font-size: 13px;
-    font-weight: 500;
-    white-space: nowrap;
-  }
-
-  div#content.reports div#textmenu a.selected {
-    font-weight: bold;
-    background: rgba(113,208,0,0.12) !important;
-    border-color: #71D000 !important;
-    color: #2a6800 !important;
-  }
-
-  /* Hide the pipe separators between tab links */
-  div#content.reports div#textmenu {
-    font-size: 0; /* collapse whitespace + pipe chars */
-  }
-  div#content.reports div#textmenu a {
-    font-size: 13px; /* restore on links */
-  }
-
-  /* Make the reports table horizontally scrollable */
-  div#content.reports table#overview {
-    width: 100% !important;
-    display: block;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  div#content.reports table#overview thead,
-  div#content.reports table#overview tbody,
-  div#content.reports table#overview tfoot {
-    display: table;
-    width: 100%;
-    table-layout: fixed;
-  }
-
-  div#content.reports table#overview th,
-  div#content.reports table#overview td {
-    padding: 8px 6px !important;
-    font-size: 12px;
-    color: #333 !important;
-    word-break: break-word;
-  }
-
-  /* Subject column — allow wrapping */
-  div#content.reports table#overview td.sub {
-    white-space: normal !important;
-    word-wrap: break-word;
-  }
-
-  div#content.reports table#overview td.sub div {
-    display: inline;
-  }
-
-  div#content.reports table#overview td.sub a {
-    color: #1a5c00 !important;
-    text-decoration: none;
-    font-weight: 500;
-  }
-
-  /* Date column */
-  div#content.reports table#overview td.dat {
-    white-space: nowrap;
-    font-size: 11px;
-    color: #666 !important;
-  }
-
-  /* Footer buttons (delete, archive) */
-  div#content.reports table#overview tfoot th.buttons {
-    text-align: center !important;
-  }
-
-  div#content.reports table#overview tfoot th.buttons input[type="submit"] {
-    font-size: 12px !important;
-    padding: 6px 16px !important;
-    margin: 4px !important;
-  }
-
-  /* Navigation arrows */
-  div#content.reports table#overview tfoot th.navi {
-    text-align: center !important;
-    font-size: 14px;
-  }
-
-  div#content.reports table#overview tfoot th.navi a {
-    color: #1a5c00 !important;
-    padding: 4px 8px;
-    font-size: 16px;
-  }
+  /* (Removed conflicting legacy table#overview scroll container and textmenu for reports. Handled gracefully by the modern card UI in _phone_ingame/content.css) */
 
   /* Report reading view — individual report */
   div#content.reports .report_details {
@@ -390,5 +249,786 @@
     overflow-x: auto !important;
   }
 
+  /* ──────────────────────────────────────────────────────────────────────
+     21. PLAYER PROFILE PAGE (spieler.php)
+     ────────────────────────────────────────────────────────────────────── */
+
+  /* Make the main profile table block instead of wide table */
+  table#profile {
+    width: 100% !important;
+    display: block !important;
+    border: none !important;
+    background: transparent !important;
+  }
+  
+  table#profile thead, table#profile tbody, table#profile tr {
+    display: block !important;
+    width: 100% !important;
+  }
+  
+  table#profile thead tr {
+    background: transparent !important;
+    border: none !important;
+  }
+  
+  table#profile thead th {
+    display: block !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    font-size: 16px !important;
+    background: rgba(113,208,0,0.1) !important;
+    border-radius: 8px !important;
+    padding: 10px !important;
+    margin-bottom: 10px !important;
+    border: none !important;
+  }
+
+  /* Hide the static 'Details / Description' header tr */
+  table#profile thead tr:last-child {
+    display: none !important; 
+  }
+  
+  /* Hide the gap empty row in tbody safely */
+  table#profile > tbody > tr:first-child {
+    display: none !important;
+  }
+  
+  /* Make the two main columns stack vertically */
+  table#profile > tbody > tr > td {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    box-sizing: border-box !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+  }
+  
+  table#profile td.empty { 
+    display: none !important; 
+  }
+
+  /* Details nested table becomes a nice vertical card layout */
+  table#profile td.details table {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    background: transparent !important;
+  }
+  
+  table#profile td.details table tbody,
+  table#profile td.details table tr {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Details rows styling */
+  table#profile td.details table tr {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    background: rgba(0,0,0,0.03) !important;
+    border-radius: 8px !important;
+    padding: 10px 15px !important;
+    margin-bottom: 8px !important;
+    border: 1px solid rgba(0,0,0,0.05) !important;
+    height: auto !important;
+    min-height: 40px !important;
+    flex-wrap: wrap !important;
+  }
+  
+  /* Banning / Edit Profile row might have colspan="2" */
+  table#profile td.details table tr:has([colspan="2"]) {
+    justify-content: center !important;
+    background: rgba(113,208,0,0.1) !important;
+    font-weight: bold;
+    border-color: #71D000 !important;
+  }
+
+  /* If there are regular th/td pairs */
+  table#profile td.details table th,
+  table#profile td.details table td {
+    display: block !important;
+    border: none !important;
+    background: none !important;
+    width: auto !important;
+    height: auto !important;
+    padding: 0 !important;
+    white-space: nowrap !important;
+  }
+
+  table#profile td.details table th {
+    font-weight: bold !important;
+    color: #444 !important;
+  }
+
+  table#profile td.details table td {
+    font-weight: 600 !important;
+    color: #1a5c00 !important;
+  }
+
+  /* Descriptions blocks */
+  table#profile td.desc1, table#profile td.desc2 {
+    display: block !important;
+    height: auto !important;
+    margin-top: 15px !important;
+    padding: 12px !important;
+    background: rgba(0,0,0,0.02) !important;
+    border-radius: 8px !important;
+    border: 1px dashed rgba(0,0,0,0.1) !important;
+    overflow-wrap: break-word !important;
+  }
+
+  /* ──────────────────────────────────────────────────────────────────────
+     21.5. EDIT PROFILE PAGE (spieler.php?s=1)
+     ────────────────────────────────────────────────────────────────────── */
+
+  /* Edit Profile Table (#edit) */
+  table#edit {
+    width: 100% !important;
+    display: block !important;
+    border: none !important;
+    background: transparent !important;
+  }
+  table#edit thead, table#edit tbody, table#edit tr {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+  table#edit thead tr {
+    background: transparent !important;
+    border: none !important;
+  }
+  table#edit thead th {
+    display: block !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    font-size: 16px !important;
+    background: rgba(113,208,0,0.1) !important;
+    border-radius: 8px !important;
+    padding: 10px !important;
+    margin-bottom: 10px !important;
+    border: none !important;
+    height: auto !important;
+  }
+  /* Hide the subtitle header */
+  table#edit thead tr:last-child {
+    display: none !important; 
+  }
+  table#edit > tbody > tr:first-child {
+    display: none !important; /* The empty row */
+  }
+  table#edit > tbody > tr:has(td.empty) {
+    display: none !important; /* Hide other empty rows safely */
+  }
+  /* Fallback for exact structure */
+  table#edit > tbody > tr:nth-child(5) {
+    display: none !important;
+  }
+
+  /* Make TRs cards */
+  table#edit tbody tr {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    background: rgba(0,0,0,0.03) !important;
+    border-radius: 8px !important;
+    padding: 10px 15px !important;
+    margin-bottom: 8px !important;
+    border: 1px solid rgba(0,0,0,0.05) !important;
+  }
+  
+  /* Remove styling from TRs that ONLY contain the desc2 textarea to avoid double boxing */
+  table#edit tbody tr:has(td.desc2) {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+  
+  table#edit tbody th {
+    display: block !important;
+    width: 35% !important;
+    font-weight: bold !important;
+    color: #444 !important;
+    padding: 0 !important;
+    text-align: right !important; /* Base RTL */
+    border: none !important;
+    background: none !important;
+    height: auto !important;
+  }
+  
+  table#edit tbody td {
+    display: flex !important;
+    width: 65% !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+    padding: 0 !important;
+    border: none !important;
+    background: none !important;
+    gap: 4px !important; 
+    height: auto !important;
+    box-sizing: border-box !important;
+  }
+  
+  table#edit tbody td.desc1 {
+    width: 100% !important;
+    flex-basis: 100% !important;
+    display: block !important;
+    margin-top: 15px !important;
+    background: rgba(0,0,0,0.02) !important;
+    border-radius: 8px !important;
+    border: 1px dashed rgba(0,0,0,0.1) !important;
+    padding: 12px !important;
+  }
+  table#edit tbody td.desc2 {
+    width: 100% !important; 
+    flex-basis: 100% !important;
+    display: block !important;
+    background: rgba(0,0,0,0.02) !important;
+    border-radius: 8px !important;
+    border: 1px dashed rgba(0,0,0,0.1) !important;
+    padding: 12px !important;
+  }
+
+  /* Form Elements */
+  table#edit textarea {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    border-radius: 6px !important;
+    border: 1px solid rgba(0,0,0,0.15) !important;
+    padding: 10px !important;
+    min-height: 120px !important;
+    font-size: 13px !important;
+    background: #fff !important;
+    color: #333 !important;
+  }
+  table#edit input.text, table#edit select {
+    border: 1px solid rgba(0,0,0,0.15) !important;
+    border-radius: 4px !important;
+    padding: 6px !important;
+    font-size: 13px !important;
+    background: #fff !important;
+    color: #333 !important;
+    max-width: 100% !important;
+  }
+  table#edit td.birth input.day { width: 45px !important; }
+  table#edit td.birth input.year { width: 60px !important; }
+
+  /* Genders adjustments */
+  table#edit td.gend {
+    justify-content: flex-end !important;
+    gap: 8px !important;
+  }
+  table#edit td.gend label {
+    display: flex !important;
+    align-items: center !important;
+    font-size: 13px !important;
+    gap: 4px !important;
+  }
+  
+  /* Medals table inside Edit */
+  form[action="spieler.php"] table.tbg {
+    display: block !important;
+    width: 100% !important;
+    border: none !important;
+    background: transparent !important;
+    margin-top: 20px !important;
+  }
+  form[action="spieler.php"] table.tbg tbody,
+  form[action="spieler.php"] table.tbg tr {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  form[action="spieler.php"] table.tbg td.rbg {
+    display: block !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    text-align: center !important;
+    background: rgba(113,208,0,0.1) !important;
+    border-radius: 8px !important;
+    padding: 10px !important;
+    margin-bottom: 15px !important;
+    border: none !important;
+  }
+
+  /* Hide the old column headers */
+  form[action="spieler.php"] table.tbg tr:nth-child(2) {
+    display: none !important;
+  }
+
+  /* Medals data cards */
+  form[action="spieler.php"] table.tbg tr:not(:first-child):not(:nth-child(2)) {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7)) !important;
+    border: 1px solid rgba(0,0,0,0.08) !important;
+    border-radius: 12px !important;
+    padding: 12px 14px !important;
+    margin-bottom: 10px !important;
+  }
+
+  form[action="spieler.php"] table.tbg tr td {
+    display: block !important;
+    border: none !important;
+    background: none !important;
+    padding: 4px !important;
+  }
+
+  /* Category takes full width top */
+  form[action="spieler.php"] table.tbg tr td:nth-child(1) {
+    width: 100% !important;
+    font-size: 14px !important;
+    font-weight: bold !important;
+    border-bottom: 1px dashed rgba(0,0,0,0.1) !important;
+    margin-bottom: 8px !important;
+    color: #222 !important;
+    padding-bottom: 8px !important;
+  }
+
+  /* Rank & Week */
+  form[action="spieler.php"] table.tbg tr td:nth-child(2)::before { content: "🏅 "; }
+  form[action="spieler.php"] table.tbg tr td:nth-child(3)::before { content: "📅 "; }
+  
+  form[action="spieler.php"] table.tbg tr td:nth-child(2),
+  form[action="spieler.php"] table.tbg tr td:nth-child(3) {
+    flex: 1 !important;
+    font-size: 13px !important;
+    font-weight: bold !important;
+    color: #444 !important;
+  }
+
+  /* BB-Code Block */
+  form[action="spieler.php"] table.tbg tr td:nth-child(4) {
+    width: 100% !important;
+    text-align: center !important;
+    color: #1a5c00 !important;
+    background: rgba(113,208,0,0.08) !important;
+    border-radius: 6px !important;
+    margin-top: 10px !important;
+    padding: 8px !important;
+    font-size: 13px !important;
+    font-family: monospace !important;
+  }
+
+  /* Save Button container */
+  form[action^="spieler.php"] p.btn {
+    text-align: center !important;
+    margin-top: 20px !important;
+  }
+  form[action^="spieler.php"] p.btn input {
+    margin: 0 auto !important;
+  }
+
+
+  /* ──────────────────────────────────────────────────────────────────────
+     21.6. PREFERENCES PAGE (spieler.php?s=2)
+     ────────────────────────────────────────────────────────────────────── */
+
+  /* Global resets for preferences tables */
+  table#links, table.set, table#time {
+    width: 100% !important;
+    display: block !important;
+    border: none !important;
+    background: transparent !important;
+    margin-bottom: 20px !important;
+  }
+  table#links thead, table#links tbody, table#links tr,
+  table.set thead, table.set tbody, table.set tr,
+  table#time thead, table#time tbody, table#time tr {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    background: transparent !important;
+  }
+  table#links thead th, table.set thead th, table#time thead th {
+    display: block !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    text-align: center !important;
+    background: rgba(113,208,0,0.1) !important;
+    border-radius: 8px !important;
+    padding: 10px !important;
+    margin-bottom: 10px !important;
+    border: none !important;
+    color: #222 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Direct links table */
+  table#links thead tr:nth-child(2) {
+    display: none !important; /* Hide old column headers */
+  }
+  table#links tbody tr {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: space-between !important;
+    align-items: flex-end !important;
+    background: rgba(0,0,0,0.03) !important;
+    border-radius: 8px !important;
+    padding: 15px 15px !important;
+    margin-bottom: 12px !important;
+    border: 1px solid rgba(0,0,0,0.05) !important;
+  }
+  table#links tbody tr:last-child {
+    background: transparent !important;
+    border: none !important;
+    justify-content: center !important;
+    padding: 0 !important;
+  }
+  table#links tbody td {
+    display: block !important;
+    border: none !important;
+    background: none !important;
+    padding: 4px !important;
+    height: auto !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Missing labels replacement for direct links */
+  table#links tbody tr td.nr::before { content: "Num / الرقم"; display: block; font-size: 11px; color: #555; margin-bottom: 4px; }
+  table#links tbody tr td.nam::before { content: "Name / اسم الرابط"; display: block; font-size: 11px; color: #555; margin-bottom: 4px; }
+  table#links tbody tr td.txt::before { content: "Target / هدف الرابط"; display: block; font-size: 11px; color: #555; margin-bottom: 4px; }
+
+  /* Layout inside Links */
+  table#links tbody tr td:nth-child(1) { order: 4; margin-right: 8px !important; display: flex !important; align-items: center !important; } /* delete */
+  table#links tbody tr td.nr { flex: 0 0 calc(30% - 16px) !important; } /* nr */
+  table#links tbody tr td.nam { flex: 0 0 70% !important; } /* linkname */
+  table#links tbody tr td.txt { flex: 1 1 100% !important; margin-top: 8px !important; } /* linkziel */
+  
+  table#links tbody tr td input.text {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    border: 1px solid rgba(0,0,0,0.15) !important;
+    border-radius: 4px !important;
+    padding: 6px !important;
+    font-size: 13px !important;
+  }
+
+  /* .set Tables */
+  table.set thead tr:nth-child(2) td {
+    display: block !important;
+    font-size: 13px !important;
+    color: #666 !important;
+    padding: 4px 10px 12px 10px !important;
+    text-align: center !important;
+    border: none !important;
+    background: transparent !important;
+  }
+  table.set tbody tr {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    background: rgba(0,0,0,0.03) !important;
+    border-radius: 8px !important;
+    padding: 10px 15px !important;
+    margin-bottom: 8px !important;
+    border: 1px solid rgba(0,0,0,0.05) !important;
+  }
+  table.set tbody td {
+    display: block !important;
+    border: none !important;
+    background: none !important;
+    padding: 0 !important;
+    height: auto !important;
+  }
+  table.set tbody td.sel {
+    width: 30px !important;
+  }
+  table.set tbody td:not(.sel) {
+    flex: 1 !important;
+    font-size: 13px !important;
+    color: #333 !important;
+    text-align: right !important; /* RTL default */
+  }
+
+  /* Special Time Table */
+  table#time tbody tr {
+    justify-content: space-between !important;
+  }
+  table#time tbody th {
+    display: block !important;
+    border: none !important;
+    background: none !important;
+    padding: 0 !important;
+    width: 35% !important;
+    text-align: right !important;
+    font-size: 13px !important;
+    font-weight: bold !important;
+    color: #333 !important;
+  }
+  table#time tbody td {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    width: 65% !important;
+    gap: 8px !important;
+    font-size: 13px !important;
+  }
+  table#time select {
+    width: 100% !important;
+    border: 1px solid rgba(0,0,0,0.15) !important;
+    border-radius: 4px !important;
+    padding: 8px !important;
+    background: #fff !important;
+  }
+  table#time label {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+  }
+
+  div#content p.btn, form[action^="spieler.php"] p.btn {
+    text-align: center !important;
+    margin-top: 20px !important;
+  }
+  div#content p.btn input, form[action^="spieler.php"] p.btn input {
+    margin: 0 auto !important;
+  }
+
+
+  /* ──────────────────────────────────────────────────────────────────────
+     21.7. ACCOUNT PAGE (spieler.php?s=3)
+     ────────────────────────────────────────────────────────────────────── */
+
+  table.account {
+    width: 100% !important;
+    display: block !important;
+    border: none !important;
+    background: transparent !important;
+    margin-bottom: 20px !important;
+  }
+  table.account thead, table.account tbody, table.account tr {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    background: transparent !important;
+  }
+  table.account thead th {
+    display: block !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    text-align: center !important;
+    background: rgba(113,208,0,0.1) !important;
+    border-radius: 8px !important;
+    padding: 10px !important;
+    margin-bottom: 10px !important;
+    border: none !important;
+    color: #222 !important;
+    box-sizing: border-box !important;
+  }
+  table.account tbody tr {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    background: rgba(0,0,0,0.03) !important;
+    border-radius: 8px !important;
+    padding: 10px 15px !important;
+    margin-bottom: 8px !important;
+    border: 1px solid rgba(0,0,0,0.05) !important;
+  }
+  
+  /* Tr's that just have the note text */
+  table.account tbody tr:has(td.note) {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+  table.account tbody td.note {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    background: rgba(255,160,0,0.1) !important;
+    border-right: 3px solid #ffa000 !important; /* RTL - border on right */
+    border-radius: 4px !important;
+    padding: 10px !important;
+    font-size: 13px !important;
+    color: #555 !important;
+    line-height: 1.4 !important;
+    margin-bottom: 10px !important;
+    text-align: right !important;
+  }
+
+  table.account tbody th {
+    display: block !important;
+    width: 45% !important;
+    font-weight: bold !important;
+    color: #444 !important;
+    padding: 0 !important;
+    text-align: right !important; /* Base RTL */
+    border: none !important;
+    background: none !important;
+    font-size: 13px !important;
+  }
+  
+  table.account tbody td {
+    display: flex !important;
+    width: 55% !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+    padding: 0 !important;
+    border: none !important;
+    background: none !important;
+    gap: 4px !important; 
+    height: auto !important;
+    box-sizing: border-box !important;
+  }
+
+  table.account input.text {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    border: 1px solid rgba(0,0,0,0.15) !important;
+    border-radius: 4px !important;
+    padding: 8px !important;
+    font-size: 13px !important;
+    background: #fff !important;
+  }
+
+  /* Sitter table */
+  table.account tbody td.sitter {
+    width: 100% !important;
+    display: block !important;
+    margin-top: 8px !important;
+    text-align: center !important;
+  }
+  table.account tbody td.sitter div {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 8px !important;
+    background: #fff !important;
+    border: 1px solid rgba(0,0,0,0.1) !important;
+    border-radius: 6px !important;
+    padding: 8px 12px !important;
+    margin-top: 6px !important;
+    font-weight: bold !important;
+  }
+  table.account tbody td.sitter span.none {
+    color: #777 !important;
+    font-size: 13px !important;
+    font-style: italic !important;
+  }
+
+  /* Account deletion */
+  table.account tbody td.del_selection {
+    flex-direction: row !important;
+    justify-content: flex-start !important; 
+    gap: 12px !important;
+  }
+  table.account tbody td.del_selection label {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+  }
+
+
+  /* ──────────────────────────────────────────────────────────────────────
+     22. VILLAGES LIST PAGE (spieler.php)
+     ────────────────────────────────────────────────────────────────────── */
+  
+  table#villages {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    border: none !important;
+    margin-top: 20px !important;
+    background: transparent !important;
+  }
+
+  table#villages thead, table#villages tbody {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Main header for Villages */
+  table#villages thead th {
+    display: block !important;
+    text-align: center !important;
+    font-size: 16px !important;
+    background: rgba(113,208,0,0.1) !important;
+    padding: 10px !important;
+    border-radius: 8px !important;
+    margin-bottom: 10px !important;
+    border: none !important;
+    height: auto !important;
+  }
+
+  /* Hide the columns header */
+  table#villages thead tr:last-child {
+    display: none !important;
+  }
+
+  /* Transform village rows into beautiful cards */
+  table#villages tbody tr {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7)) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(0,0,0,0.08) !important;
+    border-radius: 12px !important;
+    padding: 12px 14px !important;
+    margin-bottom: 10px !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04) !important;
+    height: auto !important;
+    min-height: 60px !important;
+  }
+
+  table#villages tbody td {
+    display: block !important;
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    height: auto !important;
+  }
+
+  /* Village Name (takes full width of top row) */
+  table#villages tbody td.nam {
+    width: 100% !important;
+    font-size: 15px !important;
+    font-weight: bold !important;
+    margin-bottom: 8px !important;
+    padding-bottom: 8px !important;
+    border-bottom: 1px dashed rgba(0,0,0,0.1) !important;
+  }
+  table#villages tbody td.nam a {
+    color: #1a5c00 !important;
+  }
+
+  /* Oasis icons container */
+  table#villages tbody td.hab:has(img) {
+    width: auto !important;
+    display: flex !important;
+    gap: 4px !important;
+  }
+
+  /* Population container */
+  table#villages tbody td.hab:not(:has(img)) {
+    font-size: 13px !important;
+    font-weight: bold !important;
+    color: #444 !important;
+  }
+
+  /* Format population with an emoji for context */
+  table#villages tbody td.hab:not(:has(img))::before {
+    content: "🧑‍🤝‍🧑 ";
+    margin-inline-end: 4px; /* Space between emoji and text regardless of RTP direction */
+  }
+
+  /* Coordinates */
+  table#villages tbody td.aligned_coords {
+    display: flex !important;
+    font-size: 13px !important;
+    font-family: inherit !important;
+    color: #666 !important;
+    font-weight: bold !important;
+    direction: ltr !important; /* Forces coords like (50|50) to render properly even in RTL */
+  }
 
 }

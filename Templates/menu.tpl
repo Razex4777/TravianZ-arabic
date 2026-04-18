@@ -37,6 +37,7 @@ div.c1 {text-align: center}
     <div id="side_navi">
         <a id="logo" href="<?php echo HOMEPAGE; ?>" name="logo"><img src="img/x.gif" <?php if($session->plus) { echo "class=\"logo_plus\""; } ?> alt="Travian"></a>
 
+        <p>
         <a href="<?php echo HOMEPAGE; ?>"><?php echo HOME; ?></a>
         <a href="#" onclick="return Popup(0,0,1);"><?php echo INSTRUCT; ?></a>
         <a href="spieler.php?uid=<?php echo $session->uid; ?>"><?php echo PROFILE; ?></a>
@@ -49,6 +50,8 @@ div.c1 {text-align: center}
             echo "<a href=\"sysmsg.php\">".SYSTEM_MESSAGE."</a>";
         } ?>
         <a href="logout.php"><?php echo LOGOUT;?></a>
+        </p>
+        <p>
         <?php
         // no PLUS needed for Support
         if ($_SESSION['id_user'] != 1) {
@@ -63,6 +66,7 @@ div.c1 {text-align: center}
         <?php
         }
         ?>
+        </p>
     </div><?php /* close #side_navi */
         if(NEW_FUNCTIONS_DISPLAY_LINKS) include("Templates/links.tpl");
         include("Templates/natars.tpl");

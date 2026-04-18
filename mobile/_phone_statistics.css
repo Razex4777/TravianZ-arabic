@@ -1,0 +1,845 @@
+/* ==========================================================================
+   IN-GAME MOBILE Ã¢â‚¬â€ Statistics Page (statistiken.php)  (Ã¢â€°Â¤ 768px)
+   --------------------------------------------------------------------------
+   Desktop: 502px fixed container, side-by-side top10 tables at 246px each,
+   absolute-positioned submenu buttons in <th>, small search inputs.
+   Mobile: full-width, stacked cards, full-width tables, large tap targets.
+   Covers ALL stat pages: player, alliance, villages, heroes, general, WW,
+   hall of fame, top10 (id=7), attack/defend rankings.
+   ========================================================================== */
+
+@media screen and (max-width: 768px) {
+
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ 1. Container Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+  div#content.statistics {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 10px 8px 0 !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+    float: none !important;
+  }
+
+  div#content.statistics h1 {
+    font-size: 16px !important;
+    text-align: center !important;
+    padding: 0 0 6px 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ 2. Submenu buttons in table <th> Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+  div#content.statistics div#submenu,
+  div#content.statistics div#submenu2 {
+    position: static !important;
+    transform: none !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 4px !important;
+    padding: 6px 0 2px !important;
+    float: none !important;
+  }
+
+  div#content.statistics div#submenu img,
+  div#content.statistics div#submenu2 img {
+    float: none !important;
+    margin: 0 !important;
+    width: 28px !important;
+    height: 28px !important;
+    border-radius: 6px !important;
+    cursor: pointer !important;
+  }
+
+  div#content.statistics th {
+    position: static !important;
+  }
+
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ 3. All ranking tables Ã¢â‚¬â€ block, full width Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+  div#content.statistics table,
+  div#content.statistics table.row_table_data,
+  div#content.statistics table.top10,
+  div#content.statistics table.world {
+    display: table !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    float: none !important;
+    margin: 0 auto 8px auto !important;
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ 4. Table header rows Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+  
+
+  div#content.statistics table thead tr:first-child th {
+    font-size: 14px !important;
+    padding: 8px 6px !important;
+    text-align: center !important;
+    background: linear-gradient(135deg, #f5f0e0 0%, #ece4cc 100%) !important;
+    border-radius: 10px 10px 0 0 !important;
+    border-bottom: 2px solid #d4c9a5 !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02) !important;
+    height: auto !important;
+  }
+
+  /* Column header row Ã¢â‚¬â€ compact */
+  div#content.statistics table thead tr:nth-child(2) td {
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    color: #777 !important;
+    text-transform: uppercase !important;
+    padding: 4px 3px !important;
+    white-space: nowrap !important;
+  }
+
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ 5. General cell styling Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+  div#content.statistics table td,
+  div#content.statistics table th {
+    padding: 4px 5px !important;
+    font-size: 12px !important;
+    white-space: nowrap !important;
+    text-align: center !important;
+  }
+
+  div#content.statistics table tbody td {
+    border-bottom: 1px solid rgba(0,0,0,0.04) !important;
+  }
+
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ 6. Specific cell overrides Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+  div#content.statistics td.ra {
+    width: auto !important;
+    min-width: 28px !important;
+    font-weight: 700 !important;
+    color: #888 !important;
+    text-align: center !important;
+  }
+
+  div#content.statistics td.pla {
+    width: auto !important;
+    text-align: left !important;
+    max-width: 140px !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  div#content.statistics td.pla a {
+    font-weight: 600 !important;
+    color: #4a7300 !important;
+    text-decoration: none !important;
+  }
+
+  div#content.statistics td.al {
+    width: auto !important;
+    text-align: center !important;
+    max-width: 80px !important;
+    white-space: normal !important;
+  }
+
+  div#content.statistics td.al a {
+    color: #005580 !important;
+    text-decoration: none !important;
+  }
+
+  div#content.statistics td.pop,
+  div#content.statistics td.po,
+  div#content.statistics td.hab,
+  div#content.statistics td.xp,
+  div#content.statistics td.av {
+    width: auto !important;
+    text-align: center !important;
+    font-weight: 600 !important;
+    color: #555 !important;
+  }
+
+  div#content.statistics td.vil {
+    width: auto !important;
+    text-align: center !important;
+  }
+
+  div#content.statistics td.val {
+    width: auto !important;
+    font-weight: 700 !important;
+    color: #8B7424 !important;
+    text-align: center !important;
+  }
+
+  div#content.statistics td.lev {
+    width: auto !important;
+    text-align: center !important;
+    font-weight: 600 !important;
+  }
+
+  div#content.statistics td.hero {
+    text-align: left !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+  }
+
+  div#content.statistics td.hero img {
+    width: 16px !important;
+    height: 16px !important;
+    vertical-align: middle !important;
+    margin-right: 3px !important;
+  }
+
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ 7. Row highlights Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+  div#content.statistics tr.hl td {
+    background-color: #fff8dc !important;
+  }
+
+  div#content.statistics tr.own td {
+    background-color: #f0ffe0 !important;
+  }
+
+  div#content.statistics tr.own.hl td {
+    background-color: #e8ffd0 !important;
+  }
+
+  div#content.statistics tr.none td {
+    background-color: #f5f5f5 !important;
+  }
+
+  div#content.statistics tr.rbg1 td {
+    background-color: #f5f5f5 !important;
+  }
+
+  div#content.statistics tr.rbg2 td {
+    background-color: #fff !important;
+  }
+
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ 8. Top 10 tables (id=7) Ã¢â‚¬â€ stack vertically Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+  div#content.statistics table#top10_offs,
+  div#content.statistics table#top10_defs,
+  div#content.statistics table#top10_climbers,
+  div#content.statistics table#top10_raiders,
+  div#content.statistics table.top10 {
+    float: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    display: table !important;
+    table-layout: auto !important;
+    margin: 16px auto !important;
+    box-sizing: border-box !important;
+    background: #fff !important;
+    border: 1px solid rgba(0,0,0,0.07) !important;
+    border-radius: 10px !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05) !important;
+    overflow: hidden !important;
+  }
+
+  div#content.statistics table#top10_offs thead tr:first-child th,
+  div#content.statistics table#top10_defs thead tr:first-child th,
+  div#content.statistics table#top10_climbers thead tr:first-child th,
+  div#content.statistics table#top10_raiders thead tr:first-child th {
+    background: linear-gradient(135deg, #e8f4e0 0%, #d4ecc4 100%) !important;
+    border-bottom: 2px solid #b5d9a0 !important;
+    font-size: 13px !important;
+    padding: 8px 10px !important;
+    border-radius: 10px 10px 0 0 !important;
+  }
+
+  div#content.statistics table.top10 td {
+    padding: 5px 4px !important;
+  }
+
+  div#content.statistics table.top10 td.pla {
+    max-width: 160px !important;
+  }
+
+  div#content.statistics td.empty {
+    padding: 0 !important;
+    height: 0 !important;
+    line-height: 0 !important;
+    border: none !important;
+    background: transparent !important;
+  }
+
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ 9. Daily Gold Countdown widget (id=7) Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+  div#dailyGoldCountdown {
+    max-width: 100% !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin: 12px auto !important;
+    padding: 12px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 8px !important;
+    background: linear-gradient(135deg, #fffbe6 0%, #fff3b0 100%) !important;
+    border: 2px solid #e6c300 !important;
+    border-radius: 12px !important;
+    box-shadow: 0 2px 10px rgba(230,195,0,0.15) !important;
+    text-align: center !important;
+    font-size: 13px !important;
+  }
+
+  div#dailyGoldCountdown > div:first-child,
+  div#dailyGoldCountdown > div:nth-child(2),
+  div#dailyGoldCountdown > div:nth-child(3) {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  #dgHours, #dgMinutes, #dgSeconds {
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    color: #8B7424 !important;
+    min-width: 32px !important;
+    text-align: center !important;
+  }
+
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ 10. Search / Navigation bar Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+  div#content.statistics table#search_navi {
+    display: block !important;
+    width: 100% !important;
+    margin-top: 10px !important;
+    background: #fafafa !important;
+    border: 1px solid rgba(0,0,0,0.07) !important;
+    border-radius: 10px !important;
+    padding: 8px !important;
+    box-sizing: border-box !important;
+  }
+
+  div#content.statistics table#search_navi td {
+    display: block !important;
+    width: 100% !important;
+    padding: 0 !important;
+  }
+
+  div#content.statistics table#search_navi div.search {
+    float: none !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    padding: 6px 0 !important;
+    text-align: center !important;
+  }
+
+  div#content.statistics table#search_navi div.search span {
+    white-space: normal !important;
+    font-size: 12px !important;
+  }
+
+  div#content.statistics table#search_navi div.search input.ra,
+  div#content.statistics table#search_navi div.search input.name {
+    width: 70px !important;
+    padding: 6px 8px !important;
+    font-size: 14px !important;
+    border: 1px solid #ccc !important;
+    border-radius: 6px !important;
+    margin: 0 !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    background: #fff !important;
+    box-sizing: border-box !important;
+  }
+
+  div#content.statistics table#search_navi div.search span.or {
+    font-size: 11px !important;
+    color: #999 !important;
+    margin: 0 !important;
+  }
+
+  div#content.statistics table#search_navi div.search #btn_ok,
+  div#content.statistics table#search_navi div.search .trav_buttons {
+    padding: 6px 14px !important;
+    font-size: 12px !important;
+    border-radius: 6px !important;
+    cursor: pointer !important;
+    margin: 0 !important;
+  }
+
+  div#content.statistics table#search_navi div.navi {
+    float: none !important;
+    text-align: center !important;
+    padding: 6px 0 2px !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    line-height: 2 !important;
+    font-size: 12px !important;
+  }
+
+  div#content.statistics table#search_navi div.navi a {
+    display: inline-block !important;
+    padding: 4px 10px !important;
+    margin: 2px !important;
+    background: #f0f0f0 !important;
+    border: 1px solid #ddd !important;
+    border-radius: 6px !important;
+    text-decoration: none !important;
+    color: #333 !important;
+    font-weight: 600 !important;
+  }
+
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ 11. World / General statistics tables Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+  div#content.statistics table.world {
+    background: #fff !important;
+    border: 1px solid rgba(0,0,0,0.07) !important;
+    border-radius: 10px !important;
+    overflow: hidden !important;
+    margin-bottom: 10px !important;
+  }
+
+  div#content.statistics table.world th {
+    background: linear-gradient(135deg, #f5f0e0 0%, #ece4cc 100%) !important;
+    padding: 6px 8px !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+  }
+
+  div#content.statistics table.world td {
+    padding: 4px 8px !important;
+    font-size: 12px !important;
+  }
+
+  div#content.statistics h4 {
+    font-size: 14px !important;
+    text-align: center !important;
+    padding: 8px 0 4px !important;
+  }
+
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ 12. Coordinates cell Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+  div#content.statistics td.aligned_coords {
+    padding: 2px 0 !important;
+    white-space: nowrap !important;
+  }
+
+  div#content.statistics td.aligned_coords div.cox,
+  div#content.statistics td.aligned_coords div.coy {
+    font-size: 12px !important;
+  }
+
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ 13. Error message Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+  div#content.statistics p.error {
+    font-size: 12px !important;
+    text-align: center !important;
+    padding: 10px !important;
+    color: #c00 !important;
+    background: #fff0f0 !important;
+    border: 1px solid #ffcccc !important;
+    border-radius: 8px !important;
+  }
+
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ 14. Graph placeholder Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+  div#content.statistics div.graph {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    padding-left: 10px !important;
+    padding-top: 10px !important;
+    box-sizing: border-box !important;
+    overflow-x: auto !important;
+  }
+
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ 15. Legend Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+  div#content.statistics div.legende {
+    float: none !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 6px !important;
+    padding: 8px !important;
+    margin: 8px 0 !important;
+    border-radius: 8px !important;
+    font-size: 12px !important;
+  }
+
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ 16. Hall of Fame table Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+  div#content.statistics table#hall_ofame,
+  div#content.statistics table#hall_of_fame {
+    background: #fff !important;
+    border: 1px solid rgba(0,0,0,0.07) !important;
+    border-radius: 10px !important;
+    overflow: hidden !important;
+  }
+
+  div#content.statistics table#hall_ofame td,
+  div#content.statistics table#hall_of_fame td {
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ 17. Wonder table Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+  div#content.statistics table#wonder td.nam {
+    width: auto !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+  }
+
+  div#content.statistics table#wonder td.at {
+    width: auto !important;
+    text-align: center !important;
+  }
+
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ 18. RTL adjustments Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+  html[dir="rtl"] div#content.statistics td.pla {
+    text-align: center !important;
+  }
+
+  html[dir="rtl"] div#content.statistics td.hero {
+    text-align: center !important;
+  }
+
+  html[dir="rtl"] div#content.statistics table#search_navi div.search {
+    text-align: center !important;
+  }
+
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ 19. Smaller phones Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+  @media screen and (max-width: 480px) {
+    div#content.statistics {
+      padding: 6px 4px 0 !important;
+    }
+
+    div#content.statistics table td,
+    div#content.statistics table th {
+      padding: 3px 3px !important;
+      font-size: 11px !important;
+    }
+
+    div#content.statistics table thead tr:first-child th {
+      font-size: 13px !important;
+      padding: 6px 4px !important;
+    }
+
+    div#content.statistics table#top10_offs thead tr:first-child th,
+    div#content.statistics table#top10_defs thead tr:first-child th,
+    div#content.statistics table#top10_climbers thead tr:first-child th,
+    div#content.statistics table#top10_raiders thead tr:first-child th {
+      font-size: 12px !important;
+      padding: 6px 6px !important;
+    }
+
+    div#content.statistics td.pla {
+      max-width: 100px !important;
+    }
+
+    div#content.statistics td.hero img {
+      width: 14px !important;
+      height: 14px !important;
+    }
+
+    div#dailyGoldCountdown {
+      padding: 8px !important;
+    }
+
+    #dgHours, #dgMinutes, #dgSeconds {
+      font-size: 18px !important;
+    }
+
+    div#content.statistics table#search_navi div.search input.ra,
+    div#content.statistics table#search_navi div.search input.name {
+      width: 60px !important;
+      font-size: 13px !important;
+      padding: 5px 6px !important;
+    }
+  /* ========================================================= */
+  /* CUSTOM MOBILE COMPONENT: STATISTICS CARDS                 */
+  /* ========================================================= */
+
+  div#content.statistics table,
+  div#content.statistics table.row_table_data,
+  div#content.statistics table.top10,
+  div#content.statistics table.world {
+      display: flex !important;
+      flex-direction: column !important;
+      background: transparent !important;
+      width: 100% !important;
+      margin: 0 auto !important;
+      box-shadow: none !important;
+      border: none !important;
+  }
+
+  div#content.statistics table thead,
+  div#content.statistics table tbody {
+      display: flex !important;
+      flex-direction: column !important;
+      width: 100% !important;
+  }
+
+  /* Hide the secondary label header row, but KEEP the FIRST row with the submenu options! */
+  div#content.statistics table thead tr:nth-child(2) {
+      display: none !important;
+  }
+
+  /* Keep the main title Header */
+  div#content.statistics table thead tr:nth-child(1) {
+      display: block !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+      margin-bottom: 12px !important;
+  }
+
+  /* Individual table rows -> CARDS */
+  div#content.statistics table tbody tr {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      background: #ffffff !important;
+      border: 1px solid #e1e8ed !important;
+      border-radius: 12px !important;
+      margin-bottom: 12px !important;
+      padding: 12px 14px !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.02) !important;
+      align-items: center !important;
+      position: relative !important;
+  }
+
+  div#content.statistics table tbody tr.hl {
+      background: #f4faed !important; /* light green for current player */
+      border-color: #b9e38e !important;
+  }
+
+  /* Reset all table cells */
+  div#content.statistics table tbody td {
+      border: none !important;
+      padding: 0 !important;
+      background: transparent !important;
+  }
+
+  /* Rank Badge */
+  div#content.statistics td.ra {
+      order: 1;
+      width: 42px !important;
+      height: 42px !important;
+      min-width: 42px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      background: linear-gradient(135deg, #f1f3f5 0%, #e1e6ea 100%) !important;
+      border-radius: 50% !important;
+      font-size: 16px !important;
+      font-weight: 800 !important;
+      color: #333 !important;
+      margin-left: 12px !important;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.04) !important;
+  }
+  
+  /* Player / Alliance Name */
+  div#content.statistics td.pla, div#content.statistics td.hero, div#content.statistics td.nam { order: 2; width: auto !important;
+      flex: 1 1 50% !important;
+      text-align: right !important; /* RTL */
+      font-size: 16px !important;
+      font-weight: bold !important;
+      color: #1a4f00 !important;
+      white-space: normal !important;
+      word-wrap: break-word !important;
+  }
+
+  div#content.statistics td.pla a,
+  div#content.statistics td.al a,
+  div#content.statistics td.nam a {
+      color: inherit !important;
+      text-decoration: none !important;
+  }
+
+  /* Secondary Information - Row Break */
+  div#content.statistics tbody tr::after {
+      content: "";
+      flex-basis: 100% !important;
+      order: 3;
+  }
+
+  /* Alliance Badge */
+  div#content.statistics td.al { order: 4; width: auto !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      font-size: 13px !important;
+      font-weight: 600 !important;
+      color: #005c8a !important;
+      background: #e6f6ff !important;
+      padding: 4px 10px !important;
+      border-radius: 6px !important;
+      margin-top: 10px !important;
+      min-width: 40px !important;
+  }
+
+  /* Other stats container */
+  div#content.statistics td.pop, div#content.statistics td.vil, div#content.statistics td.po, div#content.statistics td.xp, div#content.statistics td.lev, div#content.statistics td.hab, div#content.statistics td.av, div#content.statistics td.val { order: 5; width: auto !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      font-size: 13px !important;
+      font-weight: 600 !important;
+      color: #444 !important;
+      background: #fdfdfd !important;
+      border: 1px solid #e1e8ed !important;
+      border-radius: 6px !important;
+      padding: 4px 8px !important;
+      margin-top: 10px !important;
+      margin-right: 8px !important; /* spacing in RTL */
+      gap: 4px !important;
+  }
+
+  div#content.statistics table#wonder td.at {
+      display: none !important;
+  }
+
+  /* Pseudo-element Icons */
+  div#content.statistics td.pop::before { content: "👥"; font-size: 14px; opacity: 0.8;}
+  div#content.statistics td.vil::before, div#content.statistics td.hab::before { content: "ðŸ "; font-size: 14px; opacity: 0.8;}
+  div#content.statistics td.po::before { content: "âš”ï¸"; font-size: 14px; opacity: 0.8;}
+  div#content.statistics td.xp::before { content: "✨"; font-size: 14px; opacity: 0.8;}
+  div#content.statistics td.lev::before { content: "â­"; font-size: 14px; opacity: 0.8;}
+  div#content.statistics td.val::before { content: "🔥"; font-size: 14px; opacity: 0.8;}
+  div#content.statistics td.av::before { content: "ðŸ›¡ï¸"; font-size: 14px; opacity: 0.8;}
+
+
+  div#content.statistics table.top10 thead th {
+      background: #e3eed1 !important;
+      padding: 10px !important;
+      font-size: 14px !important;
+      color: #1a4f00 !important;
+  }
+  div#content.statistics table.top10 tbody tr {
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      border: none !important;
+      border-bottom: 1px solid #eee !important;
+      margin: 0 !important;
+      background: #fff !important;
+  }
+  div#content.statistics table.top10 tbody tr::after {
+      display: none !important;
+  }
+
+  div#content.statistics table.top10 tbody tr {
+      flex-wrap: nowrap !important;
+      padding: 8px 10px !important;
+      min-height: 54px !important;
+  }
+
+  div#content.statistics table.top10 td.ra {
+      width: 32px !important;
+      height: 32px !important;
+      min-width: 32px !important;
+      font-size: 14px !important;
+  }
+
+  div#content.statistics table.top10 td.val {
+      margin-top: 0 !important;
+      margin-right: auto !important; /* push to left edge in RTL */
+      order: 3;
+      background: transparent !important;
+      border: none !important;
+      color: #d32f2f !important;
+      font-size: 14px !important;
+  }
+
+  /* ─ Navigation at bottom ─ */
+  div#content.statistics table#search_navi {
+      display: block !important;
+      width: 100% !important;
+      margin: 20px 0 !important;
+      border: 1px solid #e1e8ed !important;
+      border-radius: 12px !important;
+      background: #ffffff !important;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.03) !important;
+      box-sizing: border-box !important;
+  }
+  div#content.statistics table#search_navi tbody,
+  div#content.statistics table#search_navi tr,
+  div#content.statistics table#search_navi td {
+      display: block !important;
+      width: 100% !important;
+      border: none !important;
+      padding: 0 !important;
+      background: transparent !important;
+  }
+  div#content.statistics table#search_navi form {
+      display: block !important;
+      width: 100% !important;
+      padding: 16px !important;
+      box-sizing: border-box !important;
+      margin: 0 !important;
+  }
+  div#content.statistics table#search_navi div.search {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 12px !important;
+      width: 100% !important;
+      border: none !important;
+      background: transparent !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+  }
+  div#content.statistics table#search_navi div.search span {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: stretch !important;
+      gap: 6px !important;
+      font-size: 14px !important;
+      color: #666 !important;
+      font-weight: bold !important;
+      width: 100% !important;
+  }
+  div#content.statistics table#search_navi div.search span.or {
+      align-items: center !important;
+      text-align: center !important;
+      font-size: 12px !important;
+      color: #888 !important;
+      background: #f4f6f8 !important;
+      padding: 6px 0 !important;
+      border-radius: 6px !important;
+  }
+  div#content.statistics table#search_navi div.search input[type="text"] {
+      width: 100% !important;
+      padding: 12px !important;
+      border: 1px solid #cfd9e0 !important;
+      border-radius: 8px !important;
+      font-size: 16px !important;
+      background: #f9fbfc !important;
+      box-sizing: border-box !important;
+  }
+  div#content.statistics table#search_navi div.search button#btn_ok {
+      width: 100% !important;
+      padding: 14px !important;
+      margin-top: 8px !important;
+      background: linear-gradient(135deg, #74b829 0%, #5d981e 100%) !important;
+      color: #fff !important;
+      font-size: 16px !important;
+      font-weight: bold !important;
+      border: none !important;
+      border-radius: 8px !important;
+      box-shadow: 0 4px 8px rgba(93,152,30,0.25) !important;
+      cursor: pointer !important;
+  }
+  div#content.statistics table#search_navi div.search button#btn_ok:active {
+      transform: translateY(2px) !important;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.2) !important;
+  }
+  div#content.statistics table#search_navi div.navi {
+      display: flex !important;
+      justify-content: center !important;
+      gap: 16px !important;
+      padding: 16px !important;
+      background: #f8fafc !important;
+      border-top: 1px solid #e1e8ed !important;
+      border-radius: 0 0 12px 12px !important;
+      font-weight: bold !important;
+      font-size: 14px !important;
+      color: #777 !important;
+  }
+  div#content.statistics table#search_navi div.navi a {
+      color: #4a7300 !important;
+      text-decoration: none !important;
+      background: #e9f0df !important;
+      padding: 8px 16px !important;
+      border-radius: 6px !important;
+      transition: background 0.2s !important;
+  }
+  div#content.statistics table#search_navi div.navi a:hover {
+      background: #d4e3bb !important;
+  }
+}
+
+
+
+

@@ -293,7 +293,7 @@ AccessLogger::logRequest();
 	<?php if(defined('LANG') && LANG === 'ar'): ?>
 	
 	<?php endif; ?>
-	<link rel="stylesheet" type="text/css" href="mobile.css?v=37" />
+	<link rel="stylesheet" type="text/css" href="mobile.css?v=47" />
 
 	<!-- Premium Mobile Overrides -->
 	<style type="text/css">
@@ -525,8 +525,7 @@ AccessLogger::logRequest();
 					<li class="copyright">&copy; 2011-<?php echo date('Y'); ?> - TravianZ - <?php echo (defined('LANG') && LANG === 'ar') ? 'جميع الحقوق محفوظة' : 'All rights reserved'; ?></li>
 				</ul>
 				<div style="text-align: center; margin-top: 8px; font-size: 11px; color: #999; line-height: 1.6;">
-					<?php echo (defined('LANG') && LANG === 'ar') ? 'تم الإصدار بواسطة TravianZ &mdash; شكرا لاستخدامكم نسختنا' : 'Released by TravianZ &mdash; Thank you for using our version'; ?><br>
-					<?php echo (defined('LANG') && LANG === 'ar') ? 'تعريب: Razex Xelite' : 'Arabic localization: Razex Xelite'; ?>
+					<?php echo (defined('LANG') && LANG === 'ar') ? 'تم الإصدار بواسطة TravianZ &mdash; شكرا لاستخدامكم نسختنا' : 'Released by TravianZ &mdash; Thank you for using our version'; ?>
 				</div>
 			</div>
 		</div>

@@ -97,7 +97,7 @@ if(isset($_GET['newdid'])) {
 	<?php if(defined('LANG') && LANG === 'ar'): ?>
 	
 	<?php endif; ?>
-	<link rel="stylesheet" type="text/css" href="mobile.css?v=37" />
+	<link rel="stylesheet" type="text/css" href="mobile.css?v=51" />
 </head>
 
 
@@ -181,10 +181,6 @@ else {
 }
 ?>
  </div>
-						</td>
-					</tr>
-				</table>
-</div>
 
 <br /><br /><br /><br /><div id="side_info">
 <?php
