@@ -13,28 +13,26 @@
     width: 100% !important;
     max-width: none !important;
     min-height: 0 !important;
-    height: 48px !important; /* Slightly taller to accommodate the curved corners gracefully */
+    height: 30px !important; /* Perfect match to Traviaz small height */
     box-sizing: border-box !important;
-    padding: 0 45px 0 10px !important; /* Right padding protects hamburger, left margin very small */
+    padding: 0 35px 0 110px !important; /* Room for hamburger on right, Gold coin AND Shutdown icon on left */
     display: flex !important;
     flex-direction: row !important;
     flex-wrap: nowrap !important; /* Forces a single line! */
-    overflow: hidden !important; /* No sliding */
-    gap: 10px !important;
-    align-items: stretch !important; /* Stretch so links fill height for easy tapping */
+    overflow-x: auto !important; /* Allow scroll if too wide */
+    overflow-y: hidden !important;
+    gap: 15px !important; /* Spacing between links */
+    align-items: center !important; 
     justify-content: flex-start !important; /* Start from right since RTL */
     
-    /* Elegant Glassmorphism */
-    background: rgba(255, 255, 255, 0.8) !important;
-    background-color: rgba(255, 255, 255, 0.8) !important;
-    backdrop-filter: blur(15px) !important;
-    -webkit-backdrop-filter: blur(15px) !important;
+    background: linear-gradient(to bottom, #fcfeff 0%, #dbdbdb 100%) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
     
     border-radius: 0 !important;
-    
     border: none !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.6) !important;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05), inset 0 -1px 0 rgba(255, 255, 255, 0.5) !important;
+    border-bottom: 1px solid #7c7c7c !important; /* Dark thin border */
+    box-shadow: none !important;
     
     z-index: 1000 !important;
     margin: 0 !important;
@@ -58,7 +56,7 @@
     justify-content: flex-start !important;
     align-items: stretch !important;
     overflow-y: auto !important;
-    padding: 60px 20px 20px 20px !important;
+    padding: 50px 20px 20px 20px !important;
     box-shadow: -4px 0 15px rgba(0,0,0,0.3) !important;
     z-index: 1002 !important;
     gap: 12px !important;
@@ -79,6 +77,8 @@
   body:not(:has(#mobile-nav-toggle:checked)) div#side_navi p {
     height: 100% !important;
     flex-direction: row !important;
+    align-items: center !important;
+    gap: 15px !important;
   }
 
   /* Opened sidebar mode constraint */
@@ -96,33 +96,86 @@
   div#side_navi img,
   div#side_navi .count { display: none !important; }
 
-  /* Only show first 3 pills in Top Bar mode */
-  body:not(:has(#mobile-nav-toggle:checked)) div#side_navi > a:nth-of-type(n+5),
-  body:not(:has(#mobile-nav-toggle:checked)) div#side_navi p:nth-of-type(n+2),
-  body:not(:has(#mobile-nav-toggle:checked)) div#side_navi p:first-of-type a:nth-of-type(n+4) {
+  div#side_navi br,
+  div#side_navi td,
+  div#side_navi div,
+  div#side_navi table,
+  div#side_navi span,
+  div#side_navi img,
+  div#side_navi .count { display: none !important; }
+
+  /* Safely hide ALL links initially in the topbar to avoid overflow */
+  body:not(:has(#mobile-nav-toggle:checked)) div#side_navi a,
+  body:not(:has(#mobile-nav-toggle:checked)) div#side_navi p a {
     display: none !important;
+  }
+
+  /* Show the specific desired links matching the Traviaz exact Top bar image */
+  /* Logout (Power icon) */
+  body:not(:has(#mobile-nav-toggle:checked)) div#side_navi a[href*="logout.php"],
+  /* Instructions */
+  body:not(:has(#mobile-nav-toggle:checked)) div#side_navi a[href="#"],
+  /* Profile */
+  body:not(:has(#mobile-nav-toggle:checked)) div#side_navi a[href*="spieler.php"]:not([href*="uid=1"]),
+  /* Homepage (Since HOMEPAGE is pure absolute URL, match by DOM position as fallback) */
+  body:not(:has(#mobile-nav-toggle:checked)) div#side_navi p:first-of-type a:first-of-type,
+  body:not(:has(#mobile-nav-toggle:checked)) div#side_navi a[href*="dorf1.php"],
+  body:not(:has(#mobile-nav-toggle:checked)) div#side_navi a[href*="index.php"] {
+    display: inline-flex !important;
+  }
+
+  /* Specific Override for Logout (Shutdown Icon) in Top Bar */
+  body:not(:has(#mobile-nav-toggle:checked)) div#side_navi a[href*="logout.php"] {
+    position: fixed !important;
+    left: 10px !important;
+    top: 4px !important;
+    font-size: 0 !important; /* Hide textual representation */
+    color: transparent !important;
+    text-shadow: none !important;
+    width: 22px !important;
+    height: 22px !important;
+    z-index: 1005 !important;
+    /* Red Power / Shutdown Icon SVG */
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23cc0000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18.36 6.64A9 9 0 1 1 5.64 6.64"></path><line x1="12" y1="2" x2="12" y2="12"></line></svg>') center center no-repeat !important;
+    background-size: contain !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
   /* Base styles for Top Navbar Links */
   div#side_navi a,
   div#side_navi p a {
-    font-size: 14px !important;
+    font-size: 13px !important; 
+    font-family: Tahoma, Arial, sans-serif !important;
     margin: 0 !important;
-    padding: 0 10px !important;
-    display: flex !important;
+    padding: 0 !important;
+    display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
     background: transparent !important;
     border: none !important;
-    border-bottom: 3px solid transparent !important; /* Always present — just invisible */
     border-radius: 0 !important;
-    color: #555 !important;
+    color: #000000 !important; /* Black text */
     text-decoration: none !important;
-    font-weight: 700 !important;
-    box-shadow: none !important;
+    font-weight: bold !important;
     white-space: nowrap !important;
     flex-shrink: 0 !important;
-    transition: color 0.25s ease, border-color 0.25s ease !important;
+    text-shadow: 
+      -1px -1px 0 #cc8811,
+       1px -1px 0 #cc8811,
+      -1px  1px 0 #cc8811,
+       1px  1px 0 #cc8811,
+       0px  1px 0 #cc8811,
+       0px -1px 0 #cc8811,
+       1px  0px 0 #cc8811,
+      -1px  0px 0 #cc8811 !important; /* Perfect solid orange/gold outline */
+  }
+  
+  /* Reset special color for chat if it was overridden before */
+  div#side_navi a[href="messages.php"],
+  div#side_navi p a[href="messages.php"] {
+    color: #000000 !important;
   }
 
   /* ═══ NUCLEAR: Kill ALL desktop hover effects on mobile ═══
@@ -175,38 +228,45 @@
 
   /* Tab Navigation (Text Menu) */
   div#textmenu {
-    display: flex !important;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 6px;
-    padding: 8px 0 12px 0;
-    margin-bottom: 8px;
-    font-size: 0;
-    border-bottom: 1px solid #ddd;
+    text-align: right !important; /* Right aligned */
+    font-size: 13px !important; /* Reveal pipe | separators */
+    font-weight: 500;
+    color: #888; /* Color for separators */
+    padding: 10px 0 !important;
+    margin: 0 0 10px 0 !important;
+    display: block !important;
+    border: none !important;
+    background: transparent !important;
   }
 
   div#textmenu a {
-    font-size: 12px;
-    padding: 5px 12px;
-    background: #f4f4f4;
-    border: 1px solid #c0c0c0;
-    border-radius: 18px;
-    color: #333 !important;
-    text-decoration: none;
+    font-size: 13px !important;
+    color: #71D000; /* Green links */
+    text-decoration: none !important;
+    padding: 0 6px !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    display: inline !important;
     font-weight: bold;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    transition: all 0.2s ease;
+    transition: color 0.15s ease;
   }
 
   div#textmenu a.selected {
-    background: #71D000;
-    color: #fff !important;
-    border-color: #5eac00;
-    box-shadow: inset 0 1px 3px rgba(0,0,0,0.15);
+    color: #2b5900 !important; /* Darker green for selected */
+    border-bottom: 2px dashed #71D000 !important; /* Dashed underline */
+    background: transparent !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    box-shadow: none !important;
   }
 
+  div#textmenu a:hover,
   div#textmenu a:active {
-    transform: scale(0.96);
+    color: #5eac00 !important;
+    transform: none !important;
   }
 
 }

@@ -38,19 +38,20 @@
   body.mod2 div#res,
   body.mod3 div#res {
     position: relative !important;
-    right: auto !important;
-    left: auto !important;
     top: auto !important;
+    right: 0 !important;
+    left: 0 !important;
     width: 100% !important;
     height: auto !important;
     min-width: 0 !important;
     overflow-x: auto !important;
     -webkit-overflow-scrolling: touch;
-    z-index: 2 !important;
+    z-index: 15 !important; /* Above panorama banner (z-index 1) but below popups */
     padding: 6px 4px !important;
     background: transparent !important;
-    border-bottom: none;
+    border-bottom: none !important;
     box-sizing: border-box !important;
+    margin: 0 !important;
   }
 
   div#resWrap {
@@ -58,7 +59,7 @@
     max-width: 100% !important;
     right: auto !important;
     left: auto !important;
-    margin: 30px auto 0 auto !important;
+    margin: 0 auto !important;
     position: relative !important;
   }
 

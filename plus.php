@@ -165,7 +165,10 @@ if($id == 19){
 if($id == 20){
 	include ("Templates/Plus/20.tpl");
 }
-if($id > 20){
+if($id == 21){
+	include ("Templates/Plus/21.tpl");
+}
+if($id > 21){
 	include ("Templates/Plus/3.tpl");
 }
 if(isset($_POST['mail'])){

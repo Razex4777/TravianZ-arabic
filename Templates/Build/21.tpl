@@ -42,8 +42,8 @@
                  //-- If available resources combined are not enough, remove NPC button
                  $total_required = (int)(${'u'.$i}['wood'] + ${'u'.$i}['clay'] + ${'u'.$i}['iron'] + ${'u'.$i}['crop']);
 
-                 if($session->userinfo['gold'] >= 3 && $building->getTypeLevel(17) >= 1 && $village->atotal >= $total_required) {
-                   echo "|<a href=\"build.php?gid=17&t=3&r1=".((${'u'.$i}['wood'])*$technology->maxUnitPlus($i))."&r2=".((${'u'.$i}['clay'])*$technology->maxUnitPlus($i))."&r3=".((${'u'.$i}['iron'])*$technology->maxUnitPlus($i))."&r4=".((${'u'.$i}['crop'])*$technology->maxUnitPlus($i))."\" title=\"NPC trade\"><img class=\"npc\" src=\"img/x.gif\" alt=\"NPC trade\" title=\"NPC trade\" /></a>";
+                 if($session->gold >= 3) {
+                   echo " | <a href=\"build.php?gid=17&t=3&r1=".((${'u'.$i}['wood'])*$technology->maxUnitPlus($i))."&r2=".((${'u'.$i}['clay'])*$technology->maxUnitPlus($i))."&r3=".((${'u'.$i}['iron'])*$technology->maxUnitPlus($i))."&r4=".((${'u'.$i}['crop'])*$technology->maxUnitPlus($i))."\"><img class=\"npc\" src=\"img/x.gif\" alt=\"NPC\" title=\"NPC\" /></a>";
                  }  
                     echo "</div></td>
                                 <td class=\"val\">
@@ -86,7 +86,7 @@
 		}
 		echo "</td>
 			<td>".DURATION."</td>
-			<td>".FINISHED."</td>
+
 		</tr></thead>
 		<tbody>";
         $TrainCount = 0;
@@ -101,14 +101,9 @@
 			} else {
 				echo $generator->getTimeFormat($train['eachtime']*$train['amt']);
 			}
-			echo "</td><td class=\"fin\">";
-			$time = $generator->procMTime($train['timestamp']);
-			if($time[0] != "today") {
-				echo "on ".$time[0]." at ";
-            }
-            echo $time[1];
+			echo "</td>";
 		} ?>
-		</tr><tr class="next"><td colspan="3"><?php echo UNIT_FINISHED; ?> <span id="timer<?php echo ++$session->timer?>"><?php echo $NextFinished; ?></span></td></tr>
+		</tr>
         </tbody></table>
     <?php }
 include("upgrade.tpl");

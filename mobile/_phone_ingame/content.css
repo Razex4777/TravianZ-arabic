@@ -556,47 +556,6 @@
 @media screen and (max-width: 768px) {
   /* Custom Mobile App UI for Reports & Messages */
 
-  div.reports #textmenu, 
-  div.messages #textmenu {
-      display: flex;
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      gap: 8px;
-      padding: 10px 5px;
-      margin-bottom: 20px;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      box-sizing: border-box !important;
-  }
-  div.reports #textmenu::-webkit-scrollbar, 
-  div.messages #textmenu::-webkit-scrollbar {
-      display: none;
-  }
-  div.reports #textmenu a, 
-  div.messages #textmenu a {
-      white-space: nowrap;
-      flex: 0 0 auto;
-      background: #f7f9fa !important;
-      border: 1px solid #e1e8ed !important;
-      color: #444 !important;
-      padding: 8px 16px !important;
-      border-radius: 20px !important;
-      font-size: 13px !important;
-      font-weight: 600 !important;
-      text-decoration: none !important;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
-      box-sizing: border-box !important;
-  }
-  div.reports #textmenu a.selected, 
-  div.messages #textmenu a.selected {
-      background: #e9f5e9 !important;
-      border-color: #71D000 !important;
-      color: #2b5900 !important;
-  }
-  div.reports #textmenu a:first-child,
-  div.messages #textmenu a:first-child {
-      margin-right: auto; /* removes default separators or extra spaces in HTML */
-  }
 
   /* Form structure */
   div.reports form, div.messages form {

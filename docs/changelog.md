@@ -1,5 +1,13 @@
 # Changelog
 
+
+## 2026-04-19 19:48
+- **Feature: Gold Plus Crop Protection** - Added a premium service (10,000 Gold) inside the Plus menu that refils crop to max and prevents it from dipping below 0 (negative) for 1 hour. Provides a safety window for players to use the NPC trader and fix starving villages without experiencing paralysis.
+
+
+## 2026-04-19 18:34
+- **Feature: Paralyzed Player Penalty** - Prevented upgrading, constructing, mastering, training, and NPC trading if any storage resource (mainly crop) drops below 0. Added UI warnings explaining this penalty.
+
 ## 2026-04-18 17:35
 - **Fix: Mobile Top 10 Tables Layout** — Centered the ranking tables in mobile view by overriding RTL float behavior and forcing full width (`table#top10_offs, table#top10_defs...`).
 - **Fix: Missing Tooltip Translations** — Translated "Top 10 statistics" popup content in `Templates/Manual/medal.tpl` to Arabic.

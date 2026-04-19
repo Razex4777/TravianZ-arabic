@@ -51,6 +51,17 @@ if ($_protect_ts > time()) {
     <label for="mobile-nav-toggle" class="mobile-sidebar-backdrop" style="display:none;"></label>
     
     <div id="mtop">
+        <a href="plus.php?id=3" id="plus">
+        <span id="header_gold_display">
+            <?php if($session->gold >= 2): ?>
+                <img src="<?php echo GP_LOCATE; ?>img/a/gold.gif" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'الذهب' : 'Gold'; ?>" title="<?php echo $session->gold; ?> <?php echo (defined('LANG') && LANG === 'ar') ? 'ذهب' : 'Gold'; ?>" />
+                <span class="gold_amount"><?php echo $session->gold; ?></span>
+            <?php else: ?>
+                <img src="<?php echo GP_LOCATE; ?>img/a/gold_g.gif" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'الذهب' : 'Gold'; ?>" title="<?php echo $session->gold; ?> <?php echo (defined('LANG') && LANG === 'ar') ? 'ذهب' : 'Gold'; ?>" />
+                <span class="gold_amount low"><?php echo $session->gold; ?></span>
+            <?php endif; ?>
+        </span>
+        </a>
         <a href="<?php echo ($_SESSION['id_user'] != 1 ? 'dorf1.php' : '#'); ?>" id="n1" accesskey="1"><img src="img/x.gif" title="<?php echo (defined('LANG') && LANG === 'ar' ? 'نظرة عامة على القرية' : 'Village overview'); ?>" alt="<?php echo (defined('LANG') && LANG === 'ar' ? 'نظرة عامة على القرية' : 'Village overview'); ?>" /></a>
         <a href="<?php echo ($_SESSION['id_user'] != 1 ? 'dorf2.php' : '#'); ?>" id="n2" accesskey="2"><img src="img/x.gif" title="<?php echo (defined('LANG') && LANG === 'ar' ? 'مركز القرية' : 'Village centre'); ?>" alt="<?php echo (defined('LANG') && LANG === 'ar' ? 'مركز القرية' : 'Village centre'); ?>" /></a>
         <a href="karte.php" id="n3" accesskey="3"><img src="img/x.gif" title="<?php echo (defined('LANG') && LANG === 'ar' ? 'الخريطة' : 'Map'); ?>" alt="<?php echo (defined('LANG') && LANG === 'ar' ? 'الخريطة' : 'Map'); ?>" /></a>
@@ -73,41 +84,61 @@ if ($_protect_ts > time()) {
             <a href="<?php echo ($_SESSION['id_user'] != 1 ? 'berichte.php' : '#'); ?>" accesskey="5"><img src="img/x.gif" class="l" title="<?php echo (defined('LANG') && LANG === 'ar' ? 'التقارير' : 'Reports'); ?>" alt="<?php echo (defined('LANG') && LANG === 'ar' ? 'التقارير' : 'Reports'); ?>"/></a>
             <a href="nachrichten.php" accesskey="6"><img src="img/x.gif" class="r" title="<?php echo (defined('LANG') && LANG === 'ar' ? 'الرسائل' : 'Messages'); ?>" alt="<?php echo (defined('LANG') && LANG === 'ar' ? 'الرسائل' : 'Messages'); ?>" /></a>
         </div>
-
-		<?php
-			// no PLUS needed for Support
-			if ($_SESSION['id_user'] != 1) {
-		?>
-        <a href="plus.php?id=3" id="plus" style="background: transparent; width: auto; height: auto; margin-left: 0; margin-top: 20px;">
-        <span id="header_gold_display" style="
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            background: linear-gradient(180deg, #FFD54F 0%, #FF9800 50%, #E65100 100%);
-            border: 1px solid #BF6C00;
-            border-radius: 6px;
-            padding: 3px 12px 3px 8px;
-            color: #fff;
-            font-weight: bold;
-            font-size: 13px;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.4);
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.35), 0 1px 3px rgba(0,0,0,0.25);
-            line-height: 18px;
-            cursor: pointer;
-        ">
-            <?php if($session->gold >= 2): ?>
-                <img src="<?php echo GP_LOCATE; ?>img/a/gold.gif" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'الذهب' : 'Gold'; ?>" title="<?php echo $session->gold; ?> <?php echo (defined('LANG') && LANG === 'ar') ? 'ذهب' : 'Gold'; ?>" style="vertical-align: middle; width: 16px; height: 16px;" />
-                <span class="gold_amount" style="display: inline !important; color: #fff; font-weight: bold; font-size: 13px; vertical-align: middle;"><?php echo $session->gold; ?></span>
-            <?php else: ?>
-                <img src="<?php echo GP_LOCATE; ?>img/a/gold_g.gif" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'الذهب' : 'Gold'; ?>" title="<?php echo $session->gold; ?> <?php echo (defined('LANG') && LANG === 'ar') ? 'ذهب' : 'Gold'; ?>" style="vertical-align: middle; width: 16px; height: 16px;" />
-                <span class="gold_amount low" style="display: inline !important; color: rgba(255,255,255,0.7); font-weight: bold; font-size: 13px; vertical-align: middle;"><?php echo $session->gold; ?></span>
-            <?php endif; ?>
-        </span>
-        </a>
-       <?php
-       		}
-       ?>
 <style>
+/* === GLOBAL: Override gpack's "div#mtop a#plus span { display:none }" ===
+   Moving #plus inside #mtop triggered the gpack hiding rule.
+   This higher-specificity rule (3 IDs) keeps gold visible on ALL screens. */
+div#mtop a#plus span#header_gold_display {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 3px !important;
+}
+div#mtop a#plus span#header_gold_display span.gold_amount,
+div#mtop a#plus span#header_gold_display span.gold_amount.low {
+    display: inline !important;
+}
+
+/* === Desktop Gold Display Override ===
+   Override gpack's margin-left:115px to place gold on the LEFT.
+   Nav circles follow naturally in the middle. */
+@media screen and (min-width: 981px) {
+    div#mtop a#plus {
+        float: left !important;
+        margin-left: 120px !important;  /* Brings gold closer to the 5 circles */
+        margin-right: 8px !important;
+        margin-top: 18px !important;
+        display: inline-flex !important;
+        align-items: center;
+        gap: 4px;
+        background: linear-gradient(to bottom, #ffc107, #ff9800);
+        border: 1px solid #d87b00;
+        border-radius: 5px;
+        padding: 2px 8px;
+        height: 22px;
+        text-decoration: none;
+        box-shadow: inset 0 1px 1px rgba(255,255,255,0.5), 0 1px 3px rgba(0,0,0,0.2);
+    }
+    div#mtop a#plus:hover {
+        background: linear-gradient(to bottom, #ffca28, #ffa726);
+    }
+    div#mtop a#plus span,
+    div#mtop a#plus span#header_gold_display {
+        display: inline-flex !important;
+        align-items: center;
+        gap: 3px;
+    }
+    div#mtop a#plus span#header_gold_display .gold_amount,
+    div#mtop a#plus span#header_gold_display .gold_amount.low {
+        color: #fff;
+        font-size: 12px;
+        font-weight: 900;
+        text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+    }
+    div#mtop a#plus img {
+        width: 14px;
+        height: 14px;
+    }
+}
 
 .day_image {
     background-image: url("../gpack/travian_default/img/l/day.gif");

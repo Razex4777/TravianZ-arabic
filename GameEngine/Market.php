@@ -372,6 +372,8 @@ class Market
     {
         global $session,$database,$village;
 
+        if($village->acrop < 0) return;
+
         $wwvillage = $database->getResourceLevel($village->wid);
         if($wwvillage['f99t'] != 40){
             if($session->userinfo['gold'] >= 3){

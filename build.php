@@ -44,8 +44,16 @@ if (isset($_GET['buildingFinish']) && $_GET['buildingFinish'] == 1 && !isset($_G
 }
 
 if ( isset( $_GET['gid'] ) ) {
-    $_GET['id'] = strval( $building->getTypeField( preg_replace( "/[^a-zA-Z0-9_-]/", "", $_GET['gid'] ) ) );
+    $temp_id = $building->getTypeField( preg_replace( "/[^a-zA-Z0-9_-]/", "", $_GET['gid'] ) );
+    if(!$temp_id && $_GET['gid'] == 17 && isset($_GET['t']) && $_GET['t'] == 3 && $session->gold >= 3) {
+        $temp_id = 999;
+        $village->resarray['f999t'] = 17;
+    }
+    $_GET['id'] = strval( $temp_id );
 } else if ( isset( $_POST['id'] ) ) {
+    if($_POST['id'] == '999' && isset($_POST['ft']) && $_POST['ft'] == 'mk3' && $session->gold >= 3) {
+        $village->resarray['f999t'] = 17;
+    }
     $_GET['id'] = preg_replace( "/[^a-zA-Z0-9_-]/", "", $_POST['id'] ); // WTF is this?
 }
 
@@ -54,7 +62,9 @@ if ( isset( $_POST['t'] ) ) {
 }
 
 if ( isset( $_GET['id'] ) ) {
-    if ( ! ctype_digit( preg_replace( "/[^a-zA-Z0-9_-]/", "", $_GET['id'] ) ) ) {
+    if($_GET['id'] == '999' && $session->gold >= 3) {
+        $village->resarray['f999t'] = 17;
+    } else if ( ! ctype_digit( preg_replace( "/[^a-zA-Z0-9_-]/", "", $_GET['id'] ) ) ) {
         $_GET['id'] = "1";
     }
 

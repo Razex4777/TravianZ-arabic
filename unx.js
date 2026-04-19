@@ -176,16 +176,24 @@ function executeCounter(){
     setTimeout("executeCounter()",1000);
 }
 
-function mb(zb){pb=document.getElementById(zb);if(pb!=null){fb[zb]=new Object();var $b=pb.innerHTML.match(/(\d+)\/(\d+)/);element=$b[0].split("/");_b=parseInt(element[0]);ac=parseInt(element[1]);bc=pb.title;if(bc!=0){cc=nb();timer[zb]=new Object();timer[zb].start=cc;timer[zb].production=bc;timer[zb].start_res=_b;timer[zb].max_res=ac;timer[zb].ms=3600000/bc;dc=100;if(timer[zb].ms<dc){timer[zb].ms=dc;}
+function mb(zb){pb=document.getElementById(zb);if(pb!=null){fb[zb]=new Object();var $b=pb.innerHTML.match(/(-?\d+)\/(\d+)/);element=$b[0].split("/");_b=parseInt(element[0]);ac=parseInt(element[1]);bc=pb.title;if(bc!=0){cc=nb();timer[zb]=new Object();timer[zb].start=cc;timer[zb].production=bc;timer[zb].start_res=_b;timer[zb].max_res=ac;timer[zb].ms=3600000/Math.abs(bc);dc=100;if(timer[zb].ms<dc){timer[zb].ms=dc;}
 timer[zb].node=pb;executeTimer(zb);}
 else
 {timer[zb]=new Object();fb[zb].value=_b;}
 }
 }
 function executeTimer(zb){wb=nb()-timer[zb].start;if(wb>=0){ec=Math.round(timer[zb].start_res+wb*(timer[zb].production/3600000));if(ec>=timer[zb].max_res){ec=timer[zb].max_res;}
-else
-{window.setTimeout("executeTimer('"+zb+"')",timer[zb].ms);}
-fb[zb].value=ec;timer[zb].node.innerHTML=ec+'/'+timer[zb].max_res;}
+else if(ec<0){ec=0;}
+if(ec<timer[zb].max_res||timer[zb].production<0){window.setTimeout("executeTimer('"+zb+"')",timer[zb].ms);}
+fb[zb].value=ec;timer[zb].node.innerHTML=ec+'/'+timer[zb].max_res;
+/* ═══ Live Health Bar: update --fill-percent on parent .res-pill ═══ */
+var _pill=timer[zb].node.parentNode;
+if(_pill&&_pill.classList&&_pill.classList.contains('res-pill')){
+var _pct=Math.min(100,Math.max(0,Math.round((ec/timer[zb].max_res)*100)));
+_pill.style.setProperty('--fill-percent',_pct+'%');
+if(ec>=timer[zb].max_res){_pill.classList.add('res_full');}
+else{_pill.classList.remove('res_full');}
+}}
 }
 var fc=new Array(0,0,0,0,0);function add_res(gc){hc=fb['l'+(5-gc)].value;ic=haendler*carry;fc[gc]=jc(fc[gc],hc,ic,carry);document.getElementById('r'+gc).value=fc[gc];}
 function upd_res(gc,kc){hc=fb['l'+(5-gc)].value;ic=haendler*carry;if(kc){lc=hc;}

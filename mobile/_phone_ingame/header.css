@@ -61,7 +61,7 @@
     height: auto !important;
     min-height: 0 !important;
     margin: 0 !important;
-    margin-top: 46px !important; /* Push banner down to make room for 46px tall top navbar */
+    margin-top: 30px !important; /* Push banner down to exactly match 30px tall side_navi */
     padding: 0 !important;
     flex-direction: column !important;
     align-items: center !important;
@@ -74,14 +74,14 @@
   #mobile_header_banner {
     display: block !important;
     width: 100% !important;
-    height: 220px !important;
+    height: 180px !important;
     background-color: #2c4a1a !important;
     background-image: url('../../img/mobile_header_bg.png') !important;
     background-repeat: no-repeat !important;
     background-position: center center !important;
     background-size: cover !important;
     position: relative !important;
-    z-index: 1 !important;
+    z-index: auto !important;
     box-shadow: inset 0 -40px 30px -10px rgba(0,0,0,0.25) !important;
   }
 
@@ -90,7 +90,7 @@
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
     background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, transparent 40%, transparent 60%, rgba(0,0,0,0.3) 100%);
-    z-index: 1;
+    z-index: auto;
     pointer-events: none;
   }
 
@@ -142,10 +142,10 @@
   .mobile-hamburger {
     display: flex !important;
     position: fixed !important; /* Keep it on the fixed top bar */
-    top: 3px !important;
-    right: 3px !important;
-    width: 40px !important;
-    height: 40px !important;
+    top: 0 !important;
+    right: 5px !important;
+    width: 32px !important;
+    height: 30px !important;
     background: transparent !important; /* Completely flat for navbar */
     border-radius: 0 !important;
     flex-direction: column !important;
@@ -156,15 +156,15 @@
     cursor: pointer !important;
     box-shadow: none !important;
     border: none !important;
-    gap: 5px !important;
+    gap: 4px !important;
   }
   
   .mobile-hamburger span {
     display: block !important;
-    width: 22px !important;
+    width: 20px !important;
     height: 2px !important;
-    background: #555 !important;
-    border-radius: 1px !important;
+    background: #333 !important; /* Precise color matching image */
+    border-radius: 0 !important;
     transition: all 0.3s ease !important;
   }
 
@@ -206,23 +206,22 @@
     right: auto !important;
     bottom: auto !important;
     left: auto !important;
-    width: 100% !important;
+    width: auto !important;
+    display: inline-flex !important;
+    background: linear-gradient(to bottom, #f5f5f5 0%, #e0e0e0 100%) !important; /* Horizontal grey bar behind buttons */
+    border-radius: 30px !important; /* Pill shape for the bar */
     height: auto !important;
     min-height: 0 !important;
-    margin: -30px 0 0 0 !important;
-    background: transparent !important;
-    border: none !important;
-    z-index: 10;
-    transform: none !important;
-    visibility: visible !important;
-    display: flex !important;
+    margin: -25px auto 0 auto !important; /* Center it, overlapping the header image */
+    border: 1px solid #d0d0d0 !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.8) !important;
+    z-index: auto !important; /* MUST be auto so it does not establish a stacking context trapping a#plus */
     flex-direction: row !important;
     flex-wrap: nowrap !important;
     align-items: center !important;
     justify-content: center !important;
-    padding: 0 12px !important;
-    box-shadow: none !important;
-    gap: 6px !important;
+    padding: 3px !important;
+    gap: 2px !important; /* Tighter gap */
     overflow: visible !important;
     flex-shrink: 0 !important;
   }
@@ -235,20 +234,21 @@
     float: none !important;
     transform: scale(1.0) !important;
     transform-origin: center center !important;
-    width: 62px !important;
-    height: 62px !important;
-    margin: 0 2px !important;
+    width: 54px !important; /* Smaller size matching image */
+    height: 54px !important;
+    margin: 0 !important;
     border-radius: 50% !important;
-    border: 3px solid #8a8478 !important;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.35), inset 0 2px 4px rgba(255,255,255,0.4), inset 0 -2px 4px rgba(0,0,0,0.15) !important;
+    border: 2px solid #ccc !important; /* Light border */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2), inset 0 2px 6px rgba(255,255,255,1) !important;
     overflow: hidden !important;
     position: relative !important;
   }
   div#mtop a#n1, div#mtop a#n2, div#mtop a#n3, div#mtop a#n4 {
-    background: linear-gradient(180deg, #e8e4dc 0%, #c5bfb3 40%, #a8a295 100%) !important;
+    background: linear-gradient(180deg, #f0f0f0 0%, #dbdbdb 50%, #c4c4c4 100%) !important; /* Lighter gradient */
   }
   div#mtop div#n5 {
-    background-color: #c5bfb3 !important;
+    background-color: #dbdbdb !important; /* NOT gradient shorthand, to preserve sprite */
+    background-position: -8px -28px !important;
   }
   div#mtop a#n1:active, div#mtop a#n2:active, div#mtop a#n3:active, div#mtop a#n4:active, div#mtop div#n5 a:active {
     opacity: 0.75;
@@ -261,67 +261,72 @@
     margin: 0 !important;
   }
 
-  /* Gold badge */
-  div#mtop a#plus {
+  /* Gold badge - Exact Traviaz Matching */
+  a#plus {
     margin: 0 !important;
     display: flex !important;
     align-items: center !important;
-    justify-content: center !important;
+    justify-content: flex-start !important;
     float: none !important;
-    position: absolute !important;
-    top: -190px !important;
-    right: 15px !important;
-    left: auto !important;
-    height: auto !important;
+    position: fixed !important; /* Move OUT of mtop positioning, pin to screen exactly in side_navi left padding */
+    top: 5px !important; /* Centered vertically in 30px top bar */
+    left: 42px !important; /* Keep it left, exactly right next to the red Shutdown SVG */
+    right: auto !important;
+    height: 20px !important; /* Exact physical height of the coin content */
     width: auto !important;
     padding: 0 !important;
     background: transparent !important;
     border: none !important;
     text-decoration: none !important;
-    z-index: 15 !important;
+    z-index: 1005 !important; /* Show above side_navi (1000) */
     border-radius: 0 !important;
     box-shadow: none !important;
     overflow: visible !important;
   }
-  div#mtop a#plus span.plus_text, div#mtop a#plus img#btn_plus {
+  a#plus span.plus_text, a#plus img#btn_plus {
     display: none !important;
   }
-  div#mtop a#plus #header_gold_display {
+
+  a#plus #header_gold_display {
     white-space: nowrap !important;
     max-width: none !important;
     overflow: hidden !important;
-    border-radius: 6px !important;
+    border-radius: 4px !important;
     width: auto !important;
-    min-width: 52px !important;
-    height: 32px !important;
-    padding: 0 8px !important;
+    min-width: 40px !important;
+    height: 20px !important; /* Match physical height exactly */
+    padding: 0 4px !important;
     display: flex !important;
-    flex-direction: row !important;
+    flex-direction: row-reverse !important; /* Coin on right securely always */
     align-items: center !important;
     justify-content: center !important;
-    gap: 4px !important;
-    background: linear-gradient(135deg, #f5e6a3 0%, #d4b94e 40%, #b8942a 100%) !important;
-    border: 2px solid #9a7b1c !important;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255,255,255,0.5) !important;
-    font-size: 10px !important;
-    line-height: 1 !important;
+    gap: 3px !important;
+    
+    background: linear-gradient(to bottom, #f0c34a 0%, #daa125 50%, #ae7b10 100%) !important;
+    border: 1px solid #715506 !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 1px 2px rgba(0,0,0,0.1) !important;
   }
-  div#mtop a#plus #header_gold_display img {
-    width: 14px !important;
-    height: 14px !important;
-    margin-bottom: 0 !important;
-    margin-right: 0 !important;
+  
+  a#plus #header_gold_display img {
+    width: 12px !important;
+    height: 12px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: none !important;
+    border-radius: 0 !important;
     flex-shrink: 0 !important;
+    box-shadow: none !important;
   }
-  div#mtop a#plus #header_gold_display .gold_amount {
-    font-size: 12px !important;
-    color: #3d2b00 !important;
-    text-shadow: 0 1px 0 rgba(255,255,255,0.3) !important;
+
+  a#plus #header_gold_display .gold_amount,
+  a#plus #header_gold_display .gold_amount.low {
+    font-size: 11px !important;
+    color: #000000 !important;
+    text-shadow: none !important;
     font-weight: bold !important;
+    font-family: Tahoma, Arial, sans-serif !important;
     line-height: 1 !important;
-  }
-  div#mtop a#plus #header_gold_display .gold_amount.low {
-    color: #8b1a1a !important;
+    margin-top: 2px !important; /* Slight vertical alignment tweak if needed */
   }
 
   div#header #wrapper {

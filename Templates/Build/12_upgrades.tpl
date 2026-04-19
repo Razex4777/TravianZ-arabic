@@ -33,8 +33,8 @@
 				
                     //-- If available resources combined are not enough, remove NPC button
 				    $total_required = (int)(${'ab'.$i}[$abdata['b'.$j]+1+$ups]['wood'] + ${'ab'.$i}[$abdata['b'.$j]+1+$ups]['clay'] + ${'ab'.$i}[$abdata['b'.$j]+1+$ups]['iron'] + ${'ab'.$i}[$abdata['b'.$j]+1+$ups]['crop']);
-                    if($session->userinfo['gold'] >= 3 && $building->getTypeLevel(17) >= 1 && $village->atotal >= $total_required) {
-                        echo "|<a href=\"build.php?gid=17&t=3&r1=".${'ab'.$i}[$abdata['b'.$j]+1+$ups]['wood']."&r2=".${'ab'.$i}[$abdata['b'.$j]+1+$ups]['clay']."&r3=".${'ab'.$i}[$abdata['b'.$j]+1+$ups]['iron']."&r4=".${'ab'.$i}[$abdata['b'.$j]+1+$ups]['crop']."\" title=\"NPC trade\"><img class=\"npc\" src=\"img/x.gif\" alt=\"NPC trade\" title=\"NPC trade\" /></a>";
+                    if($session->gold >= 3) {
+                   echo " | <a href=\"build.php?gid=17&t=3&r1=".${'ab'.$i}[$abdata['b'.$j]+1+$ups]['wood']."&r2=".${'ab'.$i}[$abdata['b'.$j]+1+$ups]['clay']."&r3=".${'ab'.$i}[$abdata['b'.$j]+1+$ups]['iron']."&r4=".${'ab'.$i}[$abdata['b'.$j]+1+$ups]['crop']."\"><img class=\"npc\" src=\"img/x.gif\" alt=\"NPC\" title=\"NPC\" /></a>";
 					}
 				}
 		        if($abdata['b'.$j] == 20) {

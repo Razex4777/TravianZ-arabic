@@ -134,6 +134,19 @@ class Village {
 		    $this->acrop = $this->maxcrop; 
 		    $resourceUpdates['crop'] = $this->maxcrop; 
 		}
+		
+		if($this->acrop < 0)
+		{
+            $now = time();
+            $res = @mysqli_query($database->dblink, "SELECT crop_immunity FROM " . TB_PREFIX . "vdata WHERE wref = " . (int)$this->wid);
+            if ($res && mysqli_num_rows($res)) {
+                $row = mysqli_fetch_assoc($res);
+                if (isset($row['crop_immunity']) && $row['crop_immunity'] > $now) {
+                    $this->acrop = 0;
+                    $resourceUpdates['crop'] = 0;
+                }
+            }
+		}
 
 		if (count($resourceUpdates)) {
             $database->updateResource($this->wid, array_keys($resourceUpdates), array_values($resourceUpdates));

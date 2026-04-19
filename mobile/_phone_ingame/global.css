@@ -83,7 +83,7 @@
     width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
-    margin: 0 !important;
+    margin: 10px 0 0 0 !important; /* Smaller margin since header and resources now flow naturally */
     float: none !important;
     background: #ffffff !important;
     background-color: #ffffff !important;

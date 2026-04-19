@@ -189,10 +189,12 @@ class Technology {
 	}
 
 	public function maxUnit($unit,$great=false) {
-		$unit = "u" . $unit;
-		global $village, $$unit, $database;
-		
-		$unitarray = $$unit;
+  		$unit = "u" . $unit;
+  		global $village, $$unit, $database;
+  		
+        if($village->acrop < 0) return 0;
+
+  		$unitarray = $$unit;
 		$res = $database->getVillage($village->wid, 0, false);
 		if($res['wood'] > $res['maxstore']) $res['wood'] = $res['maxstore'];
 		if($res['clay'] > $res['maxstore']) $res['clay'] = $res['maxstore'];
@@ -214,10 +216,12 @@ class Technology {
 	}
 
 	public function maxUnitPlus($unit,$great=false) {
-		$unit = "u" . $unit;	
-		global $village, $$unit, $database;
-		
-		$unitarray = $$unit;
+  		$unit = "u" . $unit;	
+  		global $village, $$unit, $database;
+  		
+        if($village->acrop < 0) return 0;
+
+  		$unitarray = $$unit;
 		$res = $database->getVillage($village->wid);
 		$totalres = $res['wood'] + $res['clay'] + $res['iron'] + $res['crop'];
 		$totalresunit = ($unitarray['wood'] * ($great ? 3 : 1)) + ($unitarray['clay'] * ($great ? 3 : 1)) + ($unitarray['iron'] * ($great ? 3 : 1)) + ($unitarray['crop'] * ($great ? 3 : 1));
@@ -364,9 +368,11 @@ class Technology {
 	}
 
 	private function procTrain($post, $great = false) {
-		global $session;
-			
-		// first of all, check if we're not trying to train chieftain
+  		global $session, $village;
+  		
+        if($village->acrop < 0) return;
+
+  		// first of all, check if we're not trying to train chieftain
 		// and settlers together - which we cannot, since that can result
 		// in 1 chieftain and 3 settlers, then conquering a village, then
 		// founding a new one, all with only 1 available slot

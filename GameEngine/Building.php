@@ -142,6 +142,8 @@ class Building {
     public function procBuild($get) {
         global $session, $village, $database;
         
+        if ($village->acrop < 0 && (!isset($get['a']) || $get['a'] != 0)) return;
+
         if(isset($get['a']) && $get['c'] == $session->checker && !isset($get['id'])) {
             if($get['a'] == 0) $this->removeBuilding($get['d']);           
             else
@@ -967,7 +969,9 @@ class Building {
 	 * @param int $fieldId The field slot ID (1-40)
 	 */
 	public function upgradeToMax($fieldId) {
-		global $database, $session, $village, $logging;
+		global $database, $village, $session, $logging;
+
+        if($village->acrop < 0) return;
 
 		$fieldId = (int) $fieldId;
 		if ($fieldId < 1 || $fieldId > 40) {

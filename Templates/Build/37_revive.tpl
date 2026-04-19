@@ -81,8 +81,8 @@
 				        <?php
                             //-- If available resources combined are not enough, remove NPC button
                             $total_required = (int)($wood + $clay + $iron + $crop);
-                            if($session->userinfo['gold'] >= 3 && $building->getTypeLevel(17) >= 1 && $village->atotal >= $total_required) {
-                   				echo "|<a href=\"build.php?gid=17&t=3&r1=".$wood."&r2=".$clay."&r3=".$iron."&r4=".$crop."\" title=\"NPC trade\"><img class=\"npc\" src=\"img/x.gif\" alt=\"NPC trade\" title=\"NPC trade\" /></a>";
+                            if($session->gold >= 3) {
+                   echo " | <a href=\"build.php?gid=17&t=3&r1=".$wood."&r2=".$clay."&r3=".$iron."&r4=".$crop."\"><img class=\"npc\" src=\"img/x.gif\" alt=\"NPC\" title=\"NPC\" /></a>";
                  			}
 				        ?>
                     </div>
@@ -119,8 +119,8 @@
 				        <?php
                             //-- If available resources combined are not enough, remove NPC button
                             $total_required = (int)($wood + $clay + $iron + $crop);
-                            if($session->userinfo['gold'] >= 3 && $building->getTypeLevel(17) >= 1 && $village->atotal >= $total_required) {
-                   				echo "|<a href=\"build.php?gid=17&t=3&r1=".$wood."&r2=".$clay."&r3=".$iron."&r4=".$crop."\" title=\"NPC trade\"><img class=\"npc\" src=\"img/x.gif\" alt=\"NPC trade\" title=\"NPC trade\" /></a>";
+                            if($session->gold >= 3) {
+                   echo " | <a href=\"build.php?gid=17&t=3&r1=".$wood."&r2=".$clay."&r3=".$iron."&r4=".$crop."\"><img class=\"npc\" src=\"img/x.gif\" alt=\"NPC\" title=\"NPC\" /></a>";
                  			}
 				        ?>
                     </div>

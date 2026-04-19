@@ -6,7 +6,7 @@
 		<thead><tr>
 			<td>".TRAINING."</td>
 			<td>".DURATION."</td>
-			<td>".FINISHED."</td>
+
 		</tr></thead>
 		<tbody>";
 		$TrainCount = 0;
@@ -21,14 +21,9 @@
 			} else {
 				echo $generator->getTimeFormat($train['eachtime']*$train['amt']);
 			}
-			echo "</td><td class=\"fin\">";
-			$time = $generator->procMTime($train['timestamp']);
-			if($time[0] != "today") {
-				echo "on ".$time[0]." at ";
-            }
-			echo $time[1];
+			echo "</td>";
 		} ?>
-		</tr><tr class="next"><td colspan="3"><?php echo UNIT_FINISHED; ?> <span id="timer<?php echo ++$session->timer; ?>"><?php echo $NextFinished; ?></span></td></tr>
+		</tr>
 		</tbody></table>
     <?php }
 ?>

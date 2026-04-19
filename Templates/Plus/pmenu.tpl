@@ -1,5 +1,5 @@
 	<div id="content"  class="plus">
-<h1><?php echo (defined('LANG') && LANG === 'ar') ? '<font color="#71D000">ب</font><font color="#FF6F0F">ل</font><font color="#71D000">ا</font><font color="#FF6F0F">س</font>' : 'Travian <font color="#71D000">P</font><font color="#FF6F0F">l</font><font color="#71D000">u</font><font color="#FF6F0F">s</font>'; ?></h1>
+<h1><?php echo (defined('LANG') && LANG === 'ar') ? '<font color="#71D000">بلاس</font>' : 'Travian <font color="#71D000">P</font><font color="#FF6F0F">l</font><font color="#71D000">u</font><font color="#FF6F0F">s</font>'; ?></h1>
 <div id="textmenu">
    <a href="plus.php?id=3" <?php
 

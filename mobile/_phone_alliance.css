@@ -26,39 +26,7 @@
     word-break: break-word;
   }
 
-  /* Alliance tab menu — flex-wrap pills (same pattern as reports) */
-  div#content.alliance div#textmenu,
-  div#content div#textmenu {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    gap: 6px !important;
-    margin-bottom: 15px !important;
-    line-height: 1.6;
-    font-size: 0; /* collapse pipe separators */
-  }
 
-  div#content.alliance div#textmenu a,
-  div#content div#textmenu a {
-    display: inline-block !important;
-    padding: 7px 14px !important;
-    background: rgba(0,0,0,0.03) !important;
-    border-radius: 6px !important;
-    text-decoration: none !important;
-    border: 1px solid rgba(0,0,0,0.1) !important;
-    color: #333 !important;
-    font-size: 13px !important;
-    font-weight: 500;
-    white-space: nowrap;
-  }
-
-  div#content.alliance div#textmenu a.selected,
-  div#content div#textmenu a.selected {
-    font-weight: bold !important;
-    background: rgba(113,208,0,0.12) !important;
-    border-color: #71D000 !important;
-    color: #2a6800 !important;
-  }
 
   /* ── Forum Tables ────────────────────────────────────────────── */
   div#content.alliance table#public,
