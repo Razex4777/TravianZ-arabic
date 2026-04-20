@@ -45,15 +45,13 @@ if (isset($_GET['buildingFinish']) && $_GET['buildingFinish'] == 1 && !isset($_G
 
 if ( isset( $_GET['gid'] ) ) {
     $temp_id = $building->getTypeField( preg_replace( "/[^a-zA-Z0-9_-]/", "", $_GET['gid'] ) );
-    if(!$temp_id && $_GET['gid'] == 17 && isset($_GET['t']) && $_GET['t'] == 3 && $session->gold >= 3) {
-        $temp_id = 999;
-        $village->resarray['f999t'] = 17;
+    if ($temp_id) {
+        $_GET['id'] = strval( $temp_id );
+    } else {
+        header("Location: dorf2.php");
+        exit;
     }
-    $_GET['id'] = strval( $temp_id );
 } else if ( isset( $_POST['id'] ) ) {
-    if($_POST['id'] == '999' && isset($_POST['ft']) && $_POST['ft'] == 'mk3' && $session->gold >= 3) {
-        $village->resarray['f999t'] = 17;
-    }
     $_GET['id'] = preg_replace( "/[^a-zA-Z0-9_-]/", "", $_POST['id'] ); // WTF is this?
 }
 
@@ -316,8 +314,24 @@ if(isset($_GET['mode']) && $_GET['mode'] == 'troops' && isset($_GET['cancel']) &
 	}
 	?>
 	<script type="text/javascript">
-
+		// Primary: MooTools domready
 		window.addEvent('domready', start);
+		// Fallback: native DOMContentLoaded — ensures timers start even if MooTools
+		// domready fires too early or fails in modern browsers.
+		(function(){
+			var _started = false;
+			function _safeStart() {
+				if (_started) return;
+				_started = true;
+				if (typeof start === 'function') start();
+			}
+			if (document.readyState === 'loading') {
+				document.addEventListener('DOMContentLoaded', _safeStart);
+			} else {
+				// DOM already ready (script deferred or inline after body)
+				_safeStart();
+			}
+		})();
 	</script>
 
 	<?php if(defined('LANG') && LANG === 'ar'): ?>

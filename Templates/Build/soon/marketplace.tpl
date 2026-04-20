@@ -12,7 +12,7 @@
 		</tr>
 		<tr>
 			<td>
-				<a href="#" onClick="return Popup(23,4);"><?php echo MAINBUILDING ?></a> <span title="+2"><?php echo LEVEL ?> 3</span>, <a href="#" onClick="return Popup(9,4);"><?php echo WAREHOUSE ?></a> <span title="+1"><?php echo LEVEL ?> 1</span>, <a href="#" onClick="return Popup(10,4);"><?php echo GRANARY ?></a> <span title="+1"><?php echo LEVEL ?> 1</span>
+				<a href="#" onClick="return Popup(23,4);"><?php echo MAINBUILDING ?></a> <span title="+2"><?php echo LEVEL ?> 3</span>
 			</td>
 		</tr></tbody>
 	</table>

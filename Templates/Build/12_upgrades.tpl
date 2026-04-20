@@ -33,7 +33,7 @@
 				
                     //-- If available resources combined are not enough, remove NPC button
 				    $total_required = (int)(${'ab'.$i}[$abdata['b'.$j]+1+$ups]['wood'] + ${'ab'.$i}[$abdata['b'.$j]+1+$ups]['clay'] + ${'ab'.$i}[$abdata['b'.$j]+1+$ups]['iron'] + ${'ab'.$i}[$abdata['b'.$j]+1+$ups]['crop']);
-                    if($session->gold >= 3) {
+                    if($session->gold >= 3 && $building->getTypeLevel(17) > 0) {
                    echo " | <a href=\"build.php?gid=17&t=3&r1=".${'ab'.$i}[$abdata['b'.$j]+1+$ups]['wood']."&r2=".${'ab'.$i}[$abdata['b'.$j]+1+$ups]['clay']."&r3=".${'ab'.$i}[$abdata['b'.$j]+1+$ups]['iron']."&r4=".${'ab'.$i}[$abdata['b'.$j]+1+$ups]['crop']."\"><img class=\"npc\" src=\"img/x.gif\" alt=\"NPC\" title=\"NPC\" /></a>";
 					}
 				}
@@ -78,7 +78,7 @@
 
 <?php
     if($totalUps > 0) {
-		echo "<table cellpadding=\"1\" cellspacing=\"1\" class=\"under_progress\"><thead><tr><td>".UPGRADING."</td><td>".DURATION."</td><td>".COMPLETE."</td></tr>
+		echo "<table cellpadding=\"1\" cellspacing=\"1\" class=\"under_progress\"><thead><tr><td>".UPGRADING."</td><td>".DURATION."</td></tr>
 </thead><tbody>";
 		foreach($ABups as $black) {
 			$count++;
@@ -90,8 +90,6 @@
 			if($count > 1) echo "<span class=\"none\"> ".WAITING."</span>";
 			echo "</td>";
 			echo "<td class=\"dur\"><span id=\"timer".++$session->timer."\">".$generator->getTimeFormat($black['timestamp']-time())."</span></td>";
-			$date = $generator->procMtime($black['timestamp']);
-			echo "<td class=\"fin\"><span>".$date[1]."</span><span> hrs</span></td>";
 			echo "</tr>";
 		}
 		echo "</tbody></table>";

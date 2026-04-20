@@ -19,7 +19,7 @@ for($i=42;$i<=49;$i++) {
                     echo $generator->getTimeFormat(round(${'r'.$i}['time'] * ($bid22[$village->resarray['f'.$id]]['attri'] / 100)/SPEED));
                    //-- If available resources combined are not enough, remove NPC button
                    $total_required = (int)(${'r'.$i}['wood'] + ${'r'.$i}['clay'] + ${'r'.$i}['iron'] + ${'r'.$i}['crop']);
-                   if($session->gold >= 3) {
+                   if($session->gold >= 3 && $building->getTypeLevel(17) > 0) {
                    echo " | <a href=\"build.php?gid=17&t=3&r1=".${'r'.$i}['wood']."&r2=".${'r'.$i}['clay']."&r3=".${'r'.$i}['iron']."&r4=".${'r'.$i}['crop']."\"><img class=\"npc\" src=\"img/x.gif\" alt=\"NPC\" title=\"NPC\" /></a>";
                    }
                    if(${'r'.$i}['wood'] > $village->maxstore || ${'r'.$i}['clay'] > $village->maxstore || ${'r'.$i}['iron'] > $village->maxstore) {
@@ -128,16 +128,19 @@ echo "<td colspan=\"2\"><div class=\"none\" align=\"center\">".RESEARCH_AVAILABL
 }
 //$acares = $technology->grabAcademyRes();
 if(count($acares) > 0) {
-	echo "<table cellpadding=\"1\" cellspacing=\"1\" class=\"under_progress\"><thead><tr><td>".RESEARCHING."</td><td>".DURATION."</td><td>".COMPLETE."</td></tr>
-	</thead><tbody>";
+	echo "<table cellpadding=\"1\" cellspacing=\"1\" class=\"under_progress\"><thead><tr><td>".RESEARCHING."";
+	if($session->gold >= 2) {
+		echo " <a href=\"?id=".$id."&buildingFinish=1\" title=\"إنهاء البحث فوراً مقابل 2 ذهب\"><img class=\"clock\" alt=\"إنهاء البحث\" src=\"img/x.gif\"/></a>";
+	}
+	echo "</td><td>".DURATION."</td>";
+	echo "</tr></thead><tbody>";
 	foreach($acares as $aca) {
 		$unit = substr($aca['tech'],1,2);
 		echo "<tr><td class=\"desc\"><img class=\"unit u$unit\" src=\"img/x.gif\" alt=\"".$technology->getUnitName($unit)."\" title=\"".$technology->getUnitName($unit)."\" />".$technology->getUnitName($unit)."</td>";
 		echo "<td class=\"dur\"><span id=\"timer".++$session->timer."\">".$generator->getTimeFormat($aca['timestamp']-time())."</span></td>";
-		$date = $generator->procMtime($aca['timestamp']);
-		echo "<td class=\"fin\"><span>".$date[1]."</span><span> hrs</span></td>";
 		echo "</tr>";
 	}
 	echo "</tbody></table>";
 }
+
 ?>

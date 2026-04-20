@@ -13,7 +13,7 @@ $building->loadBuilding();
 <?php if($building->NewBuilding){ ?>
 <table cellpadding="1" cellspacing="1" id="building_contract">
     <thead><tr>
-    <th colspan="4"><?php echo BUILDING_UPGRADING;?>
+    <th colspan="3"><?php echo BUILDING_UPGRADING;?>
 			<?php
             
             if($session->gold >= 2) {
@@ -30,18 +30,17 @@ $building->loadBuilding();
 		if($jobs['master'] == 0){
         	echo "<tr><td class=\"ico\"><a href=\"?d=".$jobs['id']."&a=0&c=$session->checker\">";
             echo "<img src=\"img/x.gif\" class=\"del\" title=\"cancel\" alt=\"cancel\" /></a></td><td>";
-			echo "<a href=build.php?id=". $jobs['field'] . ">".Building::procResType($jobs['type'])."</a> (".LEVEL_TEXT." ".$jobs['level'].").";
+			echo "<a href=build.php?id=". $jobs['field'] . ">".Building::procResType($jobs['type'])."</a> (".LEVEL_TEXT." ".$jobs['level'].") ";
 
 			if($jobs['loopcon'] == 1) echo " <span class=\"none\">".WAITING."</span>";
 
             echo "</td><td>".IN_TEXT." <span id=\"timer".++$session->timer."\">";
             echo $generator->getTimeFormat($jobs['timestamp']-time());
-            echo "</span> ".HRS_TEXT."</td>";
-            echo "<td>".DONE_AT_TEXT." ".date('H:i', $jobs['timestamp'])."</td></tr>";
+            echo "</span> </td></tr>";
 		}else{
         	echo "<tr><td class=\"ico\"><a href=\"?d=".$jobs['id']."&a=0&c=$session->checker\">";
-            echo "<img src=\"img/x.gif\" class=\"del\" title=\"cancel\" alt=\"cancel\" /></a></td><td>";
-            echo Building::procResType($jobs['type'])."<span class=\"none\"> (".LEVEL_TEXT." ".$jobs['level'].")</span>";
+            echo "<img src=\"img/x.gif\" class=\"del\" title=\"cancel\" alt=\"cancel\" /></a></td><td colspan=\"2\">";
+            echo Building::procResType($jobs['type'])."<span class=\"none\"> (".LEVEL_TEXT." ".$jobs['level'].")</span></td></tr>";
 			}
       	}
         ?>

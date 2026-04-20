@@ -253,7 +253,7 @@ function testSum() {
 			</tbody> 
 		</table> 
 		<p id="submitButton"> 
-	<?php if($session->gold >= 3) { ?><a href="javascript:document.snd.submit();"><?php echo TRADE_RESOURCES;?>)</a> <span class="none">(<?php echo COSTS;?>: <img src="img/x.gif" class="gold_g" alt="Gold" title="<?php echo GOLD;?>" /><b>3</b>)</span><?php } else { echo"<span class='none'>".TRADE_RESOURCES.")</span> (".COSTS.": <img src='img/x.gif' class='gold' alt='Gold' title='".GOLD."' /><b>3</b>)"; }?>	</p>
+	<?php if($session->gold >= 3 && $building->getTypeLevel(17) > 0) { ?><a href="javascript:document.snd.submit();"><?php echo TRADE_RESOURCES;?>)</a> <span class="none">(<?php echo COSTS;?>: <img src="img/x.gif" class="gold_g" alt="Gold" title="<?php echo GOLD;?>" /><b>3</b>)</span><?php } else { echo"<span class='none'>".TRADE_RESOURCES.")</span> (".COSTS.": <img src='img/x.gif' class='gold' alt='Gold' title='".GOLD."' /><b>3</b>)"; }?>	</p>
 		<p id="submitText"></p> 
 		</form> 
 		<script> 

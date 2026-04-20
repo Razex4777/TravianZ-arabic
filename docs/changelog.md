@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-04-20 21:10
+- **Feature: Academy Research Instant-Finish Clock Icon** — Added a gold clock icon (`buildingFinish=1`) to the research progress table (`under_progress`) in all 5 Academy tribe templates (`22_1.tpl` – `22_5.tpl`). When a player has ≥2 gold, a clickable clock icon appears next to the "RESEARCHING" header; clicking it calls `Building::finishAll()` which instantly completes the active research for 2 gold — no backend changes required as `finishAll()` already invokes `$technology->finishTech()`.
+
+## 2026-04-20 19:00
+- **Fix: Building Timer Crash (Root Cause)** — Fixed `mb()` in `unx.js` crashing when resource bar elements lacked the `number/number` format (e.g., crop at zero). Added null guard `if(!$b) return;` preventing the entire `start()` chain from aborting — root cause of ALL timers freezing on building pages.
+- **Fix: Double Timer Invocation** — Added global `_startCalled` flag to prevent `start()` being called twice by MooTools `domready` + native `DOMContentLoaded` fallback.
+- **Fix: Expired Timer False-Reload** — Modified `initCounter()` to skip timers with initial value `0`, preventing false-positive page reload on load.
+- **Fix: DOMContentLoaded Fallback** — Added native fallback in `build.php`, `dorf1.php`, and `dorf2.php` to ensure timer initialization always fires in modern browsers.
+- **UI Cleanup: Removed "Completed" Column** — Full audit of all `under_progress` tables in `Templates/Build/`. Removed the redundant COMPLETE header and `fin` date cell from `12_upgrades.tpl` (Blacksmith) and `13_upgrades.tpl` (Armoury). All other building progress tables confirmed clean.
 
 ## 2026-04-20 13:54
 - **Bug Fix: Infinite Crop Exploit in Immunity** - Fixed a bug where returning a player's crop to 1500 during page loads allowed them to spend crop and refresh to continuously spawn infinite 1500 crop. Moved the clamping logic to `processProduction` in `Village.php` so it strictly limits natural production decay (starvation) without refilling spent crop.

@@ -7,7 +7,7 @@
             echo CELEBRATION_NEEDS;
             echo "</td><td><span id=\"timer".++$session->timer."\">";
             echo $generator->getTimeFormat($timeleft - time());
-            echo "</span> ".HRS_TEXT."</td>";
+            echo "</span> </td>";
             echo "<td>".DONE_AT_TEXT." ".date('H:i', $timeleft)."</td></tr>";
 			echo "</table>";
 		}

@@ -54,13 +54,27 @@ function hb(jb){var kb=0,lb=0;if(typeof(window.innerWidth)=='number'){kb=window.
 else if(document.documentElement&&(document.documentElement.clientWidth||document.documentElement.clientHeight)){kb=document.documentElement.clientWidth;lb=document.documentElement.clientHeight;}
 else if(document.body&&(document.body.clientWidth||document.body.clientHeight)){kb=document.body.clientWidth;lb=document.body.clientHeight;}
 if(jb=='height')return lb;if(jb=='width')return kb;}
-var gmwds=false;function start(){mb("l1");mb("l2");mb("l3");mb("l4");initCounter();if(typeof init_local=='function'){init_local();}
-if(quest.number===null){qst_handle();}
-if(gmwds){gmwd();}
+var gmwds=false;
+var _startCalled=false;
+function start(){
+    // Guard against double invocation (MooTools domready + native fallback)
+    if(_startCalled) return;
+    _startCalled=true;
+    mb("l1");mb("l2");mb("l3");mb("l4");initCounter();if(typeof init_local=='function'){init_local();}
+    if(quest.number===null){qst_handle();}
+    if(gmwds){gmwd();}
 }
 function nb(){return new Date().getTime();}
 function db(){return Math.round(nb()/1000);}
-function ob(pb){p=pb.innerHTML.split(":");qb=p[0]*3600+p[1]*60+p[2]*1;return qb;}
+function ob(pb){
+    // Safely parse H:MM:SS from innerHTML. Returns the total seconds.
+    // Guard against malformed/empty strings that would produce NaN and crash initCounter.
+    var raw = (pb && pb.innerHTML) ? pb.innerHTML.trim() : '';
+    var p = raw.split(':');
+    if (p.length < 3) return 0;
+    var qb = (parseInt(p[0],10)||0)*3600 + (parseInt(p[1],10)||0)*60 + (parseInt(p[2],10)||0);
+    return (isNaN(qb) || qb < 0) ? 0 : qb;
+}
 function rb(s,sb){var tb,ub,vb;if(s>-2){tb=Math.floor(s/3600);ub=Math.floor(s/60)%60;vb=s%60;t=tb+":";if(ub<10){t+="0";}
 t+=ub+":";
 if(vb<10){t+="0";}
@@ -113,71 +127,104 @@ fd(fi2(act,act2,act3),function(mf){for(var qd in mf){quest[qd]=mf[qd];}},'POST',
 qst_wfm();
 }
 function initCounter(){
-for(var i=1;i<=200;i++){pb=document.getElementById("tp"+i);if(pb!=null){ab[i]=new Object();ab[i].node=pb;ab[i].counter_time=ob(pb);}}
-for(var i=1;i<=200;i++){pb=document.getElementById("timer"+i);if(pb!=null){bb[i]=new Object();bb[i].node=pb;bb[i].counter_time=ob(pb);}}
-executeCounter();}
-function executeCounter(){
-    for(var i in ab){
-	wb = db() - cb;
-	if (ab[i] && ab[i]['counter_time']) {
-		xb = rb(ab[i].counter_time + wb);
-	} else {
-		xb = 0;
-	}
-	ab[i].node.innerHTML = xb;
+    // tp* = upward clock (server time). Always register regardless of value.
+    for(var i=1;i<=200;i++){
+        pb=document.getElementById("tp"+i);
+        if(pb!=null){
+            ab[i]=new Object();
+            ab[i].node=pb;
+            ab[i].counter_time=ob(pb);
+        }
     }
-    for(i in bb){
-	wb = db() - cb;
-	
-	if (bb[i] && bb[i]['counter_time']) {
-		yb = bb[i].counter_time - wb;
-	} else {
-		eb = 0;
-		yb = -1;
-	}
-	// console.log('yb: ' + yb);
-	if(eb == 0 && yb < 0){
-	    bb[i] = null;
-	    eb = 1;
-	    if (!window.reloading) {
-	    	setTimeout(function() {
-					// reload after automation is ran
-					automation( function() {
-						window.location.href = window.location.href;
-					} );
-
-					// backup timer in case automation XHR fails
-					setTimeout(function() {
-						window.location.href = window.location.href;
-					}, 15000);
-				},1000);
-	    	window.reloading = true;
-	    }
-	}
-	//    eb = 1;
-	//    if(auto_reload == 1){
-	//	setTimeout("document.location.reload()",1000);
-	//    }
-	//    else if(auto_reload==0){
-	//	setTimeout("mreload()",1000);
-	//    }
-	//}
-	else{
-	    xb=rb(yb);
-	    bb[i].node.innerHTML = xb;
-	}
-	/*if(eb == 0 && yb >= 0){
-	    setTimeout("executeCounter()",1000);
-	}*/
+    // timer* = countdown timer. Only register if there is actual time left (>0).
+    // A timer that starts at 0:00:00 is already expired — skip it to prevent
+    // an immediate false-positive page reload on load.
+    for(var i=1;i<=200;i++){
+        pb=document.getElementById("timer"+i);
+        if(pb!=null){
+            var t=ob(pb);
+            if(t > 0){
+                bb[i]=new Object();
+                bb[i].node=pb;
+                bb[i].counter_time=t;
+            }
+        }
+    }
+    executeCounter();
+}
+function executeCounter(){
+    for(var i=1; i<=200; i++){
+        if (ab[i] && ab[i].node) {
+            wb = db() - cb;
+            if (ab[i]['counter_time']) {
+                xb = rb(ab[i].counter_time + wb);
+            } else {
+                xb = 0;
+            }
+            ab[i].node.innerHTML = xb;
+        }
+        
+        if (bb[i] && bb[i].node) {
+            wb = db() - cb;
+            if (bb[i]['counter_time']) {
+                yb = bb[i].counter_time - wb;
+            } else {
+                eb = 0;
+                yb = -1;
+            }
+            if(eb == 0 && yb < 0){
+                bb[i] = null;
+                eb = 1;
+                if (!window.reloading) {
+                    setTimeout(function() {
+                        automation( function() {
+                            window.location.href = window.location.href;
+                        } );
+                        setTimeout(function() {
+                            window.location.href = window.location.href;
+                        }, 15000);
+                    },1000);
+                    window.reloading = true;
+                }
+            } else {
+                xb=rb(yb);
+                bb[i].node.innerHTML = xb;
+            }
+        }
     }
     setTimeout("executeCounter()",1000);
 }
 
-function mb(zb){pb=document.getElementById(zb);if(pb!=null){fb[zb]=new Object();var $b=pb.innerHTML.match(/(-?\d+)\/(\d+)/);element=$b[0].split("/");_b=parseInt(element[0]);ac=parseInt(element[1]);bc=pb.title;if(bc!=0){cc=nb();timer[zb]=new Object();timer[zb].start=cc;timer[zb].production=bc;timer[zb].start_res=_b;timer[zb].max_res=ac;timer[zb].ms=3600000/Math.abs(bc);dc=100;if(timer[zb].ms<dc){timer[zb].ms=dc;}
-timer[zb].node=pb;executeTimer(zb);}
-else
-{timer[zb]=new Object();fb[zb].value=_b;}
-}
+function mb(zb){
+    pb=document.getElementById(zb);
+    if(pb!=null){
+        fb[zb]=new Object();
+        var $b=pb.innerHTML.match(/(-?\d+)\/(\d+)/);
+        // Guard: if innerHTML doesn't contain "number/number" format, skip this element.
+        // Without this guard, a null match crashes start() and prevents initCounter() from running,
+        // which is the root cause of ALL timers freezing across ALL building pages.
+        if(!$b) return;
+        element=$b[0].split("/");
+        _b=parseInt(element[0]);
+        ac=parseInt(element[1]);
+        bc=pb.title;
+        if(bc!=0){
+            cc=nb();
+            timer[zb]=new Object();
+            timer[zb].start=cc;
+            timer[zb].production=bc;
+            timer[zb].start_res=_b;
+            timer[zb].max_res=ac;
+            timer[zb].ms=3600000/Math.abs(bc);
+            dc=100;
+            if(timer[zb].ms<dc){timer[zb].ms=dc;}
+            timer[zb].node=pb;
+            executeTimer(zb);
+        } else {
+            timer[zb]=new Object();
+            fb[zb].value=_b;
+        }
+    }
 }
 function executeTimer(zb){wb=nb()-timer[zb].start;if(wb>=0){ec=Math.round(timer[zb].start_res+wb*(timer[zb].production/3600000));if(ec>=timer[zb].max_res){ec=timer[zb].max_res;}
 else if(ec<0){ec=0;}

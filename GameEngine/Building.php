@@ -545,7 +545,7 @@ class Building {
             case 15:
             case 16: return !$isBuilt;
             
-            case 17: return $this->getTypeLevel(15) >= 3 && $this->getTypeLevel(10) >= 1 && $this->getTypeLevel(11) >= 1 && !$isBuilt;
+            case 17: return $this->getTypeLevel(15) >= 3 && !$isBuilt;
             case 18: return $this->getTypeLevel(15) >= 1 && !$isBuilt;
             case 19: return $this->getTypeLevel(15) >= 3 && $this->getTypeLevel(16) >= 1 && !$isBuilt;
             case 20: return $this->getTypeLevel(12) >= 3 && $this->getTypeLevel(22) >= 5 && !$isBuilt;

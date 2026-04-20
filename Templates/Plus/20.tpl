@@ -112,6 +112,60 @@ if (isset($_POST['activate_protection']) && isset($_POST['password'])) {
         header("Location: plus.php?id=3&error=sit_active");
         exit;
     }
+} elseif (isset($_POST['remove_protection']) && isset($_POST['password'])) {
+
+    // --- CSRF Validation ---
+    if (
+        !isset($_POST['csrf_token']) ||
+        !isset($_SESSION['csrf_token']) ||
+        !hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])
+    ) {
+        header("Location: plus.php?id=3&error=csrf");
+        exit;
+    }
+    unset($_SESSION['csrf_token']);
+
+    $password = $_POST['password'];
+    
+    // Verify password
+    $stmt = mysqli_prepare($database->dblink, "SELECT password, is_bcrypt FROM " . TB_PREFIX . "users WHERE `id`=?");
+    mysqli_stmt_bind_param($stmt, 'i', $session->uid);
+    mysqli_stmt_execute($stmt);
+    $userRow = mysqli_stmt_get_result($stmt);
+    $userData = mysqli_fetch_array($userRow);
+    mysqli_stmt_close($stmt);
+
+    if (!$userData) {
+        header("Location: plus.php?id=3&error=user");
+        exit;
+    }
+    
+    // Password verification
+    $passwordValid = false;
+    if ($userData['is_bcrypt'] == 1) {
+        $passwordValid = password_verify($password, $userData['password']);
+    } else {
+        $passwordValid = (md5($password) === $userData['password']);
+    }
+    
+    if (!$passwordValid) {
+        header("Location: plus.php?id=3&error=password_remove");
+        exit;
+    }
+
+    if ($session->sit == 0) {
+        // Remove protection
+        $stmtUpdate = mysqli_prepare($database->dblink, "UPDATE " . TB_PREFIX . "users SET gold_protect = 0 WHERE `id` = ?");
+        mysqli_stmt_bind_param($stmtUpdate, 'i', $session->uid);
+        mysqli_stmt_execute($stmtUpdate);
+        mysqli_stmt_close($stmtUpdate);
+
+        header("Location: plus.php?id=3&success=protection_removed");
+        exit;
+    } else {
+        header("Location: plus.php?id=3&error=sit_active");
+        exit;
+    }
 } else {
     header("Location: plus.php?id=3");
     exit;

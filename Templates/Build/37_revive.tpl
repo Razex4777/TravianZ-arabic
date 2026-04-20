@@ -81,7 +81,7 @@
 				        <?php
                             //-- If available resources combined are not enough, remove NPC button
                             $total_required = (int)($wood + $clay + $iron + $crop);
-                            if($session->gold >= 3) {
+                            if($session->gold >= 3 && $building->getTypeLevel(17) > 0) {
                    echo " | <a href=\"build.php?gid=17&t=3&r1=".$wood."&r2=".$clay."&r3=".$iron."&r4=".$crop."\"><img class=\"npc\" src=\"img/x.gif\" alt=\"NPC\" title=\"NPC\" /></a>";
                  			}
 				        ?>
@@ -119,7 +119,7 @@
 				        <?php
                             //-- If available resources combined are not enough, remove NPC button
                             $total_required = (int)($wood + $clay + $iron + $crop);
-                            if($session->gold >= 3) {
+                            if($session->gold >= 3 && $building->getTypeLevel(17) > 0) {
                    echo " | <a href=\"build.php?gid=17&t=3&r1=".$wood."&r2=".$clay."&r3=".$iron."&r4=".$crop."\"><img class=\"npc\" src=\"img/x.gif\" alt=\"NPC\" title=\"NPC\" /></a>";
                  			}
 				        ?>

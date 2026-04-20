@@ -61,6 +61,11 @@ class MyGenerator {
 	}
 
 	public function getTimeFormat($time) {
+		// Guard against negative time (server lag, stale data, etc.)
+		// A negative value would produce garbled output like "0:00:-5"
+		// which breaks the JS ob() parser and freezes all timers.
+		if ($time < 0) $time = 0;
+
 		$min = $hr = $days = 0;
 		
 		while($time >= 60){

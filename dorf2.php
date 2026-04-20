@@ -54,8 +54,22 @@ else $building->procBuild($_GET);
 	}
 	?>
 	<script type="text/javascript">
-
+		// Primary: MooTools domready
 		window.addEvent('domready', start);
+		// Fallback: native DOMContentLoaded for modern browsers
+		(function(){
+			var _started = false;
+			function _safeStart() {
+				if (_started) return;
+				_started = true;
+				if (typeof start === 'function') start();
+			}
+			if (document.readyState === 'loading') {
+				document.addEventListener('DOMContentLoaded', _safeStart);
+			} else {
+				_safeStart();
+			}
+		})();
 	</script>
 
 	<?php if(defined('LANG') && LANG === 'ar'): ?>

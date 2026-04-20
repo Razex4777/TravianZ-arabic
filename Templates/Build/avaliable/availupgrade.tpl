@@ -35,7 +35,8 @@ $uprequire = $building->resourceRequired($id, $bid);
 ?>	</br>
 <?php
 	if($session->gold >= 1 && $village->master == 0){
-	    echo "<a class=\"build\" href=\"dorf2.php?master=$bid&id=$id&c=$session->checker\">" . CONSTRUCTING_MASTER_BUILDER . "</a>";
+        $dorfType = ($id <= 18) ? 'dorf1.php' : 'dorf2.php';
+	    echo "<a class=\"build\" href=\"".$dorfType."?master=$bid&id=$id&c=$session->checker\">" . CONSTRUCTING_MASTER_BUILDER . "</a>";
 		echo '<font color="#B3B3B3">(costs: <img src="'.GP_LOCATE.'img/a/gold_g.gif" alt="Gold" title="Gold"/>1)</font>';
 	}else{
 		echo "<span class=\"none\">" . CONSTRUCTING_MASTER_BUILDER . "</span>";
@@ -49,7 +50,8 @@ $uprequire = $building->resourceRequired($id, $bid);
 ?>	</br>
 <?php
 	if($session->gold >= 1 && $village->master == 0){
-	    echo "<a class=\"build\" href=\"dorf2.php?master=$bid&id=$id&c=$session->checker\">" . CONSTRUCTING_MASTER_BUILDER . "</a>";
+        $dorfType = ($id <= 18) ? 'dorf1.php' : 'dorf2.php';
+	    echo "<a class=\"build\" href=\"".$dorfType."?master=$bid&id=$id&c=$session->checker\">" . CONSTRUCTING_MASTER_BUILDER . "</a>";
 		echo '<font color="#B3B3B3">(costs: <img src="'.GP_LOCATE.'img/a/gold_g.gif" alt="Gold" title="Gold"/>1)</font>';
 	}else{
 		echo "<span class=\"none\">" . CONSTRUCTING_MASTER_BUILDER . "</span>";
@@ -73,7 +75,8 @@ $uprequire = $building->resourceRequired($id, $bid);
 ?>	</br>
 <?php
 	if($session->gold >= 1 && $village->master == 0){
-	    echo "<a class=\"build\" href=\"dorf2.php?master=$bid&id=$id&c=$session->checker\">" . CONSTRUCTING_MASTER_BUILDER . "</a>";
+        $dorfType = ($id <= 18) ? 'dorf1.php' : 'dorf2.php';
+	    echo "<a class=\"build\" href=\"".$dorfType."?master=$bid&id=$id&c=$session->checker\">" . CONSTRUCTING_MASTER_BUILDER . "</a>";
 		echo '<font color="#B3B3B3">(costs: <img src="'.GP_LOCATE.'img/a/gold_g.gif" alt="Gold" title="Gold"/>1)</font>';
 	}else{
 		echo "<span class=\"none\">" . CONSTRUCTING_MASTER_BUILDER . "</span>";
@@ -83,7 +86,8 @@ $uprequire = $building->resourceRequired($id, $bid);
      }
      else if($bindicator == 8) {
 	 if($session->access!=BANNED){
-     	echo "<a class=\"build\" href=\"dorf2.php?a=$bid&id=$id&c=".$session->checker."\">". CONSTRUCT_BUILD."</a>";
+        $dorfType = ($id <= 18) ? 'dorf1.php' : 'dorf2.php';
+     	echo "<a class=\"build\" href=\"".$dorfType."?a=$bid&id=$id&c=".$session->checker."\">". CONSTRUCT_BUILD."</a>";
 	 }else{
 		echo "<a class=\"build\" href=\"banned.php\">". CONSTRUCT_BUILD."</a>";
 	 }
@@ -91,7 +95,8 @@ $uprequire = $building->resourceRequired($id, $bid);
      else if($bindicator == 9) {
      $wait_text = (defined('LANG') && LANG == 'ar') ? 'تشييد المبنى (قائمة الانتظار)' : 'Construct building. (waiting loop)';
 	 if($session->access!=BANNED){
-     	echo "<a class=\"build\" href=\"dorf2.php?a=$bid&id=$id&c=".$session->checker."\">".$wait_text."</a>";
+        $dorfType = ($id <= 18) ? 'dorf1.php' : 'dorf2.php';
+     	echo "<a class=\"build\" href=\"".$dorfType."?a=$bid&id=$id&c=".$session->checker."\">".$wait_text."</a>";
 	 }else{
 		echo "<a class=\"build\" href=\"banned.php?a=$bid&id=$id&c=".$session->checker."\">".$wait_text."</a>";
 	 }

@@ -17,8 +17,11 @@
 </div>
 <?php
 $_protect_ts = isset($session->userinfo['protect']) ? (int)$session->userinfo['protect'] : 0;
-if ($_protect_ts > time()) {
-    $_protect_remaining = $_protect_ts - time();
+$_gold_protect_ts = isset($session->userinfo['gold_protect']) ? (int)$session->userinfo['gold_protect'] : 0;
+$_active_protect_ts = max($_protect_ts, $_gold_protect_ts);
+
+if ($_active_protect_ts > time()) {
+    $_protect_remaining = $_active_protect_ts - time();
 ?>
     <div id="bp_timer_box" style="position: absolute; left: 20px; top: 20px; background: #1cb5c9; color: white; border-radius: 12px; padding: 5px 12px; font-weight: bold; font-family: Tahoma, Arial, sans-serif; font-size: 14px; display: flex; align-items: center; gap: 6px; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.3);">
         <span style="font-size: 16px;">🕊️</span>

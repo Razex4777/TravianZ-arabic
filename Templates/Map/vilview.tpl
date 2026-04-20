@@ -506,7 +506,7 @@ if($type >= 18 && $type <= 21){
 			echo "&raquo; ".SENDTROOP." (".BAN.")";
 		  } else if($data2['vac_mode']=='1') {
 			echo "&raquo; " . (defined('LANG') && LANG === 'ar' ? 'إرسال قوات. (وضع الإجازة مفعل)' : 'Send troops. (Vacation mode on)');
-          } else if($data2['protect'] < time()) {
+          } else if($data2['protect'] < time() && $data2['gold_protect'] < time()) {
             echo $village->resarray['f39'] > 0 ? "<a href=\"a2b.php?s=2&z=".$_GET['d']."\">&raquo; ".SENDTROOP : "&raquo; ".SENDTROOP." (".BUILDRALLY.")"; 
           } else {
             echo "&raquo; ".SENDTROOP." (".BEGINPRO.")";

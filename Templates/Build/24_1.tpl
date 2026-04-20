@@ -18,7 +18,7 @@
                     echo $generator->getTimeFormat(round($cel[$i]['time'] * ($bid24[$building->getTypeLevel(24)]['attri'] / 100)/SPEED));
                    //-- If available resources combined are not enough, remove NPC button
                    $total_required = (int)($cel[$i]['wood'] + $cel[$i]['clay'] + $cel[$i]['iron'] + $cel[$i]['crop']);
-                   if($session->gold >= 3) {
+                   if($session->gold >= 3 && $building->getTypeLevel(17) > 0) {
                    echo " | <a href=\"build.php?gid=17&t=3&r1=".$cel[$i]['wood']."&r2=".$cel[$i]['clay']."&r3=".$cel[$i]['iron']."&r4=".$cel[$i]['crop']."\"><img class=\"npc\" src=\"img/x.gif\" alt=\"NPC\" title=\"NPC\" /></a>";
                    }		   
 				if($inuse > $time){
@@ -51,7 +51,7 @@
                     echo $generator->getTimeFormat(round($gc[$level]/SPEED));
                    //-- If available resources combined are not enough, remove NPC button
                    $total_required = (int)(29700 + 33250 + 32000 + 6700);
-                   if($session->gold >= 3) {
+                   if($session->gold >= 3 && $building->getTypeLevel(17) > 0) {
                    echo " | <a href=\"build.php?gid=17&t=3&r1=29700&r2=33250&r3=32000&r4=6700\"><img class=\"npc\" src=\"img/x.gif\" alt=\"NPC\" title=\"NPC\" /></a>";
                    }
                 	if($inuse > $time){

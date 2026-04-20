@@ -1,4 +1,4 @@
-﻿<?php if($session->goldclub == 1 && count($database->getProfileVillages($session->uid)) > 1) { ?>
+<?php if($session->goldclub == 1 && count($database->getProfileVillages($session->uid)) > 1) { ?>
 <div id="build" class="gid17"><a href="#" onClick="return Popup(17,4);" class="build_logo"> 
 	<img class="building g17" src="img/x.gif" alt="Marketplace" title="<?php echo MARKETPLACE;?>" /> 
 </a> 
@@ -67,7 +67,7 @@ echo "".TRADE_ROUTE_TO." <a href=karte.php?d=".$route['wid']."&c=".$generator->g
 		* <?php echo EXTEND_TRADE_ROUTES;?> <img src="../../<?php echo GP_LOCATE; ?>img/a/gold.gif" alt="Gold" title="<?php echo GOLD;?>"><b>2</b>
 <br>
 <div class="options">
-    <a class="arrow" href="build.php?gid=17&t=4&create">» <?php echo CREATE_TRADE_ROUTES;?></a>
+    <a class="arrow" href="build.php?gid=17&t=4&create">� <?php echo CREATE_TRADE_ROUTES;?></a>
 </div>
 	</div>
 

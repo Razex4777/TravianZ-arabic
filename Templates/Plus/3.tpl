@@ -71,6 +71,11 @@ if (isset($_GET['nopaid'])) {
     </div>';
 }
 
+if (isset($_GET['success']) && $_GET['success'] == 'protection_removed') {
+    echo '<div style="background-color:#ffebeb; border:1px solid #cc0000; padding:10px; margin:10px 0; border-radius:4px; text-align:center;">
+        <span style="color:#cc0000; font-weight:bold; font-size:14px;">'.((defined('LANG') && LANG === 'ar') ? 'تم إزالة الحماية بنجاح' : 'Protection has been removed successfully').'</span>
+    </div>';
+}
 ?>
 <table class="plusFunctions" cellpadding="1" cellspacing="1">
 	<thead>
@@ -789,10 +794,27 @@ if ($isProtected) {
 								: 'Cost: ' . number_format($protectCost) . ' gold (activation #' . ($protectCount + 1) . ')'; ?>
 						</span>
 					</form>
+<?php else: ?>
+					<br /><br />
+					<?php if (isset($_GET['error']) && $_GET['error'] == 'password_remove'): ?>
+						<span style="color:red; font-weight:bold;"><?php echo (defined('LANG') && LANG === 'ar') ? '❌ كلمة السر غير صحيحة!' : '❌ Incorrect password!'; ?></span><br />
+					<?php endif; ?>
+					<form method="POST" action="plus.php?id=20" id="removeProtectForm" style="display:inline;">
+						<input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>" />
+						<label style="color:#cc0000; font-weight:bold;"><?php echo (defined('LANG') && LANG === 'ar') ? 'كلمة السر لإزالة الحماية:' : 'Password to remove:'; ?></label>
+						<input type="password" name="password" required style="width:120px;" />
+						<input type="hidden" name="remove_protection" value="1" />
+					</form>
 <?php endif; ?>
 				</td>
 				<td class="dur"><?php echo (defined('LANG') && LANG === 'ar') ? '24 ساعة' : '24 Hours'; ?></td>
-				<td class="cost"><img src="img/x.gif" class="gold" alt="Gold" title="Gold" /><?php echo number_format($protectCost); ?></td>
+				<td class="cost">
+				<?php if ($isProtected): ?>
+					<span style="color:green; font-weight:bold;"><?php echo (defined('LANG') && LANG === 'ar') ? 'مجاناً' : 'Free'; ?></span>
+				<?php else: ?>
+					<img src="img/x.gif" class="gold" alt="Gold" title="Gold" /><?php echo number_format($protectCost); ?>
+				<?php endif; ?>
+				</td>
 				<td class="act">
 <?php
 if (!$isProtected) {
@@ -802,7 +824,7 @@ if (!$isProtected) {
         echo '<span class="gold-btn disabled">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold').'</span>';
     }
 } else {
-    echo '<span style="color:#71D000; font-weight:bold;">✅</span>';
+    echo '<button type="submit" form="removeProtectForm" class="gold-btn" style="background:#cc0000; color:white; border-color:#990000;">'.((defined('LANG') && LANG === 'ar') ? '❌ إزالة' : '❌ Remove').'</button>';
 }
 ?>
 				</td>
