@@ -35,7 +35,7 @@ if (!empty($village)) {
     $woodClass = '';
     $clayClass = '';
     $ironClass = '';
-    $cropClass = ($crop < 0) ? ' res_full' : '';
+    $cropClass = ($crop < 0) ? ' crop-neg' : '';
 ?>
 
 <div id="res">
@@ -65,18 +65,16 @@ if (!empty($village)) {
 
 		<?php if($acrop > 0){ ?>
 		<div class="res-pill-wrap">
-			<div title="<?php echo $crop; ?>" class="res-pill<?php echo $cropClass; ?><?php echo ($crop < 0) ? ' crop-neg' : ''; ?>" data-prod="<?php echo $crop; ?>" data-max="<?php echo $maxcrop; ?>" style="--fill-percent: <?php echo $cropPercent; ?>%;">
+			<div title="<?php echo $crop; ?>" class="res-pill<?php echo $cropClass; ?>" data-prod="<?php echo $crop; ?>" data-max="<?php echo $maxcrop; ?>" style="--fill-percent: <?php echo $cropPercent; ?>%;">
 				<img src="img/x.gif" class="r4" alt="<?php echo CROP; ?>" title="<?php echo CROP; ?>" />
 				<span id="l1" dir="ltr"><span class="res-cur"><?php echo $acrop; ?></span><span class="res-sep">/</span><span class="res-max"><?php echo $maxcrop; ?></span></span>
-				<?php if($crop < 0){ ?><span class="res-prod-neg" dir="ltr"><?php echo $crop; ?></span><?php } ?>
 			</div>
 		</div>
 		<?php }else{ ?>
 		<div class="res-pill-wrap">
-			<div title="<?php echo $crop; ?>" class="res-pill<?php echo ($crop < 0) ? ' crop-neg' : ''; ?>" data-prod="<?php echo $crop; ?>" data-max="<?php echo $maxcrop; ?>" style="--fill-percent: 0%;">
+			<div title="<?php echo $crop; ?>" class="res-pill<?php echo $cropClass; ?>" data-prod="<?php echo $crop; ?>" data-max="<?php echo $maxcrop; ?>" style="--fill-percent: 0%;">
 				<img src="img/x.gif" class="r4" alt="<?php echo CROP; ?>" title="<?php echo CROP; ?>" />
 				<span dir="ltr"><span class="res-cur">0</span><span class="res-sep">/</span><span class="res-max"><?php echo $maxcrop; ?></span></span>
-				<?php if($crop < 0){ ?><span class="res-prod-neg" dir="ltr"><?php echo $crop; ?></span><?php } ?>
 			</div>
 		</div>
 		<?php } ?>

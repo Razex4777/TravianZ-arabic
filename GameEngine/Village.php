@@ -135,17 +135,9 @@ class Village {
 		    $resourceUpdates['crop'] = $this->maxcrop; 
 		}
 		
-		if($this->acrop < 0)
-		{
-            $now = time();
-            $res = @mysqli_query($database->dblink, "SELECT crop_immunity FROM " . TB_PREFIX . "vdata WHERE wref = " . (int)$this->wid);
-            if ($res && mysqli_num_rows($res)) {
-                $row = mysqli_fetch_assoc($res);
-                if (isset($row['crop_immunity']) && $row['crop_immunity'] > $now) {
-                    $this->acrop = 0;
-                    $resourceUpdates['crop'] = 0;
-                }
-            }
+		if($this->acrop < 0) {
+		    $this->acrop = 0; 
+		    $resourceUpdates['crop'] = 0; 
 		}
 
 		if (count($resourceUpdates)) {
@@ -183,6 +175,8 @@ class Village {
 			$netCrop = $netCrop + $cropBonus;
 		}
 		
+
+		
 		$this->production['crop'] = $netCrop;
 	}
 
@@ -194,6 +188,28 @@ class Village {
 		$nclay = min(($this->production['clay'] / 3600) * $timepast, $this->maxstore);
 		$niron = min(($this->production['iron'] / 3600) * $timepast, $this->maxstore);
 		$ncrop = min(($this->production['crop'] / 3600) * $timepast, $this->maxcrop);
+		
+		$now = time();
+		$res = @mysqli_query($database->dblink, "SELECT crop_immunity FROM " . TB_PREFIX . "vdata WHERE wref = " . (int)$this->wid);
+		$has_immunity = false;
+		if ($res && mysqli_num_rows($res)) {
+			$row = mysqli_fetch_assoc($res);
+			if (isset($row['crop_immunity']) && $row['crop_immunity'] > $now) {
+				$has_immunity = true;
+			}
+		}
+
+		if ($has_immunity && $ncrop < 0) {
+		    $max_drop = $this->acrop - 1500;
+		    if ($max_drop < 0) {
+		        $ncrop = 0; 
+		    } else {
+		        if (abs($ncrop) > $max_drop) {
+		            $ncrop = -$max_drop;
+		        }
+		    }
+		}
+
 		call_user_func(get_class($database).'::clearVillageCache');
 		$database->modifyResource($this->wid, $nwood, $nclay, $niron, $ncrop, 1);
 		$database->updateVillage($this->wid);

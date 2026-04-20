@@ -1,6 +1,7 @@
 <?php
 //TODO: Reduce this file by a lot, by using arrays
 try { @mysqli_query($database->dblink, "ALTER TABLE " . TB_PREFIX . "vdata ADD COLUMN crop_immunity INT(11) UNSIGNED NOT NULL DEFAULT 0"); } catch (\Exception $e) {}
+try { @mysqli_query($database->dblink, "ALTER TABLE " . TB_PREFIX . "users ADD COLUMN paid_gold INT(9) NOT NULL DEFAULT 0"); } catch (\Exception $e) {}
 // Generate CSRF token for forms on this page
 if (empty($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
@@ -64,11 +65,17 @@ if (mysqli_num_rows($MyGold)) {
         echo "<p>".((defined('LANG') && LANG === 'ar') ? 'لديك حالياً <b> '.$session->gold.' </b> ذهب' : 'You currently have <b> '.$session->gold.' </b>  gold')."</p>";
 }
 
+if (isset($_GET['nopaid'])) {
+    echo '<div style="background-color:rgba(255,0,0,0.1); border:1px solid red; padding:10px; margin-bottom:15px; border-radius:4px; text-align:center;">
+        <a href="plus1.php" style="color:red; font-weight:bold; font-size:14px; text-decoration:none;">'.((defined('LANG') && LANG === 'ar') ? 'رصيد الذهب المدفوع منخفض اضغط هنا للشراء' : 'Insufficient paid gold, click here to buy').'</a>
+    </div>';
+}
+
 ?>
 <table class="plusFunctions" cellpadding="1" cellspacing="1">
 	<thead>
 		<tr>
-			<th colspan="5"><?php echo (defined('LANG') && LANG === 'ar') ? 'خصائص <font color="#71D000">بلاس</font>' : '<font color="#71D000">P</font><font color="#FF6F0F">l</font><font color="#71D000">u</font><font color="#FF6F0F">s</font> Functions'; ?></th>
+			<th colspan="5"><?php echo (defined('LANG') && LANG === 'ar') ? 'خصائص <font color="#FF6F0F">بلاس</font>' : '<font color="#71D000">P</font><font color="#FF6F0F">l</font><font color="#71D000">u</font><font color="#FF6F0F">s</font> Functions'; ?></th>
 		</tr>
 		<tr>
 			<td></td>
@@ -84,7 +91,7 @@ if (mysqli_num_rows($MyGold)) {
 		<tr>
 			<td class="man"><a href="#" onClick="return Popup(0,6);"><img
 					class="help" src="img/x.gif" alt="" title="" /></a></td>
-			<td class="desc"><b><?php echo (defined('LANG') && LANG === 'ar') ? 'حساب <font color="#71D000">بلاس</font>' : '<font color="#71D000">P</font><font color="#FF6F0F">l</font><font color="#71D000">u</font><font color="#FF6F0F">s</font> Account'; ?></b><br /> <span class="run">
+			<td class="desc"><b><?php echo (defined('LANG') && LANG === 'ar') ? 'حساب <font color="#FF6F0F">بلاس</font>' : '<font color="#71D000">P</font><font color="#FF6F0F">l</font><font color="#71D000">u</font><font color="#FF6F0F">s</font> Account'; ?></b><br /> <span class="run">
 <?php
 $datetimep = $golds['plus'];
 $datetime1 = $golds['b1'];
@@ -104,16 +111,22 @@ function formatRemainingTime($endTimestamp, $nowTimestamp) {
     }
 
     $days = intdiv($remaining, 86400);
-    $remaining %= 86400;
-    $hours = intdiv($remaining, 3600);
-    $remaining %= 3600;
-    $mins = intdiv($remaining, 60);
-    $secs = $remaining % 60;
+    $rem = $remaining % 86400;
+    $hours = intdiv($rem, 3600);
+    $rem %= 3600;
+    $mins = intdiv($rem, 60);
+    $secs = $rem % 60;
 
-    if(defined('LANG') && LANG === 'ar') {
-        return 'المتبقي: <b>'.$days.'</b> أيام <b>'.$hours.'</b> ساعات <b>'.$mins.'</b> دقائق <b>'.$secs.'</b> ثواني (حتى '.date('H:i:s', (int)$endTimestamp).')';
+    $untilStr = date('H:i:s', (int)$endTimestamp);
+    $isAr = (defined('LANG') && LANG === 'ar') ? 1 : 0;
+
+    if($isAr) {
+        $html = 'المتبقي: <b>'.$days.'</b> أيام <b>'.$hours.'</b> ساعات <b>'.$mins.'</b> دقائق <b>'.$secs.'</b> ثواني (حتى '.$untilStr.')';
+    } else {
+        $html = 'Remaining: <b>'.$days.'</b> days <b>'.$hours.'</b> hours <b>'.$mins.'</b> mins <b>'.$secs.'</b> secs (until '.$untilStr.')';
     }
-    return 'Remaining: <b>'.$days.'</b> days <b>'.$hours.'</b> hours <b>'.$mins.'</b> mins <b>'.$secs.'</b> secs (until '.date('H:i:s', (int)$endTimestamp).')';
+
+    return '<span class="live-plus-timer" data-remaining="'.$remaining.'" data-ar="'.$isAr.'" data-until="'.$untilStr.'">'.$html.'</span>';
 }
 
 if ($datetimep == 0) echo ((defined('LANG') && LANG === 'ar') ? 'احصل على بلس' : 'get PLUS')."<br>";
@@ -413,7 +426,7 @@ if ($session->access != BANNED) {
                 echo '<a href="plus.php?id=18" class="gold-btn">'.((defined('LANG') && LANG === 'ar') ? '🔄 تمديد' : '🔄 Extend').'</a>';
             }
         } else {
-            echo '<span class="gold-btn disabled">'.((defined('LANG') && LANG === 'ar') ? 'مخزن الحبوب اكثر من 0' : 'Granary is more than 0').'</span>';
+            echo '<span class="gold-btn disabled">'.((defined('LANG') && LANG === 'ar') ? 'إنتاج القمح أكثر من 0' : 'Crop production is more than 0').'</span>';
         }
     } else {
         echo '<span class="gold-btn disabled">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold').'</span>';
@@ -602,10 +615,8 @@ $_playerGold = (int)$golds['gold'];
 				<td class="cost"><img src="img/x.gif" class="gold" alt="Gold" title="Gold" /><?php echo (defined('LANG') && LANG === 'ar') ? 'متغير' : 'varies'; ?></td>
 				<td class="act">
 <?php
-if ($session->access != BANNED && $golds['gold'] >= 1) {
+if ($session->access != BANNED) {
     echo '<button type="submit" name="buy_resources" form="buyResourcesForm" class="gold-btn">'.((defined('LANG') && LANG === 'ar') ? '💰 شراء' : '💰 Buy').'</button>';
-} else {
-    echo '<span class="gold-btn disabled">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافي' : 'too little gold').'</span>';
 }
 ?>
 				</td>
@@ -702,7 +713,7 @@ if ($session->access != BANNED && $golds['gold'] >= 1) {
 				<td class="man"><a href="#"><img class="help" src="img/x.gif" alt="" title="" /></a></td>
 				<td class="desc">
 					<b><?php echo (defined('LANG') && LANG === 'ar') ? 'تعبئة مخازن الحبوب ومنع السالب لمدة ساعة' : 'Crop Refill & Protect (1 hr)'; ?></b><br/>
-					<span><?php echo (defined('LANG') && LANG === 'ar') ? 'يملأ مخازن الحبوب للحد الأقصى ويمنعها من النزول تحت الصفر' : 'Refills crop to max and prevents it from going below 0.'; ?></span><br/>
+					<span><?php echo (defined('LANG') && LANG === 'ar') ? 'يملأ مخازن الحبوب للحد الأقصى ويمنعها من النزول تحت 1500' : 'Refills crop to max and prevents it from going below 1500.'; ?></span><br/>
                     <span class="run">
 <?php
 // Display remaining time if active
@@ -719,19 +730,17 @@ if ($res) {
                     </span>
 				</td>
 				<td class="dur">1 <?php echo (defined('LANG') && LANG === 'ar') ? 'ساعة' : 'Hour'; ?></td>
-				<td class="cost"><img src="img/x.gif" class="gold" alt="Gold" title="Gold" />10,000</td>
+				<td class="cost"><img src="img/x.gif" class="gold" alt="Gold" title="Gold" />350</td>
 				<td class="act">
 					<form method="POST" action="plus.php?id=21" style="display:inline;">
 						<input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>" />
 <?php 
-if ($session->access != BANNED && $golds['gold'] >= 10000) {
+if ($session->access != BANNED) {
     if ($village->getProd("crop") < 0) {
         echo '<button type="submit" class="gold-btn">'.((defined('LANG') && LANG === 'ar') ? 'تفعيل' : 'Activate').'</button>';
     } else {
-        echo '<span class="gold-btn disabled">'.((defined('LANG') && LANG === 'ar') ? 'الإنتاج غير سالب' : 'Not negative').'</span>';
+        echo '<span class="gold-btn disabled">'.((defined('LANG') && LANG === 'ar') ? 'مخزن الحبوب اكثر من 0' : 'Crop storage is more than 0').'</span>';
     }
-} else {
-    echo '<span class="gold-btn disabled">'.((defined('LANG') && LANG === 'ar') ? 'ذهب غير كافٍ' : 'too little gold').'</span>';
 }
 ?>
 					</form>
@@ -802,3 +811,34 @@ if (!$isProtected) {
 		</tbody>
 	</table>
 </div>
+
+<script>
+setInterval(function() {
+    var timers = document.querySelectorAll('.live-plus-timer');
+    timers.forEach(function(el) {
+        var remaining = parseInt(el.getAttribute('data-remaining'));
+        if (remaining <= 0) return;
+        remaining--;
+        el.setAttribute('data-remaining', remaining);
+        
+        var isAr = el.getAttribute('data-ar') === '1';
+        var d = Math.floor(remaining / 86400);
+        var r = remaining % 86400;
+        var h = Math.floor(r / 3600);
+        r %= 3600;
+        var m = Math.floor(r / 60);
+        var s = r % 60;
+        
+        var untilStr = el.getAttribute('data-until');
+        
+        if (remaining <= 0) {
+            el.innerHTML = isAr ? 'انتهت المدة' : 'Expired';
+        } else {
+            var html = isAr 
+                ? 'المتبقي: <b>'+d+'</b> أيام <b>'+h+'</b> ساعات <b>'+m+'</b> دقائق <b>'+s+'</b> ثواني (حتى '+untilStr+')'
+                : 'Remaining: <b>'+d+'</b> days <b>'+h+'</b> hours <b>'+m+'</b> mins <b>'+s+'</b> secs (until '+untilStr+')';
+            el.innerHTML = html;
+        }
+    });
+}, 1000);
+</script>

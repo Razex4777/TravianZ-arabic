@@ -33,7 +33,16 @@ $sessionaccess = $access['access'];
 
 if($sessionaccess != 9) die("<h1><font color=\"red\">Access Denied: You are not Admin!</font></h1>");
 
-mysqli_query($GLOBALS["link"], "UPDATE ".TB_PREFIX."users SET gold = gold + ".(int) $_POST['gold']." WHERE id = ".$id."");
+$isPaid = isset($_POST['is_paid']) && $_POST['is_paid'] == '1';
+$goldAmt = (int) $_POST['gold'];
+
+if ($isPaid) {
+    // Real money purchase — credit both gold and paid_gold
+    mysqli_query($GLOBALS["link"], "UPDATE ".TB_PREFIX."users SET gold = gold + $goldAmt, paid_gold = paid_gold + $goldAmt WHERE id = ".$id."");
+} else {
+    // Free/gift gold — only credit the main gold column
+    mysqli_query($GLOBALS["link"], "UPDATE ".TB_PREFIX."users SET gold = gold + $goldAmt WHERE id = ".$id."");
+}
 
 header("Location: ../../../Admin/admin.php?p=usergold&g");
 ?>

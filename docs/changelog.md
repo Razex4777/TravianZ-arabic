@@ -1,6 +1,9 @@
 # Changelog
 
 
+## 2026-04-20 13:54
+- **Bug Fix: Infinite Crop Exploit in Immunity** - Fixed a bug where returning a player's crop to 1500 during page loads allowed them to spend crop and refresh to continuously spawn infinite 1500 crop. Moved the clamping logic to `processProduction` in `Village.php` so it strictly limits natural production decay (starvation) without refilling spent crop.
+
 ## 2026-04-19 19:48
 - **Feature: Gold Plus Crop Protection** - Added a premium service (10,000 Gold) inside the Plus menu that refils crop to max and prevents it from dipping below 0 (negative) for 1 hour. Provides a safety window for players to use the NPC trader and fix starving villages without experiencing paralysis.
 

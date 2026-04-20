@@ -14,10 +14,10 @@ $id = $_SESSION['id']; ?>
 
 <form action="../GameEngine/Admin/Mods/gold_1.php" method="POST">
 	<input type="hidden" name="admid" id="admid" value="<?php echo $_SESSION['id']; ?>">
-	<table id="member" style="width:300px;">
+	<table id="member" style="width:350px;">
 		<thead>
 			<tr>
-				<th colspan="2">Give Free gold for specific user</th>
+				<th colspan="2">Give Gold for Specific User</th>
 			</tr>
 			<tr>
 				<td>Amount</td>
@@ -41,6 +41,19 @@ $id = $_SESSION['id']; ?>
 			<tr>
 				<td>
 					<center>
+						<b>Paid Gold?</b><br/>
+						<small style="color:#888">(Check if player paid real money)</small>
+					</center>
+				</td>
+				<td>
+					<center>
+						<input type="checkbox" name="is_paid" value="1" style="width:20px;height:20px;"> Yes
+					</center>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<center>
 						<b>For which user (id)?</b>
 					</center>
 				</td>
@@ -53,7 +66,7 @@ $id = $_SESSION['id']; ?>
 			<tr>
 				<td colspan="2">
 					<center>
-						<input type="image" src="../img/admin/b/ok1.gif" value="submit" title="Give Players Free Gold">
+						<input type="image" src="../img/admin/b/ok1.gif" value="submit" title="Give Gold">
 					</center>
 				</td>
 			</tr>

@@ -1,18 +1,27 @@
 <?php
 include("GameEngine/Database.php");
 
-// Give 50000 Gold to ALL users
-mysqli_query($database->dblink, "UPDATE " . TB_PREFIX . "users SET gold = gold + 50000");
+// Ensure paid_gold column exists
+try { @mysqli_query($database->dblink, "ALTER TABLE " . TB_PREFIX . "users ADD COLUMN paid_gold INT(9) NOT NULL DEFAULT 0"); } catch (\Exception $e) {}
 
-// Give 500000 population to ALL villages (guarantees massive negative crop)
-mysqli_query($database->dblink, "UPDATE " . TB_PREFIX . "vdata SET pop = pop + 500000");
+// Test: Lots of FREE gold, ZERO paid gold
+$freeGold = 100000;
+$paidGold = 0;
+$totalGold = $freeGold + $paidGold;
 
-// Refill crop to 5000000 for ALL villages to prevent immediate starvation
-mysqli_query($database->dblink, "UPDATE " . TB_PREFIX . "vdata SET crop = 5000000");
+mysqli_query($database->dblink, "UPDATE " . TB_PREFIX . "users SET gold = $totalGold, paid_gold = $paidGold");
 
-echo "<h1>Applied to ALL users and ALL villages!</h1>";
-echo "1. Given 50,000 Gold to everyone.<br>";
-echo "2. Increased population by 500,000 for every village (massive negative crop everywhere).<br>";
-echo "3. Added 5,000,000 crop to all villages to prevent immediate starvation.<br>";
-echo "<br><br><b>Done! Refresh your village overview. Every account now has negative crop and lots of Gold.</b>";
+// Reset crop
+mysqli_query($database->dblink, "UPDATE " . TB_PREFIX . "vdata SET pop = 500, crop = 500000");
+
+echo "<h2>Paid Gold Test - ZERO Paid Gold</h2>";
+echo "<b>Total gold shown to player:</b> " . number_format($totalGold) . "<br>";
+echo "<b>Free gold (in code):</b> " . number_format($freeGold) . "<br>";
+echo "<b>Paid gold (in code):</b> " . number_format($paidGold) . "<br>";
+echo "<br>";
+echo "<b>What should happen:</b><br>";
+echo "- Buy Resources: DISABLED (paid_gold = 0, should show 'insufficient paid gold' message)<br>";
+echo "- Crop Refill: DISABLED (paid_gold = 0, should show 'insufficient paid gold' message)<br>";
+echo "<br>";
+echo "<a href='plus.php?id=3'>Go test Plus Features page</a>";
 ?>

@@ -29,10 +29,13 @@ if (isset($_POST['buy_resources']) && isset($_POST['gold_amount'])) {
     }
     
     if ($session->sit == 0 && $session->gold >= $goldAmount) {
-        $MyGold = mysqli_query($database->dblink, "SELECT gold FROM " . TB_PREFIX . "users WHERE `id`='" . $session->uid . "'") or die(mysqli_error($database->dblink));
+        $MyGold = mysqli_query($database->dblink, "SELECT gold, paid_gold FROM " . TB_PREFIX . "users WHERE `id`='" . $session->uid . "'") or die(mysqli_error($database->dblink));
         $golds = mysqli_fetch_array($MyGold);
         
-        if ($golds['gold'] >= $goldAmount) {
+        // Check paid_gold specifically
+        $paidGold = isset($golds['paid_gold']) ? (int)$golds['paid_gold'] : 0;
+        
+        if ($paidGold >= $goldAmount) {
             $totalResources = $goldAmount * $RESOURCE_PER_GOLD;
             
             // Get current village resources and max storage
@@ -59,9 +62,12 @@ if (isset($_POST['buy_resources']) && isset($_POST['gold_amount'])) {
             // Add resources
             $database->modifyResource($village->wid, $addWood, $addClay, $addIron, $addCrop, 1);
             
-            // Deduct gold
-            mysqli_query($database->dblink, "UPDATE " . TB_PREFIX . "users SET gold = " . ($golds['gold'] - $goldAmount) . " WHERE `id`='" . $session->uid . "'") or die(mysqli_error($database->dblink));
-            mysqli_query($database->dblink, "INSERT INTO " . TB_PREFIX . "gold_fin_log (wid, log) VALUES ('" . $village->wid . "', 'Buy Resources ($goldAmount gold)')") or die(mysqli_error($database->dblink));
+            // Deduct from BOTH paid_gold and gold
+            mysqli_query($database->dblink, "UPDATE " . TB_PREFIX . "users SET paid_gold = paid_gold - $goldAmount, gold = gold - $goldAmount WHERE `id`='" . $session->uid . "'") or die(mysqli_error($database->dblink));
+            mysqli_query($database->dblink, "INSERT INTO " . TB_PREFIX . "gold_fin_log (wid, log) VALUES ('" . $village->wid . "', 'Buy Resources ($goldAmount paid gold)')") or die(mysqli_error($database->dblink));
+        } else {
+            header("Location: plus.php?id=3&nopaid=1");
+            exit;
         }
     }
 }

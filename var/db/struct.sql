@@ -1547,6 +1547,7 @@ CREATE TABLE IF NOT EXISTS `%PREFIX%users` (
   `tribe` tinyint(1) DEFAULT NULL,
   `access` tinyint(1) DEFAULT '1',
   `gold` int(9) DEFAULT '0',
+  `paid_gold` int(9) DEFAULT '0',
   `gender` tinyint(1) DEFAULT '0',
   `birthday` date DEFAULT '1970-01-01',
   `location` text,
