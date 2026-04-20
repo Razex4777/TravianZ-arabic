@@ -76,46 +76,46 @@ if($fail > 0) {
 		<table id=\"researchFuture\" class=\"build_details hide\" cellspacing=\"1\" cellpadding=\"1\">
 			<thead><tr><td colspan=\"2\">".PREREQUISITES."</td></tr><tbody>";
       if(!$technology->meetRRequirement(2) && !$technology->getTech(2)) {
-     echo"<tr><td class=\"desc\"><div class=\"tit\"><img class=\"unit u2\" title=\"".U2."\" alt=\"Praetorian\" src=\"img/x.gif\"/>
-			<a onclick=\"return Popup(2, 1);\" href=\"#\">Praetorian</a></div></td><td class=\"cond\"><a href=\"#\" onclick=\"return Popup(22, 1);\">".ACADEMY."</a>
+     echo"<tr><td class=\"desc\"><div class=\"tit\"><img class=\"unit u2\" title=\"".U2."\" alt=\"".U2."\" src=\"img/x.gif\"/>
+			<a onclick=\"return Popup(2, 1);\" href=\"#\">".U2."</a></div></td><td class=\"cond\"><a href=\"#\" onclick=\"return Popup(22, 1);\">".ACADEMY."</a>
 			<span title=\"+2\">&nbsp;".LEVEL." 1</span><br /><a href=\"#\" onclick=\"return Popup(13, 4);\">".ARMOURY." </a><span title=\"+1\">&nbsp;".LEVEL." 1</span></td></tr>";
      }
      if(!$technology->meetRRequirement(3) && !$technology->getTech(3)) {
-     echo"<tr><td class=\"desc\"><div class=\"tit\"><img class=\"unit u3\" title=\"".U3."\" alt=\"Imperian\" src=\"img/x.gif\"/>
-			<a onclick=\"return Popup(3, 1);\" href=\"#\">Imperian</a></div></td><td class=\"cond\"><a href=\"#\" onclick=\"return Popup(22, 4);\">".ACADEMY."</a>
+     echo"<tr><td class=\"desc\"><div class=\"tit\"><img class=\"unit u3\" title=\"".U3."\" alt=\"".U3."\" src=\"img/x.gif\"/>
+			<a onclick=\"return Popup(3, 1);\" href=\"#\">".U3."</a></div></td><td class=\"cond\"><a href=\"#\" onclick=\"return Popup(22, 4);\">".ACADEMY."</a>
 			<span title=\"+2\">&nbsp;".LEVEL." 5</span><br /><a href=\"#\" onclick=\"return Popup(12, 4);\">".BLACKSMITH." </a><span title=\"+1\">&nbsp;".LEVEL." 1</span>	</td></tr>";
      }
      if(!$technology->meetRRequirement(4) && !$technology->getTech(4)) {
-     echo "<tr><td class=\"desc\"><div class=\"tit\"><img class=\"unit u4\" title=\"".U4."\" alt=\"Equites Legati\" src=\"img/x.gif\"/>
-		 	<a onclick=\"return Popup(4, 1);\" href=\"#\">Equites Legati</a></div></td><td class=\"cond\">
+     echo "<tr><td class=\"desc\"><div class=\"tit\"><img class=\"unit u4\" title=\"".U4."\" alt=\"".U4."\" src=\"img/x.gif\"/>
+		 	<a onclick=\"return Popup(4, 1);\" href=\"#\">".U4."</a></div></td><td class=\"cond\">
             <a href=\"#\" onclick=\"return Popup(22, 4);\">".ACADEMY."</a><span title=\"+2\">&nbsp;".LEVEL." 5</span><br /><a href=\"#\" onclick=\"return Popup(20, 4);\">".STABLE."</a><span title=\"+1\">&nbsp;".LEVEL." 1</span>	</td></tr>";
      }
      if(!$technology->meetRRequirement(5) && !$technology->getTech(5)) {
-     echo "<tr><td class=\"desc\"><div class=\"tit\"><img class=\"unit u5\" title=\"".U5."\" alt=\"Equites Imperatoris\" src=\"img/x.gif\"/>
-			<a onclick=\"return Popup(5, 1);\" href=\"#\">Equites Imperatoris</a></div></td><td class=\"cond\">
+     echo "<tr><td class=\"desc\"><div class=\"tit\"><img class=\"unit u5\" title=\"".U5."\" alt=\"".U5."\" src=\"img/x.gif\"/>
+			<a onclick=\"return Popup(5, 1);\" href=\"#\">".U5."</a></div></td><td class=\"cond\">
 			<a href=\"#\" onclick=\"return Popup(22, 4);\">".ACADEMY."</a><span title=\"+2\">&nbsp;".LEVEL." 5</span><br /><a href=\"#\" onclick=\"return Popup(20, 4);\">".STABLE."</a><span title=\"+5\">&nbsp;".LEVEL." 5</span>	</td></tr>";
      }
      if(!$technology->meetRRequirement(6) && !$technology->getTech(6)) {
-     echo "<tr><td class=\"desc\"><div class=\"tit\"><img class=\"unit u6\" title=\"".U6."\" alt=\"Equites Caesaris\" src=\"img/x.gif\"/>
-			<a onclick=\"return Popup(6, 1);\" href=\"#\">Equites Caesaris</a></div></td><td class=\"cond\">
+     echo "<tr><td class=\"desc\"><div class=\"tit\"><img class=\"unit u6\" title=\"".U6."\" alt=\"".U6."\" src=\"img/x.gif\"/>
+			<a onclick=\"return Popup(6, 1);\" href=\"#\">".U6."</a></div></td><td class=\"cond\">
 			<a href=\"#\" onclick=\"return Popup(22, 4);\">".ACADEMY."</a><span title=\"+12\">&nbsp;".LEVEL." 15</span><br /><a href=\"#\" onclick=\"return Popup(20, 4);\">
             ".STABLE."</a><span title=\"+10\">&nbsp;".LEVEL." 10</span>	</td></tr>";
      }
      if(!$technology->meetRRequirement(7) && !$technology->getTech(7)) {
      echo "
-			<tr><td class=\"desc\"><div class=\"tit\"><img class=\"unit u7\" title=\"".U7."\" alt=\"Battering Ram\" src=\"img/x.gif\"/>
-			<a onclick=\"return Popup(7, 1);\" href=\"#\">Battering Ram</a></div></td><td class=\"cond\"><a href=\"#\" onclick=\"return Popup(22, 4);\">".ACADEMY."</a>
+			<tr><td class=\"desc\"><div class=\"tit\"><img class=\"unit u7\" title=\"".U7."\" alt=\"".U7."\" src=\"img/x.gif\"/>
+			<a onclick=\"return Popup(7, 1);\" href=\"#\">".U7."</a></div></td><td class=\"cond\"><a href=\"#\" onclick=\"return Popup(22, 4);\">".ACADEMY."</a>
 			<span title=\"+7\">&nbsp;".LEVEL." 10</span><br /><a href=\"#\" onclick=\"return Popup(21, 4);\">".WORKSHOP."</a><span title=\"+1\">&nbsp;".LEVEL." 1</span></td></tr>";
      }
      if(!$technology->meetRRequirement(8) && !$technology->getTech(8)) {
-     echo "<tr><td class=\"desc\"><div class=\"tit\"><img class=\"unit u8\" title=\"".U8."\" alt=\"Fire Catapult\" src=\"img/x.gif\"/>
-            <a onclick=\"return Popup(8, 1);\" href=\"#\">Fire Catapult</a></div></td><td class=\"cond\"><a href=\"#\" onclick=\"return Popup(21, 4);\">".WORKSHOP."</a>
+     echo "<tr><td class=\"desc\"><div class=\"tit\"><img class=\"unit u8\" title=\"".U8."\" alt=\"".U8."\" src=\"img/x.gif\"/>
+            <a onclick=\"return Popup(8, 1);\" href=\"#\">".U8."</a></div></td><td class=\"cond\"><a href=\"#\" onclick=\"return Popup(21, 4);\">".WORKSHOP."</a>
             <span title=\"+10\">&nbsp;".LEVEL." 10</span><br /><a href=\"#\" onclick=\"return Popup(22, 4);\">".ACADEMY."</a><span title=\"+12\">&nbsp;".LEVEL." 15</span>	</td>
 			</tr>";
      }
      if(!$technology->meetRRequirement(9) && !$technology->getTech(9)) {
-     echo "	<tr><td class=\"desc\"><div class=\"tit\"><img class=\"unit u9\" title=\"".U9."\" alt=\"Senator\" src=\"img/x.gif\"/>
-			<a onclick=\"return Popup(9, 1);\" href=\"#\">Senator</a></div></td><td class=\"cond\">
+     echo "	<tr><td class=\"desc\"><div class=\"tit\"><img class=\"unit u9\" title=\"".U9."\" alt=\"".U9."\" src=\"img/x.gif\"/>
+			<a onclick=\"return Popup(9, 1);\" href=\"#\">".U9."</a></div></td><td class=\"cond\">
 			<a href=\"#\" onclick=\"return Popup(16, 4);\">".RALLYPOINT."</a><span title=\"+9\">&nbsp;".LEVEL." 10</span><br /><a href=\"#\" onclick=\"return Popup(22, 4);\">
             ".ACADEMY."</a><span title=\"+17\">&nbsp;".LEVEL." 20</span></td></tr>";
      }

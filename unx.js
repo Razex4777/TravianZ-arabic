@@ -112,12 +112,9 @@ fd(fi2(act,act2,act3),function(mf){for(var qd in mf){quest[qd]=mf[qd];}},'POST',
 
 qst_wfm();
 }
-function initCounter(){for(var i=1;;i++){pb=document.getElementById("tp"+i);if(pb!=null){ab[i]=new Object();ab[i].node=pb;ab[i].counter_time=ob(pb);}
-else{break;}
-}
-for(i=1;;i++){pb=document.getElementById("timer"+i);if(pb!=null){bb[i]=new Object();bb[i].node=pb;bb[i].counter_time=ob(pb);}
-else{break;}
-}
+function initCounter(){
+for(var i=1;i<=200;i++){pb=document.getElementById("tp"+i);if(pb!=null){ab[i]=new Object();ab[i].node=pb;ab[i].counter_time=ob(pb);}}
+for(var i=1;i<=200;i++){pb=document.getElementById("timer"+i);if(pb!=null){bb[i]=new Object();bb[i].node=pb;bb[i].counter_time=ob(pb);}}
 executeCounter();}
 function executeCounter(){
     for(var i in ab){
