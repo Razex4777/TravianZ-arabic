@@ -84,29 +84,29 @@ $edit_form = '';
 // todo mv to other file with functions
 function oasis_type_by_id($oasis_type_id){
   if($oasis_type_id == 1){
-    return '+25% Lumber';
+    return '+100% Lumber';
   }else if($oasis_type_id == 2){
-    return '+25% Lumber'; // todo think maybe add +50% instead the same +25% ?
+    return '+100% Lumber';
   }else if($oasis_type_id == 3){
-    return '+25% Lumber +25% Crop';
+    return '+75% Lumber +75% Crop';
   }else if($oasis_type_id == 4){
-    return '+25% Clay';
+    return '+100% Clay';
   }else if($oasis_type_id == 5){
-    return '+25% Clay';
+    return '+100% Clay';
   }else if($oasis_type_id == 6){
-    return '+25% Clay +25% Crop';
+    return '+75% Clay +75% Crop';
   }else if($oasis_type_id == 7){
-    return '+25% Iron';
+    return '+100% Iron';
   }else if($oasis_type_id == 8){
-    return '+25% Iron';
+    return '+100% Iron';
   }else if($oasis_type_id == 9){
-    return '+25% Iron +25% Crop';
+    return '+75% Iron +75% Crop';
   }else if($oasis_type_id == 10){
-    return '+25% Crop';
+    return '+100% Crop';
   }else if($oasis_type_id == 11){
-    return '+25% Crop';
+    return '+100% Crop';
   }else if($oasis_type_id == 12){
-    return '+50% Crop';
+    return '+150% Crop';
   }else{
     return 'undefined';
   }

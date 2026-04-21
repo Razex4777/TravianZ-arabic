@@ -60,42 +60,42 @@ case 0:
 switch($basearray['oasistype']) {
 case 1:
 case 2:
-$tt =  "+25% ".LUMBER." ".PERHOUR."\" title=\"+25% ".LUMBER." ".PERHOUR;
-$ttt = "<td class=\"ico\"><img class=\"r1\" src=\"img/x.gif\" title=\"".LUMBER."\"> 25% ".LUMBER."</td>";
+		$tt =  "+100% ".LUMBER." ".PERHOUR."\" title=\"+100% ".LUMBER." ".PERHOUR;
+		$ttt = "<td class=\"ico\"><img class=\"r1\" src=\"img/x.gif\" title=\"".LUMBER."\"> 100% ".LUMBER."</td>";
 break;
 case 3:
-$tt =  "+25% ".LUMBER." and +25% ".CROP." ".PERHOUR."\" title=\"+25% ".LUMBER." and +25% ".CROP." ".PERHOUR;
-$ttt = "<td class=\"ico\"><img class=\"r1\" src=\"img/x.gif\" title=\"".LUMBER."\"> 25% ".LUMBER."</td>
-		<tr><td class=\"ico\"><img class=\"r4\" src=\"img/x.gif\" title=\"".CROP."\"> 25% ".CROP."</td></tr>";
+		$tt =  "+75% ".LUMBER." and +75% ".CROP." ".PERHOUR."\" title=\"+75% ".LUMBER." and +75% ".CROP." ".PERHOUR;
+		$ttt = "<td class=\"ico\"><img class=\"r1\" src=\"img/x.gif\" title=\"".LUMBER."\"> 75% ".LUMBER."</td>
+		<tr><td class=\"ico\"><img class=\"r4\" src=\"img/x.gif\" title=\"".CROP."\"> 75% ".CROP."</td></tr>";
 break;
 case 4:
 case 5:
-$tt =  "+25% ".CLAY." ".PERHOUR."\" title=\"+25% ".CLAY." ".PERHOUR;
-$ttt = "<td class=\"ico\"><img class=\"r2\" src=\"img/x.gif\" title=\"".CLAY."\"> 25% ".CLAY."</td>";
+		$tt =  "+100% ".CLAY." ".PERHOUR."\" title=\"+100% ".CLAY." ".PERHOUR;
+		$ttt = "<td class=\"ico\"><img class=\"r2\" src=\"img/x.gif\" title=\"".CLAY."\"> 100% ".CLAY."</td>";
 break;
 case 6:
-$tt =  "+25% ".CLAY." and +25% ".CROP." ".PERHOUR."\" title=\"+25% ".CLAY." and +25% ".CROP." ".PERHOUR;
-$ttt = "<td class=\"ico\"><img class=\"r2\" src=\"img/x.gif\" title=\"".CLAY."\"> 25% ".CLAY."</td>
-		<tr><td class=\"ico\"><img class=\"r4\" src=\"img/x.gif\" title=\"".CROP."\"> 25% ".CROP."</td></tr>";
+		$tt =  "+75% ".CLAY." and +75% ".CROP." ".PERHOUR."\" title=\"+75% ".CLAY." and +75% ".CROP." ".PERHOUR;
+		$ttt = "<td class=\"ico\"><img class=\"r2\" src=\"img/x.gif\" title=\"".CLAY."\"> 75% ".CLAY."</td>
+		<tr><td class=\"ico\"><img class=\"r4\" src=\"img/x.gif\" title=\"".CROP."\"> 75% ".CROP."</td></tr>";
 break;
 case 7:
 case 8:
-$tt =  "+25% ".IRON." ".PERHOUR."\" title=\"+25% ".IRON." ".PERHOUR;
-$ttt = "<td class=\"ico\"><img class=\"r3\" src=\"img/x.gif\" title=\"".IRON."\"> 25% ".IRON."</td>";
+		$tt =  "+100% ".IRON." ".PERHOUR."\" title=\"+100% ".IRON." ".PERHOUR;
+		$ttt = "<td class=\"ico\"><img class=\"r3\" src=\"img/x.gif\" title=\"".IRON."\"> 100% ".IRON."</td>";
 break;
 case 9:
-$tt =  "+25% ".IRON." and +25% ".CROP." ".PERHOUR."\" title=\"+25% ".IRON." and +25% ".CROP." ".PERHOUR;
-$ttt = "<td class=\"ico\"><img class=\"r3\" src=\"img/x.gif\" title=\"".IRON."\"> 25% ".IRON."</td>
-		<tr><td class=\"ico\"><img class=\"r4\" src=\"img/x.gif\" title=\"".CROP."\"> 25% ".CROP."</td></tr>";
+		$tt =  "+75% ".IRON." and +75% ".CROP." ".PERHOUR."\" title=\"+75% ".IRON." and +75% ".CROP." ".PERHOUR;
+		$ttt = "<td class=\"ico\"><img class=\"r3\" src=\"img/x.gif\" title=\"".IRON."\"> 75% ".IRON."</td>
+		<tr><td class=\"ico\"><img class=\"r4\" src=\"img/x.gif\" title=\"".CROP."\"> 75% ".CROP."</td></tr>";
 break;
 case 10:
 case 11:
-$tt =  "+25% ".CROP." ".PERHOUR."\" title=\"+25% ".CROP." ".PERHOUR;
-$ttt = "<td class=\"ico\"><img class=\"r4\" src=\"img/x.gif\" title=\"".CROP."\"> 25% ".CROP."</td>";
+		$tt =  "+100% ".CROP." ".PERHOUR."\" title=\"+100% ".CROP." ".PERHOUR;
+		$ttt = "<td class=\"ico\"><img class=\"r4\" src=\"img/x.gif\" title=\"".CROP."\"> 100% ".CROP."</td>";
 break;
 case 12:
-$tt =  "+50% ".CROP." ".PERHOUR."\" title=\"+50% ".CROP." ".PERHOUR;
-$ttt = "<td class=\"ico\"><img class=\"r4\" src=\"img/x.gif\" title=\"".CROP."\"> 50% ".CROP."</td>";
+		$tt =  "+150% ".CROP." ".PERHOUR."\" title=\"+150% ".CROP." ".PERHOUR;
+		$ttt = "<td class=\"ico\"><img class=\"r4\" src=\"img/x.gif\" title=\"".CROP."\"> 150% ".CROP."</td>";
 break;
 }
 break;
@@ -137,7 +137,7 @@ if($oasis['owner'] == 2){
         		}
         		echo '<tr>';
         		echo '<td class="ico"><img class="unit u'.$i.'" src="img/x.gif" alt="'.$unarray[$i].'" title="'.$unarray[$i].'" /></td>';
-        		echo '<td class="val">'.$unit['u'.$i].'</td>';
+        		echo '<td class="val">'.number_format($unit['u'.$i]).'</td>';
         		echo '<td class="desc">'.$unarray[$i].'</td>';
         		echo '</tr>';
         		$troopsPresent = true;
@@ -371,7 +371,7 @@ if($type >= 18 && $type <= 21){
 		</tr>
 		<tr>
 			<th><?php echo POP;?></th>
-			<td><?php echo $basearray['pop']; ?></td>
+			<td><?php echo number_format($basearray['pop']); ?></td>
 		</tr></tbody>
 	</table>
  

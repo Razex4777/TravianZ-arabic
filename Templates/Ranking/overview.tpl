@@ -51,7 +51,7 @@ $search = $_SESSION['search'];
                         echo "<a href=\"allianz.php?aid=".$rankArray[$i]['alliance']."\">".$rankArray[$i]['aname']."</a>";
                     }
                     else echo "-";
-                    echo "</td><td class=\"pop\" >".$rankArray[$i]['totalpop']."</td><td class=\"vil\">".$rankArray[$i]['totalvillage']."</td></tr>";
+                    echo "</td><td class=\"pop\" >".number_format($rankArray[$i]['totalpop'])."</td><td class=\"vil\">".$rankArray[$i]['totalvillage']."</td></tr>";
                 }
             }
         }

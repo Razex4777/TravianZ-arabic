@@ -35,7 +35,7 @@ include("next.tpl");
 
 	</tr>
 </table>
-<p><?php echo CURRENT_HAVE; ?> <b><?php echo $village->unitarray['u99']; ?></b> <?php echo TRAPS; ?>, <b><?php echo $village->unitarray['u99o']; ?></b> <?php echo WHICH_OCCUPIED; ?></p>
+<p><?php echo CURRENT_HAVE; ?> <b><?php echo number_format($village->unitarray['u99']); ?></b> <?php echo TRAPS; ?>, <b><?php echo number_format($village->unitarray['u99o']); ?></b> <?php echo WHICH_OCCUPIED; ?></p>
 <?php if ($building->getTypeLevel(36) > 0) { ?>
 <form method="POST" name="snd" action="build.php">
 				<input type="hidden" name="id" value="<?php echo $id; ?>" />
@@ -56,7 +56,7 @@ include("next.tpl");
 			<div class="tit"><img class="unit u99" src="img/x.gif"
 				alt="Trap"
 				title="Trap" /> <a href="#"
-				onClick="return Popup(36,4,'gid');"><?php echo TRAP; ?></a> <span class="info">(<?php echo AVAILABLE; ?>: <?php echo $village->unitarray['u99']; ?>)</span>
+				onClick="return Popup(36,4,'gid');"><?php echo TRAP; ?></a> <span class="info">(<?php echo AVAILABLE; ?>: <?php echo number_format($village->unitarray['u99']); ?>)</span>
 			</div>
 			<div class="details">
 			<span><img class="r1" src="img/x.gif"

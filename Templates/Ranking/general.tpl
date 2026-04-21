@@ -41,7 +41,7 @@ echo $num_rows2;
 <?php
 $pop = mysqli_query($database->dblink,"SELECT SUM(pop) AS sumofpop FROM ".TB_PREFIX."vdata"); 
 $getpop = mysqli_fetch_assoc($pop); 
-echo $getpop['sumofpop'];
+echo number_format($getpop['sumofpop']);
 ?></td>
 </tr>
 </tbody>

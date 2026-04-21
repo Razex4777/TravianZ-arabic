@@ -182,9 +182,11 @@ if ($searchTriggered && $_hasPlus) {
                 return "(($col BETWEEN $WMIN AND $hiN) OR ($col BETWEEN $loN AND $WMAX))";
             };
 
-            global $MIN_X, $MAX_X, $MIN_Y, $MAX_Y;
-            $cX = $wrapCond('x', $startX, $R, $MIN_X, $MAX_X);
-            $cY = $wrapCond('y', $startY, $R, $MIN_Y, $MAX_Y);
+            // World coordinate bounds: -WORLD_MAX to +WORLD_MAX
+            $W_MIN = -WORLD_MAX;
+            $W_MAX = WORLD_MAX;
+            $cX = $wrapCond('x', $startX, $R, $W_MIN, $W_MAX);
+            $cY = $wrapCond('y', $startY, $R, $W_MIN, $W_MAX);
 
             // Fetch valleys (fields)
             $sqlValleys = "SELECT id as wref, x, y, fieldtype, occupied FROM `$WDATA` WHERE fieldtype > 0 AND $cX AND $cY" . $emptyCond;
@@ -193,8 +195,8 @@ if ($searchTriggered && $_hasPlus) {
             if ($resV) while ($r = mysqli_fetch_assoc($resV)) $valleys[] = $r;
 
             // Fetch Oases in R+3 logic
-            $cXo = $wrapCond('w.x', $startX, $R+3, $MIN_X, $MAX_X);
-            $cYo = $wrapCond('w.y', $startY, $R+3, $MIN_Y, $MAX_Y);
+            $cXo = $wrapCond('w.x', $startX, $R+3, $W_MIN, $W_MAX);
+            $cYo = $wrapCond('w.y', $startY, $R+3, $W_MIN, $W_MAX);
             $sqlOases = "SELECT w.x, w.y, o.type FROM `$ODATA` o JOIN `$WDATA` w ON w.id = o.wref WHERE $cXo AND $cYo";
             $resO = mysqli_query($database->dblink, $sqlOases);
             $oases = [];
@@ -208,8 +210,9 @@ if ($searchTriggered && $_hasPlus) {
                     $dx = abs($v['x'] - $o['x']);
                     $dy = abs($v['y'] - $o['y']);
                     // Wrap-aware distance for 7x7 (max distance 3)
-                    if ($dx > ($MAX_X - $MIN_X + 1)/2) $dx = ($MAX_X - $MIN_X + 1) - $dx;
-                    if ($dy > ($MAX_Y - $MIN_Y + 1)/2) $dy = ($MAX_Y - $MIN_Y + 1) - $dy;
+                    $worldSpan = 2 * WORLD_MAX + 1;
+                    if ($dx > $worldSpan / 2) $dx = $worldSpan - $dx;
+                    if ($dy > $worldSpan / 2) $dy = $worldSpan - $dy;
 
                     if ($dx <= 3 && $dy <= 3) {
                         $typ = $o['type'];

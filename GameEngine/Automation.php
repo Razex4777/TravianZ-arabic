@@ -321,11 +321,11 @@ class Automation {
                       clay = IF(clay < 0, 0, clay),
                       iron = IF(iron < 0, 0, iron),
                       crop = IF(crop < 0, 0, crop),
-                      maxstore = IF(maxstore < ".STORAGE_BASE.", ".STORAGE_BASE.", maxstore),
-                      maxcrop = IF(maxcrop < ".STORAGE_BASE.", ".STORAGE_BASE.", maxcrop)
+                      maxstore = IF(maxstore < ".VILLAGE_STORAGE_BASE.", ".VILLAGE_STORAGE_BASE.", maxstore),
+                      maxcrop = IF(maxcrop < ".VILLAGE_STORAGE_BASE.", ".VILLAGE_STORAGE_BASE.", maxcrop)
                   WHERE
-                      maxstore < ".STORAGE_BASE." OR
-                      maxcrop < ".STORAGE_BASE." OR
+                      maxstore < ".VILLAGE_STORAGE_BASE." OR
+                      maxcrop < ".VILLAGE_STORAGE_BASE." OR
                       wood < 0 OR
                       clay < 0 OR
                       iron < 0 OR
@@ -343,11 +343,11 @@ class Automation {
                       clay = IF(clay < 0, 0, clay),
                       iron = IF(iron < 0, 0, iron),
                       crop = IF(crop < 0, 0, crop),
-                      maxstore = IF(maxstore < ".STORAGE_BASE.", ".STORAGE_BASE.", maxstore),
-                      maxcrop = IF(maxcrop < ".STORAGE_BASE.", ".STORAGE_BASE.", maxcrop)
+                      maxstore = IF(maxstore < ".VILLAGE_STORAGE_BASE.", ".VILLAGE_STORAGE_BASE.", maxstore),
+                      maxcrop = IF(maxcrop < ".VILLAGE_STORAGE_BASE.", ".VILLAGE_STORAGE_BASE.", maxcrop)
                   WHERE
-                      maxstore < ".STORAGE_BASE." OR
-                      maxcrop < ".STORAGE_BASE." OR
+                      maxstore < ".VILLAGE_STORAGE_BASE." OR
+                      maxcrop < ".VILLAGE_STORAGE_BASE." OR
                       wood < 0 OR
                       clay < 0 OR
                       iron < 0 OR
@@ -426,7 +426,7 @@ class Automation {
                     $fieldDbName = (in_array($indi['type'], [10, 38]) ? 'maxstore' : 'maxcrop');
                     $max = $villageData[$fieldDbName];
 
-                    if($level == 1 && $max == STORAGE_BASE) $max = STORAGE_BASE;
+                    if($level == 1 && $max == VILLAGE_STORAGE_BASE) $max = VILLAGE_STORAGE_BASE;
                     
                     if ($level != 1) $max -= ${'bid'.$indi['type']}[$level - 1]['attri'] * STORAGE_MULTIPLIER;
 
@@ -3375,7 +3375,7 @@ class Automation {
                     $database->query("
                         UPDATE ".TB_PREFIX."vdata
                             SET
-                                `maxstore` = IF(`maxstore` - ".$buildarray[$level]['attri']." <= ".STORAGE_BASE.", ".STORAGE_BASE.", `maxstore` - ".$buildarray[$level]['attri'].")
+                                `maxstore` = IF(`maxstore` - ".$buildarray[$level]['attri']." <= ".VILLAGE_STORAGE_BASE.", ".VILLAGE_STORAGE_BASE.", `maxstore` - ".$buildarray[$level]['attri'].")
                             WHERE
                                 wref=".(int) $vil['vref']);
                 }
@@ -3384,7 +3384,7 @@ class Automation {
                     $database->query("
                         UPDATE ".TB_PREFIX."vdata
                             SET
-                                `maxcrop` = IF(`maxcrop` - ".$buildarray[$level]['attri']." <= ".STORAGE_BASE.", ".STORAGE_BASE.", `maxcrop` - ".$buildarray[$level]['attri'].")
+                                `maxcrop` = IF(`maxcrop` - ".$buildarray[$level]['attri']." <= ".VILLAGE_STORAGE_BASE.", ".VILLAGE_STORAGE_BASE.", `maxcrop` - ".$buildarray[$level]['attri'].")
                             WHERE
                                 wref=".(int) $vil['vref']);
                 }
@@ -3566,13 +3566,13 @@ class Automation {
                 }
             }
 
-            // no need for update, since we didn't find any warehouses or granaries
-            // and maximums would have been set to correct values inside prune* functions already
-            if ($ress == 0 && $crop == 0) continue;
+            // villages without warehouses/granaries get base capacity only
+            if ($ress == 0) $ress = VILLAGE_STORAGE_BASE;
+            if ($crop == 0) $crop = VILLAGE_STORAGE_BASE;
 
             // maxstore nor maxcrop can go below the minimum threshold
-            if ($ress < STORAGE_BASE) $ress = STORAGE_BASE;
-            if ($crop < STORAGE_BASE) $crop = STORAGE_BASE;
+            if ($ress < VILLAGE_STORAGE_BASE) $ress = VILLAGE_STORAGE_BASE;
+            if ($crop < VILLAGE_STORAGE_BASE) $crop = VILLAGE_STORAGE_BASE;
 
             mysqli_query($database->dblink,'UPDATE `' . TB_PREFIX . 'vdata` SET `maxstore` = ' . (int) $ress . ', `maxcrop` = ' . (int) $crop . ' WHERE `wref` = ' . (int) $row['vref']);
         }

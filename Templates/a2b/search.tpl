@@ -28,7 +28,7 @@
     <tr>
         <td class="sel">
             <label>
-                <input class="radio" name="c" value="3" type="radio" <?php echo $disabled; ?>>
+                <input class="radio" name="c" value="3" type="radio" <?php echo (isset($disabled) ? $disabled : ''); ?>>
                 <?php echo (defined('LANG') && LANG === 'ar') ? 'هجوم كامل' : 'Normal attack'; ?>
             </label>
         </td>

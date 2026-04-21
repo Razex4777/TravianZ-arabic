@@ -123,7 +123,7 @@ function ensureChatTable($database) {
             PRIMARY KEY (`id`),
             KEY `idx_created` (`created_at`),
             KEY `idx_uid` (`uid`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
         mysqli_query($database->dblink, $sql);
     }
 }

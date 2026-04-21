@@ -43,38 +43,38 @@ if (!empty($village)) {
 
 	<div class="res-flex-container">
 		<div class="res-pill-wrap">
-			<div title="<?php echo $wood; ?>" class="res-pill<?php echo $woodClass; ?>" data-prod="<?php echo $wood; ?>" data-max="<?php echo $maxstore; ?>" style="--fill-percent: <?php echo $woodPercent; ?>%;">
+			<div title="<?php echo number_format($wood); ?>" class="res-pill<?php echo $woodClass; ?>" data-prod="<?php echo $wood; ?>" data-max="<?php echo $maxstore; ?>" style="--fill-percent: <?php echo $woodPercent; ?>%;">
 				<img src="img/x.gif" class="r1" alt="<?php echo LUMBER; ?>" title="<?php echo LUMBER; ?>" />
-				<span id="l4" dir="ltr"><span class="res-cur"><?php echo $awood; ?></span><span class="res-sep">/</span><span class="res-max"><?php echo $maxstore; ?></span></span>
+				<span id="l4" dir="ltr"><span class="res-cur"><?php echo number_format($awood); ?></span><span class="res-sep">/</span><span class="res-max"><?php echo number_format($maxstore); ?></span></span>
 			</div>
 		</div>
 
 		<div class="res-pill-wrap">
-			<div title="<?php echo $clay; ?>" class="res-pill<?php echo $clayClass; ?>" data-prod="<?php echo $clay; ?>" data-max="<?php echo $maxstore; ?>" style="--fill-percent: <?php echo $clayPercent; ?>%;">
+			<div title="<?php echo number_format($clay); ?>" class="res-pill<?php echo $clayClass; ?>" data-prod="<?php echo $clay; ?>" data-max="<?php echo $maxstore; ?>" style="--fill-percent: <?php echo $clayPercent; ?>%;">
 				<img src="img/x.gif" class="r2" alt="<?php echo CLAY; ?>" title="<?php echo CLAY; ?>" />
-				<span id="l3" dir="ltr"><span class="res-cur"><?php echo $aclay; ?></span><span class="res-sep">/</span><span class="res-max"><?php echo $maxstore; ?></span></span>
+				<span id="l3" dir="ltr"><span class="res-cur"><?php echo number_format($aclay); ?></span><span class="res-sep">/</span><span class="res-max"><?php echo number_format($maxstore); ?></span></span>
 			</div>
 		</div>
 
 		<div class="res-pill-wrap">
-			<div title="<?php echo $iron; ?>" class="res-pill<?php echo $ironClass; ?>" data-prod="<?php echo $iron; ?>" data-max="<?php echo $maxstore; ?>" style="--fill-percent: <?php echo $ironPercent; ?>%;">
+			<div title="<?php echo number_format($iron); ?>" class="res-pill<?php echo $ironClass; ?>" data-prod="<?php echo $iron; ?>" data-max="<?php echo $maxstore; ?>" style="--fill-percent: <?php echo $ironPercent; ?>%;">
 				<img src="img/x.gif" class="r3" alt="<?php echo IRON; ?>" title="<?php echo IRON; ?>" />
-				<span id="l2" dir="ltr"><span class="res-cur"><?php echo $airon; ?></span><span class="res-sep">/</span><span class="res-max"><?php echo $maxstore; ?></span></span>
+				<span id="l2" dir="ltr"><span class="res-cur"><?php echo number_format($airon); ?></span><span class="res-sep">/</span><span class="res-max"><?php echo number_format($maxstore); ?></span></span>
 			</div>
 		</div>
 
 		<?php if($acrop > 0){ ?>
 		<div class="res-pill-wrap">
-			<div title="<?php echo $crop; ?>" class="res-pill<?php echo $cropClass; ?>" data-prod="<?php echo $crop; ?>" data-max="<?php echo $maxcrop; ?>" style="--fill-percent: <?php echo $cropPercent; ?>%;">
+			<div title="<?php echo number_format($crop); ?>" class="res-pill<?php echo $cropClass; ?>" data-prod="<?php echo $crop; ?>" data-max="<?php echo $maxcrop; ?>" style="--fill-percent: <?php echo $cropPercent; ?>%;">
 				<img src="img/x.gif" class="r4" alt="<?php echo CROP; ?>" title="<?php echo CROP; ?>" />
-				<span id="l1" dir="ltr"><span class="res-cur"><?php echo $acrop; ?></span><span class="res-sep">/</span><span class="res-max"><?php echo $maxcrop; ?></span></span>
+				<span id="l1" dir="ltr"><span class="res-cur"><?php echo number_format($acrop); ?></span><span class="res-sep">/</span><span class="res-max"><?php echo number_format($maxcrop); ?></span></span>
 			</div>
 		</div>
 		<?php }else{ ?>
 		<div class="res-pill-wrap">
-			<div title="<?php echo $crop; ?>" class="res-pill<?php echo $cropClass; ?>" data-prod="<?php echo $crop; ?>" data-max="<?php echo $maxcrop; ?>" style="--fill-percent: 0%;">
+			<div title="<?php echo number_format($crop); ?>" class="res-pill<?php echo $cropClass; ?>" data-prod="<?php echo $crop; ?>" data-max="<?php echo $maxcrop; ?>" style="--fill-percent: 0%;">
 				<img src="img/x.gif" class="r4" alt="<?php echo CROP; ?>" title="<?php echo CROP; ?>" />
-				<span dir="ltr"><span class="res-cur">0</span><span class="res-sep">/</span><span class="res-max"><?php echo $maxcrop; ?></span></span>
+				<span dir="ltr"><span class="res-cur">0</span><span class="res-sep">/</span><span class="res-max"><?php echo number_format($maxcrop); ?></span></span>
 			</div>
 		</div>
 		<?php } ?>
@@ -288,7 +288,7 @@ html[dir="rtl"] .res-prod-neg {
             if(cur < 0)        cur = 0;
 
             /* Update ONLY .res-cur — never touch .res-sep or .res-max */
-            d.curSpan.textContent = String(cur);
+            d.curSpan.textContent = String(cur).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
             /* update health bar fill */
             var pct = Math.min(100, Math.max(0, (cur / d.maxRes) * 100));

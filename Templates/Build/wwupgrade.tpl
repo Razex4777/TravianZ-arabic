@@ -25,13 +25,13 @@ if ( $building->allowWwUpgrade() ) {
     <b><?php echo COSTS_UPGRADING_LEVEL; ?> <?php echo $village->resarray[ 'f' . $id ] + 1 + $loopsame + $doublebuild + $master; ?>
         :<br/>
         <img class="r1" src="img/x.gif" alt="Lumber" title="Lumber"/><span
-                class="little_res"><?php echo $uprequire['wood']; ?></span> | <img class="r2" src="img/x.gif" alt="Clay"
+                class="little_res"><?php echo number_format($uprequire['wood']); ?></span> | <img class="r2" src="img/x.gif" alt="Clay"
                                                                                    title="Clay"/><span
-                class="little_res"><?php echo $uprequire['clay']; ?></span> | <img class="r3" src="img/x.gif" alt="Iron"
+                class="little_res"><?php echo number_format($uprequire['clay']); ?></span> | <img class="r3" src="img/x.gif" alt="Iron"
                                                                                    title="Iron"/><span
-                class="little_res"><?php echo $uprequire['iron']; ?></span> | <img class="r4" src="img/x.gif" alt="Crop"
+                class="little_res"><?php echo number_format($uprequire['iron']); ?></span> | <img class="r4" src="img/x.gif" alt="Crop"
                                                                                    title="Crop"/><span
-                class="little_res"><?php echo $uprequire['crop']; ?></span> | <img class="r5" src="img/x.gif"
+                class="little_res"><?php echo number_format($uprequire['crop']); ?></span> | <img class="r5" src="img/x.gif"
                                                                                    alt="Crop consumption"
                                                                                    title="Crop consumption"/><?php echo $uprequire['pop']; ?>
         | <img class="clock" src="img/x.gif" alt="duration"

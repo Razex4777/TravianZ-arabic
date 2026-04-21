@@ -154,6 +154,9 @@ else if(isset($_GET['t'])) {
 		case 5:
 		include("Templates/Message/chat.tpl");
 		break;
+		case 6:
+		include("Templates/Message/direct_chat.tpl");
+		break;
 		default:
 		include("Templates/Message/inbox.tpl");
 		break;

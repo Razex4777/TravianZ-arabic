@@ -1497,7 +1497,7 @@ public function getBestOasisCropBonus($x, $y) {
         }
 
 		$time = time();
-		$q = "INSERT into " . TB_PREFIX . "vdata (wref, owner, name, capital, pop, cp, celebration, wood, clay, iron, maxstore, crop, maxcrop, lastupdate, created, natar) values ($wid, $uid, '$villageName', $capital, $pop, 1, 0, 750, 750, 750, ".STORAGE_BASE.", 750, ".STORAGE_BASE.", $time, $time, $isNatar)";
+		$q = "INSERT into " . TB_PREFIX . "vdata (wref, owner, name, capital, pop, cp, celebration, wood, clay, iron, maxstore, crop, maxcrop, lastupdate, created, natar) values ($wid, $uid, '$villageName', $capital, $pop, 1, 0, 750, 750, 750, ".VILLAGE_STORAGE_BASE.", 750, ".VILLAGE_STORAGE_BASE.", $time, $time, $isNatar)";
 		return mysqli_query($this->dblink,$q);
 	}
 
@@ -1638,12 +1638,16 @@ public function getBestOasisCropBonus($x, $y) {
         }
 
         $AttackerFields = $this->getResourceLevel( $vref, $use_cache );
+        $HeroMansionLevel = 0;
         for ( $i = 19; $i <= 38; $i ++ ) {
             if ( $AttackerFields[ 'f' . $i . 't' ] == 37 ) {
                 $HeroMansionLevel = $AttackerFields[ 'f' . $i ];
             }
         }
-        if ( $this->VillageOasisCount( $vref ) < floor( ( $HeroMansionLevel - 5 ) / 5 ) * 2 ) {
+
+        // Allow up to 6 oases per village — requires Hero Mansion level 10+
+        $maxOases = 6;
+        if ( $HeroMansionLevel >= 10 && $this->VillageOasisCount( $vref ) < $maxOases ) {
             $OasisInfo = $this->getOasisInfo( $wref );
             //fix by ronix
             if (
@@ -1651,28 +1655,15 @@ public function getBestOasisCropBonus($x, $y) {
                 $OasisInfo['conqured'] != 0 &&
                 intval( $OasisInfo['loyalty'] ) < ( 99 / min(6, max(1, 7 - $this->VillageOasisCount($OasisInfo['conqured'], $use_cache))) )
             ) {
-                $CoordsVillage = $this->getCoor( $vref );
-                $CoordsOasis   = $this->getCoor( $wref );
-                $max           = 2 * WORLD_MAX + 1;
-                $x1            = intval( $CoordsOasis['x'] );
-                $y1            = intval( $CoordsOasis['y'] );
-                $x2            = intval( $CoordsVillage['x'] );
-                $y2            = intval( $CoordsVillage['y'] );
-                $distanceX     = min( abs( $x2 - $x1 ), abs( $max - abs( $x2 - $x1 ) ) );
-                $distanceY     = min( abs( $y2 - $y1 ), abs( $max - abs( $y2 - $y1 ) ) );
-
-                if ( $distanceX <= 3 && $distanceY <= 3 ) {
-                    self::$oasisConquerableCache[ $vref . $wref ] = 1; //can
-                } else {
-                    self::$oasisConquerableCache[ $vref . $wref ] = 2; //can but not in 7x7 field
-                }
+                // No distance restriction — any oasis on the map can be conquered
+                self::$oasisConquerableCache[ $vref . $wref ] = 1; //can conquer
 
             } else {
                 self::$oasisConquerableCache[ $vref . $wref ] = 3; //loyalty >0
             }
 
         } else {
-            self::$oasisConquerableCache[ $vref . $wref ] = 0; //req level hero mansion
+            self::$oasisConquerableCache[ $vref . $wref ] = 0; //req level hero mansion or max oases reached
         }
 
         return self::$oasisConquerableCache[ $vref . $wref ];
@@ -2162,10 +2153,18 @@ public function getBestOasisCropBonus($x, $y) {
             return $cachedValue;
         }
 
-		$q = "SELECT * FROM " . TB_PREFIX . "wdata left JOIN " . TB_PREFIX . "vdata ON " . TB_PREFIX . "vdata.wref = " . TB_PREFIX . "wdata.id where " . TB_PREFIX . "wdata.id = $id LIMIT 1";
+		$w = TB_PREFIX . "wdata";
+		$v = TB_PREFIX . "vdata";
+		$q = "SELECT $w.id, $w.fieldtype, $w.oasistype, $w.x, $w.y, $w.occupied, $w.image,
+		             $v.wref, $v.owner, $v.name, $v.capital, $v.pop, $v.cp, $v.celebration,
+		             $v.type, $v.wood, $v.clay, $v.iron, $v.maxstore, $v.crop, $v.maxcrop,
+		             $v.lastupdate, $v.lastupdate2, $v.loyalty, $v.exp1, $v.exp2, $v.exp3,
+		             $v.created, $v.natar, $v.starv, $v.starvupdate, $v.evasion
+		      FROM $w LEFT JOIN $v ON $v.wref = $w.id
+		      WHERE $w.id = $id LIMIT 1";
 		$result = mysqli_query($this->dblink,$q);
 
-        self::$worldAndVillageDataCache[$id] = mysqli_fetch_array($result);
+        self::$worldAndVillageDataCache[$id] = mysqli_fetch_array($result, MYSQLI_ASSOC);
         return self::$worldAndVillageDataCache[$id];
 	}
 
@@ -3599,7 +3598,7 @@ public function getBestOasisCropBonus($x, $y) {
                         UPDATE
                             ".TB_PREFIX."vdata
                         SET
-                            `maxstore` = IF( `maxstore` - $maxLevel < ".STORAGE_BASE.", ".STORAGE_BASE.", `maxstore` - $maxLevel )
+                            `maxstore` = IF( `maxstore` - $maxLevel < ".VILLAGE_STORAGE_BASE.", ".VILLAGE_STORAGE_BASE.", `maxstore` - $maxLevel )
                         WHERE
                             wref=$vid");
     }
@@ -3612,7 +3611,7 @@ public function getBestOasisCropBonus($x, $y) {
                         UPDATE
                             ".TB_PREFIX."vdata
                         SET
-                            `maxcrop` = IF( `maxcrop` - $maxLevel < ".STORAGE_BASE.", ".STORAGE_BASE.", `maxcrop` - $maxLevel )
+                            `maxcrop` = IF( `maxcrop` - $maxLevel < ".VILLAGE_STORAGE_BASE.", ".VILLAGE_STORAGE_BASE.", `maxcrop` - $maxLevel )
                         WHERE
                             wref=$vid");
     }
@@ -4255,7 +4254,7 @@ public function getBestOasisCropBonus($x, $y) {
             $ids[] = 5;
         }
 
-        $q = 'SELECT Count(*) as numUnread FROM '.TB_PREFIX.'mdata WHERE target IN('.implode(', ', $ids).') AND viewed = 0';
+        $q = 'SELECT Count(*) as numUnread FROM '.TB_PREFIX.'mdata WHERE target IN('.implode(', ', $ids).') AND viewed = 0 AND topic != \'Direct chat\'';
         return mysqli_fetch_array(mysqli_query($this->dblink, $q), MYSQLI_ASSOC)['numUnread'];
     }
 
@@ -4373,10 +4372,10 @@ References: User ID/Message ID, Mode
 
 		switch($mode) {
 			case 1:
-				$q = "SELECT * FROM " . TB_PREFIX . "mdata WHERE target IN($id) and send = 0 and archived = 0 ORDER BY time ".(isset($_GET['o']) && $_GET['o'] == 1 ? 'ASC' : 'DESC');
+				$q = "SELECT * FROM " . TB_PREFIX . "mdata WHERE target IN($id) and send = 0 and archived = 0 and topic != 'Direct chat' ORDER BY time ".(isset($_GET['o']) && $_GET['o'] == 1 ? 'ASC' : 'DESC');
 				break;
 			case 2:
-			    $q = "SELECT * FROM " . TB_PREFIX . "mdata WHERE owner IN($id) ORDER BY time ".(isset($_GET['o']) && $_GET['o'] == 1 ? 'ASC' : 'DESC');
+			    $q = "SELECT * FROM " . TB_PREFIX . "mdata WHERE owner IN($id) and topic != 'Direct chat' ORDER BY time ".(isset($_GET['o']) && $_GET['o'] == 1 ? 'ASC' : 'DESC');
 				break;
 			case 3:
 			    $q = "SELECT * FROM " . TB_PREFIX . "mdata where id = $id";
@@ -4392,7 +4391,7 @@ References: User ID/Message ID, Mode
 				$q = "UPDATE " . TB_PREFIX . "mdata set deltarget = 1, viewed = 1 where id IN(".implode(', ', $id).")";
 				break;
 			case 6:
-				$q = "SELECT * FROM " . TB_PREFIX . "mdata where target IN($id) and send = 0 and archived = 1 ORDER BY time ".(isset($_GET['o']) && $_GET['o'] == 1 ? 'ASC' : 'DESC');
+				$q = "SELECT * FROM " . TB_PREFIX . "mdata where target IN($id) and send = 0 and archived = 1 and topic != 'Direct chat' ORDER BY time ".(isset($_GET['o']) && $_GET['o'] == 1 ? 'ASC' : 'DESC');
 				break;
 			case 7:
 				$q = "UPDATE " . TB_PREFIX . "mdata set delowner = 1 where id IN(".implode(', ', $id).")";
@@ -4401,13 +4400,13 @@ References: User ID/Message ID, Mode
 				$q = "UPDATE " . TB_PREFIX . "mdata set deltarget = 1, delowner = 1, viewed = 1 where id IN(".implode(', ', $id).")";
 				break;
 			case 9:
-			    $q = "SELECT * FROM " . TB_PREFIX . "mdata WHERE target IN($id) and send = 0 and archived = 0 and deltarget = 0 ORDER BY time ".(isset($_GET['o']) && $_GET['o'] == 1 ? 'ASC' : 'DESC');
+			    $q = "SELECT * FROM " . TB_PREFIX . "mdata WHERE target IN($id) and send = 0 and archived = 0 and deltarget = 0 and topic != 'Direct chat' ORDER BY time ".(isset($_GET['o']) && $_GET['o'] == 1 ? 'ASC' : 'DESC');
 				break;
 			case 10:
-			    $q = "SELECT * FROM " . TB_PREFIX . "mdata WHERE owner IN($id) and delowner = 0 ORDER BY time ".(isset($_GET['o']) && $_GET['o'] == 1 ? 'ASC' : 'DESC');
+			    $q = "SELECT * FROM " . TB_PREFIX . "mdata WHERE owner IN($id) and delowner = 0 and topic != 'Direct chat' ORDER BY time ".(isset($_GET['o']) && $_GET['o'] == 1 ? 'ASC' : 'DESC');
 				break;
 			case 11:
-			    $q = "SELECT * FROM " . TB_PREFIX . "mdata where target IN($id) and send = 0 and archived = 1 and deltarget = 0 ORDER BY time ".(isset($_GET['o']) && $_GET['o'] == 1 ? 'ASC' : 'DESC');
+			    $q = "SELECT * FROM " . TB_PREFIX . "mdata where target IN($id) and send = 0 and archived = 1 and deltarget = 0 and topic != 'Direct chat' ORDER BY time ".(isset($_GET['o']) && $_GET['o'] == 1 ? 'ASC' : 'DESC');
 				break;
 		}
 

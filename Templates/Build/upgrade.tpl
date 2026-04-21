@@ -26,15 +26,17 @@ $total_required = (int)($uprequire['wood'] + $uprequire['clay'] + $uprequire['ir
 <p id="contract"><b><?php echo COSTS_UPGRADING_LEVEL;?> <?php echo $village->resarray['f'.$id]+1+$loopsame+$doublebuild+$master; ?>:</b><br />
 <link rel="stylesheet" type="text/css" href="responsive_blocks.css" />
 <div class="res-wrap">
-    <span class="res-item"><img class="r1" src="img/x.gif" alt="<?php echo (defined('LANG') && LANG == 'ar') ? 'الخشب' : 'Lumber'; ?>" title="<?php echo (defined('LANG') && LANG == 'ar') ? 'الخشب' : 'Lumber'; ?>" /><?php echo $uprequire['wood']; ?></span>
-    <span class="res-item"><img class="r2" src="img/x.gif" alt="<?php echo (defined('LANG') && LANG == 'ar') ? 'الطين' : 'Clay'; ?>" title="<?php echo (defined('LANG') && LANG == 'ar') ? 'الطين' : 'Clay'; ?>" /><?php echo $uprequire['clay']; ?></span>
-    <span class="res-item"><img class="r3" src="img/x.gif" alt="<?php echo (defined('LANG') && LANG == 'ar') ? 'الحديد' : 'Iron'; ?>" title="<?php echo (defined('LANG') && LANG == 'ar') ? 'الحديد' : 'Iron'; ?>" /><?php echo $uprequire['iron']; ?></span>
-    <span class="res-item"><img class="r4" src="img/x.gif" alt="<?php echo (defined('LANG') && LANG == 'ar') ? 'القمح' : 'Crop'; ?>" title="<?php echo (defined('LANG') && LANG == 'ar') ? 'القمح' : 'Crop'; ?>" /><?php echo $uprequire['crop']; ?></span>
+    <span class="res-item"><img class="r1" src="img/x.gif" alt="<?php echo (defined('LANG') && LANG == 'ar') ? 'الخشب' : 'Lumber'; ?>" title="<?php echo (defined('LANG') && LANG == 'ar') ? 'الخشب' : 'Lumber'; ?>" /><?php echo number_format($uprequire['wood']); ?></span>
+    <span class="res-item"><img class="r2" src="img/x.gif" alt="<?php echo (defined('LANG') && LANG == 'ar') ? 'الطين' : 'Clay'; ?>" title="<?php echo (defined('LANG') && LANG == 'ar') ? 'الطين' : 'Clay'; ?>" /><?php echo number_format($uprequire['clay']); ?></span>
+    <span class="res-item"><img class="r3" src="img/x.gif" alt="<?php echo (defined('LANG') && LANG == 'ar') ? 'الحديد' : 'Iron'; ?>" title="<?php echo (defined('LANG') && LANG == 'ar') ? 'الحديد' : 'Iron'; ?>" /><?php echo number_format($uprequire['iron']); ?></span>
+    <span class="res-item"><img class="r4" src="img/x.gif" alt="<?php echo (defined('LANG') && LANG == 'ar') ? 'القمح' : 'Crop'; ?>" title="<?php echo (defined('LANG') && LANG == 'ar') ? 'القمح' : 'Crop'; ?>" /><?php echo number_format($uprequire['crop']); ?></span>
     <span class="res-item"><img class="r5" src="img/x.gif" alt="<?php echo (defined('LANG') && LANG == 'ar') ? 'استهلاك القمح' : 'Crop consumption'; ?>" title="<?php echo (defined('LANG') && LANG == 'ar') ? 'استهلاك القمح' : 'Crop consumption'; ?>" /><?php echo $uprequire['pop']; ?></span>
     <span class="res-item dur"><img class="clock" src="img/x.gif" alt="<?php echo (defined('LANG') && LANG == 'ar') ? 'المدة' : 'duration'; ?>" title="<?php echo (defined('LANG') && LANG == 'ar') ? 'المدة' : 'duration'; ?>" /><?php echo $generator->getTimeFormat($uprequire['time']); ?></span>
 <?php
 if($session->gold >= 3 && $village->acrop >= 0) {
-                   echo "<span class=\"res-item\"><a href=\"build.php?gid=17&t=3&r1=".$uprequire['wood']."&r2=".$uprequire['clay']."&r3=".$uprequire['iron']."&r4=".$uprequire['crop']."\" title=\"NPC trade\"><img class=\"npc\" src=\"img/x.gif\" alt=\"NPC\" title=\"NPC\" /></a></span>";
+                   $npc_label = (defined('LANG') && LANG == 'ar') ? NPC_TRADE : 'NPC trade';
+                   $npc_style = (defined('LANG') && LANG == 'ar') ? ' style="transform:scaleX(-1);display:inline-block;"' : '';
+                   echo "<span class=\"res-item\"><a href=\"build.php?gid=17&t=3&r1=".$uprequire['wood']."&r2=".$uprequire['clay']."&r3=".$uprequire['iron']."&r4=".$uprequire['crop']."\" title=\"".$npc_label."\"><img class=\"npc\" src=\"img/x.gif\" alt=\"".$npc_label."\" title=\"".$npc_label."\"".$npc_style." /></a></span>";
 } ?>
 </div>
 </p><br />

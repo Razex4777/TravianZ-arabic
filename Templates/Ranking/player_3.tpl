@@ -52,7 +52,7 @@ $search = $_SESSION['search'];
                     }
                     else echo "-";
                     
-                    echo "</td><td class=\"pop\" >".$rankArray[$i]['totalpop']."</td><td class=\"vil\">".$rankArray[$i]['totalvillage']."</td></tr>";
+                    echo "</td><td class=\"pop\" >".number_format($rankArray[$i]['totalpop'])."</td><td class=\"vil\">".$rankArray[$i]['totalvillage']."</td></tr>";
                 }
             }
         }

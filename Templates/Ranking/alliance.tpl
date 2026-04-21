@@ -40,7 +40,7 @@ else $search = $_SESSION['search'];
                     else echo "<tr><td class=\"ra \" >";
 
                     echo $i.".</td><td class=\"al \" ><a href=\"allianz.php?aid=".$rankArray[$i]['id']."\">".$rankArray[$i]['tag']."</a></td><td class=\"pla \" >";
-                    echo $rankArray[$i]['players']."</td><td class=\"av \" >".$rankArray[$i]['avg']."</td><td class=\"po \">".$rankArray[$i]['totalpop']."</td></tr>";
+                    echo $rankArray[$i]['players']."</td><td class=\"av \" >".$rankArray[$i]['avg']."</td><td class=\"po \">".number_format($rankArray[$i]['totalpop'])."</td></tr>";
                 }
             }
         }

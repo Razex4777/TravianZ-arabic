@@ -7,14 +7,14 @@
       "markdown",
       "css",
       "yaml",
-      "html",
       "python",
+      "html",
       "sql"
     ],
     "frameworks": [],
-    "description": "TravianZ-master — javascript, markdown, css, yaml, html, python, sql project with 169 files",
-    "analyzedAt": "2026-04-18T19:31:24.484Z",
-    "gitCommitHash": "e63caf79bd2fce92e087c5b300ad05601fca2e57"
+    "description": "TravianZ-master — javascript, markdown, css, yaml, python, html, sql project with 176 files",
+    "analyzedAt": "2026-04-21T18:51:21.517Z",
+    "gitCommitHash": "8c4b4242657afa888332b2fa9503b3a664a06239"
   },
   "nodes": [
     {
@@ -257,6 +257,18 @@
       "complexity": "moderate"
     },
     {
+      "id": "file:docs/lessons.md",
+      "type": "file",
+      "name": "lessons.md",
+      "filePath": "docs/lessons.md",
+      "summary": "lessons.md — markdown source file",
+      "tags": [
+        "markdown",
+        "md"
+      ],
+      "complexity": "simple"
+    },
+    {
       "id": "file:docs/project_structure.md",
       "type": "file",
       "name": "project_structure.md",
@@ -267,6 +279,18 @@
         "md"
       ],
       "complexity": "complex"
+    },
+    {
+      "id": "file:docs/todo.md",
+      "type": "file",
+      "name": "todo.md",
+      "filePath": "docs/todo.md",
+      "summary": "todo.md — markdown source file",
+      "tags": [
+        "markdown",
+        "md"
+      ],
+      "complexity": "simple"
     },
     {
       "id": "file:fix_mobile_css_order.sh",
@@ -291,6 +315,18 @@
         "js"
       ],
       "complexity": "moderate"
+    },
+    {
+      "id": "file:fix_units.py",
+      "type": "file",
+      "name": "fix_units.py",
+      "filePath": "fix_units.py",
+      "summary": "fix_units.py — python source file",
+      "tags": [
+        "python",
+        "py"
+      ],
+      "complexity": "simple"
     },
     {
       "id": "file:flaggen.js",
@@ -2317,6 +2353,30 @@
       "complexity": "simple"
     },
     {
+      "id": "file:temp_res.txt",
+      "type": "file",
+      "name": "temp_res.txt",
+      "filePath": "temp_res.txt",
+      "summary": "temp_res.txt — unknown source file",
+      "tags": [
+        "unknown",
+        "txt"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:test_mobile.js",
+      "type": "file",
+      "name": "test_mobile.js",
+      "filePath": "test_mobile.js",
+      "summary": "test_mobile.js — javascript source file",
+      "tags": [
+        "javascript",
+        "js"
+      ],
+      "complexity": "moderate"
+    },
+    {
       "id": "file:todo.txt",
       "type": "file",
       "name": "todo.txt",
@@ -2473,13 +2533,29 @@
       "complexity": "simple"
     },
     {
+      "id": "fn:unx.js#start",
+      "type": "function",
+      "name": "start",
+      "filePath": "unx.js",
+      "lineRange": [
+        59,
+        66
+      ],
+      "summary": "start()",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
       "id": "fn:unx.js#nb",
       "type": "function",
       "name": "nb",
       "filePath": "unx.js",
       "lineRange": [
-        61,
-        61
+        67,
+        67
       ],
       "summary": "nb()",
       "tags": [
@@ -2494,8 +2570,8 @@
       "name": "db",
       "filePath": "unx.js",
       "lineRange": [
-        62,
-        62
+        68,
+        68
       ],
       "summary": "db()",
       "tags": [
@@ -2510,8 +2586,8 @@
       "name": "ob",
       "filePath": "unx.js",
       "lineRange": [
-        63,
-        63
+        69,
+        77
       ],
       "summary": "ob(pb)",
       "tags": [
@@ -2526,8 +2602,8 @@
       "name": "rb",
       "filePath": "unx.js",
       "lineRange": [
-        64,
-        85
+        78,
+        99
       ],
       "summary": "rb(s, sb)",
       "tags": [
@@ -2542,8 +2618,8 @@
       "name": "fi2",
       "filePath": "unx.js",
       "lineRange": [
-        86,
-        99
+        100,
+        113
       ],
       "summary": "fi2(qact, qact2, qact3)",
       "tags": [
@@ -2558,8 +2634,8 @@
       "name": "qst_next2",
       "filePath": "unx.js",
       "lineRange": [
-        101,
-        114
+        115,
+        128
       ],
       "summary": "qst_next2(jf, act, act2, act3)",
       "tags": [
@@ -2574,15 +2650,15 @@
       "name": "initCounter",
       "filePath": "unx.js",
       "lineRange": [
-        115,
-        121
+        129,
+        154
       ],
       "summary": "initCounter()",
       "tags": [
         "function",
         "javascript"
       ],
-      "complexity": "simple"
+      "complexity": "moderate"
     },
     {
       "id": "fn:unx.js#executeCounter",
@@ -2590,8 +2666,8 @@
       "name": "executeCounter",
       "filePath": "unx.js",
       "lineRange": [
-        122,
-        175
+        155,
+        196
       ],
       "summary": "executeCounter()",
       "tags": [
@@ -2606,15 +2682,15 @@
       "name": "mb",
       "filePath": "unx.js",
       "lineRange": [
-        179,
-        184
+        198,
+        228
       ],
       "summary": "mb(zb)",
       "tags": [
         "function",
         "javascript"
       ],
-      "complexity": "simple"
+      "complexity": "moderate"
     },
     {
       "id": "fn:unx.js#executeTimer",
@@ -2622,8 +2698,8 @@
       "name": "executeTimer",
       "filePath": "unx.js",
       "lineRange": [
-        185,
-        189
+        229,
+        241
       ],
       "summary": "executeTimer(zb)",
       "tags": [
@@ -2638,8 +2714,8 @@
       "name": "upd_res",
       "filePath": "unx.js",
       "lineRange": [
-        191,
-        195
+        243,
+        247
       ],
       "summary": "upd_res(gc, kc)",
       "tags": [
@@ -2654,8 +2730,8 @@
       "name": "jc",
       "filePath": "unx.js",
       "lineRange": [
-        196,
-        199
+        248,
+        251
       ],
       "summary": "jc(mc, nc, oc, pc)",
       "tags": [
@@ -2670,8 +2746,8 @@
       "name": "rc",
       "filePath": "unx.js",
       "lineRange": [
-        200,
-        201
+        252,
+        253
       ],
       "summary": "rc(n, d)",
       "tags": [
@@ -2686,8 +2762,8 @@
       "name": "btm0",
       "filePath": "unx.js",
       "lineRange": [
-        202,
-        202
+        254,
+        254
       ],
       "summary": "btm0()",
       "tags": [
@@ -2702,8 +2778,8 @@
       "name": "btm1",
       "filePath": "unx.js",
       "lineRange": [
-        203,
-        204
+        255,
+        256
       ],
       "summary": "btm1()",
       "tags": [
@@ -2718,8 +2794,8 @@
       "name": "Popup",
       "filePath": "unx.js",
       "lineRange": [
-        206,
-        220
+        258,
+        272
       ],
       "summary": "Popup(i, j, sc)",
       "tags": [
@@ -2734,8 +2810,8 @@
       "name": "PopupMap",
       "filePath": "unx.js",
       "lineRange": [
-        221,
-        238
+        273,
+        290
       ],
       "summary": "PopupMap(i)",
       "tags": [
@@ -2750,8 +2826,8 @@
       "name": "uc",
       "filePath": "unx.js",
       "lineRange": [
-        240,
-        244
+        292,
+        296
       ],
       "summary": "uc()",
       "tags": [
@@ -2766,8 +2842,8 @@
       "name": "uc2",
       "filePath": "unx.js",
       "lineRange": [
-        245,
-        255
+        297,
+        307
       ],
       "summary": "uc2()",
       "tags": [
@@ -2782,8 +2858,8 @@
       "name": "vc",
       "filePath": "unx.js",
       "lineRange": [
-        257,
-        268
+        309,
+        320
       ],
       "summary": "vc()",
       "tags": [
@@ -2798,8 +2874,8 @@
       "name": "Close",
       "filePath": "unx.js",
       "lineRange": [
-        279,
-        281
+        331,
+        333
       ],
       "summary": "Close()",
       "tags": [
@@ -2814,8 +2890,8 @@
       "name": "Allmsg",
       "filePath": "unx.js",
       "lineRange": [
-        282,
-        283
+        334,
+        335
       ],
       "summary": "Allmsg()",
       "tags": [
@@ -2830,8 +2906,8 @@
       "name": "xy",
       "filePath": "unx.js",
       "lineRange": [
-        284,
-        284
+        336,
+        336
       ],
       "summary": "xy()",
       "tags": [
@@ -2846,8 +2922,8 @@
       "name": "my_village",
       "filePath": "unx.js",
       "lineRange": [
-        285,
-        288
+        337,
+        340
       ],
       "summary": "my_village()",
       "tags": [
@@ -2862,8 +2938,8 @@
       "name": "fd",
       "filePath": "unx.js",
       "lineRange": [
-        293,
-        333
+        345,
+        385
       ],
       "summary": "fd(url, gd, hd, id)",
       "tags": [
@@ -2878,8 +2954,8 @@
       "name": "md",
       "filePath": "unx.js",
       "lineRange": [
-        334,
-        336
+        386,
+        388
       ],
       "summary": "md(nd)",
       "tags": [
@@ -2894,8 +2970,8 @@
       "name": "map_init",
       "filePath": "unx.js",
       "lineRange": [
-        360,
-        413
+        412,
+        465
       ],
       "summary": "map_init()",
       "tags": [
@@ -2910,8 +2986,8 @@
       "name": "se",
       "filePath": "unx.js",
       "lineRange": [
-        415,
-        415
+        467,
+        467
       ],
       "summary": "se()",
       "tags": [
@@ -2926,8 +3002,8 @@
       "name": "ef",
       "filePath": "unx.js",
       "lineRange": [
-        425,
-        426
+        477,
+        478
       ],
       "summary": "ef(ff, gf)",
       "tags": [
@@ -2942,8 +3018,8 @@
       "name": "hf",
       "filePath": "unx.js",
       "lineRange": [
-        427,
-        427
+        479,
+        479
       ],
       "summary": "hf(jf)",
       "tags": [
@@ -2958,8 +3034,8 @@
       "name": "kf",
       "filePath": "unx.js",
       "lineRange": [
-        428,
-        428
+        480,
+        480
       ],
       "summary": "kf(jf)",
       "tags": [
@@ -2974,8 +3050,8 @@
       "name": "lf",
       "filePath": "unx.js",
       "lineRange": [
-        429,
-        433
+        481,
+        485
       ],
       "summary": "lf(x, y)",
       "tags": [
@@ -2990,8 +3066,8 @@
       "name": "ve",
       "filePath": "unx.js",
       "lineRange": [
-        434,
-        438
+        486,
+        490
       ],
       "summary": "ve()",
       "tags": [
@@ -3006,8 +3082,8 @@
       "name": "we",
       "filePath": "unx.js",
       "lineRange": [
-        439,
-        447
+        491,
+        499
       ],
       "summary": "we()",
       "tags": [
@@ -3022,8 +3098,8 @@
       "name": "je",
       "filePath": "unx.js",
       "lineRange": [
-        452,
-        458
+        504,
+        510
       ],
       "summary": "je()",
       "tags": [
@@ -3038,8 +3114,8 @@
       "name": "sf",
       "filePath": "unx.js",
       "lineRange": [
-        459,
-        460
+        511,
+        512
       ],
       "summary": "sf(z)",
       "tags": [
@@ -3054,8 +3130,8 @@
       "name": "vf",
       "filePath": "unx.js",
       "lineRange": [
-        461,
-        499
+        513,
+        551
       ],
       "summary": "vf(qf, rf, wf)",
       "tags": [
@@ -3070,8 +3146,8 @@
       "name": "zf",
       "filePath": "unx.js",
       "lineRange": [
-        501,
-        511
+        553,
+        563
       ],
       "summary": "zf($f)",
       "tags": [
@@ -3086,8 +3162,8 @@
       "name": "_f",
       "filePath": "unx.js",
       "lineRange": [
-        513,
-        521
+        565,
+        573
       ],
       "summary": "_f($f)",
       "tags": [
@@ -3102,8 +3178,8 @@
       "name": "ag",
       "filePath": "unx.js",
       "lineRange": [
-        524,
-        544
+        576,
+        596
       ],
       "summary": "ag(qf, rf)",
       "tags": [
@@ -3118,8 +3194,8 @@
       "name": "bg",
       "filePath": "unx.js",
       "lineRange": [
-        545,
-        545
+        597,
+        597
       ],
       "summary": "bg(cg)",
       "tags": [
@@ -3134,8 +3210,8 @@
       "name": "map_scroll",
       "filePath": "unx.js",
       "lineRange": [
-        547,
-        626
+        599,
+        678
       ],
       "summary": "map_scroll(qf, rf, dg)",
       "tags": [
@@ -3150,8 +3226,8 @@
       "name": "rg",
       "filePath": "unx.js",
       "lineRange": [
-        628,
-        628
+        680,
+        680
       ],
       "summary": "rg(qf, rf)",
       "tags": [
@@ -3166,8 +3242,8 @@
       "name": "gg",
       "filePath": "unx.js",
       "lineRange": [
-        629,
-        631
+        681,
+        683
       ],
       "summary": "gg()",
       "tags": [
@@ -3182,8 +3258,8 @@
       "name": "sg",
       "filePath": "unx.js",
       "lineRange": [
-        632,
-        633
+        684,
+        685
       ],
       "summary": "sg()",
       "tags": [
@@ -3198,8 +3274,8 @@
       "name": "lg",
       "filePath": "unx.js",
       "lineRange": [
-        634,
-        634
+        686,
+        686
       ],
       "summary": "lg()",
       "tags": [
@@ -3214,8 +3290,8 @@
       "name": "mg",
       "filePath": "unx.js",
       "lineRange": [
-        635,
-        638
+        687,
+        690
       ],
       "summary": "mg(qf, rf, dg)",
       "tags": [
@@ -3230,8 +3306,8 @@
       "name": "pg",
       "filePath": "unx.js",
       "lineRange": [
-        639,
-        639
+        691,
+        691
       ],
       "summary": "pg(og)",
       "tags": [
@@ -3246,8 +3322,8 @@
       "name": "xg",
       "filePath": "unx.js",
       "lineRange": [
-        640,
-        642
+        692,
+        694
       ],
       "summary": "xg(ng)",
       "tags": [
@@ -3262,8 +3338,8 @@
       "name": "zg",
       "filePath": "unx.js",
       "lineRange": [
-        643,
-        643
+        695,
+        695
       ],
       "summary": "zg($g, _g)",
       "tags": [
@@ -3278,8 +3354,8 @@
       "name": "yg",
       "filePath": "unx.js",
       "lineRange": [
-        644,
-        644
+        696,
+        696
       ],
       "summary": "yg(ah, bh, _e)",
       "tags": [
@@ -3294,8 +3370,8 @@
       "name": "pf",
       "filePath": "unx.js",
       "lineRange": [
-        645,
-        649
+        697,
+        701
       ],
       "summary": "pf(area, of)",
       "tags": [
@@ -3310,8 +3386,8 @@
       "name": "te",
       "filePath": "unx.js",
       "lineRange": [
-        650,
-        653
+        702,
+        705
       ],
       "summary": "te(_e, area)",
       "tags": [
@@ -3326,8 +3402,8 @@
       "name": "df",
       "filePath": "unx.js",
       "lineRange": [
-        654,
-        655
+        706,
+        707
       ],
       "summary": "df(dh)",
       "tags": [
@@ -3342,8 +3418,8 @@
       "name": "oe",
       "filePath": "unx.js",
       "lineRange": [
-        657,
-        664
+        709,
+        716
       ],
       "summary": "oe()",
       "tags": [
@@ -3358,8 +3434,8 @@
       "name": "ne",
       "filePath": "unx.js",
       "lineRange": [
-        666,
-        675
+        718,
+        727
       ],
       "summary": "ne(e)",
       "tags": [
@@ -3374,8 +3450,8 @@
       "name": "qe",
       "filePath": "unx.js",
       "lineRange": [
-        676,
-        676
+        728,
+        728
       ],
       "summary": "qe()",
       "tags": [
@@ -3390,8 +3466,8 @@
       "name": "fh",
       "filePath": "unx.js",
       "lineRange": [
-        677,
-        681
+        729,
+        733
       ],
       "summary": "fh(area)",
       "tags": [
@@ -3406,8 +3482,8 @@
       "name": "gh",
       "filePath": "unx.js",
       "lineRange": [
-        682,
-        689
+        734,
+        741
       ],
       "summary": "gh(area)",
       "tags": [
@@ -3422,8 +3498,8 @@
       "name": "re",
       "filePath": "unx.js",
       "lineRange": [
-        690,
-        692
+        742,
+        744
       ],
       "summary": "re()",
       "tags": [
@@ -3438,8 +3514,8 @@
       "name": "wg",
       "filePath": "unx.js",
       "lineRange": [
-        693,
-        695
+        745,
+        747
       ],
       "summary": "wg(ng, qf)",
       "tags": [
@@ -3454,8 +3530,8 @@
       "name": "kh",
       "filePath": "unx.js",
       "lineRange": [
-        696,
-        700
+        748,
+        752
       ],
       "summary": "kh(x, y, tf, uf)",
       "tags": [
@@ -3470,8 +3546,8 @@
       "name": "nh",
       "filePath": "unx.js",
       "lineRange": [
-        701,
-        702
+        753,
+        754
       ],
       "summary": "nh(x, y, tf, uf)",
       "tags": [
@@ -3486,8 +3562,8 @@
       "name": "mh",
       "filePath": "unx.js",
       "lineRange": [
-        703,
-        703
+        755,
+        755
       ],
       "summary": "mh(of, lh)",
       "tags": [
@@ -3502,8 +3578,8 @@
       "name": "vg",
       "filePath": "unx.js",
       "lineRange": [
-        704,
-        707
+        756,
+        759
       ],
       "summary": "vg(qf)",
       "tags": [
@@ -3518,8 +3594,8 @@
       "name": "eh",
       "filePath": "unx.js",
       "lineRange": [
-        708,
-        713
+        760,
+        765
       ],
       "summary": "eh(qd)",
       "tags": [
@@ -3534,8 +3610,8 @@
       "name": "le",
       "filePath": "unx.js",
       "lineRange": [
-        715,
-        727
+        767,
+        779
       ],
       "summary": "le(e)",
       "tags": [
@@ -3550,8 +3626,8 @@
       "name": "m_r",
       "filePath": "unx.js",
       "lineRange": [
-        728,
-        733
+        780,
+        785
       ],
       "summary": "m_r(qf, qh)",
       "tags": [
@@ -3566,8 +3642,8 @@
       "name": "qg",
       "filePath": "unx.js",
       "lineRange": [
-        734,
-        739
+        786,
+        791
       ],
       "summary": "qg(rh)",
       "tags": [
@@ -3582,8 +3658,8 @@
       "name": "me",
       "filePath": "unx.js",
       "lineRange": [
-        741,
-        760
+        793,
+        812
       ],
       "summary": "me(e)",
       "tags": [
@@ -3598,8 +3674,8 @@
       "name": "ph",
       "filePath": "unx.js",
       "lineRange": [
-        761,
-        763
+        813,
+        815
       ],
       "summary": "ph()",
       "tags": [
@@ -3614,8 +3690,8 @@
       "name": "ie",
       "filePath": "unx.js",
       "lineRange": [
-        767,
-        770
+        819,
+        822
       ],
       "summary": "ie(zh)",
       "tags": [
@@ -3630,8 +3706,8 @@
       "name": "hh",
       "filePath": "unx.js",
       "lineRange": [
-        771,
-        772
+        823,
+        824
       ],
       "summary": "hh()",
       "tags": [
@@ -3646,8 +3722,8 @@
       "name": "fi",
       "filePath": "unx.js",
       "lineRange": [
-        779,
-        788
+        831,
+        840
       ],
       "summary": "fi(qact, qact2)",
       "tags": [
@@ -3662,8 +3738,8 @@
       "name": "qst_next",
       "filePath": "unx.js",
       "lineRange": [
-        790,
-        803
+        842,
+        855
       ],
       "summary": "qst_next(jf, act, act2)",
       "tags": [
@@ -3678,8 +3754,8 @@
       "name": "hi",
       "filePath": "unx.js",
       "lineRange": [
-        807,
-        816
+        859,
+        868
       ],
       "summary": "hi()",
       "tags": [
@@ -3694,8 +3770,8 @@
       "name": "ki",
       "filePath": "unx.js",
       "lineRange": [
-        817,
-        818
+        869,
+        870
       ],
       "summary": "ki(step)",
       "tags": [
@@ -3710,8 +3786,8 @@
       "name": "li",
       "filePath": "unx.js",
       "lineRange": [
-        819,
-        821
+        871,
+        873
       ],
       "summary": "li(step)",
       "tags": [
@@ -3726,8 +3802,8 @@
       "name": "ii",
       "filePath": "unx.js",
       "lineRange": [
-        822,
-        825
+        874,
+        877
       ],
       "summary": "ii(mi)",
       "tags": [
@@ -3742,8 +3818,8 @@
       "name": "qi",
       "filePath": "unx.js",
       "lineRange": [
-        826,
-        828
+        878,
+        880
       ],
       "summary": "qi(vis)",
       "tags": [
@@ -3758,8 +3834,8 @@
       "name": "anm_step",
       "filePath": "unx.js",
       "lineRange": [
-        829,
-        834
+        881,
+        886
       ],
       "summary": "anm_step()",
       "tags": [
@@ -3774,8 +3850,8 @@
       "name": "ti",
       "filePath": "unx.js",
       "lineRange": [
-        835,
-        840
+        887,
+        892
       ],
       "summary": "ti()",
       "tags": [
@@ -3790,8 +3866,8 @@
       "name": "qst_fhandle",
       "filePath": "unx.js",
       "lineRange": [
-        841,
-        844
+        893,
+        896
       ],
       "summary": "qst_fhandle()",
       "tags": [
@@ -3806,8 +3882,8 @@
       "name": "qst_handle",
       "filePath": "unx.js",
       "lineRange": [
-        845,
-        860
+        897,
+        912
       ],
       "summary": "qst_handle()",
       "tags": [
@@ -3822,8 +3898,8 @@
       "name": "qst_wfm",
       "filePath": "unx.js",
       "lineRange": [
-        861,
-        906
+        913,
+        958
       ],
       "summary": "qst_wfm()",
       "tags": [
@@ -3838,8 +3914,8 @@
       "name": "qst_weiter",
       "filePath": "unx.js",
       "lineRange": [
-        908,
-        918
+        960,
+        970
       ],
       "summary": "qst_weiter()",
       "tags": [
@@ -3854,8 +3930,8 @@
       "name": "pi",
       "filePath": "unx.js",
       "lineRange": [
-        919,
-        919
+        971,
+        971
       ],
       "summary": "pi()",
       "tags": [
@@ -3870,8 +3946,8 @@
       "name": "qst_enter",
       "filePath": "unx.js",
       "lineRange": [
-        920,
-        928
+        972,
+        980
       ],
       "summary": "qst_enter(jf)",
       "tags": [
@@ -3886,8 +3962,8 @@
       "name": "qst_enter_coords",
       "filePath": "unx.js",
       "lineRange": [
-        929,
-        929
+        981,
+        981
       ],
       "summary": "qst_enter_coords()",
       "tags": [
@@ -3902,8 +3978,8 @@
       "name": "wi",
       "filePath": "unx.js",
       "lineRange": [
-        930,
-        934
+        982,
+        986
       ],
       "summary": "wi(_i)",
       "tags": [
@@ -3918,8 +3994,8 @@
       "name": "he",
       "filePath": "unx.js",
       "lineRange": [
-        935,
-        935
+        987,
+        987
       ],
       "summary": "he(bj)",
       "tags": [
@@ -3934,8 +4010,8 @@
       "name": "vil_levels_toggle",
       "filePath": "unx.js",
       "lineRange": [
-        936,
-        938
+        988,
+        990
       ],
       "summary": "vil_levels_toggle()",
       "tags": [
@@ -3950,8 +4026,8 @@
       "name": "gmwd",
       "filePath": "unx.js",
       "lineRange": [
-        939,
-        941
+        991,
+        993
       ],
       "summary": "gmwd()",
       "tags": [
@@ -3966,8 +4042,8 @@
       "name": "gmc",
       "filePath": "unx.js",
       "lineRange": [
-        942,
-        942
+        994,
+        994
       ],
       "summary": "gmc()",
       "tags": [
@@ -3982,8 +4058,8 @@
       "name": "documentWidth",
       "filePath": "unx.js",
       "lineRange": [
-        943,
-        951
+        995,
+        1003
       ],
       "summary": "documentWidth()",
       "tags": [
@@ -3998,13 +4074,53 @@
       "name": "documentHeight",
       "filePath": "unx.js",
       "lineRange": [
-        953,
-        961
+        1005,
+        1013
       ],
       "summary": "documentHeight()",
       "tags": [
         "function",
         "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:update_buttons.js",
+      "type": "file",
+      "name": "update_buttons.js",
+      "filePath": "update_buttons.js",
+      "summary": "update_buttons.js — javascript source file",
+      "tags": [
+        "javascript",
+        "js"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "fn:update_buttons.js#walkDir",
+      "type": "function",
+      "name": "walkDir",
+      "filePath": "update_buttons.js",
+      "lineRange": [
+        6,
+        22
+      ],
+      "summary": "walkDir(dir)",
+      "tags": [
+        "function",
+        "javascript"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:update_buttons.py",
+      "type": "file",
+      "name": "update_buttons.py",
+      "filePath": "update_buttons.py",
+      "summary": "update_buttons.py — python source file",
+      "tags": [
+        "python",
+        "py"
       ],
       "complexity": "simple"
     },
@@ -4245,6 +4361,13 @@
     {
       "source": "file:unx.js",
       "target": "fn:unx.js#hb",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:unx.js",
+      "target": "fn:unx.js#start",
       "type": "contains",
       "direction": "forward",
       "weight": 0.9
@@ -4920,6 +5043,13 @@
       "type": "contains",
       "direction": "forward",
       "weight": 0.9
+    },
+    {
+      "source": "file:update_buttons.js",
+      "target": "fn:update_buttons.js#walkDir",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
     }
   ],
   "layers": [
@@ -5080,9 +5210,12 @@
         "file:Dockerfile",
         "file:DOCKER_README.md",
         "file:docs/changelog.md",
+        "file:docs/lessons.md",
         "file:docs/project_structure.md",
+        "file:docs/todo.md",
         "file:fix_mobile_css_order.sh",
         "file:fix_rtl.js",
+        "file:fix_units.py",
         "file:flaggen.js",
         "file:GameEngine/Admin/ajax.js",
         "file:gpack/travian_default/lang/ar/b/zurueck.html",
@@ -5106,11 +5239,15 @@
         "file:split_ar.py",
         "file:sql_updates.txt",
         "file:Templates/Ranking/_notes/dwsync.xml",
+        "file:temp_res.txt",
+        "file:test_mobile.js",
         "file:todo.txt",
         "file:translate_manuals.js",
         "file:translate_manuals2.js",
         "file:uncrypt.js",
-        "file:unx.js"
+        "file:unx.js",
+        "file:update_buttons.js",
+        "file:update_buttons.py"
       ]
     }
   ],
@@ -5259,7 +5396,7 @@
     {
       "order": 3,
       "title": "Core Layer",
-      "description": "Explore the core layer: AC_OETags.js, ajax.js, jquery.cookie.js, bump_cache.js, CHANGELOG.md (+37 more)",
+      "description": "Explore the core layer: AC_OETags.js, ajax.js, jquery.cookie.js, bump_cache.js, CHANGELOG.md (+44 more)",
       "nodeIds": [
         "file:AC_OETags.js",
         "file:Admin/ajax.js",
@@ -5272,9 +5409,12 @@
         "file:Dockerfile",
         "file:DOCKER_README.md",
         "file:docs/changelog.md",
+        "file:docs/lessons.md",
         "file:docs/project_structure.md",
+        "file:docs/todo.md",
         "file:fix_mobile_css_order.sh",
         "file:fix_rtl.js",
+        "file:fix_units.py",
         "file:flaggen.js",
         "file:GameEngine/Admin/ajax.js",
         "file:gpack/travian_default/lang/ar/b/zurueck.html",
@@ -5298,11 +5438,15 @@
         "file:split_ar.py",
         "file:sql_updates.txt",
         "file:Templates/Ranking/_notes/dwsync.xml",
+        "file:temp_res.txt",
+        "file:test_mobile.js",
         "file:todo.txt",
         "file:translate_manuals.js",
         "file:translate_manuals2.js",
         "file:uncrypt.js",
-        "file:unx.js"
+        "file:unx.js",
+        "file:update_buttons.js",
+        "file:update_buttons.py"
       ]
     }
   ]

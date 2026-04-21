@@ -1,5 +1,6 @@
 <div id="textmenu">
    <a href="nachrichten.php?t=5" <?php if(isset($_GET['t']) && $_GET['t'] == 5) { echo "class=\"selected\""; } ?>><?php echo (defined('LANG') && LANG === 'ar' ? 'الدردشة العامة' : 'Public Chat'); ?></a>
+ | <a href="nachrichten.php?t=6" <?php if(isset($_GET['t']) && $_GET['t'] == 6) { echo "class=\"selected\""; } ?>><?php echo (defined('LANG') && LANG === 'ar' ? 'محادثات مباشرة' : 'Direct Chat'); ?></a>
  | <a href="nachrichten.php" <?php if(!isset($_GET['t'])) { echo "class=\"selected\""; } ?>><?php echo (defined('LANG') && LANG === 'ar' ? 'صندوق الوارد' : 'Inbox'); ?></a>
  | <a href="nachrichten.php?t=1" <?php if(isset($_GET['t']) && $_GET['t'] == 1) { echo "class=\"selected\""; } ?> ><?php echo (defined('LANG') && LANG === 'ar' ? 'كتابة' : 'Write'); ?></a>
  | <a href="nachrichten.php?t=2" <?php if(isset($_GET['t']) && $_GET['t'] == 2) { echo "class=\"selected\""; } ?> ><?php echo (defined('LANG') && LANG === 'ar' ? 'المرسلة' : 'Sent'); ?></a>

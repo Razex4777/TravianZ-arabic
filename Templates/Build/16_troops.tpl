@@ -20,12 +20,12 @@
                 else {
                 echo "<td>";
                 }
-                echo $village->unitarray['u'.$i]."</td>";
+                echo number_format($village->unitarray['u'.$i])."</td>";
             }
 
                 if($village->unitarray['hero'] != 0) {
                 echo "<td>";
-				echo $village->unitarray['hero']."</td>";
+				echo number_format($village->unitarray['hero'])."</td>";
                 }
                 
             ?>

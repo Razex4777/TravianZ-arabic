@@ -596,7 +596,7 @@ $_playerGold = (int)$golds['gold'];
 			<tr>
 				<td class="man"><a href="#" onClick="return Popup(0,6);"><img class="help" src="img/x.gif" alt="" title="" /></a></td>
 				<td class="desc">
-					<b><?php echo (defined('LANG') && LANG === 'ar') ? 'شراء الموارد بالذهب' : 'Buy Resources with Gold'; ?></b><br />
+					<b><?php echo (defined('LANG') && LANG === 'ar') ? 'شراء الموارد' : 'Buy Resources'; ?></b><br />
 					<span class="run">
 						<?php echo (defined('LANG') && LANG === 'ar') ? 'كل 1 ذهب = 20,000 من كل مورد. لا يعمل بالذهب المجاني.' : 'Each 1 gold = 20,000 of each resource. Does not work with free gold.'; ?>
 					</span>
@@ -658,10 +658,10 @@ if ($session->access != BANNED) {
 						var bd = document.getElementById('fillBreakdown');
 						if (amount > 0) {
 							bd.style.display = 'block';
-							bd.innerHTML = (_isAr ? '🪵 خشب' : '🪵 Wood') + ': ' + _curRes.wood.toLocaleString() + ' → <b style="color:#060">' + (_curRes.wood + addWood).toLocaleString() + '</b> / ' + _maxStore.toLocaleString() + '<br>'
-								+ (_isAr ? '🧱 طين' : '🧱 Clay') + ': ' + _curRes.clay.toLocaleString() + ' → <b style="color:#960">' + (_curRes.clay + addClay).toLocaleString() + '</b> / ' + _maxStore.toLocaleString() + '<br>'
-								+ (_isAr ? '⚙️ حديد' : '⚙️ Iron') + ': ' + _curRes.iron.toLocaleString() + ' → <b style="color:#666">' + (_curRes.iron + addIron).toLocaleString() + '</b> / ' + _maxStore.toLocaleString() + '<br>'
-								+ (_isAr ? '🌾 قمح' : '🌾 Crop') + ': ' + _curRes.crop.toLocaleString() + ' → <b style="color:#C90">' + (_curRes.crop + addCrop).toLocaleString() + '</b> / ' + _maxCrop.toLocaleString();
+							bd.innerHTML = (_isAr ? '🪵 خشب' : '🪵 Wood') + ': ' + _curRes.wood.toLocaleString() + ' ← <b style="color:#060">' + (_curRes.wood + addWood).toLocaleString() + '</b> / ' + _maxStore.toLocaleString() + '<br>'
+								+ (_isAr ? '🧱 طين' : '🧱 Clay') + ': ' + _curRes.clay.toLocaleString() + ' ← <b style="color:#960">' + (_curRes.clay + addClay).toLocaleString() + '</b> / ' + _maxStore.toLocaleString() + '<br>'
+								+ (_isAr ? '⚙️ حديد' : '⚙️ Iron') + ': ' + _curRes.iron.toLocaleString() + ' ← <b style="color:#666">' + (_curRes.iron + addIron).toLocaleString() + '</b> / ' + _maxStore.toLocaleString() + '<br>'
+								+ (_isAr ? '🌾 قمح' : '🌾 Crop') + ': ' + _curRes.crop.toLocaleString() + ' ← <b style="color:#C90">' + (_curRes.crop + addCrop).toLocaleString() + '</b> / ' + _maxCrop.toLocaleString();
 						} else {
 							bd.style.display = 'none';
 						}

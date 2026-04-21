@@ -630,6 +630,9 @@ class Building {
 			if($village->capital == 1) return ($village->resarray['f'.$field] == (count($dataarray) - 1 - $loop));
 			else return ($village->resarray['f'.$field] == (count($dataarray) - 11 - $loop));
 		}
+		else if($id == 25 || $id == 26) {
+			return ($village->resarray['f'.$field] == (count($dataarray) - 1 - $loop));
+		}
 		else return ($village->resarray['f'.$field] == count($dataarray) - $loop);
 	}
 
@@ -930,6 +933,10 @@ class Building {
 			return ($village->capital == 1)
 				? count($dataarray) - 1
 				: count($dataarray) - 11;
+		}
+
+		if ($buildingType == 25 || $buildingType == 26) {
+			return count($dataarray) - 1;
 		}
 
 		return count($dataarray);

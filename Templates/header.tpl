@@ -57,11 +57,11 @@ if ($_active_protect_ts > time()) {
         <a href="plus.php?id=3" id="plus">
         <span id="header_gold_display">
             <?php if($session->gold >= 2): ?>
-                <img src="<?php echo GP_LOCATE; ?>img/a/gold.gif" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'الذهب' : 'Gold'; ?>" title="<?php echo $session->gold; ?> <?php echo (defined('LANG') && LANG === 'ar') ? 'ذهب' : 'Gold'; ?>" />
-                <span class="gold_amount"><?php echo $session->gold; ?></span>
+                <img src="<?php echo GP_LOCATE; ?>img/a/gold.gif" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'الذهب' : 'Gold'; ?>" title="<?php echo number_format($session->gold); ?> <?php echo (defined('LANG') && LANG === 'ar') ? 'ذهب' : 'Gold'; ?>" />
+                <span class="gold_amount"><?php echo number_format($session->gold); ?></span>
             <?php else: ?>
-                <img src="<?php echo GP_LOCATE; ?>img/a/gold_g.gif" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'الذهب' : 'Gold'; ?>" title="<?php echo $session->gold; ?> <?php echo (defined('LANG') && LANG === 'ar') ? 'ذهب' : 'Gold'; ?>" />
-                <span class="gold_amount low"><?php echo $session->gold; ?></span>
+                <img src="<?php echo GP_LOCATE; ?>img/a/gold_g.gif" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'الذهب' : 'Gold'; ?>" title="<?php echo number_format($session->gold); ?> <?php echo (defined('LANG') && LANG === 'ar') ? 'ذهب' : 'Gold'; ?>" />
+                <span class="gold_amount low"><?php echo number_format($session->gold); ?></span>
             <?php endif; ?>
         </span>
         </a>

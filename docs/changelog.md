@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-04-21 15:00
+- **Fix: NPC Trade Button Arabic Localization** — Updated `Templates/Build/upgrade.tpl` and `Templates/Build/avaliable/availupgrade.tpl` to display the Arabic constant `NPC_TRADE` ("مبادلة تاجر") as the button tooltip/alt text when `LANG == 'ar'`. Also applied `transform:scaleX(-1)` inline CSS to the NPC arrow icon for Arabic players, making the arrow point **left** (RTL-correct direction).
+- **Fix: Residence & Palace Level Cap (19)** — Updated `GameEngine/Building.php` (`isMax()` and `getMaxLevel()`) to hard-cap buildings 25 (Residence) and 26 (Palace) at level 19. Confirmed "Upgrade to Max" gold feature correctly excludes these buildings via `$excludeFromGoldMax` in `upgrade.tpl`.
+
+## 2026-04-21 03:20
+
+- **Feature: Village Base Storage Override (1500)** — Added `VILLAGE_STORAGE_BASE` in `GameEngine/config.php` and switched village-only capacity floors to this constant in `GameEngine/Database.php` and `GameEngine/Automation.php`. New villages now start at 1500 storage/crop capacity before building warehouse/granary, and recalculation/demolition/prune paths preserve the same floor.
+- **Fix: Oasis Bonus Display Consistency** — Updated stale oasis bonus labels from old 25/50 values to the requested 75/100/150 scheme in `Templates/Map/vilview.tpl` and `Admin/Templates/map_tile.tpl` so map/admin UI now matches actual production + finder behavior.
+- **Feature: WhatsApp-like Direct Chat (No Refresh)** — Added live direct chat tab (`nachrichten.php?t=6`) with real-time polling, conversation list, unread highlighted thread color, per-thread unread badge, instant send, read marking, and top-nav unread icon refresh.
+- **Feature: Direct Chat API** — Added `direct_message_api.php` with endpoints for `threads`, `messages`, `send`, `mark_read`, and `summary` backed by existing `mdata`/`ndata` tables.
+- **Docs: Architecture + Workflow Tracking** — Updated `docs/project_structure.md`, created `docs/todo.md`, and created `docs/lessons.md` to track implementation plan, outcomes, and repeat-avoidance notes.
+
 ## 2026-04-20 21:10
 - **Feature: Academy Research Instant-Finish Clock Icon** — Added a gold clock icon (`buildingFinish=1`) to the research progress table (`under_progress`) in all 5 Academy tribe templates (`22_1.tpl` – `22_5.tpl`). When a player has ≥2 gold, a clickable clock icon appears next to the "RESEARCHING" header; clicking it calls `Building::finishAll()` which instantly completes the active research for 2 gold — no backend changes required as `finishAll()` already invokes `$technology->finishTech()`.
 

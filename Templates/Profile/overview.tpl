@@ -99,7 +99,7 @@ if($displayarray['vac_mode'] == 1) echo "<tr><th colspan='2'><font color='Maroon
             </tr>
             <tr>
                 <th><?php echo (defined('LANG') && LANG === 'ar') ? 'السكان' : 'Population'; ?></th>
-                <td><?php echo $totalpop; ?></td>
+                <td><?php echo number_format($totalpop); ?></td>
             </tr>
             <?php 
 			//Date of Birth
@@ -223,7 +223,7 @@ if($displayarray['vac_mode'] == 1) echo "<tr><th colspan='2'><font color='Maroon
                 }
                 echo "</td>";
             }      
-            echo "<td class=\"hab\">".$vil['pop']."</td><td class=\"aligned_coords\">";
+            echo "<td class=\"hab\">".number_format($vil['pop'])."</td><td class=\"aligned_coords\">";
             echo "<div class=\"cox\">(".$coor['x']."</div><div class=\"pi\">|</div><div class=\"coy\">".$coor['y'].")</div></td></tr>";
         }
         echo "</tbody></table>";

@@ -54,6 +54,8 @@ TravianZ-master/
 ├── 📄 packages.php                   # Gold package purchase page
 ├── 📄 celebration.php                # Village celebration/party launcher
 ├── 📄 finder.php                     # Generic map search for oases and croppers
+├── 📄 chat_api.php                   # Public chat AJAX endpoint (fetch/send/delete with rate limiting)
+├── 📄 direct_message_api.php         # Direct-chat AJAX endpoint for threads/messages/send/read-status and unread summary
 ├── 📄 massmessage.php                # Mass messaging system for alliances
 ├── 📄 support.php                    # Player support ticket system
 ├── 📄 warsim.php                     # Battle simulator for attack planning
@@ -229,8 +231,8 @@ TravianZ-master/
 │   ├── 📁 Map/                       # Map display templates (5 files)
 │   │   └── 📄 mapview.tpl, mapviewlarge.tpl, vilview.tpl
 │   │
-│   ├── 📁 Message/                   # Messaging system templates (9 files)
-│   │   └── 📄 inbox.tpl, sent.tpl, write.tpl, read.tpl, archive.tpl, notes.tpl
+│   ├── 📁 Message/                   # Messaging system templates (10 files)
+│   │   └── 📄 inbox.tpl, sent.tpl, write.tpl, read.tpl, archive.tpl, notes.tpl, chat.tpl, direct_chat.tpl, menu.tpl
 │   │
 │   ├── 📁 News/                      # News display templates (5 files + home/ subdir)
 │   │   └── 📄 newsbox1-3.tpl
@@ -447,6 +449,8 @@ TravianZ-master/
 └── 📁 docs/                          # Project documentation (our workspace)
     ├── 📄 project_structure.md       # This file - current architecture snapshot
     ├── 📄 changelog.md               # Change history log
+    ├── 📄 todo.md                    # Live implementation checklist with completion states and review notes
+    ├── 📄 lessons.md                 # Persistent engineering lessons to prevent repeat mistakes
     └── 📁 plans/                     # Phase execution checklists
         ├── 📄 phase-1.md             # RTL, Arabic translation, mobile responsiveness
         ├── 📄 phase-2.md             # Gold/prize distribution (weekly to daily)

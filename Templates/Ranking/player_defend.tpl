@@ -46,7 +46,7 @@ $search = $_SESSION['search'];
                     } else {
                         echo"<a href=\"spieler.php?uid=".$rankArray[$i]['id']."\">".$rankArray[$i]['username']."</a>";
                     }
-                    echo"</td><td class=\"pop \" >".$rankArray[$i]['totalpop']."";
+                    echo"</td><td class=\"pop \" >".number_format($rankArray[$i]['totalpop'])."";
                     echo "</td><td class=\"vil\">".$rankArray[$i]['totalvillages']."</td><td class=\"po \" >".$rankArray[$i]['dpall']."</td></tr>";
                 }
             }
