@@ -294,10 +294,31 @@ function handleMarkRead($database, $session) {
 function handleSummary($database, $session) {
     $uid = (int) $session->uid;
 
-    $qMessages = "SELECT COUNT(DISTINCT owner) AS cnt FROM " . TB_PREFIX . "mdata
-                 WHERE send = 0 AND target = $uid AND viewed = 0 AND deltarget = 0 AND topic = 'Direct chat'";
-    $rMessages = mysqli_query($database->dblink, $qMessages);
-    $messagesUnread = $rMessages ? (int) mysqli_fetch_assoc($rMessages)['cnt'] : 0;
+    // Build target IDs list (same logic as Database::getUnreadMessagesCount)
+    $targetIds = [$uid];
+    $accessLevel = $database->getUserField($uid, 'access', 0);
+    if ($accessLevel == ADMIN && ADMIN_RECEIVE_SUPPORT_MESSAGES) {
+        $targetIds[] = 1;
+    }
+    if ($accessLevel == MULTIHUNTER) {
+        $targetIds[] = 5;
+    }
+    $targetList = implode(',', $targetIds);
+
+    // Count standard inbox unread (non-direct-chat messages)
+    $qInbox = "SELECT COUNT(*) AS cnt FROM " . TB_PREFIX . "mdata
+               WHERE target IN ($targetList) AND viewed = 0 AND send = 0 AND topic != 'Direct chat'";
+    $rInbox = mysqli_query($database->dblink, $qInbox);
+    $inboxUnread = $rInbox ? (int) mysqli_fetch_assoc($rInbox)['cnt'] : 0;
+
+    // Count direct chat unread (distinct senders with unread messages)
+    $qDM = "SELECT COUNT(DISTINCT owner) AS cnt FROM " . TB_PREFIX . "mdata
+            WHERE send = 0 AND target = $uid AND viewed = 0 AND deltarget = 0 AND topic = 'Direct chat'";
+    $rDM = mysqli_query($database->dblink, $qDM);
+    $dmUnread = $rDM ? (int) mysqli_fetch_assoc($rDM)['cnt'] : 0;
+
+    // Total messages unread = inbox + direct chat
+    $messagesUnread = $inboxUnread + $dmUnread;
 
     $qNotices = "SELECT COUNT(*) AS cnt FROM " . TB_PREFIX . "ndata WHERE uid = $uid AND viewed = 0";
     $rNotices = mysqli_query($database->dblink, $qNotices);

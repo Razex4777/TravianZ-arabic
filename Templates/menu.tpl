@@ -46,10 +46,44 @@ div.c1 {text-align: center}
         } ?>
         <?php if($session->access == ADMIN) {
             echo "<a href=\"Admin/admin.php\"><font color=\"Red\">".ADMIN_PANEL."</font></a>";
-            echo "<a href=\"nachrichten.php?t=5\">".MASS_MESSAGE."</a>";
             echo "<a href=\"sysmsg.php\">".SYSTEM_MESSAGE."</a>";
         } ?>
+        <a href="nachrichten.php?t=5" id="public_chat_link"><?php echo MASS_MESSAGE; ?> <span id="public_chat_badge" style="display:none; background:#ff2828; color:#fff; border-radius:8px; padding:0 5px; font-size:10px; font-weight:bold; font-family:Tahoma,Arial,sans-serif; line-height:16px;"></span></a>
         <a href="logout.php"><?php echo LOGOUT;?></a>
+        <script>
+        (function(){
+            var STORAGE_KEY = 'public_chat_last_seen';
+            // If we're on the chat page right now, update the timestamp
+            if (window.location.href.indexOf('chat.php') !== -1 || (window.location.href.indexOf('nachrichten.php') !== -1 && window.location.href.indexOf('t=5') !== -1)) {
+                sessionStorage.setItem(STORAGE_KEY, Math.floor(Date.now()/1000));
+            }
+            function pollChatBadge() {
+                var since = sessionStorage.getItem(STORAGE_KEY) || '0';
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', 'chat_api.php?action=unread&since=' + since + '&_t=' + Date.now(), true);
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        try {
+                            var data = JSON.parse(xhr.responseText);
+                            var badge = document.getElementById('public_chat_badge');
+                            if (badge && data.ok) {
+                                var c = parseInt(data.count || 0, 10);
+                                if (c > 0) {
+                                    badge.textContent = c > 99 ? '99+' : c;
+                                    badge.style.display = 'inline-block';
+                                } else {
+                                    badge.style.display = 'none';
+                                }
+                            }
+                        } catch(e){}
+                    }
+                };
+                xhr.send();
+            }
+            pollChatBadge();
+            setInterval(pollChatBadge, 5000);
+        })();
+        </script>
         </p>
         <p>
         <?php

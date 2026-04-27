@@ -11,7 +11,7 @@
 ?>
 <table id="production" cellpadding="1" cellspacing="1">
 	<thead><tr>
-			<th colspan="2"><?php echo PRODUCTION; ?></th>
+			<th colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'الإنتاج في الساعة:' : PRODUCTION; ?></th>
 	</tr></thead><tbody>	
 	<tr>
 		<td class="ico"><img class="r1" src="img/x.gif" alt="<?php echo LUMBER; ?>" title="<?php echo LUMBER; ?>" /></td>
