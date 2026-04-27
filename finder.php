@@ -143,102 +143,53 @@ if ($searchTriggered && $_hasPlus) {
         $out = array_slice($rows, 0, $RENDER_MAX);
 
     } else {
-        // Complex oasis search
-        // Define required bonuses
-        $reqWood = 0; $reqClay = 0; $reqIron = 0; $reqCrop = 0;
-        if ($selType == 3) $reqCrop = OASIS_BONUS_STRONG;
-        if ($selType == 4) $reqCrop = OASIS_BONUS_NORMAL;
-        if ($selType == 5) $reqClay = OASIS_BONUS_NORMAL;
-        if ($selType == 6) $reqIron = OASIS_BONUS_NORMAL;
-        if ($selType == 7) $reqWood = OASIS_BONUS_NORMAL;
-        if ($selType == 8) { $reqClay = OASIS_BONUS_MIXED; $reqCrop = OASIS_BONUS_MIXED; }
-        if ($selType == 9) { $reqIron = OASIS_BONUS_MIXED; $reqCrop = OASIS_BONUS_MIXED; }
-        if ($selType == 10) { $reqWood = OASIS_BONUS_MIXED; $reqCrop = OASIS_BONUS_MIXED; }
+        // Direct oasis search — find actual oases matching the requested type
+        // Map selType to matching oasis types in odata
+        $oasisTypes = [];
+        if ($selType == 3) $oasisTypes = [12];            // Crop 150%
+        if ($selType == 4) $oasisTypes = [10, 11];        // Crop 100%
+        if ($selType == 5) $oasisTypes = [4, 5];          // Clay 100%
+        if ($selType == 6) $oasisTypes = [7, 8];          // Iron 100%
+        if ($selType == 7) $oasisTypes = [1, 2];          // Wood 100%
+        if ($selType == 8) $oasisTypes = [6];             // Clay 75% + Crop 75%
+        if ($selType == 9) $oasisTypes = [9];             // Iron 75% + Crop 75%
+        if ($selType == 10) $oasisTypes = [3];            // Wood 75% + Crop 75%
 
-        $R = 40; 
-        $CAP = $RENDER_MAX;
+        $typeIn = implode(',', $oasisTypes);
+
+        // Compute bonus values for display
+        $bonusForType = function($typ) {
+            $b = ['wood'=>0,'clay'=>0,'iron'=>0,'crop'=>0];
+            if ($typ == 1 || $typ == 2) { $b['wood'] = OASIS_BONUS_NORMAL; }
+            elseif ($typ == 3) { $b['wood'] = OASIS_BONUS_MIXED; $b['crop'] = OASIS_BONUS_MIXED; }
+            elseif ($typ == 4 || $typ == 5) { $b['clay'] = OASIS_BONUS_NORMAL; }
+            elseif ($typ == 6) { $b['clay'] = OASIS_BONUS_MIXED; $b['crop'] = OASIS_BONUS_MIXED; }
+            elseif ($typ == 7 || $typ == 8) { $b['iron'] = OASIS_BONUS_NORMAL; }
+            elseif ($typ == 9) { $b['iron'] = OASIS_BONUS_MIXED; $b['crop'] = OASIS_BONUS_MIXED; }
+            elseif ($typ == 10 || $typ == 11) { $b['crop'] = OASIS_BONUS_NORMAL; }
+            elseif ($typ == 12) { $b['crop'] = OASIS_BONUS_STRONG; }
+            return $b;
+        };
+
+        $sql = "SELECT o.wref, w.x, w.y, o.type, o.conqured, o.owner, o.name
+                FROM `$ODATA` o
+                JOIN `$WDATA` w ON w.id = o.wref
+                WHERE o.type IN ($typeIn)";
+        // Empty-only filter: owner=2 means Nature (unoccupied)
+        if ($empty_only) {
+            $sql .= " AND o.conqured = 0";
+        }
+        $res = mysqli_query($database->dblink, $sql);
         $found = [];
-
-        do {
-            $tries++;
-            $span = $R;
-            // Get all candidate villages in bounding box
-            $minX = $startX - $R; $maxX = $startX + $R;
-            $minY = $startY - $R; $maxY = $startY + $R;
-
-            // Handle wrap naturally using database getDistance equivalent in PHP (or just simple bounds for now assuming no weird wrap behavior needed within short distances)
-            // To be safe, we query all wdata and odata in this box, but we need to handle wrap.
-            // A simple wrap condition in SQL:
-            $wrapCond = function($col, $center, $R, $WMIN, $WMAX) {
-                $span = $WMAX - $WMIN + 1;
-                $lo = $center - $R; $hi = $center + $R;
-                $norm = function($v) use ($WMIN,$span) {
-                    $n = ($v - $WMIN) % $span;
-                    if ($n < 0) $n += $span;
-                    return $WMIN + $n;
-                };
-                $loN = $norm($lo); $hiN = $norm($hi);
-                if ($loN <= $hiN) return "($col BETWEEN $loN AND $hiN)";
-                return "(($col BETWEEN $WMIN AND $hiN) OR ($col BETWEEN $loN AND $WMAX))";
-            };
-
-            // World coordinate bounds: -WORLD_MAX to +WORLD_MAX
-            $W_MIN = -WORLD_MAX;
-            $W_MAX = WORLD_MAX;
-            $cX = $wrapCond('x', $startX, $R, $W_MIN, $W_MAX);
-            $cY = $wrapCond('y', $startY, $R, $W_MIN, $W_MAX);
-
-            // Fetch valleys (fields)
-            $sqlValleys = "SELECT id as wref, x, y, fieldtype, occupied FROM `$WDATA` WHERE fieldtype > 0 AND $cX AND $cY" . $emptyCond;
-            $resV = mysqli_query($database->dblink, $sqlValleys);
-            $valleys = [];
-            if ($resV) while ($r = mysqli_fetch_assoc($resV)) $valleys[] = $r;
-
-            // Fetch Oases in R+3 logic
-            $cXo = $wrapCond('w.x', $startX, $R+3, $W_MIN, $W_MAX);
-            $cYo = $wrapCond('w.y', $startY, $R+3, $W_MIN, $W_MAX);
-            $sqlOases = "SELECT w.x, w.y, o.type FROM `$ODATA` o JOIN `$WDATA` w ON w.id = o.wref WHERE $cXo AND $cYo";
-            $resO = mysqli_query($database->dblink, $sqlOases);
-            $oases = [];
-            if ($resO) while ($r = mysqli_fetch_assoc($resO)) $oases[] = $r;
-
-            // Compute combinations
-            foreach ($valleys as $v) {
-                $tw = 0; $tc = 0; $ti = 0; $tcr = 0;
-                foreach ($oases as $o) {
-                    // Check 7x7
-                    $dx = abs($v['x'] - $o['x']);
-                    $dy = abs($v['y'] - $o['y']);
-                    // Wrap-aware distance for 7x7 (max distance 3)
-                    $worldSpan = 2 * WORLD_MAX + 1;
-                    if ($dx > $worldSpan / 2) $dx = $worldSpan - $dx;
-                    if ($dy > $worldSpan / 2) $dy = $worldSpan - $dy;
-
-                    if ($dx <= 3 && $dy <= 3) {
-                        $typ = $o['type'];
-                        if ($typ == 1 || $typ == 2) { $tw+=OASIS_BONUS_NORMAL; }
-                        elseif ($typ == 3) { $tw+=OASIS_BONUS_MIXED; $tcr+=OASIS_BONUS_MIXED; }
-                        elseif ($typ == 4 || $typ == 5) { $tc+=OASIS_BONUS_NORMAL; }
-                        elseif ($typ == 6) { $tc+=OASIS_BONUS_MIXED; $tcr+=OASIS_BONUS_MIXED; }
-                        elseif ($typ == 7 || $typ == 8) { $ti+=OASIS_BONUS_NORMAL; }
-                        elseif ($typ == 9) { $ti+=OASIS_BONUS_MIXED; $tcr+=OASIS_BONUS_MIXED; }
-                        elseif ($typ == 10 || $typ == 11) { $tcr+=OASIS_BONUS_NORMAL; }
-                        elseif ($typ == 12) { $tcr+=OASIS_BONUS_STRONG; }
-                    }
-                }
-                if ($tw >= $reqWood && $tc >= $reqClay && $ti >= $reqIron && $tcr >= $reqCrop) {
-                    $v['__dist'] = $database->getDistance($startX, $startY, (int)$v['x'], (int)$v['y']);
-                    $v['__bonuses'] = ['wood'=>$tw, 'clay'=>$tc, 'iron'=>$ti, 'crop'=>$tcr];
-                    $found[] = $v;
-                }
+        if ($res) {
+            while ($r = mysqli_fetch_assoc($res)) {
+                $r['__dist'] = $database->getDistance($startX, $startY, (int)$r['x'], (int)$r['y']);
+                $r['__bonuses'] = $bonusForType((int)$r['type']);
+                $r['__is_oasis'] = true;
+                $r['occupied'] = ((int)$r['conqured'] > 0) ? 1 : 0;
+                $found[] = $r;
             }
-
-            if (count($found) < $CAP && $tries < 3) {
-                $R *= 2;
-            } else {
-                break;
-            }
-        } while (true);
+        }
 
         usort($found, function($a,$b) { return $a['__dist'] <=> $b['__dist']; });
         $out = array_slice($found, 0, $RENDER_MAX);
@@ -341,15 +292,15 @@ if (!$hasPlusActive) {
           <option value="1" <?php if($selType==1) echo 'selected'; ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'قمحية 15 حقل' : '15 Crop Village'; ?></option>
           <option value="2" <?php if($selType==2) echo 'selected'; ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'قمحية 9 حقول' : '9 Crop Village'; ?></option>
       </optgroup>
-      <optgroup label="<?php echo (defined('LANG') && LANG === 'ar') ? 'تبويب الواحات' : 'Oasis Bonus Villages'; ?>">
-          <option value="3" <?php if($selType==3) echo 'selected'; ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'واحات قمح 150%' : '150% Crop Bonus spot'; ?></option>
-          <option value="4" <?php if($selType==4) echo 'selected'; ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'واحات قمح 100%' : '100% Crop Bonus spot'; ?></option>
-          <option value="5" <?php if($selType==5) echo 'selected'; ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'واحات طين 100%' : '100% Clay Bonus spot'; ?></option>
-          <option value="6" <?php if($selType==6) echo 'selected'; ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'واحات حديد 100%' : '100% Iron Bonus spot'; ?></option>
-          <option value="7" <?php if($selType==7) echo 'selected'; ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'واحات خشب 100%' : '100% Wood Bonus spot'; ?></option>
-          <option value="8" <?php if($selType==8) echo 'selected'; ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'واحات طين 75% وقمح 75%' : '75% Clay & 75% Crop spot'; ?></option>
-          <option value="9" <?php if($selType==9) echo 'selected'; ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'واحات حديد 75% وقمح 75%' : '75% Iron & 75% Crop spot'; ?></option>
-          <option value="10" <?php if($selType==10) echo 'selected'; ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'واحات خشب 75% وقمح 75%' : '75% Wood & 75% Crop spot'; ?></option>
+      <optgroup label="<?php echo (defined('LANG') && LANG === 'ar') ? 'الواحات' : 'Oasis Bonus Villages'; ?>">
+          <option value="3" <?php if($selType==3) echo 'selected'; ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'واحة بمكافأة قمح 150%' : '150% Crop Bonus spot'; ?></option>
+          <option value="4" <?php if($selType==4) echo 'selected'; ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'واحة بمكافأة قمح 100%' : '100% Crop Bonus spot'; ?></option>
+          <option value="5" <?php if($selType==5) echo 'selected'; ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'واحة بمكافأة طين 100%' : '100% Clay Bonus spot'; ?></option>
+          <option value="6" <?php if($selType==6) echo 'selected'; ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'واحة بمكافأة حديد 100%' : '100% Iron Bonus spot'; ?></option>
+          <option value="7" <?php if($selType==7) echo 'selected'; ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'واحة بمكافأة خشب 100%' : '100% Wood Bonus spot'; ?></option>
+          <option value="8" <?php if($selType==8) echo 'selected'; ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'واحة بمكافأة طين 75% و قمح 75%' : '75% Clay & 75% Crop spot'; ?></option>
+          <option value="9" <?php if($selType==9) echo 'selected'; ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'واحة بمكافأة حديد 75% و قمح 75%' : '75% Iron & 75% Crop spot'; ?></option>
+          <option value="10" <?php if($selType==10) echo 'selected'; ?>><?php echo (defined('LANG') && LANG === 'ar') ? 'واحة بمكافأة خشب 75% و قمح 75%' : '75% Wood & 75% Crop spot'; ?></option>
       </optgroup>
     </select>
   </td>
@@ -365,7 +316,7 @@ if (!$hasPlusActive) {
   <td colspan="2">
     <label>
       <input type="checkbox" name="empty_only" value="1" <?php if(isset($_GET['empty_only']) && $_GET['empty_only']==1) echo 'checked'; ?> />
-      <?php echo (defined('LANG') && LANG === 'ar') ? 'أظهر القرى الفارغة فقط' : 'Show unoccupied villages only'; ?>
+      <?php echo (defined('LANG') && LANG === 'ar') ? 'اظهر الغير محتلة فقط' : 'Show unoccupied villages only'; ?>
     </label>
   </td>
 </tr>
@@ -397,33 +348,59 @@ if (empty($out)) {
           </td></tr>";
 } else {
     foreach ($out as $row) {
-        $field = '?';
-        if ($row['fieldtype'] == 1) $field = '3-3-3-9'; // 9c
-        elseif ($row['fieldtype'] == 2) $field = '3-4-5-6';
-        elseif ($row['fieldtype'] == 3) $field = '4-4-4-6';
-        elseif ($row['fieldtype'] == 4) $field = '4-5-3-6';
-        elseif ($row['fieldtype'] == 5) $field = '5-3-4-6';
-        elseif ($row['fieldtype'] == 6) $field = '1-1-1-15'; // 15c
-        elseif ($row['fieldtype'] == 7) $field = '4-4-3-7';
-        elseif ($row['fieldtype'] == 8) $field = '3-4-4-7';
-        elseif ($row['fieldtype'] == 9) $field = '4-3-4-7';
-        elseif ($row['fieldtype'] == 10) $field = '3-5-4-6';
-        elseif ($row['fieldtype'] == 11) $field = '4-3-5-6';
-        elseif ($row['fieldtype'] == 12) $field = '5-4-3-6';
-        // Format based on type
-        if ($selType <= 2) {
-            $typeStr = ($row['fieldtype'] == 6) ? '15c' : '9c';
+        $isOasisRow = !empty($row['__is_oasis']);
+
+        if ($isOasisRow) {
+            // Oasis result — show oasis type label
+            $typeStr = (defined('LANG') && LANG === 'ar') ? 'واحة' : 'Oasis';
         } else {
-            $typeStr = $field; // Show the field distribution
+            $field = '?';
+            if ($row['fieldtype'] == 1) $field = '3-3-3-9'; // 9c
+            elseif ($row['fieldtype'] == 2) $field = '3-4-5-6';
+            elseif ($row['fieldtype'] == 3) $field = '4-4-4-6';
+            elseif ($row['fieldtype'] == 4) $field = '4-5-3-6';
+            elseif ($row['fieldtype'] == 5) $field = '5-3-4-6';
+            elseif ($row['fieldtype'] == 6) $field = '1-1-1-15'; // 15c
+            elseif ($row['fieldtype'] == 7) $field = '4-4-3-7';
+            elseif ($row['fieldtype'] == 8) $field = '3-4-4-7';
+            elseif ($row['fieldtype'] == 9) $field = '4-3-4-7';
+            elseif ($row['fieldtype'] == 10) $field = '3-5-4-6';
+            elseif ($row['fieldtype'] == 11) $field = '4-3-5-6';
+            elseif ($row['fieldtype'] == 12) $field = '5-4-3-6';
+            if ($selType <= 2) {
+                $typeStr = ($row['fieldtype'] == 6) ? '15c' : '9c';
+            } else {
+                $typeStr = $field;
+            }
         }
 
         $x=(int)$row['x']; $y=(int)$row['y']; $id=(int)$row['wref'];
         $ov = $owners[$id] ?? null;
-        $isOcc = ($row['occupied'] > 0); // or $ov !== null
+        $isOcc = ($row['occupied'] > 0);
         
         echo "<tr><td>$typeStr</td>";
-        if (!$isOcc) {
-            echo "<td><a href=\"karte.php?d=".$id."&c=".$generator->getMapCheck($id)."\">".ABANDVALLEY." ($x|$y)</a></td>";
+        if ($isOasisRow) {
+            // Actual oasis rendering
+            $oasisName = htmlspecialchars($row['name'] ?? '', ENT_QUOTES, 'UTF-8');
+            if (!$isOcc) {
+                $spotLabel = (defined('LANG') && LANG === 'ar') ? "واحة غير محتلة ($x|$y)" : "Unoccupied oasis ($x|$y)";
+                echo "<td><a href=\"karte.php?d=".$id."&c=".$generator->getMapCheck($id)."\">".$spotLabel."</a></td>";
+                echo "<td>-</td>";
+                echo "<td><b><font color=\"green\">".UNOCCUPIED."</font></b></td>";
+            } else {
+                // Conquered oasis — show owner info
+                $ownerName = '-';
+                if ($ov) {
+                    $ownerName = htmlspecialchars($ov['username'] ?? '', ENT_QUOTES, 'UTF-8');
+                }
+                $spotLabel = (defined('LANG') && LANG === 'ar') ? "واحة محتلة ($x|$y)" : "Occupied oasis ($x|$y)";
+                echo "<td><a href=\"karte.php?d=".$id."&c=".$generator->getMapCheck($id)."\">".$spotLabel."</a></td>";
+                echo "<td>".$ownerName."</td>";
+                echo "<td><b><font color=\"red\">".OCCUPIED."</font></b></td>";
+            }
+        } elseif (!$isOcc) {
+            $spotLabel = ABANDVALLEY . " ($x|$y)";
+            echo "<td><a href=\"karte.php?d=".$id."&c=".$generator->getMapCheck($id)."\">".$spotLabel."</a></td>";
             echo "<td>-</td>";
             echo "<td><b><font color=\"green\">".UNOCCUPIED."</font></b></td>";
         } else {
@@ -457,22 +434,17 @@ if (empty($out)) {
 
 <?php } else { ?>
 <!-- OASIS SEARCH MODE -->
-<form action="<?php echo $_SERVER['PHP_SELF']; ?>?mode=oasis" method="post">
+<form action="<?php echo $_SERVER['PHP_SELF']; ?>?mode=oasis" method="post" autocomplete="off">
 <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>" />
 <table>
 <tr>
   <td width="200"><?php echo (defined('LANG') && LANG === 'ar') ? 'اسم اللاعب:' : 'Player Name:'; ?></td>
-  <td>
-    <input type="text" name="player_name" value="<?php echo htmlspecialchars($searched_player, ENT_QUOTES, 'UTF-8'); ?>" style="padding: 5px; width: 250px;" />
+  <td style="position:relative;">
+    <input type="text" id="player_name_input" name="player_name" value="<?php echo htmlspecialchars($searched_player, ENT_QUOTES, 'UTF-8'); ?>" style="padding: 5px; width: 250px;" autocomplete="off" />
+    <div id="autocomplete_results" style="position:absolute; top:35px; left:0; width:250px; max-height:200px; overflow-y:auto; background:#fff; border:1px solid #ccc; display:none; z-index:1000; box-shadow:0 4px 6px rgba(0,0,0,0.1);"></div>
   </td>
 </tr>
-<tr>
-  <td colspan="2">
-    <?php echo (defined('LANG') && LANG === 'ar') ? 'موقع البداية:' : 'Start position:'; ?> 
-    x: <input type="text" name="x" value="<?php print $startX; ?>" size="4" />
-    y: <input type="text" name="y" value="<?php print $startY; ?>" size="4" />
-  </td>
-</tr>
+
 <tr>
   <td colspan="2">
     <div style="color:red; font-size:11px; margin-top:5px; margin-bottom:5px;">
@@ -485,6 +457,59 @@ if (empty($out)) {
 </tr>
 </table>
 </form>
+
+<script type="text/javascript">
+document.getElementById('player_name_input').addEventListener('input', function() {
+    var query = this.value;
+    var resultsDiv = document.getElementById('autocomplete_results');
+    if (query.length >= 3) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'ajax_player_search.php?q=' + encodeURIComponent(query), true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                try {
+                    var users = JSON.parse(xhr.responseText);
+                    resultsDiv.innerHTML = '';
+                    if (users.length > 0) {
+                        resultsDiv.style.display = 'block';
+                        users.forEach(function(user) {
+                            var div = document.createElement('div');
+                            div.textContent = user;
+                            div.style.padding = '8px 5px';
+                            div.style.cursor = 'pointer';
+                            div.style.borderBottom = '1px solid #eee';
+                            div.style.color = '#333';
+                            div.style.fontSize = '12px';
+                            div.onmouseover = function() { this.style.background = '#f0f0f0'; };
+                            div.onmouseout = function() { this.style.background = '#fff'; };
+                            div.onclick = function() {
+                                document.getElementById('player_name_input').value = user;
+                                resultsDiv.style.display = 'none';
+                            };
+                            resultsDiv.appendChild(div);
+                        });
+                    } else {
+                        resultsDiv.style.display = 'none';
+                    }
+                } catch(e) {
+                    resultsDiv.style.display = 'none';
+                }
+            }
+        };
+        xhr.send();
+    } else {
+        resultsDiv.style.display = 'none';
+    }
+});
+
+document.addEventListener('click', function(e) {
+    var input = document.getElementById('player_name_input');
+    var resultsDiv = document.getElementById('autocomplete_results');
+    if (e.target !== input && e.target !== resultsDiv && !resultsDiv.contains(e.target)) {
+        resultsDiv.style.display = 'none';
+    }
+});
+</script>
 
 <?php if (is_array($oasis_results)) { ?>
 <br />

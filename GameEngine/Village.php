@@ -339,8 +339,17 @@ class Village {
 	}
 
 	private function ActionControl() {
-		global $session;
+		global $session, $database;
 		
+        if(isset($_POST['change_vname']) && isset($_POST['vname'])) {
+            $name = trim($_POST['vname']);
+            if(!empty($name)) {
+                $database->setVillageName($this->wid, $name);
+                $this->vname = $name;
+                $this->infoarray['name'] = $name;
+            }
+        }
+
 		if(SERVER_WEB_ROOT) $page = $_SERVER['SCRIPT_NAME'];
 		else 
 		{

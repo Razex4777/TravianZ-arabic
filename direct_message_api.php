@@ -10,6 +10,16 @@ if (!$session->logged_in) {
     exit;
 }
 
+// Auto-migrate mdata table to utf8mb4 for emoji support (runs once, lightweight)
+$chkCol = mysqli_query($database->dblink,
+    "SELECT CHARACTER_SET_NAME FROM information_schema.COLUMNS
+     WHERE TABLE_SCHEMA = DATABASE()
+       AND TABLE_NAME = '" . TB_PREFIX . "mdata'
+       AND COLUMN_NAME = 'message' LIMIT 1");
+if ($chkCol && ($chkRow = mysqli_fetch_assoc($chkCol)) && strtolower($chkRow['CHARACTER_SET_NAME']) !== 'utf8mb4') {
+    mysqli_query($database->dblink, "ALTER TABLE " . TB_PREFIX . "mdata CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci");
+}
+
 $action = isset($_GET['action']) ? $_GET['action'] : (isset($_POST['action']) ? $_POST['action'] : '');
 
 switch ($action) {
@@ -31,10 +41,30 @@ switch ($action) {
     case 'summary':
         handleSummary($database, $session);
         break;
+    case 'get_unread_count':
+        handleGetUnreadCount($database, $session);
+        break;
+    case 'delete_message':
+        handleDeleteMessage($database, $session);
+        break;
+    case 'delete_thread':
+        handleDeleteThread($database, $session);
+        break;
     default:
         http_response_code(400);
         echo json_encode(['ok' => false, 'error' => 'Invalid action']);
         break;
+}
+
+function handleGetUnreadCount($database, $session) {
+    $uid = (int) $session->uid;
+    $q = "SELECT COUNT(DISTINCT owner) as unread FROM " . TB_PREFIX . "mdata WHERE target = $uid AND viewed = 0 AND topic = 'Direct chat' AND deltarget = 0";
+    $res = mysqli_query($database->dblink, $q);
+    $count = 0;
+    if ($res && $row = mysqli_fetch_assoc($res)) {
+        $count = (int)$row['unread'];
+    }
+    echo json_encode(['ok' => true, 'count' => $count]);
 }
 
 function handleThreads($database, $session) {
@@ -72,6 +102,8 @@ function handleThreads($database, $session) {
                 'last_message' => $row['message'],
                 'last_time' => (int) $row['time'],
                 'last_id' => (int) $row['id'],
+                'last_owner' => (int) $row['owner'],
+                'last_viewed' => (int) $row['viewed'],
                 'unread_count' => 0
             ];
             $peerIds[$peerId] = true;
@@ -152,7 +184,21 @@ function handleMessages($database, $session) {
         ];
     }
 
-    echo json_encode(['ok' => true, 'messages' => $messages, 'uid' => $uid]);
+    $validIds = [];
+    $sqlIds = "SELECT id FROM " . TB_PREFIX . "mdata
+               WHERE send = 0 AND topic = 'Direct chat'
+                 AND (
+                       (owner = $uid AND target = $peerId AND delowner = 0)
+                    OR (owner = $peerId AND target = $uid AND deltarget = 0)
+                 )";
+    $resIds = mysqli_query($database->dblink, $sqlIds);
+    if ($resIds) {
+        while ($row = mysqli_fetch_assoc($resIds)) {
+            $validIds[] = (int) $row['id'];
+        }
+    }
+
+    echo json_encode(['ok' => true, 'messages' => $messages, 'valid_ids' => $validIds, 'uid' => $uid]);
 }
 
 function handleSend($database, $session) {
@@ -183,6 +229,16 @@ function handleSend($database, $session) {
     }
 
     $messageSafe = htmlspecialchars($messageText, ENT_QUOTES, 'UTF-8');
+
+    // Apply BBCode to parse [report] tags and smiles
+    $input = $messageSafe;
+    include_once("GameEngine/Message.php");
+    global $message;
+    if (!isset($message) || !is_object($message)) {
+        $message = new Message();
+    }
+    include("GameEngine/BBCode.php");
+    $messageSafe = $bbcoded;
 
     $topic = mysqli_real_escape_string($database->dblink, 'Direct chat');
     $body = mysqli_real_escape_string($database->dblink, $messageSafe);
@@ -238,7 +294,7 @@ function handleMarkRead($database, $session) {
 function handleSummary($database, $session) {
     $uid = (int) $session->uid;
 
-    $qMessages = "SELECT COUNT(*) AS cnt FROM " . TB_PREFIX . "mdata
+    $qMessages = "SELECT COUNT(DISTINCT owner) AS cnt FROM " . TB_PREFIX . "mdata
                  WHERE send = 0 AND target = $uid AND viewed = 0 AND deltarget = 0 AND topic = 'Direct chat'";
     $rMessages = mysqli_query($database->dblink, $qMessages);
     $messagesUnread = $rMessages ? (int) mysqli_fetch_assoc($rMessages)['cnt'] : 0;
@@ -282,4 +338,39 @@ function handleSearch($database, $session) {
     }
     
     echo json_encode(['ok' => true, 'users' => $users]);
+}
+
+function handleDeleteMessage($database, $session) {
+    $uid = (int) $session->uid;
+    $msgId = isset($_POST['msg_id']) ? (int) $_POST['msg_id'] : 0;
+
+    if ($msgId <= 0) {
+        http_response_code(400);
+        echo json_encode(['ok' => false, 'error' => 'Invalid message ID']);
+        return;
+    }
+
+    $sql = "DELETE FROM " . TB_PREFIX . "mdata WHERE id = $msgId AND owner = $uid AND topic = 'Direct chat'";
+    mysqli_query($database->dblink, $sql);
+
+    echo json_encode(['ok' => true]);
+}
+
+function handleDeleteThread($database, $session) {
+    $uid = (int) $session->uid;
+    $peerId = isset($_POST['peer_id']) ? (int) $_POST['peer_id'] : 0;
+
+    if ($peerId <= 0) {
+        http_response_code(400);
+        echo json_encode(['ok' => false, 'error' => 'Invalid peer ID']);
+        return;
+    }
+
+    $sql1 = "UPDATE " . TB_PREFIX . "mdata SET delowner = 1 WHERE owner = $uid AND target = $peerId AND topic = 'Direct chat'";
+    mysqli_query($database->dblink, $sql1);
+
+    $sql2 = "UPDATE " . TB_PREFIX . "mdata SET deltarget = 1 WHERE target = $uid AND owner = $peerId AND topic = 'Direct chat'";
+    mysqli_query($database->dblink, $sql2);
+
+    echo json_encode(['ok' => true]);
 }

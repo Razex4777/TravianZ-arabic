@@ -116,13 +116,44 @@
   }
 
   div.village1 table#movements,
-  div.village1 table#movements td,
-  div.village1 table#production {
+  div.village1 table#movements td {
     white-space: normal !important;
   }
 
   div.village1 table#movements td {
     padding: 2px 4px !important;
+  }
+
+  div.village1 table#production, div.village1 table#troops {
+    white-space: normal !important;
+    width: auto !important;
+    margin: 0 auto 15px auto !important;
+    border: none !important;
+  }
+
+  div.village1 table#production thead th, div.village1 table#troops thead th {
+    text-align: center !important;
+    font-size: 18px !important;
+    font-weight: bold !important;
+    padding-bottom: 10px !important;
+    border: none !important;
+    background: transparent !important;
+  }
+
+  div.village1 table#production tbody td, div.village1 table#troops tbody td {
+    border: none !important;
+    background: transparent !important;
+  }
+
+  div.village1 table#production td.num, div.village1 table#troops td.num {
+    font-size: 18px !important;
+    font-weight: bold !important;
+    padding: 5px 10px !important;
+  }
+
+  div.village1 table#production td.ico img, div.village1 table#troops td.ico img {
+    transform: scale(1.2);
+    margin-right: 5px;
   }
 
   /* Fix for Build.php Available Buildings tables overflowing (e.g., .new_building) */

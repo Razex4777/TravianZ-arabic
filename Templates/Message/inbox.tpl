@@ -1,5 +1,11 @@
 <div id="content"  class="messages">
-    <h1><?php echo (defined('LANG') && LANG === 'ar' ? 'الرسائل' : 'Messages'); ?></h1>
+    <h1>
+        <?php echo (defined('LANG') && LANG === 'ar' ? 'الرسائل' : 'Messages'); ?>
+        <span style="font-size: 14px; background: #eee; color: #333; padding: 2px 8px; border-radius: 12px; margin-inline-start: 8px; vertical-align: middle; border: 1px solid #ccc;" title="<?php echo (defined('LANG') && LANG === 'ar' ? 'إجمالي الرسائل' : 'Total messages'); ?>"><?php echo count($message->inbox1); ?></span>
+        <?php if($message->nunread > 0): ?>
+        <span style="font-size: 14px; background: #ff2828; color: white; padding: 2px 8px; border-radius: 12px; margin-inline-start: 4px; vertical-align: middle; box-shadow: 0 1px 3px rgba(0,0,0,0.3);" title="<?php echo (defined('LANG') && LANG === 'ar' ? 'رسائل غير مقروءة' : 'Unread messages'); ?>"><?php echo $message->nunread; ?></span>
+        <?php endif; ?>
+    </h1>
     <?php
     include("menu.tpl");
     ?>

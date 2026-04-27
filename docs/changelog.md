@@ -279,3 +279,9 @@ tlcss (converting floats, margins, paddings for RTL architecture).
 
 # 2026-04-11 16:35
 - Translated <option> dropdown values (Yes/No, True/False, Days/Hours) to Arabic conditionally based on $LANG in admin templates (editAdminInfo.tpl, editExtraSet.tpl, editLogSet.tpl, editPlusSet.tpl, editServerSet.tpl, editNewFunctions.tpl).
+
+# 2026-04-22 10:26
+- Fixed Reports and Messages page buttons displaying reversed colors in Arabic locale by swapping their respective CSS classes (l and r) inside header.tpl when LANG is 'ar'.
+
+# 2026-04-22 10:32
+- Added ability to change the village name directly from the overview pages (dorf1.php and dorf2.php) by clicking on the village name. Clicking the name now transforms it into an input field with Save and Cancel buttons.

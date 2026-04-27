@@ -425,8 +425,9 @@ class MYSQLi_DB implements IDbConnection {
 	    // connect to the DB
 	    if (!$this->connect()) die('Database connection failed: ' . mysqli_connect_error() . ' (Host: '.$hostname.', User: '.$username.', DB: '.$dbname.', Port: '.$port.')');
 
-		// we will operate in UTF8
-		mysqli_query($this->dblink,"SET NAMES 'UTF8'");
+		// we will operate in UTF8MB4 (full Unicode + emoji support)
+		mysqli_query($this->dblink,"SET NAMES 'utf8mb4'");
+		mysqli_set_charset($this->dblink, 'utf8mb4');
 	}
 
 	/**

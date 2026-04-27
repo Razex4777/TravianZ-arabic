@@ -18,6 +18,12 @@ use App\Utils\AccessLogger;
 include_once( "GameEngine/Village.php" );
 AccessLogger::logRequest();
 
+// Redirect Public Chat to standalone page
+if (isset($_GET['t']) && $_GET['t'] == 5) {
+    header("Location: chat.php");
+    exit();
+}
+
 $message->procMessage($_POST);
 
 if(isset($_GET['newdid'])){
@@ -76,7 +82,7 @@ if(isset($_GET['confirm']) && is_numeric($_GET['confirm'])){
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html<?php echo (defined('LANG') && LANG === 'ar') ? ' dir="rtl"' : ''; ?>>
+<html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title><?php echo SERVER_NAME ?> - Messages</title>
@@ -109,7 +115,13 @@ if(isset($_GET['confirm']) && is_numeric($_GET['confirm'])){
 	</script>
 
 	<?php if(defined('LANG') && LANG === 'ar'): ?>
-	
+	<style>
+	#content, #content h1, #content #textmenu, #content table, #content td, #content th, #content div { direction: rtl; text-align: right; }
+	#content table td.dat, #content table th.sent { text-align: center; }
+	#content table td.sel { text-align: center; }
+	#content .navi { text-align: center; }
+	#content .buttons { text-align: center; }
+	</style>
 	<?php endif; ?>
 	<link rel="stylesheet" type="text/css" href="mobile.css?v=47" />
 </head>
@@ -125,46 +137,7 @@ if(isset($_GET['confirm']) && is_numeric($_GET['confirm'])){
 
 <div id="mid">
 <?php include("Templates/menu.tpl");
-if(isset($_GET['id']) && (!isset($_GET['t']) || $_GET['t'] == '2a')) {
-	$message->loadMessage($_GET['id']);
-	include("Templates/Message/read.tpl");
-}
-else if(isset($_GET['t'])) {
-	switch($_GET['t']) {
-		case 1:
-		if(isset($_GET['id'])) {
-		    $id = preg_replace("/[^a-zA-Z0-9_-]/","",$_GET['id']);
-		}
-		include("Templates/Message/write.tpl");
-		break;
-		case 2:
-		include("Templates/Message/sent.tpl");
-		break;
-		case 3:
-		if($session->plus) {
-			include("Templates/Message/archive.tpl");
-		}
-		break;
-		case 4:
-		if($session->plus) {
-			$message->loadNotes();
-			include("Templates/Message/notes.tpl");
-		}
-		break;
-		case 5:
-		include("Templates/Message/chat.tpl");
-		break;
-		case 6:
-		include("Templates/Message/direct_chat.tpl");
-		break;
-		default:
-		include("Templates/Message/inbox.tpl");
-		break;
-	}
-}
-else {
-	include("Templates/Message/inbox.tpl");
-}
+include("Templates/Message/direct_chat.tpl");
 			?>
 
 <br /><br /><br /><br /><div id="side_info">

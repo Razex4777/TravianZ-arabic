@@ -107,6 +107,7 @@ include("Templates/troops.tpl");
 if($building->NewBuilding) include("Templates/Building.tpl");
 ?>
 </div>
+</div>
 <br /><br /><br /><br /><div id="side_info">
 <?php
 include("Templates/multivillage.tpl");

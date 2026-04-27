@@ -211,16 +211,28 @@ div.village1 table#movements div.dur_l {
     padding-bottom: 2px;
 }
 
-div.village1 table#production td.res {
-    width: 20%;
+div.village1 table#production td.num {
+    text-align: right;
+    direction: ltr;
+    padding-left: 10px;
 }
 
-div.village1 table#production td.per {
-    width: 40%;
+div.village1 table#production td.ico {
+    text-align: left;
+}
+
+div.village1 table#troops td.num {
+    text-align: right;
+    direction: ltr;
+    padding-left: 10px;
+}
+
+div.village1 table#troops td.ico {
+    text-align: left;
 }
 
 div.village1 table#troops td.un {
-    width: 80%;
+    width: auto;
 }
 
 div.village1 table#building_contract {

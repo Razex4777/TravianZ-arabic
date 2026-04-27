@@ -10,6 +10,7 @@
 
 include_once("GameEngine/Session.php");
 include_once("GameEngine/Village.php");
+include_once("GameEngine/Generator.php");
 
 header('Content-Type: application/json; charset=utf-8');
 
@@ -35,6 +36,9 @@ switch ($action) {
     case 'delete':
         handleDelete($database, $session);
         break;
+    case 'unread':
+        handleUnread($database, $session);
+        break;
     default:
         http_response_code(400);
         echo json_encode(['error' => 'Invalid action']);
@@ -49,9 +53,22 @@ function handleFetch($database, $session) {
     $limit   = isset($_GET['limit']) ? min((int)$_GET['limit'], 100) : 50;
 
     $messages = getChatMessages($database, $afterId, $limit);
+    
+    // Get valid ids for sync (last 100)
+    $tableName = TB_PREFIX . 'public_chat';
+    $validIds = [];
+    $sql = "SELECT id FROM `{$tableName}` ORDER BY id DESC LIMIT 100";
+    $res = mysqli_query($database->dblink, $sql);
+    if ($res) {
+        while ($row = mysqli_fetch_assoc($res)) {
+            $validIds[] = (int)$row['id'];
+        }
+    }
+    
     echo json_encode([
         'ok'       => true,
         'messages' => $messages,
+        'valid_ids'=> $validIds,
         'uid'      => $session->uid
     ]);
 }
@@ -87,23 +104,58 @@ function handleSend($database, $session) {
     // Sanitize
     $text = htmlspecialchars($text, ENT_QUOTES, 'UTF-8');
 
+    // Apply BBCode to parse [report] tags and smiles
+    $input = $text;
+    include_once("GameEngine/Message.php");
+    global $message;
+    if (!isset($message) || !is_object($message)) {
+        $message = new Message();
+    }
+    include("GameEngine/BBCode.php");
+    $text = $bbcoded;
+
     insertChatMessage($database, $session->uid, $session->username, $text);
     echo json_encode(['ok' => true]);
 }
 
 function handleDelete($database, $session) {
-    // Admin only
-    if ($session->access < ADMIN) {
-        http_response_code(403);
-        echo json_encode(['error' => 'Admin only']);
+    $id = isset($_POST['id']) ? (int)$_POST['id'] : (isset($_GET['id']) ? (int)$_GET['id'] : 0);
+    if ($id <= 0) {
+        http_response_code(400);
+        echo json_encode(['error' => 'Invalid ID']);
         return;
     }
-
-    $id = isset($_POST['id']) ? (int)$_POST['id'] : (isset($_GET['id']) ? (int)$_GET['id'] : 0);
-    if ($id > 0) {
-        deleteChatMessage($database, $id);
+    
+    $tableName = TB_PREFIX . 'public_chat';
+    $sql = "SELECT uid FROM `{$tableName}` WHERE id = {$id}";
+    $res = mysqli_query($database->dblink, $sql);
+    if ($res && $row = mysqli_fetch_assoc($res)) {
+        // Only the message author can delete their own message
+        if ($row['uid'] == $session->uid) {
+            deleteChatMessage($database, $id);
+            echo json_encode(['ok' => true]);
+            return;
+        }
     }
-    echo json_encode(['ok' => true]);
+
+    http_response_code(403);
+    echo json_encode(['error' => 'Permission denied']);
+}
+
+function handleUnread($database, $session) {
+    $since = isset($_GET['since']) ? (int)$_GET['since'] : 0;
+    $uid = (int)$session->uid;
+    $tableName = TB_PREFIX . 'public_chat';
+    
+    // Count messages newer than $since, excluding the user's own messages
+    $sql = "SELECT COUNT(*) as cnt FROM `{$tableName}` WHERE created_at > {$since} AND uid != {$uid}";
+    $result = mysqli_query($database->dblink, $sql);
+    $count = 0;
+    if ($result) {
+        $row = mysqli_fetch_assoc($result);
+        $count = (int)$row['cnt'];
+    }
+    echo json_encode(['ok' => true, 'count' => $count]);
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -123,8 +175,17 @@ function ensureChatTable($database) {
             PRIMARY KEY (`id`),
             KEY `idx_created` (`created_at`),
             KEY `idx_uid` (`uid`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;";
         mysqli_query($database->dblink, $sql);
+    } else {
+        $chkCol = mysqli_query($database->dblink,
+            "SELECT CHARACTER_SET_NAME FROM information_schema.COLUMNS
+             WHERE TABLE_SCHEMA = DATABASE()
+               AND TABLE_NAME = '{$tableName}'
+               AND COLUMN_NAME = 'message' LIMIT 1");
+        if ($chkCol && ($chkRow = mysqli_fetch_assoc($chkCol)) && strtolower($chkRow['CHARACTER_SET_NAME']) !== 'utf8mb4') {
+            mysqli_query($database->dblink, "ALTER TABLE {$tableName} CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci");
+        }
     }
 }
 

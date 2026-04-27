@@ -83,10 +83,70 @@ if ($_active_protect_ts > time()) {
         $class = "i4";
         }
         ?>
-          <div id="n5" class="<?php echo $class ?>">
-            <a href="<?php echo ($_SESSION['id_user'] != 1 ? 'berichte.php' : '#'); ?>" accesskey="5"><img src="img/x.gif" class="l" title="<?php echo (defined('LANG') && LANG === 'ar' ? 'التقارير' : 'Reports'); ?>" alt="<?php echo (defined('LANG') && LANG === 'ar' ? 'التقارير' : 'Reports'); ?>"/></a>
-            <a href="nachrichten.php" accesskey="6"><img src="img/x.gif" class="r" title="<?php echo (defined('LANG') && LANG === 'ar' ? 'الرسائل' : 'Messages'); ?>" alt="<?php echo (defined('LANG') && LANG === 'ar' ? 'الرسائل' : 'Messages'); ?>" /></a>
+          <div id="n5" class="<?php echo $class ?>" style="position:relative;">
+          <?php if(defined('LANG') && LANG === 'ar'): ?>
+            <a href="nachrichten.php" accesskey="6"><img src="img/x.gif" class="l" title="الرسائل" alt="الرسائل"/></a>
+            <span id="nav_msg_badge" style="display:none; position: absolute; top: -10px; left: -10px; right: auto; background: #ff2828; color: white; border-radius: 50%; padding: 1px 5px; font-size: 11px; font-weight: bold; font-family: Tahoma, Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.4); z-index: 10; pointer-events: none; border: 1.5px solid #fff; min-width: 14px; text-align: center; line-height: 14px;"></span>
+            <a href="<?php echo ($_SESSION['id_user'] != 1 ? 'berichte.php' : '#'); ?>" accesskey="5"><img src="img/x.gif" class="r" title="التقارير" alt="التقارير" /></a>
+            <span id="nav_report_badge" style="display:none; position: absolute; top: -10px; right: -10px; left: auto; background: #ff2828; color: white; border-radius: 50%; padding: 1px 5px; font-size: 11px; font-weight: bold; font-family: Tahoma, Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.4); z-index: 10; pointer-events: none; border: 1.5px solid #fff; min-width: 14px; text-align: center; line-height: 14px;"></span>
+          <?php else: ?>
+            <a href="<?php echo ($_SESSION['id_user'] != 1 ? 'berichte.php' : '#'); ?>" accesskey="5"><img src="img/x.gif" class="l" title="Reports" alt="Reports"/></a>
+            <span id="nav_report_badge" style="display:none; position: absolute; top: -10px; left: -5px; right: auto; background: #ff2828; color: white; border-radius: 50%; padding: 1px 5px; font-size: 11px; font-weight: bold; font-family: Tahoma, Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.4); z-index: 10; pointer-events: none; border: 1.5px solid #fff; min-width: 14px; text-align: center; line-height: 14px;"></span>
+            <a href="nachrichten.php" accesskey="6"><img src="img/x.gif" class="r" title="Messages" alt="Messages" /></a>
+            <span id="nav_msg_badge" style="display:none; position: absolute; top: -10px; right: -5px; left: auto; background: #ff2828; color: white; border-radius: 50%; padding: 1px 5px; font-size: 11px; font-weight: bold; font-family: Tahoma, Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.4); z-index: 10; pointer-events: none; border: 1.5px solid #fff; min-width: 14px; text-align: center; line-height: 14px;"></span>
+          <?php endif; ?>
         </div>
+        <script>
+        (function() {
+            function updateNavMsgBadge() {
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', 'direct_message_api.php?action=summary&_t=' + new Date().getTime(), true);
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        try {
+                            var data = JSON.parse(xhr.responseText);
+                            var badge = document.getElementById('nav_msg_badge');
+                            if (data.ok) {
+                                var msgUnread = parseInt(data.messages_unread || 0, 10);
+                                var notUnread = parseInt(data.notices_unread || 0, 10);
+                                
+                                if (badge) {
+                                    if (msgUnread > 0) {
+                                        badge.textContent = msgUnread;
+                                        badge.style.display = 'inline-block';
+                                    } else {
+                                        badge.style.display = 'none';
+                                    }
+                                }
+
+                                var reportBadge = document.getElementById('nav_report_badge');
+                                if (reportBadge) {
+                                    if (notUnread > 0) {
+                                        reportBadge.textContent = notUnread;
+                                        reportBadge.style.display = 'inline-block';
+                                    } else {
+                                        reportBadge.style.display = 'none';
+                                    }
+                                }
+                                
+                                var n5 = document.getElementById('n5');
+                                if (n5) {
+                                    var cls = 'i4';
+                                    if (msgUnread > 0 && notUnread > 0) cls = 'i1';
+                                    else if (msgUnread > 0) cls = 'i2';
+                                    else if (notUnread > 0) cls = 'i3';
+                                    n5.className = cls;
+                                }
+                            }
+                        } catch(e) {}
+                    }
+                };
+                xhr.send();
+            }
+            updateNavMsgBadge();
+            setInterval(updateNavMsgBadge, 3000);
+        })();
+        </script>
 <style>
 /* === GLOBAL: Override gpack's "div#mtop a#plus span { display:none }" ===
    Moving #plus inside #mtop triggered the gpack hiding rule.
@@ -153,24 +213,24 @@ height:18px;
 width: 18px;
 height:18px;
 }
-  #container {
+  #day_night_container {
     width: 30px;
     height: 60px;
     position: relative;
   }
-  #wrapper > #container {
+  #day_night_wrapper > #day_night_container {
     display: table;
     position: static;
   }
-  #container div {
+  #day_night_container div {
     position: absolute;
     top: 50%;
   }
-  #container div div {
+  #day_night_container div div {
     position: relative;
     top: -50%;
   }
-  #container > div {
+  #day_night_container > div {
     display: table-cell;
     vertical-align: middle;
     position: static;
@@ -183,11 +243,10 @@ $day_night_img = 'night_image';
 } elseif ($hour > 1200) {
 $day_night_img = 'day_image';
 } else {
-$day_night_img = 'day_image';
 }
 ?>
-<div id="wrapper">
-  <div id="container">
+<div id="day_night_wrapper" style="position: absolute; top: 10px; <?php echo (defined('LANG') && LANG === 'ar') ? 'left: 20px;' : 'right: 20px;'; ?> z-index: 100;">
+  <div id="day_night_container">
  <div><div><p><img src="img/x.gif" style="display: block; margin: 0 auto; vertical-align:middle;" class="<?php echo $day_night_img;?>"  /></p></div></div>
   </div>
 </div>
