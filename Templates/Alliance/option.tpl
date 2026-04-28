@@ -64,14 +64,7 @@ if ($alliance->userPermArray['opt4']==1){
 		</tr>
 <?php
 }
-if ($alliance->userPermArray['opt5']==1){
-?>
-        <tr>
-		<td class="sel"><input class="radio" type="radio" name="o" value="5"></td>
-		<td class="val"><?php echo (defined('LANG') && LANG === 'ar') ? 'رابط المنتدى' : 'Link to the forum'; ?></td>
-		</tr>
-<?php
-}
+
 ?>
         <tr>
 		<td class="sel"><input class="radio" type="radio" name="o" value="11"></td>

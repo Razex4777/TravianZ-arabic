@@ -243,14 +243,14 @@ class Alliance {
 				// Insertamos invitacion
 				$database->sendInvitation($UserData['id'], $aid, $session->uid);
 				// Log the notice
-				$database->insertAlliNotice($session->alliance, '<a href="spieler.php?uid=' . $session->uid . '">' . addslashes($session->username) . '</a> has invited  <a href="spieler.php?uid=' . $UserData['id'] . '">' . addslashes($UserData['username']) . '</a> into the alliance.');
+				$database->insertAlliNotice($session->alliance, '<a href="spieler.php?uid=' . $session->uid . '">' . addslashes($session->username) . '</a> ' . ((defined('LANG') && LANG === 'ar') ? 'قام بدعوة' : 'has invited') . ' <a href="spieler.php?uid=' . $UserData['id'] . '">' . addslashes($UserData['username']) . '</a> ' . ((defined('LANG') && LANG === 'ar') ? 'إلى التحالف.' : 'into the alliance.'));
 				// send invitation via in-game messages
                 if(NEW_FUNCTIONS_ALLIANCE_INVITATION){
                     $database->sendMessage(
 				    $UserData['id'],
 				    4,
-				    'Invitation to Alliance',
-				    $database->escape("Hi, ".$UserData['username']."!\n\nThis is to inform you that you have been invited to join an alliance. To accept this invitation, please visit your Embassy.\n\nYours sincerely,\n<i>Server Robot :)</i>"),
+				    ((defined('LANG') && LANG === 'ar') ? 'دعوة للتحالف' : 'Invitation to Alliance'),
+				    $database->escape(((defined('LANG') && LANG === 'ar') ? "مرحباً، ".$UserData['username']."!\n\nنود إعلامك بأنه تمت دعوتك للانضمام إلى تحالف. لقبول هذه الدعوة، يرجى زيارة السفارة الخاصة بك.\n\nمع خالص التحيات،\n<i>روبوت السيرفر :)</i>" : "Hi, ".$UserData['username']."!\n\nThis is to inform you that you have been invited to join an alliance. To accept this invitation, please visit your Embassy.\n\nYours sincerely,\n<i>Server Robot :)</i>")),
 				    0,
 				    0,
 				    0,
@@ -270,7 +270,7 @@ class Alliance {
 			foreach($this->inviteArray as $invite) {
 			    if($invite['id'] == $get['d'] && $invite['uid'] == $session->uid) {
 					$database->removeInvitation($get['d']);
-					$database->insertAlliNotice($invite['alliance'], '<a href="spieler.php?uid='.$session->uid.'">'.addslashes($session->username).'</a> has rejected the invitation.');
+					$database->insertAlliNotice($invite['alliance'], '<a href="spieler.php?uid='.$session->uid.'">'.addslashes($session->username).'</a> ' . ((defined('LANG') && LANG === 'ar') ? 'رفض الدعوة.' : 'has rejected the invitation.'));
 				}
 			}
 			header("Location: build.php?gid=18");
@@ -288,7 +288,7 @@ class Alliance {
 			    if($invite['id'] == $get['d'] && $invite['alliance'] == $session->alliance && $this->userPermArray['opt4'] == 1) {
 				    $invitename = $database->getUserArray($invite['uid'], 1);
 					$database->removeInvitation($get['d']);
-					$database->insertAlliNotice($session->alliance, '<a href="spieler.php?uid='.$session->uid.'">'.addslashes($session->username).'</a> has deleted the invitation for <a href="spieler.php?uid='.$invitename['id'].'">'.addslashes($invitename['username']).'</a>.');
+					$database->insertAlliNotice($session->alliance, '<a href="spieler.php?uid='.$session->uid.'">'.addslashes($session->username).'</a> ' . ((defined('LANG') && LANG === 'ar') ? 'قام بحذف الدعوة الخاصة بـ' : 'has deleted the invitation for') . ' <a href="spieler.php?uid='.$invitename['id'].'">'.addslashes($invitename['username']).'</a>.');
 				}
 			}
 			header("Location: allianz.php?delinvite");
@@ -311,7 +311,7 @@ class Alliance {
 			                $database->updateUserField($invite['uid'], "alliance", $invite['alliance'], 1);
 			                $database->createAlliPermissions($invite['uid'], $invite['alliance'], '', 0, 0, 0, 0, 0, 0, 0, 0);
 			                // Log the notice
-			                $database->insertAlliNotice($invite['alliance'], '<a href="spieler.php?uid='.$session->uid.'">'.addslashes($session->username).'</a> has joined the alliance.');
+			                $database->insertAlliNotice($invite['alliance'], '<a href="spieler.php?uid='.$session->uid.'">'.addslashes($session->username).'</a> ' . ((defined('LANG') && LANG === 'ar') ? 'انضم إلى التحالف.' : 'has joined the alliance.'));
 			            } else {
 			                $accept_error = 1;
 			                $max = $alliance_info['max'];
@@ -366,7 +366,7 @@ class Alliance {
 				// Asign Permissions
 				$database->createAlliPermissions($session->uid, $aid, 'Alliance founder', '1', '1', '1', '1', '1', '1', '1', '1');
 				// log the notice
-				$database->insertAlliNotice($aid, 'The alliance has been founded by <a href="spieler.php?uid='.$session->uid.'">'.addslashes($session->username).'</a>.');
+				$database->insertAlliNotice($aid, ((defined('LANG') && LANG === 'ar') ? 'تم تأسيس التحالف بواسطة' : 'The alliance has been founded by') . ' <a href="spieler.php?uid='.$session->uid.'">'.addslashes($session->username).'</a>.');
 				header("Location: build.php?gid=18");
 				exit;
 			}
@@ -393,7 +393,7 @@ class Alliance {
 			if($form->returnErrors() == 0) {
 				$database->setAlliName($session->alliance, $get['ally2'], $get['ally1']);
 				// log the notice
-				$database->insertAlliNotice($session->alliance, '<a href="spieler.php?uid='.$session->uid.'">'.addslashes($session->username).'</a> has changed the alliance name.');
+				$database->insertAlliNotice($session->alliance, '<a href="spieler.php?uid='.$session->uid.'">'.addslashes($session->username).'</a> ' . ((defined('LANG') && LANG === 'ar') ? 'قام بتغيير اسم التحالف.' : 'has changed the alliance name.'));
 				$form->addError("perm", NAME_OR_TAG_CHANGED);
 				$_SESSION['errorarray'] = $form->getErrors();
 				$_SESSION['valuearray'] = $get;
@@ -417,7 +417,7 @@ class Alliance {
 			} else {
 				$database->submitAlliProfile($session->alliance, $post['be2'], $post['be1']);
 				// log the notice
-				$database->insertAlliNotice($session->alliance, '<a href="spieler.php?uid='.$session->uid.'">'.addslashes($session->username).'</a> has changed the alliance description.');
+				$database->insertAlliNotice($session->alliance, '<a href="spieler.php?uid='.$session->uid.'">'.addslashes($session->username).'</a> ' . ((defined('LANG') && LANG === 'ar') ? 'قام بتغيير وصف التحالف.' : 'has changed the alliance description.'));
 			}
 		}
 
@@ -436,7 +436,7 @@ class Alliance {
 			{
 			    $database->updateAlliPermissions($post['a_user'], $session->alliance, $post['a_titel'], $post['e1'], $post['e2'], $post['e3'], $post['e4'], $post['e5'], $post['e6'], $post['e7']);
 				// log the notice
-			    $database->insertAlliNotice($session->alliance, '<a href="spieler.php?uid='.$session->uid.'">'.addslashes($session->username).'</a> has changed permissions of <a href="spieler.php?uid='.$post['a_user'].'">'.addslashes($database->getUserField($post['a_user'], "username", 0)).'</a>.');
+			    $database->insertAlliNotice($session->alliance, '<a href="spieler.php?uid='.$session->uid.'">'.addslashes($session->username).'</a> ' . ((defined('LANG') && LANG === 'ar') ? 'قام بتغيير صلاحيات' : 'has changed permissions of') . ' <a href="spieler.php?uid='.$post['a_user'].'">'.addslashes($database->getUserField($post['a_user'], "username", 0)).'</a>.');
 			    $form->addError("perm", ALLY_PERMISSIONS_UPDATED);
 			}
 			
@@ -464,7 +464,7 @@ class Alliance {
 			    $database->deleteAlliPermissions($post['a_user']);
 			    $database->deleteAlliance($session->alliance);
 			    // log the notice
-			    $database->insertAlliNotice($session->alliance, '<a href="spieler.php?uid='.$UserData['id'].'">'.($kickedUsername = addslashes($database->getUserField($post['a_user'], "username", 0))).'</a> has been expelled from the alliance by <a href="spieler.php?uid='.$session->uid.'">'.addslashes($session->username).'</a>.');
+			    $database->insertAlliNotice($session->alliance, '<a href="spieler.php?uid='.$UserData['id'].'">'.($kickedUsername = addslashes($database->getUserField($post['a_user'], "username", 0))).'</a> ' . ((defined('LANG') && LANG === 'ar') ? 'تم طرده من التحالف بواسطة' : 'has been expelled from the alliance by') . ' <a href="spieler.php?uid='.$session->uid.'">'.addslashes($session->username).'</a>.');
 			    if($session->alliance && $database->isAllianceOwner($UserData['id']) == $session->alliance){
 			        $newowner = $database->getAllMember2($session->alliance);
 			        $newleader = $newowner['id'];
@@ -555,8 +555,8 @@ class Alliance {
     				$database->sendMessage(
     				    $newleader,
     				    4,
-    				    'You are now leader of your alliance',
-    				    "Hi!\n\nThis is to inform you that the former leader of your alliance - <a href=\"".rtrim(SERVER, '/')."/spieler.php?uid=".(int) $session->uid."\">".$database->escape($session->username)."</a>, has decided to quit and elected you as his replacement. You now gain full access, administration and responsibilities to your alliance.\n\nGood luck!\n\nYours sincerely,\n<i>Server Robot :)</i>",
+    				    ((defined('LANG') && LANG === 'ar') ? 'أنت الآن قائد التحالف الخاص بك' : 'You are now leader of your alliance'),
+    				    ((defined('LANG') && LANG === 'ar') ? "مرحباً!\n\nنود إعلامك بأن القائد السابق للتحالف - <a href=\"".rtrim(SERVER, '/')."/spieler.php?uid=".(int) $session->uid."\">".$database->escape($session->username)."</a>، قرر المغادرة واختارك كبديل له. لقد اكتسبت الآن الصلاحيات الكاملة والإدارة والمسؤوليات لتحالفك.\n\nحظاً موفقاً!\n\nمع خالص التحيات،\n<i>روبوت السيرفر :)</i>" : "Hi!\n\nThis is to inform you that the former leader of your alliance - <a href=\"".rtrim(SERVER, '/')."/spieler.php?uid=".(int) $session->uid."\">".$database->escape($session->username)."</a>, has decided to quit and elected you as his replacement. You now gain full access, administration and responsibilities to your alliance.\n\nGood luck!\n\nYours sincerely,\n<i>Server Robot :)</i>"),
     				    0,
     				    0,
     				    0,
@@ -569,7 +569,7 @@ class Alliance {
 				$database->deleteAlliPermissions($session->uid);
 				// log the notice
 				$database->deleteAlliance($session->alliance);
-				$database->insertAlliNotice($session->alliance, '<a href="spieler.php?uid=' . $session->uid . '">' . addslashes($session->username) . '</a> has quit the alliance.');
+				$database->insertAlliNotice($session->alliance, '<a href="spieler.php?uid=' . $session->uid . '">' . addslashes($session->username) . '</a> ' . ((defined('LANG') && LANG === 'ar') ? 'غادر التحالف.' : 'has quit the alliance.'));
 				header("Location: spieler.php?uid=".$session->uid);
 				exit;
 			}

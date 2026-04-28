@@ -200,10 +200,8 @@ TravianZ-master/
 │   │
 │   ├── 📁 Alliance/                  # Alliance management templates (21 files)
 │   │   ├── 📄 overview.tpl           # Alliance homepage
-│   │   ├── 📄 forum.tpl              # Alliance forum
 │   │   ├── 📄 chat.tpl               # Alliance chat room
-│   │   ├── 📄 chgdiplo.tpl           # Diplomacy management
-│   │   └── 📁 Forum/                 # Alliance forum sub-templates
+│   │   └── 📄 chgdiplo.tpl           # Diplomacy management
 │   │
 │   ├── 📁 Anleitung/                 # Game instructions templates (11 files)
 │   │   └── 📄 attack.tpl, units_1-5.tpl, search.tpl, sendback.tpl, newdorf.tpl
@@ -442,7 +440,7 @@ TravianZ-master/
 │   │   ├── 📄 content.css             # Main content area, maps, side info, and tables
 │   │   └── 📄 popups_footer.css       # Popups, dialog overrides, and footer
 │   ├── 📄 _phone_ingame_pages.css     # ≤768px — page-specific overrides (messages, reports, mass msg)
-│   ├── 📄 _phone_alliance.css         # ≤768px — alliance pages (forum, chat, overview, diplomacy)
+│   ├── 📄 _phone_alliance.css         # ≤768px — alliance pages (chat, overview, diplomacy)
 │   ├── 📄 _phone_plus.css             # ≤768px — gold shop/plus page (cards grid, buy buttons)
 │   └── 📄 _small_phone.css            # ≤480px — final tightening for narrow screens
 │

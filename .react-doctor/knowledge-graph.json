@@ -3,6 +3,7 @@
   "project": {
     "name": "TravianZ-master",
     "languages": [
+      "json",
       "javascript",
       "markdown",
       "css",
@@ -12,11 +13,23 @@
       "sql"
     ],
     "frameworks": [],
-    "description": "TravianZ-master — javascript, markdown, css, yaml, python, html, sql project with 176 files",
-    "analyzedAt": "2026-04-25T10:33:37.101Z",
-    "gitCommitHash": "da8408956614d258d0e9a2e441118e49974aa8f4"
+    "description": "TravianZ-master — json, javascript, markdown, css, yaml, python, html, sql project with 178 files",
+    "analyzedAt": "2026-04-28T16:37:31.623Z",
+    "gitCommitHash": "51fcdceebecfd442e60b56c8c7abe9ef5279bd65"
   },
   "nodes": [
+    {
+      "id": "file:.claude/settings.local.json",
+      "type": "file",
+      "name": "settings.local.json",
+      "filePath": ".claude/settings.local.json",
+      "summary": "settings.local.json — json source file",
+      "tags": [
+        "json",
+        "json"
+      ],
+      "complexity": "simple"
+    },
     {
       "id": "file:AC_OETags.js",
       "type": "file",
@@ -675,6 +688,18 @@
         "css"
       ],
       "complexity": "simple"
+    },
+    {
+      "id": "file:gpack/travian_default/lang/ar/compact/map_rtl_override.css",
+      "type": "file",
+      "name": "map_rtl_override.css",
+      "filePath": "gpack/travian_default/lang/ar/compact/map_rtl_override.css",
+      "summary": "map_rtl_override.css — css source file",
+      "tags": [
+        "css",
+        "css"
+      ],
+      "complexity": "moderate"
     },
     {
       "id": "file:gpack/travian_default/lang/ar/compact/misc_part1.css",
@@ -5091,6 +5116,7 @@
         "file:gpack/travian_default/lang/ar/compact/map_part4.css",
         "file:gpack/travian_default/lang/ar/compact/map_part5.css",
         "file:gpack/travian_default/lang/ar/compact/map_part6.css",
+        "file:gpack/travian_default/lang/ar/compact/map_rtl_override.css",
         "file:gpack/travian_default/lang/ar/compact/misc_part1.css",
         "file:gpack/travian_default/lang/ar/compact/misc_part2.css",
         "file:gpack/travian_default/lang/ar/compact/misc_part3.css",
@@ -5199,6 +5225,7 @@
       "name": "Core",
       "description": "Core layer",
       "nodeIds": [
+        "file:.claude/settings.local.json",
         "file:AC_OETags.js",
         "file:Admin/ajax.js",
         "file:Admin/jquery.cookie.js",
@@ -5265,7 +5292,7 @@
     {
       "order": 2,
       "title": "Styles Layer",
-      "description": "Explore the styles layer: admin_map_tile.css, flaggs.css, main.css, main_en.css, a2b.css (+119 more)",
+      "description": "Explore the styles layer: admin_map_tile.css, flaggs.css, main.css, main_en.css, a2b.css (+120 more)",
       "nodeIds": [
         "file:css/admin_map_tile.css",
         "file:gpack/travian/flaggs.css",
@@ -5290,6 +5317,7 @@
         "file:gpack/travian_default/lang/ar/compact/map_part4.css",
         "file:gpack/travian_default/lang/ar/compact/map_part5.css",
         "file:gpack/travian_default/lang/ar/compact/map_part6.css",
+        "file:gpack/travian_default/lang/ar/compact/map_rtl_override.css",
         "file:gpack/travian_default/lang/ar/compact/misc_part1.css",
         "file:gpack/travian_default/lang/ar/compact/misc_part2.css",
         "file:gpack/travian_default/lang/ar/compact/misc_part3.css",
@@ -5396,8 +5424,9 @@
     {
       "order": 3,
       "title": "Core Layer",
-      "description": "Explore the core layer: AC_OETags.js, ajax.js, jquery.cookie.js, bump_cache.js, CHANGELOG.md (+44 more)",
+      "description": "Explore the core layer: settings.local.json, AC_OETags.js, ajax.js, jquery.cookie.js, bump_cache.js (+45 more)",
       "nodeIds": [
+        "file:.claude/settings.local.json",
         "file:AC_OETags.js",
         "file:Admin/ajax.js",
         "file:Admin/jquery.cookie.js",

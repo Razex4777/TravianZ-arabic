@@ -146,7 +146,7 @@ for($y=0;$y<$total_for;$y++){
         <tbody class="infos">
             <tr>
                 <th><?php echo ARRIVAL;?></th>
-                <td colspan="<?php if($units[$y]['t11'] == 0) {echo"10";}else{echo"11";}?>">
+                <td colspan="10">
                 <?php
                 echo "<div class=\"in small\"><span id=timer$session->timer>".$generator->getTimeFormat($settlers[$y]['endtime']-time())."</span> h</div>";
                     $datetime = $generator->procMtime($settlers[$y]['endtime']);

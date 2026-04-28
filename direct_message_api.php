@@ -1,6 +1,12 @@
 <?php
+// Preserve referrer before Session overwrites it with this API script path
+$savedSessionUrl = isset($_SESSION['url']) ? $_SESSION['url'] : null;
+
 include_once("GameEngine/Session.php");
 include_once("GameEngine/Village.php");
+
+// Restore so API calls don't clobber the user's actual page referrer
+if ($savedSessionUrl !== null) $_SESSION['url'] = $savedSessionUrl;
 
 header('Content-Type: application/json; charset=utf-8');
 

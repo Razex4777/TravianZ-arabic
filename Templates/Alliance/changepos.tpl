@@ -82,10 +82,7 @@ include("alli_menu.tpl");
 
 						  </tr>
 
-                          <tr>
-								<td class="sel"><input class="check" type="checkbox" name="e5" value="1" <?php if ($playerData['opt5']) { echo "checked=checked"; } ?> ></td>
-								<td><?php echo (defined('LANG') && LANG === 'ar') ? 'إدارة المنتديات' : 'Manage forums'; ?></td>
-						  </tr>
+
 						</tbody>
   </table>
 					<p>

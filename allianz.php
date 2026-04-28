@@ -30,27 +30,7 @@ if(isset($_GET['newdid'])) {
 	}
 }
 
-if(isset($_GET['fid']) || isset($_GET['fid2'])){
-	$fid = preg_replace("/[^0-9]/","",!empty($_GET['fid']) ? $_GET['fid'] : $_GET['fid2']);
-	$forumInfos = $database->ForumCatEdit($fid);
-	
-	if(empty($forumInfos)){
-		header("Location: ".$_SERVER['PHP_SELF']);
-		exit;
-	}
-	
-	$forum_type = reset($forumInfos);
-	if (!empty($forum_type)) {
-		if($forum_type['forum_area'] != 1 && !$alliance->isForumAccessible($fid)){
-			if($forum_type['alliance'] != $session->alliance){
-				header("Location: ".$_SERVER['PHP_SELF']);
-				exit;
-			}
-		}
-	}
-}
-if(isset($_GET['aid']) || isset($_GET['fid']) || isset($_GET['fid2']) ||
-		$session->alliance > 0 || ($session->alliance == 0 && isset($_GET['s']) && $_GET['s'] == 2)){
+if(isset($_GET['aid']) || $session->alliance > 0){
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html<?php echo (defined('LANG') && LANG === 'ar') ? ' dir="rtl"' : ''; ?>>
@@ -61,11 +41,7 @@ if(isset($_GET['aid']) || isset($_GET['fid']) || isset($_GET['fid2']) ||
 	
 	if(!empty($_GET['s'])){
 		switch($_GET['s']){
-			case '2' :
-				if($session->alliance == 0) echo ((defined('LANG') && LANG === 'ar') ? 'المنتدى (بدون تحالف)' : 'Forum (No alliance)');
-				else echo ((defined('LANG') && LANG === 'ar') ? 'المنتدى' : 'Forum').' ('.$alliance->allianceArray['tag'].' - '.$alliance->allianceArray['name'].')';
-				break;
-			
+
 			case '6' :
 				echo ((defined('LANG') && LANG === 'ar') ? 'الدردشة' : 'Chat').' ('.$alliance->allianceArray['tag'].' - '.$alliance->allianceArray['name'].')';
 				break;
@@ -189,16 +165,12 @@ if(isset($_GET['aid']) || isset($_GET['fid']) || isset($_GET['fid2']) ||
 $userPermissions = $database->getAlliPermissions($session->uid, $session->alliance, 0);
 	include ("Templates/menu.tpl");
 	
-	if(isset($_GET['s']) && $_GET['s'] == 2) echo '<div id="content"  class="forum">';
-	else echo '<div id="content"  class="alliance">';
+	echo '<div id="content"  class="alliance">';
 	
 	if(isset($_GET['s'])){
 		if($_GET['s'] != 5 || $session->sit == 0){
 			switch($_GET['s']){
-				case 2 :
-					if(isset($_POST['vote'])) $alliance->Vote($_POST);
-					include("Templates/Alliance/forum.tpl");
-					break;
+
 				case 3:
 					include("Templates/Alliance/attacks.tpl");
 					break;
@@ -249,11 +221,7 @@ $userPermissions = $database->getAlliPermissions($session->uid, $session->allian
 				if(isset($_POST['s']) == 5 && isset($_POST['a']) == 4) $alliance->procAlliForm($_POST);
 				include("Templates/Alliance/invite.tpl");
 				break;
-			case 5 :
-				if($userPermissions['opt5'] == 0) $alliance->redirect();
-				if(isset($_POST['f_link'])) $alliance->setForumLink($_POST);
-				include("Templates/Alliance/linkforum.tpl");
-				break;
+
 			case 6 :
 				if($userPermissions['opt6'] == 0) $alliance->redirect();
 				if(isset($_POST['dipl']) && isset($_POST['a_name'])) $alliance->procAlliForm($_POST);

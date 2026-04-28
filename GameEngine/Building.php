@@ -949,8 +949,10 @@ class Building {
 	public function finishTrainingGold() {
 		global $database, $session, $logging, $village, $technology;
 
+		$redirect = (isset($_GET['id']) && $_GET['id'] <= 18) ? "dorf1.php" : "dorf2.php";
+
 		if ($session->gold < 35) {
-			header("Location: " . $session->referrer);
+			header("Location: " . $redirect);
 			exit;
 		}
 
@@ -964,7 +966,7 @@ class Building {
 
 		self::recountCP($database, $village->wid);
 
-		header("Location: " . $session->referrer);
+		header("Location: " . $redirect);
 		exit;
 	}
 

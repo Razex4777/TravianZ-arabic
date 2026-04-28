@@ -9,15 +9,15 @@ include("alli_menu.tpl");
 <h4 class="chartHeadline"><?php echo (defined('LANG') && LANG === 'ar') ? 'الأحداث العسكرية' : 'Military events'; ?></h4>
 		<div id="submenu">
 			<a href="allianz.php?s=3&f=32">
-				<img src="img/x.gif" class="<?php echo $_GET['f'] == 32 ? "active btn_def" : "btn_def";?>" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'المدافع' : 'Defender'; ?>" title="<?php echo (defined('LANG') && LANG === 'ar') ? 'المدافع' : 'Defender'; ?>" />
+				<img src="img/x.gif" class="<?php echo (isset($_GET['f']) && $_GET['f'] == 32) ? "active btn_def" : "btn_def";?>" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'المدافع' : 'Defender'; ?>" title="<?php echo (defined('LANG') && LANG === 'ar') ? 'المدافع' : 'Defender'; ?>" />
 			</a>
 
 			<a href="allianz.php?s=3&f=31">
-				<img src="img/x.gif" class="<?php echo $_GET['f'] == 31 ? "active btn_off" : "btn_off";?>" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'المهاجم' : 'Attacker'; ?>" title="<?php echo (defined('LANG') && LANG === 'ar') ? 'المهاجم' : 'Attacker'; ?>" />
+				<img src="img/x.gif" class="<?php echo (isset($_GET['f']) && $_GET['f'] == 31) ? "active btn_off" : "btn_off";?>" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'المهاجم' : 'Attacker'; ?>" title="<?php echo (defined('LANG') && LANG === 'ar') ? 'المهاجم' : 'Attacker'; ?>" />
 			</a>
 		</div>
 <?php
-if($_GET['f'] == 31 || $_GET['f'] == 32) include "Templates/Alliance/attack-filtered.tpl";
+if(isset($_GET['f']) && ($_GET['f'] == 31 || $_GET['f'] == 32)) include "Templates/Alliance/attack-filtered.tpl";
 else
 {
 		

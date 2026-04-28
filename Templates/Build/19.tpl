@@ -17,7 +17,7 @@
                 <?php
 	                include("19_train.tpl");
                 ?></table>
-	<p><button id="btn_train" class="trav_buttons" value="ok" name="s1" alt="train" onclick="this.disabled=true;this.form.submit();"/> Train </button></form></p>
+	<p><button id="btn_train" class="trav_buttons" value="ok" name="s1" alt="train" onclick="this.disabled=true;this.form.submit();"/> <?php echo TRAIN; ?> </button></form></p>
     <?php
 	} else {
 		echo "<b>".TRAINING_COMMENCE_BARRACKS."</b><br>\n";
