@@ -94,7 +94,13 @@ for($i = (1 + $s); $i <= (10 + $s); $i++){
 		}else{
 			echo "<img src=\"img/x.gif\" class=\"iReport iReport$type\" alt=\"" . $noticeClass[$type] . "\" title=\"" . $noticeClass[$type] . "\" />";
 		}
-		echo "<div><a href=\"berichte.php?id=" . $message->noticearray[$i - 1]['id'] . "\">" . $message->noticearray[$i - 1]['topic'] . "</a> ";
+		$topic = $message->noticearray[$i - 1]['topic'];
+		if(defined('LANG') && LANG === 'ar') {
+			$topic = str_replace(' attacks ', ' يهاجم ', $topic);
+			$topic = str_replace('Unoccupied Oasis', UNOCCUOASIS, $topic);
+			$topic = str_replace('Occupied Oasis', OCCUOASIS, $topic);
+		}
+		echo "<div><a href=\"berichte.php?id=" . $message->noticearray[$i - 1]['id'] . "\">" . $topic . "</a> ";
 		if($message->noticearray[$i - 1]['viewed'] == 0){
 			echo "(" . ((defined('LANG') && LANG === 'ar') ? 'جديد' : 'new') . ")";
 		}

@@ -155,7 +155,7 @@ function showCheckList() {
 		</td>
 		<td class="ad">
 
-			<img class="add" src="img/x.gif" title="add" alt="add" onclick="addRow('ally_list')" />
+			<img class="add" src="img/x.gif" title="<?php echo (defined('LANG') && LANG === 'ar') ? 'إضافة' : 'add'; ?>" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'إضافة' : 'add'; ?>" onclick="addRow('ally_list')" />
 		</td>
 	</tr>
 </table><table cellpadding="1" cellspacing="1" id="user_list"><thead>
@@ -178,7 +178,7 @@ function showCheckList() {
 			<input class="text" type="text" id="users_by_name_0" maxlength="50" name="users_by_name[0]" onkeyup="checkInputs(0,'users');" />
 		</td>
 		<td class="ad">
-			<img class="add" src="img/x.gif" title="add" alt="add" onclick="addRow('user_list')" />
+			<img class="add" src="img/x.gif" title="<?php echo (defined('LANG') && LANG === 'ar') ? 'إضافة' : 'add'; ?>" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'إضافة' : 'add'; ?>" onclick="addRow('user_list')" />
 		</td>
 	</tr>
 </tbody></table>
@@ -187,4 +187,4 @@ function showCheckList() {
 
 </script>
 <?php } ?>
-<p class="btn"><input type="image" id="fbtn_ok" value="ok" name="s1" class="dynamic_img" src="img/x.gif" alt="OK" /></p></form>
+<p class="btn"><input type="image" id="fbtn_ok" value="ok" name="s1" class="dynamic_img" src="img/x.gif" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'موافق' : 'OK'; ?>" /></p></form>

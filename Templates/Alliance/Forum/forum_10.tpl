@@ -282,7 +282,7 @@ foreach($posts as $pos){
 										href="javascript:void(0);" bbType="o" bbTag="tid50"><img
 										class="unit u50" src="img/x.gif" title="Settler" alt="Settler" /></a><a
 										href="javascript:void(0);" bbType="o" bbTag="hero"><img
-										class="unit uhero" src="img/x.gif" title="Hero" alt="Hero" /></a>
+										class="unit uhero" src="img/x.gif" title="<?php echo (defined('LANG') && LANG === 'ar') ? 'البطل' : 'Hero'; ?>" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'البطل' : 'Hero'; ?>" /></a>
 								</div>
 							</div>
 						</div>
@@ -301,7 +301,7 @@ foreach($posts as $pos){
 
 	<p class="btn">
 		<input type="image" id="fbtn_ok" value="ok" name="s1"
-			class="dynamic_img" src="img/x.gif" alt="OK" />
+			class="dynamic_img" src="img/x.gif" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'موافق' : 'OK'; ?>" />
 
 </form>
 </p>

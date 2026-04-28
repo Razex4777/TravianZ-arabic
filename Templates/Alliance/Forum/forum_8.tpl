@@ -147,7 +147,7 @@ if(!empty($forumData['display_to_users'])) $users = explode(',', $forumData['dis
 			<input class="text" type="text" id="allys_by_name_<?php echo $i; ?>" name="allys_by_name[<?php echo $i; ?>]" maxlength="15" onkeyup="checkInputs(<?php echo $i; ?>,'allys');" />
 		</td>
 		<td class="ad">
-			<img class="add" src="img/x.gif" title="add" alt="add" onclick="addRow('ally_list')" />
+			<img class="add" src="img/x.gif" title="<?php echo (defined('LANG') && LANG === 'ar') ? 'إضافة' : 'add'; ?>" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'إضافة' : 'add'; ?>" onclick="addRow('ally_list')" />
 		</td>
 	</tr>
 </table><table cellpadding="1" cellspacing="1" id="user_list"><thead>
@@ -181,7 +181,7 @@ if(!empty($forumData['display_to_users'])) $users = explode(',', $forumData['dis
 			<input class="text" type="text" id="users_by_name_<?php echo $i; ?>" maxlength="50" name="users_by_name[<?php echo $i; ?>]" onkeyup="checkInputs(<?php echo $i; ?>,'users');" />
 		</td>
 		<td class="ad">
-			<img class="add" src="img/x.gif" title="add" alt="add" onclick="addRow('user_list')" />
+			<img class="add" src="img/x.gif" title="<?php echo (defined('LANG') && LANG === 'ar') ? 'إضافة' : 'add'; ?>" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'إضافة' : 'add'; ?>" onclick="addRow('user_list')" />
 		</td>
 	</tr>
 </tbody></table>
@@ -190,4 +190,4 @@ if(!empty($forumData['display_to_users'])) $users = explode(',', $forumData['dis
 	showCheckList();
 </script>
 <?php } ?>
-<p class="btn"><input type="image" value="ok" name="s1" id="fbtn_ok" class="dynamic_img" src="img/x.gif" alt="OK" /></p></form>
+<p class="btn"><input type="image" value="ok" name="s1" id="fbtn_ok" class="dynamic_img" src="img/x.gif" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'موافق' : 'OK'; ?>" /></p></form>

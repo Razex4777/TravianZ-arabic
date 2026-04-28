@@ -624,9 +624,10 @@ class Automation {
             $ownally = $userData_from['alliance'];
             $targetally = $userData_to['alliance'];
 
-            $database->addNotice($to['owner'],$to['wref'],$targetally,$sort_type,''.addslashes($from['name']).' send resources to '.addslashes($to['name']).'',''.$from['owner'].','.$from['wref'].','.$data['wood'].','.$data['clay'].','.$data['iron'].','.$data['crop'].'',$data['endtime']);
+            $sendTopic = addslashes($from['name']).' '.((defined('LANG') && LANG === 'ar') ?'يرسل موارد إلى' : 'send resources to').' '.addslashes($to['name']);
+            $database->addNotice($to['owner'],$to['wref'],$targetally,$sort_type,$sendTopic,''.$from['owner'].','.$from['wref'].','.$data['wood'].','.$data['clay'].','.$data['iron'].','.$data['crop'].'',$data['endtime']);
             if($from['owner'] != $to['owner']) {
-                $database->addNotice($from['owner'],$to['wref'],$ownally,$sort_type,''.addslashes($from['name']).' send resources to '.addslashes($to['name']).'',''.$from['owner'].','.$from['wref'].','.$data['wood'].','.$data['clay'].','.$data['iron'].','.$data['crop'].'',$data['endtime']);
+                $database->addNotice($from['owner'],$to['wref'],$ownally,$sort_type,$sendTopic,''.$from['owner'].','.$from['wref'].','.$data['wood'].','.$data['clay'].','.$data['iron'].','.$data['crop'].'',$data['endtime']);
             }
             $database->modifyResource($data['to'],$data['wood'],$data['clay'],$data['iron'],$data['crop'],1);
             $targettribe = $userData_to["tribe"];
@@ -1685,11 +1686,12 @@ class Automation {
                         $data2 = ''.$database->getVillageField( $enforce['from'], "owner" ).','.$to['wref'].','.addslashes($to['name']).','.$tribe.','.$life.','.$notlife.','.$lifehero.','.$notlifehero.','.$enforce['from'].'';
                         if(empty($scout)) {
                             if($totalnotlife == 0){
-                            $database->addNotice($database->getVillageField( $enforce['from'], "owner" ),$from['wref'],$ownally,15,'Reinforcement in '.addslashes($to['name']).' was attacked',$data2,$AttackArrivalTime);
+                            $reinfTopic = ((defined('LANG') && LANG === 'ar') ? 'التعزيزات في' : 'Reinforcement in').' '.addslashes($to['name']).' '.((defined('LANG') && LANG === 'ar') ? 'تعرضت للهجوم' : 'was attacked');
+                            $database->addNotice($database->getVillageField( $enforce['from'], "owner" ),$from['wref'],$ownally,15,$reinfTopic,$data2,$AttackArrivalTime);
                             }else if($totallife > $totalnotlife){
-                                $database->addNotice($database->getVillageField( $enforce['from'], "owner" ),$from['wref'],$ownally,16,'Reinforcement in '.addslashes($to['name']).' was attacked',$data2,$AttackArrivalTime);
+                                $database->addNotice($database->getVillageField( $enforce['from'], "owner" ),$from['wref'],$ownally,16,$reinfTopic,$data2,$AttackArrivalTime);
                             }else{
-                                $database->addNotice($database->getVillageField( $enforce['from'], "owner" ),$from['wref'],$ownally,17,'Reinforcement in '.addslashes($to['name']).' was attacked',$data2,$AttackArrivalTime);
+                                $database->addNotice($database->getVillageField( $enforce['from'], "owner" ),$from['wref'],$ownally,17,$reinfTopic,$data2,$AttackArrivalTime);
                             }
                             //delete reinf sting when its killed all.
                             if(!$wrong) $database->deleteReinf($enforce['id']);
@@ -2277,13 +2279,13 @@ class Automation {
                         for($i = 1; $i <= 10; $i++){
                             if($battlepart['casualties_attacker'][$i]){
                                 if($from['owner'] == 3){
-                                    $database->addNotice($to['owner'],$to['wref'],$targetally,20,''.addslashes($from['name']).' scouts '.addslashes($to['name']).'',$data2,$AttackArrivalTime);
+                                    $database->addNotice($to['owner'],$to['wref'],$targetally,20,''.addslashes($from['name']).' '.((defined('LANG') && LANG === 'ar') ? 'يستكشف' : 'scouts').' '.addslashes($to['name']).'',$data2,$AttackArrivalTime);
                                     break;
                                 }else if($unitsdead_att == $unitssend_att && $defspy){ //fix by ronix
-                                    $database->addNotice($to['owner'],$to['wref'],$targetally,20,''.addslashes($from['name']).' scouts '.addslashes($to['name']).'',$data2.',,'.$info_troop,$AttackArrivalTime);
+                                    $database->addNotice($to['owner'],$to['wref'],$targetally,20,''.addslashes($from['name']).' '.((defined('LANG') && LANG === 'ar') ? 'يستكشف' : 'scouts').' '.addslashes($to['name']).'',$data2.',,'.$info_troop,$AttackArrivalTime);
                                     break;
                                 }else if($defspy){ //fix by ronix
-                                    $database->addNotice($to['owner'],$to['wref'],$targetally,21,''.addslashes($from['name']).' scouts '.addslashes($to['name']).'',$data2,$AttackArrivalTime);
+                                    $database->addNotice($to['owner'],$to['wref'],$targetally,21,''.addslashes($from['name']).' '.((defined('LANG') && LANG === 'ar') ? 'يستكشف' : 'scouts').' '.addslashes($to['name']).'',$data2,$AttackArrivalTime);
                                     break;
                                 }
                             }
@@ -2397,13 +2399,13 @@ class Automation {
                         $data2 = $data2.','.(isset($info_trap) ? addslashes($info_trap) : '').',,'.$info_troop.','.$info_hero;
 
                         if($totalsend_alldef == 0 && $totalsend_att - ($totaldead_att + (isset($totaltraped_att) ? $totaltraped_att : 0)) > 0){
-                            $database->addNotice($to['owner'],$to['wref'],$targetally,7,''.addslashes($from['name']).' attacks '.addslashes($to['name']).'',$data2,$AttackArrivalTime);
+                            $database->addNotice($to['owner'],$to['wref'],$targetally,7,''.addslashes($from['name']).' '.((defined('LANG') && LANG === 'ar') ? 'يهاجم' : 'attacks').' '.addslashes($to['name']).'',$data2,$AttackArrivalTime);
                         }else if($totaldead_alldef == 0){
-                            $database->addNotice($to['owner'],$to['wref'],$targetally,4,''.addslashes($from['name']).' attacks '.addslashes($to['name']).'',$data2,$AttackArrivalTime);
+                            $database->addNotice($to['owner'],$to['wref'],$targetally,4,''.addslashes($from['name']).' '.((defined('LANG') && LANG === 'ar') ? 'يهاجم' : 'attacks').' '.addslashes($to['name']).'',$data2,$AttackArrivalTime);
                         }else if($totalsend_alldef > $totaldead_alldef){
-                            $database->addNotice($to['owner'],$to['wref'],$targetally,5,''.addslashes($from['name']).' attacks '.addslashes($to['name']).'',$data2,$AttackArrivalTime);
+                            $database->addNotice($to['owner'],$to['wref'],$targetally,5,''.addslashes($from['name']).' '.((defined('LANG') && LANG === 'ar') ? 'يهاجم' : 'attacks').' '.addslashes($to['name']).'',$data2,$AttackArrivalTime);
                         }else if($totalsend_alldef == $totaldead_alldef){
-                            $database->addNotice($to['owner'],$to['wref'],$targetally,6,''.addslashes($from['name']).' attacks '.addslashes($to['name']).'',$data2,$AttackArrivalTime);
+                            $database->addNotice($to['owner'],$to['wref'],$targetally,6,''.addslashes($from['name']).' '.((defined('LANG') && LANG === 'ar') ? 'يهاجم' : 'attacks').' '.addslashes($to['name']).'',$data2,$AttackArrivalTime);
                         }
                     }
                     //to here
@@ -2417,17 +2419,17 @@ class Automation {
                         $endtime += $AttackArrivalTime;
                         if($type == 1){
 							if($from['owner'] == 3){ // fix natar report by ronix
-								$database->addNotice($to['owner'], $to['wref'], $targetally, 20, '' . addslashes($from['name']) . ' scouts ' . addslashes($to['name']) . '', $data2, $AttackArrivalTime);
+								$database->addNotice($to['owner'], $to['wref'], $targetally, 20, '' . addslashes($from['name']) . ' ' . ((defined('LANG') && LANG === 'ar') ? 'يستكشف' : 'scouts') . ' ' . addslashes($to['name']) . '', $data2, $AttackArrivalTime);
 							}elseif($totaldead_att == 0 && $totaltraped_att == 0){
-								$database->addNotice($from['owner'], $to['wref'], $ownally, 18, '' . addslashes($from['name']) . ' scouts ' . addslashes($to['name']) . '', $data2, $AttackArrivalTime);
+								$database->addNotice($from['owner'], $to['wref'], $ownally, 18, '' . addslashes($from['name']) . ' ' . ((defined('LANG') && LANG === 'ar') ? 'يستكشف' : 'scouts') . ' ' . addslashes($to['name']) . '', $data2, $AttackArrivalTime);
 							}else{
-								$database->addNotice($from['owner'], $to['wref'], $ownally, 21, '' . addslashes($from['name']) . ' scouts ' . addslashes($to['name']) . '', $data2, $AttackArrivalTime);
+								$database->addNotice($from['owner'], $to['wref'], $ownally, 21, '' . addslashes($from['name']) . ' ' . ((defined('LANG') && LANG === 'ar') ? 'يستكشف' : 'scouts') . ' ' . addslashes($to['name']) . '', $data2, $AttackArrivalTime);
 							}
 						}else{
 							if((empty($totaldead_att) || $totaldead_att == 0) && (empty($totaltraped_att) || $totaltraped_att == 0)){
-								$database->addNotice($from['owner'], $to['wref'], $ownally, 1, '' . addslashes($from['name']) . ' attacks ' . addslashes($to['name']) . '', $data2, $AttackArrivalTime);
+								$database->addNotice($from['owner'], $to['wref'], $ownally, 1, '' . addslashes($from['name']) . ' ' . ((defined('LANG') && LANG === 'ar') ? 'يهاجم' : 'attacks') . ' ' . addslashes($to['name']) . '', $data2, $AttackArrivalTime);
 							}else{
-								$database->addNotice($from['owner'], $to['wref'], $ownally, 2, '' . addslashes($from['name']) . ' attacks ' . addslashes($to['name']) . '', $data2, $AttackArrivalTime);
+								$database->addNotice($from['owner'], $to['wref'], $ownally, 2, '' . addslashes($from['name']) . ' ' . ((defined('LANG') && LANG === 'ar') ? 'يهاجم' : 'attacks') . ' ' . addslashes($to['name']) . '', $data2, $AttackArrivalTime);
 							}
 						}
 
@@ -2462,9 +2464,9 @@ class Automation {
                     {
                         $database->setMovementProc($data['moveid']);
 						if($type == 1){
-							$database->addNotice($from['owner'], $to['wref'], $ownally, 19, addslashes($from['name']) . ' scouts ' . addslashes($to['name']) . '', $data_fail, $AttackArrivalTime);
+							$database->addNotice($from['owner'], $to['wref'], $ownally, 19, addslashes($from['name']) . ' ' . ((defined('LANG') && LANG === 'ar') ? 'يستكشف' : 'scouts') . ' ' . addslashes($to['name']) . '', $data_fail, $AttackArrivalTime);
 						}else{
-							$database->addNotice($from['owner'], $to['wref'], $ownally, 3, '' . addslashes($from['name']) . ' attacks ' . addslashes($to['name']) . '', $data_fail, $AttackArrivalTime);
+							$database->addNotice($from['owner'], $to['wref'], $ownally, 3, '' . addslashes($from['name']) . ' ' . ((defined('LANG') && LANG === 'ar') ? 'يهاجم' : 'attacks') . ' ' . addslashes($to['name']) . '', $data_fail, $AttackArrivalTime);
 						}
                     }
                     if($type == 3 || $type == 4) $database->addGeneralAttack($totalattackdead);
@@ -2506,8 +2508,8 @@ class Automation {
                     $peace = PEACE;
                     $data2 = $from['owner'].','.$from['wref'].','.$to['owner'].','.$owntribe.','.$unitssend_att.','.$peace;
                     $time = time();
-                    $database->addNotice($from['owner'], $to['wref'], $ownally, 22,''.addslashes($from['name']).' attacks '.addslashes($to['name']).'', $data2, $time);
-                    $database->addNotice($to['owner'], $to['wref'], $targetally, 23,''.addslashes($from['name']).' attacks '.addslashes($to['name']).'', $data2, $time);
+                    $database->addNotice($from['owner'], $to['wref'], $ownally, 22,''.addslashes($from['name']).' '.((defined('LANG') && LANG === 'ar') ? 'يهاجم' : 'attacks').' '.addslashes($to['name']).'', $data2, $time);
+                    $database->addNotice($to['owner'], $to['wref'], $targetally, 23,''.addslashes($from['name']).' '.((defined('LANG') && LANG === 'ar') ? 'يهاجم' : 'attacks').' '.addslashes($to['name']).'', $data2, $time);
                 }
 
                 //Update starvation data

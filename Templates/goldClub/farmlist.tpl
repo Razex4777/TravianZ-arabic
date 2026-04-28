@@ -47,20 +47,23 @@ while($row = mysqli_fetch_array($sql)){
                         <div class="listTitleText">
 							<a href="build.php?gid=16&t=99&action=deleteList&lid=<?php echo $lid; ?>"><img class="del" src="img/x.gif" alt="delete" title="delete"></a>
                             <?php echo $lvname; ?> - <span id="listName_<?php echo $lid; ?>"><?php echo htmlspecialchars($lname); ?></span>
-                            <a href="#" onclick="document.getElementById('renameForm_<?php echo $lid; ?>').style.display='inline'; this.style.display='none'; return false;" title="<?php echo (defined('LANG') && LANG === 'ar') ? 'تعديل الاسم' : 'Rename'; ?>" style="margin-right:5px; margin-left:5px; cursor:pointer; font-size:11px;">✏️</a>
-                            <form id="renameForm_<?php echo $lid; ?>" method="post" action="build.php?id=39&t=99" style="display:none; margin:0; padding:0;">
-                                <input type="hidden" name="action" value="renameList">
-                                <input type="hidden" name="lid" value="<?php echo $lid; ?>">
-                                <input type="hidden" name="c" value="<?php echo $session->mchecker; ?>">
-                                <input type="text" name="newname" value="<?php echo htmlspecialchars($lname); ?>" maxlength="100" style="width:120px; font-size:11px;">
-                                <button type="submit" style="font-size:10px; cursor:pointer; padding:1px 6px;"><?php echo (defined('LANG') && LANG === 'ar') ? 'حفظ' : 'Save'; ?></button>
-                            </form>
+                            <a href="#" onclick="document.getElementById('renameDiv_<?php echo $lid; ?>').style.display='inline'; this.style.display='none'; return false;" title="<?php echo (defined('LANG') && LANG === 'ar') ? 'تعديل الاسم' : 'Rename'; ?>" style="margin-right:5px; margin-left:5px; cursor:pointer; font-size:11px;">✏️</a>
+                            <div id="renameDiv_<?php echo $lid; ?>" style="display:none; margin:0; padding:0; display:none;">
+                                <input type="text" id="renameName_<?php echo $lid; ?>" value="<?php echo htmlspecialchars($lname); ?>" maxlength="100" style="width:120px; font-size:11px;">
+                                <button type="button" onclick="submitRename(<?php echo $lid; ?>, '<?php echo $session->mchecker; ?>')" style="font-size:10px; cursor:pointer; padding:1px 6px;"><?php echo (defined('LANG') && LANG === 'ar') ? 'حفظ' : 'Save'; ?></button>
+                            </div>
                         </div>
                         <div class="openedClosedSwitch switchOpened"></div>
                         <div class="clear"></div>
                                             </div>
 	<div class="listContent ">
     <div class="detail">
+
+    <div class="clear"></div>
+    <div class="addSlot" style="margin-bottom: 10px; display:flex; justify-content:flex-end; align-items:center;">
+        <button type="button" class="trav_buttons" onclick="window.location.href = '?gid=16&t=99&action=addraid&lid=<?php echo $lid; ?>';"><?php echo (defined('LANG') && LANG === 'ar') ? 'إضافة مزرعة' : 'Add Farm'; ?></button>
+        <span style="font-size: 11px; margin: 0 5px;">(5 <img src="img/x.gif" class="gold" alt="Gold">)</span>
+    </div>
     <table id="raidList" cellpadding="1" cellspacing="1">
         <thead>
             <tr>
@@ -96,7 +99,7 @@ else
 
 <tr class="slotRow">
 <td class="checkbox">
-                <input id="slot" name="slot[]" value="<?php echo $id; ?>" type="checkbox" class="markSlot">
+                <input id="slot<?php echo $id; ?>" name="slot[]" value="<?php echo $id; ?>" type="checkbox" class="markSlot">
 			</td>
             <td class="village">
             <?php
@@ -189,12 +192,14 @@ while($row2 = mysqli_fetch_array($getnotice)){
 
 <?php if($database->getVilFarmlist($session->uid)){ ?>
 <div class="markAll">
-	<input type="checkbox" id="raidListMarkAll" name="s10" class="markAll" onclick="Allmsg(this.form);">
+	<input type="checkbox" id="raidListMarkAll" name="s10" class="markAll" onclick="toggleAllSlots(this)">
 	<label for="raidListMarkAll"><?php echo (defined('LANG') && LANG === 'ar') ? 'تحديد الكل' : 'Select all'; ?></label>
 </div><br />
 <div class="addSlot">
-<button type="button" class="trav_buttons" onclick="window.location.href = '?gid=16&t=99&action=addraid';"><?php echo (defined('LANG') && LANG === 'ar') ? 'إضافة هجمة (-5 ذهب)' : 'Add Raid <span style=\"color:#000;font-weight:normal;\">(5 <img src=\"img/x.gif\" class=\"gold\" alt=\"Gold\">)</span>'; ?></button>
-<button type="submit" class="trav_buttons" value="Start Raid"><?php echo (defined('LANG') && LANG === 'ar') ? 'بدء الهجوم (-1 ذهب / قرية)' : 'Start Raid (-1 Gold / farm)'; ?></button>
+    <div>
+        <button type="submit" class="trav_buttons" value="Start Raid"><?php echo (defined('LANG') && LANG === 'ar') ? 'بدء الهجوم' : 'Start Raid'; ?></button>
+        <span style="margin: 0 5px; font-weight: normal;">(1 <img src="img/x.gif" class="gold" alt="Gold"><?php echo (defined('LANG') && LANG === 'ar') ? ' / قرية' : ' / farm'; ?>)</span>
+    </div>
 </div><br />
 <?php } ?>
 <div class="options">
@@ -336,6 +341,34 @@ document.addEventListener("DOMContentLoaded", function() {
         }).then(res => res.text()).then(txt => console.log('saved'));
     }
 });
+
+// Toggle all farm slot checkboxes
+function toggleAllSlots(source) {
+    var checkboxes = document.querySelectorAll('input.markSlot');
+    for (var i = 0; i < checkboxes.length; i++) {
+        checkboxes[i].checked = source.checked;
+    }
+}
+
+// Rename handler — creates and submits a temporary form OUTSIDE the main raid form
+function submitRename(lid, checker) {
+    var newname = document.getElementById('renameName_' + lid).value;
+    if (!newname || !newname.trim()) return;
+    var f = document.createElement('form');
+    f.method = 'post';
+    f.action = 'build.php?id=39&t=99';
+    f.style.display = 'none';
+    var fields = {action: 'renameList', lid: lid, c: checker, newname: newname};
+    for (var key in fields) {
+        var inp = document.createElement('input');
+        inp.type = 'hidden';
+        inp.name = key;
+        inp.value = fields[key];
+        f.appendChild(inp);
+    }
+    document.body.appendChild(f);
+    f.submit();
+}
 </script>
 
 

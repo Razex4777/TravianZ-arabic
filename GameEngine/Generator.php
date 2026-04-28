@@ -97,8 +97,8 @@ class MyGenerator {
 		$time += 0; // Edit this yourself
 		
 		$today = date('d', time()) - 1;
-		if(date('Ymd', time()) == date('Ymd', $time)) $day = "today";			
-		elseif($today == date('d', $time)) $day = "yesterday";		
+		if(date('Ymd', time()) == date('Ymd', $time)) $day = (defined('LANG') && LANG === 'ar') ? "اليوم" : "today";			
+		elseif($today == date('d', $time)) $day = (defined('LANG') && LANG === 'ar') ? "أمس" : "yesterday";		
 		else
 		{
 			switch($pref){

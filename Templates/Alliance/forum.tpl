@@ -14,7 +14,7 @@ if(!isset($aid)){
 
 $allianceinfo = $database->getAlliance($aid);
 $opt = $database->getAlliPermissions($session->uid, $aid);
-echo $aid > 0 ? "<h1>".$allianceinfo['tag']." - ".$allianceinfo['name']."</h1>" : "<h1>Forum</h1>";
+echo $aid > 0 ? "<h1>".$allianceinfo['tag']." - ".$allianceinfo['name']."</h1>" : "<h1>".((defined('LANG') && LANG === 'ar') ? 'المنتدى' : 'Forum')."</h1>";
 include ("alli_menu.tpl");
 $ids = $_GET['s'];
 

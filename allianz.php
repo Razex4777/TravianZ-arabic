@@ -57,29 +57,29 @@ if(isset($_GET['aid']) || isset($_GET['fid']) || isset($_GET['fid2']) ||
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title><?php
-	echo SERVER_NAME.' &raquo; &raquo; &raquo; Alliance ';
+	echo SERVER_NAME.' &raquo; &raquo; &raquo; '.((defined('LANG') && LANG === 'ar') ? 'التحالف' : 'Alliance').' ';
 	
 	if(!empty($_GET['s'])){
 		switch($_GET['s']){
 			case '2' :
-				if($session->alliance == 0) echo 'Forum (No alliance)';
-				else echo 'Forum ('.$alliance->allianceArray['tag'].' - '.$alliance->allianceArray['name'].')';
+				if($session->alliance == 0) echo ((defined('LANG') && LANG === 'ar') ? 'المنتدى (بدون تحالف)' : 'Forum (No alliance)');
+				else echo ((defined('LANG') && LANG === 'ar') ? 'المنتدى' : 'Forum').' ('.$alliance->allianceArray['tag'].' - '.$alliance->allianceArray['name'].')';
 				break;
 			
 			case '6' :
-				echo 'Chat ('.$alliance->allianceArray['tag'].' - '.$alliance->allianceArray['name'].')';
+				echo ((defined('LANG') && LANG === 'ar') ? 'الدردشة' : 'Chat').' ('.$alliance->allianceArray['tag'].' - '.$alliance->allianceArray['name'].')';
 				break;
 			
 			case '3' :
-				echo 'Attacks ('.$alliance->allianceArray['tag'].' - '.$alliance->allianceArray['name'].')';
+				echo ((defined('LANG') && LANG === 'ar') ? 'الهجمات' : 'Attacks').' ('.$alliance->allianceArray['tag'].' - '.$alliance->allianceArray['name'].')';
 				break;
 			
 			case '4' :
-				echo 'News ('.$alliance->allianceArray['tag'].' - '.$alliance->allianceArray['name'].')';
+				echo ((defined('LANG') && LANG === 'ar') ? 'الأخبار' : 'News').' ('.$alliance->allianceArray['tag'].' - '.$alliance->allianceArray['name'].')';
 				break;
 			
 			case '5' :
-				echo 'Options ('.$alliance->allianceArray['tag'].' - '.$alliance->allianceArray['name'].')';
+				echo ((defined('LANG') && LANG === 'ar') ? 'الخيارات' : 'Options').' ('.$alliance->allianceArray['tag'].' - '.$alliance->allianceArray['name'].')';
 				break;
 		}
 	}

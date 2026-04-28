@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 if(isset($_GET['aid'])) $aid = $_GET['aid'];
 else $aid = $session->alliance;
 
@@ -35,11 +35,11 @@ include("alli_menu.tpl");
 <table cellpadding="1" cellspacing="1" id="profile">
 <thead>
 <tr>
-<th colspan="2">Alliance</th>
+<th colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'التحالف' : 'Alliance'; ?></th>
 </tr>
 <tr>
-<td>Details</td>
-<td>Description</td>
+<td><?php echo (defined('LANG') && LANG === 'ar') ? 'التفاصيل' : 'Details'; ?></td>
+<td><?php echo (defined('LANG') && LANG === 'ar') ? 'الوصف' : 'Description'; ?></td>
 
 </tr>
 </thead>
@@ -49,26 +49,26 @@ include("alli_menu.tpl");
     <td class="details">
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th>Tag</th>
+                <th><?php echo (defined('LANG') && LANG === 'ar') ? 'الرمز' : 'Tag'; ?></th>
                 <td><?php echo $allianceinfo['tag']; ?></td>
             </tr>
             <tr>
-                <th>Name</th>
+                <th><?php echo (defined('LANG') && LANG === 'ar') ? 'الاسم' : 'Name'; ?></th>
                 <td><?php echo $allianceinfo['name']; ?></td>
             </tr>
                 <tr>
                 <td colspan="2" class="empty"></td>
             </tr>
             <tr>
-                <th>Rank</th>
+                <th><?php echo (defined('LANG') && LANG === 'ar') ? 'الرتبة' : 'Rank'; ?></th>
                 <td><?php echo $ranking->getAllianceRank($aid); ?>.</td>
             </tr>
             <tr>
-                <th>Points</th>
+                <th><?php echo (defined('LANG') && LANG === 'ar') ? 'النقاط' : 'Points'; ?></th>
                 <td><?php echo $totalpop; ?></td>
             </tr>
             <tr>
-                <th>Members</th>
+                <th><?php echo (defined('LANG') && LANG === 'ar') ? 'الأعضاء' : 'Members'; ?></th>
                 <td><?php echo count($memberlist); ?></td>
             </tr><tr>
                     <td colspan="2" class="empty"></td>
@@ -97,7 +97,7 @@ include("alli_menu.tpl");
 				}
 			if($allianceinfo['forumlink'] != '' && $allianceinfo['forumlink'] != '0'){
                 echo "<tr>";
-                echo "<td><a href='".$allianceinfo['forumlink']."'>» to the forum</td>";
+                echo "<td><a href='".$allianceinfo['forumlink']."'>".((defined('LANG') && LANG === 'ar') ? '» إلى المنتدى' : '» to the forum')."</td>";
                 echo "</tr>";
                 }else{
 			?>
@@ -120,9 +120,9 @@ include("alli_menu.tpl");
 </table><table cellpadding="1" cellspacing="1" id="member"><thead>
 <tr>
 <th>&nbsp;</th>
-<th>Player</th>
-<th>Population</th>
-<th>Villages</th>
+<th><?php echo (defined('LANG') && LANG === 'ar') ? 'اللاعب' : 'Player'; ?></th>
+<th><?php echo (defined('LANG') && LANG === 'ar') ? 'السكان' : 'Population'; ?></th>
+<th><?php echo (defined('LANG') && LANG === 'ar') ? 'القرى' : 'Villages'; ?></th>
 <?php
 if($aid == $session->alliance){
      echo "<th>&nbsp;</th>";
@@ -157,15 +157,15 @@ foreach($memberlist as $member) {
 
     if($aid == $session->alliance){
         if ((time()-600) < $member['timestamp']){ // 0 Min - 10 Min
-            echo "    <td class=on><img class=online1 src=img/x.gif title='Now online' alt='Now online' /></td>";
+            echo "    <td class=on><img class=online1 src=img/x.gif title='".((defined('LANG') && LANG === 'ar') ? 'متصل الآن' : 'Now online')."' alt='".((defined('LANG') && LANG === 'ar') ? 'متصل الآن' : 'Now online')."' /></td>";
         }elseif ((time()-86400) < $member['timestamp'] && (time()-600) > $member['timestamp']){ // 10 Min - 1 Days
-            echo "    <td class=on><img class=online2 src=img/x.gif title='Offline' alt='Offline' /></td>";
+            echo "    <td class=on><img class=online2 src=img/x.gif title='".((defined('LANG') && LANG === 'ar') ? 'غير متصل' : 'Offline')."' alt='".((defined('LANG') && LANG === 'ar') ? 'غير متصل' : 'Offline')."' /></td>";
             }elseif ((time()-259200) < $member['timestamp'] && (time()-86400) > $member['timestamp']){ // 1-3 Days
-            echo "    <td class=on><img class=online3 src=img/x.gif title='Last 3 days' alt='Last 3 days' /></td>";
+            echo "    <td class=on><img class=online3 src=img/x.gif title='".((defined('LANG') && LANG === 'ar') ? 'آخر 3 أيام' : 'Last 3 days')."' alt='".((defined('LANG') && LANG === 'ar') ? 'آخر 3 أيام' : 'Last 3 days')."' /></td>";
         }elseif ((time()-604800) < $member['timestamp'] && (time()-259200) > $member['timestamp']){
-            echo "    <td class=on><img class=online4 src=img/x.gif title='Last 7 days' alt='Last 7 days' /></td>";
+            echo "    <td class=on><img class=online4 src=img/x.gif title='".((defined('LANG') && LANG === 'ar') ? 'آخر 7 أيام' : 'Last 7 days')."' alt='".((defined('LANG') && LANG === 'ar') ? 'آخر 7 أيام' : 'Last 7 days')."' /></td>";
         }else{
-             echo "    <td class=on><img class=online5 src=img/x.gif title=inactive alt=inactive /></td>";
+             echo "    <td class=on><img class=online5 src=img/x.gif title='".((defined('LANG') && LANG === 'ar') ? 'خامل' : 'inactive')."' alt='".((defined('LANG') && LANG === 'ar') ? 'خامل' : 'inactive')."' /></td>";
         }
     }
 

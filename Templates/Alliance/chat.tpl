@@ -28,7 +28,7 @@ document.form1.msg.value="";
 
 <body onload="start_it()">
 <form name="form1" onSubmit="send_data()">
-	<div id="TitleName" class="chatHeader">Ally-Chat</div>
+	<div id="TitleName" class="chatHeader"><?php echo (defined('LANG') && LANG === 'ar') ? 'دردشة التحالف' : 'Ally-Chat'; ?></div>
 			<div id="chatContainer" style="position:relative; top:0; right:0; height: 220px; width: 500px; overflow: hidden; background-color: #FFF; border: 1px solid #C0C0C0;">
 				<div id="masnun" style="position:absolute; top:0; right:5px; width:470px; background-color: #FFF; "></div>
 				<div id="scrollbarbackground2" style="position:absolute; top:0; right:481px; width:17px; height:198px;"></div>

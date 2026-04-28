@@ -382,7 +382,8 @@ if($type >= 18 && $type <= 21){
 		</tr></thead>
 		<tbody>
 		<?php
-if($session->uid == $database->getVillage($_GET['d'])['owner']){
+$vilCheck = $database->getVillage($_GET['d']);
+if($vilCheck && $session->uid == $vilCheck['owner']){
 	$limit = "(ntype > 3 AND ntype < 8) OR ntype = 23";
 }
 else $limit = "(ntype < 8 OR (ntype > 17 AND ntype < 22)) OR ntype = 22";
@@ -476,22 +477,18 @@ if($type >= 18 && $type <= 21){
  		} else {
  			echo "<a href=\"a2b.php?z=".$_GET['d']."&o\">&raquo; ".RAID." $otext</a>";
  		}
- 		
- 		if ($oasislink) {
-?>
-		</tr>
-		<tr>
-			<td>
-				<a href="<?php echo $oasislink; ?>">&raquo; <?php echo (defined('LANG') && LANG === 'ar' ? 'محاكي المعارك' : 'Combat Simulator'); ?></a>
-			</td>
-<?php
-		}
  	}
  	else echo $text;
 	?>
 		</tr>
+		<tr>
+			<td class="none">
+				<a href="build.php?id=39&t=99&action=addraid&z=<?php echo $_GET['d']; ?>">&raquo; <?php echo (defined('LANG') && LANG === 'ar') ? 'إضافة الى قائمة المزارع <span style="color:#000;font-weight:normal;">(5 <img src="' . GP_LOCATE . 'img/a/gold_g.gif" alt="Gold" title="Gold"/>)</span>' : 'Add to farm list <span style="color:#000;font-weight:normal;">(5 <img src="' . GP_LOCATE . 'img/a/gold_g.gif" alt="Gold" title="Gold"/>)</span>'; ?></a>
+			</td>
+		</tr>
+
         <?php } 
-        else if ($basearray['occupied'] && $basearray['wref'] != $_SESSION['wid']) {?>
+        else if ($basearray['occupied'] && $basearray['wref'] != ($_SESSION['wid'] ?? null)) {?>
         <tr>
 					<td class="none">
           <?php 

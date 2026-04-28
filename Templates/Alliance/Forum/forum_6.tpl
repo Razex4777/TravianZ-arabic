@@ -109,7 +109,7 @@ if($database->checkSurvey($arr['id'])){
 							name="tid" value="<?php echo $_GET['tid']; ?>" />
 						<p class="btn">
 							<input type="image" id="fbtn_vote" value="ok" name="s1"
-								class="dynamic_img" src="img/x.gif" alt="Vote" />
+								class="dynamic_img" src="img/x.gif" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'تصويت' : 'Vote'; ?>" />
 				
 				</form>
 				</p>

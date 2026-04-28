@@ -6,14 +6,14 @@ echo "<h1>".$allianceinfo['tag']." - ".$allianceinfo['name']."</h1>";
 include("alli_menu.tpl"); 
 ?>
 <div class="clear"></div>
-<h4 class="chartHeadline">Military events</h4>
+<h4 class="chartHeadline"><?php echo (defined('LANG') && LANG === 'ar') ? 'الأحداث العسكرية' : 'Military events'; ?></h4>
 		<div id="submenu">
 			<a href="allianz.php?s=3&f=32">
-				<img src="img/x.gif" class="<?php echo $_GET['f'] == 32 ? "active btn_def" : "btn_def";?>" alt="Defender" title="Defender" />
+				<img src="img/x.gif" class="<?php echo $_GET['f'] == 32 ? "active btn_def" : "btn_def";?>" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'المدافع' : 'Defender'; ?>" title="<?php echo (defined('LANG') && LANG === 'ar') ? 'المدافع' : 'Defender'; ?>" />
 			</a>
 
 			<a href="allianz.php?s=3&f=31">
-				<img src="img/x.gif" class="<?php echo $_GET['f'] == 31 ? "active btn_off" : "btn_off";?>" alt="Attacker" title="Attacker" />
+				<img src="img/x.gif" class="<?php echo $_GET['f'] == 31 ? "active btn_off" : "btn_off";?>" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'المهاجم' : 'Attacker'; ?>" title="<?php echo (defined('LANG') && LANG === 'ar') ? 'المهاجم' : 'Attacker'; ?>" />
 			</a>
 		</div>
 <?php
@@ -26,7 +26,7 @@ $query = mysqli_num_rows($sql);
 $outputList = '';
 $name = 1;
 
-if(!$query) $outputList .= "<td colspan=\"4\" class=\"none\">There are no reports available.</td>";
+if(!$query) $outputList .= "<td colspan=\"4\" class=\"none\">".((defined('LANG') && LANG === 'ar') ? 'لا توجد تقارير متاحة.' : 'There are no reports available.')."</td>";
 else
 {
 
@@ -59,7 +59,7 @@ while($row = mysqli_fetch_array($sql)){
 	}
     $outputList .= "</a>";
     $outputList .= "<div><a href=\"berichte.php?id=".$id."&aid=".$ally."\">";
-    if($ntype >= 18 && $ntype <= 21) $nn = " scouts "; else $nn = " attacks ";
+    if($ntype >= 18 && $ntype <= 21) $nn = (defined('LANG') && LANG === 'ar') ? " يتجسس على " : " scouts "; else $nn = (defined('LANG') && LANG === 'ar') ? " يهاجم " : " attacks ";
 
     $outputList .= $database->getUserField($dataarray[0], "username", 0);
        
@@ -103,9 +103,9 @@ while($row = mysqli_fetch_array($sql)){
 <table cellpadding="1" cellspacing="1" id="offs">
 <thead>
 <tr>
-<td>Player</td>
-<td>Alliance</td>
-<td>Date</td>
+<td><?php echo (defined('LANG') && LANG === 'ar') ? 'اللاعب' : 'Player'; ?></td>
+<td><?php echo (defined('LANG') && LANG === 'ar') ? 'التحالف' : 'Alliance'; ?></td>
+<td><?php echo (defined('LANG') && LANG === 'ar') ? 'التاريخ' : 'Date'; ?></td>
 </tr>
 </thead>
 

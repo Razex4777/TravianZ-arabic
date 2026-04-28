@@ -27,36 +27,36 @@ include("alli_menu.tpl");
 <input type="hidden" name="o" value="3">
 <input type="hidden" name="s" value="5">
 <tr>
-<th colspan="3">Alliance</th>
+<th colspan="3"><?php echo (defined('LANG') && LANG === 'ar') ? 'التحالف' : 'Alliance'; ?></th>
 </tr><tr>
-<td colspan="2">Details</td>
-<td>Description</td>
+<td colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'التفاصيل' : 'Details'; ?></td>
+<td><?php echo (defined('LANG') && LANG === 'ar') ? 'الوصف' : 'Description'; ?></td>
 </tr></thead>
 <tbody>
 
 <tr><td colspan="2"></td><td class="empty"></td></tr>
 
 <tr>
-<th>Tag</td><td class="s7"><?php echo $allianceinfo['tag']; ?></th>
+<th><?php echo (defined('LANG') && LANG === 'ar') ? 'الرمز' : 'Tag'; ?></td><td class="s7"><?php echo $allianceinfo['tag']; ?></th>
 <td rowspan="8" class="desc1"><textarea tabindex="1" name="be1"><?php echo isset($_POST['be1']) ? $_POST['be1'] : stripslashes($allianceinfo['desc']); ?></textarea></td>
 </tr>
 
 <tr>
-<th>Name</th><td><?php echo $allianceinfo['name']; ?></td>
+<th><?php echo (defined('LANG') && LANG === 'ar') ? 'الاسم' : 'Name'; ?></th><td><?php echo $allianceinfo['name']; ?></td>
 </tr>
 
 <tr><td colspan="2" class="empty"></td></tr>
 
 <tr>
-<th>Rank</th><td><?php echo $ranking->getAllianceRank($aid); ?>.</td>
+<th><?php echo (defined('LANG') && LANG === 'ar') ? 'الرتبة' : 'Rank'; ?></th><td><?php echo $ranking->getAllianceRank($aid); ?>.</td>
 </tr>
 
 <tr>
-<th>Points</th><td><?php echo $totalpop; ?></td>
+<th><?php echo (defined('LANG') && LANG === 'ar') ? 'النقاط' : 'Points'; ?></th><td><?php echo $totalpop; ?></td>
 </tr>
 
 <tr>
-<th>Members</th><td><?php echo count($memberlist); ?></td>
+<th><?php echo (defined('LANG') && LANG === 'ar') ? 'الأعضاء' : 'Members'; ?></th><td><?php echo count($memberlist); ?></td>
 </tr>
 
 <tr><td colspan="2" class="empty"></td></tr>
@@ -64,12 +64,12 @@ include("alli_menu.tpl");
 <tr><td colspan="2" class="desc2"><textarea tabindex="2" name="be2"><?php echo isset($_POST['be2']) ? $_POST['be2'] : stripslashes($allianceinfo['notice']); ?></textarea></td></tr>
     <p>
         <table cellspacing="1" cellpadding="2" class="tbg">
-        <tr><td class="rbg" colspan="4">Medals</td></tr>
+        <tr><td class="rbg" colspan="4"><?php echo (defined('LANG') && LANG === 'ar') ? 'الأوسمة' : 'Medals'; ?></td></tr>
         <tr>
-            <td>Category</td>
-            <td>Rank</td>
-            <td>Week</td>
-            <td>BB-Code</td>
+            <td><?php echo (defined('LANG') && LANG === 'ar') ? 'الفئة' : 'Category'; ?></td>
+            <td><?php echo (defined('LANG') && LANG === 'ar') ? 'الرتبة' : 'Rank'; ?></td>
+            <td><?php echo (defined('LANG') && LANG === 'ar') ? 'الأسبوع' : 'Week'; ?></td>
+            <td><?php echo (defined('LANG') && LANG === 'ar') ? 'كود BB' : 'BB-Code'; ?></td>
         </tr>
                 <?php
 /******************************
@@ -88,43 +88,43 @@ INDELING CATEGORIEEN:
 
 
     foreach($varmedal as $medal) {
-    $titel="Bonus";
+    $titel=(defined('LANG') && LANG === 'ar') ? 'مكافأة' : 'Bonus';
     switch ($medal['categorie']) {
     case "1":
-        $titel="Attacker of the Week";
+        $titel=(defined('LANG') && LANG === 'ar') ? 'مهاجم الأسبوع' : 'Attacker of the Week';
         break;
     case "2":
-        $titel="Defender of the Week";
+        $titel=(defined('LANG') && LANG === 'ar') ? 'مدافع الأسبوع' : 'Defender of the Week';
         break;
     case "3":
-        $titel="Climber of the week";
+        $titel=(defined('LANG') && LANG === 'ar') ? 'متسلق الأسبوع' : 'Climber of the week';
         break;
     case "4":
-        $titel="Robber of the week";
+        $titel=(defined('LANG') && LANG === 'ar') ? 'ناهب الأسبوع' : 'Robber of the week';
         break;
     case "5":
-        $titel="Top 10 of both attackers and defenders";
+        $titel=(defined('LANG') && LANG === 'ar') ? 'أفضل 10 من المهاجمين والمدافعين' : 'Top 10 of both attackers and defenders';
         break;
     case "6":
-        $titel="Top 3 of Attackers of week ".$medal['points']." in a row";
+        $titel=(defined('LANG') && LANG === 'ar') ? 'أفضل 3 مهاجمين للأسبوع '.$medal['points'].' على التوالي' : 'Top 3 of Attackers of week '.$medal['points'].' in a row';
         break;
     case "7":
-        $titel="Top 3 of Defenders of week ".$medal['points']." in a row";
+        $titel=(defined('LANG') && LANG === 'ar') ? 'أفضل 3 مدافعين للأسبوع '.$medal['points'].' على التوالي' : 'Top 3 of Defenders of week '.$medal['points'].' in a row';
         break;
     case "8":
-        $titel="Top 3 of Pop climbers of week ".$medal['points']." in a row";
+        $titel=(defined('LANG') && LANG === 'ar') ? 'أفضل 3 متسلقين سكان للأسبوع '.$medal['points'].' على التوالي' : 'Top 3 of Pop climbers of week '.$medal['points'].' in a row';
         break;
     case "9":
-        $titel="Top 3 of Robbers of week ".$medal['points']." in a row";
+        $titel=(defined('LANG') && LANG === 'ar') ? 'أفضل 3 ناهبين للأسبوع '.$medal['points'].' على التوالي' : 'Top 3 of Robbers of week '.$medal['points'].' in a row';
         break;
     case "10":
-        $titel="Rank Climber of the week";
+        $titel=(defined('LANG') && LANG === 'ar') ? 'متسلق الرتب للأسبوع' : 'Rank Climber of the week';
         break;
     case "11":
-        $titel="Top 3 of Rank climbers of week ".$medal['points']." in a row";
+        $titel=(defined('LANG') && LANG === 'ar') ? 'أفضل 3 متسلقين رتب للأسبوع '.$medal['points'].' على التوالي' : 'Top 3 of Rank climbers of week '.$medal['points'].' in a row';
         break;
     case "12":
-        $titel="Top 10 of Rank Attackers of week ".$medal['points']." in a row";
+        $titel=(defined('LANG') && LANG === 'ar') ? 'أفضل 10 مهاجمين رتب للأسبوع '.$medal['points'].' على التوالي' : 'Top 10 of Rank Attackers of week '.$medal['points'].' in a row';
         break;
     }
                  echo"<tr>
@@ -137,4 +137,4 @@ INDELING CATEGORIEEN:
                  </table></p>
 </table>
 
-<p class="btn"><input tabindex="3" type="image" value="" name="s1" id="btn_save" class="dynamic_img" src="img/x.gif" alt="save" /></p></form>
+<p class="btn"><input tabindex="3" type="image" value="" name="s1" id="btn_save" class="dynamic_img" src="img/x.gif" alt="<?php echo (defined('LANG') && LANG === 'ar') ? 'حفظ' : 'save'; ?>" /></p></form>

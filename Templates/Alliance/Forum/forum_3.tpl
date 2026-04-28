@@ -46,4 +46,4 @@ $canBeMoved = $forumData['forum_area'] == 1 && $session->access == 9;
 		<?php } ?>
 	</tbody></table>
 
-	<p class="btn"><button id="fbtn_ok" value="ok" name="s1" class="trav_buttons"> OK </button></p></form>
+	<p class="btn"><button id="fbtn_ok" value="ok" name="s1" class="trav_buttons"> <?php echo (defined('LANG') && LANG === 'ar') ? 'موافق' : 'OK'; ?> </button></p></form>

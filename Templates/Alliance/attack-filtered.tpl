@@ -7,7 +7,7 @@ $query = mysqli_num_rows($sql);
 $outputList = '';
 $name = 1;
 
-if(!$query) $outputList .= "<td colspan=\"4\" class=\"none\">There are no reports available.</td>";
+if(!$query) $outputList .= "<td colspan=\"4\" class=\"none\">" . ((defined('LANG') && LANG === 'ar') ? 'لا توجد تقارير متاحة.' : 'There are no reports available.') . "</td>";
 else
 {
 
@@ -39,7 +39,7 @@ while($row = mysqli_fetch_array($sql)){
 	}
     $outputList .= "</a>";
     $outputList .= "<div><a href=\"berichte.php?id=".$id."&aid=".$ally."\">";
-    if((($type == 18 || $type == 19) && $filterType == 31) || (($type == 20 || $type == 21) && $filterType == 32)) $nn = " scouts "; else $nn = " attacks "; 
+    if((($type == 18 || $type == 19) && $filterType == 31) || (($type == 20 || $type == 21) && $filterType == 32)) $nn = ((defined('LANG') && LANG === 'ar') ? ' يكتشف ' : ' scouts '); else $nn = ((defined('LANG') && LANG === 'ar') ? ' يهاجم ' : ' attacks '); 
 
     $outputList .= $database->getUserField($dataarray[0], "username", 0);
        
@@ -63,9 +63,9 @@ while($row = mysqli_fetch_array($sql)){
 <table cellpadding="1" cellspacing="1" id="offs">
 <thead>
 <tr>
-<td>Player</td>
-<td>Alliance</td>
-<td>Date</td>
+<td><?php echo (defined('LANG') && LANG === 'ar') ? 'اللاعب' : 'Player'; ?></td>
+<td><?php echo (defined('LANG') && LANG === 'ar') ? 'التحالف' : 'Alliance'; ?></td>
+<td><?php echo (defined('LANG') && LANG === 'ar') ? 'التاريخ' : 'Date'; ?></td>
 </tr>
 </thead>
 

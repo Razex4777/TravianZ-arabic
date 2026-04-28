@@ -80,10 +80,11 @@ if(isset($_POST['action']) && $_POST['action'] == 'addSlot' && isset($_POST['lid
 
 $sql = mysqli_query($database->dblink, "SELECT id, name, owner, wref FROM ".TB_PREFIX."farmlist WHERE owner = ".(int)$session->uid." ORDER BY name ASC");
 	while($row = mysqli_fetch_array($sql)){
-		$lid = $row["id"];
+		$loop_lid = $row["id"];
 		$lname = $row["name"];
 		$lvname = $database->getVillageField($row["wref"], 'name');
-		echo '<option value="'.$lid.'">'.$lvname.' - '.$lname.'</option>';
+        $selected = (isset($_GET['lid']) && $_GET['lid'] == $loop_lid) ? 'selected' : '';
+		echo '<option value="'.$loop_lid.'" '.$selected.'>'.$lvname.' - '.$lname.'</option>';
 }
 ?>    
                         </select>

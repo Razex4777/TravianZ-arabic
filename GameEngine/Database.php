@@ -1498,7 +1498,7 @@ public function getBestOasisCropBonus($x, $y) {
         }
 
 		$time = time();
-		$q = "INSERT into " . TB_PREFIX . "vdata (wref, owner, name, capital, pop, cp, celebration, wood, clay, iron, maxstore, crop, maxcrop, lastupdate, created, natar) values ($wid, $uid, '$villageName', $capital, $pop, 1, 0, 750, 750, 750, ".VILLAGE_STORAGE_BASE.", 750, ".VILLAGE_STORAGE_BASE.", $time, $time, $isNatar)";
+		$q = "INSERT into " . TB_PREFIX . "vdata (wref, owner, name, capital, pop, cp, celebration, wood, clay, iron, maxstore, crop, maxcrop, lastupdate, created, natar) values ($wid, $uid, '$villageName', $capital, $pop, 1, 0, 1500, 1500, 1500, ".VILLAGE_STORAGE_BASE.", 1500, ".VILLAGE_STORAGE_BASE.", $time, $time, $isNatar)";
 		return mysqli_query($this->dblink,$q);
 	}
 
@@ -1675,7 +1675,7 @@ public function getBestOasisCropBonus($x, $y) {
 
 		$vinfo = $this->getVillage($vref);
 		$uid = (int) $vinfo['owner'];
-		$q = "UPDATE `".TB_PREFIX."odata` SET conqured=".(int) $vref. ",loyalty=100,lastupdated=".time().",owner=$uid,name='Occupied Oasis' WHERE wref=".$wref;
+		$q = "UPDATE `".TB_PREFIX."odata` SET conqured=".(int) $vref. ",loyalty=100,lastupdated=".time().",owner=$uid,name='".((defined('LANG') && LANG === 'ar') ? 'واحة محتلة' : 'Occupied Oasis')."' WHERE wref=".$wref;
 		return mysqli_query($this->dblink,$q);
 	}
 
@@ -1726,7 +1726,7 @@ public function getBestOasisCropBonus($x, $y) {
 	    if(!is_array($wref)) $wref = [$wref];
 	    $wrefs = implode(",", $wref);
 	    
-		$q = "UPDATE ".TB_PREFIX."odata SET conqured = 0, owner = 2, name = 'Unoccupied Oasis' WHERE ".(!$mode ? "wref IN($wrefs)" : "conqured IN($wrefs)");
+		$q = "UPDATE ".TB_PREFIX."odata SET conqured = 0, owner = 2, name = '".((defined('LANG') && LANG === 'ar') ? 'واحة غير محتلة' : 'Unoccupied Oasis')."' WHERE ".(!$mode ? "wref IN($wrefs)" : "conqured IN($wrefs)");
 		return mysqli_query($this->dblink,$q);
 	}
 

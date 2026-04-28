@@ -790,7 +790,7 @@ class Units {
 			$userAccess = $database->getUserField($villageOwner, 'access', 0);
 			$userID = $database->getUserField($villageOwner, 'id', 0);
 			
-			if($userAccess != 0 && !($userAccess == MULTIHUNTER && $userID == 5) && ($userAccess != ADMIN || (ADMIN_ALLOW_INCOMING_RAIDS && $userAccess == ADMIN))){
+			if(!($userAccess == MULTIHUNTER && $userID == 5) && ($userAccess != ADMIN || (ADMIN_ALLOW_INCOMING_RAIDS && $userAccess == ADMIN))){
 				
 				//Start = the first troop of the player's tribe
 				//End =  the last selectable troop of the player's tribe

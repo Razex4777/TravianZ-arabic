@@ -11,15 +11,15 @@ include("alli_menu.tpl");
 				<table cellpadding="1" cellspacing="1" id="position" class="small_option">
 					<thead>
 						<tr>
-							<th colspan="2">Assign to position</th>
+							<th colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'تعيين منصب' : 'Assign to position'; ?></th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<th colspan="2">Here you can grant the players from your alliance rights & positions.</th>
+							<th colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'هنا يمكنك منح اللاعبين في تحالفك الصلاحيات والمناصب.' : 'Here you can grant the players from your alliance rights & positions.'; ?></th>
 						</tr>
 						<tr>
-							<th>Name</th>
+							<th><?php echo (defined('LANG') && LANG === 'ar') ? 'الاسم' : 'Name'; ?></th>
 							<td>
 								<select name="a_user" class="name dropdown">
 								<?php
@@ -38,6 +38,6 @@ include("alli_menu.tpl");
 				<p>
 					<input type="hidden" name="o" value="1">
 					<input type="hidden" name="s" value="5">
-					<button value="ok" name="s1" id="btn_ok" class="trav_buttons">OK</button>
+					<button value="ok" name="s1" id="btn_ok" class="trav_buttons"><?php echo (defined('LANG') && LANG === 'ar') ? 'موافق' : 'OK'; ?></button>
 				</p>
 			</form>

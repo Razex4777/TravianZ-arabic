@@ -12,7 +12,7 @@ if ($golds['gold'] >= 35) {
 
     // Get all returning troop movements to this village (sort_type=4, to=$wid, proc=0)
     // Joined with attacks table to check unit composition
-    $q = "SELECT m.moveid, m.ref, a.u7, a.u8, a.u9
+    $q = "SELECT m.moveid, m.ref, a.t7, a.t8, a.t9
           FROM " . TB_PREFIX . "movement m
           LEFT JOIN " . TB_PREFIX . "attacks a ON m.ref = a.id
           WHERE m.`to` = " . $wid . "
@@ -25,8 +25,8 @@ if ($golds['gold'] >= 35) {
 
     while ($row = mysqli_fetch_assoc($result)) {
         // Check if returning army contains siege units or chiefs
-        // u7 = rams, u8 = catapults, u9 = chiefs/leaders
-        $hasSiege = ($row['u7'] > 0 || $row['u8'] > 0 || $row['u9'] > 0);
+        // t7 = rams, t8 = catapults, t9 = chiefs/leaders
+        $hasSiege = ($row['t7'] > 0 || $row['t8'] > 0 || $row['t9'] > 0);
 
         if (!$hasSiege) {
             $movements[] = (int) $row['moveid'];

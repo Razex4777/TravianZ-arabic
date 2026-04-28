@@ -30,7 +30,7 @@ if(!empty($oasisarray)){
 <tr>
 <td class="nam">
 <a href="build.php?gid=37&c=<?php echo $generator->getMapCheck($oasisarray[$i]['wref']); ?>&del=<?php echo $oasisarray[$i]['wref']; ?>&land"><img class="del" src="img/x.gif" alt="delete" title="<?php echo DELETE; ?>"></a>
-<a href="karte.php?d=<?php echo $oasisarray[$i]['wref']; ?>&c=<?php echo $generator->getMapCheck($oasisarray[$i]['wref']) ?>"><?php echo $oasisarray[$i]['name']; ?></a>
+<a href="karte.php?d=<?php echo $oasisarray[$i]['wref']; ?>&c=<?php echo $generator->getMapCheck($oasisarray[$i]['wref']) ?>"><?php echo OCCUOASIS; ?></a>
 </td>
 <td class="aligned_coords">
 <div class="cox">(<?php echo $oasiscoor['x']; ?></div>
