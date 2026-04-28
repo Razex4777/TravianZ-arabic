@@ -85,15 +85,23 @@ if ($_active_protect_ts > time()) {
         ?>
           <div id="n5" class="<?php echo $class ?>" style="position:relative;">
           <?php if(defined('LANG') && LANG === 'ar'): ?>
-            <a href="nachrichten.php" accesskey="6"><img src="img/x.gif" class="l" title="الرسائل" alt="الرسائل"/></a>
-            <span id="nav_msg_badge" style="display:none; position: absolute; top: -10px; left: -10px; right: auto; background: #ff2828; color: white; border-radius: 50%; padding: 1px 5px; font-size: 11px; font-weight: bold; font-family: Tahoma, Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.4); z-index: 10; pointer-events: none; border: 1.5px solid #fff; min-width: 14px; text-align: center; line-height: 14px;"></span>
-            <a href="<?php echo ($_SESSION['id_user'] != 1 ? 'berichte.php' : '#'); ?>" accesskey="5"><img src="img/x.gif" class="r" title="التقارير" alt="التقارير" /></a>
-            <span id="nav_report_badge" style="display:none; position: absolute; top: -10px; right: -10px; left: auto; background: #ff2828; color: white; border-radius: 50%; padding: 1px 5px; font-size: 11px; font-weight: bold; font-family: Tahoma, Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.4); z-index: 10; pointer-events: none; border: 1.5px solid #fff; min-width: 14px; text-align: center; line-height: 14px;"></span>
+            <span style="position:relative; display:inline-block;">
+              <a href="nachrichten.php" accesskey="6"><img src="img/x.gif" class="l" title="الرسائل" alt="الرسائل"/></a>
+              <span id="nav_msg_badge" style="display:none; position: absolute; top: -8px; right: -8px; left: auto; background: #ff2828; color: white; border-radius: 50%; padding: 1px 5px; font-size: 11px; font-weight: bold; font-family: Tahoma, Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.4); z-index: 10; pointer-events: none; border: 1.5px solid #fff; min-width: 14px; text-align: center; line-height: 14px;"></span>
+            </span>
+            <span style="position:relative; display:inline-block;">
+              <a href="<?php echo ($_SESSION['id_user'] != 1 ? 'berichte.php' : '#'); ?>" accesskey="5"><img src="img/x.gif" class="r" title="التقارير" alt="التقارير" /></a>
+              <span id="nav_report_badge" style="display:none; position: absolute; top: -8px; left: -8px; right: auto; background: #ff2828; color: white; border-radius: 50%; padding: 1px 5px; font-size: 11px; font-weight: bold; font-family: Tahoma, Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.4); z-index: 10; pointer-events: none; border: 1.5px solid #fff; min-width: 14px; text-align: center; line-height: 14px;"></span>
+            </span>
           <?php else: ?>
-            <a href="<?php echo ($_SESSION['id_user'] != 1 ? 'berichte.php' : '#'); ?>" accesskey="5"><img src="img/x.gif" class="l" title="Reports" alt="Reports"/></a>
-            <span id="nav_report_badge" style="display:none; position: absolute; top: -10px; left: -5px; right: auto; background: #ff2828; color: white; border-radius: 50%; padding: 1px 5px; font-size: 11px; font-weight: bold; font-family: Tahoma, Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.4); z-index: 10; pointer-events: none; border: 1.5px solid #fff; min-width: 14px; text-align: center; line-height: 14px;"></span>
-            <a href="nachrichten.php" accesskey="6"><img src="img/x.gif" class="r" title="Messages" alt="Messages" /></a>
-            <span id="nav_msg_badge" style="display:none; position: absolute; top: -10px; right: -5px; left: auto; background: #ff2828; color: white; border-radius: 50%; padding: 1px 5px; font-size: 11px; font-weight: bold; font-family: Tahoma, Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.4); z-index: 10; pointer-events: none; border: 1.5px solid #fff; min-width: 14px; text-align: center; line-height: 14px;"></span>
+            <span style="position:relative; display:inline-block;">
+              <a href="<?php echo ($_SESSION['id_user'] != 1 ? 'berichte.php' : '#'); ?>" accesskey="5"><img src="img/x.gif" class="l" title="Reports" alt="Reports"/></a>
+              <span id="nav_report_badge" style="display:none; position: absolute; top: -8px; left: -5px; right: auto; background: #ff2828; color: white; border-radius: 50%; padding: 1px 5px; font-size: 11px; font-weight: bold; font-family: Tahoma, Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.4); z-index: 10; pointer-events: none; border: 1.5px solid #fff; min-width: 14px; text-align: center; line-height: 14px;"></span>
+            </span>
+            <span style="position:relative; display:inline-block;">
+              <a href="nachrichten.php" accesskey="6"><img src="img/x.gif" class="r" title="Messages" alt="Messages" /></a>
+              <span id="nav_msg_badge" style="display:none; position: absolute; top: -8px; right: -5px; left: auto; background: #ff2828; color: white; border-radius: 50%; padding: 1px 5px; font-size: 11px; font-weight: bold; font-family: Tahoma, Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.4); z-index: 10; pointer-events: none; border: 1.5px solid #fff; min-width: 14px; text-align: center; line-height: 14px;"></span>
+            </span>
           <?php endif; ?>
         </div>
         <script>

@@ -11,21 +11,21 @@
 ?>
 <table id="troops" cellpadding="1" cellspacing="1">
 <thead><tr>
-	<th colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'القوات' : TROOPS; ?></th>
+	<th colspan="2"><?php echo (defined('LANG') && LANG === 'ar') ? 'القوات:' : TROOPS; ?></th>
 </tr></thead><tbody>
 <?php
 $troops = $technology->getAllUnits($village->wid,True,1);
 $TroopsPresent = False;
 for($i=1;$i<=50;$i++) {
 	if($troops['u'.$i] > 0) {
-		echo "<tr><td class=\"num\">".number_format($troops['u'.$i])."</td>";
-		echo "<td class=\"ico\"><a href=\"build.php?id=39\"><img class=\"unit u".$i."\" src=\"img/x.gif\" alt=\"".$technology->getUnitName($i)."\" title=\"".$technology->getUnitName($i)."\" /></a></td></tr>";
+		echo "<tr><td class=\"ico\"><a href=\"build.php?id=39\"><img class=\"unit u".$i."\" src=\"img/x.gif\" alt=\"".$technology->getUnitName($i)."\" title=\"".$technology->getUnitName($i)."\" /></a></td>";
+		echo "<td class=\"num\">".number_format($troops['u'.$i])."</td></tr>";
 		$TroopsPresent = True;
 	}
 }
 if($troops['hero'] > 0) {
-		echo "<tr><td class=\"num\">".number_format($troops['hero'])."</td>";
-		echo "<td class=\"ico\"><a href=\"build.php?id=39\"><img class=\"unit uhero\" src=\"img/x.gif\" alt=\"".HERO."\" title=\"".HERO."\" /></a></td></tr>";
+		echo "<tr><td class=\"ico\"><a href=\"build.php?id=39\"><img class=\"unit uhero\" src=\"img/x.gif\" alt=\"".HERO."\" title=\"".HERO."\" /></a></td>";
+		echo "<td class=\"num\">".number_format($troops['hero'])."</td></tr>";
 		$TroopsPresent = True;
 }
 $units = $technology->getUnitList($village->wid);

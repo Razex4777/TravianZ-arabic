@@ -254,7 +254,8 @@ if($type >= 18 && $type <= 21){
 		</tr></thead>
 		<tbody>
 		<?php
-if($session->uid == $database->getVillage($_GET['d'])['owner']){
+$vilCheck = $database->getVillage($_GET['d']);
+if($vilCheck && $session->uid == $vilCheck['owner']){
 	$limit = "(ntype > 3 AND ntype < 8) OR ntype = 20 OR ntype = 21";
 }
 else $limit = "ntype < 8 OR ntype > 17";

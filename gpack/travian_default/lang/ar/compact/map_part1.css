@@ -6,8 +6,8 @@ div.map {
 div.popup_map {
     border: 0 solid #000;
     display: inline;
-    padding-right: 80px;
     padding-left: 80px;
+    padding-right: 80px;
     padding-top: 31px;
     position:relative;
     top: 0;
@@ -18,7 +18,7 @@ div.popup_map div#drag {
   /*  background-color: #F3F3F3;*/
     cursor: move;
     height: 30px;
-    right: 80px;
+    left: 80px;
     position: absolute;
     top: -525px;
     width: 968px;
@@ -44,7 +44,7 @@ div.popup_map a.popup_map_close {
 }
 
 div.map h1 {
-    margin-right: 25px;
+    margin-left: 25px;
 }
 
 div#map {
@@ -59,7 +59,7 @@ div.map div#map {
 
 div#mbig div#map {
     height: 550px;
-    right: 0;
+    left: 0;
     top: 0;
     width: 975px;
 }
@@ -70,14 +70,14 @@ div#map div#map_content {
 
 div.map div#map div#map_content {
     height: 316px;
-    right: 5px;
+    left: 5px;
     top: 33px;
     width: 540px;
 }
 
 div#mbig div#map #map_content {
     height: 550px;
-    right: 0;
+    left: 0;
     top: 0;
     width: 971px;
 }
@@ -90,19 +90,19 @@ div#map div#map_content div {
 
 div#map div#map_content div span {
     display: block;
-    right: 30px;
+    left: 30px;
     position: absolute;
     top: 56px;
     z-index: 49;
 }
 
 div#map div#map_content div span.m6 {
-    right: 32px;
+    left: 32px;
     top: 58px;
 }
 
 div#map a#map_makelarge {
-    right: 26px;
+    left: 26px;
     position: absolute;
     top: 39px;
     z-index: 50;
@@ -114,7 +114,7 @@ div#map img#map_links {
 
 div.map div#map img#map_links {
     height: 316px;
-    right: 5px;
+    left: 5px;
     top: 33px;
     width: 540px;
     z-index: 50;
@@ -122,7 +122,7 @@ div.map div#map img#map_links {
 
 div#mbig div#map img#map_links {
     height: 550px;
-    right: 0;
+    left: 0;
     top: 0;
     width: 971px;
     z-index: 20;
@@ -135,12 +135,12 @@ div#map img#map_navibox {
 
 div#mbig div#map img#map_navibox {
     bottom: 5px;
-    left: 32px;
+    right: 32px;
 }
 
 div.map div#map img#map_navibox {
     bottom: 0;
-    left: 20px;
+    right: 20px;
 }
 
 div#map div#map_rulers {
@@ -165,26 +165,26 @@ div#map div#map_coords {
 
 div.map div#map div#map_coords {
     bottom: 26px;
-    right: 30px;
+    left: 30px;
 }
 
 div#mbig div#map div#map_coords {
     bottom: 5px;
-    right: 10px;
+    left: 10px;
 }
 
 div#map div#map_coords span, div#map div#map_coords input {
-    float: right;
-    margin-left: 5px;
+    float: left;
+    margin-right: 5px;
 }
 
 div#map div#map_coords input.text {
-    margin-left: 8px;
+    margin-right: 8px;
     width: 28px;
 }
 
 div#qstd div#map_coords input.text {
-    margin-left: 8px;
+    margin-right: 8px;
     width: 28px;
 }
 
@@ -194,282 +194,282 @@ div#map table#map_infobox {
 }
 
 div.map div#map table#map_infobox {
-    left: 20px;
+    right: 20px;
     top: -7px;
 }
 
 div#mbig div#map table#map_infobox {
-    left: 50px;
+    right: 50px;
     top: 10px;
 }
 
 div.map div.cropfinder_icon {
-    right: 493px;
+    left: 493px;
     position: absolute;
     top: 312px;
     z-index: 100;
 }
 
 div.map div#map div#map_content div#i_0_0 {
-    right: 16px;
+    left: 16px;
     top: 104px;
     z-index: 1;
 }
 
 div.map div#map div#map_content div#i_0_1 {
-    right: 52px;
+    left: 52px;
     top: 84px;
     z-index: 2;
 }
 
 div.map div#map div#map_content div#i_0_2 {
-    right: 88px;
+    left: 88px;
     top: 64px;
     z-index: 3;
 }
 
 div.map div#map div#map_content div#i_0_3 {
-    right: 124px;
+    left: 124px;
     top: 44px;
     z-index: 4;
 }
 
 div.map div#map div#map_content div#i_0_4 {
-    right: 160px;
+    left: 160px;
     top: 24px;
     z-index: 5;
 }
 
 div.map div#map div#map_content div#i_0_5 {
-    right: 196px;
+    left: 196px;
     top: 4px;
     z-index: 6;
 }
 
 div.map div#map div#map_content div#i_0_6 {
-    right: 232px;
+    left: 232px;
     top: -16px;
     z-index: 7;
 }
 
 div.map div#map div#map_content div#i_1_0 {
-    right: 53px;
+    left: 53px;
     top: 124px;
     z-index: 2;
 }
 
 div.map div#map div#map_content div#i_1_1 {
-    right: 89px;
+    left: 89px;
     top: 104px;
     z-index: 2;
 }
 
 div.map div#map div#map_content div#i_1_2 {
-    right: 125px;
+    left: 125px;
     top: 84px;
     z-index: 3;
 }
 
 div.map div#map div#map_content div#i_1_3 {
-    right: 161px;
+    left: 161px;
     top: 64px;
     z-index: 4;
 }
 
 div.map div#map div#map_content div#i_1_4 {
-    right: 197px;
+    left: 197px;
     top: 44px;
     z-index: 5;
 }
 
 div.map div#map div#map_content div#i_1_5 {
-    right: 233px;
+    left: 233px;
     top: 24px;
     z-index: 6;
 }
 
 div.map div#map div#map_content div#i_1_6 {
-    right: 269px;
+    left: 269px;
     top: 4px;
     z-index: 7;
 }
 
 div.map div#map div#map_content div#i_2_0 {
-    right: 90px;
+    left: 90px;
     top: 144px;
     z-index: 3;
 }
 
 div.map div#map div#map_content div#i_2_1 {
-    right: 126px;
+    left: 126px;
     top: 124px;
     z-index: 3;
 }
 
 div.map div#map div#map_content div#i_2_2 {
-    right: 162px;
+    left: 162px;
     top: 104px;
     z-index: 3;
 }
 
 div.map div#map div#map_content div#i_2_3 {
-    right: 198px;
+    left: 198px;
     top: 84px;
     z-index: 4;
 }
 
 div.map div#map div#map_content div#i_2_4 {
-    right: 234px;
+    left: 234px;
     top: 64px;
     z-index: 5;
 }
 
 div.map div#map div#map_content div#i_2_5 {
-    right: 270px;
+    left: 270px;
     top: 44px;
     z-index: 6;
 }
 
 div.map div#map div#map_content div#i_2_6 {
-    right: 306px;
+    left: 306px;
     top: 24px;
     z-index: 7;
 }
 
 div.map div#map div#map_content div#i_3_0 {
-    right: 127px;
+    left: 127px;
     top: 164px;
     z-index: 4;
 }
 
 div.map div#map div#map_content div#i_3_1 {
-    right: 163px;
+    left: 163px;
     top: 144px;
     z-index: 4;
 }
 
 div.map div#map div#map_content div#i_3_2 {
-    right: 199px;
+    left: 199px;
     top: 124px;
     z-index: 4;
 }
 
 div.map div#map div#map_content div#i_3_3 {
-    right: 235px;
+    left: 235px;
     top: 104px;
     z-index: 4;
 }
 
 div.map div#map div#map_content div#i_3_4 {
-    right: 271px;
+    left: 271px;
     top: 84px;
     z-index: 5;
 }
 
 div.map div#map div#map_content div#i_3_5 {
-    right: 307px;
+    left: 307px;
     top: 64px;
     z-index: 6;
 }
 
 div.map div#map div#map_content div#i_3_6 {
-    right: 343px;
+    left: 343px;
     top: 44px;
     z-index: 7;
 }
 
 div.map div#map div#map_content div#i_4_0 {
-    right: 164px;
+    left: 164px;
     top: 184px;
     z-index: 5;
 }
 
 div.map div#map div#map_content div#i_4_1 {
-    right: 200px;
+    left: 200px;
     top: 164px;
     z-index: 5;
 }
 
 div.map div#map div#map_content div#i_4_2 {
-    right: 236px;
+    left: 236px;
     top: 144px;
     z-index: 5;
 }
 
 div.map div#map div#map_content div#i_4_3 {
-    right: 272px;
+    left: 272px;
     top: 124px;
     z-index: 5;
 }
 
 div.map div#map div#map_content div#i_4_4 {
-    right: 308px;
+    left: 308px;
     top: 104px;
     z-index: 5;
 }
 
 div.map div#map div#map_content div#i_4_5 {
-    right: 344px;
+    left: 344px;
     top: 84px;
     z-index: 6;
 }
 
 div.map div#map div#map_content div#i_4_6 {
-    right: 380px;
+    left: 380px;
     top: 64px;
     z-index: 7;
 }
 
 div.map div#map div#map_content div#i_5_0 {
-    right: 201px;
+    left: 201px;
     top: 204px;
     z-index: 6;
 }
 
 div.map div#map div#map_content div#i_5_1 {
-    right: 237px;
+    left: 237px;
     top: 184px;
     z-index: 6;
 }
 
 div.map div#map div#map_content div#i_5_2 {
-    right: 273px;
+    left: 273px;
     top: 164px;
     z-index: 6;
 }
 
 div.map div#map div#map_content div#i_5_3 {
-    right: 309px;
+    left: 309px;
     top: 144px;
     z-index: 6;
 }
 
 div.map div#map div#map_content div#i_5_4 {
-    right: 345px;
+    left: 345px;
     top: 124px;
     z-index: 6;
 }
 
 div.map div#map div#map_content div#i_5_5 {
-    right: 381px;
+    left: 381px;
     top: 104px;
     z-index: 6;
 }
 
 div.map div#map div#map_content div#i_5_6 {
-    right: 417px;
+    left: 417px;
     top: 84px;
     z-index: 7;
 }
 
 div.map div#map div#map_content div#i_6_0 {
-    right: 238px;
+    left: 238px;
     top: 224px;
     z-index: 7;
 }
 
 div.map div#map div#map_content div#i_6_1 {
-    right: 274px;
+    left: 274px;
     top: 204px;
     z-index: 7;
 }

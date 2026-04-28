@@ -8,14 +8,14 @@ div.map table#raidFavs td.aligned_coords div.cox, div.map table#raidFavs td.alig
 }
 
 div.map table#raidFavs td.rep {
-    text-align: right;
+    text-align: left;
     white-space: nowrap;
     width: 20%;
 }
 
 div.map table#raidFavs td.rep img {
-    float: right;
-    margin-left: 3px;
+    float: left;
+    margin-right: 3px;
 }
 
 div.map table#raidFavs td.goods {
@@ -48,7 +48,7 @@ div.map table#raidDetails td.day div.booty, div.map table#raidDetails td.day div
 
 div.map table#raidDetails td.day div.booty {
     background-color: #CAFFC9;
-    float: right;
+    float: left;
 }
 
 div.map table#raidDetails td.day div.booty div.value {
@@ -57,7 +57,7 @@ div.map table#raidDetails td.day div.booty div.value {
 
 div.map table#raidDetails td.day div.lost {
     background-color: #FFD0B1;
-    float: left;
+    float: right;
 }
 
 div.map table#raidDetails td.day div.lost div.value {
@@ -68,14 +68,14 @@ div.map table#raidDetails td.day div.value {
     bottom: 0;
     font-size: 0;
     height: 0;
-    right: 0;
+    left: 0;
     line-height: 0;
     position: absolute;
     width: 100%;
 }
 
 div.map table#raidDetails td.balance {
-    text-align: right;
+    text-align: left;
 }
 
 div.map table#raidDetails td.balance hr {

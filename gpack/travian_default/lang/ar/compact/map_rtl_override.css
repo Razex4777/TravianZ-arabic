@@ -1,0 +1,63 @@
+/* ==========================================================================
+   RTL OVERRIDE: Force the isometric map to render in LTR.
+   
+   The map is geographic/directional — it must NEVER be mirrored by dir="rtl".
+   Without this override, the global dir="rtl" on the <html> tag flips the
+   entire map container, causing navigation arrows to point wrong, compass
+   directions to reverse, and tile coordinates to mirror.
+   
+   IMPORTANT: Only targets div#map (the grid). div#content.map is NOT included
+   because the village detail view (vilview.tpl) also uses class="map" and
+   needs full RTL support for its Arabic text content.
+   ========================================================================== */
+
+/* Force LTR only on the map grid container and its internal elements */
+div#map,
+div.map div#map,
+div.popup_map,
+div#mbig,
+div#mbig div#map {
+    direction: ltr !important;
+}
+
+/* Re-apply RTL for text-based elements inside the map grid */
+div.map h1,
+div#content.map h1 {
+    direction: rtl;
+    text-align: right;
+}
+
+div#map table#map_infobox,
+div#map table#map_infobox th,
+div#map table#map_infobox td {
+    direction: rtl;
+    text-align: right;
+}
+
+/* Coordinate form should remain LTR for number inputs */
+div#map div#map_coords {
+    direction: ltr;
+}
+
+/* Move infobox to the left side so it doesn't overlap with the RTL title */
+div.map div#map table#map_infobox {
+    right: auto !important;
+    left: 20px !important;
+}
+
+div#mbig div#map table#map_infobox {
+    right: auto !important;
+    left: 50px !important;
+}
+
+/* Village detail view (vilview.tpl) — restore RTL for all content */
+div#content.map div#map_details,
+div#content.map div#map_details table,
+div#content.map div#map_details th,
+div#content.map div#map_details td,
+div#content.map table#options,
+div#content.map table#options th,
+div#content.map table#options td {
+    direction: rtl;
+    text-align: right;
+}
