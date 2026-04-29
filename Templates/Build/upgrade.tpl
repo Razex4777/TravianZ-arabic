@@ -23,23 +23,26 @@ if($bindicate == 1) {
 <?php
 $total_required = (int)($uprequire['wood'] + $uprequire['clay'] + $uprequire['iron'] + $uprequire['crop']);
 ?>
-<p id="contract"><b><?php echo COSTS_UPGRADING_LEVEL;?> <?php echo $village->resarray['f'.$id]+1+$loopsame+$doublebuild+$master; ?>:</b><br />
-<link rel="stylesheet" type="text/css" href="responsive_blocks.css" />
-<div class="res-wrap">
-    <span class="res-item"><img class="r1" src="img/x.gif" alt="<?php echo (defined('LANG') && LANG == 'ar') ? 'الخشب' : 'Lumber'; ?>" title="<?php echo (defined('LANG') && LANG == 'ar') ? 'الخشب' : 'Lumber'; ?>" /><?php echo number_format($uprequire['wood']); ?></span>
-    <span class="res-item"><img class="r2" src="img/x.gif" alt="<?php echo (defined('LANG') && LANG == 'ar') ? 'الطين' : 'Clay'; ?>" title="<?php echo (defined('LANG') && LANG == 'ar') ? 'الطين' : 'Clay'; ?>" /><?php echo number_format($uprequire['clay']); ?></span>
-    <span class="res-item"><img class="r3" src="img/x.gif" alt="<?php echo (defined('LANG') && LANG == 'ar') ? 'الحديد' : 'Iron'; ?>" title="<?php echo (defined('LANG') && LANG == 'ar') ? 'الحديد' : 'Iron'; ?>" /><?php echo number_format($uprequire['iron']); ?></span>
-    <span class="res-item"><img class="r4" src="img/x.gif" alt="<?php echo (defined('LANG') && LANG == 'ar') ? 'القمح' : 'Crop'; ?>" title="<?php echo (defined('LANG') && LANG == 'ar') ? 'القمح' : 'Crop'; ?>" /><?php echo number_format($uprequire['crop']); ?></span>
-    <span class="res-item"><img class="r5" src="img/x.gif" alt="<?php echo (defined('LANG') && LANG == 'ar') ? 'استهلاك القمح' : 'Crop consumption'; ?>" title="<?php echo (defined('LANG') && LANG == 'ar') ? 'استهلاك القمح' : 'Crop consumption'; ?>" /><?php echo $uprequire['pop']; ?></span>
-    <span class="res-item dur"><img class="clock" src="img/x.gif" alt="<?php echo (defined('LANG') && LANG == 'ar') ? 'المدة' : 'duration'; ?>" title="<?php echo (defined('LANG') && LANG == 'ar') ? 'المدة' : 'duration'; ?>" /><?php echo $generator->getTimeFormat($uprequire['time']); ?></span>
-<?php
-if($session->gold >= 3 && $village->acrop >= 0) {
-                   $npc_label = (defined('LANG') && LANG == 'ar') ? NPC_TRADE : 'NPC trade';
-                   $npc_style = (defined('LANG') && LANG == 'ar') ? ' style="transform:scaleX(-1);display:inline-block;"' : '';
-                   echo "<span class=\"res-item\"><a href=\"build.php?gid=17&t=3&r1=".$uprequire['wood']."&r2=".$uprequire['clay']."&r3=".$uprequire['iron']."&r4=".$uprequire['crop']."\" title=\"".$npc_label."\"><img class=\"npc\" src=\"img/x.gif\" alt=\"".$npc_label."\" title=\"".$npc_label."\"".$npc_style." /></a></span>";
-} ?>
-</div>
-</p><br />
+<div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: stretch; margin-top: 15px;">
+    <!-- Column 1: Normal Upgrade -->
+    <div style="flex: 1; min-width: 250px;">
+        <p id="contract" style="margin-top:0;"><b><?php echo COSTS_UPGRADING_LEVEL;?> <?php echo $village->resarray['f'.$id]+1+$loopsame+$doublebuild+$master; ?>:</b><br />
+        <link rel="stylesheet" type="text/css" href="responsive_blocks.css" />
+        <div class="res-wrap">
+            <span class="res-item"><img class="r1" src="img/x.gif" alt="<?php echo (defined('LANG') && LANG == 'ar') ? 'الخشب' : 'Lumber'; ?>" title="<?php echo (defined('LANG') && LANG == 'ar') ? 'الخشب' : 'Lumber'; ?>" /><?php echo number_format($uprequire['wood']); ?></span>
+            <span class="res-item"><img class="r2" src="img/x.gif" alt="<?php echo (defined('LANG') && LANG == 'ar') ? 'الطين' : 'Clay'; ?>" title="<?php echo (defined('LANG') && LANG == 'ar') ? 'الطين' : 'Clay'; ?>" /><?php echo number_format($uprequire['clay']); ?></span>
+            <span class="res-item"><img class="r3" src="img/x.gif" alt="<?php echo (defined('LANG') && LANG == 'ar') ? 'الحديد' : 'Iron'; ?>" title="<?php echo (defined('LANG') && LANG == 'ar') ? 'الحديد' : 'Iron'; ?>" /><?php echo number_format($uprequire['iron']); ?></span>
+            <span class="res-item"><img class="r4" src="img/x.gif" alt="<?php echo (defined('LANG') && LANG == 'ar') ? 'القمح' : 'Crop'; ?>" title="<?php echo (defined('LANG') && LANG == 'ar') ? 'القمح' : 'Crop'; ?>" /><?php echo number_format($uprequire['crop']); ?></span>
+            <span class="res-item"><img class="r5" src="img/x.gif" alt="<?php echo (defined('LANG') && LANG == 'ar') ? 'استهلاك القمح' : 'Crop consumption'; ?>" title="<?php echo (defined('LANG') && LANG == 'ar') ? 'استهلاك القمح' : 'Crop consumption'; ?>" /><?php echo $uprequire['pop']; ?></span>
+        <?php
+        if($session->gold >= 3 && $village->acrop >= 0) {
+                           $npc_label = (defined('LANG') && LANG == 'ar') ? NPC_TRADE : 'NPC trade';
+                           $npc_style = (defined('LANG') && LANG == 'ar') ? ' style="transform:scaleX(-1);display:inline-block;"' : '';
+                           echo "<span class=\"res-item\"><a href=\"build.php?gid=17&t=3&r1=".$uprequire['wood']."&r2=".$uprequire['clay']."&r3=".$uprequire['iron']."&r4=".$uprequire['crop']."\" title=\"".$npc_label."\"><img class=\"npc\" src=\"img/x.gif\" alt=\"".$npc_label."\" title=\"".$npc_label."\"".$npc_style." /></a></span>";
+        } 
+        ?>
+        </div>
+        </p><br />
 <?php
     if($village->acrop < 0) {
         echo "<span class=\"none\">Paralyzed: Crop storage is negative. You Cannot Build Or Upgrade.</span>";
@@ -155,33 +158,40 @@ if($session->gold >= 3 && $village->acrop >= 0) {
 		echo $village->resarray['f'.$id]+($loopsame > 0 ? 2:1);
 		echo ".</a> <span class=\"none\">".WAITING."</span> ";
     }
+
+    echo '</div>'; // End of Column 1
+
+    // Column 2: Max Level Upgrade
+    $currentBuildingType = $village->resarray['f'.$id.'t'];
+    $currentBuildingLevel = (int) $village->resarray['f'.$id];
+    $buildingMaxLevel = $building->getMaxLevel($currentBuildingType);
+    $excludeFromGoldMax = [25, 26, 40];
+
+    if ($currentBuildingType > 0 && $currentBuildingLevel < $buildingMaxLevel && $buildingMaxLevel > 0 && !in_array($currentBuildingType, $excludeFromGoldMax)) {
+        $upgradeCost = $buildingMaxLevel - $currentBuildingLevel;
+        $upgrade_text = (defined('LANG') && LANG == 'ar') ? "تطوير الى مستوى ".$buildingMaxLevel : "Upgrade to level ".$buildingMaxLevel;
+        
+        echo '<div style="flex: 1; min-width: 150px; background: #fffafa; border: 1px solid #f5c6c6; border-radius: 6px; padding: 15px; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 2px 4px rgba(231, 76, 60, 0.08);">';
+        
+        if ($session->gold >= $upgradeCost) {
+            echo "<a href=\"build.php?id=$id&upgradeToMax=1\" style=\"display:block; font-weight:bold; color:#27ae60; text-align:center; text-decoration:none; margin-bottom:8px; font-size:15px;\">$upgrade_text</a>";
+            echo "<span style=\"display:flex; align-items:center; justify-content:center; gap:5px; font-size:16px; font-weight:bold; color:#d4af37;\">";
+            echo "<img src=\"".GP_LOCATE."img/a/gold_g.gif\" alt=\"Gold\" /> $upgradeCost";
+            echo "</span>";
+        } else {
+            echo "<span style=\"display:block; font-weight:bold; color:#c0392b; text-align:center; margin-bottom:8px; font-size:15px;\">$upgrade_text</span>";
+            echo "<span style=\"display:flex; align-items:center; justify-content:center; gap:5px; font-size:16px; font-weight:bold; color:#d4af37;\">";
+            echo "<img src=\"".GP_LOCATE."img/a/gold_g.gif\" alt=\"Gold\" /> $upgradeCost";
+            echo "</span>";
+        }
+        
+        echo '</div>';
+    }
+
+    echo '</div>'; // End of Flex Container
 }
 
-// --- Gold: Upgrade to Max Level ---
-// Show a gold button to instantly upgrade this building to max level
-// Cost = max_level - current_level gold
-$currentBuildingType = $village->resarray['f'.$id.'t'];
-$currentBuildingLevel = (int) $village->resarray['f'.$id];
-$buildingMaxLevel = $building->getMaxLevel($currentBuildingType);
 
-// Exclude unique/special buildings from gold upgrade to max:
-// 25 = Residence, 26 = Palace, 40 = WW (these have special building rules)
-$excludeFromGoldMax = [25, 26, 40];
-
-if ($currentBuildingType > 0 && $currentBuildingLevel < $buildingMaxLevel && $buildingMaxLevel > 0 && !in_array($currentBuildingType, $excludeFromGoldMax)) {
-	$upgradeCost = $buildingMaxLevel - $currentBuildingLevel;
-	echo " | ";
-	if ($session->gold >= $upgradeCost) {
-		
-		echo "<a class=\"build\" href=\"build.php?id=$id&upgradeToMax=1\">";
-		echo UPGRADE_TO_LEVEL_MAX." $buildingMaxLevel <span style=\"color:#000;font-weight:normal;\">$upgradeCost <img src=\"".GP_LOCATE."img/a/gold_g.gif\" alt=\"".GOLD_TEXT."\" title=\"".GOLD_TEXT."\"/></span>";
-		echo "</a>";
-	} else {
-		echo "<span class=\"none\">";
-		echo UPGRADE_TO_LEVEL_MAX." $buildingMaxLevel $upgradeCost <img src=\"".GP_LOCATE."img/a/gold_g.gif\" alt=\"".GOLD_TEXT."\" title=\"".GOLD_TEXT."\"/> - ".NOT_ENOUGH_GOLD_TEXT;
-		echo "</span>";
-	}
-}
 
 // Gold demolish (هدم بالذهب) is only available in the Main Building (المبنى الرئيسي)
 

@@ -416,3 +416,6 @@ define('NEED_MORE_WWCONSTRUCTION_PLAN', 'يحتاج مخططات إضافية');
 define('CONSTRUCT_NEW_BUILDING', 'بناء مبنى جديد');
 define('SHOWSOON_AVAILABLE_BUILDINGS', 'عرض المباني المتاحة قريباً');
 define('HIDESOON_AVAILABLE_BUILDINGS', 'إخفاء المباني المتاحة قريباً');
+
+define('UPGRADE_TO_MAX_LEVEL', 'ترقية لأقصى مستوى (20)');
+define('GOLD_COST_REMAINING', 'ذهب');

@@ -1777,3 +1777,6 @@ $lang['screenshots']['desc7'] = 'You can choose to play as military or economy';
 // Added for Anleitung submenu
 define('TRIBES', 'The Tribes');
 define('BUILDINGS', 'The Buildings');
+
+define('UPGRADE_TO_MAX_LEVEL', 'Upgrade to max level (20)');
+define('GOLD_COST_REMAINING', 'gold');

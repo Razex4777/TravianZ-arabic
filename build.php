@@ -118,6 +118,19 @@ if ( isset( $_GET['id'] ) ) {
 
     if ( $village->resarray[ 'f' . $_GET['id'] . 't' ] == 12 || $village->resarray[ 'f' . $_GET['id'] . 't' ] == 13 || $village->resarray[ 'f' . $_GET['id'] . 't' ] == 22 ) {
         $technology->procTechno( $_GET );
+	// Gold upgrade AB tech to max level (20), 1 gold per level
+	if (isset($_GET["upgradeABMax"]) && isset($_GET["abType"]) && isset($_GET["abUnit"])) {
+		$abType = $_GET["abType"] === "a" ? "a" : "b";
+		$abUnit = min(8, max(1, (int)$_GET["abUnit"]));
+		$abdata = $database->getABTech($village->wid);
+		$currentLevel = (int)$abdata[$abType . $abUnit];
+		$goldCost = 20 - $currentLevel;
+		if ($currentLevel < 20 && $session->gold >= $goldCost) {
+			$technology->upgradeABToMax($abType, $abUnit);
+		}
+		header("Location: build.php?id=" . (int)$_GET["id"]);
+		exit;
+	}
     }
 }
 

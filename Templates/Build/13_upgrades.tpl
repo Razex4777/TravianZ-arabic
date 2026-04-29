@@ -3,6 +3,7 @@
 		<tr>
 			<td><?php echo ARMOURY; ?></td>
 			<td><?php echo ACTION; ?></td>
+			<td><?php echo (defined('LANG') && LANG === 'ar') ? 'تطوير إلى المستوى 20' : 'Upgrade to Level 20'; ?></td>
 		</tr>
 	</thead>
 	<tbody>
@@ -17,7 +18,7 @@
 			    
 				echo "<tr><td class=\"desc\"><div class=\"tit\">
 <img class=\"unit u".$i."\" src=\"img/x.gif\" alt=\"".$technology->getUnitName($i)."\" title=\"".$technology->getUnitName($i)."\" />
-<a href=\"#\" onClick=\"return Popup(".$i.",1);\">".$technology->getUnitName($i)."</a> (Level ".$abdata['a'.$j];
+<a href=\"#\" onClick=\"return Popup(".$i.",1);\">".$technology->getUnitName($i)."</a> (<?php echo LEVEL; ?> ".$abdata['a'.$j];
 				$ups = 0;
 				if($totalUps > 0){
 				    foreach($ABups as $upgrade){
@@ -28,8 +29,7 @@
 				echo ")</div>";
 				
 				if($abdata['a'.$j]+$ups != 20) {
-				    echo "<div class=\"details\"><img class=\"r1\" src=\"img/x.gif\" alt=\"Lumber\" title=\"Lumber\" />".${'ab'.$i}[$abdata['a'.$j]+1+$ups]['wood']."|<img class=\"r2\" src=\"img/x.gif\" alt=\"Clay\" title=\"Clay\" />".${'ab'.$i}[$abdata['a'.$j]+1+$ups]['clay']."|<img class=\"r3\" src=\"img/x.gif\" alt=\"Iron\" title=\"Iron\" />".${'ab'.$i}[$abdata['a'.$j]+1+$ups]['iron']."|<img class=\"r4\" src=\"img/x.gif\" alt=\"Crop\" title=\"Crop\" />".${'ab'.$i}[$abdata['a'.$j]+1+$ups]['crop']."|<img class=\"clock\" src=\"img/x.gif\" alt=\"duration\" title=\"duration\" />";
-				    echo $generator->getTimeFormat(round(${'ab'.$i}[$abdata['a'.$j]+1+$ups]['time']*($bid13[$building->getTypeLevel(13)]['attri'] / 100)/SPEED));
+				    echo "<div class=\"details\"><img class=\"r1\" src=\"img/x.gif\" alt=\"Lumber\" title=\"Lumber\" />".${'ab'.$i}[$abdata['a'.$j]+1+$ups]['wood']." | <img class=\"r2\" src=\"img/x.gif\" alt=\"Clay\" title=\"Clay\" />".${'ab'.$i}[$abdata['a'.$j]+1+$ups]['clay']." | <img class=\"r3\" src=\"img/x.gif\" alt=\"Iron\" title=\"Iron\" />".${'ab'.$i}[$abdata['a'.$j]+1+$ups]['iron']." | <img class=\"r4\" src=\"img/x.gif\" alt=\"Crop\" title=\"Crop\" />".${'ab'.$i}[$abdata['a'.$j]+1+$ups]['crop'];
 				
                     //-- If available resources combined are not enough, remove NPC button
 				    $total_required = (int)(${'ab'.$i}[$abdata['a'.$j]+1+$ups]['wood'] + ${'ab'.$i}[$abdata['a'.$j]+1+$ups]['clay'] + ${'ab'.$i}[$abdata['a'.$j]+1+$ups]['iron'] + ${'ab'.$i}[$abdata['a'.$j]+1+$ups]['crop']);
@@ -38,16 +38,16 @@
 					}
 				}
 		        if($abdata['a'.$j] == 20) {
-					echo "<td class=\"act\"><div class=\"none\">".MAXIMUM_LEVEL."</div></td></tr>";
+					echo "<td class=\"act\"><div class=\"none\">".MAXIMUM_LEVEL."</div></td>";
 				}
 				else if ($building->getTypeLevel(13) <= $abdata['a'.$j]+$ups) {
-				    echo "<td class=\"act\"><div class=\"none\">".UPGRADE_ARMOURY."</div></td></tr>";
+				    echo "<td class=\"act\"><div class=\"none\">".UPGRADE_ARMOURY."</div></td>";
 				}
 				else if(${'ab'.$i}[$abdata['a'.$j]+1+$ups]['wood'] > $village->maxstore || ${'ab'.$i}[$abdata['a'.$j]+1+$ups]['clay'] > $village->maxstore || ${'ab'.$i}[$abdata['a'.$j]+1+$ups]['iron'] > $village->maxstore) {
-					echo "<td class=\"act\"><div class=\"none\">".EXPAND_WAREHOUSE."</div></td></tr>";
+					echo "<td class=\"act\"><div class=\"none\">".EXPAND_WAREHOUSE."</div></td>";
 				}
 				else if (${'ab'.$i}[$abdata['a'.$j]+1+$ups]['crop'] > $village->maxcrop) {
-					echo "<td class=\"act\"><div class=\"none\">".EXPAND_GRANARY."</div></td></tr>";
+					echo "<td class=\"act\"><div class=\"none\">".EXPAND_GRANARY."</div></td>";
 				}
 				else if (${'ab'.$i}[$abdata['a'.$j]+1+$ups]['wood'] > $village->awood || ${'ab'.$i}[$abdata['a'.$j]+1+$ups]['clay'] > $village->aclay || ${'ab'.$i}[$abdata['a'.$j]+1+$ups]['iron'] > $village->airon || ${'ab'.$i}[$abdata['a'.$j]+1+$ups]['crop'] > $village->acrop) {
 				    if($village->getProd("crop")>0 || $village->acrop > ${'ab'.$i}[$abdata['a'.$j]+1+$ups]['crop']){
@@ -56,19 +56,35 @@
 					} else {
 						echo "<br><span class=\"none\">".CROP_NEGATIVE."</span></div></td>";
 					}
-		            echo "<td class=\"act\"><div class=\"none\">".TOO_FEW_RESOURCES."</div></td></tr>";
+		            echo "<td class=\"act\"><div class=\"none\">".TOO_FEW_RESOURCES."</div></td>";
 				}				
 				else if ($totalUps == 1 && !$session->plus || $totalUps > 1) {
-					echo "<td class=\"act\"><div class=\"none\">".UPGRADE_IN_PROGRESS."</div></td></tr>";
+					echo "<td class=\"act\"><div class=\"none\">".UPGRADE_IN_PROGRESS."</div></td>";
 				}
 				else if($session->access != BANNED){
 				    echo "<td class=\"act\"><a class=\"research\" href=\"build.php?id=$id&amp;a=$j&amp;c=".$session->mchecker."\">".UPGRADE."</a>";
 				    if($totalUps != 0) echo "<span class=\"none\"> ".WAITING."</span>";
-				    echo"</td></tr>";
+				    echo"</td>";
 				}else{
 				    echo "<td class=\"act\"><a class=\"research\" href=\"banned.php\">".UPGRADE."</a>";
 				    if($totalUps != 0) echo "<span class=\"none\"> ".WAITING."</span>";
-				    echo"</td></tr>";
+				    echo"</td>";
+				}
+				
+				// New fast upgrade column
+				$abCurLevel = $abdata['a'.$j] + $ups;
+				$goldNeeded = 20 - $abCurLevel;
+				if ($abCurLevel >= 20) {
+				    echo "<td></td></tr>";
+				} else {
+				    echo "<td class=\"act\">";
+				    if ($session->gold >= $goldNeeded) {
+				        echo "<a href=\"build.php?id=$id&amp;upgradeABMax=1&amp;abType=a&amp;abUnit=$j\">".((defined('LANG') && LANG === 'ar') ? 'تطوير إلى المستوى 20' : 'Upgrade to Level 20')."</a><br/>";
+				    } else {
+				        echo "<span class=\"none\">".((defined('LANG') && LANG === 'ar') ? 'تطوير إلى المستوى 20' : 'Upgrade to Level 20')."</span><br/>";
+				    }
+				    echo "<span style=\"font-size: 10px; color: #999;\">".((defined('LANG') && LANG === 'ar') ? '1 ذهب لكل مستوى' : '1 Gold per level')."</span>";
+				    echo "</td></tr>";
 				}
 			}
 		}
@@ -80,7 +96,8 @@
     if($totalUps > 0) {
 		echo "<table cellpadding=\"1\" cellspacing=\"1\" class=\"under_progress\"><thead><tr><td>".UPGRADING."</td><td>".DURATION."</td></tr>
 </thead><tbody>";
-		foreach($ABups as $arms) {
+		$count = 0;
+	foreach($ABups as $arms) {
 			$count++;
 		    $ABUnit = substr($arms['tech'], 1, 2);
 			$abdata['a' . $ABUnit]++;

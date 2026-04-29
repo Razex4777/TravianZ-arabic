@@ -698,6 +698,44 @@ class Technology {
 		exit;
 	}
 
+	/**
+	 * Upgrade a troop stat (attack or defence) to max level (20) using gold.
+	 * Cost = 1 gold per remaining level.
+	 * @param string $type 'b' for blacksmith (attack), 'a' for armoury (defence)
+	 * @param int $unitIndex 1-8 unit index within the tribe
+	 */
+	public function upgradeABToMax($type, $unitIndex) {
+		global $database, $session, $village, $logging;
+
+		$unitIndex = (int)$unitIndex;
+		if ($unitIndex < 1 || $unitIndex > 8) return;
+		if ($type !== 'a' && $type !== 'b') return;
+
+		$abdata = $database->getABTech($village->wid);
+		$currentLevel = (int)$abdata[$type . $unitIndex];
+		if ($currentLevel >= 20) return;
+
+		$goldCost = 20 - $currentLevel;
+		if ($session->gold < $goldCost) return;
+
+		// Cancel any pending research for this tech
+		$pending = $this->getABUpgrades($type);
+		foreach ($pending as $research) {
+			if ($research['tech'] === $type . $unitIndex) {
+				$database->query("DELETE FROM " . TB_PREFIX . "research WHERE id = " . (int)$research['id']);
+			}
+		}
+
+		// Set level directly to 20
+		$database->query("UPDATE " . TB_PREFIX . "abdata SET " . $type . $unitIndex . " = 20 WHERE vref = " . $village->wid);
+
+		// Deduct gold
+		$newGold = $session->gold - $goldCost;
+		$database->updateUserField($session->uid, "gold", $newGold, 1);
+
+		$logging->goldFinLog($village->wid);
+	}
+
 	public function getUnitName($i) {
 		return $this->unarray[$i];
 	}
