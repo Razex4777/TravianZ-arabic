@@ -193,16 +193,42 @@ if not exist "%DEST%\index.php" (
     call :FIX_INSTALL "%DEST%\"
     xcopy "%~dp0*" "%DEST%\" /E /I /Y /Q /D >nul 2>&1
 )
-
-REM Check if port 80 is free
+REM ---- APACHE ----
 set "XAMPP_PORT=80"
 set "XAMPP_URL_PORT="
 
+echo  [START] Apache...
+tasklist /FI "IMAGENAME eq httpd.exe" 2>NUL | find /I "httpd.exe" >NUL
+if %errorlevel% equ 0 (
+    echo  [OK] Apache already running (started from XAMPP Control Panel^).
+    REM Detect which port Apache is actually on
+    powershell -Command "if((Test-NetConnection -ComputerName localhost -Port 80 -WarningAction SilentlyContinue).TcpTestSucceeded){exit 0}else{exit 1}" >nul 2>&1
+    if %errorlevel% equ 0 (
+        set "XAMPP_PORT=80"
+        set "XAMPP_URL_PORT="
+        echo  [OK] Apache is on port 80.
+    ) else (
+        powershell -Command "if((Test-NetConnection -ComputerName localhost -Port 8080 -WarningAction SilentlyContinue).TcpTestSucceeded){exit 0}else{exit 1}" >nul 2>&1
+        if %errorlevel% equ 0 (
+            set "XAMPP_PORT=8080"
+            set "XAMPP_URL_PORT=:8080"
+            echo  [OK] Apache is on port 8080.
+        ) else (
+            set "XAMPP_PORT=80"
+            set "XAMPP_URL_PORT="
+            echo  [OK] Using port 80.
+        )
+    )
+    goto :apache_done
+)
+
+REM Apache is NOT running - we need to start it ourselves
 REM Always restore httpd.conf to port 80 first (undo any previous patches)
 if exist "%XAMPP_PATH%\apache\conf\httpd.conf" (
     powershell -Command "(Get-Content '%XAMPP_PATH%\apache\conf\httpd.conf') -replace 'Listen \d+$','Listen 80' -replace 'ServerName localhost:\d+','ServerName localhost:80' | Set-Content '%XAMPP_PATH%\apache\conf\httpd.conf'"
 )
 
+REM Check if port 80 is free
 powershell -Command "if((netstat -ano | Select-String 'LISTENING' | Select-String ':80\s').Count -gt 0){exit 1}else{exit 0}" >nul 2>&1
 if %errorlevel% equ 1 (
     echo  [WARNING] Port 80 is blocked by another program.
@@ -215,30 +241,25 @@ if %errorlevel% equ 1 (
     )
 )
 
-REM Start Apache
-echo  [START] Apache...
-tasklist /FI "IMAGENAME eq httpd.exe" 2>NUL | find /I "httpd.exe" >NUL
-if %errorlevel% equ 0 goto :apache_ok
-
 echo Start-Process -FilePath '%XAMPP_PATH%\apache\bin\httpd.exe' -WindowStyle Hidden > "%TEMP%\start_apache.ps1"
 powershell -ExecutionPolicy Bypass -File "%TEMP%\start_apache.ps1"
 del "%TEMP%\start_apache.ps1" >nul 2>&1
 timeout /t 3 /nobreak >nul
 
 tasklist /FI "IMAGENAME eq httpd.exe" 2>NUL | find /I "httpd.exe" >NUL
-if %errorlevel% equ 0 goto :apache_ok
+if %errorlevel% equ 0 goto :apache_done
 echo  [ERROR] Apache failed to start!
 echo  Try: Run this bat file as Administrator.
 pause
 exit /b
 
-:apache_ok
+:apache_done
 echo  [OK] Apache running on port %XAMPP_PORT%!
 
-REM Start MySQL
+REM ---- MYSQL ----
 echo  [START] MySQL...
 tasklist /FI "IMAGENAME eq mysqld.exe" 2>NUL | find /I "mysqld.exe" >NUL
-if %errorlevel% equ 0 goto :mysql_ok
+if %errorlevel% equ 0 goto :mysql_done
 
 echo Start-Process -FilePath '%XAMPP_PATH%\mysql\bin\mysqld.exe' -ArgumentList '--defaults-file=%XAMPP_PATH%\mysql\bin\my.ini' -WindowStyle Hidden > "%TEMP%\start_mysql.ps1"
 powershell -ExecutionPolicy Bypass -File "%TEMP%\start_mysql.ps1"
@@ -246,13 +267,13 @@ del "%TEMP%\start_mysql.ps1" >nul 2>&1
 timeout /t 4 /nobreak >nul
 
 tasklist /FI "IMAGENAME eq mysqld.exe" 2>NUL | find /I "mysqld.exe" >NUL
-if %errorlevel% equ 0 goto :mysql_ok
+if %errorlevel% equ 0 goto :mysql_done
 echo  [ERROR] MySQL failed to start!
 echo  Try: Run this bat file as Administrator.
 pause
 exit /b
 
-:mysql_ok
+:mysql_done
 echo  [OK] MySQL running!
 
 echo.
