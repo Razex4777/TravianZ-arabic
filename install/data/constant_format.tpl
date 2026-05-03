@@ -92,6 +92,7 @@ define("DEMOLISH_LEVEL_REQ","%DEMOLISH%");
 // ***** Change storage capacity
 define("STORAGE_MULTIPLIER","%STORAGE_MULTIPLIER%");
 define("STORAGE_BASE",800*STORAGE_MULTIPLIER);
+define("VILLAGE_STORAGE_BASE", 1500);
 
 // ***** Quest
 // Ingame quest enabled/disabled.
