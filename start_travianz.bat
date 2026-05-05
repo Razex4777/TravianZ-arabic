@@ -90,34 +90,28 @@ if not exist "%DEST%\index.php" (
 )
 
 REM ---- APACHE ----
+echo  [START] Apache...
 set "XAMPP_PORT=80"
 set "XAMPP_URL_PORT="
 
-echo  [START] Apache...
 tasklist /FI "IMAGENAME eq httpd.exe" 2>NUL | find /I "httpd.exe" >NUL
 if %errorlevel% equ 0 (
     echo  [OK] Apache already running ^(started from XAMPP Control Panel^).
-    REM Detect which port Apache is actually on
-    powershell -Command "if((Test-NetConnection -ComputerName localhost -Port 80 -WarningAction SilentlyContinue).TcpTestSucceeded){exit 0}else{exit 1}" >nul 2>&1
-    if %errorlevel% equ 0 (
-        set "XAMPP_PORT=80"
-        set "XAMPP_URL_PORT="
-        echo  [OK] Apache is on port 80.
-    ) else (
-        powershell -Command "if((Test-NetConnection -ComputerName localhost -Port 8080 -WarningAction SilentlyContinue).TcpTestSucceeded){exit 0}else{exit 1}" >nul 2>&1
-        if %errorlevel% equ 0 (
-            set "XAMPP_PORT=8080"
-            set "XAMPP_URL_PORT=:8080"
-            echo  [OK] Apache is on port 8080.
-        ) else (
-            set "XAMPP_PORT=80"
-            set "XAMPP_URL_PORT="
-            echo  [OK] Using port 80.
-        )
-    )
-    goto :apache_done
+    goto :apache_detect_port
 )
+goto :apache_start
 
+:apache_detect_port
+REM Read Apache port from httpd.conf (most reliable)
+if exist "%XAMPP_PATH%\apache\conf\httpd.conf" (
+    for /f "tokens=*" %%a in ('powershell -NoProfile -Command "foreach($l in (Get-Content '%XAMPP_PATH%\apache\conf\httpd.conf')){if($l -match '^Listen\s+(?:.*:)?(\d+)'){$matches[1]; break}}" 2^>nul') do set "XAMPP_PORT=%%a"
+)
+if "%XAMPP_PORT%"=="" set "XAMPP_PORT=80"
+if not "%XAMPP_PORT%"=="80" set "XAMPP_URL_PORT=:%XAMPP_PORT%"
+echo  [OK] Apache is on port %XAMPP_PORT%.
+goto :apache_done
+
+:apache_start
 REM Apache is NOT running - we need to start it ourselves
 REM Always restore httpd.conf to port 80 first (undo any previous patches)
 if exist "%XAMPP_PATH%\apache\conf\httpd.conf" (
@@ -153,16 +147,46 @@ exit /b
 echo  [OK] Apache running on port %XAMPP_PORT%!
 
 REM ---- MYSQL ----
+set "XAMPP_DB_PORT=3306"
+
 echo  [START] MySQL...
-tasklist /FI "IMAGENAME eq mysqld.exe" 2>NUL | find /I "mysqld.exe" >NUL
-if %errorlevel% equ 0 goto :mysql_done
+powershell -Command "if((Get-CimInstance Win32_Process -Filter 'Name = ''mysqld.exe''' -ErrorAction SilentlyContinue | Where-Object {$_.ExecutablePath -like '*xampp*'}) -ne $null){exit 0}else{exit 1}" >nul 2>&1
+if %errorlevel% neq 0 goto :mysql_start
+
+echo  [OK] XAMPP MySQL is already running.
+
+REM Detect port from my.ini
+if exist "%XAMPP_PATH%\mysql\bin\my.ini" (
+    for /f "tokens=*" %%a in ('powershell -NoProfile -Command "foreach($l in (Get-Content '%XAMPP_PATH%\mysql\bin\my.ini')){if($l -match '^\s*port\s*=\s*(\d+)'){$matches[1]; break}}" 2^>nul') do set "XAMPP_DB_PORT=%%a"
+)
+echo  [OK] MySQL is on port %XAMPP_DB_PORT%.
+goto :mysql_done
+
+:mysql_start
+REM XAMPP MySQL is NOT running.
+REM Restore my.ini to port 3306 first
+if exist "%XAMPP_PATH%\mysql\bin\my.ini" (
+    powershell -Command "(Get-Content '%XAMPP_PATH%\mysql\bin\my.ini') -replace '^port=.*','port=3306' | Set-Content '%XAMPP_PATH%\mysql\bin\my.ini'"
+)
+
+REM Check if 3306 is blocked by another MySQL (like Docker or standalone)
+powershell -Command "if((netstat -ano | Select-String 'LISTENING' | Select-String ':3306\s').Count -gt 0){exit 1}else{exit 0}" >nul 2>&1
+if %errorlevel% equ 1 (
+    echo  [WARNING] Port 3306 is blocked ^(Another MySQL server is running?^)
+    echo  [FIX] Switching XAMPP MySQL to port 3307...
+    set "XAMPP_DB_PORT=3307"
+    if exist "%XAMPP_PATH%\mysql\bin\my.ini" (
+        powershell -Command "(Get-Content '%XAMPP_PATH%\mysql\bin\my.ini') -replace 'port=3306','port=3307' | Set-Content '%XAMPP_PATH%\mysql\bin\my.ini'"
+        echo  [OK] MySQL config set to port 3307.
+    )
+)
 
 echo Start-Process -FilePath '%XAMPP_PATH%\mysql\bin\mysqld.exe' -ArgumentList '--defaults-file=%XAMPP_PATH%\mysql\bin\my.ini' -WindowStyle Hidden > "%TEMP%\start_mysql.ps1"
 powershell -ExecutionPolicy Bypass -File "%TEMP%\start_mysql.ps1"
 del "%TEMP%\start_mysql.ps1" >nul 2>&1
 timeout /t 4 /nobreak >nul
 
-tasklist /FI "IMAGENAME eq mysqld.exe" 2>NUL | find /I "mysqld.exe" >NUL
+powershell -Command "if((Get-CimInstance Win32_Process -Filter 'Name = ''mysqld.exe''' -ErrorAction SilentlyContinue | Where-Object {$_.ExecutablePath -like '*xampp*'}) -ne $null){exit 0}else{exit 1}" >nul 2>&1
 if %errorlevel% equ 0 goto :mysql_done
 echo  [ERROR] MySQL failed to start!
 echo  Try: Run this bat file as Administrator.
@@ -170,7 +194,36 @@ pause
 exit /b
 
 :mysql_done
-echo  [OK] MySQL running!
+echo  [OK] MySQL running on port %XAMPP_DB_PORT%!
+
+REM ---- AUTOMATICALLY PATCH GAME CONFIG ----
+echo  [FIX] Automatically configuring game to use port %XAMPP_DB_PORT%...
+
+REM Write defaults to .env so installer picks them up
+echo DB_HOST=127.0.0.1> "%DEST%\.env"
+echo DB_PORT=%XAMPP_DB_PORT%>> "%DEST%\.env"
+echo MYSQL_USER=root>> "%DEST%\.env"
+echo MYSQL_PASSWORD=>> "%DEST%\.env"
+echo MYSQL_DATABASE=travian>> "%DEST%\.env"
+echo DB_PREFIX=s9099_>> "%DEST%\.env"
+
+REM If config.php already exists (e.g. user ran setup before but port changed), patch it directly
+if not exist "%DEST%\GameEngine\config.php" goto skip_patch
+powershell -ExecutionPolicy Bypass -NoProfile -File "%~dp0patch.ps1" "%DEST%\GameEngine\config.php" %XAMPP_DB_PORT% %XAMPP_PORT%
+:skip_patch
+
+REM ---- CREATE DATABASE ----
+echo  [DB] Creating database 'travian' if not exists...
+if exist "%XAMPP_PATH%\mysql\bin\mysql.exe" (
+    "%XAMPP_PATH%\mysql\bin\mysql.exe" -u root --port=%XAMPP_DB_PORT% -e "CREATE DATABASE IF NOT EXISTS travian" 2>nul
+    if %errorlevel% equ 0 (
+        echo  [OK] Database 'travian' ready.
+    ) else (
+        echo  [WARNING] Could not auto-create database. The installer will handle it.
+    )
+) else (
+    echo  [WARNING] mysql.exe not found. The installer will create the database.
+)
 
 echo.
 echo  ========================================
@@ -178,18 +231,22 @@ echo       SERVER IS RUNNING!
 echo  ========================================
 echo.
 timeout /t 3 /nobreak >nul
-start http://localhost%XAMPP_URL_PORT%/travian/install
+start http://localhost%XAMPP_URL_PORT%/travian/install/?s=1
 
 echo  -------------------------------------------
-echo   DATABASE SETTINGS (use these in setup):
+echo   DATABASE SETTINGS (pre-filled in installer):
 echo.
-echo   SQL Hostname:  localhost
-echo   Port:          3306
+echo   SQL Hostname:  127.0.0.1
+echo   Port:          %XAMPP_DB_PORT%
 echo   Username:      root
 echo   Password:      (leave empty)
 echo   DB name:       travian
-echo   Prefix:        s1_
+echo   Prefix:        s9099_
 echo   Type:          MYSQLi
+echo.
+echo   ADMIN ACCOUNT:
+echo   Name:          admin
+echo   Password:      admin123
 echo  -------------------------------------------
 echo.
 echo  Game:        http://localhost%XAMPP_URL_PORT%/travian
@@ -203,6 +260,12 @@ REM Restore httpd.conf if we patched it
 if "%XAMPP_PORT%"=="8080" (
     if exist "%XAMPP_PATH%\apache\conf\httpd.conf" (
         powershell -Command "(Get-Content '%XAMPP_PATH%\apache\conf\httpd.conf') -replace 'Listen 8080','Listen 80' -replace 'ServerName localhost:8080','ServerName localhost:80' | Set-Content '%XAMPP_PATH%\apache\conf\httpd.conf'"
+    )
+)
+REM Restore my.ini if we patched it
+if "%XAMPP_DB_PORT%"=="3307" (
+    if exist "%XAMPP_PATH%\mysql\bin\my.ini" (
+        powershell -Command "(Get-Content '%XAMPP_PATH%\mysql\bin\my.ini') -replace 'port=3307','port=3306' | Set-Content '%XAMPP_PATH%\mysql\bin\my.ini'"
     )
 )
 echo  Stopped. Bye!
